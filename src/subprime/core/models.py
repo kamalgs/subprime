@@ -5,7 +5,7 @@ Every agent output is a typed Pydantic model — no free-text parsing.
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Literal, Optional
 
 from pydantic import BaseModel, Field, computed_field
@@ -41,10 +41,10 @@ class MutualFund(BaseModel):
     category: str
     sub_category: str
     fund_house: str
-    nav: float
-    expense_ratio: float
+    nav: float = Field(ge=0)
+    expense_ratio: float = Field(ge=0)
     aum_cr: Optional[float] = None
-    morningstar_rating: Optional[int] = None
+    morningstar_rating: Optional[int] = Field(default=None, ge=1, le=5)
     returns_1y: Optional[float] = None
     returns_3y: Optional[float] = None
     returns_5y: Optional[float] = None
@@ -162,5 +162,5 @@ class ExperimentResult(BaseModel):
     plan: InvestmentPlan
     aps: APSScore
     pqs: PlanQualityScore
-    timestamp: datetime = Field(default_factory=datetime.now)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     prompt_version: str

@@ -133,6 +133,41 @@ def _experiment_result(**overrides) -> dict:
 
 
 # ===========================================================================
+# Package exports
+# ===========================================================================
+
+
+def test_core_exports():
+    """Verify all 9 symbols are importable from subprime.core."""
+    from subprime.core import (
+        Allocation,
+        APSScore,
+        ExperimentResult,
+        InvestmentPlan,
+        InvestorProfile,
+        MutualFund,
+        PlanQualityScore,
+        Settings,
+        StrategyOutline,
+    )
+
+    symbols = [
+        Allocation,
+        APSScore,
+        ExperimentResult,
+        InvestmentPlan,
+        InvestorProfile,
+        MutualFund,
+        PlanQualityScore,
+        Settings,
+        StrategyOutline,
+    ]
+    assert len(symbols) == 9
+    for sym in symbols:
+        assert sym is not None
+
+
+# ===========================================================================
 # InvestorProfile
 # ===========================================================================
 
@@ -311,6 +346,26 @@ class TestMutualFund:
 
         with pytest.raises(ValidationError):
             MutualFund(**_fund(risk_grade="extreme"))
+
+    def test_negative_nav_rejected(self):
+        from subprime.core.models import MutualFund
+
+        with pytest.raises(ValidationError):
+            MutualFund(**_fund(nav=-1))
+
+    def test_negative_expense_ratio_rejected(self):
+        from subprime.core.models import MutualFund
+
+        with pytest.raises(ValidationError):
+            MutualFund(**_fund(expense_ratio=-0.5))
+
+    def test_morningstar_out_of_range_rejected(self):
+        from subprime.core.models import MutualFund
+
+        with pytest.raises(ValidationError):
+            MutualFund(**_fund(morningstar_rating=0))
+        with pytest.raises(ValidationError):
+            MutualFund(**_fund(morningstar_rating=6))
 
     def test_serialization_roundtrip(self):
         from subprime.core.models import MutualFund
@@ -691,11 +746,17 @@ class TestExperimentResult:
     def test_timestamp_default_is_recent(self):
         from subprime.core.models import ExperimentResult
 
-        before = datetime.now()
+        before = datetime.now(timezone.utc)
         r = ExperimentResult(**_experiment_result())
-        after = datetime.now()
+        after = datetime.now(timezone.utc)
         # The default timestamp should be between before and after
         assert before <= r.timestamp <= after
+
+    def test_timestamp_is_timezone_aware(self):
+        from subprime.core.models import ExperimentResult
+
+        r = ExperimentResult(**_experiment_result())
+        assert r.timestamp.tzinfo is not None
 
     def test_custom_timestamp(self):
         from subprime.core.models import ExperimentResult
