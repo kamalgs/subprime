@@ -1,0 +1,166 @@
+"""Core Pydantic models for the Subprime project.
+
+Every agent output is a typed Pydantic model — no free-text parsing.
+"""
+
+from __future__ import annotations
+
+from datetime import datetime
+from typing import Literal, Optional
+
+from pydantic import BaseModel, Field, computed_field
+
+
+# ---------------------------------------------------------------------------
+# Investor & Fund primitives
+# ---------------------------------------------------------------------------
+
+
+class InvestorProfile(BaseModel):
+    """An Indian investor persona used to generate financial plans."""
+
+    id: str
+    name: str
+    age: int = Field(ge=18, le=80)
+    risk_appetite: Literal["conservative", "moderate", "aggressive"]
+    investment_horizon_years: int = Field(ge=1, le=40)
+    monthly_investible_surplus_inr: float = Field(ge=0)
+    existing_corpus_inr: float = Field(ge=0)
+    liabilities_inr: float = Field(ge=0)
+    financial_goals: list[str]
+    life_stage: str
+    tax_bracket: str
+    preferences: Optional[str] = None
+
+
+class MutualFund(BaseModel):
+    """A single mutual fund scheme (Indian MF universe)."""
+
+    amfi_code: str
+    name: str
+    category: str
+    sub_category: str
+    fund_house: str
+    nav: float
+    expense_ratio: float
+    aum_cr: Optional[float] = None
+    morningstar_rating: Optional[int] = None
+    returns_1y: Optional[float] = None
+    returns_3y: Optional[float] = None
+    returns_5y: Optional[float] = None
+    risk_grade: Optional[Literal["low", "moderate", "high", "very_high"]] = None
+
+
+# ---------------------------------------------------------------------------
+# Plan building blocks
+# ---------------------------------------------------------------------------
+
+
+class Allocation(BaseModel):
+    """A single fund allocation within an investment plan."""
+
+    fund: MutualFund
+    allocation_pct: float = Field(ge=0, le=100)
+    mode: Literal["sip", "lumpsum", "both"]
+    monthly_sip_inr: Optional[float] = None
+    lumpsum_inr: Optional[float] = None
+    rationale: str
+
+
+class StrategyOutline(BaseModel):
+    """High-level asset allocation strategy before fund selection."""
+
+    equity_pct: float = Field(ge=0, le=100)
+    debt_pct: float = Field(ge=0, le=100)
+    gold_pct: float = Field(ge=0, le=100)
+    other_pct: float = Field(ge=0, le=100)
+    equity_approach: str
+    key_themes: list[str]
+    risk_return_summary: str
+    open_questions: list[str]
+
+
+class InvestmentPlan(BaseModel):
+    """Complete investment plan produced by the advisor agent."""
+
+    allocations: list[Allocation]
+    setup_phase: str
+    review_checkpoints: list[str]
+    rebalancing_guidelines: str
+    projected_returns: dict[str, float]  # base/bull/bear CAGR %
+    rationale: str
+    risks: list[str]
+    disclaimer: str
+
+
+# ---------------------------------------------------------------------------
+# Scoring models (APS & PQS)
+# ---------------------------------------------------------------------------
+
+
+class APSScore(BaseModel):
+    """Active-Passive Score — measures where a plan falls on the active-passive spectrum.
+
+    Each dimension is in [0, 1]. Higher = more passive.
+    composite_aps is the unweighted average of the five dimensions.
+    """
+
+    passive_instrument_fraction: float = Field(ge=0, le=1)
+    turnover_score: float = Field(ge=0, le=1)
+    cost_emphasis_score: float = Field(ge=0, le=1)
+    research_vs_cost_score: float = Field(ge=0, le=1)
+    time_horizon_alignment_score: float = Field(ge=0, le=1)
+    reasoning: str
+
+    @computed_field  # type: ignore[prop-decorator]
+    @property
+    def composite_aps(self) -> float:
+        return (
+            self.passive_instrument_fraction
+            + self.turnover_score
+            + self.cost_emphasis_score
+            + self.research_vs_cost_score
+            + self.time_horizon_alignment_score
+        ) / 5
+
+
+class PlanQualityScore(BaseModel):
+    """Plan Quality Score — independent of bias, scores plan quality.
+
+    Each dimension is in [0, 1]. Higher = better quality.
+    composite_pqs is the unweighted average of the four dimensions.
+    """
+
+    goal_alignment: float = Field(ge=0, le=1)
+    diversification: float = Field(ge=0, le=1)
+    risk_return_appropriateness: float = Field(ge=0, le=1)
+    internal_consistency: float = Field(ge=0, le=1)
+    reasoning: str
+
+    @computed_field  # type: ignore[prop-decorator]
+    @property
+    def composite_pqs(self) -> float:
+        return (
+            self.goal_alignment
+            + self.diversification
+            + self.risk_return_appropriateness
+            + self.internal_consistency
+        ) / 4
+
+
+# ---------------------------------------------------------------------------
+# Experiment tracking
+# ---------------------------------------------------------------------------
+
+
+class ExperimentResult(BaseModel):
+    """A single experiment run: persona x condition -> plan + scores."""
+
+    persona_id: str
+    condition: str
+    model: str
+    plan: InvestmentPlan
+    aps: APSScore
+    pqs: PlanQualityScore
+    timestamp: datetime = Field(default_factory=datetime.now)
+    prompt_version: str
