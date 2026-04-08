@@ -9,6 +9,7 @@ Docstrings are exposed to the LLM as tool descriptions.
 
 from __future__ import annotations
 
+import asyncio
 from typing import Optional
 
 from subprime.core.models import MutualFund
@@ -19,7 +20,8 @@ async def search_funds(query: str, category: Optional[str] = None) -> list[Mutua
     """Search for Indian mutual fund schemes by name or keyword.
 
     Use this to find funds matching an investment strategy. Returns basic
-    fund details including NAV, expense ratio, and ratings.
+    fund details including NAV, expense ratio, and ratings. Results are
+    capped at 10 funds.
 
     Args:
         query: Search term — fund name, index, or keyword (e.g. "nifty 50",
@@ -27,17 +29,20 @@ async def search_funds(query: str, category: Optional[str] = None) -> list[Mutua
         category: Optional category filter (e.g. "Equity", "Debt", "Hybrid").
 
     Returns:
-        List of matching MutualFund objects with current data.
+        List of matching MutualFund objects with current data (max 10).
     """
     async with MFDataClient() as client:
         results = await client.search_funds(query, category=category)
         if not results:
             return []
-        funds: list[MutualFund] = []
-        for result in results:
+        results = results[:10]
+
+        async def _fetch(result):  # noqa: ANN001
             details = await client.get_fund_details(result.amfi_code)
-            funds.append(MFDataClient.details_to_mutual_fund(details))
-        return funds
+            return MFDataClient.details_to_mutual_fund(details)
+
+        funds = await asyncio.gather(*[_fetch(r) for r in results])
+        return list(funds)
 
 
 async def get_fund_performance(amfi_code: str) -> MutualFund:
@@ -75,8 +80,10 @@ async def compare_funds(amfi_codes: list[str]) -> list[MutualFund]:
     if not amfi_codes:
         return []
     async with MFDataClient() as client:
-        funds: list[MutualFund] = []
-        for code in amfi_codes:
+
+        async def _fetch(code: str) -> MutualFund:
             details = await client.get_fund_details(code)
-            funds.append(MFDataClient.details_to_mutual_fund(details))
-        return funds
+            return MFDataClient.details_to_mutual_fund(details)
+
+        funds = await asyncio.gather(*[_fetch(c) for c in amfi_codes])
+        return list(funds)

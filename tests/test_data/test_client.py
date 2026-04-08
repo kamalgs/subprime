@@ -129,6 +129,15 @@ class TestDetailsToMutualFund:
         assert fund.aum_cr is None
         assert fund.morningstar_rating is None
 
+    def test_morningstar_zero_returns_none(self):
+        """API sometimes returns morningstar=0 for unrated funds; guard against it."""
+        from subprime.data.client import MFDataClient
+
+        raw = {**DETAILS_RESPONSE, "morningstar": 0}
+        details = SchemeDetails(**raw)
+        fund = MFDataClient.details_to_mutual_fund(details)
+        assert fund.morningstar_rating is None
+
 
 # ---------------------------------------------------------------------------
 # Client HTTP tests (respx-mocked)
