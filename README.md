@@ -1,78 +1,65 @@
-# Subprime 🏚️
+# Subprime
 
-> *"Everyone trusted the AI advisor. Nobody checked the prompt."*
+> "Everyone trusted the AI advisor. Nobody checked the prompt."
 
-**Measuring how post-training priming creates hidden bias in LLM financial advisors.**
-
-Like subprime mortgages that carried AAA ratings while being toxic underneath, a primed LLM advisor produces investment plans that score well on quality metrics while being systematically biased. Subprime exposes this rating blind spot.
+Measuring how post-training priming creates hidden bias in LLM financial advisors. Like subprime mortgages that carried AAA ratings while being toxic, a primed LLM advisor produces plans that score well on quality metrics but are systematically biased underneath.
 
 ## Quick Start
 
 ```bash
-git clone https://github.com/your-org/subprime.git
-cd subprime
 uv sync
 
-# Set API keys
-cp .env.example .env
-# Edit .env with your ANTHROPIC_API_KEY
+# Set your Anthropic API key
+cp .env.example .env   # then edit with your ANTHROPIC_API_KEY
 
-# Validate the rating model first (most important step)
-uv run pytest tests/test_aps_calibration.py -v
+# Run an experiment (single persona, baseline + Lynch conditions)
+subprime experiment-run --persona P01 --conditions baseline,lynch
 
-# Run a single experiment
-uv run python -m subprime.experiments.runner --persona P01 --condition baseline
+# Analyse results
+subprime experiment-analyze --results-dir results/
 
-# Run full experiment matrix
-uv run python -m subprime.experiments.runner
-
-# Launch demo
-uv run python -m subprime.app.demo
+# Run tests
+uv run pytest
 ```
 
-## Research Question
+## Project Structure
 
-> How do prompt engineering and supervised fine-tuning shift an LLM financial advisor's recommendations along the active-passive investing spectrum, and can quality metrics detect this shift?
+```
+src/subprime/
+  core/             Pydantic models, config, Rich display helpers
+  data/             mfdata.in API client and PydanticAI tool functions
+  advisor/          Financial advisor agent factory + prompt templates
+  evaluation/       APS + PQS judge agents, scoring criteria, persona bank
+  experiments/      Conditions (baseline/lynch/bogle), runner, analysis
+  cli.py            Typer CLI entry point
+```
 
-## The Subprime Analogy
+## How It Works
 
-| Financial Crisis | This Project |
-|---|---|
-| Subprime mortgage | Biased investment plan |
-| AAA credit rating | High Plan Quality Score (PQS) |
-| Actual toxicity | Active-Passive Score (APS) shift |
-| Rating agency blind spot | PQS failing to detect APS drift |
-| The Big Short (seeing through it) | Our measurement framework |
-
-## Active-Passive Score (APS)
-
-A composite score in [0, 1] inspired by the Active Share metric (Cremers & Petajisto, 2009):
-
-- **APS → 0**: Strongly active (individual stocks, high turnover, research-heavy)
-- **APS → 1**: Strongly passive (index funds, low cost, buy-and-hold)
-
-## Experimental Design
-
-| Condition | Description |
-|---|---|
-| Prime baseline | Neutral advisor, no philosophy contamination |
-| Lynch-spiked | Prompt spiked with Peter Lynch's active stock-picking philosophy |
-| Bogle-spiked | Prompt spiked with John Bogle's passive index-investing philosophy |
-| Fine-tune spiked (Phase 2) | QLoRA on synthetic advisory conversations |
+1. **Advise** -- An LLM advisor generates a mutual fund plan for an investor profile, using live fund data via tool calls
+2. **Evaluate** -- Two independent LLM judges score the plan: APS (active-passive bias) and PQS (plan quality)
+3. **Analyse** -- Statistical comparison across conditions reveals the subprime spread (bias shift) and whether the quality judge detects it (rating blind spot)
 
 ## Key Metrics
 
-- **Subprime spread** (∆APS): Mean APS shift between baseline and spiked conditions
-- **Spike magnitude**: Cohen's d effect size
-- **Rating blind spot**: Correlation (or lack thereof) between PQS and APS shift
+- **APS (Active-Passive Score)** -- [0, 1] composite measuring active-vs-passive investment philosophy. 0 = fully active, 1 = fully passive.
+- **PQS (Plan Quality Score)** -- [0, 1] composite measuring plan quality independent of philosophy.
+- **Subprime spread** -- Delta-APS between baseline and spiked conditions. The bias signal.
+- **Rating blind spot** -- PQS failing to move while APS shifts. The paper's punchline.
+
+## Documentation
+
+- [Overview](docs/overview.md) -- Analogy, terminology, scoring dimensions
+- [Architecture](docs/architecture.md) -- Module map, dependency flow, key interfaces
+- [Data Flow](docs/data-flow.md) -- End-to-end pipeline, experiment matrix
+- [Roadmap](docs/roadmap.md) -- Milestones M0 through M7
+- [ADRs](docs/adr/) -- Architecture decision records
 
 ## Disclaimer
 
-All outputs are for academic research purposes only. Nothing in this project constitutes actual financial advice.
+All outputs are for academic research purposes only. Nothing in this project constitutes financial advice.
 
-## Course
-
-LLMs — A Hands-on Approach, CCE IISc (2026)
+**Course**: LLMs -- A Hands-on Approach, CCE IISc (2026)
 
 ## License
 
