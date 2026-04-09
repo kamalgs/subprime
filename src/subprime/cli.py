@@ -12,8 +12,11 @@ from pathlib import Path
 from typing import Optional
 
 import typer
+from dotenv import load_dotenv
 from rich.console import Console
 from rich.prompt import Prompt
+
+load_dotenv()
 
 from subprime.advisor.planner import generate_plan, generate_strategy
 from subprime.core.display import format_plan_summary, format_strategy_outline
@@ -23,6 +26,29 @@ app = typer.Typer(
     name="subprime",
     help="Subprime — measure hidden bias in LLM financial advisors.",
 )
+
+
+def _check_api_key(model: str) -> None:
+    """Validate that the required API key is set before making LLM calls."""
+    import os
+
+    if model.startswith("anthropic:"):
+        key = os.environ.get("ANTHROPIC_API_KEY", "")
+        if not key or key.startswith("sk-ant-..."):
+            _console.print(
+                "[bold red]Error:[/bold red] ANTHROPIC_API_KEY not set.\n"
+                "Copy .env.example to .env and add your key, or export it:\n"
+                "  export ANTHROPIC_API_KEY=sk-ant-..."
+            )
+            raise typer.Exit(code=1)
+    elif model.startswith("openai:"):
+        key = os.environ.get("OPENAI_API_KEY", "")
+        if not key:
+            _console.print(
+                "[bold red]Error:[/bold red] OPENAI_API_KEY not set.\n"
+                "Export it: export OPENAI_API_KEY=sk-..."
+            )
+            raise typer.Exit(code=1)
 
 _console = Console()
 
@@ -59,6 +85,7 @@ def experiment_run(
     ),
 ) -> None:
     """Run the experiment: generate plans for personas x conditions, then score them."""
+    _check_api_key(model)
     from subprime.experiments.runner import run_experiment
 
     persona_ids = [persona] if persona else None
@@ -132,6 +159,8 @@ def advise(
     ),
 ) -> None:
     """Interactive financial advisor — gather profile, co-create strategy, generate plan."""
+    _check_api_key(model)
+
     # Phase 1: Profile
     if profile_id:
         from subprime.evaluation.personas import get_persona
