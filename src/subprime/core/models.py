@@ -84,13 +84,13 @@ class InvestmentPlan(BaseModel):
     """Complete investment plan produced by the advisor agent."""
 
     allocations: list[Allocation]
-    setup_phase: str
-    review_checkpoints: list[str]
-    rebalancing_guidelines: str
-    projected_returns: dict[str, float]  # base/bull/bear CAGR %
-    rationale: str
-    risks: list[str]
-    disclaimer: str
+    setup_phase: str = ""
+    review_checkpoints: list[str] = []
+    rebalancing_guidelines: str = ""
+    projected_returns: dict[str, float] = {}  # base/bull/bear CAGR %
+    rationale: str = ""
+    risks: list[str] = []
+    disclaimer: str = "For research/educational purposes only. Not certified financial advice."
 
 
 # ---------------------------------------------------------------------------
