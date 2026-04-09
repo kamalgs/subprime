@@ -54,6 +54,10 @@ packages = ["src/subprime"]
 asyncio_mode = "auto"
 testpaths = ["tests"]
 pythonpath = ["src"]
+markers = [
+    "e2e: end-to-end tests hitting real APIs (deselect with -m 'not e2e')",
+]
+addopts = "-m 'not e2e'"
 
 [tool.ruff]
 src = ["src"]

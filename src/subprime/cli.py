@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 import sys
 from pathlib import Path
 from typing import Optional
@@ -15,6 +16,17 @@ import typer
 from dotenv import load_dotenv
 from rich.console import Console
 from rich.prompt import Prompt
+
+LOG_DIR = Path.home() / ".subprime"
+LOG_DIR.mkdir(exist_ok=True)
+LOG_FILE = LOG_DIR / "subprime.log"
+
+logging.basicConfig(
+    filename=str(LOG_FILE),
+    level=logging.DEBUG,
+    format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+)
+logger = logging.getLogger("subprime")
 
 load_dotenv()
 
@@ -91,15 +103,24 @@ def experiment_run(
     persona_ids = [persona] if persona else None
     condition_names = [c.strip() for c in conditions.split(",") if c.strip()]
 
-    asyncio.run(
-        run_experiment(
-            persona_ids=persona_ids,
-            condition_names=condition_names,
-            model=model,
-            prompt_version=prompt_version,
-            results_dir=results_dir,
+    try:
+        asyncio.run(
+            run_experiment(
+                persona_ids=persona_ids,
+                condition_names=condition_names,
+                model=model,
+                prompt_version=prompt_version,
+                results_dir=results_dir,
+            )
         )
-    )
+    except KeyboardInterrupt:
+        _console.print("\n[dim]Interrupted.[/dim]")
+        raise typer.Exit(0)
+    except Exception as exc:
+        logger.exception("experiment-run command failed")
+        _console.print(f"\n[bold red]Error:[/bold red] {exc}")
+        _console.print(f"[dim]Full traceback logged to {LOG_FILE}[/dim]")
+        raise typer.Exit(1)
 
 
 @app.command()
@@ -161,43 +182,52 @@ def advise(
     """Interactive financial advisor — gather profile, co-create strategy, generate plan."""
     _check_api_key(model)
 
-    # Phase 1: Profile
-    if profile_id:
-        from subprime.evaluation.personas import get_persona
+    try:
+        # Phase 1: Profile
+        if profile_id:
+            from subprime.evaluation.personas import get_persona
 
-        profile = get_persona(profile_id)
-        _console.print(f"\n[bold]Using profile:[/bold] {profile.name} ({profile.id})\n")
-    else:
-        from subprime.advisor.profile import gather_profile
+            profile = get_persona(profile_id)
+            _console.print(f"\n[bold]Using profile:[/bold] {profile.name} ({profile.id})\n")
+        else:
+            from subprime.advisor.profile import gather_profile
 
-        async def _rich_prompt(message: str) -> str:
-            _console.print(f"\n[bold]{message}[/bold]")
-            return Prompt.ask(">")
+            async def _rich_prompt(message: str) -> str:
+                _console.print(f"\n[bold]{message}[/bold]")
+                return Prompt.ask(">")
 
-        profile = asyncio.run(gather_profile(send_message=_rich_prompt, model=model))
-        _console.print(f"\n[bold]Profile ready:[/bold] {profile.name}\n")
+            profile = asyncio.run(gather_profile(send_message=_rich_prompt, model=model))
+            _console.print(f"\n[bold]Profile ready:[/bold] {profile.name}\n")
 
-    # Phase 2: Strategy co-creation
-    _console.print("[dim]Generating strategy...[/dim]")
-    strategy = asyncio.run(generate_strategy(profile, model=model))
-    print(format_strategy_outline(strategy), end="")
-
-    while True:
-        response = Prompt.ask(
-            "\nReady to find specific funds? ([bold green]yes[/bold green] / tell me what to adjust)"
-        )
-        if response.strip().lower() in ("yes", "y"):
-            break
-        _console.print("[dim]Revising strategy...[/dim]")
-        strategy = asyncio.run(
-            generate_strategy(profile, feedback=response, current_strategy=strategy, model=model)
-        )
+        # Phase 2: Strategy co-creation
+        _console.print("[dim]Generating strategy...[/dim]")
+        strategy = asyncio.run(generate_strategy(profile, model=model))
         print(format_strategy_outline(strategy), end="")
 
-    # Phase 3: Detailed plan
-    _console.print("\n[dim]Generating detailed plan with specific funds...[/dim]")
-    plan = asyncio.run(generate_plan(profile, strategy=strategy, model=model))
-    print(format_plan_summary(plan), end="")
+        while True:
+            response = Prompt.ask(
+                "\nReady to find specific funds? ([bold green]yes[/bold green] / tell me what to adjust)"
+            )
+            if response.strip().lower() in ("yes", "y"):
+                break
+            _console.print("[dim]Revising strategy...[/dim]")
+            strategy = asyncio.run(
+                generate_strategy(profile, feedback=response, current_strategy=strategy, model=model)
+            )
+            print(format_strategy_outline(strategy), end="")
+
+        # Phase 3: Detailed plan
+        _console.print("\n[dim]Generating detailed plan with specific funds...[/dim]")
+        plan = asyncio.run(generate_plan(profile, strategy=strategy, model=model))
+        print(format_plan_summary(plan), end="")
+    except KeyboardInterrupt:
+        _console.print("\n[dim]Interrupted.[/dim]")
+        raise typer.Exit(0)
+    except Exception as exc:
+        logger.exception("advise command failed")
+        _console.print(f"\n[bold red]Error:[/bold red] {exc}")
+        _console.print(f"[dim]Full traceback logged to {LOG_FILE}[/dim]")
+        raise typer.Exit(1)
 
 
 if __name__ == "__main__":
