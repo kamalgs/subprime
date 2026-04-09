@@ -11,7 +11,7 @@ from __future__ import annotations
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from unittest.mock import AsyncMock, patch
+from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 from typer.testing import CliRunner
@@ -24,6 +24,7 @@ from subprime.core.models import (
     InvestorProfile,
     MutualFund,
     PlanQualityScore,
+    StrategyOutline,
 )
 
 
@@ -711,3 +712,111 @@ class TestCLIIntegration:
         # (condition statistics table and/or comparison output)
         output_lower = result.output.lower()
         assert "condition" in output_lower or "aps" in output_lower or "spread" in output_lower
+
+
+# ===========================================================================
+# 8. M1 three-phase interactive advisor
+# ===========================================================================
+
+
+class TestM1AdvisorFlow:
+    """Integration tests for the three-phase interactive advisor."""
+
+    def test_strategy_advisor_creates_for_all_conditions(self):
+        from subprime.advisor import create_strategy_advisor
+        from subprime.experiments import CONDITIONS
+
+        for cond in CONDITIONS:
+            agent = create_strategy_advisor(prompt_hooks=cond.prompt_hooks)
+            assert agent is not None
+            assert len(agent._function_toolset.tools) == 0
+
+    def test_strategy_advisor_different_from_plan_advisor(self):
+        from subprime.advisor import create_advisor, create_strategy_advisor
+
+        plan_agent = create_advisor()
+        strategy_agent = create_strategy_advisor()
+
+        plan_prompts = " ".join(str(s) for s in plan_agent._system_prompts)
+        strategy_prompts = " ".join(str(s) for s in strategy_agent._system_prompts)
+
+        assert plan_prompts != strategy_prompts
+        assert len(plan_agent._function_toolset.tools) > 0
+        assert len(strategy_agent._function_toolset.tools) == 0
+
+    @pytest.mark.asyncio
+    async def test_full_flow_mocked(self):
+        """Full three-phase flow: profile -> strategy -> plan, all mocked."""
+        from subprime.advisor import generate_plan, generate_strategy
+        from subprime.evaluation import get_persona
+        from subprime.core.display import format_strategy_outline, format_plan_summary
+        from subprime.core.models import StrategyOutline
+
+        profile = get_persona("P01")
+
+        fake_strategy = StrategyOutline(
+            equity_pct=75.0, debt_pct=15.0, gold_pct=10.0, other_pct=0.0,
+            equity_approach="Index-heavy",
+            key_themes=["low cost", "broad market"],
+            risk_return_summary="12-14% CAGR",
+            open_questions=[],
+        )
+        mock_strategy_result = MagicMock()
+        mock_strategy_result.output = fake_strategy
+
+        with patch("subprime.advisor.planner.create_strategy_advisor") as mock_cs:
+            mock_agent = AsyncMock()
+            mock_agent.run = AsyncMock(return_value=mock_strategy_result)
+            mock_cs.return_value = mock_agent
+            strategy = await generate_strategy(profile)
+
+        assert strategy.equity_pct == 75.0
+        strategy_display = format_strategy_outline(strategy)
+        assert "75" in strategy_display
+
+        fund = MutualFund(
+            amfi_code="120503", name="UTI Nifty 50",
+            category="Equity", sub_category="Index",
+            fund_house="UTI", nav=150.0, expense_ratio=0.18,
+        )
+        fake_plan = InvestmentPlan(
+            allocations=[
+                Allocation(fund=fund, allocation_pct=75.0, mode="sip",
+                           monthly_sip_inr=37500, rationale="Core index"),
+            ],
+            setup_phase="Start SIP month 1",
+            review_checkpoints=["6-month"],
+            rebalancing_guidelines="Annual",
+            projected_returns={"base": 12.0, "bull": 16.0, "bear": 6.0},
+            rationale="Index-heavy strategy",
+            risks=["Market risk"],
+            disclaimer="Research only",
+        )
+        mock_plan_result = MagicMock()
+        mock_plan_result.output = fake_plan
+
+        with patch("subprime.advisor.planner.create_advisor") as mock_ca:
+            mock_agent2 = AsyncMock()
+            mock_agent2.run = AsyncMock(return_value=mock_plan_result)
+            mock_ca.return_value = mock_agent2
+            plan = await generate_plan(profile, strategy=strategy)
+
+        assert "UTI Nifty 50" in plan.allocations[0].fund.name
+        plan_display = format_plan_summary(plan)
+        assert "UTI Nifty 50" in plan_display
+
+    def test_gather_profile_bulk_bypass(self):
+        """gather_profile with existing_profile should bypass conversation."""
+        import asyncio
+        from subprime.advisor import gather_profile
+        from subprime.evaluation import get_persona
+
+        profile = get_persona("P01")
+
+        async def should_not_be_called(msg: str) -> str:
+            raise AssertionError("Should not be called")
+
+        result = asyncio.run(
+            gather_profile(send_message=should_not_be_called, existing_profile=profile)
+        )
+        assert result.id == "P01"
