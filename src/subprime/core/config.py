@@ -20,5 +20,5 @@ class Settings(BaseSettings):
 
     anthropic_api_key: SecretStr
     default_model: str = "claude-sonnet-4-6"
-    mfdata_base_url: str = "https://api.mfdata.in"
+    mfdata_base_url: str = "https://mfdata.in/api/v1"
     results_dir: str = "results"

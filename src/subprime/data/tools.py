@@ -36,13 +36,8 @@ async def search_funds(query: str, category: Optional[str] = None) -> list[Mutua
         if not results:
             return []
         results = results[:10]
-
-        async def _fetch(result):  # noqa: ANN001
-            details = await client.get_fund_details(result.amfi_code)
-            return MFDataClient.details_to_mutual_fund(details)
-
-        funds = await asyncio.gather(*[_fetch(r) for r in results])
-        return list(funds)
+        # Search results from mfdata.in already include NAV, expense ratio, etc.
+        return [MFDataClient.search_result_to_mutual_fund(r) for r in results]
 
 
 async def get_fund_performance(amfi_code: str) -> MutualFund:

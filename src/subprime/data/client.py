@@ -24,9 +24,9 @@ class MFDataClient:
             details = await client.get_fund_details("119551")
     """
 
-    def __init__(self, base_url: str = "https://api.mfdata.in") -> None:
+    def __init__(self, base_url: str = "https://mfdata.in/api/v1") -> None:
         self._base_url = base_url.rstrip("/")
-        self._client = httpx.AsyncClient(base_url=self._base_url)
+        self._client = httpx.AsyncClient(base_url=self._base_url, timeout=30.0)
 
     async def __aenter__(self) -> MFDataClient:
         return self
@@ -59,9 +59,13 @@ class MFDataClient:
         if category is not None:
             params["category"] = category
 
-        resp = await self._client.get("/mf/search", params=params)
+        resp = await self._client.get("/schemes", params=params)
         resp.raise_for_status()
-        return [SchemeSearchResult(**item) for item in resp.json()]
+        body = resp.json()
+        data = body.get("data", body) if isinstance(body, dict) else body
+        if isinstance(data, list):
+            return [SchemeSearchResult(**item) for item in data]
+        return []
 
     async def get_fund_details(self, amfi_code: str) -> SchemeDetails:
         """Get detailed information for a single fund by AMFI code.
@@ -75,9 +79,11 @@ class MFDataClient:
         Raises:
             httpx.HTTPStatusError: If the fund is not found (404) or other HTTP error.
         """
-        resp = await self._client.get(f"/mf/{amfi_code}")
+        resp = await self._client.get(f"/schemes/{amfi_code}")
         resp.raise_for_status()
-        return SchemeDetails(**resp.json())
+        body = resp.json()
+        data = body.get("data", body) if isinstance(body, dict) else body
+        return SchemeDetails(**data)
 
     async def get_nav_history(self, amfi_code: str) -> list[dict]:
         """Get NAV history for a fund.
@@ -91,9 +97,11 @@ class MFDataClient:
         Raises:
             httpx.HTTPStatusError: If the fund is not found (404) or other HTTP error.
         """
-        resp = await self._client.get(f"/mf/{amfi_code}/nav")
+        resp = await self._client.get(f"/schemes/{amfi_code}/nav")
         resp.raise_for_status()
-        return resp.json()
+        body = resp.json()
+        data = body.get("data", body) if isinstance(body, dict) else body
+        return data if isinstance(data, list) else [data]
 
     # ------------------------------------------------------------------
     # Conversion
@@ -116,5 +124,28 @@ class MFDataClient:
             nav=details.nav,
             expense_ratio=details.expense_ratio if details.expense_ratio is not None else 0.0,
             aum_cr=details.aum_cr,
-            morningstar_rating=details.morningstar if details.morningstar and details.morningstar >= 1 else None,
+            morningstar_rating=(
+                details.morningstar
+                if details.morningstar and details.morningstar >= 1
+                else None
+            ),
+        )
+
+    @staticmethod
+    def search_result_to_mutual_fund(result: SchemeSearchResult) -> MutualFund:
+        """Convert a search result to core MutualFund (has most fields already)."""
+        return MutualFund(
+            amfi_code=result.amfi_code,
+            name=result.name,
+            category=result.category,
+            sub_category=result.sub_category,
+            fund_house=result.fund_house,
+            nav=result.nav,
+            expense_ratio=result.expense_ratio if result.expense_ratio is not None else 0.0,
+            aum_cr=result.aum_cr,
+            morningstar_rating=(
+                result.morningstar
+                if result.morningstar and result.morningstar >= 1
+                else None
+            ),
         )

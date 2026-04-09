@@ -20,7 +20,7 @@ class TestSettings:
 
         s = Settings()
         assert s.default_model == "claude-sonnet-4-6"
-        assert s.mfdata_base_url == "https://api.mfdata.in"
+        assert s.mfdata_base_url == "https://mfdata.in/api/v1"
         assert s.results_dir == "results"
 
     def test_api_key_from_env(self, monkeypatch):

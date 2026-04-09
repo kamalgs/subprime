@@ -180,7 +180,7 @@ def advise(
     # Phase 2: Strategy co-creation
     _console.print("[dim]Generating strategy...[/dim]")
     strategy = asyncio.run(generate_strategy(profile, model=model))
-    _console.print(format_strategy_outline(strategy))
+    print(format_strategy_outline(strategy), end="")
 
     while True:
         response = Prompt.ask(
@@ -192,12 +192,12 @@ def advise(
         strategy = asyncio.run(
             generate_strategy(profile, feedback=response, current_strategy=strategy, model=model)
         )
-        _console.print(format_strategy_outline(strategy))
+        print(format_strategy_outline(strategy), end="")
 
     # Phase 3: Detailed plan
     _console.print("\n[dim]Generating detailed plan with specific funds...[/dim]")
     plan = asyncio.run(generate_plan(profile, strategy=strategy, model=model))
-    _console.print(format_plan_summary(plan))
+    print(format_plan_summary(plan), end="")
 
 
 if __name__ == "__main__":
