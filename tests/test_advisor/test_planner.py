@@ -16,6 +16,7 @@ from subprime.core.models import (
     InvestmentPlan,
     InvestorProfile,
     MutualFund,
+    StrategyOutline,
 )
 
 
@@ -189,3 +190,26 @@ async def test_generate_plan_passes_hooks(sample_profile):
         await generate_plan(sample_profile, prompt_hooks=hooks)
 
     mock_create.assert_called_once_with(prompt_hooks=hooks, model="anthropic:claude-sonnet-4-6")
+
+
+@pytest.mark.asyncio
+async def test_generate_plan_with_strategy(sample_profile):
+    from subprime.advisor.planner import generate_plan
+    fake_plan = _make_fake_plan()
+    mock_result = MagicMock()
+    mock_result.output = fake_plan
+    strategy = StrategyOutline(
+        equity_pct=70.0, debt_pct=20.0, gold_pct=10.0, other_pct=0.0,
+        equity_approach="Index-heavy", key_themes=["low cost"],
+        risk_return_summary="12% CAGR target", open_questions=[],
+    )
+    with patch("subprime.advisor.planner.create_advisor") as mock_create:
+        mock_agent = AsyncMock()
+        mock_agent.run = AsyncMock(return_value=mock_result)
+        mock_create.return_value = mock_agent
+        plan = await generate_plan(sample_profile, strategy=strategy)
+    call_args = mock_agent.run.call_args
+    user_prompt = call_args[0][0]
+    assert "approved this strategy" in user_prompt
+    assert "Index-heavy" in user_prompt
+    assert isinstance(plan, InvestmentPlan)
