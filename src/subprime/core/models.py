@@ -38,11 +38,11 @@ class MutualFund(BaseModel):
 
     amfi_code: str
     name: str
-    category: str
-    sub_category: str
-    fund_house: str
-    nav: float = Field(ge=0)
-    expense_ratio: float = Field(ge=0)
+    category: str = ""
+    sub_category: str = ""
+    fund_house: str = ""
+    nav: float = Field(default=0.0, ge=0)
+    expense_ratio: float = Field(default=0.0, ge=0)
     aum_cr: Optional[float] = None
     morningstar_rating: Optional[int] = Field(default=None, ge=1, le=5)
     returns_1y: Optional[float] = None

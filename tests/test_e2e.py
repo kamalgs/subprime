@@ -6,6 +6,9 @@ Skip in normal runs: uv run pytest -m 'not e2e'
 import os
 
 import pytest
+from dotenv import load_dotenv
+
+load_dotenv()
 
 pytestmark = pytest.mark.e2e
 

@@ -16,7 +16,7 @@ class SchemeSearchResult(BaseModel):
 
     amfi_code: str
     name: str
-    category: str = ""
+    category: Optional[str] = ""
     plan_type: str = ""
     option_type: str = ""
     nav: float = 0.0
@@ -47,7 +47,7 @@ class SchemeDetails(BaseModel):
 
     amfi_code: str
     name: str
-    category: str = ""
+    category: Optional[str] = ""
     plan_type: str = ""
     option_type: str = ""
     nav: float = 0.0

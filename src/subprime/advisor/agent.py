@@ -71,7 +71,7 @@ def create_advisor(
         system_prompt=system_prompt,
         output_type=InvestmentPlan,
         tools=[search_funds, get_fund_performance, compare_funds],
-        retries=2,
+        retries=3,
         defer_model_check=True,
     )
 
