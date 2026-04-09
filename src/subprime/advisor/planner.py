@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from subprime.advisor.agent import create_advisor, create_strategy_advisor
+from subprime.core.config import DEFAULT_MODEL
 from subprime.core.models import InvestmentPlan, InvestorProfile, StrategyOutline
 
 
@@ -10,7 +11,7 @@ async def generate_strategy(
     feedback: str | None = None,
     current_strategy: StrategyOutline | None = None,
     prompt_hooks: dict[str, str] | None = None,
-    model: str = "anthropic:claude-sonnet-4-6",
+    model: str = DEFAULT_MODEL,
 ) -> StrategyOutline:
     """Generate or revise a high-level investment strategy.
 
@@ -43,7 +44,7 @@ async def generate_plan(
     profile: InvestorProfile,
     strategy: StrategyOutline | None = None,
     prompt_hooks: dict[str, str] | None = None,
-    model: str = "anthropic:claude-sonnet-4-6",
+    model: str = DEFAULT_MODEL,
 ) -> InvestmentPlan:
     """Generate an investment plan for the given investor profile.
 

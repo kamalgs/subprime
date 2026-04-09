@@ -6,6 +6,7 @@ from typing import Awaitable, Callable
 from pydantic_ai import Agent
 
 from subprime.advisor.agent import load_prompt
+from subprime.core.config import DEFAULT_MODEL
 from subprime.core.models import InvestorProfile
 
 
@@ -70,7 +71,7 @@ async def _run_conversation(
 async def gather_profile(
     send_message: Callable[[str], Awaitable[str]],
     existing_profile: InvestorProfile | None = None,
-    model: str = "anthropic:claude-sonnet-4-6",
+    model: str = DEFAULT_MODEL,
 ) -> InvestorProfile:
     """Gather an investor profile interactively or return an existing one.
 

@@ -6,6 +6,7 @@ from pathlib import Path
 
 from pydantic_ai import Agent
 
+from subprime.core.config import DEFAULT_MODEL
 from subprime.core.models import InvestmentPlan, StrategyOutline
 from subprime.data.tools import compare_funds, get_fund_performance, search_funds
 
@@ -32,7 +33,7 @@ def load_prompt(name: str) -> str:
 
 def create_advisor(
     prompt_hooks: dict[str, str] | None = None,
-    model: str = "anthropic:claude-sonnet-4-6",
+    model: str = DEFAULT_MODEL,
 ) -> Agent:
     """Create a financial advisor agent.
 
@@ -78,7 +79,7 @@ def create_advisor(
 
 def create_strategy_advisor(
     prompt_hooks: dict[str, str] | None = None,
-    model: str = "anthropic:claude-sonnet-4-6",
+    model: str = DEFAULT_MODEL,
 ) -> Agent:
     """Create a strategy-only advisor (no fund lookups, no tools).
 

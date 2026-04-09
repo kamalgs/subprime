@@ -189,7 +189,7 @@ async def test_generate_plan_passes_hooks(sample_profile):
 
         await generate_plan(sample_profile, prompt_hooks=hooks)
 
-    mock_create.assert_called_once_with(prompt_hooks=hooks, model="anthropic:claude-sonnet-4-6")
+    mock_create.assert_called_once_with(prompt_hooks=hooks, model="anthropic:claude-haiku-4-5")
 
 
 @pytest.mark.asyncio

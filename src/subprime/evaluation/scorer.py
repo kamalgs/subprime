@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from pydantic import BaseModel
 
+from subprime.core.config import DEFAULT_MODEL
 from subprime.core.models import APSScore, InvestmentPlan, InvestorProfile, PlanQualityScore
 from subprime.evaluation.judges import score_aps, score_pqs
 
@@ -19,7 +20,7 @@ class ScoredPlan(BaseModel):
 async def score_plan(
     plan: InvestmentPlan,
     profile: InvestorProfile,
-    model: str = "anthropic:claude-sonnet-4-6",
+    model: str = DEFAULT_MODEL,
 ) -> ScoredPlan:
     """Run both APS and PQS judges on a plan and return bundled scores.
 

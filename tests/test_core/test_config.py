@@ -19,7 +19,7 @@ class TestSettings:
         from subprime.core.config import Settings
 
         s = Settings()
-        assert s.default_model == "claude-sonnet-4-6"
+        assert s.default_model == "claude-haiku-4-5"
         assert s.mfdata_base_url == "https://mfdata.in/api/v1"
         assert s.results_dir == "results"
 

@@ -9,6 +9,9 @@ from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+DEFAULT_MODEL = "anthropic:claude-haiku-4-5"
+
+
 class Settings(BaseSettings):
     """Application settings loaded from environment / .env file."""
 
@@ -19,6 +22,6 @@ class Settings(BaseSettings):
     )
 
     anthropic_api_key: SecretStr
-    default_model: str = "claude-sonnet-4-6"
+    default_model: str = "claude-haiku-4-5"
     mfdata_base_url: str = "https://mfdata.in/api/v1"
     results_dir: str = "results"

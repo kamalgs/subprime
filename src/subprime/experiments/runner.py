@@ -8,6 +8,7 @@ from pathlib import Path
 from rich.console import Console
 
 from subprime.advisor.planner import generate_plan
+from subprime.core.config import DEFAULT_MODEL
 from subprime.core.models import ExperimentResult, InvestorProfile
 from subprime.evaluation.personas import get_persona, load_personas
 from subprime.evaluation.scorer import score_plan
@@ -45,7 +46,7 @@ def save_result(
 async def run_single(
     persona: InvestorProfile,
     condition: Condition,
-    model: str = "anthropic:claude-sonnet-4-6",
+    model: str = DEFAULT_MODEL,
     prompt_version: str = "v1",
 ) -> ExperimentResult:
     """Run a single experiment: one persona x one condition.
@@ -103,7 +104,7 @@ async def run_single(
 async def run_experiment(
     persona_ids: list[str] | None = None,
     condition_names: list[str] | None = None,
-    model: str = "anthropic:claude-sonnet-4-6",
+    model: str = DEFAULT_MODEL,
     prompt_version: str = "v1",
     results_dir: Path | None = None,
 ) -> list[ExperimentResult]:

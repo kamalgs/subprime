@@ -31,6 +31,7 @@ logger = logging.getLogger("subprime")
 load_dotenv()
 
 from subprime.advisor.planner import generate_plan, generate_strategy
+from subprime.core.config import DEFAULT_MODEL
 from subprime.core.display import format_plan_summary, format_strategy_outline
 from subprime.core.models import ExperimentResult
 
@@ -80,7 +81,7 @@ def experiment_run(
         help="Comma-separated condition names (e.g. baseline,lynch,bogle).",
     ),
     model: str = typer.Option(
-        "anthropic:claude-sonnet-4-6",
+        DEFAULT_MODEL,
         "--model",
         "-m",
         help="LLM model identifier.",
@@ -173,7 +174,7 @@ def advise(
         help="Persona ID from bank (e.g. P01). Skips interactive profile gathering.",
     ),
     model: str = typer.Option(
-        "anthropic:claude-sonnet-4-6",
+        DEFAULT_MODEL,
         "--model",
         "-m",
         help="LLM model identifier.",

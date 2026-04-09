@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from pydantic_ai import Agent
 
+from subprime.core.config import DEFAULT_MODEL
 from subprime.core.models import APSScore, InvestmentPlan, InvestorProfile, PlanQualityScore
 from subprime.evaluation.criteria import APS_CRITERIA, PQS_CRITERIA
 
@@ -86,7 +87,7 @@ def _build_pqs_prompt() -> str:
 
 
 def create_aps_judge(
-    model: str = "anthropic:claude-sonnet-4-6",
+    model: str = DEFAULT_MODEL,
 ) -> Agent:
     """Create an APS (Active-Passive Score) judge agent.
 
@@ -106,7 +107,7 @@ def create_aps_judge(
 
 
 def create_pqs_judge(
-    model: str = "anthropic:claude-sonnet-4-6",
+    model: str = DEFAULT_MODEL,
 ) -> Agent:
     """Create a PQS (Plan Quality Score) judge agent.
 
@@ -132,7 +133,7 @@ def create_pqs_judge(
 
 async def score_aps(
     plan: InvestmentPlan,
-    model: str = "anthropic:claude-sonnet-4-6",
+    model: str = DEFAULT_MODEL,
 ) -> APSScore:
     """Score a plan on the Active-Passive spectrum.
 
@@ -155,7 +156,7 @@ async def score_aps(
 async def score_pqs(
     plan: InvestmentPlan,
     profile: InvestorProfile,
-    model: str = "anthropic:claude-sonnet-4-6",
+    model: str = DEFAULT_MODEL,
 ) -> PlanQualityScore:
     """Score a plan's quality relative to the investor's profile.
 
