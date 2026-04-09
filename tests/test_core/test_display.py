@@ -13,6 +13,7 @@ from subprime.core.models import (
     InvestmentPlan,
     MutualFund,
     PlanQualityScore,
+    StrategyOutline,
 )
 
 
@@ -215,3 +216,71 @@ class TestPrintScores:
         print_scores(_make_aps(), _make_pqs())
         captured = capsys.readouterr()
         assert len(captured.out) > 0
+
+
+# ===========================================================================
+# format_strategy_outline
+# ===========================================================================
+
+
+def _make_strategy() -> StrategyOutline:
+    return StrategyOutline(
+        equity_pct=70.0,
+        debt_pct=20.0,
+        gold_pct=10.0,
+        other_pct=0.0,
+        equity_approach="Index-heavy with small active tilt",
+        key_themes=["low cost", "broad diversification", "tax efficiency under 80C"],
+        risk_return_summary="Targeting 12-14% CAGR with moderate volatility",
+        open_questions=["Any sector preferences?"],
+    )
+
+
+class TestFormatStrategyOutline:
+    def test_returns_string(self):
+        from subprime.core.display import format_strategy_outline
+
+        result = format_strategy_outline(_make_strategy())
+        assert isinstance(result, str)
+
+    def test_contains_allocation_percentages(self):
+        from subprime.core.display import format_strategy_outline
+
+        result = format_strategy_outline(_make_strategy())
+        assert "70" in result
+        assert "20" in result
+        assert "10" in result
+
+    def test_contains_equity_approach(self):
+        from subprime.core.display import format_strategy_outline
+
+        result = format_strategy_outline(_make_strategy())
+        assert "Index-heavy with small active tilt" in result
+
+    def test_contains_themes(self):
+        from subprime.core.display import format_strategy_outline
+
+        result = format_strategy_outline(_make_strategy())
+        assert "low cost" in result
+        assert "broad diversification" in result
+        assert "tax efficiency under 80C" in result
+
+    def test_contains_risk_return_summary(self):
+        from subprime.core.display import format_strategy_outline
+
+        result = format_strategy_outline(_make_strategy())
+        assert "Targeting 12-14% CAGR with moderate volatility" in result
+
+    def test_contains_open_questions(self):
+        from subprime.core.display import format_strategy_outline
+
+        result = format_strategy_outline(_make_strategy())
+        assert "Any sector preferences?" in result
+
+    def test_handles_empty_open_questions(self):
+        from subprime.core.display import format_strategy_outline
+
+        strategy = _make_strategy()
+        strategy = strategy.model_copy(update={"open_questions": []})
+        result = format_strategy_outline(strategy)
+        assert isinstance(result, str)

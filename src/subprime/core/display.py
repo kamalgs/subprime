@@ -9,10 +9,11 @@ from __future__ import annotations
 from io import StringIO
 
 from rich.console import Console
+from rich.markup import escape
 from rich.panel import Panel
 from rich.table import Table
 
-from subprime.core.models import APSScore, InvestmentPlan, PlanQualityScore
+from subprime.core.models import APSScore, InvestmentPlan, PlanQualityScore, StrategyOutline
 
 
 def format_plan_summary(plan: InvestmentPlan) -> str:
@@ -101,6 +102,51 @@ def format_scores(aps: APSScore, pqs: PlanQualityScore) -> str:
     pqs_table.add_row("[bold]Composite PQS[/bold]", f"[bold]{pqs.composite_pqs:.3f}[/bold]")
 
     console.print(pqs_table)
+
+    return buf.getvalue()
+
+
+def format_strategy_outline(outline: StrategyOutline) -> str:
+    """Render a StrategyOutline to a Rich-formatted string.
+
+    Includes:
+    - Asset allocation table (Equity, Debt, Gold; Other only if > 0)
+    - Equity approach
+    - Key themes (comma-separated)
+    - Risk/return summary
+    - Open questions (if any)
+    """
+    buf = StringIO()
+    console = Console(file=buf, force_terminal=True, width=100)
+
+    # --- Asset allocation table ---
+    alloc_table = Table(title="Asset Allocation", show_lines=True)
+    alloc_table.add_column("Asset Class", style="bold")
+    alloc_table.add_column("%", justify="right")
+
+    alloc_table.add_row("Equity", f"{outline.equity_pct:.0f}%")
+    alloc_table.add_row("Debt", f"{outline.debt_pct:.0f}%")
+    alloc_table.add_row("Gold", f"{outline.gold_pct:.0f}%")
+    if outline.other_pct > 0:
+        alloc_table.add_row("Other", f"{outline.other_pct:.0f}%")
+
+    console.print(alloc_table)
+
+    # --- Equity approach ---
+    console.print(f"[bold]Equity Approach:[/bold] {escape(outline.equity_approach)}", highlight=False)
+
+    # --- Key themes ---
+    themes_str = ", ".join(outline.key_themes)
+    console.print(f"[bold]Themes:[/bold] {escape(themes_str)}", highlight=False)
+
+    # --- Risk/return summary ---
+    console.print(f"[bold]Risk/Return:[/bold] {escape(outline.risk_return_summary)}", highlight=False)
+
+    # --- Open questions ---
+    if outline.open_questions:
+        console.print("[bold]Open Questions:[/bold]")
+        for q in outline.open_questions:
+            console.print(f"  • {escape(q)}", highlight=False)
 
     return buf.getvalue()
 

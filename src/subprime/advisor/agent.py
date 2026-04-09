@@ -6,7 +6,7 @@ from pathlib import Path
 
 from pydantic_ai import Agent
 
-from subprime.core.models import InvestmentPlan
+from subprime.core.models import InvestmentPlan, StrategyOutline
 from subprime.data.tools import compare_funds, get_fund_performance, search_funds
 
 _PROMPTS_DIR = Path(__file__).parent / "prompts"
@@ -71,6 +71,42 @@ def create_advisor(
         system_prompt=system_prompt,
         output_type=InvestmentPlan,
         tools=[search_funds, get_fund_performance, compare_funds],
+        retries=2,
+        defer_model_check=True,
+    )
+
+
+def create_strategy_advisor(
+    prompt_hooks: dict[str, str] | None = None,
+    model: str = "anthropic:claude-sonnet-4-6",
+) -> Agent:
+    """Create a strategy-only advisor (no fund lookups, no tools).
+
+    Used in Phase 2 — proposes high-level asset allocation
+    before selecting specific funds.
+    """
+    base = load_prompt("base")
+    strategy = load_prompt("strategy")
+
+    philosophy = ""
+    if prompt_hooks and "philosophy" in prompt_hooks:
+        philosophy = prompt_hooks["philosophy"]
+    else:
+        hook_path = _PROMPTS_DIR / "hooks" / "philosophy.md"
+        if hook_path.exists():
+            philosophy = hook_path.read_text().strip()
+
+    parts = [base, strategy]
+    if philosophy:
+        parts.append(f"## Investment Philosophy\n\n{philosophy}")
+
+    system_prompt = "\n\n---\n\n".join(parts)
+
+    return Agent(
+        model,
+        system_prompt=system_prompt,
+        output_type=StrategyOutline,
+        tools=[],
         retries=2,
         defer_model_check=True,
     )
