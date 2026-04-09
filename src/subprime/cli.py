@@ -13,7 +13,10 @@ from typing import Optional
 
 import typer
 from rich.console import Console
+from rich.prompt import Prompt
 
+from subprime.advisor.planner import generate_plan, generate_strategy
+from subprime.core.display import format_plan_summary, format_strategy_outline
 from subprime.core.models import ExperimentResult
 
 app = typer.Typer(
@@ -111,6 +114,61 @@ def experiment_analyze(
 
     _console.print(f"Loaded {len(results)} results from {results_dir}\n")
     print_analysis(results)
+
+
+@app.command()
+def advise(
+    profile_id: Optional[str] = typer.Option(
+        None,
+        "--profile",
+        "-p",
+        help="Persona ID from bank (e.g. P01). Skips interactive profile gathering.",
+    ),
+    model: str = typer.Option(
+        "anthropic:claude-sonnet-4-6",
+        "--model",
+        "-m",
+        help="LLM model identifier.",
+    ),
+) -> None:
+    """Interactive financial advisor — gather profile, co-create strategy, generate plan."""
+    # Phase 1: Profile
+    if profile_id:
+        from subprime.evaluation.personas import get_persona
+
+        profile = get_persona(profile_id)
+        _console.print(f"\n[bold]Using profile:[/bold] {profile.name} ({profile.id})\n")
+    else:
+        from subprime.advisor.profile import gather_profile
+
+        async def _rich_prompt(message: str) -> str:
+            _console.print(f"\n[bold]{message}[/bold]")
+            return Prompt.ask(">")
+
+        profile = asyncio.run(gather_profile(send_message=_rich_prompt, model=model))
+        _console.print(f"\n[bold]Profile ready:[/bold] {profile.name}\n")
+
+    # Phase 2: Strategy co-creation
+    _console.print("[dim]Generating strategy...[/dim]")
+    strategy = asyncio.run(generate_strategy(profile, model=model))
+    _console.print(format_strategy_outline(strategy))
+
+    while True:
+        response = Prompt.ask(
+            "\nReady to find specific funds? ([bold green]yes[/bold green] / tell me what to adjust)"
+        )
+        if response.strip().lower() in ("yes", "y"):
+            break
+        _console.print("[dim]Revising strategy...[/dim]")
+        strategy = asyncio.run(
+            generate_strategy(profile, feedback=response, current_strategy=strategy, model=model)
+        )
+        _console.print(format_strategy_outline(strategy))
+
+    # Phase 3: Detailed plan
+    _console.print("\n[dim]Generating detailed plan with specific funds...[/dim]")
+    plan = asyncio.run(generate_plan(profile, strategy=strategy, model=model))
+    _console.print(format_plan_summary(plan))
 
 
 if __name__ == "__main__":

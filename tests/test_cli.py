@@ -19,6 +19,7 @@ from subprime.core.models import (
     InvestmentPlan,
     MutualFund,
     PlanQualityScore,
+    StrategyOutline,
 )
 
 runner = CliRunner()
@@ -161,3 +162,64 @@ class TestExperimentAnalyze:
     def test_shows_results_dir_option(self):
         result = runner.invoke(app, ["experiment-analyze", "--help"])
         assert "--results-dir" in result.output
+
+
+# ===========================================================================
+# advise
+# ===========================================================================
+
+
+from unittest.mock import AsyncMock, patch
+
+
+class TestAdvise:
+    def test_help_exits_zero(self):
+        result = runner.invoke(app, ["advise", "--help"])
+        assert result.exit_code == 0
+
+    def test_help_shows_profile_option(self):
+        result = runner.invoke(app, ["advise", "--help"])
+        assert "--profile" in result.output or "-p" in result.output
+
+    def test_help_shows_model_option(self):
+        result = runner.invoke(app, ["advise", "--help"])
+        assert "--model" in result.output or "-m" in result.output
+
+    def test_advise_with_profile_bulk_mode(self):
+        """--profile P01 should skip interactive Q&A and go through strategy + plan."""
+        fake_strategy = StrategyOutline(
+            equity_pct=70.0, debt_pct=20.0, gold_pct=10.0, other_pct=0.0,
+            equity_approach="Index-heavy",
+            key_themes=["low cost"],
+            risk_return_summary="12% CAGR",
+            open_questions=[],
+        )
+
+        fake_plan = InvestmentPlan(
+            allocations=[
+                Allocation(
+                    fund=MutualFund(
+                        amfi_code="120503", name="UTI Nifty 50",
+                        category="Equity", sub_category="Index",
+                        fund_house="UTI", nav=150.0, expense_ratio=0.18,
+                    ),
+                    allocation_pct=100.0, mode="sip",
+                    monthly_sip_inr=50000, rationale="Core index",
+                )
+            ],
+            setup_phase="Start SIP month 1",
+            review_checkpoints=["6-month"],
+            rebalancing_guidelines="Annual",
+            projected_returns={"base": 12.0, "bull": 16.0, "bear": 6.0},
+            rationale="Simple index strategy",
+            risks=["Market risk"],
+            disclaimer="Research only",
+        )
+
+        with (
+            patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=fake_strategy),
+            patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=fake_plan),
+        ):
+            result = runner.invoke(app, ["advise", "--profile", "P01"], input="yes\n")
+
+        assert result.exit_code == 0
