@@ -16,6 +16,7 @@ import typer
 from dotenv import load_dotenv
 from rich.console import Console
 from rich.prompt import Prompt
+from rich.rule import Rule
 
 LOG_DIR = Path.home() / ".subprime"
 LOG_DIR.mkdir(exist_ok=True)
@@ -32,7 +33,7 @@ load_dotenv()
 
 from subprime.advisor.planner import generate_plan, generate_strategy
 from subprime.core.config import DEFAULT_MODEL
-from subprime.core.display import format_plan_summary, format_strategy_outline
+from subprime.core.display import format_plan_summary, format_profile_card, format_strategy_outline
 from subprime.core.models import ConversationLog, ConversationTurn, ExperimentResult
 
 CONVERSATIONS_DIR = Path("conversations")
@@ -190,11 +191,12 @@ def advise(
 
     try:
         # Phase 1: Profile
+        _console.print()
+        _console.print(Rule("[bold]Phase 1: Investor Profile[/bold]", style="blue"))
         if profile_id:
             from subprime.evaluation.personas import get_persona
 
             profile = get_persona(profile_id)
-            _console.print(f"\n[bold]Using profile:[/bold] {profile.name} ({profile.id})\n")
         else:
             from subprime.advisor.profile import gather_profile
 
@@ -206,14 +208,17 @@ def advise(
                 return resp
 
             profile = asyncio.run(gather_profile(send_message=_rich_prompt, model=model))
-            _console.print(f"\n[bold]Profile ready:[/bold] {profile.name}\n")
+
+        _console.print()
+        print(format_profile_card(profile), end="")
 
         conversation.profile = profile
         conversation.profile_turns = profile_turns
 
         # Phase 2: Strategy co-creation
-        _console.print("[dim]Generating strategy...[/dim]")
-        strategy = asyncio.run(generate_strategy(profile, model=model))
+        _console.print(Rule("[bold]Phase 2: Strategy[/bold]", style="blue"))
+        with _console.status("[bold blue]Crafting your strategy...[/bold blue]"):
+            strategy = asyncio.run(generate_strategy(profile, model=model))
         print(format_strategy_outline(strategy), end="")
         conversation.strategy = strategy
 
@@ -224,17 +229,18 @@ def advise(
             if response.strip().lower() in ("yes", "y"):
                 break
             conversation.strategy_revisions.append(ConversationTurn(role="user", content=response))
-            _console.print("[dim]Revising strategy...[/dim]")
-            strategy = asyncio.run(
-                generate_strategy(profile, feedback=response, current_strategy=strategy, model=model)
-            )
+            with _console.status("[bold blue]Revising strategy...[/bold blue]"):
+                strategy = asyncio.run(
+                    generate_strategy(profile, feedback=response, current_strategy=strategy, model=model)
+                )
             print(format_strategy_outline(strategy), end="")
             conversation.strategy = strategy
 
         # Phase 3: Detailed plan
-        _console.print("\n[dim]Generating detailed plan with specific funds...[/dim]")
-        plan = asyncio.run(generate_plan(profile, strategy=strategy, model=model))
-        print(format_plan_summary(plan), end="")
+        _console.print(Rule("[bold]Phase 3: Fund Selection[/bold]", style="blue"))
+        with _console.status("[bold blue]Selecting funds and building your plan...[/bold blue]"):
+            plan = asyncio.run(generate_plan(profile, strategy=strategy, model=model))
+        print(format_plan_summary(plan, strategy=strategy), end="")
         conversation.plan = plan
 
         # Save conversation
@@ -291,31 +297,47 @@ def replay(
     _console.print(f"[bold]Model:[/bold] {conv.model}\n")
 
     # Profile
-    p = conv.profile
-    _console.print(f"[bold]Profile:[/bold] {p.name}, {p.age}, {p.risk_appetite} risk")
-    _console.print(f"  Horizon: {p.investment_horizon_years}yr, SIP: ₹{p.monthly_investible_surplus_inr:,.0f}/mo")
-    _console.print(f"  Goals: {', '.join(p.financial_goals)}")
+    _console.print(Rule("[bold]Phase 1: Investor Profile[/bold]", style="blue"))
+    print(format_profile_card(conv.profile), end="")
 
     if conv.profile_turns:
-        _console.print(f"\n[bold]Profile conversation:[/bold] ({len(conv.profile_turns)} turns)")
+        _console.print(f"[bold]Profile conversation:[/bold] ({len(conv.profile_turns)} turns)")
         for turn in conv.profile_turns:
             prefix = "[bold cyan]Advisor:[/bold cyan]" if turn.role == "advisor" else "[bold green]You:[/bold green]"
             _console.print(f"  {prefix} {turn.content}")
+        _console.print()
 
     # Strategy
     if conv.strategy:
-        _console.print()
+        _console.print(Rule("[bold]Phase 2: Strategy[/bold]", style="blue"))
         print(format_strategy_outline(conv.strategy), end="")
 
     if conv.strategy_revisions:
-        _console.print(f"\n[bold]Strategy revisions:[/bold] ({len(conv.strategy_revisions)} rounds)")
+        _console.print(f"[bold]Strategy revisions:[/bold] ({len(conv.strategy_revisions)} rounds)")
         for turn in conv.strategy_revisions:
             _console.print(f"  [bold green]You:[/bold green] {turn.content}")
+        _console.print()
 
     # Plan
     if conv.plan:
-        _console.print()
-        print(format_plan_summary(conv.plan), end="")
+        _console.print(Rule("[bold]Phase 3: Fund Selection[/bold]", style="blue"))
+        print(format_plan_summary(conv.plan, strategy=conv.strategy), end="")
+
+
+@app.command()
+def web(
+    port: int = typer.Option(
+        7860,
+        "--port",
+        "-P",
+        help="Port for the Gradio web server.",
+    ),
+) -> None:
+    """Launch the Gradio web interface."""
+    from apps.web.app import create_app
+
+    demo = create_app()
+    demo.launch(server_port=port)
 
 
 if __name__ == "__main__":
