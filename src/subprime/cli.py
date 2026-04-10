@@ -33,7 +33,9 @@ load_dotenv()
 from subprime.advisor.planner import generate_plan, generate_strategy
 from subprime.core.config import DEFAULT_MODEL
 from subprime.core.display import format_plan_summary, format_strategy_outline
-from subprime.core.models import ExperimentResult
+from subprime.core.models import ConversationLog, ConversationTurn, ExperimentResult
+
+CONVERSATIONS_DIR = Path("conversations")
 
 app = typer.Typer(
     name="subprime",
@@ -183,6 +185,9 @@ def advise(
     """Interactive financial advisor — gather profile, co-create strategy, generate plan."""
     _check_api_key(model)
 
+    conversation = ConversationLog(model=model)
+    profile_turns: list[ConversationTurn] = []
+
     try:
         # Phase 1: Profile
         if profile_id:
@@ -195,15 +200,22 @@ def advise(
 
             async def _rich_prompt(message: str) -> str:
                 _console.print(f"\n[bold]{message}[/bold]")
-                return Prompt.ask(">")
+                resp = Prompt.ask(">")
+                profile_turns.append(ConversationTurn(role="advisor", content=message))
+                profile_turns.append(ConversationTurn(role="user", content=resp))
+                return resp
 
             profile = asyncio.run(gather_profile(send_message=_rich_prompt, model=model))
             _console.print(f"\n[bold]Profile ready:[/bold] {profile.name}\n")
+
+        conversation.profile = profile
+        conversation.profile_turns = profile_turns
 
         # Phase 2: Strategy co-creation
         _console.print("[dim]Generating strategy...[/dim]")
         strategy = asyncio.run(generate_strategy(profile, model=model))
         print(format_strategy_outline(strategy), end="")
+        conversation.strategy = strategy
 
         while True:
             response = Prompt.ask(
@@ -211,24 +223,99 @@ def advise(
             )
             if response.strip().lower() in ("yes", "y"):
                 break
+            conversation.strategy_revisions.append(ConversationTurn(role="user", content=response))
             _console.print("[dim]Revising strategy...[/dim]")
             strategy = asyncio.run(
                 generate_strategy(profile, feedback=response, current_strategy=strategy, model=model)
             )
             print(format_strategy_outline(strategy), end="")
+            conversation.strategy = strategy
 
         # Phase 3: Detailed plan
         _console.print("\n[dim]Generating detailed plan with specific funds...[/dim]")
         plan = asyncio.run(generate_plan(profile, strategy=strategy, model=model))
         print(format_plan_summary(plan), end="")
+        conversation.plan = plan
+
+        # Save conversation
+        _save_conversation(conversation)
+
     except KeyboardInterrupt:
         _console.print("\n[dim]Interrupted.[/dim]")
+        if conversation.profile:
+            _save_conversation(conversation)
         raise typer.Exit(0)
     except Exception as exc:
         logger.exception("advise command failed")
         _console.print(f"\n[bold red]Error:[/bold red] {exc}")
         _console.print(f"[dim]Full traceback logged to {LOG_FILE}[/dim]")
+        if conversation.profile:
+            _save_conversation(conversation)
         raise typer.Exit(1)
+
+
+def _save_conversation(conv: ConversationLog) -> Path:
+    """Save a conversation log to the conversations directory."""
+    CONVERSATIONS_DIR.mkdir(parents=True, exist_ok=True)
+    path = CONVERSATIONS_DIR / f"{conv.id}.json"
+    path.write_text(conv.model_dump_json(indent=2))
+    _console.print(f"\n[dim]Conversation saved to {path}[/dim]")
+    return path
+
+
+@app.command()
+def replay(
+    path: Path = typer.Argument(
+        ...,
+        help="Path to a conversation JSON file, or 'latest' for most recent.",
+    ),
+) -> None:
+    """Replay a saved conversation — shows profile, strategy, and plan."""
+    if str(path) == "latest":
+        if not CONVERSATIONS_DIR.exists():
+            _console.print("[bold red]Error:[/bold red] No conversations directory found.")
+            raise typer.Exit(1)
+        files = sorted(CONVERSATIONS_DIR.glob("*.json"))
+        if not files:
+            _console.print("[bold red]Error:[/bold red] No saved conversations found.")
+            raise typer.Exit(1)
+        path = files[-1]
+
+    if not path.exists():
+        _console.print(f"[bold red]Error:[/bold red] File not found: {path}")
+        raise typer.Exit(1)
+
+    conv = ConversationLog.model_validate_json(path.read_text())
+
+    _console.print(f"\n[bold]Conversation:[/bold] {conv.id} ({conv.timestamp:%Y-%m-%d %H:%M} UTC)")
+    _console.print(f"[bold]Model:[/bold] {conv.model}\n")
+
+    # Profile
+    p = conv.profile
+    _console.print(f"[bold]Profile:[/bold] {p.name}, {p.age}, {p.risk_appetite} risk")
+    _console.print(f"  Horizon: {p.investment_horizon_years}yr, SIP: ₹{p.monthly_investible_surplus_inr:,.0f}/mo")
+    _console.print(f"  Goals: {', '.join(p.financial_goals)}")
+
+    if conv.profile_turns:
+        _console.print(f"\n[bold]Profile conversation:[/bold] ({len(conv.profile_turns)} turns)")
+        for turn in conv.profile_turns:
+            prefix = "[bold cyan]Advisor:[/bold cyan]" if turn.role == "advisor" else "[bold green]You:[/bold green]"
+            _console.print(f"  {prefix} {turn.content}")
+
+    # Strategy
+    if conv.strategy:
+        _console.print()
+        print(format_strategy_outline(conv.strategy), end="")
+
+    if conv.strategy_revisions:
+        _console.print(f"\n[bold]Strategy revisions:[/bold] ({len(conv.strategy_revisions)} rounds)")
+        for turn in conv.strategy_revisions:
+            _console.print(f"  [bold green]You:[/bold green] {turn.content}")
+
+    # Plan
+    if conv.plan:
+        _console.print()
+        print(format_plan_summary(conv.plan), end="")
 
 
 if __name__ == "__main__":

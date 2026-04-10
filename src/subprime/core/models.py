@@ -149,6 +149,31 @@ class PlanQualityScore(BaseModel):
 
 
 # ---------------------------------------------------------------------------
+# Conversation capture
+# ---------------------------------------------------------------------------
+
+
+class ConversationTurn(BaseModel):
+    """A single turn in a conversation."""
+
+    role: Literal["advisor", "user"]
+    content: str
+
+
+class ConversationLog(BaseModel):
+    """Full captured conversation from an advise session."""
+
+    id: str = Field(default_factory=lambda: datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S"))
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    model: str
+    profile: InvestorProfile | None = None
+    strategy: StrategyOutline | None = None
+    strategy_revisions: list[ConversationTurn] = []
+    plan: InvestmentPlan | None = None
+    profile_turns: list[ConversationTurn] = []
+
+
+# ---------------------------------------------------------------------------
 # Experiment tracking
 # ---------------------------------------------------------------------------
 
