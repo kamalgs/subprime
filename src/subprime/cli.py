@@ -334,6 +334,13 @@ def web(
     ),
 ) -> None:
     """Launch the Gradio web interface."""
+    import sys
+
+    # Ensure the project root (where apps/ lives) is on sys.path
+    _project_root = str(Path(__file__).resolve().parent.parent.parent)
+    if _project_root not in sys.path:
+        sys.path.insert(0, _project_root)
+
     from apps.web.app import create_app
 
     demo = create_app()
