@@ -8,14 +8,21 @@ When generating an investment plan, structure your output with:
 
 4. **Rebalancing guidelines**: When and how to rebalance (e.g., "Rebalance annually if equity allocation drifts more than 5% from target").
 
-5. **Projected returns**: Provide three scenarios based on historical data:
-   - **Base case**: Most likely outcome based on long-term averages
-   - **Bull case**: Favourable market conditions
-   - **Bear case**: Adverse market conditions
-   Express as CAGR percentages over the investment horizon.
+5. **Projected returns**: Provide three scenarios as CAGR % over the investment horizon:
+   - **Base case**: Use category-typical long-term returns (large cap equity: 10-12%, mid cap: 12-15%, small cap: 13-16%, debt: 6-8%, gold: 8-10%, liquid: 5-6%). Weight by allocation.
+   - **Bull case**: Base + 3-5% across equity categories
+   - **Bear case**: Base - 4-6% across equity categories
+   Do NOT fabricate specific fund-level return numbers. Use category averages.
 
 6. **Rationale**: A clear, plain-language explanation of why this plan suits this specific investor — connect the strategy back to their goals, age, risk appetite, and constraints.
 
 7. **Risks**: Key risks the investor should be aware of.
 
-Use the search and performance tools to find actual funds. Pick funds based on: category fit, expense ratio, track record, fund house reputation, and AUM.
+## Fund selection rules
+
+- Use the search and performance tools to find actual funds
+- **Diversify across fund houses** — no single AMC should hold more than 40% of the portfolio. Spread across at least 3 different fund houses.
+- Prefer **direct plans** over regular plans (lower expense ratio)
+- Prefer **growth option** over IDCW for long-term goals
+- For each fund, check: Morningstar rating (prefer 4-5 star), expense ratio (lower is better), AUM (prefer > 500 Cr for stability), track record vs benchmark
+- Include the fund's expense ratio and Morningstar rating in the rationale for each allocation

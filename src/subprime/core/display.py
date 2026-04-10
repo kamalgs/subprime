@@ -29,21 +29,27 @@ def format_plan_summary(plan: InvestmentPlan) -> str:
 
     # --- Allocations table ---
     alloc_table = Table(title="Allocations", show_lines=True, expand=True)
-    alloc_table.add_column("Fund Name", style="bold cyan", no_wrap=False)
-    alloc_table.add_column("AMFI Code", justify="center")
+    alloc_table.add_column("Fund", style="bold cyan", no_wrap=False)
+    alloc_table.add_column("Fund House", no_wrap=False)
     alloc_table.add_column("%", justify="right")
     alloc_table.add_column("Mode", justify="center")
-    alloc_table.add_column("Monthly SIP", justify="right")
+    alloc_table.add_column("SIP/mo", justify="right")
+    alloc_table.add_column("ER%", justify="right")
+    alloc_table.add_column("Rating", justify="center")
     alloc_table.add_column("Rationale", no_wrap=False)
 
     for alloc in plan.allocations:
-        sip_str = f"{alloc.monthly_sip_inr:,.0f}" if alloc.monthly_sip_inr else "-"
+        sip_str = f"₹{alloc.monthly_sip_inr:,.0f}" if alloc.monthly_sip_inr else "-"
+        er_str = f"{alloc.fund.expense_ratio:.2f}" if alloc.fund.expense_ratio else "-"
+        rating = "★" * alloc.fund.morningstar_rating if alloc.fund.morningstar_rating else "-"
         alloc_table.add_row(
-            alloc.fund.name,
-            alloc.fund.amfi_code,
-            f"{alloc.allocation_pct:.1f}",
+            f"{alloc.fund.name}\n[dim]{alloc.fund.amfi_code}[/dim]",
+            alloc.fund.fund_house or "-",
+            f"{alloc.allocation_pct:.0f}",
             alloc.mode,
             sip_str,
+            er_str,
+            rating,
             alloc.rationale,
         )
 
