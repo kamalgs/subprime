@@ -364,7 +364,7 @@ def _handle_plan_phase(user_msg: str, history: list, state: dict) -> tuple[list,
 # ---------------------------------------------------------------------------
 
 def create_app() -> gr.Blocks:
-    with gr.Blocks(title="Subprime Financial Advisor", css=CSS) as demo:
+    with gr.Blocks(title="Subprime Financial Advisor") as demo:
 
         state = gr.State(_make_state)
 
@@ -377,10 +377,7 @@ def create_app() -> gr.Blocks:
 
         chatbot = gr.Chatbot(
             value=[{"role": "assistant", "content": _opening_message()}],
-            type="messages",
             height=550,
-            show_copy_button=True,
-            render_markdown=True,
         )
 
         with gr.Row():
@@ -417,4 +414,4 @@ def create_app() -> gr.Blocks:
 
 if __name__ == "__main__":
     app = create_app()
-    app.launch(server_port=7860)
+    app.launch(server_port=7860, css=CSS)

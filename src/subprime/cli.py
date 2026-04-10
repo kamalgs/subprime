@@ -346,10 +346,10 @@ def web(
     if _project_root not in sys.path:
         sys.path.insert(0, _project_root)
 
-    from apps.web.app import create_app
+    from apps.web.app import CSS, create_app
 
     demo = create_app()
-    demo.launch(server_port=port, share=share)
+    demo.launch(server_port=port, share=share, css=CSS)
 
 
 if __name__ == "__main__":
