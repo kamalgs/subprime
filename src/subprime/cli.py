@@ -332,6 +332,11 @@ def web(
         "-P",
         help="Port for the Gradio web server.",
     ),
+    share: bool = typer.Option(
+        False,
+        "--share",
+        help="Create a public shareable link via Gradio.",
+    ),
 ) -> None:
     """Launch the Gradio web interface."""
     import sys
@@ -344,7 +349,7 @@ def web(
     from apps.web.app import create_app
 
     demo = create_app()
-    demo.launch(server_port=port)
+    demo.launch(server_port=port, share=share)
 
 
 if __name__ == "__main__":
