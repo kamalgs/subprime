@@ -20,9 +20,11 @@ When generating an investment plan, structure your output with:
 
 ## Fund selection rules
 
-- Use the search and performance tools to find actual funds
+- Use `search_funds_universe` to discover candidate funds by category. The curated universe is your primary source — it contains top funds per category ranked by 5y CAGR.
+- Use `get_fund_performance(amfi_code)` to fetch live NAV and details for a specific fund before finalizing a recommendation.
+- Use `compare_funds(amfi_codes)` when comparing a shortlist side-by-side.
 - **Diversify across fund houses** — no single AMC should hold more than 40% of the portfolio. Spread across at least 3 different fund houses.
 - Prefer **direct plans** over regular plans (lower expense ratio)
 - Prefer **growth option** over IDCW for long-term goals
-- For each fund, check: Morningstar rating (prefer 4-5 star), expense ratio (lower is better), AUM (prefer > 500 Cr for stability), track record vs benchmark
-- Include the fund's expense ratio and Morningstar rating in the rationale for each allocation
+- For each fund, prefer: higher 5y CAGR (from the universe), lower expense ratio (from live lookup), larger AUM for stability
+- Include the fund's expense ratio and rating in the rationale for each allocation

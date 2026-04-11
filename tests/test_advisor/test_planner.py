@@ -57,7 +57,7 @@ def test_create_advisor_default():
 def test_create_advisor_has_three_tools():
     agent = create_advisor()
     tool_names = set(agent._function_toolset.tools.keys())
-    assert "search_funds" in tool_names
+    assert "search_funds_universe" in tool_names
     assert "get_fund_performance" in tool_names
     assert "compare_funds" in tool_names
 
@@ -189,7 +189,9 @@ async def test_generate_plan_passes_hooks(sample_profile):
 
         await generate_plan(sample_profile, prompt_hooks=hooks)
 
-    mock_create.assert_called_once_with(prompt_hooks=hooks, model="anthropic:claude-haiku-4-5")
+    call_kwargs = mock_create.call_args.kwargs
+    assert call_kwargs["prompt_hooks"] == hooks
+    assert call_kwargs["model"] == "anthropic:claude-haiku-4-5"
 
 
 @pytest.mark.asyncio
@@ -213,3 +215,48 @@ async def test_generate_plan_with_strategy(sample_profile):
     assert "approved this strategy" in user_prompt
     assert "Index-heavy" in user_prompt
     assert isinstance(plan, InvestmentPlan)
+
+
+# ---------------------------------------------------------------------------
+# Universe context injection
+# ---------------------------------------------------------------------------
+
+
+def test_create_advisor_with_universe_context():
+    """universe_context should be injected into the system prompt."""
+    agent = create_advisor(universe_context="UNIVERSE_MARKER: foo bar baz")
+    combined = " ".join(str(s) for s in agent._system_prompts)
+    assert "UNIVERSE_MARKER" in combined
+
+
+def test_create_advisor_without_universe_context():
+    """No universe → no marker in prompt."""
+    agent = create_advisor()
+    combined = " ".join(str(s) for s in agent._system_prompts)
+    assert "UNIVERSE_MARKER" not in combined
+
+
+@pytest.mark.asyncio
+async def test_generate_plan_include_universe_false_skips_db(sample_profile, monkeypatch):
+    """include_universe=False should not try to read the DB."""
+    from subprime.advisor.planner import generate_plan
+
+    def _should_not_be_called(*args, **kwargs):
+        raise AssertionError("_load_universe_context should not be called")
+
+    monkeypatch.setattr("subprime.advisor.planner._load_universe_context", _should_not_be_called)
+
+    fake_plan = _make_fake_plan()
+    mock_result = MagicMock()
+    mock_result.output = fake_plan
+
+    with patch("subprime.advisor.planner.create_advisor") as mock_create:
+        mock_agent = AsyncMock()
+        mock_agent.run = AsyncMock(return_value=mock_result)
+        mock_create.return_value = mock_agent
+
+        plan = await generate_plan(sample_profile, include_universe=False)
+
+    assert isinstance(plan, InvestmentPlan)
+    call_kwargs = mock_create.call_args.kwargs
+    assert call_kwargs.get("universe_context") is None

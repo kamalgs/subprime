@@ -208,12 +208,12 @@ class TestFullImportChain:
             SchemeSearchResult,
             compare_funds,
             get_fund_performance,
-            search_funds,
+            search_funds_universe,
         )
 
         symbols = [
             MFDataClient, SchemeDetails, SchemeSearchResult,
-            compare_funds, get_fund_performance, search_funds,
+            compare_funds, get_fund_performance, search_funds_universe,
         ]
         for s in symbols:
             assert s is not None
@@ -295,7 +295,7 @@ class TestPersonaAdvisorPlanWiring:
         # PydanticAI Agent stores tools in _function_toolset.tools (dict keyed by name)
         tool_names = set(agent._function_toolset.tools.keys())
         assert len(tool_names) == 3
-        assert "search_funds" in tool_names
+        assert "search_funds_universe" in tool_names
         assert "get_fund_performance" in tool_names
         assert "compare_funds" in tool_names
 

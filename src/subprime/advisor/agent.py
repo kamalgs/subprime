@@ -8,7 +8,7 @@ from pydantic_ai import Agent
 
 from subprime.core.config import DEFAULT_MODEL
 from subprime.core.models import InvestmentPlan, StrategyOutline
-from subprime.data.tools import compare_funds, get_fund_performance, search_funds
+from subprime.data.tools import compare_funds, get_fund_performance, search_funds_universe
 
 _PROMPTS_DIR = Path(__file__).parent / "prompts"
 
@@ -33,6 +33,7 @@ def load_prompt(name: str) -> str:
 
 def create_advisor(
     prompt_hooks: dict[str, str] | None = None,
+    universe_context: str | None = None,
     model: str = DEFAULT_MODEL,
 ) -> Agent:
     """Create a financial advisor agent.
@@ -44,6 +45,9 @@ def create_advisor(
             file path) replaces the corresponding hook file's content in the
             system prompt. If no hook or empty string, the philosophy section
             is omitted entirely.
+        universe_context: Optional markdown text describing the curated fund
+            universe. When provided, it's appended to the system prompt so the
+            agent knows which funds are available before making any tool calls.
         model: The LLM model identifier.
 
     Returns:
@@ -64,6 +68,8 @@ def create_advisor(
     parts = [base, planning]
     if philosophy:
         parts.append(f"## Investment Philosophy\n\n{philosophy}")
+    if universe_context:
+        parts.append(universe_context)
 
     system_prompt = "\n\n---\n\n".join(parts)
 
@@ -71,7 +77,7 @@ def create_advisor(
         model,
         system_prompt=system_prompt,
         output_type=InvestmentPlan,
-        tools=[search_funds, get_fund_performance, compare_funds],
+        tools=[search_funds_universe, get_fund_performance, compare_funds],
         retries=3,
         defer_model_check=True,
     )
