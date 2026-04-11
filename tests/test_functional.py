@@ -348,3 +348,45 @@ class TestGradioApp:
             history, state, status = _process_message("more equity please", history, state)
 
         assert state["strategy"].equity_pct == 80.0
+
+
+# ===========================================================================
+# CLI: subprime data
+# ===========================================================================
+
+
+class TestCLIData:
+    def test_data_help(self):
+        result = runner.invoke(app, ["data", "--help"])
+        assert result.exit_code == 0
+        assert "refresh" in result.output
+        assert "stats" in result.output
+
+    def test_data_stats_empty_db(self, tmp_path, monkeypatch):
+        """No DB file → stats command should report no data, exit 0."""
+        monkeypatch.setattr("subprime.cli.DB_PATH", tmp_path / "missing.duckdb")
+        result = runner.invoke(app, ["data", "stats"])
+        assert result.exit_code == 0
+        assert "no" in result.output.lower() or "No" in result.output
+
+    def test_data_stats_populated(self, tmp_path, monkeypatch):
+        """Populated DB → stats command should show counts."""
+        import duckdb
+
+        from subprime.data.store import ensure_schema, log_refresh
+
+        db_path = tmp_path / "test.duckdb"
+        conn = duckdb.connect(str(db_path))
+        ensure_schema(conn)
+        log_refresh(conn, scheme_count=42, nav_count=1234)
+        conn.close()
+
+        monkeypatch.setattr("subprime.cli.DB_PATH", db_path)
+        result = runner.invoke(app, ["data", "stats"])
+        assert result.exit_code == 0
+        assert "42" in result.output
+        assert "1234" in result.output or "1,234" in result.output
+
+    def test_data_refresh_help(self):
+        result = runner.invoke(app, ["data", "refresh", "--help"])
+        assert result.exit_code == 0

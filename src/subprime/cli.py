@@ -32,7 +32,7 @@ logger = logging.getLogger("subprime")
 load_dotenv()
 
 from subprime.advisor.planner import generate_plan, generate_strategy
-from subprime.core.config import DEFAULT_MODEL
+from subprime.core.config import DB_PATH, DEFAULT_MODEL
 from subprime.core.display import format_plan_summary, format_profile_card, format_strategy_outline
 from subprime.core.models import ConversationLog, ConversationTurn, ExperimentResult
 
@@ -350,6 +350,81 @@ def web(
 
     demo = create_app()
     demo.launch(server_port=port, share=share, css=CSS)
+
+
+# ---------------------------------------------------------------------------
+# data sub-commands
+# ---------------------------------------------------------------------------
+
+
+data_app = typer.Typer(name="data", help="Manage the local fund data store.")
+app.add_typer(data_app, name="data")
+
+
+@data_app.command("refresh")
+def data_refresh() -> None:
+    """Download the latest mutual fund dataset and rebuild the local store."""
+    import duckdb
+
+    from subprime.core.config import DATA_DIR
+    from subprime.data.ingest import refresh as run_refresh
+    from subprime.data.store import ensure_schema
+    from subprime.data.universe import build_universe
+
+    try:
+        _console.print("[dim]Downloading dataset (this may take a few minutes)...[/dim]")
+        conn = duckdb.connect(str(DB_PATH))
+        ensure_schema(conn)
+        stats = asyncio.run(run_refresh(conn, DATA_DIR))
+        _console.print(
+            f"[green]Loaded[/green] {stats['scheme_count']:,} schemes, "
+            f"{stats['nav_count']:,} NAV records, "
+            f"{stats['returns_count']:,} computed returns."
+        )
+        _console.print("[dim]Building curated fund universe...[/dim]")
+        universe_count = build_universe(conn)
+        _console.print(f"[green]Universe ready:[/green] {universe_count} funds curated.")
+        conn.close()
+    except KeyboardInterrupt:
+        _console.print("\n[dim]Interrupted.[/dim]")
+        raise typer.Exit(0)
+    except Exception as exc:
+        logger.exception("data refresh failed")
+        _console.print(f"\n[bold red]Error:[/bold red] {exc}")
+        _console.print(f"[dim]Full traceback logged to {LOG_FILE}[/dim]")
+        raise typer.Exit(1)
+
+
+@data_app.command("stats")
+def data_stats() -> None:
+    """Show the current state of the local fund data store."""
+    import duckdb
+
+    from subprime.data.store import get_refresh_stats
+
+    if not DB_PATH.exists():
+        _console.print("[yellow]No data store found.[/yellow]")
+        _console.print("Run [bold]subprime data refresh[/bold] to populate it.")
+        return
+
+    conn = duckdb.connect(str(DB_PATH), read_only=True)
+    try:
+        stats = get_refresh_stats(conn)
+        if stats is None:
+            _console.print("[yellow]Data store exists but no refreshes recorded yet.[/yellow]")
+            return
+
+        returns_total = conn.execute("SELECT COUNT(*) FROM fund_returns").fetchone()[0]
+        universe_total = conn.execute("SELECT COUNT(*) FROM fund_universe").fetchone()[0]
+
+        _console.print(f"\n[bold]Subprime Data Store[/bold]  ({DB_PATH})")
+        _console.print(f"  Last refreshed  : {stats['refreshed_at']}")
+        _console.print(f"  Schemes         : {stats['scheme_count']:,}")
+        _console.print(f"  NAV records     : {stats['nav_count']:,}")
+        _console.print(f"  Computed returns: {returns_total:,}")
+        _console.print(f"  Curated universe: {universe_total:,}")
+    finally:
+        conn.close()
 
 
 if __name__ == "__main__":
