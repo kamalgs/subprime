@@ -18,10 +18,13 @@ src/subprime/
 │   ├── models.py          # All Pydantic models
 │   ├── config.py          # Settings (pydantic-settings)
 │   └── display.py         # Rich renderables
-├── data/                  # MF data layer
+├── data/                  # MF data layer (DuckDB + live API)
+│   ├── store.py           # DuckDB connection, schema, refresh log
+│   ├── ingest.py          # GitHub dataset download + return computation
+│   ├── universe.py        # Top-N-per-category curation + markdown render
 │   ├── schemas.py         # Raw mfdata.in response models
-│   ├── client.py          # Async HTTP client (httpx)
-│   └── tools.py           # PydanticAI tool functions
+│   ├── client.py          # Async HTTP client (httpx) for mfdata.in
+│   └── tools.py           # PydanticAI tools (universe search + live lookups)
 ├── advisor/               # Financial advisor agent
 │   ├── agent.py           # Agent factory + prompt hook injection
 │   ├── planner.py         # Plan generation (bulk mode)
@@ -54,7 +57,7 @@ core  ←  data  ←  advisor  ←  evaluation  ←  experiments
 
 - **Framework**: PydanticAI (agents, structured outputs, tools)
 - **Models**: Claude Sonnet 4.6 (advisor + judges)
-- **Data**: mfdata.in API (live), InertExpert2911/Mutual_Fund_Data (historical, planned)
+- **Data**: DuckDB store seeded from InertExpert2911/Mutual_Fund_Data GitHub dataset (fund universe + historical returns), mfdata.in API for live verification
 - **Stats**: scipy (t-tests, Wilcoxon), numpy (Cohen's d)
 - **CLI**: Typer + Rich
 - **Python**: 3.11+, uv
@@ -75,6 +78,9 @@ Independent of bias: `goal_alignment`, `diversification`, `risk_return_appropria
 
 ### Prompt Hook Mechanism
 Experiments inject philosophy via `prompt_hooks={"philosophy": "<content>"}` passed to `create_advisor()`. Hook content is concatenated into the system prompt. Empty hook = neutral baseline. Contaminant prompts live in `experiments/prompts/`.
+
+### Fund Universe RAG
+Before each plan generation, `generate_plan()` calls `_load_universe_context()` to read the curated top-N-per-category universe from the DuckDB store and render it as markdown. `create_advisor(universe_context=...)` appends this text to the system prompt so the LLM has broad market knowledge up front and can still call live tools (`get_fund_performance`, `compare_funds`) for verification. The universe is rebuilt with `subprime data refresh`, which downloads the InertExpert2911/Mutual_Fund_Data GitHub dataset, populates `schemes` and `nav_history`, computes 1y/3y/5y CAGR into `fund_returns`, and curates `fund_universe`. Inspect store state with `subprime data stats`. The DuckDB file lives at `$SUBPRIME_DATA_DIR/subprime.duckdb` (default `~/.subprime/data/subprime.duckdb`).
 
 ## Terminology
 

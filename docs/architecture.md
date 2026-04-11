@@ -43,13 +43,26 @@ cli           (experiments: run_experiment, print_analysis)
 - `config.py` -- Settings via pydantic-settings (API keys, model defaults, base URLs)
 - `display.py` -- Rich table/panel formatters for plans and scores. `format_*` returns strings; `print_*` writes to terminal.
 
-### data/ -- Mutual fund data layer
+### data -- MF data layer
 
-- `client.py` -- `MFDataClient` async HTTP client wrapping mfdata.in REST API. Search, details, NAV history. Converts API responses to core `MutualFund` model.
-- `schemas.py` -- Raw API response shapes (`SchemeSearchResult`, `SchemeDetails`). Mirror the API exactly; converted to core models via the client.
-- `tools.py` -- PydanticAI tool functions (`search_funds`, `get_fund_performance`, `compare_funds`). Registered on the advisor agent. Each creates its own `MFDataClient` internally.
+Two complementary data sources:
 
-**Data source**: [mfdata.in](https://api.mfdata.in) -- free REST API for Indian mutual fund data (NAV, expense ratio, AUM, Morningstar ratings). Future milestone: supplement with [InertExpert2911/Mutual_Fund_Data](https://github.com/InertExpert2911/Mutual_Fund_Data) GitHub dataset for offline/historical data.
+1. **DuckDB store** (primary) -- Curated fund universe built from the
+   InertExpert2911/Mutual_Fund_Data GitHub dataset. Contains scheme details,
+   20M+ historical NAV records, computed 1y/3y/5y returns, and a
+   top-N-per-category curated universe ranked by 5y CAGR.
+2. **mfdata.in API** (real-time) -- Live NAV, current details, holdings.
+   Used for verification before finalizing recommendations.
+
+Files:
+- `store.py` -- DuckDB connection, schema, refresh log
+- `ingest.py` -- Download GitHub dataset, load CSV/parquet, compute returns
+- `universe.py` -- Curate top funds per category, render as markdown context
+- `client.py` -- Async httpx wrapper for mfdata.in
+- `tools.py` -- PydanticAI tools: `search_funds_universe` (DuckDB),
+  `get_fund_performance` (live), `compare_funds` (live)
+
+The DuckDB file lives at `$SUBPRIME_DATA_DIR/subprime.duckdb` (defaults to `~/.subprime/data/subprime.duckdb`).
 
 ### advisor/ -- Financial advisor agent
 

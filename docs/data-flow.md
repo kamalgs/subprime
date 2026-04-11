@@ -1,5 +1,31 @@
 # Subprime -- Data Flow
 
+## Fund Universe Injection (RAG)
+
+Before plan generation, the advisor agent's system prompt is augmented
+with a curated fund universe rendered as markdown. This gives the LLM
+broad market knowledge at the start so it can reason about fund selection
+without an initial blind search.
+
+```
+generate_plan(profile)
+   |
+   v
+_load_universe_context()   <- reads from $SUBPRIME_DATA_DIR/subprime.duckdb
+   |
+   v
+create_advisor(universe_context=text)   <- text appended to system prompt
+   |
+   v
+agent.run(...)   <- LLM uses the universe + live tool calls for details
+```
+
+The universe is rebuilt via `subprime data refresh`:
+1. Download CSV and parquet from the InertExpert2911/Mutual_Fund_Data GitHub repo
+2. Load into DuckDB tables (`schemes`, `nav_history`)
+3. Compute 1y/3y/5y CAGR per scheme via SQL (`fund_returns`)
+4. Curate top-N funds per category, ranked by 5y CAGR (`fund_universe`)
+
 ## End-to-End Pipeline
 
 ```

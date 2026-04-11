@@ -33,9 +33,10 @@ Three-phase conversation flow for the Gradio/TUI demo.
 
 Richer data, persistent storage, better output.
 
-- [ ] DuckDB as local data store for experiment results (replace flat JSON)
-- [ ] RAG pipeline for supplementary fund research (fund factsheets, AMC reports)
-- [ ] InertExpert2911/Mutual_Fund_Data GitHub dataset integration (offline/historical data)
+- [x] DuckDB as local data store for fund universe and historical returns
+- [x] InertExpert2911/Mutual_Fund_Data GitHub dataset integration
+- [x] `subprime data refresh` / `subprime data stats` commands
+- [x] Curated fund universe injected into advisor system prompt (RAG)
 - [ ] PDF export of investment plans
 - [ ] Improved error handling and retry logic for API calls
 
