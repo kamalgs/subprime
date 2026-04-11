@@ -11,12 +11,16 @@ from subprime.core.models import InvestmentPlan, InvestorProfile, StrategyOutlin
 logger = logging.getLogger(__name__)
 
 
-def _load_universe_context(db_path: Path = DB_PATH) -> str | None:
+def _load_universe_context(db_path: Path | None = None) -> str | None:
     """Load the curated fund universe as markdown text from DuckDB.
 
     Returns None if the database doesn't exist or is empty — the advisor
     will then work without the universe (falling back to live tool calls).
     """
+    # Look up DB_PATH at call time so tests can monkeypatch the module attribute.
+    if db_path is None:
+        from subprime.advisor import planner as _self
+        db_path = _self.DB_PATH
     if not db_path.exists():
         return None
     try:

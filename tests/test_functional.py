@@ -390,3 +390,93 @@ class TestCLIData:
     def test_data_refresh_help(self):
         result = runner.invoke(app, ["data", "refresh", "--help"])
         assert result.exit_code == 0
+
+
+# ===========================================================================
+# Advisor with populated universe
+# ===========================================================================
+
+
+class TestAdvisorWithUniverse:
+    @pytest.mark.asyncio
+    async def test_plan_generation_loads_universe_from_db(self, tmp_path, monkeypatch):
+        """When a DuckDB exists, generate_plan should inject the universe into system prompt."""
+        import duckdb
+
+        from subprime.data.store import ensure_schema
+        from subprime.data.universe import build_universe
+
+        db_path = tmp_path / "subprime.duckdb"
+        conn = duckdb.connect(str(db_path))
+        ensure_schema(conn)
+        conn.execute(
+            "INSERT INTO schemes (amfi_code, name, amc, scheme_category, average_aum_cr) "
+            "VALUES ('119551', 'UTI Nifty 50 Index Fund', 'UTI Mutual Fund', "
+            "'Equity Scheme - Index Fund', 12000.0)"
+        )
+        conn.execute(
+            "INSERT INTO fund_returns (amfi_code, returns_1y, returns_3y, returns_5y, last_computed_at) "
+            "VALUES ('119551', 11.5, 13.2, 14.1, CURRENT_TIMESTAMP)"
+        )
+        build_universe(conn)
+        conn.close()
+
+        # Point the planner at our test DB
+        monkeypatch.setattr("subprime.advisor.planner.DB_PATH", db_path)
+
+        # Capture the universe_context arg by spying on create_advisor
+        captured = {}
+
+        def fake_create_advisor(*, prompt_hooks=None, universe_context=None, model=None):
+            captured["universe_context"] = universe_context
+            mock_agent = AsyncMock()
+            mock_agent.run = AsyncMock(return_value=MagicMock(output=_fake_plan()))
+            return mock_agent
+
+        monkeypatch.setattr("subprime.advisor.planner.create_advisor", fake_create_advisor)
+
+        from subprime.advisor.planner import generate_plan
+
+        profile = InvestorProfile(
+            id="test", name="Test", age=30, risk_appetite="moderate",
+            investment_horizon_years=10, monthly_investible_surplus_inr=10000,
+            existing_corpus_inr=0, liabilities_inr=0,
+            financial_goals=["Save"], life_stage="Mid career", tax_bracket="new_regime",
+        )
+
+        await generate_plan(profile)
+
+        ctx = captured["universe_context"]
+        assert ctx is not None
+        assert "UTI Nifty 50" in ctx
+        assert "Index" in ctx
+
+    @pytest.mark.asyncio
+    async def test_plan_generation_no_db_falls_back(self, tmp_path, monkeypatch):
+        """When no DB exists, generate_plan should pass universe_context=None."""
+        monkeypatch.setattr(
+            "subprime.advisor.planner.DB_PATH", tmp_path / "nonexistent.duckdb"
+        )
+
+        captured = {}
+
+        def fake_create_advisor(*, prompt_hooks=None, universe_context=None, model=None):
+            captured["universe_context"] = universe_context
+            mock_agent = AsyncMock()
+            mock_agent.run = AsyncMock(return_value=MagicMock(output=_fake_plan()))
+            return mock_agent
+
+        monkeypatch.setattr("subprime.advisor.planner.create_advisor", fake_create_advisor)
+
+        from subprime.advisor.planner import generate_plan
+
+        profile = InvestorProfile(
+            id="test", name="Test", age=30, risk_appetite="moderate",
+            investment_horizon_years=10, monthly_investible_surplus_inr=10000,
+            existing_corpus_inr=0, liabilities_inr=0,
+            financial_goals=["Save"], life_stage="Mid career", tax_bracket="new_regime",
+        )
+
+        await generate_plan(profile)
+
+        assert captured["universe_context"] is None
