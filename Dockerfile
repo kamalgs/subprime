@@ -16,7 +16,11 @@ RUN uv pip install --system --no-cache .
 # Gradio server defaults (overridable via env)
 ENV GRADIO_SERVER_NAME=0.0.0.0 \
     GRADIO_SERVER_PORT=8091 \
-    PYTHONUNBUFFERED=1
+    PYTHONUNBUFFERED=1 \
+    SUBPRIME_DATA_DIR=/app/state/data
+
+# Ensure state dirs exist (volume mounts will overlay /app/state at runtime)
+RUN mkdir -p /app/state/data /app/state/conversations
 
 EXPOSE 8091
 

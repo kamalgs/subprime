@@ -20,6 +20,11 @@ DATA_DIR = Path(
 )
 DB_PATH = DATA_DIR / "subprime.duckdb"
 
+# Conversations directory (captured advise sessions)
+CONVERSATIONS_DIR = Path(
+    os.environ.get("SUBPRIME_CONVERSATIONS_DIR", "conversations")
+)
+
 # GitHub dataset URLs for the InertExpert2911/Mutual_Fund_Data repository
 GITHUB_RAW_BASE = "https://raw.githubusercontent.com/InertExpert2911/Mutual_Fund_Data/main"
 GITHUB_LFS_BASE = "https://media.githubusercontent.com/media/InertExpert2911/Mutual_Fund_Data/main"

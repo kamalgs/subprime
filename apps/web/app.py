@@ -25,7 +25,7 @@ from subprime.evaluation.personas import load_personas
 
 logger = logging.getLogger("subprime.web")
 
-CONVERSATIONS_DIR = Path("conversations")
+from subprime.core.config import CONVERSATIONS_DIR
 
 # ---------------------------------------------------------------------------
 # CSS

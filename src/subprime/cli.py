@@ -32,11 +32,9 @@ logger = logging.getLogger("subprime")
 load_dotenv()
 
 from subprime.advisor.planner import generate_plan, generate_strategy
-from subprime.core.config import DB_PATH, DEFAULT_MODEL
+from subprime.core.config import CONVERSATIONS_DIR, DB_PATH, DEFAULT_MODEL
 from subprime.core.display import format_plan_summary, format_profile_card, format_strategy_outline
 from subprime.core.models import ConversationLog, ConversationTurn, ExperimentResult
-
-CONVERSATIONS_DIR = Path("conversations")
 
 app = typer.Typer(
     name="subprime",
