@@ -99,9 +99,21 @@ def get_connection(db_path: Path | None = None) -> duckdb.DuckDBPyConnection:
 
 
 def ensure_schema(conn: duckdb.DuckDBPyConnection) -> None:
-    """Create all fund-universe tables if they do not exist (idempotent)."""
+    """Create all fund-universe tables if they do not exist (idempotent).
+
+    Also applies light schema migrations for columns added after the initial
+    release (e.g. ``fund_universe.expense_ratio``).
+    """
     for statement in _SCHEMA_STATEMENTS:
         conn.execute(statement)
+
+    # Migration: add expense_ratio to fund_universe on pre-existing databases.
+    cols = {
+        row[1]
+        for row in conn.execute("PRAGMA table_info('fund_universe')").fetchall()
+    }
+    if "expense_ratio" not in cols:
+        conn.execute("ALTER TABLE fund_universe ADD COLUMN expense_ratio DOUBLE")
 
 
 # --------------------------------------------------------------------------- #
