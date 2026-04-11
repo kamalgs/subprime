@@ -95,53 +95,78 @@ DETAILS_RESPONSE_120505 = {
 
 
 # ---------------------------------------------------------------------------
-# search_funds tool
+# search_funds_universe tool
 # ---------------------------------------------------------------------------
 
 
-class TestSearchFundsTool:
-    @respx.mock
-    async def test_search_funds_returns_mutual_funds(self):
-        from subprime.data.tools import search_funds
+class TestSearchFundsUniverseTool:
+    async def test_search_universe_by_category(self, tmp_path, monkeypatch):
+        """search_funds_universe queries the local DuckDB."""
+        import duckdb
 
-        respx.get(f"{BASE}/schemes", params={"q": "nifty 50"}).mock(
-            return_value=httpx.Response(200, json=SEARCH_RESPONSE)
+        from subprime.data.store import ensure_schema
+        from subprime.data.universe import build_universe
+
+        db_path = tmp_path / "test.duckdb"
+        conn = duckdb.connect(str(db_path))
+        ensure_schema(conn)
+        conn.execute(
+            "INSERT INTO schemes (amfi_code, name, amc, scheme_category, average_aum_cr) "
+            "VALUES ('100', 'Test Large Cap', 'Test AMC', 'Equity Scheme - Large Cap Fund', 5000.0)"
         )
+        conn.execute(
+            "INSERT INTO fund_returns (amfi_code, returns_1y, returns_3y, returns_5y, last_computed_at) "
+            "VALUES ('100', 10.0, 12.0, 14.0, CURRENT_TIMESTAMP)"
+        )
+        build_universe(conn)
+        conn.close()
 
-        results = await search_funds("nifty 50")
+        monkeypatch.setattr("subprime.data.tools._db_path", lambda: db_path)
 
-        assert len(results) == 2
-        assert all(isinstance(r, MutualFund) for r in results)
-        assert results[0].amfi_code == "119551"
-        assert results[0].nav == 150.25
-        assert results[1].amfi_code == "120505"
+        from subprime.data.tools import search_funds_universe
 
-    @respx.mock
-    async def test_search_funds_with_category(self):
-        from subprime.data.tools import search_funds
-
-        respx.get(
-            f"{BASE}/schemes",
-            params={"q": "nifty", "category": "Equity"},
-        ).mock(return_value=httpx.Response(200, json={
-            "status": "success", "data": SEARCH_RESPONSE["data"][:1]
-        }))
-
-        results = await search_funds("nifty", category="Equity")
-
+        results = await search_funds_universe(category="Large Cap")
         assert len(results) == 1
+        assert results[0].name == "Test Large Cap"
 
-    @respx.mock
-    async def test_search_funds_empty_results(self):
-        from subprime.data.tools import search_funds
-
-        respx.get(
-            f"{BASE}/schemes", params={"q": "nonexistent_xyz"}
-        ).mock(return_value=httpx.Response(200, json={"status": "success", "data": []}))
-
-        results = await search_funds("nonexistent_xyz")
-
+    async def test_search_universe_no_db(self, tmp_path, monkeypatch):
+        """With no DB file, search_funds_universe returns empty list gracefully."""
+        monkeypatch.setattr("subprime.data.tools._db_path", lambda: tmp_path / "nonexistent.duckdb")
+        from subprime.data.tools import search_funds_universe
+        results = await search_funds_universe()
         assert results == []
+
+    async def test_search_universe_no_category_filter(self, tmp_path, monkeypatch):
+        """No category filter returns funds from all categories."""
+        import duckdb
+
+        from subprime.data.store import ensure_schema
+        from subprime.data.universe import build_universe
+
+        db_path = tmp_path / "test.duckdb"
+        conn = duckdb.connect(str(db_path))
+        ensure_schema(conn)
+        for amfi, name, cat in [
+            ("100", "A Large", "Equity Scheme - Large Cap Fund"),
+            ("200", "A Mid", "Equity Scheme - Mid Cap Fund"),
+        ]:
+            conn.execute(
+                "INSERT INTO schemes (amfi_code, name, amc, scheme_category, average_aum_cr) "
+                "VALUES (?, ?, 'AMC', ?, 5000.0)",
+                [amfi, name, cat],
+            )
+            conn.execute(
+                "INSERT INTO fund_returns (amfi_code, returns_1y, returns_3y, returns_5y, last_computed_at) "
+                "VALUES (?, 10.0, 12.0, 14.0, CURRENT_TIMESTAMP)",
+                [amfi],
+            )
+        build_universe(conn)
+        conn.close()
+
+        monkeypatch.setattr("subprime.data.tools._db_path", lambda: db_path)
+        from subprime.data.tools import search_funds_universe
+        results = await search_funds_universe()
+        assert len(results) == 2
 
 
 # ---------------------------------------------------------------------------
