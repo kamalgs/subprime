@@ -2,13 +2,12 @@
 
 from subprime.data.client import MFDataClient
 from subprime.data.schemas import SchemeDetails, SchemeSearchResult
-from subprime.data.tools import compare_funds, get_fund_performance, search_funds_universe
+from subprime.data.tools import get_fund_details, search_funds_universe
 
 __all__ = [
     "MFDataClient",
     "SchemeDetails",
     "SchemeSearchResult",
-    "compare_funds",
-    "get_fund_performance",
+    "get_fund_details",
     "search_funds_universe",
 ]

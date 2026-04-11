@@ -17,10 +17,39 @@ Central functions:
 
 from __future__ import annotations
 
+from typing import Optional
+
 import duckdb
 
 from subprime.core.config import CURATED_TOP_N
 from subprime.core.models import MutualFund
+
+
+# --------------------------------------------------------------------------- #
+# Expense ratio fallbacks
+# --------------------------------------------------------------------------- #
+
+
+# Fallback expense ratios when live API enrichment fails.
+# Based on typical direct-plan ranges for each category in the Indian market.
+_CATEGORY_TYPICAL_EXPENSE_RATIO: dict[str, float] = {
+    "Index": 0.20,
+    "Large Cap": 1.00,
+    "Large & Mid Cap": 1.10,
+    "Mid Cap": 1.15,
+    "Small Cap": 1.20,
+    "Flexi Cap": 1.00,
+    "Multi Cap": 1.05,
+    "ELSS": 1.05,
+    "Hybrid": 0.95,
+    "Debt": 0.55,
+    "Gold": 0.40,
+}
+
+
+def typical_expense_ratio(category: str) -> float:
+    """Return the category-typical expense ratio (fallback when live data is missing)."""
+    return _CATEGORY_TYPICAL_EXPENSE_RATIO.get(category, 1.00)
 
 
 # --------------------------------------------------------------------------- #
@@ -128,7 +157,7 @@ def build_universe(
     sql = f"""
     INSERT INTO fund_universe (
         amfi_code, name, amc, category, sub_category,
-        aum_cr, returns_1y, returns_3y, returns_5y, rank_in_category
+        aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio, rank_in_category
     )
     WITH categorized AS (
         SELECT
@@ -140,7 +169,8 @@ def build_universe(
             s.average_aum_cr AS aum_cr,
             r.returns_1y,
             r.returns_3y,
-            r.returns_5y
+            r.returns_5y,
+            CAST(NULL AS DOUBLE) AS expense_ratio
         FROM schemes s
         LEFT JOIN fund_returns r ON r.amfi_code = s.amfi_code
         WHERE s.name NOT ILIKE '%IDCW%'
@@ -149,7 +179,7 @@ def build_universe(
     ranked AS (
         SELECT
             amfi_code, name, amc, category, sub_category,
-            aum_cr, returns_1y, returns_3y, returns_5y,
+            aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio,
             ROW_NUMBER() OVER (
                 PARTITION BY category
                 ORDER BY returns_5y DESC NULLS LAST,
@@ -162,7 +192,7 @@ def build_universe(
     )
     SELECT
         amfi_code, name, amc, category, sub_category,
-        aum_cr, returns_1y, returns_3y, returns_5y, rank_in_category
+        aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio, rank_in_category
     FROM ranked
     WHERE rank_in_category <= ?
     """
@@ -181,6 +211,12 @@ def _fmt_pct(value: float | None) -> str:
     if value is None:
         return "-"
     return f"{value:.1f}%"
+
+
+def _fmt_er(value: float | None) -> str:
+    if value is None:
+        return "-"
+    return f"{value:.2f}%"
 
 
 def _fmt_aum(value: float | None) -> str:
@@ -212,7 +248,7 @@ def render_universe_context(conn: duckdb.DuckDBPyConnection) -> str:
     for category in CURATED_CATEGORIES:
         rows = conn.execute(
             """
-            SELECT name, amc, amfi_code, returns_1y, returns_3y, returns_5y, aum_cr
+            SELECT name, amc, amfi_code, returns_1y, returns_3y, returns_5y, expense_ratio, aum_cr
             FROM fund_universe
             WHERE category = ?
             ORDER BY rank_in_category
@@ -223,13 +259,13 @@ def render_universe_context(conn: duckdb.DuckDBPyConnection) -> str:
             continue
 
         lines.append(f"### {category}")
-        lines.append("| Fund | AMC | AMFI | 1y | 3y | 5y | AUM (Cr) |")
-        lines.append("|---|---|---|---|---|---|---|")
-        for name, amc, amfi_code, r1, r3, r5, aum in rows:
+        lines.append("| Fund | AMC | AMFI | 1y | 3y | 5y | ER | AUM (Cr) |")
+        lines.append("|---|---|---|---|---|---|---|---|")
+        for name, amc, amfi_code, r1, r3, r5, er, aum in rows:
             lines.append(
                 f"| {name} | {amc} | {amfi_code} | "
                 f"{_fmt_pct(r1)} | {_fmt_pct(r3)} | {_fmt_pct(r5)} | "
-                f"{_fmt_aum(aum)} |"
+                f"{_fmt_er(er)} | {_fmt_aum(aum)} |"
             )
         lines.append("")
 
@@ -255,7 +291,7 @@ def search_universe(
         rows = conn.execute(
             """
             SELECT amfi_code, name, amc, category, sub_category,
-                   aum_cr, returns_1y, returns_3y, returns_5y
+                   aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio
             FROM fund_universe
             WHERE category = ?
             ORDER BY rank_in_category
@@ -267,7 +303,7 @@ def search_universe(
         rows = conn.execute(
             """
             SELECT amfi_code, name, amc, category, sub_category,
-                   aum_cr, returns_1y, returns_3y, returns_5y
+                   aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio
             FROM fund_universe
             ORDER BY category, rank_in_category
             LIMIT ?
@@ -276,7 +312,7 @@ def search_universe(
         ).fetchall()
 
     funds: list[MutualFund] = []
-    for amfi_code, name, amc, cat, sub_cat, aum, r1, r3, r5 in rows:
+    for amfi_code, name, amc, cat, sub_cat, aum, r1, r3, r5, er in rows:
         funds.append(
             MutualFund(
                 amfi_code=str(amfi_code),
@@ -285,7 +321,7 @@ def search_universe(
                 sub_category=sub_cat or "",
                 fund_house=amc or "",
                 nav=0.0,
-                expense_ratio=0.0,
+                expense_ratio=er or 0.0,
                 aum_cr=aum,
                 returns_1y=r1,
                 returns_3y=r3,
@@ -293,3 +329,34 @@ def search_universe(
             )
         )
     return funds
+
+
+def search_universe_by_code(
+    conn: duckdb.DuckDBPyConnection,
+    amfi_code: str,
+) -> Optional[MutualFund]:
+    """Look up a single fund by AMFI code from the curated universe."""
+    row = conn.execute(
+        """
+        SELECT amfi_code, name, amc, category, sub_category,
+               aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio
+        FROM fund_universe
+        WHERE amfi_code = ?
+        """,
+        [amfi_code],
+    ).fetchone()
+    if not row:
+        return None
+    return MutualFund(
+        amfi_code=str(row[0]),
+        name=row[1] or "",
+        category=row[3] or "",
+        sub_category=row[4] or "",
+        fund_house=row[2] or "",
+        nav=0.0,
+        expense_ratio=row[9] or 0.0,
+        aum_cr=row[5],
+        returns_1y=row[6],
+        returns_3y=row[7],
+        returns_5y=row[8],
+    )

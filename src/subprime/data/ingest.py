@@ -15,6 +15,8 @@ Public API
 
 from __future__ import annotations
 
+import asyncio
+import logging
 from pathlib import Path
 
 import duckdb
@@ -22,6 +24,8 @@ import httpx
 
 from subprime.core.config import NAV_PARQUET_URL, SCHEMES_CSV_URL
 from subprime.data.store import log_refresh
+
+logger = logging.getLogger(__name__)
 
 
 # --------------------------------------------------------------------------- #
@@ -210,3 +214,60 @@ async def refresh(conn: duckdb.DuckDBPyConnection, data_dir: Path) -> dict:
         "nav_count": nav_count,
         "returns_count": returns_count,
     }
+
+
+# --------------------------------------------------------------------------- #
+# Enrichment (runtime-offline: only touched during refresh)
+# --------------------------------------------------------------------------- #
+
+
+async def enrich_universe_with_expense_ratios(
+    conn: duckdb.DuckDBPyConnection,
+) -> dict:
+    """Enrich fund_universe rows with expense ratios from mfdata.in.
+
+    For each curated fund, call the live API and extract expense_ratio.
+    On failure, fall back to the category-typical value. This runs once
+    per refresh and is the only time mfdata.in is touched.
+    """
+    from subprime.data.client import MFDataClient
+    from subprime.data.universe import typical_expense_ratio
+
+    rows = conn.execute(
+        "SELECT amfi_code, category FROM fund_universe WHERE expense_ratio IS NULL"
+    ).fetchall()
+
+    if not rows:
+        return {"enriched": 0, "fallback": 0}
+
+    sem = asyncio.Semaphore(10)
+    enriched = 0
+    fallback = 0
+
+    async with MFDataClient() as client:
+        async def _fetch(code: str, category: str) -> tuple[str, float, bool]:
+            async with sem:
+                try:
+                    details = await client.get_fund_details(code)
+                    if details.expense_ratio is not None and details.expense_ratio > 0:
+                        return code, details.expense_ratio, True
+                except httpx.HTTPError:
+                    pass
+                except Exception as exc:
+                    logger.warning("enrich %s failed: %s", code, exc)
+                return code, typical_expense_ratio(category), False
+
+        tasks = [_fetch(code, cat) for code, cat in rows]
+        results = await asyncio.gather(*tasks)
+
+    for code, er, is_live in results:
+        conn.execute(
+            "UPDATE fund_universe SET expense_ratio = ? WHERE amfi_code = ?",
+            [er, code],
+        )
+        if is_live:
+            enriched += 1
+        else:
+            fallback += 1
+
+    return {"enriched": enriched, "fallback": fallback}

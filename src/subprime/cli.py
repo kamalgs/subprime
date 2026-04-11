@@ -383,6 +383,14 @@ def data_refresh() -> None:
         _console.print("[dim]Building curated fund universe...[/dim]")
         universe_count = build_universe(conn)
         _console.print(f"[green]Universe ready:[/green] {universe_count} funds curated.")
+
+        _console.print("[dim]Enriching with expense ratios (live)...[/dim]")
+        from subprime.data.ingest import enrich_universe_with_expense_ratios
+        enrichment = asyncio.run(enrich_universe_with_expense_ratios(conn))
+        _console.print(
+            f"[green]Enriched:[/green] {enrichment['enriched']} live, "
+            f"{enrichment['fallback']} fallback (category-typical)."
+        )
         conn.close()
     except KeyboardInterrupt:
         _console.print("\n[dim]Interrupted.[/dim]")

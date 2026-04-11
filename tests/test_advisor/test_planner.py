@@ -54,12 +54,12 @@ def test_create_advisor_default():
     assert len(agent._function_toolset.tools) > 0
 
 
-def test_create_advisor_has_three_tools():
+def test_create_advisor_has_two_tools():
     agent = create_advisor()
     tool_names = set(agent._function_toolset.tools.keys())
+    assert len(tool_names) == 2
     assert "search_funds_universe" in tool_names
-    assert "get_fund_performance" in tool_names
-    assert "compare_funds" in tool_names
+    assert "get_fund_details" in tool_names
 
 
 def test_create_advisor_with_hook():

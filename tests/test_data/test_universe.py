@@ -271,6 +271,61 @@ class TestSearchUniverse:
 
 
 # --------------------------------------------------------------------------- #
+# search_universe_by_code
+# --------------------------------------------------------------------------- #
+
+
+class TestSearchUniverseByCode:
+    def test_lookup_existing(self, conn):
+        _populate(
+            conn,
+            [
+                ("1", "Alpha Large Cap Fund", "AMC One", "Equity Scheme - Large Cap Fund", 5000.0, 10.5, 12.3, 15.1),
+                ("2", "Beta Mid Cap Fund", "AMC Two", "Equity Scheme - Mid Cap Fund", 4000.0, 11.2, 13.4, 16.0),
+            ],
+        )
+        universe.build_universe(conn)
+        conn.execute("UPDATE fund_universe SET expense_ratio = 0.42 WHERE amfi_code = '1'")
+
+        fund = universe.search_universe_by_code(conn, "1")
+        assert fund is not None
+        assert isinstance(fund, MutualFund)
+        assert fund.amfi_code == "1"
+        assert fund.name == "Alpha Large Cap Fund"
+        assert fund.category == "Large Cap"
+        assert fund.fund_house == "AMC One"
+        assert fund.expense_ratio == pytest.approx(0.42)
+        assert fund.returns_5y == pytest.approx(15.1)
+
+    def test_lookup_missing_returns_none(self, conn):
+        _populate(
+            conn,
+            [
+                ("1", "Alpha Large Cap Fund", "AMC One", "Equity Scheme - Large Cap Fund", 5000.0, 10.5, 12.3, 15.1),
+            ],
+        )
+        universe.build_universe(conn)
+        assert universe.search_universe_by_code(conn, "999999") is None
+
+    def test_lookup_empty_universe(self, conn):
+        assert universe.search_universe_by_code(conn, "anything") is None
+
+
+# --------------------------------------------------------------------------- #
+# typical_expense_ratio
+# --------------------------------------------------------------------------- #
+
+
+class TestTypicalExpenseRatio:
+    def test_known_category(self):
+        assert universe.typical_expense_ratio("Index") == pytest.approx(0.20)
+        assert universe.typical_expense_ratio("Small Cap") == pytest.approx(1.20)
+
+    def test_unknown_defaults(self):
+        assert universe.typical_expense_ratio("Something Else") == pytest.approx(1.00)
+
+
+# --------------------------------------------------------------------------- #
 # Constants
 # --------------------------------------------------------------------------- #
 

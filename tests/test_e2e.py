@@ -32,14 +32,15 @@ class TestLiveMFDataAPI:
             assert fund.amfi_code
             assert fund.name
 
-    async def test_get_fund_performance_live(self):
-        from subprime.data.tools import get_fund_performance
+    async def test_mfdata_client_live(self):
+        """The MFDataClient is still used at refresh time for enrichment."""
+        from subprime.data.client import MFDataClient
 
-        # UTI Nifty 50 Index Fund - Direct Plan - Growth
-        fund = await get_fund_performance("120716")
-        assert fund.amfi_code == "120716"
-        assert fund.nav > 0
-        assert fund.expense_ratio >= 0
+        async with MFDataClient() as client:
+            # UTI Nifty 50 Index Fund - Direct Plan - Growth
+            details = await client.get_fund_details("120716")
+            assert details.amfi_code == "120716"
+            assert details.nav > 0
 
 
 class TestFullAdvisorFlow:

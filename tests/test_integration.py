@@ -206,14 +206,13 @@ class TestFullImportChain:
             MFDataClient,
             SchemeDetails,
             SchemeSearchResult,
-            compare_funds,
-            get_fund_performance,
+            get_fund_details,
             search_funds_universe,
         )
 
         symbols = [
             MFDataClient, SchemeDetails, SchemeSearchResult,
-            compare_funds, get_fund_performance, search_funds_universe,
+            get_fund_details, search_funds_universe,
         ]
         for s in symbols:
             assert s is not None
@@ -288,16 +287,15 @@ class TestPersonaAdvisorPlanWiring:
         assert persona.name == "Arjun Mehta"
         assert isinstance(persona, InvestorProfile)
 
-    def test_baseline_advisor_has_3_tools(self):
+    def test_baseline_advisor_has_2_tools(self):
         from subprime.advisor import create_advisor
 
         agent = create_advisor(prompt_hooks={})
         # PydanticAI Agent stores tools in _function_toolset.tools (dict keyed by name)
         tool_names = set(agent._function_toolset.tools.keys())
-        assert len(tool_names) == 3
+        assert len(tool_names) == 2
         assert "search_funds_universe" in tool_names
-        assert "get_fund_performance" in tool_names
-        assert "compare_funds" in tool_names
+        assert "get_fund_details" in tool_names
 
     def test_lynch_hook_in_system_prompt(self):
         from subprime.experiments import LYNCH

@@ -65,6 +65,7 @@ _SCHEMA_STATEMENTS: tuple[str, ...] = (
         returns_1y        DOUBLE,
         returns_3y        DOUBLE,
         returns_5y        DOUBLE,
+        expense_ratio     DOUBLE,
         rank_in_category  INTEGER
     )
     """,

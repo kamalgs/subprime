@@ -8,7 +8,7 @@ from pydantic_ai import Agent
 
 from subprime.core.config import DEFAULT_MODEL
 from subprime.core.models import InvestmentPlan, StrategyOutline
-from subprime.data.tools import compare_funds, get_fund_performance, search_funds_universe
+from subprime.data.tools import get_fund_details, search_funds_universe
 
 _PROMPTS_DIR = Path(__file__).parent / "prompts"
 
@@ -77,7 +77,7 @@ def create_advisor(
         model,
         system_prompt=system_prompt,
         output_type=InvestmentPlan,
-        tools=[search_funds_universe, get_fund_performance, compare_funds],
+        tools=[search_funds_universe, get_fund_details],
         retries=3,
         defer_model_check=True,
     )
