@@ -371,6 +371,7 @@ def data_refresh() -> None:
 
     try:
         _console.print("[dim]Downloading dataset (this may take a few minutes)...[/dim]")
+        DB_PATH.parent.mkdir(parents=True, exist_ok=True)
         conn = duckdb.connect(str(DB_PATH))
         ensure_schema(conn)
         stats = asyncio.run(run_refresh(conn, DATA_DIR))
