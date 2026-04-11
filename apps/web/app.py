@@ -195,7 +195,7 @@ def _opening_message() -> str:
     personas = load_personas()
     options = " / ".join(f"`{p.id}`" for p in personas)
     return (
-        "Welcome! I'm your mutual fund advisor for the Indian market.\n\n"
+        "Welcome! I'm FinAdvisor, your mutual fund advisor for the Indian market.\n\n"
         f"You can pick a persona ({options}) or just tell me about yourself — "
         "your age, how much you can invest monthly, goals, and time horizon."
     )
@@ -364,13 +364,13 @@ def _handle_plan_phase(user_msg: str, history: list, state: dict) -> tuple[list,
 # ---------------------------------------------------------------------------
 
 def create_app() -> gr.Blocks:
-    with gr.Blocks(title="Subprime Financial Advisor") as demo:
+    with gr.Blocks(title="FinAdvisor") as demo:
 
         state = gr.State(_make_state)
 
         gr.HTML(
             '<div style="text-align:center;padding:12px 0 4px 0">'
-            '<h2 style="margin:0">Subprime Financial Advisor</h2>'
+            '<h2 style="margin:0">FinAdvisor</h2>'
             '<p style="margin:2px 0 0 0;color:#666;font-size:0.9rem">'
             "AI-powered mutual fund advisory for Indian investors</p></div>"
         )

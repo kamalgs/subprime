@@ -27,7 +27,7 @@ from subprime.core.models import (
 
 def test_load_prompt_base():
     prompt = load_prompt("base")
-    assert "financial advisor" in prompt.lower()
+    assert "finadvisor" in prompt.lower() or "mutual fund advisor" in prompt.lower()
     assert "Indian" in prompt or "indian" in prompt
 
 

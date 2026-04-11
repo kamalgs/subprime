@@ -28,7 +28,7 @@ uv run pytest
 src/subprime/
   core/             Pydantic models, config, Rich display helpers
   data/             mfdata.in API client and PydanticAI tool functions
-  advisor/          Financial advisor agent factory + prompt templates
+  advisor/          FinAdvisor agent factory + prompt templates
   evaluation/       APS + PQS judge agents, scoring criteria, persona bank
   experiments/      Conditions (baseline/lynch/bogle), runner, analysis
   cli.py            Typer CLI entry point
@@ -36,7 +36,7 @@ src/subprime/
 
 ## How It Works
 
-1. **Advise** -- An LLM advisor generates a mutual fund plan for an investor profile, using live fund data via tool calls
+1. **Advise** -- FinAdvisor (the LLM advisor agent) generates a mutual fund plan for an investor profile, using live fund data via tool calls
 2. **Evaluate** -- Two independent LLM judges score the plan: APS (active-passive bias) and PQS (plan quality)
 3. **Analyse** -- Statistical comparison across conditions reveals the subprime spread (bias shift) and whether the quality judge detects it (rating blind spot)
 

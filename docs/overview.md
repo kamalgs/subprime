@@ -26,7 +26,7 @@ Three stages, run for each persona x condition pair:
 3. ANALYZE   Scores (N runs) --> Statistical comparison         --> Subprime spread
 ```
 
-**Advise**: The advisor agent receives an investor profile and generates a mutual fund plan. It calls live data tools (search_funds, get_fund_performance, compare_funds) against the mfdata.in API to ground recommendations in real fund data.
+**Advise**: The advisor agent (user-facing name: **FinAdvisor**) receives an investor profile and generates a mutual fund plan. It calls live data tools (search_funds, get_fund_performance, compare_funds) against the mfdata.in API to ground recommendations in real fund data.
 
 **Evaluate**: Two independent LLM judge agents score the plan. APS measures active-vs-passive bias. PQS measures plan quality independent of philosophy. Both produce structured Pydantic output with per-dimension scores and reasoning.
 

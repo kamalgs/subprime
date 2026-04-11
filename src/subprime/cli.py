@@ -181,7 +181,7 @@ def advise(
         help="LLM model identifier.",
     ),
 ) -> None:
-    """Interactive financial advisor — gather profile, co-create strategy, generate plan."""
+    """FinAdvisor — interactive mutual fund advisor: gather profile, co-create strategy, generate plan."""
     _check_api_key(model)
 
     conversation = ConversationLog(model=model)
