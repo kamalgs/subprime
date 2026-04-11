@@ -192,15 +192,32 @@ class TestGetFundPerformanceTool:
         assert fund.morningstar_rating == 4
 
     @respx.mock
-    async def test_get_fund_performance_404(self):
+    async def test_get_fund_performance_404_raises_model_retry(self):
+        """When the live API returns an HTTP error, raise ModelRetry so the
+        LLM can recover rather than crashing the whole plan generation."""
+        from pydantic_ai import ModelRetry
+
         from subprime.data.tools import get_fund_performance
 
         respx.get(f"{BASE}/schemes/999999").mock(
             return_value=httpx.Response(404, json={"detail": "Not found"})
         )
 
-        with pytest.raises(httpx.HTTPStatusError):
+        with pytest.raises(ModelRetry):
             await get_fund_performance("999999")
+
+    @respx.mock
+    async def test_get_fund_performance_502_raises_model_retry(self):
+        from pydantic_ai import ModelRetry
+
+        from subprime.data.tools import get_fund_performance
+
+        respx.get(f"{BASE}/schemes/888888").mock(
+            return_value=httpx.Response(502, text="Bad Gateway")
+        )
+
+        with pytest.raises(ModelRetry):
+            await get_fund_performance("888888")
 
 
 # ---------------------------------------------------------------------------
@@ -234,3 +251,20 @@ class TestCompareFundsTool:
         results = await compare_funds([])
 
         assert results == []
+
+    @respx.mock
+    async def test_compare_funds_skips_failures(self):
+        """If one fund's live lookup fails, the other should still return."""
+        from subprime.data.tools import compare_funds
+
+        respx.get(f"{BASE}/schemes/119551").mock(
+            return_value=httpx.Response(200, json=DETAILS_RESPONSE_119551)
+        )
+        respx.get(f"{BASE}/schemes/999999").mock(
+            return_value=httpx.Response(502, text="Bad Gateway")
+        )
+
+        results = await compare_funds(["119551", "999999"])
+
+        assert len(results) == 1
+        assert results[0].amfi_code == "119551"
