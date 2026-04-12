@@ -361,3 +361,35 @@ class TestChartDataCorpus:
         result = chart_data_corpus(10000, 10, 8, 12, 15)
         values = {s["label"]: s["future_value"] for s in result["scenarios"]}
         assert values["Bull"] > values["Base"] > values["Bear"]
+
+
+# ---------------------------------------------------------------------------
+# FastAPI app factory tests
+# ---------------------------------------------------------------------------
+
+from httpx import ASGITransport, AsyncClient
+
+
+class TestAppFactory:
+    def test_create_app(self):
+        from apps.web.main import create_app
+        app = create_app()
+        assert app is not None
+
+    @pytest.mark.asyncio
+    async def test_root_redirects_to_step1(self):
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.get("/", follow_redirects=False)
+            assert resp.status_code == 307
+            assert resp.headers["location"] == "/step/1"
+
+    @pytest.mark.asyncio
+    async def test_static_files_served(self):
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.get("/static/app.css")
+            assert resp.status_code == 200
+            assert "htmx-indicator" in resp.text
