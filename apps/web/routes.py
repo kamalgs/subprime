@@ -113,9 +113,26 @@ async def step4(
     if not session or session.plan is None:
         return RedirectResponse(url="/step/1", status_code=302)
 
+    from apps.web.rendering import (
+        chart_data_corpus,
+        chart_data_donut,
+        format_inr,
+        render_markdown,
+    )
+
     response = _render(
         request,
         "step_result.html",
-        {"current_step": 4, "session": session},
+        {
+            "current_step": 4,
+            "session": session,
+            "plan": session.plan,
+            "profile": session.profile,
+            "strategy": session.strategy,
+            "format_inr": format_inr,
+            "render_markdown": render_markdown,
+            "chart_data_donut": chart_data_donut,
+            "chart_data_corpus": chart_data_corpus,
+        },
     )
     return response
