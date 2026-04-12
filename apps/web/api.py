@@ -4,7 +4,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, Cookie, Form, Request, Response
 
-from apps.web._personas import get_persona
+from subprime.evaluation.personas import get_persona
 from apps.web.session import Session
 from subprime.core.models import InvestorProfile
 

@@ -3,7 +3,7 @@
 from fastapi import APIRouter, Cookie, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 
-from apps.web._personas import load_personas, get_persona  # noqa: F401
+from subprime.evaluation.personas import load_personas
 from apps.web.session import Session
 
 router = APIRouter()
@@ -26,8 +26,7 @@ async def _get_or_create_session(
 
 def _render(request: Request, template_name: str, context: dict) -> HTMLResponse:
     templates = request.app.state.templates
-    context["request"] = request
-    return templates.TemplateResponse(template_name, context)
+    return templates.TemplateResponse(request, template_name, context)
 
 
 # ---------------------------------------------------------------------------
