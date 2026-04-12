@@ -44,9 +44,11 @@ def load_schemes(conn: duckdb.DuckDBPyConnection, csv_path: Path) -> int:
         INSERT INTO schemes (
             amfi_code,
             name,
+            nav_name,
             amc,
             scheme_type,
             scheme_category,
+            plan_type,
             nav,
             latest_nav_date,
             average_aum_cr,
@@ -55,9 +57,14 @@ def load_schemes(conn: duckdb.DuckDBPyConnection, csv_path: Path) -> int:
         SELECT
             CAST(Scheme_Code AS VARCHAR)       AS amfi_code,
             Scheme_Name                        AS name,
+            Scheme_NAV_Name                    AS nav_name,
             AMC                                AS amc,
             Scheme_Type                        AS scheme_type,
             Scheme_Category                    AS scheme_category,
+            CASE
+                WHEN Scheme_NAV_Name ILIKE '%Direct%' THEN 'direct'
+                ELSE 'regular'
+            END                                AS plan_type,
             TRY_CAST(NAV AS DOUBLE)            AS nav,
             TRY_CAST(Latest_NAV_Date AS DATE)  AS latest_nav_date,
             TRY_CAST(Average_AUM_Cr AS DOUBLE) AS average_aum_cr,

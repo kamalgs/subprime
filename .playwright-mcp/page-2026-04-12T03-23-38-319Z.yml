@@ -1,0 +1,75 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - heading "Mutual Fund API Documentation" [level=1] [ref=e3]
+    - paragraph [ref=e4]: Complete API reference for accessing mutual fund data and NAV history
+  - generic [ref=e5]:
+    - link "← Back to Home" [ref=e6] [cursor=pointer]:
+      - /url: ../
+    - link "Getting Started" [ref=e7] [cursor=pointer]:
+      - /url: "#getting-started"
+    - link "API Explorer" [ref=e8] [cursor=pointer]:
+      - /url: "#swagger-ui"
+    - link "Endpoints" [ref=e9] [cursor=pointer]:
+      - /url: "#endpoints"
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - heading "Getting Started ▼" [level=2] [ref=e12] [cursor=pointer]
+      - generic:
+        - paragraph [ref=e13]: Welcome to the MFapi.in documentation. This API provides comprehensive access to Indian mutual fund data including scheme information, NAV history, and search capabilities.
+        - heading "Base URL" [level=3] [ref=e14]
+        - generic [ref=e15]: "Production: https://api.mfapi.in"
+        - heading "Response Format" [level=3] [ref=e16]
+        - paragraph [ref=e17]: All API responses are returned in JSON format with appropriate HTTP status codes.
+        - generic [ref=e18]:
+          - heading "Quick Start Example" [level=4] [ref=e19]
+          - paragraph [ref=e20]: "Get the latest NAV for a mutual fund scheme:"
+          - code [ref=e22]: curl https://api.mfapi.in/mf/125497/latest
+        - heading "Rate Limiting" [level=3] [ref=e23]
+        - paragraph [ref=e24]: The API implements rate limiting to ensure fair usage. Please cache responses when appropriate to minimize API calls.
+        - heading "No Authentication Required" [level=3] [ref=e25]
+        - paragraph [ref=e26]: This is a free, open API. No authentication or API keys are required.
+    - generic [ref=e27]:
+      - heading "Available Endpoints ▼" [level=2] [ref=e28] [cursor=pointer]
+      - list [ref=e29]:
+        - listitem [ref=e30]:
+          - generic [ref=e31]: GET
+          - code [ref=e32]: /mf/search
+          - text: "- Search mutual fund schemes by name"
+        - listitem [ref=e33]:
+          - generic [ref=e34]: GET
+          - code [ref=e35]: /mf
+          - text: "- List all mutual fund schemes with pagination"
+        - listitem [ref=e36]:
+          - generic [ref=e37]: GET
+          - code [ref=e38]: "/mf/{scheme_code}"
+          - text: "- Get NAV history for a specific scheme"
+        - listitem [ref=e39]:
+          - generic [ref=e40]: GET
+          - code [ref=e41]: "/mf/{scheme_code}/latest"
+          - text: "- Get latest NAV for a specific scheme"
+    - generic [ref=e42]:
+      - heading "Example Requests ▼" [level=2] [ref=e43] [cursor=pointer]
+      - generic:
+        - heading "Search for HDFC schemes" [level=3] [ref=e44]
+        - code [ref=e46]: GET https://api.mfapi.in/mf/search?q=HDFC
+        - heading "Get scheme NAV history with date range" [level=3] [ref=e47]
+        - code [ref=e49]: GET https://api.mfapi.in/mf/125497?startDate=2023-01-01&endDate=2023-12-31
+        - heading "Get latest NAV" [level=3] [ref=e50]
+        - code [ref=e52]: GET https://api.mfapi.in/mf/125497/latest
+        - heading "List schemes with pagination" [level=3] [ref=e53]
+        - code [ref=e55]: GET https://api.mfapi.in/mf?limit=100&offset=0
+    - generic [ref=e56]:
+      - heading "Response Examples ▼" [level=2] [ref=e57] [cursor=pointer]
+      - generic:
+        - heading "Latest NAV Response" [level=3] [ref=e58]
+        - code [ref=e60]: "{ \"meta\": { \"fund_house\": \"HDFC Mutual Fund\", \"scheme_type\": \"Open Ended Schemes\", \"scheme_category\": \"Equity Scheme - Large Cap Fund\", \"scheme_code\": 125497, \"scheme_name\": \"HDFC Top 100 Fund - Direct Plan - Growth\", \"isin_growth\": \"INF179K01BB2\", \"isin_div_reinvestment\": null }, \"data\": [ { \"date\": \"26-10-2024\", \"nav\": \"892.45600\" } ], \"status\": \"SUCCESS\" }"
+        - heading "Search Response" [level=3] [ref=e61]
+        - code [ref=e63]: "[ { \"schemeCode\": 125497, \"schemeName\": \"HDFC Top 100 Fund - Direct Plan - Growth\" }, { \"schemeCode\": 125498, \"schemeName\": \"HDFC Top 100 Fund - Regular Plan - Growth\" } ]"
+  - generic [ref=e66]:
+    - generic:
+      - generic:
+        - generic: loading
+  - generic [ref=e67]:
+    - paragraph [ref=e68]: MFapi.in - Mutual Fund API Documentation | Version 1.0.0
+    - paragraph [ref=e69]: Free & Open API for Indian Mutual Fund Data
+    - paragraph [ref=e70]: Powered by Swagger UI

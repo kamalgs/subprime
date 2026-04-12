@@ -410,9 +410,9 @@ class TestAdvisorWithUniverse:
         conn = duckdb.connect(str(db_path))
         ensure_schema(conn)
         conn.execute(
-            "INSERT INTO schemes (amfi_code, name, amc, scheme_category, average_aum_cr) "
-            "VALUES ('119551', 'UTI Nifty 50 Index Fund', 'UTI Mutual Fund', "
-            "'Equity Scheme - Index Fund', 12000.0)"
+            "INSERT INTO schemes (amfi_code, name, nav_name, amc, scheme_category, plan_type, average_aum_cr) "
+            "VALUES ('119551', 'UTI Nifty 50 Index Fund', 'UTI Nifty 50 Index Fund - Direct Plan - Growth', "
+            "'UTI Mutual Fund', 'Equity Scheme - Index Fund', 'direct', 12000.0)"
         )
         conn.execute(
             "INSERT INTO fund_returns (amfi_code, returns_1y, returns_3y, returns_5y, last_computed_at) "

@@ -29,9 +29,11 @@ _SCHEMA_STATEMENTS: tuple[str, ...] = (
     CREATE TABLE IF NOT EXISTS schemes (
         amfi_code        VARCHAR PRIMARY KEY,
         name             VARCHAR,
+        nav_name         VARCHAR,
         amc              VARCHAR,
         scheme_type      VARCHAR,
         scheme_category  VARCHAR,
+        plan_type        VARCHAR,
         nav              DOUBLE,
         latest_nav_date  DATE,
         average_aum_cr   DOUBLE,

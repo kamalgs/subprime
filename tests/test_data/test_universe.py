@@ -30,9 +30,9 @@ def _populate(conn, rows):
     """
     for r in rows:
         conn.execute(
-            "INSERT INTO schemes (amfi_code, name, amc, scheme_category, average_aum_cr) "
-            "VALUES (?, ?, ?, ?, ?)",
-            [r[0], r[1], r[2], r[3], r[4]],
+            "INSERT INTO schemes (amfi_code, name, nav_name, amc, scheme_category, plan_type, average_aum_cr) "
+            "VALUES (?, ?, ? || ' - Direct Plan - Growth', ?, ?, 'direct', ?)",
+            [r[0], r[1], r[1], r[2], r[3], r[4]],
         )
         conn.execute(
             "INSERT INTO fund_returns (amfi_code, returns_1y, returns_3y, returns_5y, last_computed_at) "
@@ -291,7 +291,7 @@ class TestSearchUniverseByCode:
         assert fund is not None
         assert isinstance(fund, MutualFund)
         assert fund.amfi_code == "1"
-        assert fund.name == "Alpha Large Cap Fund"
+        assert "Alpha Large Cap Fund" in fund.name
         assert fund.category == "Large Cap"
         assert fund.fund_house == "AMC One"
         assert fund.expense_ratio == pytest.approx(0.42)

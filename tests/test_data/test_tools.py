@@ -23,8 +23,8 @@ def _seed_universe(db_path) -> None:
     conn = duckdb.connect(str(db_path))
     ensure_schema(conn)
     conn.execute(
-        "INSERT INTO schemes (amfi_code, name, amc, scheme_category, average_aum_cr) "
-        "VALUES ('100', 'Test Large Cap', 'Test AMC', 'Equity Scheme - Large Cap Fund', 5000.0)"
+        "INSERT INTO schemes (amfi_code, name, nav_name, amc, scheme_category, plan_type, average_aum_cr) "
+        "VALUES ('100', 'Test Large Cap', 'Test Large Cap - Direct Plan - Growth', 'Test AMC', 'Equity Scheme - Large Cap Fund', 'direct', 5000.0)"
     )
     conn.execute(
         "INSERT INTO fund_returns (amfi_code, returns_1y, returns_3y, returns_5y, last_computed_at) "
@@ -55,7 +55,7 @@ class TestSearchFundsUniverseTool:
 
         results = await search_funds_universe(category="Large Cap")
         assert len(results) == 1
-        assert results[0].name == "Test Large Cap"
+        assert "Test Large Cap" in results[0].name
         assert results[0].expense_ratio == pytest.approx(0.75)
 
     async def test_search_universe_no_db(self, tmp_path, monkeypatch):
@@ -78,9 +78,9 @@ class TestSearchFundsUniverseTool:
             ("200", "A Mid", "Equity Scheme - Mid Cap Fund"),
         ]:
             conn.execute(
-                "INSERT INTO schemes (amfi_code, name, amc, scheme_category, average_aum_cr) "
-                "VALUES (?, ?, 'AMC', ?, 5000.0)",
-                [amfi, name, cat],
+                "INSERT INTO schemes (amfi_code, name, nav_name, amc, scheme_category, plan_type, average_aum_cr) "
+                "VALUES (?, ?, ? || ' - Direct Plan - Growth', 'AMC', ?, 'direct', 5000.0)",
+                [amfi, name, name, cat],
             )
             conn.execute(
                 "INSERT INTO fund_returns (amfi_code, returns_1y, returns_3y, returns_5y, last_computed_at) "
@@ -115,7 +115,7 @@ class TestGetFundDetailsTool:
         fund = await get_fund_details("100")
         assert isinstance(fund, MutualFund)
         assert fund.amfi_code == "100"
-        assert fund.name == "Test Large Cap"
+        assert "Test Large Cap" in fund.name
         assert fund.category == "Large Cap"
         assert fund.expense_ratio == pytest.approx(0.75)
         assert fund.returns_5y == pytest.approx(14.0)

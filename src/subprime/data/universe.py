@@ -162,7 +162,7 @@ def build_universe(
     WITH categorized AS (
         SELECT
             s.amfi_code,
-            s.name,
+            COALESCE(s.nav_name, s.name) AS name,
             s.amc,
             {category_case} AS category,
             s.scheme_category AS sub_category,
@@ -170,11 +170,13 @@ def build_universe(
             r.returns_1y,
             r.returns_3y,
             r.returns_5y,
-            CAST(NULL AS DOUBLE) AS expense_ratio
+            CAST(NULL AS DOUBLE) AS expense_ratio,
+            COALESCE(s.plan_type, 'regular') AS plan_type
         FROM schemes s
         LEFT JOIN fund_returns r ON r.amfi_code = s.amfi_code
-        WHERE s.name NOT ILIKE '%IDCW%'
-          AND s.name NOT ILIKE '%dividend%'
+        WHERE (COALESCE(s.nav_name, s.name)) NOT ILIKE '%IDCW%'
+          AND (COALESCE(s.nav_name, s.name)) NOT ILIKE '%dividend%'
+          AND COALESCE(s.plan_type, 'regular') = 'direct'
     ),
     ranked AS (
         SELECT
