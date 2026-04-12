@@ -1,5 +1,10 @@
-"""FastAPI app factory for the wizard web app."""
+# apps/web/main.py
+"""FastAPI application factory for the FinAdvisor wizard."""
 
+from __future__ import annotations
+
+import logging
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI
@@ -7,31 +12,51 @@ from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from apps.web.session import InMemorySessionStore
+from subprime.core.config import DATABASE_URL
+from subprime.core.persistence import InMemorySessionStore, PostgresSessionStore
+
+logger = logging.getLogger(__name__)
 
 _HERE = Path(__file__).parent
 _TEMPLATES_DIR = _HERE / "templates"
 _STATIC_DIR = _HERE / "static"
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Startup: init DB pool if configured. Shutdown: close pool."""
+    if DATABASE_URL:
+        from subprime.core.db import init_pool
+
+        pool = await init_pool(DATABASE_URL)
+        app.state.session_store = PostgresSessionStore(pool)
+        logger.info("Using PostgreSQL session store")
+    else:
+        app.state.session_store = InMemorySessionStore()
+        logger.info("Using in-memory session store (no DATABASE_URL)")
+
+    yield
+
+    if DATABASE_URL:
+        from subprime.core.db import close_pool
+
+        await close_pool()
+
+
 def create_app() -> FastAPI:
     """Create and configure the FastAPI application."""
-    from apps.web import routes, api  # noqa: PLC0415 — deferred to avoid circulars
+    from apps.web import api, routes
 
-    app = FastAPI(title="FinAdvisor", description="AI-powered mutual fund advisory")
+    app = FastAPI(title="FinAdvisor", description="AI-powered mutual fund advisory", lifespan=lifespan)
 
-    # State
+    # Default to in-memory — lifespan upgrades to Postgres if DATABASE_URL is set
     app.state.session_store = InMemorySessionStore()
     app.state.templates = Jinja2Templates(directory=str(_TEMPLATES_DIR))
-
-    # Static files
     app.mount("/static", StaticFiles(directory=str(_STATIC_DIR)), name="static")
 
-    # Routers
     app.include_router(routes.router)
     app.include_router(api.router)
 
-    # Root redirect
     @app.get("/", include_in_schema=False)
     async def root() -> RedirectResponse:
         return RedirectResponse(url="/step/1", status_code=307)

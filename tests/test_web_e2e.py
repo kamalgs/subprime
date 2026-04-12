@@ -172,7 +172,7 @@ class TestWizardE2E:
         assert page.locator("text=Basic").first.is_visible()
         assert page.locator("text=Premium").first.is_visible()
         assert page.locator("text=Start Free Plan").is_visible()
-        assert page.locator("text=Start Premium Plan").is_visible()
+        assert page.locator("text=Send me a code").is_visible()  # Premium uses OTP flow
 
     def test_step1_disclaimer_visible(self, page, base_url):
         """Step 1 shows the SEBI disclaimer."""
@@ -318,15 +318,20 @@ class TestWizardE2E:
         assert "Strategy" in content
         assert "Your Plan" in content
 
-    def test_premium_flow(self, page, base_url):
-        """Premium tier selection flows through the same wizard."""
+    def test_premium_otp_form_visible(self, page, base_url):
+        """Premium card shows OTP email form instead of direct button."""
         page.goto(f"{base_url}/step/1")
-        page.locator("text=Start Premium Plan").click()
-        page.wait_for_url("**/step/2")
-        page.locator("text=Arjun Mehta").click()
-        page.wait_for_url("**/step/3")
-        page.wait_for_selector("text=Generate My Plan", timeout=10000)
-        assert page.locator("text=Generate My Plan").is_visible()
+        assert page.locator("#otp-section").is_visible()
+        assert page.locator("input[name='email']").is_visible()
+        assert page.locator("text=Send me a code").is_visible()
+
+    def test_premium_otp_no_db_shows_error(self, page, base_url):
+        """Without DB, requesting an OTP shows a user-friendly error."""
+        page.goto(f"{base_url}/step/1")
+        page.locator("input[name='email']").fill("test@example.com")
+        page.locator("text=Send me a code").click()
+        page.wait_for_selector("text=not available", timeout=5000)
+        assert page.locator("text=not available").is_visible()
 
     def test_no_js_console_errors(self, page, base_url):
         """No JavaScript console errors during the full flow."""
