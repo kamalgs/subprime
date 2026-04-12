@@ -3,6 +3,17 @@ from __future__ import annotations
 import os
 from datetime import datetime, timezone
 import pytest
+from subprime.core.models import InvestorProfile, Session, SessionSummary
+
+
+def _test_profile() -> InvestorProfile:
+    return InvestorProfile(
+        id="test", name="Test User", age=30, risk_appetite="moderate",
+        investment_horizon_years=10, monthly_investible_surplus_inr=50000,
+        existing_corpus_inr=0, liabilities_inr=0,
+        financial_goals=["retirement"], life_stage="early career",
+        tax_bracket="new_regime",
+    )
 
 class TestPersistenceConfig:
     def test_database_url_default_none(self):
@@ -94,3 +105,125 @@ class TestDbPool:
         assert "sessions" in content
         assert "conversations" in content
         assert "otps" in content
+
+
+@pytest.fixture
+def in_memory_store():
+    from subprime.core.persistence import InMemorySessionStore
+    return InMemorySessionStore()
+
+
+class TestInMemorySessionStore:
+    @pytest.mark.asyncio
+    async def test_get_nonexistent(self, in_memory_store):
+        result = await in_memory_store.get("does-not-exist")
+        assert result is None
+
+    @pytest.mark.asyncio
+    async def test_save_and_get(self, in_memory_store):
+        session = Session()
+        await in_memory_store.save(session)
+        retrieved = await in_memory_store.get(session.id)
+        assert retrieved is not None
+        assert retrieved.id == session.id
+
+    @pytest.mark.asyncio
+    async def test_save_updates(self, in_memory_store):
+        session = Session()
+        await in_memory_store.save(session)
+        session.current_step = 3
+        await in_memory_store.save(session)
+        retrieved = await in_memory_store.get(session.id)
+        assert retrieved.current_step == 3
+
+    @pytest.mark.asyncio
+    async def test_list_empty(self, in_memory_store):
+        result = await in_memory_store.list_sessions()
+        assert result == []
+
+    @pytest.mark.asyncio
+    async def test_list_returns_summaries(self, in_memory_store):
+        session = Session()
+        await in_memory_store.save(session)
+        summaries = await in_memory_store.list_sessions()
+        assert len(summaries) == 1
+        assert isinstance(summaries[0], SessionSummary)
+
+    @pytest.mark.asyncio
+    async def test_list_respects_limit(self, in_memory_store):
+        for _ in range(5):
+            await in_memory_store.save(Session())
+        summaries = await in_memory_store.list_sessions(limit=3)
+        assert len(summaries) == 3
+
+    @pytest.mark.asyncio
+    async def test_save_with_profile(self, in_memory_store):
+        session = Session(profile=_test_profile())
+        await in_memory_store.save(session)
+        retrieved = await in_memory_store.get(session.id)
+        assert retrieved.profile is not None
+        assert retrieved.profile.name == "Test User"
+
+
+@pytest.fixture
+async def postgres_store():
+    db_url = os.environ.get("DATABASE_URL")
+    if not db_url:
+        pytest.skip("DATABASE_URL not set")
+    from subprime.core.db import init_pool
+    from subprime.core.persistence import PostgresSessionStore
+    pool = await init_pool(db_url)
+    async with pool.acquire() as conn:
+        await conn.execute("DELETE FROM sessions")
+    store = PostgresSessionStore(pool)
+    yield store
+    async with pool.acquire() as conn:
+        await conn.execute("DELETE FROM sessions")
+    await pool.close()
+
+
+class TestPostgresSessionStore:
+    @pytest.mark.asyncio
+    async def test_get_nonexistent(self, postgres_store):
+        result = await postgres_store.get("does-not-exist")
+        assert result is None
+
+    @pytest.mark.asyncio
+    async def test_save_and_get(self, postgres_store):
+        session = Session(mode="premium")
+        await postgres_store.save(session)
+        retrieved = await postgres_store.get(session.id)
+        assert retrieved is not None
+        assert retrieved.id == session.id
+        assert retrieved.mode == "premium"
+
+    @pytest.mark.asyncio
+    async def test_save_with_profile(self, postgres_store):
+        session = Session(profile=_test_profile())
+        await postgres_store.save(session)
+        retrieved = await postgres_store.get(session.id)
+        assert retrieved.profile is not None
+        assert retrieved.profile.name == "Test User"
+
+    @pytest.mark.asyncio
+    async def test_save_updates(self, postgres_store):
+        session = Session()
+        await postgres_store.save(session)
+        session.current_step = 5
+        await postgres_store.save(session)
+        retrieved = await postgres_store.get(session.id)
+        assert retrieved.current_step == 5
+
+    @pytest.mark.asyncio
+    async def test_list_sessions(self, postgres_store):
+        await postgres_store.save(Session())
+        await postgres_store.save(Session())
+        summaries = await postgres_store.list_sessions()
+        assert len(summaries) == 2
+
+    @pytest.mark.asyncio
+    async def test_list_with_profile_shows_name(self, postgres_store):
+        session = Session(profile=_test_profile())
+        await postgres_store.save(session)
+        summaries = await postgres_store.list_sessions()
+        assert any(s.investor_name == "Test User" for s in summaries)
