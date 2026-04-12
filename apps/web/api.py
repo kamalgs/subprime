@@ -1,5 +1,6 @@
 """HTMX API endpoints for the wizard web app."""
 
+import re
 from typing import Annotated
 
 from fastapi import APIRouter, Cookie, Form, Request, Response
@@ -9,6 +10,8 @@ from apps.web.session import Session
 from subprime.core.models import InvestorProfile, ConversationTurn
 from subprime.advisor.planner import generate_plan, generate_strategy
 from apps.web.rendering import chart_data_donut, render_markdown
+from subprime.core.db import get_pool
+from subprime.core.otp import create_otp, verify_otp, daily_otp_count
 
 router = APIRouter(prefix="/api")
 
@@ -247,6 +250,11 @@ async def api_generate_plan(
     session.current_step = 4
     await store.save(session)
 
+    # Save conversation log
+    from subprime.core.conversations import save_conversation
+    from subprime.core.db import get_pool as _get_pool
+    await save_conversation(session=session, pool=_get_pool())
+
     response.status_code = 200
     response.headers["HX-Redirect"] = "/step/4"
     response.set_cookie("finadvisor_session", session.id, httponly=True, samesite="lax")
@@ -271,4 +279,92 @@ async def api_reset(
     response.status_code = 200
     response.headers["HX-Redirect"] = "/step/1"
     response.set_cookie("finadvisor_session", new_session.id, httponly=True, samesite="lax")
+    return response
+
+
+# ---------------------------------------------------------------------------
+# POST /api/request-otp
+# ---------------------------------------------------------------------------
+
+
+@router.post("/request-otp")
+async def api_request_otp(
+    request: Request,
+    email: Annotated[str | None, Form()] = None,
+    finadvisor_session: str | None = Cookie(default=None),
+):
+    """Generate and email an OTP for premium access."""
+    templates = request.app.state.templates
+    pool = get_pool()
+
+    if not pool:
+        return templates.TemplateResponse(request, "partials/otp_error.html", {
+            "message": "Premium is not available right now — please try the Basic plan.",
+            "show_retry": False, "email": email,
+        })
+
+    if not email or not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", email):
+        return templates.TemplateResponse(request, "partials/otp_error.html", {
+            "message": "Please enter a valid email address.",
+            "show_retry": True, "email": email,
+        })
+
+    result = await create_otp(pool, email.strip().lower())
+    if not result["success"]:
+        return templates.TemplateResponse(request, "partials/otp_error.html", {
+            "message": result["reason"], "show_retry": False, "email": email,
+        })
+
+    from apps.web.email import send_otp_email
+    sent = await send_otp_email(email.strip().lower(), result["code"])
+    if not sent:
+        return templates.TemplateResponse(request, "partials/otp_error.html", {
+            "message": "Could not send email — please check your address and try again.",
+            "show_retry": True, "email": email,
+        })
+
+    return templates.TemplateResponse(request, "partials/otp_verify.html", {
+        "email": email.strip().lower(),
+    })
+
+
+# ---------------------------------------------------------------------------
+# POST /api/verify-otp
+# ---------------------------------------------------------------------------
+
+
+@router.post("/verify-otp")
+async def api_verify_otp(
+    request: Request,
+    email: Annotated[str, Form()],
+    code: Annotated[str, Form()],
+    finadvisor_session: str | None = Cookie(default=None),
+):
+    """Verify an OTP and grant premium access."""
+    templates = request.app.state.templates
+    pool = get_pool()
+
+    if not pool:
+        return templates.TemplateResponse(request, "partials/otp_error.html", {
+            "message": "Premium is not available right now.",
+            "show_retry": False, "email": email,
+        })
+
+    store = request.app.state.session_store
+    session = await _get_or_create_session(request, finadvisor_session)
+
+    verified = await verify_otp(pool, email.strip().lower(), code.strip())
+    if not verified:
+        return templates.TemplateResponse(request, "partials/otp_error.html", {
+            "message": "Invalid or expired code. Please request a new one.",
+            "show_retry": True, "email": email,
+        })
+
+    session.mode = "premium"
+    session.current_step = 2
+    await store.save(session)
+
+    response = Response(status_code=200)
+    response.headers["HX-Redirect"] = "/step/2"
+    response.set_cookie("finadvisor_session", session.id, httponly=True, samesite="lax")
     return response

@@ -106,14 +106,16 @@
                     Detailed rationale &amp; risk analysis
                 </li>
             </ul>
-            <button
-                class="w-full py-3 px-4 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-xl transition-colors duration-150"
-                hx-post="/api/select-tier"
-                hx-vals='{"mode": "premium"}'
-                hx-swap="none"
-                data-tier="premium">
-                Start Premium Plan
-            </button>
+            <div id="otp-section" class="mt-4 space-y-3">
+                <div class="flex gap-2">
+                    <input type="email" name="email" placeholder="your@email.com" required
+                        class="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent">
+                    <button hx-post="/api/request-otp" hx-include="[name='email']" hx-target="#otp-section" hx-swap="outerHTML"
+                        class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold rounded-lg transition-colors whitespace-nowrap">
+                        Send me a code</button>
+                </div>
+                <p class="text-xs text-gray-400">We'll email you a one-time code to unlock premium.</p>
+            </div>
         </div>
 
     </div>
