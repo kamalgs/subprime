@@ -466,7 +466,10 @@ def create_app() -> gr.Blocks:
             '<div style="text-align:center;padding:12px 0 4px 0">'
             '<h2 style="margin:0">FinAdvisor</h2>'
             '<p style="margin:2px 0 0 0;color:#666;font-size:0.9rem">'
-            "AI-powered mutual fund advisory for Indian investors</p></div>"
+            "AI-powered mutual fund advisory for Indian investors</p>"
+            '<p style="margin:4px 0 0 0;color:#c0392b;font-size:0.78rem">'
+            "&#9888; For educational and research purposes only. Not SEBI-registered investment advice. "
+            "Please consult a certified financial advisor before making investment decisions.</p></div>"
         )
 
         chatbot = gr.Chatbot(
