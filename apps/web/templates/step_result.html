@@ -1,1 +1,367 @@
-{% extends "base.html" %}{% block content %}<p>Results page - coming in Task 6</p>{% endblock %}
+{% extends "base.html" %}
+
+{% block title %}Your Investment Plan — FinAdvisor{% endblock %}
+
+{% block content %}
+{% set n_funds = plan.allocations | length %}
+{% set total_sip = plan.allocations | map(attribute='monthly_sip_inr') | select | sum %}
+{% set bear = plan.projected_returns.get('bear', 0) %}
+{% set base_r = plan.projected_returns.get('base', 0) %}
+{% set bull = plan.projected_returns.get('bull', 0) %}
+
+{# Compute unique fund houses #}
+{% set houses = [] %}
+{% for a in plan.allocations %}
+  {% if a.fund.fund_house and a.fund.fund_house not in houses %}
+    {% set _ = houses.append(a.fund.fund_house) %}
+  {% endif %}
+{% endfor %}
+
+{# Effective SIP and horizon for corpus chart #}
+{% set effective_sip = total_sip %}
+{% set effective_horizon = profile.investment_horizon_years if profile else 0 %}
+
+<div class="space-y-8">
+
+    {# ------------------------------------------------------------------ #}
+    {# 1. Page Header                                                       #}
+    {# ------------------------------------------------------------------ #}
+    <div>
+        <h2 class="text-2xl font-bold text-gray-900">Your Investment Plan</h2>
+        <p class="mt-1 text-sm text-gray-500">
+            {% if profile %}
+            {{ profile.name }}, age {{ profile.age }}
+            &middot; {{ session.mode | capitalize }} plan
+            &middot; {{ profile.investment_horizon_years }}-year horizon
+            {% endif %}
+        </p>
+    </div>
+
+    {# ------------------------------------------------------------------ #}
+    {# 2. Stat Cards Row                                                    #}
+    {# ------------------------------------------------------------------ #}
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+
+        {# Number of funds #}
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-4 flex flex-col items-center text-center">
+            <span class="text-3xl font-bold text-primary-600">{{ n_funds }}</span>
+            <span class="mt-1 text-xs text-gray-500 font-medium">Funds</span>
+        </div>
+
+        {# Unique fund houses #}
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-4 flex flex-col items-center text-center">
+            <span class="text-3xl font-bold text-primary-600">{{ houses | length }}</span>
+            <span class="mt-1 text-xs text-gray-500 font-medium">Fund Houses</span>
+        </div>
+
+        {# Total monthly SIP #}
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-4 flex flex-col items-center text-center">
+            <span class="text-2xl font-bold text-primary-600 leading-tight">{{ format_inr(total_sip) }}</span>
+            <span class="mt-1 text-xs text-gray-500 font-medium">Monthly SIP</span>
+        </div>
+
+        {# Bear CAGR #}
+        {% if bear > 0 %}
+        <div class="bg-white rounded-2xl border border-red-200 shadow-sm p-4 flex flex-col items-center text-center">
+            <span class="text-3xl font-bold text-red-500">{{ bear }}%</span>
+            <span class="mt-1 text-xs text-gray-500 font-medium">Bear CAGR</span>
+        </div>
+        {% endif %}
+
+        {# Base CAGR #}
+        {% if base_r > 0 %}
+        <div class="bg-white rounded-2xl border border-amber-200 shadow-sm p-4 flex flex-col items-center text-center">
+            <span class="text-3xl font-bold text-amber-500">{{ base_r }}%</span>
+            <span class="mt-1 text-xs text-gray-500 font-medium">Base CAGR</span>
+        </div>
+        {% endif %}
+
+        {# Bull CAGR #}
+        {% if bull > 0 %}
+        <div class="bg-white rounded-2xl border border-green-200 shadow-sm p-4 flex flex-col items-center text-center">
+            <span class="text-3xl font-bold text-green-500">{{ bull }}%</span>
+            <span class="mt-1 text-xs text-gray-500 font-medium">Bull CAGR</span>
+        </div>
+        {% endif %}
+
+    </div>
+
+    {# ------------------------------------------------------------------ #}
+    {# 3. Corpus Projection Chart + Table                                   #}
+    {# ------------------------------------------------------------------ #}
+    {% if bear > 0 and effective_sip > 0 and effective_horizon > 0 %}
+    {% set corpus_data = chart_data_corpus(effective_sip, effective_horizon, bear, base_r, bull) %}
+    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-6">
+        <div>
+            <h3 class="text-lg font-semibold text-gray-800">Corpus Projection</h3>
+            <p class="text-sm text-gray-500 mt-0.5">
+                {{ corpus_data.sip_fmt }}/mo SIP &middot; {{ corpus_data.years }}-year horizon &middot; inflation discounted at 6%
+            </p>
+        </div>
+
+        <div class="relative h-64">
+            <canvas
+                id="corpus-chart"
+                data-scenarios='{{ corpus_data.scenarios | tojson }}'
+                aria-label="Corpus projection bar chart"
+                role="img">
+            </canvas>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full text-sm">
+                <thead>
+                    <tr class="border-b border-gray-200 text-left text-xs text-gray-500 uppercase tracking-wide">
+                        <th class="py-2 pr-6 font-semibold">Scenario</th>
+                        <th class="py-2 pr-6 font-semibold">CAGR</th>
+                        <th class="py-2 pr-6 font-semibold">Future Value</th>
+                        <th class="py-2 font-semibold">In Today's ₹</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for scenario in corpus_data.scenarios %}
+                    <tr class="border-b border-gray-100 last:border-0">
+                        <td class="py-3 pr-6">
+                            <span class="inline-flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background: {{ scenario.color }};"></span>
+                                <span class="font-medium" style="color: {{ scenario.color }};">{{ scenario.label }}</span>
+                            </span>
+                        </td>
+                        <td class="py-3 pr-6 text-gray-700">{{ scenario.cagr }}% p.a.</td>
+                        <td class="py-3 pr-6 font-semibold text-gray-900">{{ scenario.future_value_fmt }}</td>
+                        <td class="py-3 text-gray-600">{{ scenario.present_value_fmt }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endif %}
+
+    {# ------------------------------------------------------------------ #}
+    {# 4. Fund Allocations                                                  #}
+    {# ------------------------------------------------------------------ #}
+    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-3">
+        <h3 class="text-lg font-semibold text-gray-800">Fund Allocations</h3>
+
+        <div class="space-y-2">
+        {% for alloc in plan.allocations %}
+        <details class="group rounded-xl border border-gray-200 overflow-hidden">
+            <summary class="flex flex-wrap items-center gap-x-4 gap-y-1 cursor-pointer px-4 py-3 bg-gray-50 hover:bg-gray-100 transition-colors duration-150 list-none">
+                {# Fund name #}
+                <span class="font-semibold text-gray-900 text-sm flex-1 min-w-0 truncate">{{ alloc.fund.name }}</span>
+
+                {# Fund house + AMFI code #}
+                <span class="text-xs text-gray-400 whitespace-nowrap">
+                    {{ alloc.fund.fund_house }}{% if alloc.fund.fund_house and alloc.fund.amfi_code %} &middot; {% endif %}{{ alloc.fund.amfi_code }}
+                </span>
+
+                {# Allocation % #}
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-primary-100 text-primary-700 whitespace-nowrap">
+                    {{ alloc.allocation_pct | int }}%
+                </span>
+
+                {# Mode #}
+                <span class="text-xs text-gray-500 capitalize whitespace-nowrap">{{ alloc.mode }}</span>
+
+                {# SIP amount #}
+                {% if alloc.monthly_sip_inr %}
+                <span class="text-xs font-medium text-gray-700 whitespace-nowrap">{{ format_inr(alloc.monthly_sip_inr) }}/mo</span>
+                {% endif %}
+
+                {# Expense ratio #}
+                {% if alloc.fund.expense_ratio %}
+                <span class="text-xs text-gray-400 whitespace-nowrap">{{ alloc.fund.expense_ratio }}% ER</span>
+                {% endif %}
+
+                {# Star rating #}
+                {% if alloc.fund.morningstar_rating %}
+                <span class="text-xs text-amber-500 whitespace-nowrap">{{ "★" * alloc.fund.morningstar_rating }}</span>
+                {% endif %}
+
+                {# Chevron icon #}
+                <svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </summary>
+
+            <div class="px-5 py-4 text-sm text-gray-700 leading-relaxed prose prose-sm max-w-none border-t border-gray-100">
+                {{ render_markdown(alloc.rationale) | safe }}
+            </div>
+        </details>
+        {% endfor %}
+        </div>
+    </div>
+
+    {# ------------------------------------------------------------------ #}
+    {# 5. Why This Plan                                                     #}
+    {# ------------------------------------------------------------------ #}
+    {% if plan.rationale %}
+    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">Why This Plan</h3>
+        <div class="text-sm text-gray-700 leading-relaxed prose prose-sm max-w-none">
+            {{ render_markdown(plan.rationale) | safe }}
+        </div>
+    </div>
+    {% endif %}
+
+    {# ------------------------------------------------------------------ #}
+    {# 6. Collapsible Sections                                              #}
+    {# ------------------------------------------------------------------ #}
+    <div class="space-y-3">
+
+        {# Risks #}
+        {% if plan.risks %}
+        <details class="bg-white rounded-2xl border border-red-100 shadow-sm overflow-hidden">
+            <summary class="flex items-center gap-2 cursor-pointer px-5 py-4 hover:bg-red-50 transition-colors duration-150 list-none">
+                <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                </svg>
+                <span class="font-semibold text-red-700 text-sm">Risks to Consider</span>
+                <svg class="w-4 h-4 text-gray-400 ml-auto flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </summary>
+            <div class="px-5 pb-4 pt-2 border-t border-red-100">
+                <ul class="space-y-2 text-sm text-gray-700">
+                    {% for risk in plan.risks %}
+                    <li class="flex items-start gap-2">
+                        <span class="text-red-400 mt-0.5 flex-shrink-0">&#8227;</span>
+                        {{ risk }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </details>
+        {% endif %}
+
+        {# Getting Started #}
+        {% if plan.setup_phase %}
+        <details class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+            <summary class="flex items-center gap-2 cursor-pointer px-5 py-4 hover:bg-gray-50 transition-colors duration-150 list-none">
+                <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                </svg>
+                <span class="font-semibold text-gray-800 text-sm">Getting Started</span>
+                <svg class="w-4 h-4 text-gray-400 ml-auto flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </summary>
+            <div class="px-5 pb-4 pt-2 border-t border-gray-100 text-sm text-gray-700 leading-relaxed prose prose-sm max-w-none">
+                {{ render_markdown(plan.setup_phase) | safe }}
+            </div>
+        </details>
+        {% endif %}
+
+        {# Rebalancing Guidelines #}
+        {% if plan.rebalancing_guidelines %}
+        <details class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+            <summary class="flex items-center gap-2 cursor-pointer px-5 py-4 hover:bg-gray-50 transition-colors duration-150 list-none">
+                <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+                <span class="font-semibold text-gray-800 text-sm">Rebalancing Guidelines</span>
+                <svg class="w-4 h-4 text-gray-400 ml-auto flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </summary>
+            <div class="px-5 pb-4 pt-2 border-t border-gray-100 text-sm text-gray-700 leading-relaxed prose prose-sm max-w-none">
+                {{ render_markdown(plan.rebalancing_guidelines) | safe }}
+            </div>
+        </details>
+        {% endif %}
+
+    </div>
+
+    {# ------------------------------------------------------------------ #}
+    {# 7. Premium-only Sections                                             #}
+    {# ------------------------------------------------------------------ #}
+    {% if session.mode == 'premium' %}
+
+        {# SIP Step-Up #}
+        {% if plan.sip_step_up %}
+        <div class="bg-gradient-to-br from-primary-50 to-indigo-50 rounded-2xl border border-primary-200 shadow-sm p-6">
+            <div class="flex items-center gap-2 mb-3">
+                <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                </svg>
+                <h3 class="text-base font-semibold text-primary-800">SIP Step-Up Plan <span class="ml-2 text-xs font-medium bg-primary-600 text-white px-2 py-0.5 rounded-full">Premium</span></h3>
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed">{{ plan.sip_step_up.description }}</p>
+            <p class="mt-2 text-sm font-medium text-primary-700">Annual increase: {{ plan.sip_step_up.annual_increase_pct }}%</p>
+        </div>
+        {% endif %}
+
+        {# Allocation Phase Timeline #}
+        {% if plan.allocation_schedule %}
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
+            <div class="flex items-center gap-2 mb-4">
+                <h3 class="text-base font-semibold text-gray-800">Allocation Phase Timeline <span class="ml-2 text-xs font-medium bg-primary-600 text-white px-2 py-0.5 rounded-full">Premium</span></h3>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-sm">
+                    <thead>
+                        <tr class="border-b border-gray-200 text-left text-xs text-gray-500 uppercase tracking-wide">
+                            <th class="py-2 pr-4 font-semibold">Year</th>
+                            <th class="py-2 pr-4 font-semibold">Equity %</th>
+                            <th class="py-2 pr-4 font-semibold">Debt %</th>
+                            <th class="py-2 pr-4 font-semibold">Gold %</th>
+                            <th class="py-2 pr-4 font-semibold">Other %</th>
+                            <th class="py-2 font-semibold">Trigger</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for phase in plan.allocation_schedule %}
+                        <tr class="border-b border-gray-100 last:border-0">
+                            <td class="py-2 pr-4 font-medium text-gray-900">{{ phase.year }}</td>
+                            <td class="py-2 pr-4 text-gray-700">{{ phase.equity_pct }}%</td>
+                            <td class="py-2 pr-4 text-gray-700">{{ phase.debt_pct }}%</td>
+                            <td class="py-2 pr-4 text-gray-700">{{ phase.gold_pct }}%</td>
+                            <td class="py-2 pr-4 text-gray-700">{{ phase.other_pct }}%</td>
+                            <td class="py-2 text-gray-500 text-xs">{{ phase.trigger }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+
+    {% endif %}
+
+    {# ------------------------------------------------------------------ #}
+    {# 8. Disclaimer                                                        #}
+    {# ------------------------------------------------------------------ #}
+    <p class="text-xs text-gray-400 italic text-center leading-relaxed">
+        {{ plan.disclaimer }}
+    </p>
+
+    {# ------------------------------------------------------------------ #}
+    {# 9. Actions                                                           #}
+    {# ------------------------------------------------------------------ #}
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pb-4">
+        <button
+            class="px-6 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold text-sm rounded-xl transition-colors duration-150"
+            hx-post="/api/reset"
+            hx-swap="none">
+            Start Over
+        </button>
+        <button
+            class="px-6 py-2.5 bg-gray-100 text-gray-400 font-semibold text-sm rounded-xl cursor-not-allowed opacity-60"
+            disabled
+            title="Coming soon">
+            Download PDF
+        </button>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/charts.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    initCorpusChart('corpus-chart');
+});
+</script>
+{% endblock %}
