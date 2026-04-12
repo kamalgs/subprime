@@ -167,7 +167,7 @@ async def api_generate_strategy(
     return templates.TemplateResponse(
         request,
         "partials/strategy_dashboard.html",
-        {"session": session, "strategy": strategy, "chart_data": chart_data},
+        {"session": session, "strategy": strategy, "chart_data": chart_data, "render_markdown": render_markdown},
     )
 
 
@@ -216,7 +216,7 @@ async def api_revise_strategy(
     return templates.TemplateResponse(
         request,
         "partials/strategy_dashboard.html",
-        {"session": session, "strategy": strategy, "chart_data": chart_data},
+        {"session": session, "strategy": strategy, "chart_data": chart_data, "render_markdown": render_markdown},
     )
 
 

@@ -145,34 +145,21 @@
         <h3 class="text-lg font-semibold text-gray-800">Fund Allocations</h3>
 
         <div class="space-y-2">
-        {% for alloc in plan.allocations %}
+        {% for alloc in plan.allocations | sort(attribute='allocation_pct', reverse=true) %}
         <details class="group rounded-xl border border-gray-200 overflow-hidden">
             <summary class="flex flex-wrap items-center gap-x-4 gap-y-1 cursor-pointer px-4 py-3 bg-gray-50 hover:bg-gray-100 transition-colors duration-150 list-none">
-                {# Fund name #}
-                <span class="font-semibold text-gray-900 text-sm flex-1 min-w-0 truncate">{{ alloc.fund.name }}</span>
-
-                {# Fund house + AMFI code #}
-                <span class="text-xs text-gray-400 whitespace-nowrap">
-                    {{ alloc.fund.fund_house }}{% if alloc.fund.fund_house and alloc.fund.amfi_code %} &middot; {% endif %}{{ alloc.fund.amfi_code }}
-                </span>
-
-                {# Allocation % #}
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-primary-100 text-primary-700 whitespace-nowrap">
+                {# Allocation % badge first — visual anchor #}
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-100 text-primary-700 whitespace-nowrap">
                     {{ alloc.allocation_pct | int }}%
                 </span>
 
-                {# Mode #}
-                <span class="text-xs text-gray-500 capitalize whitespace-nowrap">{{ alloc.mode }}</span>
+                {# Fund name #}
+                <span class="font-semibold text-gray-900 text-sm flex-1 min-w-0">{{ alloc.fund.name }}</span>
 
-                {# SIP amount #}
-                {% if alloc.monthly_sip_inr %}
-                <span class="text-xs font-medium text-gray-700 whitespace-nowrap">{{ format_inr(alloc.monthly_sip_inr) }}/mo</span>
-                {% endif %}
-
-                {# Expense ratio #}
-                {% if alloc.fund.expense_ratio %}
-                <span class="text-xs text-gray-400 whitespace-nowrap">{{ alloc.fund.expense_ratio }}% ER</span>
-                {% endif %}
+                {# Mode + SIP compact #}
+                <span class="text-xs text-gray-500 whitespace-nowrap">
+                    {{ alloc.mode | upper }}{% if alloc.monthly_sip_inr %} · {{ format_inr(alloc.monthly_sip_inr) }}/mo{% endif %}
+                </span>
 
                 {# Star rating #}
                 {% if alloc.fund.morningstar_rating %}
@@ -185,8 +172,17 @@
                 </svg>
             </summary>
 
-            <div class="px-5 py-4 text-sm text-gray-700 leading-relaxed prose prose-sm max-w-none border-t border-gray-100">
-                {{ render_markdown(alloc.rationale) | safe }}
+            <div class="px-5 py-4 border-t border-gray-100 space-y-2">
+                {# Fund metadata line #}
+                <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-400">
+                    {% if alloc.fund.amfi_code %}<span>AMFI: {{ alloc.fund.amfi_code }}</span>{% endif %}
+                    {% if alloc.fund.expense_ratio %}<span>Expense: {{ alloc.fund.expense_ratio }}%</span>{% endif %}
+                    {% if alloc.fund.category %}<span>{{ alloc.fund.category }}</span>{% endif %}
+                </div>
+                {# Rationale as rendered markdown #}
+                <div class="text-sm text-gray-700 leading-relaxed prose-commentary">
+                    {{ render_markdown(alloc.rationale) | safe }}
+                </div>
             </div>
         </details>
         {% endfor %}
@@ -227,7 +223,7 @@
                     {% for risk in plan.risks %}
                     <li class="flex items-start gap-2">
                         <span class="text-red-400 mt-0.5 flex-shrink-0">&#8227;</span>
-                        {{ risk }}
+                        <span class="prose-commentary">{{ render_markdown(risk) | safe }}</span>
                     </li>
                     {% endfor %}
                 </ul>
