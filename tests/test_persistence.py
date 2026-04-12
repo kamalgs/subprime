@@ -2,6 +2,7 @@
 from __future__ import annotations
 import os
 from datetime import datetime, timezone
+from unittest.mock import AsyncMock
 import pytest
 from subprime.core.models import InvestorProfile, Session, SessionSummary
 
@@ -321,3 +322,138 @@ class TestConversationsPostgres:
         assert len(result) == 1
         assert result[0]["investor_name"] == "Test User"
         assert result[0]["mode"] == "premium"
+
+
+class TestOTPInMemory:
+    """OTP tests using a mock pool."""
+
+    def _make_mock_pool(self, fetchval_return=0, fetchrow_return=None):
+        pool = AsyncMock()
+        pool.fetchval = AsyncMock(return_value=fetchval_return)
+        pool.fetchrow = AsyncMock(return_value=fetchrow_return)
+        pool.execute = AsyncMock()
+        return pool
+
+    @pytest.mark.asyncio
+    async def test_create_otp_success(self):
+        from subprime.core.otp import create_otp
+        pool = self._make_mock_pool(fetchval_return=5)
+        result = await create_otp(pool, "test@example.com")
+        assert result["success"] is True
+        assert len(result["code"]) == 6
+        assert result["code"].isdigit()
+        assert pool.execute.call_count >= 2  # invalidate + insert
+
+    @pytest.mark.asyncio
+    async def test_create_otp_daily_limit(self):
+        from subprime.core.otp import create_otp
+        pool = self._make_mock_pool(fetchval_return=100)
+        result = await create_otp(pool, "test@example.com")
+        assert result["success"] is False
+        assert "full" in result["reason"].lower() or "limit" in result["reason"].lower()
+
+    @pytest.mark.asyncio
+    async def test_create_otp_at_limit_minus_one(self):
+        from subprime.core.otp import create_otp
+        pool = self._make_mock_pool(fetchval_return=99)
+        result = await create_otp(pool, "test@example.com")
+        assert result["success"] is True
+
+    @pytest.mark.asyncio
+    async def test_verify_otp_success(self):
+        from subprime.core.otp import verify_otp
+        from datetime import timedelta
+        pool = self._make_mock_pool(fetchrow_return={
+            "id": 1, "email": "test@example.com", "code": "123456",
+            "expires_at": datetime.now(timezone.utc) + timedelta(minutes=5),
+            "verified_at": None,
+        })
+        assert await verify_otp(pool, "test@example.com", "123456") is True
+        pool.execute.assert_called_once()
+
+    @pytest.mark.asyncio
+    async def test_verify_otp_not_found(self):
+        from subprime.core.otp import verify_otp
+        pool = self._make_mock_pool(fetchrow_return=None)
+        assert await verify_otp(pool, "test@example.com", "999999") is False
+
+    @pytest.mark.asyncio
+    async def test_verify_otp_expired(self):
+        from subprime.core.otp import verify_otp
+        from datetime import timedelta
+        pool = self._make_mock_pool(fetchrow_return={
+            "id": 1, "email": "test@example.com", "code": "123456",
+            "expires_at": datetime.now(timezone.utc) - timedelta(minutes=1),
+            "verified_at": None,
+        })
+        assert await verify_otp(pool, "test@example.com", "123456") is False
+
+    @pytest.mark.asyncio
+    async def test_verify_otp_already_used(self):
+        from subprime.core.otp import verify_otp
+        from datetime import timedelta
+        pool = self._make_mock_pool(fetchrow_return={
+            "id": 1, "email": "test@example.com", "code": "123456",
+            "expires_at": datetime.now(timezone.utc) + timedelta(minutes=5),
+            "verified_at": datetime.now(timezone.utc),
+        })
+        assert await verify_otp(pool, "test@example.com", "123456") is False
+
+    @pytest.mark.asyncio
+    async def test_daily_count(self):
+        from subprime.core.otp import daily_otp_count
+        pool = self._make_mock_pool(fetchval_return=42)
+        assert await daily_otp_count(pool) == 42
+
+    @pytest.mark.asyncio
+    async def test_daily_count_none_returns_zero(self):
+        from subprime.core.otp import daily_otp_count
+        pool = self._make_mock_pool(fetchval_return=None)
+        assert await daily_otp_count(pool) == 0
+
+    @pytest.mark.asyncio
+    async def test_code_is_zero_padded(self):
+        """Codes like 000123 should keep leading zeros."""
+        from subprime.core.otp import create_otp
+        pool = self._make_mock_pool(fetchval_return=0)
+        result = await create_otp(pool, "test@example.com")
+        assert len(result["code"]) == 6
+
+
+class TestOTPPostgres:
+    """Full OTP round-trip — skipped without DATABASE_URL."""
+
+    @pytest.fixture
+    async def pool(self):
+        database_url = os.environ.get("DATABASE_URL")
+        if not database_url:
+            pytest.skip("DATABASE_URL not set")
+        from subprime.core.db import init_pool, close_pool
+        pool = await init_pool(database_url)
+        await pool.execute("DELETE FROM otps")
+        yield pool
+        await pool.execute("DELETE FROM otps")
+        await close_pool()
+
+    @pytest.mark.asyncio
+    async def test_create_and_verify(self, pool):
+        from subprime.core.otp import create_otp, verify_otp
+        result = await create_otp(pool, "test@example.com")
+        assert result["success"] is True
+        assert await verify_otp(pool, "test@example.com", result["code"]) is True
+        # Second verify should fail
+        assert await verify_otp(pool, "test@example.com", result["code"]) is False
+
+    @pytest.mark.asyncio
+    async def test_wrong_code(self, pool):
+        from subprime.core.otp import create_otp, verify_otp
+        await create_otp(pool, "test@example.com")
+        assert await verify_otp(pool, "test@example.com", "000000") is False
+
+    @pytest.mark.asyncio
+    async def test_new_otp_invalidates_old(self, pool):
+        from subprime.core.otp import create_otp, verify_otp
+        r1 = await create_otp(pool, "test@example.com")
+        r2 = await create_otp(pool, "test@example.com")
+        assert await verify_otp(pool, "test@example.com", r1["code"]) is False
+        assert await verify_otp(pool, "test@example.com", r2["code"]) is True
