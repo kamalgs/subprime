@@ -193,6 +193,39 @@ class ConversationLog(BaseModel):
     profile_turns: list[ConversationTurn] = []
 
 
+class SessionSummary(BaseModel):
+    """Lightweight session info for listing."""
+    id: str
+    investor_name: str | None = None
+    mode: str = "basic"
+    current_step: int = 1
+    created_at: datetime
+    updated_at: datetime
+
+
+class Session(BaseModel):
+    """Full wizard session state."""
+    id: str = Field(default_factory=lambda: __import__("uuid").uuid4().hex[:12])
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    current_step: int = 1
+    mode: Literal["basic", "premium"] = "basic"
+    profile: InvestorProfile | None = None
+    strategy: StrategyOutline | None = None
+    plan: InvestmentPlan | None = None
+    strategy_chat: list[ConversationTurn] = []
+
+    def to_summary(self) -> SessionSummary:
+        return SessionSummary(
+            id=self.id,
+            investor_name=self.profile.name if self.profile else None,
+            mode=self.mode,
+            current_step=self.current_step,
+            created_at=self.created_at,
+            updated_at=self.updated_at,
+        )
+
+
 # ---------------------------------------------------------------------------
 # Experiment tracking
 # ---------------------------------------------------------------------------

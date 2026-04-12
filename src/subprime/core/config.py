@@ -34,6 +34,20 @@ NAV_PARQUET_URL = f"{GITHUB_LFS_BASE}/mutual_fund_nav_history.parquet"
 # Curation: top-N funds per category in the fund universe
 CURATED_TOP_N = 15
 
+# PostgreSQL — None means fall back to in-memory
+DATABASE_URL: str | None = os.environ.get("DATABASE_URL")
+
+# SMTP for OTP emails
+SMTP_HOST: str | None = os.environ.get("SMTP_HOST")
+SMTP_PORT: int = int(os.environ.get("SMTP_PORT", "587"))
+SMTP_USER: str | None = os.environ.get("SMTP_USER")
+SMTP_PASSWORD: str | None = os.environ.get("SMTP_PASSWORD")
+SMTP_FROM: str = os.environ.get("SMTP_FROM", "noreply@finadvisor.gkamal.online")
+
+# OTP settings
+OTP_DAILY_LIMIT: int = int(os.environ.get("OTP_DAILY_LIMIT", "100"))
+OTP_EXPIRY_MINUTES: int = int(os.environ.get("OTP_EXPIRY_MINUTES", "10"))
+
 
 class Settings(BaseSettings):
     """Application settings loaded from environment / .env file."""

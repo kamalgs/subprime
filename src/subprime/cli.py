@@ -289,12 +289,26 @@ def advise(
 
 
 def _save_conversation(conv: ConversationLog) -> Path:
-    """Save a conversation log to the conversations directory."""
-    CONVERSATIONS_DIR.mkdir(parents=True, exist_ok=True)
-    path = CONVERSATIONS_DIR / f"{conv.id}.json"
-    path.write_text(conv.model_dump_json(indent=2))
-    _console.print(f"\n[dim]Conversation saved to {path}[/dim]")
-    return path
+    """Save a conversation log using the shared persistence layer."""
+    from subprime.core.conversations import save_conversation as _save
+    from subprime.core.db import get_pool
+    from subprime.core.models import Session
+
+    session = Session(
+        id=conv.id,
+        mode="basic",
+        current_step=4,
+        profile=conv.profile,
+        strategy=conv.strategy,
+        plan=conv.plan,
+        strategy_chat=conv.strategy_revisions,
+    )
+    path = asyncio.run(_save(session=session, pool=get_pool()))
+    if path:
+        _console.print(f"\n[dim]Conversation saved to {path}[/dim]")
+    else:
+        _console.print("\n[dim]Conversation saved to database[/dim]")
+    return path or Path(".")
 
 
 @app.command()
