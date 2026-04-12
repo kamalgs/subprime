@@ -393,3 +393,251 @@ class TestAppFactory:
             resp = await client.get("/static/app.css")
             assert resp.status_code == 200
             assert "htmx-indicator" in resp.text
+
+
+# ---------------------------------------------------------------------------
+# Step 1 — Tier Selection
+# ---------------------------------------------------------------------------
+
+
+class TestStep1TierSelection:
+    @pytest.mark.asyncio
+    async def test_step1_renders(self):
+        """GET /step/1 returns 200 and shows both tier cards."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.get("/step/1")
+        assert resp.status_code == 200
+        assert "Basic" in resp.text
+        assert "Premium" in resp.text
+
+    @pytest.mark.asyncio
+    async def test_step1_sets_session_cookie(self):
+        """GET /step/1 sets the finadvisor_session cookie."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.get("/step/1")
+        assert resp.status_code == 200
+        assert "finadvisor_session" in resp.cookies
+
+    @pytest.mark.asyncio
+    async def test_select_tier_basic(self):
+        """POST /api/select-tier mode=basic returns HX-Redirect to /step/2."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.post("/api/select-tier", data={"mode": "basic"})
+        assert resp.status_code == 200
+        assert resp.headers["HX-Redirect"] == "/step/2"
+
+    @pytest.mark.asyncio
+    async def test_select_tier_premium(self):
+        """POST /api/select-tier mode=premium returns HX-Redirect to /step/2."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.post("/api/select-tier", data={"mode": "premium"})
+        assert resp.status_code == 200
+        assert resp.headers["HX-Redirect"] == "/step/2"
+
+    @pytest.mark.asyncio
+    async def test_select_tier_saves_mode(self):
+        """POST /api/select-tier saves the chosen mode in the session."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.post("/api/select-tier", data={"mode": "premium"})
+        session_id = resp.cookies.get("finadvisor_session")
+        assert session_id is not None
+        session = app.state.session_store._sessions.get(session_id)
+        assert session is not None
+        assert session.mode == "premium"
+
+    @pytest.mark.asyncio
+    async def test_select_tier_sets_step_2(self):
+        """POST /api/select-tier advances current_step to 2."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.post("/api/select-tier", data={"mode": "basic"})
+        session_id = resp.cookies.get("finadvisor_session")
+        session = app.state.session_store._sessions.get(session_id)
+        assert session.current_step == 2
+
+
+# ---------------------------------------------------------------------------
+# Step 2 — Profile (Persona Cards + Custom Form)
+# ---------------------------------------------------------------------------
+
+
+class TestStep2Profile:
+    @pytest.mark.asyncio
+    async def test_step2_renders_persona_cards(self):
+        """GET /step/2 after tier selection shows persona cards including Arjun Mehta."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            # First select a tier to get a valid session
+            tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
+            assert "finadvisor_session" in tier_resp.cookies
+            resp = await client.get("/step/2")
+        assert resp.status_code == 200
+        assert "Arjun Mehta" in resp.text
+
+    @pytest.mark.asyncio
+    async def test_step2_redirects_without_session(self):
+        """GET /step/2 without a session cookie redirects to /step/1."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.get("/step/2", follow_redirects=False)
+        assert resp.status_code == 302
+        assert resp.headers["location"] == "/step/1"
+
+    @pytest.mark.asyncio
+    async def test_step2_redirects_with_unknown_session(self):
+        """GET /step/2 with a bogus session cookie redirects to /step/1."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.get(
+                "/step/2",
+                follow_redirects=False,
+                cookies={"finadvisor_session": "nonexistent-id"},
+            )
+        assert resp.status_code == 302
+        assert resp.headers["location"] == "/step/1"
+
+    @pytest.mark.asyncio
+    async def test_select_persona(self):
+        """POST /api/select-persona returns HX-Redirect to /step/3."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
+        assert resp.status_code == 200
+        assert resp.headers["HX-Redirect"] == "/step/3"
+
+    @pytest.mark.asyncio
+    async def test_select_persona_saves_profile(self):
+        """After selecting persona P01, session profile should be Arjun Mehta."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
+        session_id = resp.cookies.get("finadvisor_session")
+        session = app.state.session_store._sessions.get(session_id)
+        assert session is not None
+        assert session.profile is not None
+        assert session.profile.name == "Arjun Mehta"
+
+    @pytest.mark.asyncio
+    async def test_select_persona_sets_step_3(self):
+        """POST /api/select-persona advances current_step to 3."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
+        session_id = resp.cookies.get("finadvisor_session")
+        session = app.state.session_store._sessions.get(session_id)
+        assert session.current_step == 3
+
+    @pytest.mark.asyncio
+    async def test_submit_custom_profile(self):
+        """POST /api/submit-profile with all required fields returns HX-Redirect to /step/3."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.post(
+                "/api/submit-profile",
+                data={
+                    "name": "Test User",
+                    "age": "28",
+                    "monthly_sip": "15000",
+                    "existing_corpus": "100000",
+                    "risk_appetite": "moderate",
+                    "horizon_years": "15",
+                    "life_stage": "early career",
+                    "preferences": "Prefer index funds",
+                    "goals": ["retirement", "wealth_building"],
+                },
+            )
+        assert resp.status_code == 200
+        assert resp.headers["HX-Redirect"] == "/step/3"
+
+    @pytest.mark.asyncio
+    async def test_submit_custom_profile_saves_data(self):
+        """After submitting custom profile, session holds the submitted data."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.post(
+                "/api/submit-profile",
+                data={
+                    "name": "Sita Ram",
+                    "age": "35",
+                    "monthly_sip": "30000",
+                    "existing_corpus": "500000",
+                    "risk_appetite": "aggressive",
+                    "horizon_years": "20",
+                    "life_stage": "mid career",
+                    "goals": ["retirement"],
+                },
+            )
+        session_id = resp.cookies.get("finadvisor_session")
+        session = app.state.session_store._sessions.get(session_id)
+        assert session is not None
+        assert session.profile is not None
+        assert session.profile.name == "Sita Ram"
+        assert session.profile.age == 35
+        assert session.profile.monthly_investible_surplus_inr == 30000
+        assert session.profile.risk_appetite == "aggressive"
+        assert "Retirement" in session.profile.financial_goals
+
+    @pytest.mark.asyncio
+    async def test_submit_custom_profile_default_goals(self):
+        """Submitting no goals defaults to ['Wealth Building']."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            resp = await client.post(
+                "/api/submit-profile",
+                data={
+                    "name": "No Goals User",
+                    "age": "40",
+                    "monthly_sip": "10000",
+                    "existing_corpus": "0",
+                    "risk_appetite": "conservative",
+                    "horizon_years": "10",
+                    "life_stage": "mid career",
+                },
+            )
+        session_id = resp.cookies.get("finadvisor_session")
+        session = app.state.session_store._sessions.get(session_id)
+        assert session.profile.financial_goals == ["Wealth Building"]
+
+    @pytest.mark.asyncio
+    async def test_step3_redirects_without_profile(self):
+        """GET /step/3 without a profile in session redirects to /step/1."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            # Create a session but don't set profile
+            tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
+            assert "finadvisor_session" in tier_resp.cookies
+            resp = await client.get("/step/3", follow_redirects=False)
+        assert resp.status_code == 302
+        assert resp.headers["location"] == "/step/1"
+
+    @pytest.mark.asyncio
+    async def test_step3_renders_with_profile(self):
+        """GET /step/3 with a valid profile renders the strategy stub page."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            await client.post("/api/select-persona", data={"persona_id": "P01"})
+            resp = await client.get("/step/3", follow_redirects=False)
+        assert resp.status_code == 200
+        assert "Strategy" in resp.text

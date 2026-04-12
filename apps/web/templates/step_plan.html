@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}Choose Your Plan — FinAdvisor{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="text-center">
+        <h2 class="text-2xl font-bold text-gray-900">Choose Your Plan</h2>
+        <p class="mt-2 text-gray-500">Select the advisory experience that fits your needs.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-8">
+
+        <!-- Basic Card -->
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold text-gray-900">Basic</h3>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-700">
+                    Free
+                </span>
+            </div>
+            <p class="text-gray-500 text-sm mb-5">
+                Get a solid, research-backed investment plan tailored to your profile — completely free.
+            </p>
+            <ul class="space-y-2 mb-6 flex-1">
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <svg class="w-4 h-4 mt-0.5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    Personalised asset allocation
+                </li>
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <svg class="w-4 h-4 mt-0.5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    Top mutual fund recommendations
+                </li>
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <svg class="w-4 h-4 mt-0.5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    SIP amount breakdown
+                </li>
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <svg class="w-4 h-4 mt-0.5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    Goal-based projections
+                </li>
+            </ul>
+            <button
+                class="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors duration-150 htmx-indicator-parent"
+                hx-post="/api/select-tier"
+                hx-vals='{"mode": "basic"}'
+                hx-swap="none"
+                data-tier="basic">
+                Start Free Plan
+            </button>
+        </div>
+
+        <!-- Premium Card -->
+        <div class="bg-white rounded-2xl border-2 border-amber-300 shadow-sm p-6 flex flex-col relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-400 text-amber-900 shadow">
+                    Most Popular
+                </span>
+            </div>
+            <div class="flex items-center justify-between mb-4 mt-2">
+                <h3 class="text-xl font-bold text-gray-900">Premium</h3>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-700">
+                    Premium
+                </span>
+            </div>
+            <p class="text-gray-500 text-sm mb-5">
+                Deeper analysis with live market data, interactive strategy refinement, and detailed fund comparisons.
+            </p>
+            <ul class="space-y-2 mb-6 flex-1">
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    Everything in Basic
+                </li>
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    Live NAV &amp; performance data
+                </li>
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    Interactive strategy chat
+                </li>
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    Side-by-side fund comparison
+                </li>
+                <li class="flex items-start gap-2 text-sm text-gray-700">
+                    <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    Detailed rationale &amp; risk analysis
+                </li>
+            </ul>
+            <button
+                class="w-full py-3 px-4 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-xl transition-colors duration-150"
+                hx-post="/api/select-tier"
+                hx-vals='{"mode": "premium"}'
+                hx-swap="none"
+                data-tier="premium">
+                Start Premium Plan
+            </button>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
