@@ -246,8 +246,8 @@ def render_plan_html(
 
     return (
         f'<div class="section-title">Your Investment Plan</div>'
-        f"{stats}{table}{corpus_html}"
-        f'<div class="section-title">Rationale</div>{rationale}'
+        f"{stats}{corpus_html}{table}"
+        f'<div class="section-title">Why This Plan</div>{rationale}'
         f"{risks}{setup}{rebalancing}{disclaimer}"
     )
 
