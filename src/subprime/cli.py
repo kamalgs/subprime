@@ -355,18 +355,18 @@ def replay(
 @app.command()
 def web(
     port: int = typer.Option(
-        7860,
+        8091,
         "--port",
         "-P",
-        help="Port for the Gradio web server.",
+        help="Port for the web server.",
     ),
-    share: bool = typer.Option(
-        False,
-        "--share",
-        help="Create a public shareable link via Gradio.",
+    host: str = typer.Option(
+        "127.0.0.1",
+        "--host",
+        help="Host to bind to.",
     ),
 ) -> None:
-    """Launch the Gradio web interface."""
+    """Launch the FinAdvisor web interface."""
     import sys
 
     # Ensure the project root (where apps/ lives) is on sys.path
@@ -374,10 +374,10 @@ def web(
     if _project_root not in sys.path:
         sys.path.insert(0, _project_root)
 
-    from apps.web.app import CSS, create_app
+    import uvicorn
 
-    demo = create_app()
-    demo.launch(server_port=port, share=share, css=CSS)
+    _console.print(f"[bold]FinAdvisor[/bold] starting at http://{host}:{port}")
+    uvicorn.run("apps.web.main:create_app", factory=True, host=host, port=port)
 
 
 # ---------------------------------------------------------------------------

@@ -206,7 +206,7 @@ class TestCLIWeb:
         result = runner.invoke(app, ["web", "--help"])
         assert result.exit_code == 0
         assert "--port" in result.output
-        assert "--share" in result.output
+        assert "--host" in result.output
 
 
 # ===========================================================================
@@ -219,20 +219,20 @@ class TestGradioApp:
 
     def test_app_module_imports(self):
         """The web app module should import without errors."""
-        from apps.web.app import create_app, CSS
+        from apps.web.gradio_app import create_app, CSS
         assert create_app is not None
         assert isinstance(CSS, str)
 
     def test_app_creates_without_error(self):
         """create_app() should return a Gradio Blocks instance.
         This is the test that would have caught the Gradio 6.x breakage."""
-        from apps.web.app import create_app
+        from apps.web.gradio_app import create_app
         demo = create_app()
         assert demo is not None
 
     def test_html_renderers_produce_output(self):
         """All HTML rendering functions should return non-empty strings."""
-        from apps.web.app import render_profile_html, render_strategy_html, render_plan_html
+        from apps.web.gradio_app import render_profile_html, render_strategy_html, render_plan_html
         from subprime.evaluation.personas import get_persona
 
         profile = get_persona("P01")
@@ -254,7 +254,7 @@ class TestGradioApp:
 
     def test_html_renderers_handle_minimal_data(self):
         """Renderers should not crash on minimal/default model data."""
-        from apps.web.app import render_profile_html, render_strategy_html, render_plan_html
+        from apps.web.gradio_app import render_profile_html, render_strategy_html, render_plan_html
 
         profile = InvestorProfile(
             id="test", name="Test", age=30, risk_appetite="moderate",
@@ -282,7 +282,7 @@ class TestGradioApp:
 
     def test_chat_state_initializes(self):
         """Chat state factory should return a valid state dict."""
-        from apps.web.app import _make_state, PHASE_PROFILE
+        from apps.web.gradio_app import _make_state, PHASE_PROFILE
         state = _make_state()
         assert state["phase"] == PHASE_PROFILE
         assert state["profile"] is None
@@ -290,19 +290,19 @@ class TestGradioApp:
 
     def test_opening_message_lists_personas(self):
         """Opening message should mention available personas."""
-        from apps.web.app import _opening_message
+        from apps.web.gradio_app import _opening_message
         msg = _opening_message()
         assert "P01" in msg
         assert "P05" in msg
 
     def test_process_message_persona_selection(self):
         """Selecting a persona ID should load profile and generate strategy."""
-        from apps.web.app import _process_message, _make_state
+        from apps.web.gradio_app import _process_message, _make_state
 
         state = _make_state()
         history = []
 
-        with patch("apps.web.app.generate_strategy", new_callable=AsyncMock, return_value=_fake_strategy()):
+        with patch("apps.web.gradio_app.generate_strategy", new_callable=AsyncMock, return_value=_fake_strategy()):
             history, state, status = _process_message("P01", history, state)
 
         assert state["profile"] is not None
@@ -312,7 +312,7 @@ class TestGradioApp:
 
     def test_process_message_strategy_approval(self):
         """Typing 'yes' in strategy phase should trigger plan generation."""
-        from apps.web.app import _process_message, _make_state, PHASE_STRATEGY
+        from apps.web.gradio_app import _process_message, _make_state, PHASE_STRATEGY
         from subprime.evaluation.personas import get_persona
 
         state = _make_state()
@@ -321,7 +321,7 @@ class TestGradioApp:
         state["strategy"] = _fake_strategy()
         history = []
 
-        with patch("apps.web.app.generate_plan", new_callable=AsyncMock, return_value=_fake_plan()):
+        with patch("apps.web.gradio_app.generate_plan", new_callable=AsyncMock, return_value=_fake_plan()):
             history, state, status = _process_message("yes", history, state)
 
         assert state["plan"] is not None
@@ -329,7 +329,7 @@ class TestGradioApp:
 
     def test_process_message_strategy_revision(self):
         """Feedback in strategy phase should revise the strategy."""
-        from apps.web.app import _process_message, _make_state, PHASE_STRATEGY
+        from apps.web.gradio_app import _process_message, _make_state, PHASE_STRATEGY
         from subprime.evaluation.personas import get_persona
 
         revised = StrategyOutline(
@@ -344,7 +344,7 @@ class TestGradioApp:
         state["strategy"] = _fake_strategy()
         history = []
 
-        with patch("apps.web.app.generate_strategy", new_callable=AsyncMock, return_value=revised):
+        with patch("apps.web.gradio_app.generate_strategy", new_callable=AsyncMock, return_value=revised):
             history, state, status = _process_message("more equity please", history, state)
 
         assert state["strategy"].equity_pct == 80.0

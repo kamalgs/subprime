@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}FinAdvisor{% endblock %}</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50:  '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                        },
+                        bear: '#ef4444',
+                        base: '#f59e0b',
+                        bull: '#22c55e',
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@2.0.4" defer></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body class="h-full bg-gray-50 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-4">
+            <div class="flex flex-col gap-1">
+                <h1 class="text-2xl font-bold text-primary-700">FinAdvisor</h1>
+                <p class="text-sm text-gray-500">AI-powered mutual fund advisory for Indian investors</p>
+            </div>
+            <!-- Disclaimer -->
+            <div class="mt-3 rounded-md bg-red-50 border border-red-200 px-3 py-2">
+                <p class="text-xs text-red-700 font-medium">
+                    ⚠ This tool is for research and educational purposes only. It is not registered with SEBI and does not constitute financial advice. Consult a SEBI-registered investment advisor before making any investment decisions.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Step indicator -->
+    <div class="bg-white border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 py-4">
+            <ol class="flex items-center gap-0">
+                {% set steps = [
+                    (1, "Choose Plan"),
+                    (2, "Your Profile"),
+                    (3, "Strategy"),
+                    (4, "Your Plan"),
+                ] %}
+                {% for step_num, step_label in steps %}
+                {% set is_completed = current_step is defined and step_num < current_step %}
+                {% set is_current   = current_step is defined and step_num == current_step %}
+                <li class="flex items-center {% if not loop.last %}flex-1{% endif %}">
+                    <!-- Circle / checkmark -->
+                    {% if is_completed %}
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </div>
+                    {% elif is_current %}
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center">
+                        <span class="text-white text-sm font-semibold">{{ step_num }}</span>
+                    </div>
+                    {% else %}
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <span class="text-gray-400 text-sm">{{ step_num }}</span>
+                    </div>
+                    {% endif %}
+
+                    <!-- Label -->
+                    <span class="ml-2 text-sm font-medium
+                        {% if is_completed or is_current %}text-primary-700{% else %}text-gray-400{% endif %}
+                        whitespace-nowrap">
+                        {{ step_label }}
+                    </span>
+
+                    <!-- Connector line (not after last step) -->
+                    {% if not loop.last %}
+                    <div class="flex-1 h-px mx-3
+                        {% if is_completed %}bg-primary-400{% else %}bg-gray-200{% endif %}">
+                    </div>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 bg-white mt-auto">
+        <div class="max-w-4xl mx-auto px-4 py-4">
+            <p class="text-xs text-gray-400 text-center">
+                FinAdvisor — part of the <span class="font-medium">Subprime</span> research project
+            </p>
+        </div>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>
