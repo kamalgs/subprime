@@ -1,0 +1,148 @@
+<div class="space-y-6">
+
+    <!-- Allocation + Approach Grid -->
+    <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Left: Donut chart -->
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col items-center gap-4">
+            <h3 class="text-base font-semibold text-gray-700 self-start">Asset Allocation</h3>
+            <div class="relative w-48 h-48">
+                <canvas
+                    id="allocation-chart"
+                    data-labels="{{ chart_data.labels | tojson }}"
+                    data-values="{{ chart_data['values'] | tojson }}"
+                    data-colors="{{ chart_data.colors | tojson }}"
+                    aria-label="Asset allocation donut chart"
+                    role="img">
+                </canvas>
+            </div>
+            <!-- Legend -->
+            <div class="flex flex-wrap justify-center gap-3 text-xs text-gray-600">
+                {% for label in chart_data.labels %}
+                <span class="flex items-center gap-1.5">
+                    <span class="inline-block w-3 h-3 rounded-full flex-shrink-0" style="background:{{ chart_data.colors[loop.index0] }}"></span>
+                    {{ label }} {{ chart_data['values'][loop.index0] }}%
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Right: Approach, themes, risk/return -->
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-4">
+
+            <!-- Equity approach -->
+            <div>
+                <h3 class="text-base font-semibold text-gray-700 mb-1">Equity Approach</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">{{ strategy.equity_approach }}</p>
+            </div>
+
+            <!-- Key themes -->
+            <div>
+                <h3 class="text-base font-semibold text-gray-700 mb-2">Key Themes</h3>
+                <div class="flex flex-wrap gap-2">
+                    {% for theme in strategy.key_themes %}
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-700">
+                        {{ theme }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Risk / return -->
+            <div class="rounded-xl bg-gray-50 border border-gray-200 p-4">
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Risk / Return Summary</h3>
+                <p class="text-sm text-gray-700 leading-relaxed">{{ strategy.risk_return_summary }}</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Open questions callout -->
+    {% if strategy.open_questions %}
+    <div class="rounded-xl bg-amber-50 border border-amber-200 p-4">
+        <h3 class="text-sm font-semibold text-amber-800 mb-2">Open Questions to Consider</h3>
+        <ul class="space-y-1">
+            {% for q in strategy.open_questions %}
+            <li class="flex items-start gap-2 text-sm text-amber-700">
+                <span class="mt-0.5 text-amber-400 flex-shrink-0">&#8227;</span>
+                {{ q }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <!-- Strategy revision chat -->
+    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-4">
+        <h3 class="text-base font-semibold text-gray-700">Refine Your Strategy</h3>
+        <p class="text-sm text-gray-500">Not quite right? Tell me what to adjust — e.g. "more conservative", "add gold allocation", "focus on tax saving".</p>
+
+        <!-- Chat message history -->
+        <div id="strategy-chat" class="space-y-3">
+            {% for turn in session.strategy_chat %}
+            <div class="flex {% if turn.role == 'user' %}justify-end{% else %}justify-start{% endif %}">
+                <div class="max-w-sm px-4 py-2 rounded-2xl text-sm
+                    {% if turn.role == 'user' %}bg-primary-600 text-white{% else %}bg-gray-100 text-gray-800{% endif %}">
+                    {{ turn.content }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Feedback input -->
+        <div class="flex gap-2">
+            <input
+                id="feedback-input"
+                type="text"
+                name="feedback"
+                placeholder="Adjust strategy…"
+                class="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent"
+                hx-post="/api/revise-strategy"
+                hx-target="#strategy-content"
+                hx-swap="outerHTML"
+                hx-trigger="keydown[key=='Enter']"
+                hx-include="[name='feedback']"
+            >
+            <button
+                class="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold rounded-lg transition-colors duration-150"
+                hx-post="/api/revise-strategy"
+                hx-target="#strategy-content"
+                hx-swap="outerHTML"
+                hx-include="[name='feedback']">
+                Revise
+            </button>
+        </div>
+    </div>
+
+    <!-- Generate plan CTA -->
+    <div class="flex justify-center">
+        <button
+            class="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-bold text-base rounded-xl shadow-sm transition-colors duration-150 flex items-center gap-2"
+            hx-post="/api/generate-plan"
+            hx-swap="none">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+            Generate My Plan
+        </button>
+    </div>
+
+</div>
+
+<script>
+(function () {
+    function initChart() {
+        var canvas = document.getElementById('allocation-chart');
+        if (!canvas || typeof initDonutChart !== 'function') return;
+        initDonutChart('allocation-chart');
+    }
+    // On initial load
+    initChart();
+    // On HTMX swap
+    document.body.addEventListener('htmx:afterSwap', function (evt) {
+        if (evt.detail && evt.detail.target && evt.detail.target.id === 'strategy-content') {
+            initChart();
+        }
+    });
+})();
+</script>

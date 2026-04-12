@@ -6,7 +6,9 @@ from fastapi import APIRouter, Cookie, Form, Request, Response
 
 from subprime.evaluation.personas import get_persona
 from apps.web.session import Session
-from subprime.core.models import InvestorProfile
+from subprime.core.models import InvestorProfile, ConversationTurn
+from subprime.advisor.planner import generate_plan, generate_strategy
+from apps.web.rendering import chart_data_donut, render_markdown
 
 router = APIRouter(prefix="/api")
 
@@ -131,4 +133,142 @@ async def submit_profile(
     response.status_code = 200
     response.headers["HX-Redirect"] = "/step/3"
     response.set_cookie("finadvisor_session", session.id, httponly=True, samesite="lax")
+    return response
+
+
+# ---------------------------------------------------------------------------
+# GET /api/generate-strategy
+# ---------------------------------------------------------------------------
+
+
+@router.get("/generate-strategy")
+async def api_generate_strategy(
+    request: Request,
+    finadvisor_session: str | None = Cookie(default=None),
+):
+    """Generate a strategy for the current session and return the dashboard partial."""
+    store = request.app.state.session_store
+    session = await _get_or_create_session(request, finadvisor_session)
+    if session.profile is None:
+        return Response(status_code=400, content="No profile in session")
+
+    strategy = await generate_strategy(session.profile)
+    session.strategy = strategy
+    await store.save(session)
+
+    chart_data = chart_data_donut(
+        strategy.equity_pct,
+        strategy.debt_pct,
+        strategy.gold_pct,
+        strategy.other_pct,
+    )
+
+    templates = request.app.state.templates
+    return templates.TemplateResponse(
+        request,
+        "partials/strategy_dashboard.html",
+        {"session": session, "strategy": strategy, "chart_data": chart_data},
+    )
+
+
+# ---------------------------------------------------------------------------
+# POST /api/revise-strategy
+# ---------------------------------------------------------------------------
+
+
+@router.post("/revise-strategy")
+async def api_revise_strategy(
+    request: Request,
+    feedback: Annotated[str, Form()],
+    finadvisor_session: str | None = Cookie(default=None),
+):
+    """Revise the current strategy based on user feedback."""
+    store = request.app.state.session_store
+    session = await _get_or_create_session(request, finadvisor_session)
+    if session.profile is None:
+        return Response(status_code=400, content="No profile in session")
+
+    # Append user feedback to chat history
+    session.strategy_chat.append(ConversationTurn(role="user", content=feedback))
+
+    # Generate revised strategy
+    strategy = await generate_strategy(
+        session.profile,
+        feedback=feedback,
+        current_strategy=session.strategy,
+    )
+    session.strategy = strategy
+
+    # Append advisor acknowledgement to chat
+    session.strategy_chat.append(
+        ConversationTurn(role="advisor", content="Strategy updated based on your feedback.")
+    )
+    await store.save(session)
+
+    chart_data = chart_data_donut(
+        strategy.equity_pct,
+        strategy.debt_pct,
+        strategy.gold_pct,
+        strategy.other_pct,
+    )
+
+    templates = request.app.state.templates
+    return templates.TemplateResponse(
+        request,
+        "partials/strategy_dashboard.html",
+        {"session": session, "strategy": strategy, "chart_data": chart_data},
+    )
+
+
+# ---------------------------------------------------------------------------
+# POST /api/generate-plan
+# ---------------------------------------------------------------------------
+
+
+@router.post("/generate-plan")
+async def api_generate_plan(
+    request: Request,
+    response: Response,
+    finadvisor_session: str | None = Cookie(default=None),
+) -> Response:
+    """Generate a detailed investment plan and redirect to step 4."""
+    store = request.app.state.session_store
+    session = await _get_or_create_session(request, finadvisor_session)
+    if session.profile is None:
+        return Response(status_code=400, content="No profile in session")
+
+    plan = await generate_plan(
+        session.profile,
+        strategy=session.strategy,
+        mode=session.mode,
+        n_perspectives=3,
+    )
+    session.plan = plan
+    session.current_step = 4
+    await store.save(session)
+
+    response.status_code = 200
+    response.headers["HX-Redirect"] = "/step/4"
+    response.set_cookie("finadvisor_session", session.id, httponly=True, samesite="lax")
+    return response
+
+
+# ---------------------------------------------------------------------------
+# POST /api/reset
+# ---------------------------------------------------------------------------
+
+
+@router.post("/reset")
+async def api_reset(
+    request: Request,
+    response: Response,
+) -> Response:
+    """Create a fresh session and redirect to step 1."""
+    store = request.app.state.session_store
+    new_session = Session()
+    await store.save(new_session)
+
+    response.status_code = 200
+    response.headers["HX-Redirect"] = "/step/1"
+    response.set_cookie("finadvisor_session", new_session.id, httponly=True, samesite="lax")
     return response

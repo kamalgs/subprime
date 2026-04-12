@@ -641,3 +641,214 @@ class TestStep2Profile:
             resp = await client.get("/step/3", follow_redirects=False)
         assert resp.status_code == 200
         assert "Strategy" in resp.text
+
+
+# ---------------------------------------------------------------------------
+# Step 3 — Strategy Dashboard (Task 5)
+# ---------------------------------------------------------------------------
+
+from unittest.mock import AsyncMock, patch
+from subprime.core.models import StrategyOutline, Allocation, InvestmentPlan, MutualFund
+
+
+def _mock_strategy():
+    return StrategyOutline(
+        equity_pct=70, debt_pct=20, gold_pct=10, other_pct=0,
+        equity_approach="Mix of large cap index and mid cap active funds",
+        key_themes=["diversification", "long-term growth"],
+        risk_return_summary="Expected 11-12% CAGR with moderate drawdowns",
+        open_questions=[],
+    )
+
+
+def _mock_plan():
+    return InvestmentPlan(
+        allocations=[
+            Allocation(
+                fund=MutualFund(amfi_code="119551", name="UTI Nifty 50 Index Fund",
+                    category="Large Cap", fund_house="UTI", expense_ratio=0.18, morningstar_rating=4),
+                allocation_pct=40, mode="sip", monthly_sip_inr=20000,
+                rationale="Low cost large cap index fund",
+            ),
+            Allocation(
+                fund=MutualFund(amfi_code="120505", name="Parag Parikh Flexi Cap Fund",
+                    category="Flexi Cap", fund_house="PPFAS", expense_ratio=0.63, morningstar_rating=5),
+                allocation_pct=30, mode="sip", monthly_sip_inr=15000,
+                rationale="Diversified flexi cap with international exposure",
+            ),
+            Allocation(
+                fund=MutualFund(amfi_code="119533", name="HDFC Short Term Debt Fund",
+                    category="Short Duration", fund_house="HDFC", expense_ratio=0.35),
+                allocation_pct=30, mode="sip", monthly_sip_inr=15000,
+                rationale="Stable debt allocation",
+            ),
+        ],
+        projected_returns={"bear": 7.5, "base": 11.0, "bull": 15.0},
+        rationale="This plan balances growth and stability.",
+        risks=["Market drops can be 20-30%"],
+        setup_phase="1. Open account on Kuvera\n2. Start SIPs",
+        rebalancing_guidelines="Check once a year",
+    )
+
+
+class TestStep3Strategy:
+
+    @pytest.mark.asyncio
+    async def test_step3_redirects_without_profile(self):
+        """GET /step/3 without a profile in session redirects to /step/1."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
+            assert "finadvisor_session" in tier_resp.cookies
+            resp = await client.get("/step/3", follow_redirects=False)
+        assert resp.status_code == 302
+        assert resp.headers["location"] == "/step/1"
+
+    @pytest.mark.asyncio
+    async def test_generate_strategy_returns_dashboard(self):
+        """GET /api/generate-strategy returns strategy dashboard with expected content."""
+        from apps.web.main import create_app
+        app = create_app()
+        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=_mock_strategy())):
+            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+                await client.post("/api/select-tier", data={"mode": "basic"})
+                await client.post("/api/select-persona", data={"persona_id": "P01"})
+                resp = await client.get("/api/generate-strategy")
+        assert resp.status_code == 200
+        assert "Equity" in resp.text
+        assert "diversification" in resp.text
+
+    @pytest.mark.asyncio
+    async def test_generate_strategy_saves_to_session(self):
+        """After calling generate-strategy, session.strategy is set."""
+        from apps.web.main import create_app
+        app = create_app()
+        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=_mock_strategy())):
+            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+                await client.post("/api/select-tier", data={"mode": "basic"})
+                persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
+                session_id = persona_resp.cookies.get("finadvisor_session")
+                await client.get("/api/generate-strategy")
+
+        session = app.state.session_store._sessions.get(session_id)
+        assert session is not None
+        assert session.strategy is not None
+        assert session.strategy.equity_pct == 70
+
+    @pytest.mark.asyncio
+    async def test_revise_strategy(self):
+        """POST /api/revise-strategy returns updated strategy dashboard."""
+        from apps.web.main import create_app
+        app = create_app()
+        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=_mock_strategy())):
+            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+                await client.post("/api/select-tier", data={"mode": "basic"})
+                persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
+                session_id = persona_resp.cookies.get("finadvisor_session")
+
+                # Seed strategy directly into session
+                store = app.state.session_store
+                sessions = list(store._sessions.values())
+                for s in sessions:
+                    if s.id == session_id:
+                        s.strategy = _mock_strategy()
+                        await store.save(s)
+                        break
+
+                resp = await client.post("/api/revise-strategy", data={"feedback": "more conservative please"})
+
+        assert resp.status_code == 200
+        assert "Equity" in resp.text
+
+    @pytest.mark.asyncio
+    async def test_revise_strategy_saves_chat(self):
+        """After revising strategy, user feedback is in session.strategy_chat."""
+        from apps.web.main import create_app
+        app = create_app()
+        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=_mock_strategy())):
+            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+                await client.post("/api/select-tier", data={"mode": "basic"})
+                persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
+                session_id = persona_resp.cookies.get("finadvisor_session")
+
+                store = app.state.session_store
+                for s in list(store._sessions.values()):
+                    if s.id == session_id:
+                        s.strategy = _mock_strategy()
+                        await store.save(s)
+                        break
+
+                await client.post("/api/revise-strategy", data={"feedback": "reduce equity"})
+
+        session = app.state.session_store._sessions.get(session_id)
+        assert session is not None
+        user_turns = [t for t in session.strategy_chat if t.role == "user"]
+        assert len(user_turns) >= 1
+        assert "reduce equity" in user_turns[0].content
+
+    @pytest.mark.asyncio
+    async def test_generate_plan_redirects_to_step4(self):
+        """POST /api/generate-plan returns HX-Redirect to /step/4."""
+        from apps.web.main import create_app
+        app = create_app()
+        with patch("apps.web.api.generate_plan", new=AsyncMock(return_value=_mock_plan())):
+            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+                await client.post("/api/select-tier", data={"mode": "basic"})
+                persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
+                session_id = persona_resp.cookies.get("finadvisor_session")
+
+                store = app.state.session_store
+                for s in list(store._sessions.values()):
+                    if s.id == session_id:
+                        s.strategy = _mock_strategy()
+                        await store.save(s)
+                        break
+
+                resp = await client.post("/api/generate-plan")
+
+        assert resp.status_code == 200
+        assert resp.headers["HX-Redirect"] == "/step/4"
+
+    @pytest.mark.asyncio
+    async def test_generate_plan_saves_plan(self):
+        """After generating plan, session.plan is set and current_step=4."""
+        from apps.web.main import create_app
+        app = create_app()
+        with patch("apps.web.api.generate_plan", new=AsyncMock(return_value=_mock_plan())):
+            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+                await client.post("/api/select-tier", data={"mode": "basic"})
+                persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
+                session_id = persona_resp.cookies.get("finadvisor_session")
+
+                store = app.state.session_store
+                for s in list(store._sessions.values()):
+                    if s.id == session_id:
+                        s.strategy = _mock_strategy()
+                        await store.save(s)
+                        break
+
+                await client.post("/api/generate-plan")
+
+        session = app.state.session_store._sessions.get(session_id)
+        assert session is not None
+        assert session.plan is not None
+        assert session.current_step == 4
+
+    @pytest.mark.asyncio
+    async def test_reset_creates_new_session(self):
+        """POST /api/reset returns HX-Redirect to /step/1 with a new session cookie."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            # Establish an initial session
+            persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
+            old_session_id = persona_resp.cookies.get("finadvisor_session")
+
+            resp = await client.post("/api/reset")
+
+        assert resp.status_code == 200
+        assert resp.headers["HX-Redirect"] == "/step/1"
+        new_session_id = resp.cookies.get("finadvisor_session")
+        assert new_session_id is not None
+        assert new_session_id != old_session_id
