@@ -227,3 +227,97 @@ class TestPostgresSessionStore:
         await postgres_store.save(session)
         summaries = await postgres_store.list_sessions()
         assert any(s.investor_name == "Test User" for s in summaries)
+
+
+class TestConversations:
+    def test_module_imports(self):
+        from subprime.core.conversations import save_conversation, list_conversations
+        assert callable(save_conversation)
+        assert callable(list_conversations)
+
+    @pytest.mark.asyncio
+    async def test_save_to_json_fallback(self, tmp_path):
+        from subprime.core.conversations import save_conversation
+        s = Session(profile=_test_profile(), current_step=4, mode="basic")
+        path = await save_conversation(session=s, pool=None, conversations_dir=tmp_path)
+        assert path is not None
+        assert path.exists()
+        assert path.suffix == ".json"
+        import json
+        data = json.loads(path.read_text())
+        assert data["investor_name"] == "Test User"
+        assert data["mode"] == "basic"
+
+    @pytest.mark.asyncio
+    async def test_save_includes_plan(self, tmp_path):
+        from subprime.core.conversations import save_conversation
+        from subprime.core.models import Allocation, InvestmentPlan, MutualFund
+        plan = InvestmentPlan(
+            allocations=[Allocation(
+                fund=MutualFund(amfi_code="119551", name="UTI Nifty 50"),
+                allocation_pct=100, mode="sip", monthly_sip_inr=10000, rationale="Test",
+            )],
+            rationale="Test plan",
+        )
+        s = Session(profile=_test_profile(), plan=plan, current_step=4)
+        path = await save_conversation(session=s, pool=None, conversations_dir=tmp_path)
+        import json
+        data = json.loads(path.read_text())
+        assert data["plan"] is not None
+        assert data["plan"]["allocations"][0]["fund"]["name"] == "UTI Nifty 50"
+
+    @pytest.mark.asyncio
+    async def test_save_without_profile(self, tmp_path):
+        from subprime.core.conversations import save_conversation
+        s = Session(current_step=4)
+        path = await save_conversation(session=s, pool=None, conversations_dir=tmp_path)
+        import json
+        data = json.loads(path.read_text())
+        assert data["investor_name"] is None
+        assert data["profile"] is None
+
+    @pytest.mark.asyncio
+    async def test_list_from_json(self, tmp_path):
+        from subprime.core.conversations import save_conversation, list_conversations
+        s1 = Session(profile=_test_profile(), current_step=4)
+        s2 = Session(profile=_test_profile(), current_step=4, mode="premium")
+        await save_conversation(session=s1, pool=None, conversations_dir=tmp_path)
+        await save_conversation(session=s2, pool=None, conversations_dir=tmp_path)
+        result = await list_conversations(pool=None, conversations_dir=tmp_path)
+        assert len(result) == 2
+
+    @pytest.mark.asyncio
+    async def test_list_empty_dir(self, tmp_path):
+        from subprime.core.conversations import list_conversations
+        result = await list_conversations(pool=None, conversations_dir=tmp_path)
+        assert result == []
+
+    @pytest.mark.asyncio
+    async def test_list_nonexistent_dir(self, tmp_path):
+        from subprime.core.conversations import list_conversations
+        result = await list_conversations(pool=None, conversations_dir=tmp_path / "nonexistent")
+        assert result == []
+
+
+class TestConversationsPostgres:
+    @pytest.fixture
+    async def pool(self):
+        database_url = os.environ.get("DATABASE_URL")
+        if not database_url:
+            pytest.skip("DATABASE_URL not set")
+        from subprime.core.db import init_pool, close_pool
+        pool = await init_pool(database_url)
+        await pool.execute("DELETE FROM conversations")
+        yield pool
+        await pool.execute("DELETE FROM conversations")
+        await close_pool()
+
+    @pytest.mark.asyncio
+    async def test_save_and_list(self, pool):
+        from subprime.core.conversations import save_conversation, list_conversations
+        s = Session(profile=_test_profile(), current_step=4, mode="premium")
+        await save_conversation(session=s, pool=pool)
+        result = await list_conversations(pool=pool)
+        assert len(result) == 1
+        assert result[0]["investor_name"] == "Test User"
+        assert result[0]["mode"] == "premium"
