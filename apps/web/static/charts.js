@@ -105,9 +105,8 @@ function initDonutChart(canvasId) {
  *     { label, cagr, future_value, present_value,
  *       future_value_fmt, present_value_fmt, color }
  *
- * Renders two datasets per scenario group:
- *   - "Future Value"  (solid scenario colour)
- *   - "Today's ₹"    (lighter version of the same colour)
+ * Layout: two groups on the X axis — "Future Value" and "In Today's ₹".
+ * Each group has Bear/Base/Bull bars side by side.
  *
  * @param {string} canvasId
  */
@@ -120,42 +119,28 @@ function initCorpusChart(canvasId) {
     var scenarios = JSON.parse(canvas.dataset.scenarios || '[]');
     if (!scenarios.length) return;
 
-    var labels = scenarios.map(function (s) { return s.label + ' (' + s.cagr + '% p.a.)'; });
+    // X-axis: two groups
+    var labels = ['Future Value', "In Today's \u20B9"];
 
-    // Future values dataset
-    var futureValues = scenarios.map(function (s) { return s.future_value; });
-    var futureColors = scenarios.map(function (s) { return s.color; });
-
-    // Present values dataset — lighter colours (add ~60% opacity via hex)
-    var presentValues = scenarios.map(function (s) { return s.present_value; });
-    var presentColors = scenarios.map(function (s) {
-        // Append 99 (≈60% opacity) to hex colour for a lighter shade
-        return s.color + '99';
+    // One dataset per scenario (Bear, Base, Bull)
+    var datasets = scenarios.map(function (s) {
+        return {
+            label: s.label + ' (' + s.cagr + '% p.a.)',
+            data: [s.future_value, s.present_value],
+            backgroundColor: s.color + 'cc',
+            borderColor: s.color,
+            borderWidth: 1,
+            borderRadius: 6,
+            // Store formatted values for tooltips
+            _fmts: [s.future_value_fmt, s.present_value_fmt],
+        };
     });
 
-    // Build per-bar colour arrays for Chart.js
     new Chart(canvas, {
         type: 'bar',
         data: {
             labels: labels,
-            datasets: [
-                {
-                    label: 'Future Value',
-                    data: futureValues,
-                    backgroundColor: futureColors,
-                    borderColor: futureColors,
-                    borderWidth: 1,
-                    borderRadius: 6,
-                },
-                {
-                    label: "Today's \u20B9",
-                    data: presentValues,
-                    backgroundColor: presentColors,
-                    borderColor: presentColors,
-                    borderWidth: 1,
-                    borderRadius: 6,
-                },
-            ],
+            datasets: datasets,
         },
         options: {
             responsive: true,
@@ -173,11 +158,8 @@ function initCorpusChart(canvasId) {
                 tooltip: {
                     callbacks: {
                         label: function (ctx) {
-                            var s = scenarios[ctx.dataIndex];
-                            if (ctx.datasetIndex === 0) {
-                                return 'Future Value: ' + s.future_value_fmt;
-                            }
-                            return "Today\u2019s \u20B9: " + s.present_value_fmt;
+                            var fmts = ctx.dataset._fmts;
+                            return ctx.dataset.label + ': ' + (fmts ? fmts[ctx.dataIndex] : _formatInr(ctx.parsed.y));
                         },
                     },
                 },
@@ -196,7 +178,7 @@ function initCorpusChart(canvasId) {
                     },
                 },
                 x: {
-                    ticks: { font: { size: 12 } },
+                    ticks: { font: { size: 12, weight: 'bold' } },
                     grid: { display: false },
                 },
             },
