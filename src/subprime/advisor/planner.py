@@ -1,11 +1,10 @@
 """Plan generation — strategy outlines and detailed investment plans."""
 from __future__ import annotations
 
+import asyncio
 import logging
 from pathlib import Path
 
-from pydantic import BaseModel
-from pydantic_ai import Agent
 from pydantic_ai.settings import ModelSettings
 
 from subprime.advisor.agent import create_advisor, create_strategy_advisor
@@ -16,12 +15,7 @@ logger = logging.getLogger(__name__)
 
 
 def _load_universe_context(db_path: Path | None = None) -> str | None:
-    """Load the curated fund universe as markdown text from DuckDB.
-
-    Returns None if the database doesn't exist or is empty — the advisor
-    will then work without the universe (falling back to live tool calls).
-    """
-    # Look up DB_PATH at call time so tests can monkeypatch the module attribute.
+    """Load the curated fund universe as markdown text from DuckDB."""
     if db_path is None:
         from subprime.advisor import planner as _self
         db_path = _self.DB_PATH
@@ -29,9 +23,7 @@ def _load_universe_context(db_path: Path | None = None) -> str | None:
         return None
     try:
         import duckdb
-
         from subprime.data.universe import render_universe_context
-
         conn = duckdb.connect(str(db_path), read_only=True)
         try:
             return render_universe_context(conn)
@@ -51,9 +43,7 @@ async def generate_strategy(
 ) -> StrategyOutline:
     """Generate or revise a high-level investment strategy."""
     agent = create_strategy_advisor(prompt_hooks=prompt_hooks, model=model)
-
     parts = [f"Investor profile:\n\n{profile.model_dump_json(indent=2)}"]
-
     if current_strategy and feedback:
         parts.append(
             f"\nCurrent strategy:\n\n{current_strategy.model_dump_json(indent=2)}"
@@ -65,73 +55,40 @@ async def generate_strategy(
             f"\nCurrent strategy:\n\n{current_strategy.model_dump_json(indent=2)}"
             f"\n\nRefine this strategy."
         )
-
     result = await agent.run("\n".join(parts))
     return result.output
 
 
-class PlanRanking(BaseModel):
-    """Result of comparing multiple plan variants."""
-
-    best_index: int
-    reasoning: str
-
-
-async def _pick_best_plan(
-    plans: list[InvestmentPlan], profile: InvestorProfile, model: str
-) -> InvestmentPlan:
-    """Pick the best plan from variants using a quick LLM evaluation."""
-    scorer = Agent(
-        model,
-        system_prompt=(
-            "You are evaluating investment plans. Pick the best one based on: "
-            "goal alignment, diversification across fund houses, cost efficiency "
-            "(expense ratios), and appropriateness for the investor's risk profile."
-        ),
-        output_type=PlanRanking,
-        defer_model_check=True,
-    )
-
-    plans_text = "\n\n---\n\n".join(
-        f"Plan {i + 1}:\n{p.model_dump_json(indent=2)}" for i, p in enumerate(plans)
-    )
-    prompt = (
-        f"Investor:\n{profile.model_dump_json(indent=2)}\n\n"
-        f"Plans:\n{plans_text}\n\n"
-        f"Which plan is best? Return the index (0-based)."
-    )
-    result = await scorer.run(prompt)
-    idx = max(0, min(result.output.best_index, len(plans) - 1))
-    return plans[idx]
-
-
-async def generate_plan(
+async def _generate_single_plan(
     profile: InvestorProfile,
-    strategy: StrategyOutline | None = None,
-    prompt_hooks: dict[str, str] | None = None,
-    include_universe: bool = True,
-    mode: str = "basic",
-    model: str = DEFAULT_MODEL,
+    strategy: StrategyOutline | None,
+    prompt_hooks: dict[str, str] | None,
+    universe_ctx: str | None,
+    perspective_prompt: str | None,
+    perspective_name: str,
+    model: str,
+    temperature: float | None = None,
 ) -> InvestmentPlan:
-    """Generate a detailed investment plan.
+    """Generate a single plan, optionally with a perspective prompt."""
+    # Merge perspective prompt into hooks
+    hooks = dict(prompt_hooks or {})
+    if perspective_prompt:
+        existing_philosophy = hooks.get("philosophy", "")
+        if existing_philosophy:
+            hooks["philosophy"] = existing_philosophy + "\n\n" + perspective_prompt
+        else:
+            hooks["philosophy"] = perspective_prompt
 
-    Args:
-        profile: Complete investor profile.
-        strategy: Optional approved strategy to guide fund selection.
-        prompt_hooks: Optional philosophy injection for experiments.
-        include_universe: If True (default), load the curated fund universe
-            from DuckDB and inject into the agent's system prompt.
-        mode: Plan generation mode — ``"basic"`` (single plan) or
-            ``"premium"`` (generate 3 variants, score and pick the best).
-        model: LLM model identifier.
-    """
-    universe_ctx = _load_universe_context() if include_universe else None
+    agent = create_advisor(
+        prompt_hooks=hooks,
+        universe_context=universe_ctx,
+        model=model,
+    )
 
     parts = [
         f"Create a detailed mutual fund investment plan for this investor:\n\n"
         f"{profile.model_dump_json(indent=2)}"
     ]
-
     if strategy:
         parts.append(
             f"\nThe investor has approved this strategy direction:\n\n"
@@ -140,31 +97,82 @@ async def generate_plan(
             f"Prefer funds from the curated universe above when possible."
         )
 
-    prompt = "\n".join(parts)
+    model_settings = ModelSettings(temperature=temperature) if temperature else None
+    result = await agent.run("\n".join(parts), model_settings=model_settings)
+    plan = result.output
+    plan.perspective = perspective_name
+    return plan
+
+
+async def generate_plan(
+    profile: InvestorProfile,
+    strategy: StrategyOutline | None = None,
+    prompt_hooks: dict[str, str] | None = None,
+    include_universe: bool = True,
+    mode: str = "basic",
+    n_perspectives: int = 3,
+    model: str = DEFAULT_MODEL,
+) -> InvestmentPlan:
+    """Generate a detailed investment plan.
+
+    Args:
+        profile: Complete investor profile.
+        strategy: Optional approved strategy to guide fund selection.
+        prompt_hooks: Optional philosophy injection for experiments.
+        include_universe: Load curated fund universe from DuckDB.
+        mode: "basic" (single plan) or "premium" (multi-perspective comparison).
+        n_perspectives: Number of perspectives for premium mode (3 or 5).
+        model: LLM model identifier.
+    """
+    universe_ctx = _load_universe_context() if include_universe else None
 
     if mode == "premium":
-        logger.info("Premium mode: generating 3 plan variants")
-        variants: list[InvestmentPlan] = []
-        for i in range(3):
-            agent = create_advisor(
-                prompt_hooks=prompt_hooks,
-                universe_context=universe_ctx,
-                model=model,
-            )
-            result = await agent.run(
-                prompt, model_settings=ModelSettings(temperature=0.9)
-            )
-            variants.append(result.output)
-            logger.info("Generated variant %d/3", i + 1)
+        from subprime.advisor.evaluator import evaluate_plans
+        from subprime.advisor.perspectives import get_default_perspectives
 
-        best = await _pick_best_plan(variants, profile, model)
+        perspectives = get_default_perspectives(n_perspectives)
+        logger.info("Premium mode: generating %d perspectives", len(perspectives))
+
+        # Generate plans in parallel
+        tasks = [
+            _generate_single_plan(
+                profile=profile,
+                strategy=strategy,
+                prompt_hooks=prompt_hooks,
+                universe_ctx=universe_ctx,
+                perspective_prompt=p.prompt,
+                perspective_name=p.name,
+                model=model,
+                temperature=0.8,
+            )
+            for p in perspectives
+        ]
+        plans = await asyncio.gather(*tasks, return_exceptions=True)
+
+        # Filter out failures
+        valid_plans = [p for p in plans if isinstance(p, InvestmentPlan)]
+        if not valid_plans:
+            logger.error("All premium variants failed, falling back to basic mode")
+            return await _generate_single_plan(
+                profile, strategy, prompt_hooks, universe_ctx,
+                None, "basic_fallback", model,
+            )
+
+        if len(valid_plans) == 1:
+            return valid_plans[0]
+
+        # Evaluate and pick best
+        evaluation = await evaluate_plans(valid_plans, profile, model)
+        best = valid_plans[evaluation.best_index]
+        logger.info(
+            "Premium evaluation: picked '%s' — %s",
+            best.perspective,
+            evaluation.reasoning[:100],
+        )
         return best
 
-    # basic mode — single generation
-    agent = create_advisor(
-        prompt_hooks=prompt_hooks,
-        universe_context=universe_ctx,
-        model=model,
+    # basic mode
+    return await _generate_single_plan(
+        profile, strategy, prompt_hooks, universe_ctx,
+        None, "basic", model,
     )
-    result = await agent.run(prompt)
-    return result.output

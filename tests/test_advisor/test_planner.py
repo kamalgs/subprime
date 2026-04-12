@@ -11,6 +11,7 @@ from unittest.mock import AsyncMock, MagicMock, patch
 import pytest
 
 from subprime.advisor.agent import create_advisor, load_prompt
+from subprime.advisor.evaluator import PlanEvaluation
 from subprime.core.config import DEFAULT_MODEL
 from subprime.core.models import (
     Allocation,
@@ -264,44 +265,76 @@ async def test_generate_plan_include_universe_false_skips_db(sample_profile, mon
 
 
 # ---------------------------------------------------------------------------
-# Premium mode
+# Premium mode (multi-perspective)
 # ---------------------------------------------------------------------------
 
 
 @pytest.mark.asyncio
 async def test_generate_plan_premium_mode(sample_profile):
-    """Premium mode should generate 3 variants and pick the best."""
+    """Premium mode should generate plans from multiple perspectives and evaluate."""
     from subprime.advisor.planner import generate_plan
 
     fake_plan = _make_fake_plan()
     mock_result = MagicMock()
     mock_result.output = fake_plan
 
-    # Mock the ranking agent's output
-    mock_ranking_result = MagicMock()
-    mock_ranking_result.output = MagicMock(best_index=1, reasoning="Plan 2 is best")
+    mock_eval = PlanEvaluation(
+        best_index=0,
+        rankings=[0, 1, 2],
+        reasoning="Balanced is best.",
+    )
 
     with (
         patch("subprime.advisor.planner.create_advisor") as mock_create,
-        patch("subprime.advisor.planner._pick_best_plan", new_callable=AsyncMock) as mock_pick,
+        patch("subprime.advisor.evaluator.evaluate_plans", new_callable=AsyncMock) as mock_evaluate,
     ):
         mock_agent = AsyncMock()
         mock_agent.run = AsyncMock(return_value=mock_result)
         mock_create.return_value = mock_agent
 
-        # _pick_best_plan returns one of the plans
-        mock_pick.return_value = fake_plan
+        mock_evaluate.return_value = mock_eval
 
         plan = await generate_plan(sample_profile, mode="premium")
 
     assert isinstance(plan, InvestmentPlan)
-    # Should have created the advisor 3 times (one per variant)
+    # Should have created the advisor 3 times (one per perspective)
     assert mock_create.call_count == 3
-    # Should have called _pick_best_plan once
-    mock_pick.assert_awaited_once()
-    # Check that _pick_best_plan received 3 plans
-    call_args = mock_pick.call_args
+    # Should have called evaluate_plans once
+    mock_evaluate.assert_awaited_once()
+    # Check that evaluate_plans received 3 plans
+    call_args = mock_evaluate.call_args
     assert len(call_args[0][0]) == 3  # first positional arg is the plans list
+
+
+@pytest.mark.asyncio
+async def test_generate_plan_premium_fallback_on_all_failures(sample_profile):
+    """Premium mode should fall back to basic if all perspectives fail."""
+    from subprime.advisor.planner import generate_plan
+
+    fake_plan = _make_fake_plan()
+    mock_result = MagicMock()
+    mock_result.output = fake_plan
+
+    call_count = 0
+
+    async def _failing_then_succeeding(*args, **kwargs):
+        nonlocal call_count
+        call_count += 1
+        # First 3 calls (perspectives) fail, 4th (fallback) succeeds
+        if call_count <= 3:
+            raise RuntimeError("LLM error")
+        return mock_result
+
+    with patch("subprime.advisor.planner.create_advisor") as mock_create:
+        mock_agent = AsyncMock()
+        mock_agent.run = _failing_then_succeeding
+        mock_create.return_value = mock_agent
+
+        plan = await generate_plan(sample_profile, mode="premium")
+
+    assert isinstance(plan, InvestmentPlan)
+    # 3 failed perspective calls + 1 fallback call = 4
+    assert mock_create.call_count == 4
 
 
 @pytest.mark.asyncio
@@ -325,41 +358,67 @@ async def test_generate_plan_basic_mode_single_call(sample_profile):
 
 
 @pytest.mark.asyncio
-async def test_pick_best_plan(sample_profile):
-    """_pick_best_plan should return the plan at the chosen index."""
-    from subprime.advisor.planner import PlanRanking, _pick_best_plan
+async def test_generate_plan_premium_tags_perspective(sample_profile):
+    """Premium mode should tag each plan with its perspective name."""
+    from subprime.advisor.planner import generate_plan
 
-    plans = [_make_fake_plan(), _make_fake_plan(), _make_fake_plan()]
+    mock_eval = PlanEvaluation(
+        best_index=1,
+        reasoning="Growth is best.",
+    )
 
-    mock_ranking_result = MagicMock()
-    mock_ranking_result.output = PlanRanking(best_index=2, reasoning="Plan 3 has better diversification")
+    def _make_mock_result(*args, **kwargs):
+        """Return a fresh plan each call so perspective tagging doesn't collide."""
+        result = MagicMock()
+        result.output = _make_fake_plan()
+        return result
 
-    with patch("subprime.advisor.planner.Agent") as MockAgent:
-        mock_scorer = AsyncMock()
-        mock_scorer.run = AsyncMock(return_value=mock_ranking_result)
-        MockAgent.return_value = mock_scorer
+    with (
+        patch("subprime.advisor.planner.create_advisor") as mock_create,
+        patch("subprime.advisor.evaluator.evaluate_plans", new_callable=AsyncMock) as mock_evaluate,
+    ):
+        mock_agent = AsyncMock()
+        mock_agent.run = AsyncMock(side_effect=_make_mock_result)
+        mock_create.return_value = mock_agent
+        mock_evaluate.return_value = mock_eval
 
-        best = await _pick_best_plan(plans, sample_profile, DEFAULT_MODEL)
+        plan = await generate_plan(sample_profile, mode="premium")
 
-    assert best is plans[2]
+    # The returned plan should have a perspective set
+    assert isinstance(plan, InvestmentPlan)
+    # evaluate_plans received plans that all have perspectives set
+    eval_call_args = mock_evaluate.call_args
+    plans_passed = eval_call_args[0][0]
+    perspective_names = {p.perspective for p in plans_passed}
+    assert "balanced" in perspective_names
+    assert "growth" in perspective_names
+    assert "defensive" in perspective_names
 
 
 @pytest.mark.asyncio
-async def test_pick_best_plan_clamps_index(sample_profile):
-    """_pick_best_plan should clamp an out-of-range index."""
-    from subprime.advisor.planner import PlanRanking, _pick_best_plan
+async def test_generate_plan_premium_five_perspectives(sample_profile):
+    """Premium mode with n_perspectives=5 should generate 5 plans."""
+    from subprime.advisor.planner import generate_plan
 
-    plans = [_make_fake_plan(), _make_fake_plan()]
+    fake_plan = _make_fake_plan()
+    mock_result = MagicMock()
+    mock_result.output = fake_plan
 
-    mock_ranking_result = MagicMock()
-    mock_ranking_result.output = PlanRanking(best_index=99, reasoning="Invalid index")
+    mock_eval = PlanEvaluation(
+        best_index=0,
+        reasoning="Balanced is best.",
+    )
 
-    with patch("subprime.advisor.planner.Agent") as MockAgent:
-        mock_scorer = AsyncMock()
-        mock_scorer.run = AsyncMock(return_value=mock_ranking_result)
-        MockAgent.return_value = mock_scorer
+    with (
+        patch("subprime.advisor.planner.create_advisor") as mock_create,
+        patch("subprime.advisor.evaluator.evaluate_plans", new_callable=AsyncMock) as mock_evaluate,
+    ):
+        mock_agent = AsyncMock()
+        mock_agent.run = AsyncMock(return_value=mock_result)
+        mock_create.return_value = mock_agent
+        mock_evaluate.return_value = mock_eval
 
-        best = await _pick_best_plan(plans, sample_profile, DEFAULT_MODEL)
+        plan = await generate_plan(sample_profile, mode="premium", n_perspectives=5)
 
-    # Should clamp to last plan (index 1)
-    assert best is plans[1]
+    assert isinstance(plan, InvestmentPlan)
+    assert mock_create.call_count == 5

@@ -392,13 +392,20 @@ def _handle_strategy_phase(user_msg: str, history: list, state: dict) -> tuple[l
         state["phase"] = PHASE_PLAN_READY
         plan_mode = state.get("mode", "basic")
         if plan_mode == "premium":
-            history.append({"role": "assistant", "content": "Generating 3 plan variants and comparing..."})
+            from subprime.advisor.perspectives import get_default_perspectives
+            n_perspectives = state.get("n_perspectives", 3)
+            perspective_list = get_default_perspectives(n_perspectives)
+            names = [p.description for p in perspective_list]
+            bullets = "\n".join(f"- {n}" for n in names)
+            history.append({"role": "assistant", "content": f"Generating {n_perspectives} perspectives and comparing:\n{bullets}"})
         else:
+            n_perspectives = 3
             history.append({"role": "assistant", "content": "Finding specific funds for your strategy..."})
 
         try:
             plan = asyncio.run(generate_plan(
                 state["profile"], strategy=state["strategy"], mode=plan_mode,
+                n_perspectives=n_perspectives,
             ))
             state["plan"] = plan
             state["conv"].plan = plan

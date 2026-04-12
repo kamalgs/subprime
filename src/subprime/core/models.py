@@ -80,6 +80,22 @@ class StrategyOutline(BaseModel):
     open_questions: list[str]
 
 
+class SIPStepUp(BaseModel):
+    """SIP step-up schedule — annual increases to monthly SIP."""
+    annual_increase_pct: float = 10.0  # e.g. 10% yearly increase
+    description: str = "Increase SIP by 10% every year to match salary growth"
+
+
+class AllocationPhase(BaseModel):
+    """Asset allocation at a specific point in the investment timeline."""
+    year: int  # e.g. year 0, year 5, year 10
+    equity_pct: float = 0.0
+    debt_pct: float = 0.0
+    gold_pct: float = 0.0
+    other_pct: float = 0.0
+    trigger: str = ""  # e.g. "initial", "5 years before retirement", "at retirement"
+
+
 class InvestmentPlan(BaseModel):
     """Complete investment plan produced by the advisor agent."""
 
@@ -91,6 +107,10 @@ class InvestmentPlan(BaseModel):
     rationale: str = ""
     risks: list[str] = []
     disclaimer: str = "For research/educational purposes only. Not certified financial advice."
+    # Enhanced plan features (optional — populated in premium mode)
+    sip_step_up: SIPStepUp | None = None
+    allocation_schedule: list[AllocationPhase] = []
+    perspective: str = ""  # which perspective generated this plan
 
 
 # ---------------------------------------------------------------------------

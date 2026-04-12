@@ -183,7 +183,12 @@ def advise(
     mode: str = typer.Option(
         "basic",
         "--mode",
-        help="Plan generation mode: 'basic' (single plan) or 'premium' (compare 3 variants, pick best).",
+        help="Plan generation mode: 'basic' (single plan) or 'premium' (multi-perspective comparison).",
+    ),
+    perspectives: int = typer.Option(
+        3,
+        "--perspectives",
+        help="Number of perspectives for premium mode (3 or 5).",
     ),
 ) -> None:
     """FinAdvisor — interactive mutual fund advisor: gather profile, co-create strategy, generate plan."""
@@ -242,12 +247,18 @@ def advise(
         # Phase 3: Detailed plan
         _console.print(Rule("[bold]Phase 3: Fund Selection[/bold]", style="blue"))
         if mode == "premium":
-            status_msg = "[bold blue]Generating 3 plan variants and comparing...[/bold blue]"
+            from subprime.advisor.perspectives import get_default_perspectives
+            perspective_list = get_default_perspectives(perspectives)
+            names = [p.description for p in perspective_list]
+            _console.print(f"[dim]Premium mode: comparing {perspectives} perspectives[/dim]")
+            for n in names:
+                _console.print(f"[dim]  \u2022 {n}[/dim]")
+            status_msg = "[bold blue]Generating perspectives and comparing...[/bold blue]"
         else:
             status_msg = "[bold blue]Selecting funds and building your plan...[/bold blue]"
         with _console.status(status_msg):
             plan = asyncio.run(
-                generate_plan(profile, strategy=strategy, mode=mode, model=model)
+                generate_plan(profile, strategy=strategy, mode=mode, n_perspectives=perspectives, model=model)
             )
         print(
             format_plan_summary(
