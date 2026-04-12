@@ -142,6 +142,171 @@ class TestFormatPlanSummary:
 
 
 # ===========================================================================
+# INR formatting & corpus projection helpers
+# ===========================================================================
+
+
+class TestFormatInr:
+    def test_crores(self):
+        from subprime.core.display import _format_inr
+
+        result = _format_inr(2_45_00_000)
+        assert "Cr" in result
+        assert "2.45" in result
+
+    def test_large_crores(self):
+        from subprime.core.display import _format_inr
+
+        result = _format_inr(17_65_00_000)
+        assert "Cr" in result
+        assert "17.65" in result
+
+    def test_lakhs(self):
+        from subprime.core.display import _format_inr
+
+        result = _format_inr(15_30_000)
+        assert "L" in result
+        assert "15.30" in result
+
+    def test_small_amount(self):
+        from subprime.core.display import _format_inr
+
+        result = _format_inr(50_000)
+        assert "50,000" in result
+        # Should NOT contain L or Cr
+        assert "L" not in result
+        assert "Cr" not in result
+
+    def test_exactly_one_crore(self):
+        from subprime.core.display import _format_inr
+
+        result = _format_inr(1_00_00_000)
+        assert "Cr" in result
+        assert "1.00" in result
+
+    def test_exactly_one_lakh(self):
+        from subprime.core.display import _format_inr
+
+        result = _format_inr(1_00_000)
+        assert "L" in result
+        assert "1.00" in result
+
+    def test_never_millions(self):
+        from subprime.core.display import _format_inr
+
+        # Ensure 'million' never appears
+        for amount in [1_00_000, 10_00_000, 1_00_00_000, 10_00_00_000]:
+            result = _format_inr(amount)
+            assert "million" not in result.lower()
+
+
+class TestComputeCorpus:
+    def test_basic_computation(self):
+        from subprime.core.display import _compute_corpus
+
+        # 50k/mo at 12% for 30 years
+        fv = _compute_corpus(50_000, 30, 12.0)
+        assert fv > 0
+        # Should be in crores range for this scenario
+        assert fv > 1_00_00_000
+
+    def test_zero_sip_returns_zero(self):
+        from subprime.core.display import _compute_corpus
+
+        assert _compute_corpus(0, 30, 12.0) == 0.0
+
+    def test_zero_years_returns_zero(self):
+        from subprime.core.display import _compute_corpus
+
+        assert _compute_corpus(50_000, 0, 12.0) == 0.0
+
+    def test_zero_cagr_returns_zero(self):
+        from subprime.core.display import _compute_corpus
+
+        assert _compute_corpus(50_000, 30, 0.0) == 0.0
+
+    def test_negative_cagr_returns_zero(self):
+        from subprime.core.display import _compute_corpus
+
+        assert _compute_corpus(50_000, 30, -5.0) == 0.0
+
+    def test_higher_cagr_gives_higher_corpus(self):
+        from subprime.core.display import _compute_corpus
+
+        low = _compute_corpus(50_000, 30, 8.0)
+        high = _compute_corpus(50_000, 30, 16.0)
+        assert high > low
+
+
+class TestInflationAdjusted:
+    def test_discounts_future_value(self):
+        from subprime.core.display import _inflation_adjusted
+
+        fv = 1_00_00_000  # 1 crore
+        pv = _inflation_adjusted(fv, 30, 6.0)
+        assert pv < fv
+        assert pv > 0
+
+    def test_zero_years_returns_same(self):
+        from subprime.core.display import _inflation_adjusted
+
+        fv = 1_00_00_000
+        assert _inflation_adjusted(fv, 0) == fv
+
+    def test_negative_years_returns_same(self):
+        from subprime.core.display import _inflation_adjusted
+
+        fv = 1_00_00_000
+        assert _inflation_adjusted(fv, -5) == fv
+
+    def test_higher_inflation_reduces_more(self):
+        from subprime.core.display import _inflation_adjusted
+
+        fv = 1_00_00_000
+        low_inf = _inflation_adjusted(fv, 30, 4.0)
+        high_inf = _inflation_adjusted(fv, 30, 8.0)
+        assert high_inf < low_inf
+
+
+class TestCorpusProjectionDisplay:
+    """Test that corpus projection table appears in format_plan_summary."""
+
+    def test_corpus_shown_with_sip_and_horizon(self):
+        from subprime.core.display import format_plan_summary
+
+        plan = _make_plan()
+        result = format_plan_summary(plan, monthly_sip=50_000, horizon_years=30)
+        assert "Projected Corpus" in result
+        assert "Cr" in result or "L" in result
+
+    def test_corpus_not_shown_without_horizon(self):
+        from subprime.core.display import format_plan_summary
+
+        plan = _make_plan()
+        result = format_plan_summary(plan, monthly_sip=50_000, horizon_years=0)
+        # Should fall back to simple CAGR table, not corpus
+        assert "Projected Corpus" not in result
+
+    def test_corpus_not_shown_with_zero_returns(self):
+        from subprime.core.display import format_plan_summary
+
+        plan = _make_plan()
+        plan = plan.model_copy(update={"projected_returns": {"bear": 0.0, "base": 0.0, "bull": 0.0}})
+        result = format_plan_summary(plan, monthly_sip=50_000, horizon_years=30)
+        # No corpus and no CAGR table when all zero
+        assert "Projected Corpus" not in result
+        assert "Projected Returns" not in result
+
+    def test_corpus_uses_plan_sip_when_no_monthly_sip(self):
+        from subprime.core.display import format_plan_summary
+
+        plan = _make_plan()
+        # Don't pass monthly_sip — should derive from plan allocations
+        result = format_plan_summary(plan, horizon_years=30)
+        assert "Projected Corpus" in result
+
+
+# ===========================================================================
 # format_scores
 # ===========================================================================
 

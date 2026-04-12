@@ -11,6 +11,7 @@ from unittest.mock import AsyncMock, MagicMock, patch
 import pytest
 
 from subprime.advisor.agent import create_advisor, load_prompt
+from subprime.core.config import DEFAULT_MODEL
 from subprime.core.models import (
     Allocation,
     InvestmentPlan,
@@ -260,3 +261,105 @@ async def test_generate_plan_include_universe_false_skips_db(sample_profile, mon
     assert isinstance(plan, InvestmentPlan)
     call_kwargs = mock_create.call_args.kwargs
     assert call_kwargs.get("universe_context") is None
+
+
+# ---------------------------------------------------------------------------
+# Premium mode
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.asyncio
+async def test_generate_plan_premium_mode(sample_profile):
+    """Premium mode should generate 3 variants and pick the best."""
+    from subprime.advisor.planner import generate_plan
+
+    fake_plan = _make_fake_plan()
+    mock_result = MagicMock()
+    mock_result.output = fake_plan
+
+    # Mock the ranking agent's output
+    mock_ranking_result = MagicMock()
+    mock_ranking_result.output = MagicMock(best_index=1, reasoning="Plan 2 is best")
+
+    with (
+        patch("subprime.advisor.planner.create_advisor") as mock_create,
+        patch("subprime.advisor.planner._pick_best_plan", new_callable=AsyncMock) as mock_pick,
+    ):
+        mock_agent = AsyncMock()
+        mock_agent.run = AsyncMock(return_value=mock_result)
+        mock_create.return_value = mock_agent
+
+        # _pick_best_plan returns one of the plans
+        mock_pick.return_value = fake_plan
+
+        plan = await generate_plan(sample_profile, mode="premium")
+
+    assert isinstance(plan, InvestmentPlan)
+    # Should have created the advisor 3 times (one per variant)
+    assert mock_create.call_count == 3
+    # Should have called _pick_best_plan once
+    mock_pick.assert_awaited_once()
+    # Check that _pick_best_plan received 3 plans
+    call_args = mock_pick.call_args
+    assert len(call_args[0][0]) == 3  # first positional arg is the plans list
+
+
+@pytest.mark.asyncio
+async def test_generate_plan_basic_mode_single_call(sample_profile):
+    """Basic mode should generate exactly 1 plan."""
+    from subprime.advisor.planner import generate_plan
+
+    fake_plan = _make_fake_plan()
+    mock_result = MagicMock()
+    mock_result.output = fake_plan
+
+    with patch("subprime.advisor.planner.create_advisor") as mock_create:
+        mock_agent = AsyncMock()
+        mock_agent.run = AsyncMock(return_value=mock_result)
+        mock_create.return_value = mock_agent
+
+        plan = await generate_plan(sample_profile, mode="basic")
+
+    assert isinstance(plan, InvestmentPlan)
+    assert mock_create.call_count == 1
+
+
+@pytest.mark.asyncio
+async def test_pick_best_plan(sample_profile):
+    """_pick_best_plan should return the plan at the chosen index."""
+    from subprime.advisor.planner import PlanRanking, _pick_best_plan
+
+    plans = [_make_fake_plan(), _make_fake_plan(), _make_fake_plan()]
+
+    mock_ranking_result = MagicMock()
+    mock_ranking_result.output = PlanRanking(best_index=2, reasoning="Plan 3 has better diversification")
+
+    with patch("subprime.advisor.planner.Agent") as MockAgent:
+        mock_scorer = AsyncMock()
+        mock_scorer.run = AsyncMock(return_value=mock_ranking_result)
+        MockAgent.return_value = mock_scorer
+
+        best = await _pick_best_plan(plans, sample_profile, DEFAULT_MODEL)
+
+    assert best is plans[2]
+
+
+@pytest.mark.asyncio
+async def test_pick_best_plan_clamps_index(sample_profile):
+    """_pick_best_plan should clamp an out-of-range index."""
+    from subprime.advisor.planner import PlanRanking, _pick_best_plan
+
+    plans = [_make_fake_plan(), _make_fake_plan()]
+
+    mock_ranking_result = MagicMock()
+    mock_ranking_result.output = PlanRanking(best_index=99, reasoning="Invalid index")
+
+    with patch("subprime.advisor.planner.Agent") as MockAgent:
+        mock_scorer = AsyncMock()
+        mock_scorer.run = AsyncMock(return_value=mock_ranking_result)
+        MockAgent.return_value = mock_scorer
+
+        best = await _pick_best_plan(plans, sample_profile, DEFAULT_MODEL)
+
+    # Should clamp to last plan (index 1)
+    assert best is plans[1]

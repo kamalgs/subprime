@@ -185,6 +185,10 @@ class TestAdvise:
         result = runner.invoke(app, ["advise", "--help"])
         assert "--model" in result.output or "-m" in result.output
 
+    def test_help_shows_mode_option(self):
+        result = runner.invoke(app, ["advise", "--help"])
+        assert "--mode" in result.output
+
     def test_advise_with_profile_bulk_mode(self):
         """--profile P01 should skip interactive Q&A and go through strategy + plan."""
         fake_strategy = StrategyOutline(

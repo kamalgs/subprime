@@ -4,6 +4,10 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
+from pydantic import BaseModel
+from pydantic_ai import Agent
+from pydantic_ai.settings import ModelSettings
+
 from subprime.advisor.agent import create_advisor, create_strategy_advisor
 from subprime.core.config import DB_PATH, DEFAULT_MODEL
 from subprime.core.models import InvestmentPlan, InvestorProfile, StrategyOutline
@@ -66,11 +70,47 @@ async def generate_strategy(
     return result.output
 
 
+class PlanRanking(BaseModel):
+    """Result of comparing multiple plan variants."""
+
+    best_index: int
+    reasoning: str
+
+
+async def _pick_best_plan(
+    plans: list[InvestmentPlan], profile: InvestorProfile, model: str
+) -> InvestmentPlan:
+    """Pick the best plan from variants using a quick LLM evaluation."""
+    scorer = Agent(
+        model,
+        system_prompt=(
+            "You are evaluating investment plans. Pick the best one based on: "
+            "goal alignment, diversification across fund houses, cost efficiency "
+            "(expense ratios), and appropriateness for the investor's risk profile."
+        ),
+        output_type=PlanRanking,
+        defer_model_check=True,
+    )
+
+    plans_text = "\n\n---\n\n".join(
+        f"Plan {i + 1}:\n{p.model_dump_json(indent=2)}" for i, p in enumerate(plans)
+    )
+    prompt = (
+        f"Investor:\n{profile.model_dump_json(indent=2)}\n\n"
+        f"Plans:\n{plans_text}\n\n"
+        f"Which plan is best? Return the index (0-based)."
+    )
+    result = await scorer.run(prompt)
+    idx = max(0, min(result.output.best_index, len(plans) - 1))
+    return plans[idx]
+
+
 async def generate_plan(
     profile: InvestorProfile,
     strategy: StrategyOutline | None = None,
     prompt_hooks: dict[str, str] | None = None,
     include_universe: bool = True,
+    mode: str = "basic",
     model: str = DEFAULT_MODEL,
 ) -> InvestmentPlan:
     """Generate a detailed investment plan.
@@ -81,14 +121,11 @@ async def generate_plan(
         prompt_hooks: Optional philosophy injection for experiments.
         include_universe: If True (default), load the curated fund universe
             from DuckDB and inject into the agent's system prompt.
+        mode: Plan generation mode — ``"basic"`` (single plan) or
+            ``"premium"`` (generate 3 variants, score and pick the best).
         model: LLM model identifier.
     """
     universe_ctx = _load_universe_context() if include_universe else None
-    agent = create_advisor(
-        prompt_hooks=prompt_hooks,
-        universe_context=universe_ctx,
-        model=model,
-    )
 
     parts = [
         f"Create a detailed mutual fund investment plan for this investor:\n\n"
@@ -103,5 +140,31 @@ async def generate_plan(
             f"Prefer funds from the curated universe above when possible."
         )
 
-    result = await agent.run("\n".join(parts))
+    prompt = "\n".join(parts)
+
+    if mode == "premium":
+        logger.info("Premium mode: generating 3 plan variants")
+        variants: list[InvestmentPlan] = []
+        for i in range(3):
+            agent = create_advisor(
+                prompt_hooks=prompt_hooks,
+                universe_context=universe_ctx,
+                model=model,
+            )
+            result = await agent.run(
+                prompt, model_settings=ModelSettings(temperature=0.9)
+            )
+            variants.append(result.output)
+            logger.info("Generated variant %d/3", i + 1)
+
+        best = await _pick_best_plan(variants, profile, model)
+        return best
+
+    # basic mode — single generation
+    agent = create_advisor(
+        prompt_hooks=prompt_hooks,
+        universe_context=universe_ctx,
+        model=model,
+    )
+    result = await agent.run(prompt)
     return result.output

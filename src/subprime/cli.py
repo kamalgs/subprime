@@ -180,6 +180,11 @@ def advise(
         "-m",
         help="LLM model identifier.",
     ),
+    mode: str = typer.Option(
+        "basic",
+        "--mode",
+        help="Plan generation mode: 'basic' (single plan) or 'premium' (compare 3 variants, pick best).",
+    ),
 ) -> None:
     """FinAdvisor — interactive mutual fund advisor: gather profile, co-create strategy, generate plan."""
     _check_api_key(model)
@@ -236,9 +241,23 @@ def advise(
 
         # Phase 3: Detailed plan
         _console.print(Rule("[bold]Phase 3: Fund Selection[/bold]", style="blue"))
-        with _console.status("[bold blue]Selecting funds and building your plan...[/bold blue]"):
-            plan = asyncio.run(generate_plan(profile, strategy=strategy, model=model))
-        print(format_plan_summary(plan, strategy=strategy), end="")
+        if mode == "premium":
+            status_msg = "[bold blue]Generating 3 plan variants and comparing...[/bold blue]"
+        else:
+            status_msg = "[bold blue]Selecting funds and building your plan...[/bold blue]"
+        with _console.status(status_msg):
+            plan = asyncio.run(
+                generate_plan(profile, strategy=strategy, mode=mode, model=model)
+            )
+        print(
+            format_plan_summary(
+                plan,
+                strategy=strategy,
+                monthly_sip=profile.monthly_investible_surplus_inr,
+                horizon_years=profile.investment_horizon_years,
+            ),
+            end="",
+        )
         conversation.plan = plan
 
         # Save conversation

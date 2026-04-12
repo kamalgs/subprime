@@ -22,6 +22,40 @@ from subprime.core.models import (
 )
 
 
+# ---------------------------------------------------------------------------
+# INR formatting & corpus projection helpers
+# ---------------------------------------------------------------------------
+
+
+def _format_inr(amount: float) -> str:
+    """Format INR amount in lakhs/crores notation.
+
+    Uses Indian grouping (L = lakh, Cr = crore). Never uses millions.
+    """
+    if amount >= 1_00_00_000:  # 1 crore
+        return f"\u20b9{amount / 1_00_00_000:.2f} Cr"
+    elif amount >= 1_00_000:  # 1 lakh
+        return f"\u20b9{amount / 1_00_000:.2f} L"
+    else:
+        return f"\u20b9{amount:,.0f}"
+
+
+def _compute_corpus(monthly_sip: float, years: int, cagr_pct: float) -> float:
+    """Compute future value of monthly SIP at given CAGR."""
+    if cagr_pct <= 0 or monthly_sip <= 0 or years <= 0:
+        return 0.0
+    r = cagr_pct / 100 / 12  # monthly rate
+    n = years * 12
+    return monthly_sip * (((1 + r) ** n - 1) / r) * (1 + r)
+
+
+def _inflation_adjusted(future_value: float, years: int, inflation_pct: float = 6.0) -> float:
+    """Discount future value to today's terms."""
+    if years <= 0:
+        return future_value
+    return future_value / ((1 + inflation_pct / 100) ** years)
+
+
 def format_profile_card(profile: InvestorProfile) -> str:
     """Render a compact investor profile card as a Rich Panel."""
     buf = StringIO()
@@ -78,18 +112,20 @@ def format_plan_header(
     bear = plan.projected_returns.get("bear", 0.0)
     base = plan.projected_returns.get("base", 0.0)
     bull = plan.projected_returns.get("bull", 0.0)
+    has_returns = any(v > 0 for v in (bear, base, bull))
 
     lines = [
         f"[bold]{n_funds} funds[/bold] across {n_houses} fund house{'s' if n_houses != 1 else ''}  |  "
-        f"Monthly SIP: [bold green]₹{total_sip:,.0f}[/bold green]",
+        f"Monthly SIP: [bold green]{_format_inr(total_sip)}[/bold green]",
     ]
     if mix_parts:
         lines.append(f"Asset mix: {' / '.join(mix_parts)}")
-    lines.append(
-        f"Projected CAGR:  [red]Bear {bear:.1f}%[/red]  /  "
-        f"[yellow]Base {base:.1f}%[/yellow]  /  "
-        f"[green]Bull {bull:.1f}%[/green]"
-    )
+    if has_returns:
+        lines.append(
+            f"Projected CAGR:  [red]Bear {bear:.1f}%[/red]  /  "
+            f"[yellow]Base {base:.1f}%[/yellow]  /  "
+            f"[green]Bull {bull:.1f}%[/green]"
+        )
 
     body = "\n".join(lines)
     console.print(Panel(body, title="Plan Overview", border_style="green"))
@@ -97,14 +133,26 @@ def format_plan_header(
     return buf.getvalue()
 
 
-def format_plan_summary(plan: InvestmentPlan, strategy: StrategyOutline | None = None) -> str:
+def format_plan_summary(
+    plan: InvestmentPlan,
+    strategy: StrategyOutline | None = None,
+    monthly_sip: float | None = None,
+    horizon_years: int | None = None,
+) -> str:
     """Render an InvestmentPlan to a Rich-formatted string.
 
     Includes:
     - Plan overview header (funds count, SIP total, asset mix, returns)
     - Allocations table (compact: fund+house+code, %, mode, SIP, ER, rating)
     - Fund rationale bullet list
+    - Projected corpus table (if SIP, horizon, and CAGR are available)
     - Rationale panel
+
+    Args:
+        plan: The investment plan to render.
+        strategy: Optional strategy outline for asset mix display.
+        monthly_sip: Monthly SIP amount (from investor profile) for corpus projection.
+        horizon_years: Investment horizon in years for corpus projection.
     """
     buf = StringIO()
     console = Console(file=buf, force_terminal=True, width=120)
@@ -124,9 +172,9 @@ def format_plan_summary(plan: InvestmentPlan, strategy: StrategyOutline | None =
     rationales: list[tuple[str, str]] = []
 
     for alloc in plan.allocations:
-        sip_str = f"₹{alloc.monthly_sip_inr:,.0f}" if alloc.monthly_sip_inr else "-"
+        sip_str = _format_inr(alloc.monthly_sip_inr) if alloc.monthly_sip_inr else "-"
         er_str = f"{alloc.fund.expense_ratio:.2f}" if alloc.fund.expense_ratio else "-"
-        rating = "★" * alloc.fund.morningstar_rating if alloc.fund.morningstar_rating else "-"
+        rating = "\u2605" * alloc.fund.morningstar_rating if alloc.fund.morningstar_rating else "-"
         house_code = " | ".join(
             part for part in [alloc.fund.fund_house, alloc.fund.amfi_code] if part
         )
@@ -148,22 +196,57 @@ def format_plan_summary(plan: InvestmentPlan, strategy: StrategyOutline | None =
         console.print("\n[bold]Why these funds?[/bold]")
         for fund_name, rationale in rationales:
             console.print(
-                f"  [cyan]{escape(fund_name)}[/cyan] — {escape(rationale)}",
+                f"  [cyan]{escape(fund_name)}[/cyan] \u2014 {escape(rationale)}",
                 highlight=False,
             )
 
-    # --- Projected returns table ---
-    returns_table = Table(title="Projected Returns (CAGR %)", show_lines=True)
-    returns_table.add_column("Bear", style="red", justify="right")
-    returns_table.add_column("Base", style="yellow", justify="right")
-    returns_table.add_column("Bull", style="green", justify="right")
-
+    # --- Projected corpus table ---
     bear = plan.projected_returns.get("bear", 0.0)
     base = plan.projected_returns.get("base", 0.0)
     bull = plan.projected_returns.get("bull", 0.0)
-    returns_table.add_row(f"{bear:.1f}%", f"{base:.1f}%", f"{bull:.1f}%")
+    has_returns = any(v > 0 for v in (bear, base, bull))
 
-    console.print(returns_table)
+    # Derive SIP from plan allocations if not explicitly provided
+    effective_sip = monthly_sip
+    if effective_sip is None:
+        effective_sip = sum(alloc.monthly_sip_inr or 0 for alloc in plan.allocations)
+    effective_horizon = horizon_years or 0
+
+    if has_returns and effective_sip and effective_sip > 0 and effective_horizon > 0:
+        corpus_table = Table(
+            title=f"Projected Corpus (SIP {_format_inr(effective_sip)}/mo over"
+            f" {effective_horizon} years)",
+            show_lines=True,
+        )
+        corpus_table.add_column("Scenario", style="bold")
+        corpus_table.add_column("CAGR", justify="right")
+        corpus_table.add_column("Future Value", justify="right")
+        corpus_table.add_column("In Today's \u20b9", justify="right")
+
+        for label, cagr, style in [
+            ("Bear", bear, "red"),
+            ("Base", base, "yellow"),
+            ("Bull", bull, "green"),
+        ]:
+            if cagr > 0:
+                fv = _compute_corpus(effective_sip, effective_horizon, cagr)
+                pv = _inflation_adjusted(fv, effective_horizon)
+                corpus_table.add_row(
+                    f"[{style}]{label}[/{style}]",
+                    f"[{style}]{cagr:.1f}%[/{style}]",
+                    f"[{style}]{_format_inr(fv)}[/{style}]",
+                    f"[{style}]{_format_inr(pv)}[/{style}]",
+                )
+
+        console.print(corpus_table)
+    elif has_returns:
+        # Show CAGR-only table when we can't compute corpus
+        returns_table = Table(title="Projected Returns (CAGR %)", show_lines=True)
+        returns_table.add_column("Bear", style="red", justify="right")
+        returns_table.add_column("Base", style="yellow", justify="right")
+        returns_table.add_column("Bull", style="green", justify="right")
+        returns_table.add_row(f"{bear:.1f}%", f"{base:.1f}%", f"{bull:.1f}%")
+        console.print(returns_table)
 
     # --- Rationale panel ---
     console.print(Panel(plan.rationale, title="Rationale", border_style="blue"))

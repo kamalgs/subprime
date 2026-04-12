@@ -98,7 +98,37 @@ def render_strategy_html(s: StrategyOutline) -> str:
     )
 
 
-def render_plan_html(plan: InvestmentPlan) -> str:
+def _format_inr_html(amount: float) -> str:
+    """Format INR amount in lakhs/crores notation for HTML."""
+    if amount >= 1_00_00_000:  # 1 crore
+        return f"&#8377;{amount / 1_00_00_000:.2f} Cr"
+    elif amount >= 1_00_000:  # 1 lakh
+        return f"&#8377;{amount / 1_00_000:.2f} L"
+    else:
+        return f"&#8377;{amount:,.0f}"
+
+
+def _compute_corpus_html(monthly_sip: float, years: int, cagr_pct: float) -> float:
+    """Compute future value of monthly SIP at given CAGR."""
+    if cagr_pct <= 0 or monthly_sip <= 0 or years <= 0:
+        return 0.0
+    r = cagr_pct / 100 / 12
+    n = years * 12
+    return monthly_sip * (((1 + r) ** n - 1) / r) * (1 + r)
+
+
+def _inflation_adjusted_html(future_value: float, years: int, inflation_pct: float = 6.0) -> float:
+    """Discount future value to today's terms."""
+    if years <= 0:
+        return future_value
+    return future_value / ((1 + inflation_pct / 100) ** years)
+
+
+def render_plan_html(
+    plan: InvestmentPlan,
+    monthly_sip: float | None = None,
+    horizon_years: int | None = None,
+) -> str:
     # Summary stats
     n_funds = len(plan.allocations)
     houses = {a.fund.fund_house for a in plan.allocations if a.fund.fund_house}
@@ -106,22 +136,26 @@ def render_plan_html(plan: InvestmentPlan) -> str:
     bear = plan.projected_returns.get("bear", 0)
     base = plan.projected_returns.get("base", 0)
     bull = plan.projected_returns.get("bull", 0)
+    has_returns = any(v > 0 for v in (bear, base, bull))
 
-    stats = (
-        f'<div class="stat-row">'
+    stat_boxes = (
         f'<div class="stat-box"><div class="label">Funds</div><div class="value">{n_funds}</div></div>'
         f'<div class="stat-box"><div class="label">Fund Houses</div><div class="value">{len(houses)}</div></div>'
-        f'<div class="stat-box"><div class="label">Monthly SIP</div><div class="value">&#8377;{total_sip:,.0f}</div></div>'
-        f'<div class="stat-box bear"><div class="label">Bear</div><div class="value">{bear:.1f}%</div></div>'
-        f'<div class="stat-box base"><div class="label">Base</div><div class="value">{base:.1f}%</div></div>'
-        f'<div class="stat-box bull"><div class="label">Bull</div><div class="value">{bull:.1f}%</div></div>'
-        f"</div>"
+        f'<div class="stat-box"><div class="label">Monthly SIP</div><div class="value">{_format_inr_html(total_sip)}</div></div>'
     )
+    if has_returns:
+        stat_boxes += (
+            f'<div class="stat-box bear"><div class="label">Bear</div><div class="value">{bear:.1f}%</div></div>'
+            f'<div class="stat-box base"><div class="label">Base</div><div class="value">{base:.1f}%</div></div>'
+            f'<div class="stat-box bull"><div class="label">Bull</div><div class="value">{bull:.1f}%</div></div>'
+        )
+
+    stats = f'<div class="stat-row">{stat_boxes}</div>'
 
     # Allocations table
     rows = ""
     for a in plan.allocations:
-        sip = f"&#8377;{a.monthly_sip_inr:,.0f}" if a.monthly_sip_inr else "-"
+        sip = _format_inr_html(a.monthly_sip_inr) if a.monthly_sip_inr else "-"
         er = f"{a.fund.expense_ratio:.2f}%" if a.fund.expense_ratio else "-"
         stars = ("&#9733;" * a.fund.morningstar_rating) if a.fund.morningstar_rating else "-"
         rows += (
@@ -143,17 +177,67 @@ def render_plan_html(plan: InvestmentPlan) -> str:
         f"{rows}</table>"
     )
 
-    # Rationale + details
+    # Corpus projection table
+    corpus_html = ""
+    effective_sip = monthly_sip if monthly_sip else total_sip
+    effective_horizon = horizon_years or 0
+    if has_returns and effective_sip > 0 and effective_horizon > 0:
+        corpus_rows = ""
+        for label, cagr, color in [
+            ("Bear", bear, "#c0392b"),
+            ("Base", base, "#d4a017"),
+            ("Bull", bull, "#27ae60"),
+        ]:
+            if cagr > 0:
+                fv = _compute_corpus_html(effective_sip, effective_horizon, cagr)
+                pv = _inflation_adjusted_html(fv, effective_horizon)
+                corpus_rows += (
+                    f'<tr><td style="color:{color};font-weight:600">{label}</td>'
+                    f'<td style="text-align:right">{cagr:.1f}%</td>'
+                    f'<td style="text-align:right">{_format_inr_html(fv)}</td>'
+                    f'<td style="text-align:right">{_format_inr_html(pv)}</td></tr>'
+                )
+        if corpus_rows:
+            corpus_html = (
+                f'<div class="section-title">Projected Corpus '
+                f'(SIP {_format_inr_html(effective_sip)}/mo over {effective_horizon} years)</div>'
+                f'<table class="plan-table">'
+                f'<tr><th>Scenario</th><th style="text-align:right">CAGR</th>'
+                f'<th style="text-align:right">Future Value</th>'
+                f'<th style="text-align:right">In Today\'s &#8377;</th></tr>'
+                f"{corpus_rows}</table>"
+            )
+
+    # Rationale (always visible)
     rationale = f'<div class="info-box">{_esc(plan.rationale)}</div>' if plan.rationale else ""
 
+    # Risks (collapsible)
     risks = ""
     if plan.risks:
         items = "".join(f"<li>{_esc(r)}</li>" for r in plan.risks)
-        risks = f'<div class="section-title">Risks</div><ul style="margin:4px 0;padding-left:1.2rem">{items}</ul>'
+        risks = (
+            f"<details><summary><strong>Risks</strong></summary>"
+            f'<ul style="margin:4px 0;padding-left:1.2rem">{items}</ul>'
+            f"</details>"
+        )
 
+    # Getting Started (collapsible)
     setup = ""
     if plan.setup_phase:
-        setup = f'<div class="section-title">Getting Started</div><div class="info-box">{_esc(plan.setup_phase)}</div>'
+        setup = (
+            f"<details><summary><strong>Getting Started</strong></summary>"
+            f'<div class="info-box">{_esc(plan.setup_phase)}</div>'
+            f"</details>"
+        )
+
+    # Rebalancing Guidelines (collapsible)
+    rebalancing = ""
+    if plan.rebalancing_guidelines:
+        rebalancing = (
+            f"<details><summary><strong>Rebalancing Guidelines</strong></summary>"
+            f'<div class="info-box">{_esc(plan.rebalancing_guidelines)}</div>'
+            f"</details>"
+        )
 
     disclaimer = (
         f'<p style="font-size:0.78rem;color:#999;margin-top:10px;font-style:italic">'
@@ -162,9 +246,9 @@ def render_plan_html(plan: InvestmentPlan) -> str:
 
     return (
         f'<div class="section-title">Your Investment Plan</div>'
-        f"{stats}{table}"
+        f"{stats}{table}{corpus_html}"
         f'<div class="section-title">Rationale</div>{rationale}'
-        f"{risks}{setup}{disclaimer}"
+        f"{risks}{setup}{rebalancing}{disclaimer}"
     )
 
 
@@ -188,6 +272,7 @@ def _make_state() -> dict:
         "conv": ConversationLog(model="chat"),
         "profile_turns": [],
         "awaiting_profile_input": True,
+        "mode": "basic",
     }
 
 
@@ -305,11 +390,15 @@ def _handle_profile_phase(user_msg: str, history: list, state: dict) -> tuple[li
 def _handle_strategy_phase(user_msg: str, history: list, state: dict) -> tuple[list, dict, str]:
     if user_msg.strip().lower() in ("yes", "y", "go ahead", "proceed", "ok", "sure"):
         state["phase"] = PHASE_PLAN_READY
-        history.append({"role": "assistant", "content": "Finding specific funds for your strategy..."})
+        plan_mode = state.get("mode", "basic")
+        if plan_mode == "premium":
+            history.append({"role": "assistant", "content": "Generating 3 plan variants and comparing..."})
+        else:
+            history.append({"role": "assistant", "content": "Finding specific funds for your strategy..."})
 
         try:
             plan = asyncio.run(generate_plan(
-                state["profile"], strategy=state["strategy"]
+                state["profile"], strategy=state["strategy"], mode=plan_mode,
             ))
             state["plan"] = plan
             state["conv"].plan = plan
@@ -323,7 +412,12 @@ def _handle_strategy_phase(user_msg: str, history: list, state: dict) -> tuple[l
             except Exception:
                 pass
 
-            html = render_plan_html(plan)
+            profile = state.get("profile")
+            html = render_plan_html(
+                plan,
+                monthly_sip=profile.monthly_investible_surplus_inr if profile else None,
+                horizon_years=profile.investment_horizon_years if profile else None,
+            )
             history.append({"role": "assistant", "content": html})
         except Exception as exc:
             logger.exception("Plan generation failed")
@@ -384,28 +478,35 @@ def create_app() -> gr.Blocks:
             msg_input = gr.Textbox(
                 placeholder="Type your message...",
                 show_label=False,
-                scale=6,
+                scale=5,
                 container=False,
+            )
+            mode_radio = gr.Radio(
+                choices=["basic", "premium"],
+                value="basic",
+                label="Plan Mode",
+                scale=2,
             )
             send_btn = gr.Button("Send", variant="primary", scale=1)
 
         status = gr.Markdown("")
 
-        def respond(user_msg: str, history: list, st: dict):
+        def respond(user_msg: str, history: list, st: dict, plan_mode: str):
             if not user_msg.strip():
                 return history, st, "", ""
+            st["mode"] = plan_mode
             history.append({"role": "user", "content": user_msg})
             history, st, status_text = _process_message(user_msg, history, st)
             return history, st, "", status_text
 
         send_btn.click(
             fn=respond,
-            inputs=[msg_input, chatbot, state],
+            inputs=[msg_input, chatbot, state, mode_radio],
             outputs=[chatbot, state, msg_input, status],
         )
         msg_input.submit(
             fn=respond,
-            inputs=[msg_input, chatbot, state],
+            inputs=[msg_input, chatbot, state, mode_radio],
             outputs=[chatbot, state, msg_input, status],
         )
 
