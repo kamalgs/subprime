@@ -68,3 +68,29 @@ class TestSessionModel:
         assert restored.id == s.id
         assert restored.mode == "premium"
         assert restored.current_step == 2
+
+
+class TestDbPool:
+    def test_db_module_imports(self):
+        from subprime.core.db import init_pool, close_pool, get_pool
+        assert callable(init_pool)
+        assert callable(close_pool)
+        assert callable(get_pool)
+
+    @pytest.mark.asyncio
+    async def test_get_pool_returns_none_without_init(self):
+        from subprime.core.db import get_pool
+        pool = get_pool()
+        assert pool is None
+
+    def test_migration_sql_is_valid(self):
+        """Verify migration file contains expected CREATE TABLE statements."""
+        from pathlib import Path
+        migration_dir = Path(__file__).parent.parent / "migrations" / "versions"
+        migration_files = list(migration_dir.glob("001_*.py"))
+        assert len(migration_files) == 1
+        content = migration_files[0].read_text()
+        assert "CREATE TABLE" in content
+        assert "sessions" in content
+        assert "conversations" in content
+        assert "otps" in content
