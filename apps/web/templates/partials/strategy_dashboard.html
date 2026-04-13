@@ -3,28 +3,42 @@
     <!-- Allocation + Approach Grid -->
     <div class="grid md:grid-cols-2 gap-6">
 
-        <!-- Left: Donut chart -->
+        <!-- Left: Nested Donut chart -->
         <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col items-center gap-4">
             <h3 class="text-base font-semibold text-gray-700 self-start">Asset Allocation</h3>
-            <div class="relative w-40 h-40 sm:w-48 sm:h-48">
+            <div class="relative w-44 h-44 sm:w-52 sm:h-52">
                 <canvas
                     id="allocation-chart"
-                    data-labels="{{ chart_data.labels | tojson }}"
-                    data-values="{{ chart_data['values'] | tojson }}"
-                    data-colors="{{ chart_data.colors | tojson }}"
-                    aria-label="Asset allocation donut chart"
+                    data-inner-labels="{{ chart_data.inner.labels | tojson }}"
+                    data-inner-values="{{ chart_data.inner['values'] | tojson }}"
+                    data-inner-colors="{{ chart_data.inner.colors | tojson }}"
+                    data-outer-labels="{{ chart_data.outer.labels | tojson }}"
+                    data-outer-values="{{ chart_data.outer['values'] | tojson }}"
+                    data-outer-colors="{{ chart_data.outer.colors | tojson }}"
+                    aria-label="Asset allocation chart"
                     role="img">
                 </canvas>
             </div>
-            <!-- Legend -->
+            <!-- Legend: inner ring (asset classes) -->
             <div class="flex flex-wrap justify-center gap-3 text-xs text-gray-600">
-                {% for label in chart_data.labels %}
+                {% for label in chart_data.inner.labels %}
                 <span class="flex items-center gap-1.5">
-                    <span class="inline-block w-3 h-3 rounded-full flex-shrink-0" style="background:{{ chart_data.colors[loop.index0] }}"></span>
-                    {{ label }} {{ chart_data['values'][loop.index0] }}%
+                    <span class="inline-block w-3 h-3 rounded-full flex-shrink-0" style="background:{{ chart_data.inner.colors[loop.index0] }}"></span>
+                    {{ label }} {{ chart_data.inner['values'][loop.index0] }}%
                 </span>
                 {% endfor %}
             </div>
+            <!-- Legend: outer ring (sub-categories) if different from inner -->
+            {% if chart_data.outer.labels != chart_data.inner.labels %}
+            <div class="flex flex-wrap justify-center gap-2 text-xs text-gray-400">
+                {% for label in chart_data.outer.labels %}
+                <span class="flex items-center gap-1">
+                    <span class="inline-block w-2 h-2 rounded-full flex-shrink-0" style="background:{{ chart_data.outer.colors[loop.index0] }}"></span>
+                    {{ label }} {{ chart_data.outer['values'][loop.index0] }}%
+                </span>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
 
         <!-- Right: Approach, themes, risk/return -->
@@ -57,25 +71,48 @@
         </div>
     </div>
 
-    <!-- Open questions callout -->
+    <!-- Open Questions — interactive inputs -->
     {% if strategy.open_questions %}
-    <div class="rounded-xl bg-amber-50 border border-amber-200 p-4">
-        <h3 class="text-sm font-semibold text-amber-800 mb-2">Open Questions to Consider</h3>
-        <ul class="space-y-1">
+    <div class="bg-white rounded-2xl border border-amber-200 shadow-sm p-6 space-y-4">
+        <h3 class="text-base font-semibold text-amber-800">Help Us Fine-Tune Your Strategy</h3>
+        <p class="text-sm text-gray-500">Click on any question to add your input. Your answers will help us personalise the plan.</p>
+
+        <div class="space-y-3" id="open-questions">
             {% for q in strategy.open_questions %}
-            <li class="flex items-start gap-2 text-sm text-amber-700">
-                <span class="mt-0.5 text-amber-400 flex-shrink-0">&#8227;</span>
-                {{ q }}
-            </li>
+            <div class="rounded-xl border border-gray-200 overflow-hidden">
+                <button type="button"
+                    onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')"
+                    class="w-full flex items-center gap-3 px-4 py-3 text-left bg-gray-50 hover:bg-gray-100 transition-colors text-sm text-gray-700">
+                    <span class="text-amber-400 flex-shrink-0">&#8227;</span>
+                    <span class="flex-1">{{ q }}</span>
+                    <svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="hidden px-4 py-3 bg-white">
+                    <textarea
+                        name="question_answer"
+                        rows="2"
+                        placeholder="Your thoughts..."
+                        data-question="{{ q }}"
+                        class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-transparent resize-none"
+                    ></textarea>
+                </div>
+            </div>
             {% endfor %}
-        </ul>
+        </div>
+
+        <button type="button"
+            onclick="submitQuestionAnswers()"
+            class="w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold rounded-lg transition-colors">
+            Update Strategy With My Inputs
+        </button>
     </div>
     {% endif %}
 
-    <!-- Strategy revision chat -->
+    <!-- Any other inputs -->
     <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-4">
-        <h3 class="text-base font-semibold text-gray-700">Refine Your Strategy</h3>
-        <p class="text-sm text-gray-500">Not quite right? Tell me what to adjust — e.g. "more conservative", "add gold allocation", "focus on tax saving".</p>
+        <h3 class="text-base font-semibold text-gray-700">Any Other Inputs?</h3>
 
         <!-- Chat message history -->
         <div id="strategy-chat" class="space-y-3">
@@ -95,8 +132,8 @@
                 id="feedback-input"
                 type="text"
                 name="feedback"
-                placeholder="Adjust strategy…"
-                class="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent"
+                placeholder="e.g. more conservative, add gold, focus on tax saving..."
+                class="flex-1 rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent"
                 hx-post="/api/revise-strategy"
                 hx-target="#strategy-content"
                 hx-swap="outerHTML"
@@ -104,12 +141,12 @@
                 hx-include="[name='feedback']"
             >
             <button
-                class="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold rounded-lg transition-colors duration-150"
+                class="px-4 py-2.5 bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold rounded-lg transition-colors duration-150"
                 hx-post="/api/revise-strategy"
                 hx-target="#strategy-content"
                 hx-swap="outerHTML"
                 hx-include="[name='feedback']">
-                Revise
+                Update
             </button>
         </div>
     </div>
@@ -144,13 +181,27 @@
         if (!canvas || typeof initDonutChart !== 'function') return;
         initDonutChart('allocation-chart');
     }
-    // On initial load
     initChart();
-    // On HTMX swap
     document.body.addEventListener('htmx:afterSwap', function (evt) {
         if (evt.detail && evt.detail.target && evt.detail.target.id === 'strategy-content') {
             initChart();
         }
     });
 })();
+
+function submitQuestionAnswers() {
+    var textareas = document.querySelectorAll('#open-questions textarea[name="question_answer"]');
+    var parts = [];
+    textareas.forEach(function(ta) {
+        if (ta.value.trim()) {
+            parts.push(ta.dataset.question + ': ' + ta.value.trim());
+        }
+    });
+    if (parts.length === 0) return;
+
+    // Set the feedback input and trigger the revise
+    var feedbackInput = document.getElementById('feedback-input');
+    feedbackInput.value = 'Answers to open questions:\n' + parts.join('\n');
+    htmx.trigger(feedbackInput, 'keydown', {key: 'Enter'});
+}
 </script>

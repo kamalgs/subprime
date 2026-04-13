@@ -105,29 +105,110 @@ _DONUT_SEGMENTS = [
 ]
 
 
+_SUB_COLORS = {
+    # Equity shades (indigo family)
+    "Large Cap": "#6366f1", "Mid Cap": "#818cf8", "Small Cap": "#a5b4fc",
+    "Flexi Cap": "#7c3aed", "Multi Cap": "#8b5cf6", "ELSS": "#6d28d9",
+    "Index": "#4f46e5", "Sectoral": "#4338ca", "International": "#3730a3",
+    # Debt shades (cyan family)
+    "Short Duration": "#06b6d4", "Corporate Bond": "#22d3ee",
+    "Gilt": "#0e7490", "Liquid": "#67e8f9", "Dynamic Bond": "#0891b2",
+    # Gold
+    "Gold": "#d97706", "Gold ETF": "#f59e0b",
+    # Other
+    "Other": "#6b7280",
+}
+
+
 def chart_data_donut(
     equity: float,
     debt: float,
     gold: float,
     other: float,
+    equity_sub: dict[str, float] | None = None,
+    debt_sub: dict[str, float] | None = None,
 ) -> dict:
-    """Build Chart.js donut chart data for asset allocation.
-
-    Only includes segments with value > 0.
+    """Build nested donut chart data for asset allocation.
 
     Returns:
-        {"labels": [...], "values": [...], "colors": [...]}
+        {
+            "inner": {"labels": [...], "values": [...], "colors": [...]},  # asset classes
+            "outer": {"labels": [...], "values": [...], "colors": [...]},  # sub-categories
+        }
+
+    If no sub-categories are provided, outer ring mirrors inner ring.
     """
-    raw = [equity, debt, gold, other]
-    labels = []
-    values = []
-    colors = []
-    for (name, color), value in zip(_DONUT_SEGMENTS, raw):
+    # Inner ring: asset classes
+    inner_labels, inner_values, inner_colors = [], [], []
+    for (name, color), value in zip(_DONUT_SEGMENTS, [equity, debt, gold, other]):
         if value > 0:
-            labels.append(name)
-            values.append(value)
-            colors.append(color)
-    return {"labels": labels, "values": values, "colors": colors}
+            inner_labels.append(name)
+            inner_values.append(round(value, 1))
+            inner_colors.append(color)
+
+    # Outer ring: sub-categories (or mirror inner if none)
+    outer_labels, outer_values, outer_colors = [], [], []
+    has_subs = (equity_sub and sum(equity_sub.values()) > 0) or (debt_sub and sum(debt_sub.values()) > 0)
+
+    if has_subs:
+        # Equity subs
+        if equity > 0:
+            if equity_sub and sum(equity_sub.values()) > 0:
+                for cat, pct in equity_sub.items():
+                    if pct > 0:
+                        outer_labels.append(cat)
+                        outer_values.append(round(pct, 1))
+                        outer_colors.append(_SUB_COLORS.get(cat, "#4f46e5"))
+                # If subs don't add up to equity_pct, add remainder
+                sub_total = sum(equity_sub.values())
+                if sub_total < equity - 0.5:
+                    outer_labels.append("Other Equity")
+                    outer_values.append(round(equity - sub_total, 1))
+                    outer_colors.append("#c7d2fe")
+            else:
+                outer_labels.append("Equity")
+                outer_values.append(round(equity, 1))
+                outer_colors.append("#4f46e5")
+
+        # Debt subs
+        if debt > 0:
+            if debt_sub and sum(debt_sub.values()) > 0:
+                for cat, pct in debt_sub.items():
+                    if pct > 0:
+                        outer_labels.append(cat)
+                        outer_values.append(round(pct, 1))
+                        outer_colors.append(_SUB_COLORS.get(cat, "#0891b2"))
+                sub_total = sum(debt_sub.values())
+                if sub_total < debt - 0.5:
+                    outer_labels.append("Other Debt")
+                    outer_values.append(round(debt - sub_total, 1))
+                    outer_colors.append("#a5f3fc")
+            else:
+                outer_labels.append("Debt")
+                outer_values.append(round(debt, 1))
+                outer_colors.append("#0891b2")
+
+        # Gold + Other pass through
+        if gold > 0:
+            outer_labels.append("Gold")
+            outer_values.append(round(gold, 1))
+            outer_colors.append("#d97706")
+        if other > 0:
+            outer_labels.append("Other")
+            outer_values.append(round(other, 1))
+            outer_colors.append("#6b7280")
+    else:
+        # No subs — outer mirrors inner
+        outer_labels = inner_labels[:]
+        outer_values = inner_values[:]
+        outer_colors = inner_colors[:]
+
+    return {
+        "inner": {"labels": inner_labels, "values": inner_values, "colors": inner_colors},
+        "outer": {"labels": outer_labels, "values": outer_values, "colors": outer_colors},
+        # Backward compat — flat versions for simple donut callers
+        "labels": inner_labels, "values": inner_values, "colors": inner_colors,
+    }
 
 
 _SCENARIO_DEFS = [

@@ -164,6 +164,8 @@ async def api_generate_strategy(
         strategy.debt_pct,
         strategy.gold_pct,
         strategy.other_pct,
+        equity_sub=strategy.equity_sub,
+        debt_sub=strategy.debt_sub,
     )
 
     templates = request.app.state.templates
@@ -213,6 +215,8 @@ async def api_revise_strategy(
         strategy.debt_pct,
         strategy.gold_pct,
         strategy.other_pct,
+        equity_sub=strategy.equity_sub,
+        debt_sub=strategy.debt_sub,
     )
 
     templates = request.app.state.templates

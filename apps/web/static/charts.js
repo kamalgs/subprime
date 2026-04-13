@@ -56,39 +56,57 @@ function initDonutChart(canvasId) {
 
     _destroyExisting(canvas);
 
-    var labels = JSON.parse(canvas.dataset.labels || '[]');
-    var values = JSON.parse(canvas.dataset.values || '[]');
-    var colors = JSON.parse(canvas.dataset.colors || '[]');
+    // Inner ring: asset classes
+    var innerLabels = JSON.parse(canvas.dataset.innerLabels || canvas.dataset.labels || '[]');
+    var innerValues = JSON.parse(canvas.dataset.innerValues || canvas.dataset.values || '[]');
+    var innerColors = JSON.parse(canvas.dataset.innerColors || canvas.dataset.colors || '[]');
+
+    // Outer ring: sub-categories (may be same as inner if no subs)
+    var outerLabels = JSON.parse(canvas.dataset.outerLabels || '[]');
+    var outerValues = JSON.parse(canvas.dataset.outerValues || '[]');
+    var outerColors = JSON.parse(canvas.dataset.outerColors || '[]');
+
+    var hasOuter = outerLabels.length > 0 && (outerLabels.length !== innerLabels.length ||
+        outerLabels.some(function(l, i) { return l !== innerLabels[i]; }));
+
+    var datasets = [{
+        label: 'Asset Class',
+        data: innerValues,
+        backgroundColor: innerColors,
+        borderWidth: 2,
+        borderColor: '#fff',
+        weight: 1,
+    }];
+
+    if (hasOuter) {
+        datasets.push({
+            label: 'Category',
+            data: outerValues,
+            backgroundColor: outerColors,
+            borderWidth: 1,
+            borderColor: '#fff',
+            weight: 1,
+        });
+    }
 
     new Chart(canvas, {
         type: 'doughnut',
         data: {
-            labels: labels,
-            datasets: [{
-                data: values,
-                backgroundColor: colors,
-                borderWidth: 2,
-                borderColor: '#fff',
-            }],
+            labels: hasOuter ? outerLabels : innerLabels,
+            datasets: datasets,
         },
         options: {
-            cutout: '60%',
+            cutout: hasOuter ? '40%' : '60%',
             responsive: true,
             maintainAspectRatio: true,
             plugins: {
-                legend: {
-                    display: true,
-                    position: 'bottom',
-                    labels: {
-                        boxWidth: 12,
-                        padding: 12,
-                        font: { size: 11 },
-                    },
-                },
+                legend: { display: false },
                 tooltip: {
                     callbacks: {
                         label: function (ctx) {
-                            return ctx.label + ': ' + ctx.parsed + '%';
+                            var ds = ctx.datasetIndex === 0 ? 'Asset Class' : 'Category';
+                            var lbl = ctx.datasetIndex === 0 ? innerLabels[ctx.dataIndex] : outerLabels[ctx.dataIndex];
+                            return ds + ' — ' + lbl + ': ' + ctx.parsed + '%';
                         },
                     },
                 },

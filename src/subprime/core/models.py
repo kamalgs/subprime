@@ -74,6 +74,8 @@ class StrategyOutline(BaseModel):
     debt_pct: float = Field(ge=0, le=100)
     gold_pct: float = Field(ge=0, le=100)
     other_pct: float = Field(ge=0, le=100)
+    equity_sub: dict[str, float] = {}  # e.g. {"Large Cap": 30, "Mid Cap": 20}
+    debt_sub: dict[str, float] = {}  # e.g. {"Short Duration": 10, "Corporate Bond": 10}
     equity_approach: str
     key_themes: list[str]
     risk_return_summary: str
