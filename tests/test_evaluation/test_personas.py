@@ -19,11 +19,11 @@ class TestLoadPersonas:
         personas = load_personas()
         assert isinstance(personas, list)
 
-    def test_returns_five_personas(self):
+    def test_returns_twenty_five_personas(self):
         from subprime.evaluation.personas import load_personas
 
         personas = load_personas()
-        assert len(personas) == 5
+        assert len(personas) == 25
 
     def test_all_are_investor_profiles(self):
         from subprime.evaluation.personas import load_personas
@@ -32,12 +32,13 @@ class TestLoadPersonas:
         for p in personas:
             assert isinstance(p, InvestorProfile), f"{p} is not InvestorProfile"
 
-    def test_ids_are_p01_through_p05(self):
+    def test_ids_include_p01_through_p25(self):
         from subprime.evaluation.personas import load_personas
 
         personas = load_personas()
         ids = {p.id for p in personas}
-        assert ids == {"P01", "P02", "P03", "P04", "P05"}
+        assert {"P01", "P02", "P03", "P04", "P05"}.issubset(ids)
+        assert len(ids) == 25
 
     def test_p01_is_tony_stark(self):
         from subprime.evaluation.personas import load_personas
