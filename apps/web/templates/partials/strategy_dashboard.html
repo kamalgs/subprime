@@ -6,7 +6,7 @@
         <!-- Left: Donut chart -->
         <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col items-center gap-4">
             <h3 class="text-base font-semibold text-gray-700 self-start">Asset Allocation</h3>
-            <div class="relative w-48 h-48">
+            <div class="relative w-40 h-40 sm:w-48 sm:h-48">
                 <canvas
                     id="allocation-chart"
                     data-labels="{{ chart_data.labels | tojson }}"
@@ -81,7 +81,7 @@
         <div id="strategy-chat" class="space-y-3">
             {% for turn in session.strategy_chat %}
             <div class="flex {% if turn.role == 'user' %}justify-end{% else %}justify-start{% endif %}">
-                <div class="max-w-sm px-4 py-2 rounded-2xl text-sm
+                <div class="max-w-xs sm:max-w-sm px-4 py-2 rounded-2xl text-sm
                     {% if turn.role == 'user' %}bg-primary-600 text-white{% else %}bg-gray-100 text-gray-800{% endif %}">
                     {{ turn.content }}
                 </div>
