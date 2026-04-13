@@ -414,13 +414,13 @@ class TestStep1TierSelection:
 
     @pytest.mark.asyncio
     async def test_step1_sets_session_cookie(self):
-        """GET /step/1 sets the finadvisor_session cookie."""
+        """GET /step/1 sets the benji_session cookie."""
         from apps.web.main import create_app
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.get("/step/1")
         assert resp.status_code == 200
-        assert "finadvisor_session" in resp.cookies
+        assert "benji_session" in resp.cookies
 
     @pytest.mark.asyncio
     async def test_select_tier_basic(self):
@@ -449,7 +449,7 @@ class TestStep1TierSelection:
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post("/api/select-tier", data={"mode": "premium"})
-        session_id = resp.cookies.get("finadvisor_session")
+        session_id = resp.cookies.get("benji_session")
         assert session_id is not None
         session = app.state.session_store._sessions.get(session_id)
         assert session is not None
@@ -462,7 +462,7 @@ class TestStep1TierSelection:
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post("/api/select-tier", data={"mode": "basic"})
-        session_id = resp.cookies.get("finadvisor_session")
+        session_id = resp.cookies.get("benji_session")
         session = app.state.session_store._sessions.get(session_id)
         assert session.current_step == 2
 
@@ -475,16 +475,16 @@ class TestStep1TierSelection:
 class TestStep2Profile:
     @pytest.mark.asyncio
     async def test_step2_renders_persona_cards(self):
-        """GET /step/2 after tier selection shows persona cards including Arjun Mehta."""
+        """GET /step/2 after tier selection shows persona cards including Tony Stark."""
         from apps.web.main import create_app
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             # First select a tier to get a valid session
             tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
-            assert "finadvisor_session" in tier_resp.cookies
+            assert "benji_session" in tier_resp.cookies
             resp = await client.get("/step/2")
         assert resp.status_code == 200
-        assert "Arjun Mehta" in resp.text
+        assert "Tony Stark" in resp.text
 
     @pytest.mark.asyncio
     async def test_step2_redirects_without_session(self):
@@ -505,7 +505,7 @@ class TestStep2Profile:
             resp = await client.get(
                 "/step/2",
                 follow_redirects=False,
-                cookies={"finadvisor_session": "nonexistent-id"},
+                cookies={"benji_session": "nonexistent-id"},
             )
         assert resp.status_code == 302
         assert resp.headers["location"] == "/step/1"
@@ -522,16 +522,16 @@ class TestStep2Profile:
 
     @pytest.mark.asyncio
     async def test_select_persona_saves_profile(self):
-        """After selecting persona P01, session profile should be Arjun Mehta."""
+        """After selecting persona P01, session profile should be Tony Stark."""
         from apps.web.main import create_app
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
-        session_id = resp.cookies.get("finadvisor_session")
+        session_id = resp.cookies.get("benji_session")
         session = app.state.session_store._sessions.get(session_id)
         assert session is not None
         assert session.profile is not None
-        assert session.profile.name == "Arjun Mehta"
+        assert session.profile.name == "Tony Stark"
 
     @pytest.mark.asyncio
     async def test_select_persona_sets_step_3(self):
@@ -540,7 +540,7 @@ class TestStep2Profile:
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
-        session_id = resp.cookies.get("finadvisor_session")
+        session_id = resp.cookies.get("benji_session")
         session = app.state.session_store._sessions.get(session_id)
         assert session.current_step == 3
 
@@ -586,7 +586,7 @@ class TestStep2Profile:
                     "goals": ["retirement"],
                 },
             )
-        session_id = resp.cookies.get("finadvisor_session")
+        session_id = resp.cookies.get("benji_session")
         session = app.state.session_store._sessions.get(session_id)
         assert session is not None
         assert session.profile is not None
@@ -614,7 +614,7 @@ class TestStep2Profile:
                     "life_stage": "mid career",
                 },
             )
-        session_id = resp.cookies.get("finadvisor_session")
+        session_id = resp.cookies.get("benji_session")
         session = app.state.session_store._sessions.get(session_id)
         assert session.profile.financial_goals == ["Wealth Building"]
 
@@ -626,7 +626,7 @@ class TestStep2Profile:
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             # Create a session but don't set profile
             tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
-            assert "finadvisor_session" in tier_resp.cookies
+            assert "benji_session" in tier_resp.cookies
             resp = await client.get("/step/3", follow_redirects=False)
         assert resp.status_code == 302
         assert resp.headers["location"] == "/step/1"
@@ -700,7 +700,7 @@ class TestStep3Strategy:
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
-            assert "finadvisor_session" in tier_resp.cookies
+            assert "benji_session" in tier_resp.cookies
             resp = await client.get("/step/3", follow_redirects=False)
         assert resp.status_code == 302
         assert resp.headers["location"] == "/step/1"
@@ -728,7 +728,7 @@ class TestStep3Strategy:
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
-                session_id = persona_resp.cookies.get("finadvisor_session")
+                session_id = persona_resp.cookies.get("benji_session")
                 await client.get("/api/generate-strategy")
 
         session = app.state.session_store._sessions.get(session_id)
@@ -745,7 +745,7 @@ class TestStep3Strategy:
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
-                session_id = persona_resp.cookies.get("finadvisor_session")
+                session_id = persona_resp.cookies.get("benji_session")
 
                 # Seed strategy directly into session
                 store = app.state.session_store
@@ -770,7 +770,7 @@ class TestStep3Strategy:
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
-                session_id = persona_resp.cookies.get("finadvisor_session")
+                session_id = persona_resp.cookies.get("benji_session")
 
                 store = app.state.session_store
                 for s in list(store._sessions.values()):
@@ -796,7 +796,7 @@ class TestStep3Strategy:
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
-                session_id = persona_resp.cookies.get("finadvisor_session")
+                session_id = persona_resp.cookies.get("benji_session")
 
                 store = app.state.session_store
                 for s in list(store._sessions.values()):
@@ -819,7 +819,7 @@ class TestStep3Strategy:
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
-                session_id = persona_resp.cookies.get("finadvisor_session")
+                session_id = persona_resp.cookies.get("benji_session")
 
                 store = app.state.session_store
                 for s in list(store._sessions.values()):
@@ -843,13 +843,13 @@ class TestStep3Strategy:
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             # Establish an initial session
             persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
-            old_session_id = persona_resp.cookies.get("finadvisor_session")
+            old_session_id = persona_resp.cookies.get("benji_session")
 
             resp = await client.post("/api/reset")
 
         assert resp.status_code == 200
         assert resp.headers["HX-Redirect"] == "/step/1"
-        new_session_id = resp.cookies.get("finadvisor_session")
+        new_session_id = resp.cookies.get("benji_session")
         assert new_session_id is not None
         assert new_session_id != old_session_id
 
@@ -882,7 +882,7 @@ class TestStep4PlanResult:
             # Set up tier + persona
             await client.post("/api/select-tier", data={"mode": "basic"})
             persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
-            session_id = persona_resp.cookies.get("finadvisor_session")
+            session_id = persona_resp.cookies.get("benji_session")
 
             # Inject plan + strategy directly
             store = app.state.session_store
@@ -913,7 +913,7 @@ class TestStep4PlanResult:
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             await client.post("/api/select-tier", data={"mode": "basic"})
             persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
-            session_id = persona_resp.cookies.get("finadvisor_session")
+            session_id = persona_resp.cookies.get("benji_session")
 
             store = app.state.session_store
             sessions = list(store._sessions.values())
@@ -943,7 +943,7 @@ class TestStep4PlanResult:
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             await client.post("/api/select-tier", data={"mode": "basic"})
             persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
-            session_id = persona_resp.cookies.get("finadvisor_session")
+            session_id = persona_resp.cookies.get("benji_session")
 
             store = app.state.session_store
             sessions = list(store._sessions.values())
@@ -967,7 +967,7 @@ class TestStep4PlanResult:
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             await client.post("/api/select-tier", data={"mode": "basic"})
             persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
-            session_id = persona_resp.cookies.get("finadvisor_session")
+            session_id = persona_resp.cookies.get("benji_session")
 
             store = app.state.session_store
             sessions = list(store._sessions.values())
@@ -1024,5 +1024,5 @@ class TestStep4PlanResult:
                 reset_resp = await client.post("/api/reset")
                 assert reset_resp.status_code == 200
                 assert reset_resp.headers["HX-Redirect"] == "/step/1"
-                new_session_id = reset_resp.cookies.get("finadvisor_session")
+                new_session_id = reset_resp.cookies.get("benji_session")
                 assert new_session_id is not None

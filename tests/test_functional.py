@@ -99,7 +99,7 @@ class TestCLIAdvise:
 
         assert result.exit_code == 0
         # Profile phase
-        assert "Arjun Mehta" in result.output
+        assert "Tony Stark" in result.output
         # Strategy phase
         assert "70" in result.output  # equity %
         # Plan phase — fund names rendered
@@ -138,7 +138,7 @@ class TestCLIAdvise:
 
     def test_advise_saves_conversation(self, tmp_path, monkeypatch):
         """Conversation should be saved after successful advise."""
-        monkeypatch.setattr("subprime.cli.CONVERSATIONS_DIR", tmp_path)
+        monkeypatch.setattr("subprime.core.config.CONVERSATIONS_DIR", tmp_path)
 
         with (
             patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=_fake_strategy()),
@@ -193,7 +193,7 @@ class TestCLIReplay:
 
         result = runner.invoke(app, ["replay", str(conv_path)])
         assert result.exit_code == 0
-        assert "Arjun Mehta" in result.output
+        assert "Tony Stark" in result.output
 
 
 # ===========================================================================
@@ -241,7 +241,7 @@ class TestGradioApp:
 
         profile_html = render_profile_html(profile)
         assert len(profile_html) > 50
-        assert "Arjun" in profile_html
+        assert "Tony" in profile_html
 
         strategy_html = render_strategy_html(strategy)
         assert len(strategy_html) > 50
@@ -306,7 +306,7 @@ class TestGradioApp:
             history, state, status = _process_message("P01", history, state)
 
         assert state["profile"] is not None
-        assert state["profile"].name == "Arjun Mehta"
+        assert state["profile"].name == "Tony Stark"
         assert state["strategy"] is not None
         assert len(history) >= 1
 

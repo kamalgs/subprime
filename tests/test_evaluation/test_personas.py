@@ -39,23 +39,23 @@ class TestLoadPersonas:
         ids = {p.id for p in personas}
         assert ids == {"P01", "P02", "P03", "P04", "P05"}
 
-    def test_p01_is_arjun_mehta(self):
+    def test_p01_is_tony_stark(self):
         from subprime.evaluation.personas import load_personas
 
         personas = load_personas()
         p01 = [p for p in personas if p.id == "P01"][0]
-        assert p01.name == "Arjun Mehta"
+        assert p01.name == "Tony Stark"
         assert p01.age == 25
         assert p01.risk_appetite == "aggressive"
         assert p01.investment_horizon_years == 30
         assert p01.monthly_investible_surplus_inr == 50000
 
-    def test_p02_is_priya_sharma(self):
+    def test_p02_is_hermione_granger(self):
         from subprime.evaluation.personas import load_personas
 
         personas = load_personas()
         p02 = [p for p in personas if p.id == "P02"][0]
-        assert p02.name == "Priya Sharma"
+        assert p02.name == "Hermione Granger"
         assert p02.age == 35
         assert p02.risk_appetite == "moderate"
 
@@ -79,17 +79,17 @@ class TestGetPersona:
         p = get_persona("P01")
         assert isinstance(p, InvestorProfile)
 
-    def test_p01_is_arjun(self):
+    def test_p01_is_tony(self):
         from subprime.evaluation.personas import get_persona
 
         p = get_persona("P01")
-        assert p.name == "Arjun Mehta"
+        assert p.name == "Tony Stark"
 
-    def test_p05_is_vikram(self):
+    def test_p05_is_gordon(self):
         from subprime.evaluation.personas import get_persona
 
         p = get_persona("P05")
-        assert p.name == "Vikram Desai"
+        assert p.name == "Gordon Gekko"
 
     def test_invalid_id_raises_value_error(self):
         from subprime.evaluation.personas import get_persona

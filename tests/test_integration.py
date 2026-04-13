@@ -284,7 +284,7 @@ class TestPersonaAdvisorPlanWiring:
 
         persona = get_persona("P01")
         assert persona.id == "P01"
-        assert persona.name == "Arjun Mehta"
+        assert persona.name == "Tony Stark"
         assert isinstance(persona, InvestorProfile)
 
     def test_baseline_advisor_has_2_tools(self):
