@@ -19,7 +19,6 @@
                     role="img">
                 </canvas>
             </div>
-            <!-- Legend: inner ring (asset classes) -->
             <div class="flex flex-wrap justify-center gap-3 text-xs text-gray-600">
                 {% for label in chart_data.inner.labels %}
                 <span class="flex items-center gap-1.5">
@@ -28,7 +27,6 @@
                 </span>
                 {% endfor %}
             </div>
-            <!-- Legend: outer ring (sub-categories) if different from inner -->
             {% if chart_data.outer.labels != chart_data.inner.labels %}
             <div class="flex flex-wrap justify-center gap-2 text-xs text-gray-500">
                 {% for label in chart_data.outer.labels %}
@@ -43,61 +41,53 @@
 
         <!-- Right: Approach, themes, risk/return -->
         <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-4">
-
-            <!-- Equity approach -->
             <div>
                 <h3 class="text-base font-semibold text-gray-700 mb-1">Equity Approach</h3>
                 <div class="text-sm text-gray-600 leading-relaxed prose-commentary">{{ render_markdown(strategy.equity_approach) | safe }}</div>
             </div>
-
-            <!-- Key themes -->
             <div>
                 <h3 class="text-base font-semibold text-gray-700 mb-2">Key Themes</h3>
                 <div class="flex flex-wrap gap-2">
                     {% for theme in strategy.key_themes %}
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-700">
-                        {{ theme }}
-                    </span>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-700">{{ theme }}</span>
                     {% endfor %}
                 </div>
             </div>
-
-            <!-- Risk / return -->
             <div class="rounded-xl bg-gray-50 border border-gray-200 p-4">
                 <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Risk / Return Summary</h3>
                 <div class="text-sm text-gray-700 leading-relaxed prose-commentary">{{ render_markdown(strategy.risk_return_summary) | safe }}</div>
             </div>
-
         </div>
     </div>
 
-    <!-- Open Questions — interactive inputs -->
+    <!-- ================================================================== -->
+    <!-- Open Questions — PROMINENT, right after allocation, open by default -->
+    <!-- ================================================================== -->
     {% if strategy.open_questions %}
-    <div class="bg-white rounded-2xl border border-amber-200 shadow-sm p-6 space-y-4">
-        <h3 class="text-base font-semibold text-amber-800">Help Us Fine-Tune Your Strategy</h3>
-        <p class="text-sm text-gray-500">Click on any question to add your input. Your answers will help us personalise the plan.</p>
+    <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border border-amber-200 shadow-sm p-6 space-y-4">
+        <div class="flex items-start gap-3">
+            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
+                <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold text-amber-900">Help us personalise your plan</h3>
+                <p class="text-sm text-amber-700 mt-1">Your answers here directly improve the fund recommendations. Even brief inputs help.</p>
+            </div>
+        </div>
 
         <div class="space-y-3" id="open-questions">
             {% for q in strategy.open_questions %}
-            <div class="rounded-xl border border-gray-200 overflow-hidden">
-                <button type="button"
-                    onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')"
-                    class="w-full flex items-center gap-3 px-4 py-3 text-left bg-gray-50 hover:bg-gray-100 transition-colors text-sm text-gray-700">
-                    <span class="text-amber-400 flex-shrink-0">&#8227;</span>
-                    <span class="flex-1">{{ q }}</span>
-                    <svg class="w-4 h-4 text-gray-500 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <div class="hidden px-4 py-3 bg-white">
-                    <textarea
-                        name="question_answer"
-                        rows="2"
-                        placeholder="Your thoughts..."
-                        data-question="{{ q }}"
-                        class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-transparent resize-none"
-                    ></textarea>
-                </div>
+            <div class="bg-white rounded-xl border border-amber-100 p-4 space-y-2">
+                <p class="text-sm font-medium text-gray-800">{{ q }}</p>
+                <textarea
+                    name="question_answer"
+                    rows="2"
+                    placeholder="Your thoughts..."
+                    data-question="{{ q }}"
+                    class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-transparent resize-none"
+                ></textarea>
             </div>
             {% endfor %}
         </div>
@@ -110,11 +100,10 @@
     </div>
     {% endif %}
 
-    <!-- Any other inputs -->
-    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-4">
-        <h3 class="text-base font-semibold text-gray-700">Any Other Inputs?</h3>
+    <!-- Any other inputs (compact) -->
+    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-3">
+        <h3 class="text-sm font-semibold text-gray-700">Anything else to adjust?</h3>
 
-        <!-- Chat message history -->
         <div id="strategy-chat" class="space-y-3">
             {% for turn in session.strategy_chat %}
             <div class="flex {% if turn.role == 'user' %}justify-end{% else %}justify-start{% endif %}">
@@ -126,7 +115,6 @@
             {% endfor %}
         </div>
 
-        <!-- Feedback input -->
         <div class="flex gap-2">
             <input
                 id="feedback-input"
@@ -151,24 +139,26 @@
         </div>
     </div>
 
-    <!-- Generate plan CTA -->
+    <!-- Generate plan CTA with progressive loading -->
     <div class="flex flex-col items-center gap-3">
         <button
             id="generate-plan-btn"
             class="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-bold text-base rounded-xl shadow-sm transition-colors duration-150 flex items-center gap-2"
             hx-post="/api/generate-plan"
             hx-swap="none"
-            hx-indicator="#plan-loading"
             hx-disabled-elt="this"
-            onclick="document.getElementById('plan-loading').classList.remove('hidden')">
+            onclick="startPlanGeneration()">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
             </svg>
             Generate My Plan
         </button>
-        <div id="plan-loading" class="hidden text-center">
-            <svg class="animate-spin h-6 w-6 text-primary-600 mx-auto mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
-            <p class="text-sm text-slate-500">Building your personalised plan — this may take 30-60 seconds...</p>
+        <div id="plan-loading" class="hidden text-center space-y-3 w-full max-w-sm">
+            <!-- Progress bar -->
+            <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                <div id="plan-progress-bar" class="bg-primary-600 h-2 rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
+            </div>
+            <p id="plan-progress-text" class="text-sm text-slate-500"></p>
         </div>
     </div>
 
@@ -198,10 +188,37 @@ function submitQuestionAnswers() {
         }
     });
     if (parts.length === 0) return;
-
-    // Set the feedback input and trigger the revise
     var feedbackInput = document.getElementById('feedback-input');
     feedbackInput.value = 'Answers to open questions:\n' + parts.join('\n');
     htmx.trigger(feedbackInput, 'keydown', {key: 'Enter'});
+}
+
+var _planSteps = [
+    { pct: 10, text: "Analysing your profile...", delay: 0 },
+    { pct: 25, text: "Matching fund categories...", delay: 3000 },
+    { pct: 45, text: "Selecting specific funds...", delay: 8000 },
+    { pct: 65, text: "Computing projections...", delay: 15000 },
+    { pct: 80, text: "Building your personalised plan...", delay: 22000 },
+    { pct: 90, text: "Almost there...", delay: 35000 },
+];
+var _planTimers = [];
+
+function startPlanGeneration() {
+    var loading = document.getElementById('plan-loading');
+    var bar = document.getElementById('plan-progress-bar');
+    var text = document.getElementById('plan-progress-text');
+    loading.classList.remove('hidden');
+
+    // Clear any existing timers
+    _planTimers.forEach(clearTimeout);
+    _planTimers = [];
+
+    _planSteps.forEach(function(step) {
+        var t = setTimeout(function() {
+            bar.style.width = step.pct + '%';
+            text.textContent = step.text;
+        }, step.delay);
+        _planTimers.push(t);
+    });
 }
 </script>
