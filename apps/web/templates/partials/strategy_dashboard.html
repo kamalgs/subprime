@@ -30,7 +30,7 @@
             </div>
             <!-- Legend: outer ring (sub-categories) if different from inner -->
             {% if chart_data.outer.labels != chart_data.inner.labels %}
-            <div class="flex flex-wrap justify-center gap-2 text-xs text-gray-400">
+            <div class="flex flex-wrap justify-center gap-2 text-xs text-gray-500">
                 {% for label in chart_data.outer.labels %}
                 <span class="flex items-center gap-1">
                     <span class="inline-block w-2 h-2 rounded-full flex-shrink-0" style="background:{{ chart_data.outer.colors[loop.index0] }}"></span>
@@ -85,7 +85,7 @@
                     class="w-full flex items-center gap-3 px-4 py-3 text-left bg-gray-50 hover:bg-gray-100 transition-colors text-sm text-gray-700">
                     <span class="text-amber-400 flex-shrink-0">&#8227;</span>
                     <span class="flex-1">{{ q }}</span>
-                    <svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 text-gray-500 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
                 </button>

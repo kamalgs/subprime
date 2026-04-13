@@ -1,6 +1,21 @@
 /* FinAdvisor — custom styles beyond Tailwind */
 
 /* --------------------------------------------------------------------------
+   Accessibility: focus-visible outlines for keyboard navigation
+   -------------------------------------------------------------------------- */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid #4f46e5;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
    HTMX loading indicator
    -------------------------------------------------------------------------- */
 .htmx-indicator {

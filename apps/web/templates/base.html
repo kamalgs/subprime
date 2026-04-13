@@ -92,13 +92,13 @@
                     </div>
                     {% else %}
                     <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center">
-                        <span class="text-gray-400 text-sm">{{ step_num }}</span>
+                        <span class="text-gray-500 text-sm">{{ step_num }}</span>
                     </div>
                     {% endif %}
 
                     <!-- Label (hidden on small screens) -->
                     <span class="ml-2 text-sm font-medium hidden sm:inline
-                        {% if is_completed or is_current %}text-primary-700{% else %}text-gray-400{% endif %}">
+                        {% if is_completed or is_current %}text-primary-700{% else %}text-gray-500{% endif %}">
                         {{ step_label }}
                     </span>
 
@@ -122,7 +122,7 @@
     <!-- Footer -->
     <footer class="border-t border-gray-200 bg-white mt-auto">
         <div class="max-w-4xl mx-auto px-4 py-4">
-            <p class="text-xs text-gray-400 text-center">
+            <p class="text-xs text-gray-500 text-center">
                 FinAdvisor — part of the <span class="font-medium">Subprime</span> research project
             </p>
         </div>
