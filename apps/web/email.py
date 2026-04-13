@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 async def send_otp_email(email: str, code: str) -> bool:
     """Send an OTP code via SMTP. Returns True on success."""
-    if not SMTP_HOST or not SMTP_USER:
+    if not SMTP_HOST:
         logger.warning("SMTP not configured — cannot send OTP to %s", email)
         return False
 
@@ -26,8 +26,9 @@ async def send_otp_email(email: str, code: str) -> bool:
 
     try:
         with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=10) as server:
-            server.starttls()
-            server.login(SMTP_USER, SMTP_PASSWORD)
+            if SMTP_USER and SMTP_PASSWORD:
+                server.starttls()
+                server.login(SMTP_USER, SMTP_PASSWORD)
             server.send_message(msg)
         logger.info("OTP email sent to %s", email)
         return True
