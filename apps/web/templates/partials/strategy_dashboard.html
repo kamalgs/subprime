@@ -9,12 +9,12 @@
             <div class="relative w-44 h-44 sm:w-52 sm:h-52">
                 <canvas
                     id="allocation-chart"
-                    data-inner-labels="{{ chart_data.inner.labels | tojson }}"
-                    data-inner-values="{{ chart_data.inner['values'] | tojson }}"
-                    data-inner-colors="{{ chart_data.inner.colors | tojson }}"
-                    data-outer-labels="{{ chart_data.outer.labels | tojson }}"
-                    data-outer-values="{{ chart_data.outer['values'] | tojson }}"
-                    data-outer-colors="{{ chart_data.outer.colors | tojson }}"
+                    data-inner-labels='{{ chart_data.inner.labels | tojson }}'
+                    data-inner-values='{{ chart_data.inner["values"] | tojson }}'
+                    data-inner-colors='{{ chart_data.inner.colors | tojson }}'
+                    data-outer-labels='{{ chart_data.outer.labels | tojson }}'
+                    data-outer-values='{{ chart_data.outer["values"] | tojson }}'
+                    data-outer-colors='{{ chart_data.outer.colors | tojson }}'
                     aria-label="Asset allocation chart"
                     role="img">
                 </canvas>
