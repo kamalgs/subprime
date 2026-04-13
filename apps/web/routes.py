@@ -37,11 +37,11 @@ def _render(request: Request, template_name: str, context: dict) -> HTMLResponse
 @router.get("/step/1", response_class=HTMLResponse)
 async def step1(
     request: Request,
-    finadvisor_session: str | None = Cookie(default=None),
+    benji_session: str | None = Cookie(default=None),
 ) -> HTMLResponse:
-    session, session_id = await _get_or_create_session(request, finadvisor_session)
+    session, session_id = await _get_or_create_session(request, benji_session)
     response = _render(request, "step_plan.html", {"current_step": 1, "session": session})
-    response.set_cookie("finadvisor_session", session_id, httponly=True, samesite="lax")
+    response.set_cookie("benji_session", session_id, httponly=True, samesite="lax")
     return response
 
 
@@ -53,12 +53,12 @@ async def step1(
 @router.get("/step/2", response_class=HTMLResponse)
 async def step2(
     request: Request,
-    finadvisor_session: str | None = Cookie(default=None),
+    benji_session: str | None = Cookie(default=None),
 ) -> HTMLResponse:
-    if not finadvisor_session:
+    if not benji_session:
         return RedirectResponse(url="/step/1", status_code=302)
     store = request.app.state.session_store
-    session = await store.get(finadvisor_session)
+    session = await store.get(benji_session)
     if not session:
         return RedirectResponse(url="/step/1", status_code=302)
 
@@ -79,12 +79,12 @@ async def step2(
 @router.get("/step/3", response_class=HTMLResponse)
 async def step3(
     request: Request,
-    finadvisor_session: str | None = Cookie(default=None),
+    benji_session: str | None = Cookie(default=None),
 ) -> HTMLResponse:
-    if not finadvisor_session:
+    if not benji_session:
         return RedirectResponse(url="/step/1", status_code=302)
     store = request.app.state.session_store
-    session = await store.get(finadvisor_session)
+    session = await store.get(benji_session)
     if not session or session.profile is None:
         return RedirectResponse(url="/step/1", status_code=302)
 
@@ -104,12 +104,12 @@ async def step3(
 @router.get("/step/4", response_class=HTMLResponse)
 async def step4(
     request: Request,
-    finadvisor_session: str | None = Cookie(default=None),
+    benji_session: str | None = Cookie(default=None),
 ) -> HTMLResponse:
-    if not finadvisor_session:
+    if not benji_session:
         return RedirectResponse(url="/step/1", status_code=302)
     store = request.app.state.session_store
-    session = await store.get(finadvisor_session)
+    session = await store.get(benji_session)
     if not session or session.plan is None:
         return RedirectResponse(url="/step/1", status_code=302)
 

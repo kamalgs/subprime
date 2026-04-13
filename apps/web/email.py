@@ -14,14 +14,14 @@ async def send_otp_email(email: str, code: str) -> bool:
         return False
 
     msg = EmailMessage()
-    msg["Subject"] = "Your FinAdvisor Premium Code"
+    msg["Subject"] = "Your Benji Premium Code"
     msg["From"] = SMTP_FROM
     msg["To"] = email
     msg.set_content(
         f"Your one-time code: {code}\n\n"
         f"Enter this code at https://finadvisor.gkamal.online to start your premium plan.\n"
         f"This code expires in 10 minutes.\n\n"
-        f"— FinAdvisor"
+        f"— Benji"
     )
 
     try:

@@ -46,18 +46,18 @@ async def select_tier(
     request: Request,
     response: Response,
     mode: Annotated[str, Form()],
-    finadvisor_session: str | None = Cookie(default=None),
+    benji_session: str | None = Cookie(default=None),
 ) -> Response:
     """Save tier selection and redirect to step 2."""
     store = request.app.state.session_store
-    session = await _get_or_create_session(request, finadvisor_session)
+    session = await _get_or_create_session(request, benji_session)
     session.mode = mode  # type: ignore[assignment]
     session.current_step = 2
     await store.save(session)
 
     response.status_code = 200
     response.headers["HX-Redirect"] = "/step/2"
-    response.set_cookie("finadvisor_session", session.id, httponly=True, samesite="lax")
+    response.set_cookie("benji_session", session.id, httponly=True, samesite="lax")
     return response
 
 
@@ -71,11 +71,11 @@ async def select_persona(
     request: Request,
     response: Response,
     persona_id: Annotated[str, Form()],
-    finadvisor_session: str | None = Cookie(default=None),
+    benji_session: str | None = Cookie(default=None),
 ) -> Response:
     """Load a preset persona and redirect to step 3."""
     store = request.app.state.session_store
-    session = await _get_or_create_session(request, finadvisor_session)
+    session = await _get_or_create_session(request, benji_session)
     profile = get_persona(persona_id)
     session.profile = profile
     session.current_step = 3
@@ -83,7 +83,7 @@ async def select_persona(
 
     response.status_code = 200
     response.headers["HX-Redirect"] = "/step/3"
-    response.set_cookie("finadvisor_session", session.id, httponly=True, samesite="lax")
+    response.set_cookie("benji_session", session.id, httponly=True, samesite="lax")
     return response
 
 
@@ -104,11 +104,11 @@ async def submit_profile(
     horizon_years: Annotated[int, Form()],
     life_stage: Annotated[str, Form()],
     preferences: Annotated[str | None, Form()] = None,
-    finadvisor_session: str | None = Cookie(default=None),
+    benji_session: str | None = Cookie(default=None),
 ) -> Response:
     """Build a custom InvestorProfile from form data and redirect to step 3."""
     store = request.app.state.session_store
-    session = await _get_or_create_session(request, finadvisor_session)
+    session = await _get_or_create_session(request, benji_session)
 
     # Extract goal checkboxes from raw form data (multi-value field)
     form_data = await request.form()
@@ -135,7 +135,7 @@ async def submit_profile(
 
     response.status_code = 200
     response.headers["HX-Redirect"] = "/step/3"
-    response.set_cookie("finadvisor_session", session.id, httponly=True, samesite="lax")
+    response.set_cookie("benji_session", session.id, httponly=True, samesite="lax")
     return response
 
 
@@ -147,11 +147,11 @@ async def submit_profile(
 @router.get("/generate-strategy")
 async def api_generate_strategy(
     request: Request,
-    finadvisor_session: str | None = Cookie(default=None),
+    benji_session: str | None = Cookie(default=None),
 ):
     """Generate a strategy for the current session and return the dashboard partial."""
     store = request.app.state.session_store
-    session = await _get_or_create_session(request, finadvisor_session)
+    session = await _get_or_create_session(request, benji_session)
     if session.profile is None:
         return Response(status_code=400, content="No profile in session")
 
@@ -185,11 +185,11 @@ async def api_generate_strategy(
 async def api_revise_strategy(
     request: Request,
     feedback: Annotated[str, Form()],
-    finadvisor_session: str | None = Cookie(default=None),
+    benji_session: str | None = Cookie(default=None),
 ):
     """Revise the current strategy based on user feedback."""
     store = request.app.state.session_store
-    session = await _get_or_create_session(request, finadvisor_session)
+    session = await _get_or_create_session(request, benji_session)
     if session.profile is None:
         return Response(status_code=400, content="No profile in session")
 
@@ -236,11 +236,11 @@ async def api_revise_strategy(
 async def api_generate_plan(
     request: Request,
     response: Response,
-    finadvisor_session: str | None = Cookie(default=None),
+    benji_session: str | None = Cookie(default=None),
 ) -> Response:
     """Generate a detailed investment plan and redirect to step 4."""
     store = request.app.state.session_store
-    session = await _get_or_create_session(request, finadvisor_session)
+    session = await _get_or_create_session(request, benji_session)
     if session.profile is None:
         return Response(status_code=400, content="No profile in session")
 
@@ -261,7 +261,7 @@ async def api_generate_plan(
 
     response.status_code = 200
     response.headers["HX-Redirect"] = "/step/4"
-    response.set_cookie("finadvisor_session", session.id, httponly=True, samesite="lax")
+    response.set_cookie("benji_session", session.id, httponly=True, samesite="lax")
     return response
 
 
@@ -282,7 +282,7 @@ async def api_reset(
 
     response.status_code = 200
     response.headers["HX-Redirect"] = "/step/1"
-    response.set_cookie("finadvisor_session", new_session.id, httponly=True, samesite="lax")
+    response.set_cookie("benji_session", new_session.id, httponly=True, samesite="lax")
     return response
 
 
@@ -295,7 +295,7 @@ async def api_reset(
 async def api_request_otp(
     request: Request,
     email: Annotated[str | None, Form()] = None,
-    finadvisor_session: str | None = Cookie(default=None),
+    benji_session: str | None = Cookie(default=None),
 ):
     """Generate and email an OTP for premium access."""
     templates = request.app.state.templates
@@ -342,7 +342,7 @@ async def api_verify_otp(
     request: Request,
     email: Annotated[str, Form()],
     code: Annotated[str, Form()],
-    finadvisor_session: str | None = Cookie(default=None),
+    benji_session: str | None = Cookie(default=None),
 ):
     """Verify an OTP and grant premium access."""
     templates = request.app.state.templates
@@ -355,7 +355,7 @@ async def api_verify_otp(
         })
 
     store = request.app.state.session_store
-    session = await _get_or_create_session(request, finadvisor_session)
+    session = await _get_or_create_session(request, benji_session)
 
     verified = await verify_otp(pool, email.strip().lower(), code.strip())
     if not verified:
@@ -370,5 +370,5 @@ async def api_verify_otp(
 
     response = Response(status_code=200)
     response.headers["HX-Redirect"] = "/step/2"
-    response.set_cookie("finadvisor_session", session.id, httponly=True, samesite="lax")
+    response.set_cookie("benji_session", session.id, httponly=True, samesite="lax")
     return response

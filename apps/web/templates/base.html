@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="/static/icon-192.svg">
     <link rel="manifest" href="/static/manifest.json">
-    <title>{% block title %}FinAdvisor{% endblock %}</title>
+    <title>{% block title %}Benji{% endblock %}</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -52,9 +52,12 @@
     <!-- Header -->
     <header class="bg-white border-b border-gray-200 shadow-sm">
         <div class="max-w-4xl mx-auto px-4 py-4">
-            <div class="flex flex-col gap-1">
-                <h1 class="text-2xl font-bold text-primary-700">FinAdvisor</h1>
-                <p class="text-sm text-gray-500">AI-powered mutual fund advisory for Indian investors</p>
+            <div class="flex items-center gap-3">
+                <img src="/static/icon-192.svg" alt="Benji" class="w-10 h-10 rounded-full">
+                <div class="flex flex-col gap-0.5">
+                    <h1 class="text-2xl font-bold text-primary-700">Benji</h1>
+                    <p class="text-sm text-gray-500">Your personal mutual fund advisor for Indian investors</p>
+                </div>
             </div>
             <!-- Disclaimer -->
             <div class="mt-3 rounded-md bg-red-50 border border-red-200 px-3 py-2">
@@ -123,7 +126,7 @@
     <footer class="border-t border-gray-200 bg-white mt-auto">
         <div class="max-w-4xl mx-auto px-4 py-4">
             <p class="text-xs text-gray-500 text-center">
-                FinAdvisor — part of the <span class="font-medium">Subprime</span> research project
+                Benji — part of the <span class="font-medium">Subprime</span> research project
             </p>
         </div>
     </footer>

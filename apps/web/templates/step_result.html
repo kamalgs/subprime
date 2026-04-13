@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Your Investment Plan — FinAdvisor{% endblock %}
+{% block title %}Your Investment Plan — Benji{% endblock %}
 
 {% block content %}
 {% set n_funds = plan.allocations | length %}
@@ -103,13 +103,23 @@
             </p>
         </div>
 
-        <div class="relative h-64">
-            <canvas
-                id="corpus-chart"
-                data-scenarios='{{ corpus_data.scenarios | tojson }}'
-                aria-label="Corpus projection bar chart"
-                role="img">
-            </canvas>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="relative h-52">
+                <canvas
+                    id="corpus-chart-fv"
+                    data-scenarios='{{ corpus_data.scenarios | tojson }}'
+                    aria-label="Future value projection chart"
+                    role="img">
+                </canvas>
+            </div>
+            <div class="relative h-52">
+                <canvas
+                    id="corpus-chart-pv"
+                    data-scenarios='{{ corpus_data.scenarios | tojson }}'
+                    aria-label="Inflation-adjusted value projection chart"
+                    role="img">
+                </canvas>
+            </div>
         </div>
 
         <div class="overflow-x-auto">
@@ -357,7 +367,7 @@
 <script src="/static/charts.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    initCorpusChart('corpus-chart');
+    initCorpusChart('corpus-chart-fv', 'corpus-chart-pv');
 });
 </script>
 {% endblock %}

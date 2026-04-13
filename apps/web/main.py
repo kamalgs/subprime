@@ -1,5 +1,5 @@
 # apps/web/main.py
-"""FastAPI application factory for the FinAdvisor wizard."""
+"""FastAPI application factory for the Benji advisor wizard."""
 
 from __future__ import annotations
 
@@ -47,7 +47,7 @@ def create_app() -> FastAPI:
     """Create and configure the FastAPI application."""
     from apps.web import api, routes
 
-    app = FastAPI(title="FinAdvisor", description="AI-powered mutual fund advisory", lifespan=lifespan)
+    app = FastAPI(title="Benji", description="Your personal mutual fund advisor", lifespan=lifespan)
 
     # Default to in-memory — lifespan upgrades to Postgres if DATABASE_URL is set
     app.state.session_store = InMemorySessionStore()

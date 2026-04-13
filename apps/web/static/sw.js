@@ -1,7 +1,7 @@
-// Service worker for FinAdvisor PWA
+// Service worker for Benji PWA
 // Caches static assets for offline shell, network-first for API calls
 
-const CACHE_NAME = 'finadvisor-v1';
+const CACHE_NAME = 'benji-v1';
 const STATIC_ASSETS = [
   '/static/app.css',
   '/static/charts.js',

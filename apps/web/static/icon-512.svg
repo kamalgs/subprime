@@ -1,4 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="64" fill="#4f46e5"/>
-  <text x="256" y="296" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="bold" font-size="192" fill="white">FA</text>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+  <!-- Coin-shaped circle -->
+  <circle cx="256" cy="256" r="246" fill="url(#grad)"/>
+  <circle cx="256" cy="256" r="222" fill="none" stroke="#f59e0b" stroke-width="8" opacity="0.7"/>
+  <!-- B in white serif -->
+  <text x="214" y="330" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="278" fill="white">B</text>
+  <!-- ji in gold, bottom-right of B -->
+  <text x="368" y="374" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="108" fill="#f59e0b">ji</text>
 </svg>

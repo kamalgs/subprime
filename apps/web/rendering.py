@@ -1,4 +1,4 @@
-"""Rendering helpers for the FinAdvisor wizard web app.
+"""Rendering helpers for the Benji wizard web app.
 
 Provides INR formatting, markdown-to-HTML conversion, corpus projection math,
 and Chart.js data helpers.
