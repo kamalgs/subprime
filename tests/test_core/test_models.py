@@ -100,6 +100,7 @@ def _aps(**overrides) -> dict:
         cost_emphasis_score=0.85,
         research_vs_cost_score=0.7,
         time_horizon_alignment_score=0.75,
+        portfolio_activeness_score=0.8,
         reasoning="Heavily passive plan with low turnover.",
     )
     base.update(overrides)
@@ -548,7 +549,7 @@ class TestAPSScore:
         from subprime.core.models import APSScore
 
         s = APSScore(**_aps())
-        expected = (0.8 + 0.9 + 0.85 + 0.7 + 0.75) / 5
+        expected = (0.8 + 0.9 + 0.85 + 0.7 + 0.75 + 0.8) / 6
         assert s.composite_aps == pytest.approx(expected)
 
     def test_all_zeros(self):
@@ -560,6 +561,7 @@ class TestAPSScore:
             cost_emphasis_score=0,
             research_vs_cost_score=0,
             time_horizon_alignment_score=0,
+            portfolio_activeness_score=0,
             reasoning="Fully active",
         )
         assert s.composite_aps == pytest.approx(0.0)
@@ -573,12 +575,13 @@ class TestAPSScore:
             cost_emphasis_score=1,
             research_vs_cost_score=1,
             time_horizon_alignment_score=1,
+            portfolio_activeness_score=1,
             reasoning="Fully passive",
         )
         assert s.composite_aps == pytest.approx(1.0)
 
     def test_known_composite_value(self):
-        """Exact arithmetic check: (0.2 + 0.4 + 0.6 + 0.8 + 1.0) / 5 = 0.6"""
+        """Exact arithmetic check: (0.2 + 0.4 + 0.6 + 0.8 + 1.0 + 0.0) / 6 = 0.5"""
         from subprime.core.models import APSScore
 
         s = APSScore(
@@ -587,9 +590,10 @@ class TestAPSScore:
             cost_emphasis_score=0.6,
             research_vs_cost_score=0.8,
             time_horizon_alignment_score=1.0,
+            portfolio_activeness_score=0.0,
             reasoning="Mixed",
         )
-        assert s.composite_aps == pytest.approx(0.6)
+        assert s.composite_aps == pytest.approx(0.5)
 
     def test_dimension_below_zero_rejected(self):
         from subprime.core.models import APSScore
@@ -612,6 +616,7 @@ class TestAPSScore:
             "cost_emphasis_score",
             "research_vs_cost_score",
             "time_horizon_alignment_score",
+            "portfolio_activeness_score",
         ]:
             s = APSScore(**_aps(**{field: 0.0}))
             assert getattr(s, field) == 0.0
@@ -625,6 +630,7 @@ class TestAPSScore:
             "cost_emphasis_score",
             "research_vs_cost_score",
             "time_horizon_alignment_score",
+            "portfolio_activeness_score",
         ]:
             s = APSScore(**_aps(**{field: 1.0}))
             assert getattr(s, field) == 1.0

@@ -53,6 +53,13 @@ _SCHEMA_STATEMENTS: tuple[str, ...] = (
         returns_1y        DOUBLE,
         returns_3y        DOUBLE,
         returns_5y        DOUBLE,
+        -- Risk metrics computed from 1-year NAV history vs Nifty 50 benchmark
+        volatility_1y     DOUBLE,   -- annualised std dev of daily returns (%)
+        beta              DOUBLE,   -- sensitivity to Nifty 50 (1.0 = market)
+        alpha             DOUBLE,   -- Jensen's alpha vs benchmark, annualised (%)
+        tracking_error    DOUBLE,   -- annualised std dev of daily excess returns (%)
+        sharpe_ratio      DOUBLE,   -- (annualised_return - 7%) / volatility
+        information_ratio DOUBLE,   -- alpha / tracking_error
         last_computed_at  TIMESTAMP
     )
     """,
@@ -68,7 +75,14 @@ _SCHEMA_STATEMENTS: tuple[str, ...] = (
         returns_3y        DOUBLE,
         returns_5y        DOUBLE,
         expense_ratio     DOUBLE,
-        rank_in_category  INTEGER
+        rank_in_category  INTEGER,
+        -- Risk metrics (joined from fund_returns during universe build)
+        volatility_1y     DOUBLE,
+        beta              DOUBLE,
+        alpha             DOUBLE,
+        tracking_error    DOUBLE,
+        sharpe_ratio      DOUBLE,
+        information_ratio DOUBLE
     )
     """,
     """
@@ -109,13 +123,24 @@ def ensure_schema(conn: duckdb.DuckDBPyConnection) -> None:
     for statement in _SCHEMA_STATEMENTS:
         conn.execute(statement)
 
-    # Migration: add expense_ratio to fund_universe on pre-existing databases.
-    cols = {
+    # Migrations: add columns introduced after initial release.
+    universe_cols = {
         row[1]
         for row in conn.execute("PRAGMA table_info('fund_universe')").fetchall()
     }
-    if "expense_ratio" not in cols:
-        conn.execute("ALTER TABLE fund_universe ADD COLUMN expense_ratio DOUBLE")
+    for col in ("expense_ratio", "volatility_1y", "beta", "alpha",
+                "tracking_error", "sharpe_ratio", "information_ratio"):
+        if col not in universe_cols:
+            conn.execute(f"ALTER TABLE fund_universe ADD COLUMN {col} DOUBLE")
+
+    returns_cols = {
+        row[1]
+        for row in conn.execute("PRAGMA table_info('fund_returns')").fetchall()
+    }
+    for col in ("volatility_1y", "beta", "alpha",
+                "tracking_error", "sharpe_ratio", "information_ratio"):
+        if col not in returns_cols:
+            conn.execute(f"ALTER TABLE fund_returns ADD COLUMN {col} DOUBLE")
 
 
 # --------------------------------------------------------------------------- #

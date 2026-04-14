@@ -79,6 +79,7 @@ def _make_aps_score() -> APSScore:
         cost_emphasis_score=0.6,
         research_vs_cost_score=0.5,
         time_horizon_alignment_score=0.9,
+        portfolio_activeness_score=0.7,
         reasoning="Mostly passive plan.",
     )
 

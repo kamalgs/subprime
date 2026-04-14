@@ -171,7 +171,8 @@ def build_universe(
     sql = f"""
     INSERT INTO fund_universe (
         amfi_code, name, amc, category, sub_category,
-        aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio, rank_in_category
+        aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio, rank_in_category,
+        volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
     )
     WITH categorized AS (
         SELECT
@@ -184,6 +185,12 @@ def build_universe(
             r.returns_1y,
             r.returns_3y,
             r.returns_5y,
+            r.volatility_1y,
+            r.beta,
+            r.alpha,
+            r.tracking_error,
+            r.sharpe_ratio,
+            r.information_ratio,
             COALESCE(s.plan_type, 'regular') AS plan_type
         FROM schemes s
         LEFT JOIN fund_returns r ON r.amfi_code = s.amfi_code
@@ -195,6 +202,7 @@ def build_universe(
         SELECT
             amfi_code, name, amc, category, sub_category,
             aum_cr, returns_1y, returns_3y, returns_5y,
+            volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio,
             -- Populate expense_ratio from typical category values so the
             -- rendered universe table always shows cost estimates. Live API
             -- enrichment can overwrite these after build.
@@ -206,6 +214,7 @@ def build_universe(
         SELECT
             amfi_code, name, amc, category, sub_category,
             aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio,
+            volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio,
             ROW_NUMBER() OVER (
                 PARTITION BY category
                 -- Cost-adjusted ranking: divide blended return by typical ER so
@@ -220,7 +229,8 @@ def build_universe(
     )
     SELECT
         amfi_code, name, amc, category, sub_category,
-        aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio, rank_in_category
+        aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio, rank_in_category,
+        volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
     FROM ranked
     WHERE rank_in_category <= ?
     """
@@ -247,6 +257,12 @@ def _fmt_er(value: float | None) -> str:
     return f"{value:.2f}%"
 
 
+def _fmt_metric(value: float | None, decimals: int = 2) -> str:
+    if value is None:
+        return "-"
+    return f"{value:.{decimals}f}"
+
+
 def _fmt_aum(value: float | None) -> str:
     if value is None:
         return "-"
@@ -271,12 +287,19 @@ def render_universe_context(conn: duckdb.DuckDBPyConnection) -> str:
         "Use these funds as the primary source when building plans. "
         "All returns are CAGR % computed from historical NAV.",
         "",
+        "Column guide: β=beta vs Nifty 50 (1.0=market), α=Jensen's alpha annualised %, "
+        "TE=tracking error % (low TE = index-like behaviour, high TE = genuinely active), "
+        "Sharpe=risk-adjusted return. "
+        "A fund with β≈1, α≈0, TE<2% is a closet indexer regardless of its category label.",
+        "",
     ]
 
     for category in CURATED_CATEGORIES:
         rows = conn.execute(
             """
-            SELECT name, amc, amfi_code, returns_1y, returns_3y, returns_5y, expense_ratio, aum_cr
+            SELECT name, amc, amfi_code, returns_1y, returns_3y, returns_5y,
+                   expense_ratio, aum_cr,
+                   volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
             FROM fund_universe
             WHERE category = ?
             ORDER BY rank_in_category
@@ -287,13 +310,17 @@ def render_universe_context(conn: duckdb.DuckDBPyConnection) -> str:
             continue
 
         lines.append(f"### {category}")
-        lines.append("| Fund | AMC | AMFI | 1y | 3y | 5y | ER | AUM (Cr) |")
-        lines.append("|---|---|---|---|---|---|---|---|")
-        for name, amc, amfi_code, r1, r3, r5, er, aum in rows:
+        lines.append("| Fund | AMC | AMFI | 1y | 3y | 5y | ER | β | α | TE | Sharpe | AUM (Cr) |")
+        lines.append("|---|---|---|---|---|---|---|---|---|---|---|---|")
+        for (name, amc, amfi_code, r1, r3, r5, er, aum,
+             vol, beta, alpha, te, sharpe, ir) in rows:
             lines.append(
                 f"| {name} | {amc} | {amfi_code} | "
                 f"{_fmt_pct(r1)} | {_fmt_pct(r3)} | {_fmt_pct(r5)} | "
-                f"{_fmt_er(er)} | {_fmt_aum(aum)} |"
+                f"{_fmt_er(er)} | "
+                f"{_fmt_metric(beta)} | {_fmt_metric(alpha)}% | "
+                f"{_fmt_metric(te)}% | {_fmt_metric(sharpe)} | "
+                f"{_fmt_aum(aum)} |"
             )
         lines.append("")
 
@@ -315,32 +342,26 @@ def search_universe(
     Optional ``category`` filter matches the canonical category exactly.
     Results are ordered by ``rank_in_category``.
     """
+    _SELECT = """
+        SELECT amfi_code, name, amc, category, sub_category,
+               aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio,
+               volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
+        FROM fund_universe
+    """
     if category is not None:
         rows = conn.execute(
-            """
-            SELECT amfi_code, name, amc, category, sub_category,
-                   aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio
-            FROM fund_universe
-            WHERE category = ?
-            ORDER BY rank_in_category
-            LIMIT ?
-            """,
+            _SELECT + "WHERE category = ? ORDER BY rank_in_category LIMIT ?",
             [category, limit],
         ).fetchall()
     else:
         rows = conn.execute(
-            """
-            SELECT amfi_code, name, amc, category, sub_category,
-                   aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio
-            FROM fund_universe
-            ORDER BY category, rank_in_category
-            LIMIT ?
-            """,
+            _SELECT + "ORDER BY category, rank_in_category LIMIT ?",
             [limit],
         ).fetchall()
 
     funds: list[MutualFund] = []
-    for amfi_code, name, amc, cat, sub_cat, aum, r1, r3, r5, er in rows:
+    for (amfi_code, name, amc, cat, sub_cat, aum, r1, r3, r5, er,
+         vol, beta, alpha, te, sharpe, ir) in rows:
         funds.append(
             MutualFund(
                 amfi_code=str(amfi_code),
@@ -354,6 +375,12 @@ def search_universe(
                 returns_1y=r1,
                 returns_3y=r3,
                 returns_5y=r5,
+                volatility_1y=vol,
+                beta=beta,
+                alpha=alpha,
+                tracking_error=te,
+                sharpe_ratio=sharpe,
+                information_ratio=ir,
             )
         )
     return funds
@@ -367,7 +394,8 @@ def search_universe_by_code(
     row = conn.execute(
         """
         SELECT amfi_code, name, amc, category, sub_category,
-               aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio
+               aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio,
+               volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
         FROM fund_universe
         WHERE amfi_code = ?
         """,
@@ -375,16 +403,24 @@ def search_universe_by_code(
     ).fetchone()
     if not row:
         return None
+    (code, name, amc, cat, sub_cat, aum, r1, r3, r5, er,
+     vol, beta, alpha, te, sharpe, ir) = row
     return MutualFund(
-        amfi_code=str(row[0]),
-        name=row[1] or "",
-        category=row[3] or "",
-        sub_category=row[4] or "",
-        fund_house=row[2] or "",
+        amfi_code=str(code),
+        name=name or "",
+        category=cat or "",
+        sub_category=sub_cat or "",
+        fund_house=amc or "",
         nav=0.0,
-        expense_ratio=row[9] or 0.0,
-        aum_cr=row[5],
-        returns_1y=row[6],
-        returns_3y=row[7],
-        returns_5y=row[8],
+        expense_ratio=er or 0.0,
+        aum_cr=aum,
+        returns_1y=r1,
+        returns_3y=r3,
+        returns_5y=r5,
+        volatility_1y=vol,
+        beta=beta,
+        alpha=alpha,
+        tracking_error=te,
+        sharpe_ratio=sharpe,
+        information_ratio=ir,
     )

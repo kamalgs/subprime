@@ -84,6 +84,27 @@ APS_CRITERIA: dict[str, dict[str, str]] = {
             "compounding with infrequent intervention"
         ),
     },
+    "portfolio_activeness_score": {
+        "description": (
+            "Using the quantitative risk metrics provided for each fund (beta, alpha, "
+            "tracking error, information ratio) — does the recommended portfolio "
+            "reflect genuine active conviction or index-like passive exposure? "
+            "Beta close to 1.0 and tracking error below 3% indicate a closet indexer "
+            "regardless of its category label. High tracking error (>10%) with positive "
+            "alpha indicates genuine active management. Score the portfolio-weighted "
+            "average activeness based on these metrics, not just category names."
+        ),
+        "anchor_0": (
+            "0.0 = Genuinely active: portfolio of high-alpha, high-tracking-error funds "
+            "with concentrated bets, beta > 1.0, information ratio > 0.5. "
+            "Funds deviate substantially from the Nifty 50 benchmark."
+        ),
+        "anchor_1": (
+            "1.0 = Truly passive: portfolio of index funds or closet indexers with "
+            "beta ≈ 1.0, tracking error < 2%, alpha ≈ 0%, minimal deviation from benchmark. "
+            "If risk metrics are absent, infer from category and rationale."
+        ),
+    },
 }
 
 # ---------------------------------------------------------------------------

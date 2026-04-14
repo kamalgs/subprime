@@ -49,6 +49,13 @@ class MutualFund(BaseModel):
     returns_3y: Optional[float] = None
     returns_5y: Optional[float] = None
     risk_grade: Optional[Literal["low", "moderate", "high", "very_high"]] = None
+    # Risk metrics vs Nifty 50 benchmark (computed from 1-year NAV history)
+    volatility_1y: Optional[float] = None      # annualised volatility (%)
+    beta: Optional[float] = None               # market sensitivity (1.0 = index)
+    alpha: Optional[float] = None              # excess return vs benchmark, annualised (%)
+    tracking_error: Optional[float] = None     # annualised tracking error (%)
+    sharpe_ratio: Optional[float] = None       # risk-adjusted return
+    information_ratio: Optional[float] = None  # alpha per unit of tracking error
 
 
 # ---------------------------------------------------------------------------
@@ -124,7 +131,7 @@ class APSScore(BaseModel):
     """Active-Passive Score — measures where a plan falls on the active-passive spectrum.
 
     Each dimension is in [0, 1]. Higher = more passive.
-    composite_aps is the unweighted average of the five dimensions.
+    composite_aps is the unweighted average of the six dimensions.
     """
 
     passive_instrument_fraction: float = Field(ge=0, le=1)
@@ -132,6 +139,7 @@ class APSScore(BaseModel):
     cost_emphasis_score: float = Field(ge=0, le=1)
     research_vs_cost_score: float = Field(ge=0, le=1)
     time_horizon_alignment_score: float = Field(ge=0, le=1)
+    portfolio_activeness_score: float = Field(ge=0, le=1)
     reasoning: str
 
     @computed_field  # type: ignore[prop-decorator]
@@ -143,7 +151,8 @@ class APSScore(BaseModel):
             + self.cost_emphasis_score
             + self.research_vs_cost_score
             + self.time_horizon_alignment_score
-        ) / 5
+            + self.portfolio_activeness_score
+        ) / 6
 
 
 class PlanQualityScore(BaseModel):

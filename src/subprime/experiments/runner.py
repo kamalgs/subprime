@@ -164,14 +164,20 @@ async def rescore_results(
 
 
 def _completed_keys(results_dir: Path) -> set[tuple[str, str]]:
-    """Return (persona_id, condition) pairs already saved in results_dir."""
+    """Return (persona_id, condition) pairs already saved in results_dir.
+
+    Uses a lightweight JSON parse to extract just persona_id and condition,
+    so this works even when the schema has evolved since old files were saved.
+    """
+    import json
+
     completed: set[tuple[str, str]] = set()
     if not results_dir.exists():
         return completed
     for jf in results_dir.glob("*.json"):
         try:
-            r = ExperimentResult.model_validate_json(jf.read_text())
-            completed.add((r.persona_id, r.condition))
+            data = json.loads(jf.read_text())
+            completed.add((data["persona_id"], data["condition"]))
         except Exception:
             pass
     return completed

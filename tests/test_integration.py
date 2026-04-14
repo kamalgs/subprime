@@ -141,6 +141,7 @@ def _make_aps(composite_target: float = 0.5) -> APSScore:
         cost_emphasis_score=composite_target,
         research_vs_cost_score=composite_target,
         time_horizon_alignment_score=composite_target,
+        portfolio_activeness_score=composite_target,
         reasoning=f"All dimensions set to {composite_target}.",
     )
 
@@ -546,7 +547,8 @@ class TestAnalysisIntegration:
 
         assert stats.n == 3
         assert stats.condition == "lynch"
-        assert stats.mean_aps == pytest.approx(0.2, abs=0.01)
+        # mean([0.15, 0.22, 0.20]) = 0.19
+        assert stats.mean_aps == pytest.approx(0.19, abs=0.001)
 
     def test_compare_conditions_delta_is_negative(self):
         from subprime.experiments import compare_conditions

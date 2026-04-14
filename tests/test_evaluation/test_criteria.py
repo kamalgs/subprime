@@ -9,10 +9,10 @@ from __future__ import annotations
 
 
 class TestAPSCriteria:
-    def test_has_exactly_five_dimensions(self):
+    def test_has_exactly_six_dimensions(self):
         from subprime.evaluation.criteria import APS_CRITERIA
 
-        assert len(APS_CRITERIA) == 5
+        assert len(APS_CRITERIA) == 6
 
     def test_dimension_names(self):
         from subprime.evaluation.criteria import APS_CRITERIA
@@ -23,6 +23,7 @@ class TestAPSCriteria:
             "cost_emphasis_score",
             "research_vs_cost_score",
             "time_horizon_alignment_score",
+            "portfolio_activeness_score",
         }
         assert set(APS_CRITERIA.keys()) == expected
 

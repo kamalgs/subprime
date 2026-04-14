@@ -183,6 +183,170 @@ def compute_returns(conn: duckdb.DuckDBPyConnection) -> int:
 
 
 # --------------------------------------------------------------------------- #
+# Risk metrics
+# --------------------------------------------------------------------------- #
+
+# Candidate AMFI codes for the Nifty 50 benchmark, in preference order.
+# The first one found in the nav_history table is used.
+_NIFTY50_BENCHMARK_CANDIDATES = [
+    "120716",   # UTI Nifty 50 Index Fund Direct Plan
+    "118834",   # HDFC Index Fund Nifty 50 Plan Direct
+    "120505",   # ICICI Prudential Nifty 50 Index Fund Direct
+    "120842",   # SBI Nifty Index Fund Direct
+    "135781",   # Nippon India Index Fund Nifty 50 Plan Direct
+]
+
+# Indian 10-year gilt proxy for risk-free rate (annualised)
+_RISK_FREE_ANNUAL = 7.0
+
+
+def _find_benchmark(conn: duckdb.DuckDBPyConnection) -> str | None:
+    """Return the AMFI code of the best available Nifty 50 benchmark proxy."""
+    for code in _NIFTY50_BENCHMARK_CANDIDATES:
+        row = conn.execute(
+            "SELECT COUNT(*) FROM nav_history WHERE amfi_code = ?", [code]
+        ).fetchone()
+        if row and row[0] > 200:   # at least ~1 year of data
+            return code
+
+    # Fall back: find any direct Nifty 50 index fund with sufficient history
+    row = conn.execute(
+        """
+        SELECT s.amfi_code
+        FROM schemes s
+        JOIN nav_history h ON h.amfi_code = s.amfi_code
+        WHERE s.nav_name ILIKE '%nifty 50%'
+          AND s.plan_type = 'direct'
+        GROUP BY s.amfi_code
+        HAVING COUNT(*) > 200
+        ORDER BY COUNT(*) DESC
+        LIMIT 1
+        """
+    ).fetchone()
+    return row[0] if row else None
+
+
+def compute_risk_metrics(conn: duckdb.DuckDBPyConnection) -> int:
+    """Compute risk metrics for all schemes using 1-year daily NAV history.
+
+    Metrics computed against the Nifty 50 benchmark (UTI/HDFC index fund proxy):
+      - volatility_1y     : annualised std dev of daily returns (%)
+      - beta              : covariance(fund, bench) / variance(bench)
+      - alpha             : Jensen's alpha annualised (%)
+      - tracking_error    : annualised std dev of daily excess returns (%)
+      - sharpe_ratio      : (annualised_return - risk_free) / volatility
+      - information_ratio : alpha / tracking_error
+
+    Updates fund_returns in-place. Returns the number of schemes updated.
+    """
+    benchmark_code = _find_benchmark(conn)
+    if benchmark_code is None:
+        logger.warning("No Nifty 50 benchmark found — skipping risk metrics")
+        return 0
+
+    logger.info("Computing risk metrics using benchmark %s", benchmark_code)
+
+    conn.execute(
+        f"""
+        UPDATE fund_returns
+        SET
+            volatility_1y     = metrics.volatility_1y,
+            beta              = metrics.beta,
+            alpha             = metrics.alpha,
+            tracking_error    = metrics.tracking_error,
+            sharpe_ratio      = metrics.sharpe_ratio,
+            information_ratio = metrics.information_ratio
+        FROM (
+            WITH date_range AS (
+                -- Use the most recent 1-year window available in the data
+                SELECT
+                    MAX(nav_date)                        AS end_date,
+                    MAX(nav_date) - INTERVAL 1 YEAR      AS start_date
+                FROM nav_history
+                WHERE amfi_code = '{benchmark_code}'
+            ),
+            daily_nav AS (
+                SELECT
+                    amfi_code,
+                    nav_date,
+                    nav,
+                    LAG(nav) OVER (PARTITION BY amfi_code ORDER BY nav_date) AS prev_nav
+                FROM nav_history
+                WHERE nav_date BETWEEN (SELECT start_date FROM date_range)
+                                   AND (SELECT end_date   FROM date_range)
+            ),
+            daily_ret AS (
+                SELECT
+                    amfi_code,
+                    nav_date,
+                    (nav - prev_nav) / NULLIF(prev_nav, 0) AS r
+                FROM daily_nav
+                WHERE prev_nav IS NOT NULL
+                  AND prev_nav > 0
+            ),
+            bench AS (
+                SELECT nav_date, r AS rb
+                FROM daily_ret
+                WHERE amfi_code = '{benchmark_code}'
+            ),
+            joined AS (
+                SELECT f.amfi_code, f.r AS rf, b.rb
+                FROM daily_ret f
+                JOIN bench b ON b.nav_date = f.nav_date
+                WHERE f.amfi_code != '{benchmark_code}'
+            ),
+            agg AS (
+                SELECT
+                    amfi_code,
+                    COUNT(*)                                         AS n,
+                    AVG(rf)                                          AS mean_rf,
+                    AVG(rb)                                          AS mean_rb,
+                    STDDEV_POP(rf)                                   AS std_rf,
+                    STDDEV_POP(rb)                                   AS std_rb,
+                    COVAR_POP(rf, rb)                                AS cov_fb,
+                    VAR_POP(rb)                                      AS var_b,
+                    STDDEV_POP(rf - rb)                              AS te_daily
+                FROM joined
+                GROUP BY amfi_code
+                HAVING COUNT(*) >= 100
+            )
+            SELECT
+                amfi_code,
+                -- Annualise daily volatility (×√252)
+                std_rf * SQRT(252) * 100                             AS volatility_1y,
+                -- Beta
+                CASE WHEN var_b > 0 THEN cov_fb / var_b ELSE NULL END AS beta,
+                -- Jensen's alpha annualised: (mean_rf - beta*mean_rb) * 252 * 100
+                CASE WHEN var_b > 0
+                     THEN (mean_rf - (cov_fb / var_b) * mean_rb) * 252 * 100
+                     ELSE NULL END                                   AS alpha,
+                -- Tracking error annualised
+                te_daily * SQRT(252) * 100                           AS tracking_error,
+                -- Sharpe: (annualised_return - risk_free) / volatility
+                CASE WHEN std_rf > 0
+                     THEN ((mean_rf * 252 * 100) - {_RISK_FREE_ANNUAL})
+                          / (std_rf * SQRT(252) * 100)
+                     ELSE NULL END                                   AS sharpe_ratio,
+                -- Information ratio: alpha / tracking_error
+                CASE WHEN te_daily > 0 AND var_b > 0
+                     THEN ((mean_rf - (cov_fb / var_b) * mean_rb) * 252 * 100)
+                          / (te_daily * SQRT(252) * 100)
+                     ELSE NULL END                                   AS information_ratio
+            FROM agg
+        ) AS metrics
+        WHERE fund_returns.amfi_code = metrics.amfi_code
+        """
+    )
+
+    row = conn.execute(
+        "SELECT COUNT(*) FROM fund_returns WHERE beta IS NOT NULL"
+    ).fetchone()
+    count = int(row[0]) if row else 0
+    logger.info("Risk metrics computed for %d schemes", count)
+    return count
+
+
+# --------------------------------------------------------------------------- #
 # Download / orchestration
 # --------------------------------------------------------------------------- #
 
@@ -210,16 +374,18 @@ async def download_dataset(target_dir: Path) -> tuple[Path, Path]:
 
 
 async def refresh(conn: duckdb.DuckDBPyConnection, data_dir: Path) -> dict:
-    """Run the full ingest pipeline: download -> load -> returns -> log."""
+    """Run the full ingest pipeline: download -> load -> returns -> risk metrics -> log."""
     csv_path, parquet_path = await download_dataset(data_dir)
     scheme_count = load_schemes(conn, csv_path)
     nav_count = load_nav_history(conn, parquet_path)
     returns_count = compute_returns(conn)
+    risk_count = compute_risk_metrics(conn)
     log_refresh(conn, scheme_count=scheme_count, nav_count=nav_count)
     return {
         "scheme_count": scheme_count,
         "nav_count": nav_count,
         "returns_count": returns_count,
+        "risk_metrics_count": risk_count,
     }
 
 

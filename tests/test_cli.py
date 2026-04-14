@@ -65,6 +65,7 @@ def _make_experiment_result_json() -> str:
         cost_emphasis_score=0.85,
         research_vs_cost_score=0.7,
         time_horizon_alignment_score=0.75,
+        portfolio_activeness_score=0.8,
         reasoning="Heavily passive.",
     )
     pqs = PlanQualityScore(

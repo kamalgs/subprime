@@ -61,6 +61,7 @@ def _make_aps(composite_target: float) -> APSScore:
         cost_emphasis_score=composite_target,
         research_vs_cost_score=composite_target,
         time_horizon_alignment_score=composite_target,
+        portfolio_activeness_score=composite_target,
         reasoning=f"All dimensions at {composite_target}",
     )
 

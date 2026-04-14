@@ -34,7 +34,7 @@ load_dotenv()
 from subprime.advisor.planner import generate_plan, generate_strategy
 from subprime.core.config import CONVERSATIONS_DIR, DB_PATH, DEFAULT_MODEL
 from subprime.core.display import format_plan_summary, format_profile_card, format_strategy_outline
-from subprime.core.models import ConversationLog, ConversationTurn, ExperimentResult
+from subprime.core.models import APSScore, ConversationLog, ConversationTurn, ExperimentResult, PlanQualityScore
 
 app = typer.Typer(
     name="subprime",
@@ -217,7 +217,7 @@ def experiment_score(
         help="Output directory for re-scored result JSONs.",
     ),
     judge_model: str = typer.Option(
-        "anthropic:claude-opus-4-6",
+        "anthropic:claude-sonnet-4-6",
         "--judge-model",
         "-j",
         help="LLM model to use for APS + PQS judges.",
@@ -255,12 +255,46 @@ def experiment_score(
         _console.print(f"[bold red]Error:[/bold red] No JSON files in {source_dir}")
         raise typer.Exit(1)
 
+    import json as _json
+    from subprime.core.models import InvestmentPlan
+
     results: list[ExperimentResult] = []
     for jf in json_files:
         try:
             results.append(ExperimentResult.model_validate_json(jf.read_text()))
-        except Exception as exc:
-            _console.print(f"[yellow]Warning:[/yellow] Skipping {jf.name}: {exc}")
+        except Exception:
+            # Old schema (e.g. missing portfolio_activeness_score): extract
+            # just the fields needed for re-scoring and build a stub result.
+            try:
+                raw = _json.loads(jf.read_text())
+                stub_aps = APSScore(
+                    passive_instrument_fraction=0.5,
+                    turnover_score=0.5,
+                    cost_emphasis_score=0.5,
+                    research_vs_cost_score=0.5,
+                    time_horizon_alignment_score=0.5,
+                    portfolio_activeness_score=0.5,
+                    reasoning="(placeholder — will be re-scored)",
+                )
+                stub_pqs = PlanQualityScore(
+                    goal_alignment=0.5,
+                    diversification=0.5,
+                    risk_return_appropriateness=0.5,
+                    internal_consistency=0.5,
+                    reasoning="(placeholder — will be re-scored)",
+                )
+                results.append(ExperimentResult(
+                    persona_id=raw["persona_id"],
+                    condition=raw["condition"],
+                    model=raw.get("model", "unknown"),
+                    judge_model=raw.get("judge_model"),
+                    plan=InvestmentPlan.model_validate(raw["plan"]),
+                    aps=stub_aps,
+                    pqs=stub_pqs,
+                    prompt_version=raw.get("prompt_version", "v1"),
+                ))
+            except Exception as exc2:
+                _console.print(f"[yellow]Warning:[/yellow] Skipping {jf.name}: {exc2}")
 
     if not results:
         _console.print("[bold red]Error:[/bold red] No valid results loaded.")
