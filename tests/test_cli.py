@@ -7,8 +7,10 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from unittest.mock import AsyncMock, patch
 
 import pytest
+from pydantic_ai.usage import RunUsage
 from typer.testing import CliRunner
 
 from subprime.cli import app
@@ -170,9 +172,6 @@ class TestExperimentAnalyze:
 # ===========================================================================
 
 
-from unittest.mock import AsyncMock, patch
-
-
 class TestAdvise:
     def test_help_exits_zero(self):
         result = runner.invoke(app, ["advise", "--help"])
@@ -223,8 +222,150 @@ class TestAdvise:
 
         with (
             patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=fake_strategy),
-            patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=fake_plan),
+            patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=(fake_plan, RunUsage())),
         ):
             result = runner.invoke(app, ["advise", "--profile", "P01"], input="yes\n")
 
         assert result.exit_code == 0
+
+
+# ===========================================================================
+# smoke-test command
+# ===========================================================================
+
+
+def _make_smoke_plan() -> InvestmentPlan:
+    return InvestmentPlan(
+        allocations=[
+            Allocation(
+                fund=MutualFund(
+                    amfi_code="119551", name="Parag Parikh Flexi Cap",
+                    category="Equity", sub_category="Flexi Cap",
+                    fund_house="PPFAS", nav=65.0, expense_ratio=0.63,
+                ),
+                allocation_pct=100.0, mode="sip",
+                monthly_sip_inr=50000, rationale="Core holding",
+            )
+        ],
+        setup_phase="Start SIP month 1.",
+        review_checkpoints=["6-month review"],
+        rebalancing_guidelines="Annual rebalance.",
+        projected_returns={"base": 12.0, "bull": 16.0, "bear": 6.0},
+        rationale="Growth strategy.",
+        risks=["Market risk"],
+        disclaimer="Research only.",
+    )
+
+
+def _make_smoke_result(plan: InvestmentPlan) -> "ExperimentResult":
+    aps = APSScore(
+        passive_instrument_fraction=0.7,
+        turnover_score=0.8,
+        cost_emphasis_score=0.6,
+        research_vs_cost_score=0.5,
+        time_horizon_alignment_score=0.9,
+        portfolio_activeness_score=0.7,
+        reasoning="Balanced plan.",
+    )
+    pqs = PlanQualityScore(
+        goal_alignment=0.9,
+        diversification=0.8,
+        risk_return_appropriateness=0.85,
+        internal_consistency=0.9,
+        reasoning="Good quality.",
+    )
+    return ExperimentResult(
+        persona_id="P01",
+        condition="baseline",
+        model="anthropic:claude-sonnet-4-6",
+        plan=plan,
+        aps=aps,
+        pqs=pqs,
+        prompt_version="v1",
+    )
+
+
+class TestSmokeTest:
+    def test_help_exits_zero(self):
+        result = runner.invoke(app, ["smoke-test", "--help"])
+        assert result.exit_code == 0
+
+    def test_shows_persona_and_model(self):
+        result = runner.invoke(app, ["smoke-test", "--help"])
+        assert "--persona" in result.output
+        assert "--model" in result.output
+
+    def test_exits_zero_on_success(self):
+        """smoke-test exits 0 when both conditions complete successfully."""
+        plan = _make_smoke_plan()
+        exp_result = _make_smoke_result(plan)
+
+        cold_usage = RunUsage(input_tokens=8000, output_tokens=300, cache_write_tokens=7500)
+        warm_usage = RunUsage(input_tokens=500, output_tokens=295, cache_read_tokens=7500)
+
+        call_count = 0
+
+        async def _mock_run_single(persona, condition, model, judge_model=None):
+            nonlocal call_count
+            call_count += 1
+            usage = cold_usage if call_count == 1 else warm_usage
+            return exp_result, usage
+
+        with patch("subprime.cli._check_api_key"), patch(
+            "subprime.experiments.runner.run_single", side_effect=_mock_run_single
+        ):
+            result = runner.invoke(app, ["smoke-test", "--persona", "P01"])
+
+        assert result.exit_code == 0, result.output
+
+    def test_reports_cache_hits(self):
+        """When cache_read_tokens > 0 on 2nd call, output says cache is working."""
+        plan = _make_smoke_plan()
+        exp_result = _make_smoke_result(plan)
+
+        call_count = 0
+
+        async def _mock_run_single(persona, condition, model, judge_model=None):
+            nonlocal call_count
+            call_count += 1
+            if call_count == 1:
+                usage = RunUsage(input_tokens=8000, output_tokens=300, cache_write_tokens=7500)
+            else:
+                usage = RunUsage(input_tokens=500, output_tokens=295, cache_read_tokens=7500)
+            return exp_result, usage
+
+        with patch("subprime.cli._check_api_key"), patch(
+            "subprime.experiments.runner.run_single", side_effect=_mock_run_single
+        ):
+            result = runner.invoke(app, ["smoke-test", "--persona", "P01"])
+
+        assert "cache working" in result.output.lower() or "cache_rd" in result.output
+
+    def test_reports_cache_write_only(self):
+        """On first-ever run (no reads), output notes cache was written."""
+        plan = _make_smoke_plan()
+        exp_result = _make_smoke_result(plan)
+
+        async def _mock_run_single(persona, condition, model, judge_model=None):
+            usage = RunUsage(input_tokens=8000, output_tokens=300, cache_write_tokens=7500)
+            return exp_result, usage
+
+        with patch("subprime.cli._check_api_key"), patch(
+            "subprime.experiments.runner.run_single", side_effect=_mock_run_single
+        ):
+            result = runner.invoke(app, ["smoke-test", "--persona", "P01"])
+
+        assert result.exit_code == 0
+        assert "cache_wr" in result.output or "written" in result.output.lower()
+
+    def test_exits_one_on_llm_failure(self):
+        """smoke-test exits 1 if an LLM call raises."""
+        async def _mock_run_single(*args, **kwargs):
+            raise RuntimeError("API timeout")
+
+        with patch("subprime.cli._check_api_key"), patch(
+            "subprime.experiments.runner.run_single", side_effect=_mock_run_single
+        ):
+            result = runner.invoke(app, ["smoke-test", "--persona", "P01"])
+
+        assert result.exit_code == 1

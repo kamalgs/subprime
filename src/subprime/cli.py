@@ -423,7 +423,7 @@ def advise(
         else:
             status_msg = "[bold blue]Selecting funds and building your plan...[/bold blue]"
         with _console.status(status_msg):
-            plan = asyncio.run(
+            plan, _ = asyncio.run(
                 generate_plan(profile, strategy=strategy, mode=mode, n_perspectives=perspectives, model=model)
             )
         print(
@@ -558,6 +558,111 @@ def web(
 
     _console.print(f"[bold]FinAdvisor[/bold] starting at http://{host}:{port}")
     uvicorn.run("apps.web.main:create_app", factory=True, host=host, port=port)
+
+
+# ---------------------------------------------------------------------------
+# smoke-test
+# ---------------------------------------------------------------------------
+
+
+@app.command()
+def smoke_test(
+    persona: str = typer.Option(
+        "P01",
+        "--persona",
+        "-p",
+        help="Persona ID to use for the test (default: P01).",
+    ),
+    model: str = typer.Option(
+        "anthropic:claude-sonnet-4-6",
+        "--model",
+        "-m",
+        help="LLM model identifier for the advisor.",
+    ),
+    judge_model: Optional[str] = typer.Option(
+        None,
+        "--judge-model",
+        "-j",
+        help="LLM model for judges. Defaults to --model.",
+    ),
+    save: bool = typer.Option(
+        False,
+        "--save",
+        help="Save result JSONs to the default results directory.",
+    ),
+) -> None:
+    """Smoke test: 1 persona x 2 conditions — verifies wiring and cache efficiency.
+
+    Runs baseline + bogle for a single persona, prints per-call token usage
+    including cache_write (first call) and cache_read (subsequent calls).
+    Exit 0 on success.
+    """
+    from pydantic_ai.usage import RunUsage
+
+    from subprime.evaluation.personas import get_persona
+    from subprime.experiments.conditions import BASELINE, BOGLE
+    from subprime.experiments.runner import _fmt_usage, run_single, save_result
+
+    _check_api_key(model)
+
+    persona_obj = get_persona(persona)
+    effective_judge = judge_model or model
+
+    _console.print(
+        f"\n[bold]Smoke test[/bold] — {persona_obj.id} ({persona_obj.name})\n"
+        f"  Advisor : {model}\n"
+        f"  Judge   : {effective_judge}\n"
+        f"  Conditions: baseline + bogle\n"
+    )
+
+    usages: list[tuple[str, RunUsage]] = []
+
+    async def _run() -> None:
+        import time
+
+        for condition in (BASELINE, BOGLE):
+            t0 = time.monotonic()
+            result, usage = await run_single(
+                persona_obj, condition, model=model, judge_model=judge_model
+            )
+            elapsed = time.monotonic() - t0
+            usages.append((condition.name, usage))
+            if save:
+                save_result(result)
+
+    try:
+        asyncio.run(_run())
+    except Exception as exc:
+        logger.exception("smoke-test failed")
+        _console.print(f"\n[bold red]Error:[/bold red] {exc}")
+        raise typer.Exit(1)
+
+    # Cache efficiency report
+    _console.print("\n[bold]Token usage by condition:[/bold]")
+    total_cache_read = 0
+    total_cache_write = 0
+    for cond_name, usage in usages:
+        cache_rd = usage.cache_read_tokens or 0
+        cache_wr = usage.cache_write_tokens or 0
+        total_cache_read += cache_rd
+        total_cache_write += cache_wr
+        _console.print(
+            f"  [bold blue]{cond_name:10}[/bold blue]  "
+            f"in={usage.input_tokens or 0:,}  "
+            f"out={usage.output_tokens or 0:,}  "
+            + (f"[green]cache_rd={cache_rd:,}[/green]  " if cache_rd else "")
+            + (f"[yellow]cache_wr={cache_wr:,}[/yellow]" if cache_wr else "")
+        )
+
+    _console.print()
+    if total_cache_read > 0:
+        _console.print(f"[bold green]✓ Cache working[/bold green] — {total_cache_read:,} tokens served from cache")
+    elif total_cache_write > 0:
+        _console.print("[yellow]⚠ Cache written but no reads yet (expected on first ever run)[/yellow]")
+    else:
+        _console.print("[yellow]⚠ No cache activity observed — check model supports prompt caching[/yellow]")
+
+    _console.print("[bold green]✓ Smoke test passed[/bold green]\n")
 
 
 # ---------------------------------------------------------------------------

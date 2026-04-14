@@ -12,6 +12,7 @@ from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
+from pydantic_ai.usage import RunUsage
 from typer.testing import CliRunner
 
 from subprime.cli import app
@@ -93,7 +94,7 @@ class TestCLIAdvise:
         """Full bulk flow: profile → strategy → plan, verify output contains key sections."""
         with (
             patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=_fake_strategy()),
-            patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=_fake_plan()),
+            patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=(_fake_plan(), RunUsage())),
         ):
             result = runner.invoke(app, ["advise", "--profile", "P01"], input="yes\n")
 
@@ -126,7 +127,7 @@ class TestCLIAdvise:
 
         with (
             patch("subprime.cli.generate_strategy", side_effect=mock_generate_strategy),
-            patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=_fake_plan()),
+            patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=(_fake_plan(), RunUsage())),
         ):
             result = runner.invoke(
                 app, ["advise", "--profile", "P01"],
@@ -142,7 +143,7 @@ class TestCLIAdvise:
 
         with (
             patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=_fake_strategy()),
-            patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=_fake_plan()),
+            patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=(_fake_plan(), RunUsage())),
         ):
             result = runner.invoke(app, ["advise", "--profile", "P01"], input="yes\n")
 
