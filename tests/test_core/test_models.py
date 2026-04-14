@@ -794,6 +794,7 @@ class TestExperimentResult:
             "persona_id",
             "condition",
             "model",
+            "judge_model",
             "plan",
             "aps",
             "pqs",

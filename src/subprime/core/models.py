@@ -238,7 +238,8 @@ class ExperimentResult(BaseModel):
 
     persona_id: str
     condition: str
-    model: str
+    model: str                          # advisor model
+    judge_model: Optional[str] = None  # judge model (None = same as model)
     plan: InvestmentPlan
     aps: APSScore
     pqs: PlanQualityScore

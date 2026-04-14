@@ -47,6 +47,7 @@ async def run_single(
     persona: InvestorProfile,
     condition: Condition,
     model: str = DEFAULT_MODEL,
+    judge_model: str | None = None,
     prompt_version: str = "v1",
 ) -> ExperimentResult:
     """Run a single experiment: one persona x one condition.
@@ -57,12 +58,15 @@ async def run_single(
     Args:
         persona: The investor profile to advise.
         condition: The experimental condition (baseline, lynch, bogle).
-        model: LLM model identifier for both advisor and judges.
+        model: LLM model identifier for the advisor.
+        judge_model: LLM model identifier for judges. Defaults to model.
         prompt_version: Version tag for prompt tracking.
 
     Returns:
         A complete ExperimentResult.
     """
+    effective_judge = judge_model or model
+
     _console.print(
         f"  [bold blue]{condition.name}[/bold blue] x "
         f"[bold green]{persona.id}[/bold green] — generating plan...",
@@ -76,15 +80,17 @@ async def run_single(
 
     _console.print(
         f"  [bold blue]{condition.name}[/bold blue] x "
-        f"[bold green]{persona.id}[/bold green] — scoring plan...",
+        f"[bold green]{persona.id}[/bold green] — scoring plan "
+        f"[dim](judge: {effective_judge.split(':')[-1]})[/dim]...",
     )
 
-    scored = await score_plan(plan=plan, profile=persona, model=model)
+    scored = await score_plan(plan=plan, profile=persona, model=model, judge_model=judge_model)
 
     result = ExperimentResult(
         persona_id=persona.id,
         condition=condition.name,
         model=model,
+        judge_model=effective_judge if judge_model else None,
         plan=scored.plan,
         aps=scored.aps,
         pqs=scored.pqs,
@@ -101,10 +107,67 @@ async def run_single(
     return result
 
 
+async def rescore_results(
+    results: list[ExperimentResult],
+    judge_model: str,
+    personas: dict[str, InvestorProfile],
+) -> list[ExperimentResult]:
+    """Re-score existing ExperimentResults with a different judge model.
+
+    Args:
+        results: Previously saved ExperimentResults to re-score.
+        judge_model: The new judge model to use for APS + PQS.
+        personas: Mapping of persona_id → InvestorProfile for PQS context.
+
+    Returns:
+        New ExperimentResult list with updated scores and judge_model set.
+    """
+    rescored: list[ExperimentResult] = []
+    for i, result in enumerate(results, 1):
+        persona = personas.get(result.persona_id)
+        if persona is None:
+            _console.print(f"  [yellow]Skipping {result.persona_id} — persona not found[/yellow]")
+            continue
+
+        _console.print(
+            f"  [{i}/{len(results)}] re-scoring "
+            f"[bold blue]{result.condition}[/bold blue] x "
+            f"[bold green]{result.persona_id}[/bold green] "
+            f"[dim](judge: {judge_model.split(':')[-1]})[/dim]..."
+        )
+
+        scored = await score_plan(
+            plan=result.plan,
+            profile=persona,
+            model=result.model,
+            judge_model=judge_model,
+        )
+
+        rescored.append(ExperimentResult(
+            persona_id=result.persona_id,
+            condition=result.condition,
+            model=result.model,
+            judge_model=judge_model,
+            plan=scored.plan,
+            aps=scored.aps,
+            pqs=scored.pqs,
+            timestamp=result.timestamp,
+            prompt_version=result.prompt_version,
+        ))
+
+        _console.print(
+            f"       APS={scored.aps.composite_aps:.3f}  "
+            f"PQS={scored.pqs.composite_pqs:.3f}  [dim]done[/dim]"
+        )
+
+    return rescored
+
+
 async def run_experiment(
     persona_ids: list[str] | None = None,
     condition_names: list[str] | None = None,
     model: str = DEFAULT_MODEL,
+    judge_model: str | None = None,
     prompt_version: str = "v1",
     results_dir: Path | None = None,
 ) -> list[ExperimentResult]:
@@ -113,29 +176,31 @@ async def run_experiment(
     Args:
         persona_ids: Subset of persona IDs to run. None = all personas.
         condition_names: Subset of condition names. None = all conditions.
-        model: LLM model identifier.
+        model: LLM model identifier for the advisor.
+        judge_model: LLM model identifier for judges. Defaults to model.
         prompt_version: Version tag for prompt tracking.
         results_dir: Where to save result JSONs.
 
     Returns:
         List of all ExperimentResult objects from the run.
     """
-    # Resolve personas
     if persona_ids is not None:
         personas = [get_persona(pid) for pid in persona_ids]
     else:
         personas = load_personas()
 
-    # Resolve conditions
     if condition_names is not None:
         conditions = [get_condition(name) for name in condition_names]
     else:
         conditions = CONDITIONS
 
     total = len(personas) * len(conditions)
+    effective_judge = judge_model or model
     _console.print(
         f"\n[bold]Running experiment:[/bold] "
         f"{len(personas)} personas x {len(conditions)} conditions = {total} runs\n"
+        f"  Advisor : {model}\n"
+        f"  Judge   : {effective_judge}\n"
     )
 
     results: list[ExperimentResult] = []
@@ -149,6 +214,7 @@ async def run_experiment(
                 persona=persona,
                 condition=condition,
                 model=model,
+                judge_model=judge_model,
                 prompt_version=prompt_version,
             )
             save_result(result, results_dir=results_dir)

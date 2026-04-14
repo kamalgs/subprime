@@ -21,17 +21,20 @@ async def score_plan(
     plan: InvestmentPlan,
     profile: InvestorProfile,
     model: str = DEFAULT_MODEL,
+    judge_model: str | None = None,
 ) -> ScoredPlan:
     """Run both APS and PQS judges on a plan and return bundled scores.
 
     Args:
         plan: The investment plan to score.
         profile: The investor's profile for PQS context.
-        model: The LLM model identifier for both judges.
+        model: The advisor LLM model identifier (used as judge fallback).
+        judge_model: Override model for judge calls. Defaults to model.
 
     Returns:
         A ScoredPlan containing the plan, APS score, and PQS score.
     """
-    aps = await score_aps(plan, model=model)
-    pqs = await score_pqs(plan, profile, model=model)
+    effective_judge = judge_model or model
+    aps = await score_aps(plan, model=effective_judge)
+    pqs = await score_pqs(plan, profile, model=effective_judge)
     return ScoredPlan(plan=plan, aps=aps, pqs=pqs)

@@ -85,7 +85,13 @@ def experiment_run(
         "anthropic:claude-sonnet-4-6",
         "--model",
         "-m",
-        help="LLM model identifier.",
+        help="LLM model identifier for the advisor.",
+    ),
+    judge_model: Optional[str] = typer.Option(
+        None,
+        "--judge-model",
+        "-j",
+        help="LLM model for judges (APS + PQS). Defaults to --model if not set.",
     ),
     api_key: Optional[str] = typer.Option(
         None,
@@ -128,7 +134,6 @@ def experiment_run(
         else "ANTHROPIC_API_KEY"
     )
     _console.print(f"[dim]Using API key from: {key_source}[/dim]")
-    _console.print(f"[dim]Model: {model}[/dim]\n")
 
     persona_ids = [persona] if persona else None
     condition_names = [c.strip() for c in conditions.split(",") if c.strip()]
@@ -139,6 +144,7 @@ def experiment_run(
                 persona_ids=persona_ids,
                 condition_names=condition_names,
                 model=model,
+                judge_model=judge_model,
                 prompt_version=prompt_version,
                 results_dir=results_dir,
             )
@@ -192,6 +198,98 @@ def experiment_analyze(
 
     _console.print(f"Loaded {len(results)} results from {results_dir}\n")
     print_analysis(results)
+
+
+@app.command()
+def experiment_score(
+    source_dir: Path = typer.Argument(
+        ...,
+        help="Directory of existing experiment result JSONs to re-score.",
+    ),
+    results_dir: Path = typer.Argument(
+        ...,
+        help="Output directory for re-scored result JSONs.",
+    ),
+    judge_model: str = typer.Option(
+        "anthropic:claude-opus-4-6",
+        "--judge-model",
+        "-j",
+        help="LLM model to use for APS + PQS judges.",
+    ),
+    api_key: Optional[str] = typer.Option(
+        None,
+        "--api-key",
+        help="Anthropic API key override. Falls back to ANTHROPIC_API_KEY_EXPERIMENT.",
+    ),
+) -> None:
+    """Re-score existing plan JSONs with a different judge model.
+
+    Loads plans from SOURCE_DIR, runs APS + PQS judges with the given
+    judge model, and writes new result JSONs to RESULTS_DIR.
+    Useful for comparing judge models without re-generating plans.
+    """
+    import os
+
+    resolved_key = (
+        api_key
+        or os.environ.get("ANTHROPIC_API_KEY_EXPERIMENT")
+        or os.environ.get("ANTHROPIC_API_KEY")
+    )
+    if resolved_key:
+        os.environ["ANTHROPIC_API_KEY"] = resolved_key
+
+    _check_api_key(judge_model)
+
+    if not source_dir.exists() or not source_dir.is_dir():
+        _console.print(f"[bold red]Error:[/bold red] Source directory not found: {source_dir}")
+        raise typer.Exit(1)
+
+    json_files = sorted(source_dir.glob("*.json"))
+    if not json_files:
+        _console.print(f"[bold red]Error:[/bold red] No JSON files in {source_dir}")
+        raise typer.Exit(1)
+
+    results: list[ExperimentResult] = []
+    for jf in json_files:
+        try:
+            results.append(ExperimentResult.model_validate_json(jf.read_text()))
+        except Exception as exc:
+            _console.print(f"[yellow]Warning:[/yellow] Skipping {jf.name}: {exc}")
+
+    if not results:
+        _console.print("[bold red]Error:[/bold red] No valid results loaded.")
+        raise typer.Exit(1)
+
+    from subprime.evaluation.personas import load_personas
+    from subprime.experiments.runner import rescore_results, save_result
+
+    persona_map = {p.id: p for p in load_personas()}
+
+    _console.print(
+        f"\n[bold]Re-scoring {len(results)} results[/bold]\n"
+        f"  Source : {source_dir}\n"
+        f"  Output : {results_dir}\n"
+        f"  Judge  : {judge_model}\n"
+    )
+
+    try:
+        rescored = asyncio.run(
+            rescore_results(results, judge_model=judge_model, personas=persona_map)
+        )
+        results_dir.mkdir(parents=True, exist_ok=True)
+        for r in rescored:
+            save_result(r, results_dir=results_dir)
+        _console.print(
+            f"\n[bold green]Done:[/bold green] {len(rescored)} results saved to {results_dir}\n"
+        )
+    except KeyboardInterrupt:
+        _console.print("\n[dim]Interrupted.[/dim]")
+        raise typer.Exit(0)
+    except Exception as exc:
+        logger.exception("experiment-score command failed")
+        _console.print(f"\n[bold red]Error:[/bold red] {exc}")
+        _console.print(f"[dim]Full traceback logged to {LOG_FILE}[/dim]")
+        raise typer.Exit(1)
 
 
 @app.command()
