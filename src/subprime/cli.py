@@ -117,6 +117,11 @@ def experiment_run(
         "--resume",
         help="Skip already-completed (persona, condition) pairs in results-dir.",
     ),
+    dry_run: bool = typer.Option(
+        False,
+        "--dry-run",
+        help="Show cost estimate and exit without making any API calls.",
+    ),
 ) -> None:
     """Run the experiment: generate plans for personas x conditions, then score them."""
     import os
@@ -130,6 +135,27 @@ def experiment_run(
     if resolved_key:
         os.environ["ANTHROPIC_API_KEY"] = resolved_key
 
+    persona_ids = [persona] if persona else None
+    condition_names = [c.strip() for c in conditions.split(",") if c.strip()]
+
+    from subprime.evaluation.personas import get_persona, load_personas
+    from subprime.experiments.conditions import get_condition
+    from subprime.experiments.estimator import estimate_experiment, print_estimate
+
+    resolved_personas = [get_persona(pid) for pid in persona_ids] if persona_ids else load_personas()
+    resolved_conditions = [get_condition(name) for name in condition_names]
+
+    est = estimate_experiment(
+        n_personas=len(resolved_personas),
+        conditions=resolved_conditions,
+        model=model,
+        judge_model=judge_model,
+    )
+    print_estimate(est)
+
+    if dry_run:
+        raise typer.Exit(0)
+
     _check_api_key(model)
     from subprime.experiments.runner import run_experiment
 
@@ -139,9 +165,6 @@ def experiment_run(
         else "ANTHROPIC_API_KEY"
     )
     _console.print(f"[dim]Using API key from: {key_source}[/dim]")
-
-    persona_ids = [persona] if persona else None
-    condition_names = [c.strip() for c in conditions.split(",") if c.strip()]
 
     try:
         asyncio.run(
@@ -163,6 +186,53 @@ def experiment_run(
         _console.print(f"\n[bold red]Error:[/bold red] {exc}")
         _console.print(f"[dim]Full traceback logged to {LOG_FILE}[/dim]")
         raise typer.Exit(1)
+
+
+@app.command()
+def experiment_estimate(
+    persona: Optional[str] = typer.Option(
+        None,
+        "--persona",
+        "-p",
+        help="Single persona ID (default: all personas).",
+    ),
+    conditions: str = typer.Option(
+        "baseline,lynch,bogle",
+        "--conditions",
+        "-c",
+        help="Comma-separated condition names.",
+    ),
+    model: str = typer.Option(
+        "anthropic:claude-sonnet-4-6",
+        "--model",
+        "-m",
+        help="Advisor model identifier.",
+    ),
+    judge_model: Optional[str] = typer.Option(
+        None,
+        "--judge-model",
+        "-j",
+        help="Judge model (defaults to --model).",
+    ),
+) -> None:
+    """Show estimated token usage and cost for an experiment run (no API calls)."""
+    from subprime.evaluation.personas import get_persona, load_personas
+    from subprime.experiments.conditions import get_condition
+    from subprime.experiments.estimator import estimate_experiment, print_estimate
+
+    persona_ids = [persona] if persona else None
+    condition_names = [c.strip() for c in conditions.split(",") if c.strip()]
+
+    resolved_personas = [get_persona(pid) for pid in persona_ids] if persona_ids else load_personas()
+    resolved_conditions = [get_condition(name) for name in condition_names]
+
+    est = estimate_experiment(
+        n_personas=len(resolved_personas),
+        conditions=resolved_conditions,
+        model=model,
+        judge_model=judge_model,
+    )
+    print_estimate(est)
 
 
 @app.command()

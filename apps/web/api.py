@@ -16,6 +16,44 @@ from subprime.core.otp import create_otp, verify_otp, daily_otp_count
 
 router = APIRouter(prefix="/api")
 
+# ---------------------------------------------------------------------------
+# GET /api/cost-estimate
+# ---------------------------------------------------------------------------
+
+
+@router.get("/cost-estimate")
+async def api_cost_estimate(
+    request: Request,
+    benji_session: str | None = Cookie(default=None),
+):
+    """Return estimated cost (USD + INR) for plan generation in the current session.
+
+    Used by the frontend to show users what a plan generation will cost before
+    they commit, enabling a pay-per-use / micropayment flow.
+    """
+    from subprime.core.config import ADVISOR_MODEL
+    from subprime.experiments.estimator import estimate_plan_cost
+
+    store = request.app.state.session_store
+    session = await _get_or_create_session(request, benji_session)
+
+    mode = session.mode or "basic"
+    est = estimate_plan_cost(
+        mode=mode,
+        model=ADVISOR_MODEL,
+        n_perspectives=3,
+    )
+
+    return {
+        "mode": est.mode,
+        "n_advisor_calls": est.n_advisor_calls,
+        "estimated_input_tokens": est.estimated_input_tokens,
+        "estimated_output_tokens": est.estimated_output_tokens,
+        "estimated_cost_usd": round(est.estimated_cost_usd, 5),
+        "estimated_cost_inr": round(est.estimated_cost_inr, 3),
+        "model": est.model,
+    }
+
 _GOAL_LABELS = {
     "retirement": "Retirement",
     "children_education": "Children's Education",
