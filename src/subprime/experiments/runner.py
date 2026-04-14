@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import json
+import time
 from pathlib import Path
 
+from pydantic_ai.usage import RunUsage
 from rich.console import Console
 
 from subprime.advisor.planner import generate_plan
@@ -43,27 +45,32 @@ def save_result(
     return path
 
 
+def _fmt_usage(u: RunUsage, elapsed: float) -> str:
+    """Format token usage for display."""
+    tps = u.output_tokens / elapsed if elapsed > 0 else 0
+    parts = [
+        f"in={u.input_tokens:,}",
+        f"out={u.output_tokens:,}",
+        f"tps={tps:.0f}",
+    ]
+    if u.cache_read_tokens:
+        parts.append(f"cache_rd={u.cache_read_tokens:,}")
+    if u.cache_write_tokens:
+        parts.append(f"cache_wr={u.cache_write_tokens:,}")
+    return "  ".join(parts)
+
+
 async def run_single(
     persona: InvestorProfile,
     condition: Condition,
     model: str = DEFAULT_MODEL,
     judge_model: str | None = None,
     prompt_version: str = "v1",
-) -> ExperimentResult:
+) -> tuple[ExperimentResult, RunUsage]:
     """Run a single experiment: one persona x one condition.
 
-    Generates a plan via the advisor with the condition's prompt hooks,
-    then scores it with both APS and PQS judges.
-
-    Args:
-        persona: The investor profile to advise.
-        condition: The experimental condition (baseline, lynch, bogle).
-        model: LLM model identifier for the advisor.
-        judge_model: LLM model identifier for judges. Defaults to model.
-        prompt_version: Version tag for prompt tracking.
-
     Returns:
-        A complete ExperimentResult.
+        (ExperimentResult, RunUsage) — result and combined token usage.
     """
     effective_judge = judge_model or model
 
@@ -72,11 +79,13 @@ async def run_single(
         f"[bold green]{persona.id}[/bold green] — generating plan...",
     )
 
-    plan = await generate_plan(
+    t0 = time.monotonic()
+    plan, plan_usage = await generate_plan(
         profile=persona,
         prompt_hooks=condition.prompt_hooks,
         model=model,
     )
+    plan_elapsed = time.monotonic() - t0
 
     _console.print(
         f"  [bold blue]{condition.name}[/bold blue] x "
@@ -84,7 +93,14 @@ async def run_single(
         f"[dim](judge: {effective_judge.split(':')[-1]})[/dim]...",
     )
 
-    scored = await score_plan(plan=plan, profile=persona, model=model, judge_model=judge_model)
+    t1 = time.monotonic()
+    scored, score_usage = await score_plan(
+        plan=plan, profile=persona, model=model, judge_model=judge_model,
+    )
+    score_elapsed = time.monotonic() - t1
+
+    total_usage = plan_usage + score_usage
+    total_elapsed = plan_elapsed + score_elapsed
 
     result = ExperimentResult(
         persona_id=persona.id,
@@ -101,10 +117,10 @@ async def run_single(
         f"  [bold blue]{condition.name}[/bold blue] x "
         f"[bold green]{persona.id}[/bold green] — "
         f"APS={scored.aps.composite_aps:.3f}  PQS={scored.pqs.composite_pqs:.3f}  "
-        f"[dim]done[/dim]",
+        f"[dim]{total_elapsed:.0f}s  {_fmt_usage(total_usage, total_elapsed)}[/dim]",
     )
 
-    return result
+    return result, total_usage
 
 
 async def rescore_results(
@@ -112,17 +128,10 @@ async def rescore_results(
     judge_model: str,
     personas: dict[str, InvestorProfile],
 ) -> list[ExperimentResult]:
-    """Re-score existing ExperimentResults with a different judge model.
-
-    Args:
-        results: Previously saved ExperimentResults to re-score.
-        judge_model: The new judge model to use for APS + PQS.
-        personas: Mapping of persona_id → InvestorProfile for PQS context.
-
-    Returns:
-        New ExperimentResult list with updated scores and judge_model set.
-    """
+    """Re-score existing ExperimentResults with a different judge model."""
     rescored: list[ExperimentResult] = []
+    total_usage = RunUsage()
+
     for i, result in enumerate(results, 1):
         persona = personas.get(result.persona_id)
         if persona is None:
@@ -136,12 +145,15 @@ async def rescore_results(
             f"[dim](judge: {judge_model.split(':')[-1]})[/dim]..."
         )
 
-        scored = await score_plan(
+        t0 = time.monotonic()
+        scored, usage = await score_plan(
             plan=result.plan,
             profile=persona,
             model=result.model,
             judge_model=judge_model,
         )
+        elapsed = time.monotonic() - t0
+        total_usage.incr(usage)
 
         rescored.append(ExperimentResult(
             persona_id=result.persona_id,
@@ -157,9 +169,13 @@ async def rescore_results(
 
         _console.print(
             f"       APS={scored.aps.composite_aps:.3f}  "
-            f"PQS={scored.pqs.composite_pqs:.3f}  [dim]done[/dim]"
+            f"PQS={scored.pqs.composite_pqs:.3f}  "
+            f"[dim]{elapsed:.0f}s  {_fmt_usage(usage, elapsed)}[/dim]"
         )
 
+    _console.print(
+        f"\n[dim]Total tokens — {_fmt_usage(total_usage, 0).replace('tps=0', '')}[/dim]"
+    )
     return rescored
 
 
@@ -232,6 +248,9 @@ async def run_experiment(
     )
 
     results: list[ExperimentResult] = []
+    session_usage = RunUsage()
+    session_start = time.monotonic()
+
     for i, persona in enumerate(personas, 1):
         _console.print(
             f"[bold yellow]Persona {i}/{len(personas)}:[/bold yellow] "
@@ -243,18 +262,22 @@ async def run_experiment(
                     f"  [dim]skip {condition.name} x {persona.id} (already done)[/dim]"
                 )
                 continue
-            result = await run_single(
+            result, usage = await run_single(
                 persona=persona,
                 condition=condition,
                 model=model,
                 judge_model=judge_model,
                 prompt_version=prompt_version,
             )
+            session_usage.incr(usage)
             save_result(result, results_dir=out_dir)
             results.append(result)
         _console.print()
 
+    session_elapsed = time.monotonic() - session_start
     _console.print(
         f"[bold green]Experiment complete:[/bold green] {len(results)} new results saved.\n"
+        f"[dim]Session totals ({session_elapsed:.0f}s): "
+        f"{_fmt_usage(session_usage, session_elapsed)}[/dim]\n"
     )
     return results

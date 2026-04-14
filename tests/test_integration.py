@@ -14,6 +14,7 @@ from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
+from pydantic_ai.usage import RunUsage
 from typer.testing import CliRunner
 
 from subprime.core.models import (
@@ -417,15 +418,15 @@ class TestEndToEndMockedLLM:
             patch(
                 "subprime.experiments.runner.generate_plan",
                 new_callable=AsyncMock,
-                return_value=fake_plan,
+                return_value=(fake_plan, RunUsage()),
             ),
             patch(
                 "subprime.experiments.runner.score_plan",
                 new_callable=AsyncMock,
-                return_value=fake_scored,
+                return_value=(fake_scored, RunUsage()),
             ),
         ):
-            result = await run_single(persona, BASELINE)
+            result, _ = await run_single(persona, BASELINE)
 
         assert isinstance(result, ExperimentResult)
         assert result.persona_id == "P01"
@@ -451,15 +452,15 @@ class TestEndToEndMockedLLM:
             patch(
                 "subprime.experiments.runner.generate_plan",
                 new_callable=AsyncMock,
-                return_value=fake_plan,
+                return_value=(fake_plan, RunUsage()),
             ),
             patch(
                 "subprime.experiments.runner.score_plan",
                 new_callable=AsyncMock,
-                return_value=fake_scored,
+                return_value=(fake_scored, RunUsage()),
             ),
         ):
-            result = await run_single(persona, LYNCH)
+            result, _ = await run_single(persona, LYNCH)
 
         assert result.condition == "lynch"
         assert result.aps.composite_aps == pytest.approx(0.2)
@@ -481,15 +482,15 @@ class TestEndToEndMockedLLM:
             patch(
                 "subprime.experiments.runner.generate_plan",
                 new_callable=AsyncMock,
-                return_value=fake_plan,
+                return_value=(fake_plan, RunUsage()),
             ),
             patch(
                 "subprime.experiments.runner.score_plan",
                 new_callable=AsyncMock,
-                return_value=fake_scored,
+                return_value=(fake_scored, RunUsage()),
             ),
         ):
-            result = await run_single(persona, BASELINE)
+            result, _ = await run_single(persona, BASELINE)
 
         # Save to tmp_path and reload
         path = save_result(result, results_dir=tmp_path)
@@ -795,11 +796,12 @@ class TestM1AdvisorFlow:
         mock_plan_result = MagicMock()
         mock_plan_result.output = fake_plan
 
+        mock_plan_result.usage.return_value = RunUsage()
         with patch("subprime.advisor.planner.create_advisor") as mock_ca:
             mock_agent2 = AsyncMock()
             mock_agent2.run = AsyncMock(return_value=mock_plan_result)
             mock_ca.return_value = mock_agent2
-            plan = await generate_plan(profile, strategy=strategy)
+            plan, _ = await generate_plan(profile, strategy=strategy)
 
         assert "UTI Nifty 50" in plan.allocations[0].fund.name
         plan_display = format_plan_summary(plan)

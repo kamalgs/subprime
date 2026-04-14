@@ -9,6 +9,7 @@ from __future__ import annotations
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
+from pydantic_ai.usage import RunUsage
 
 from subprime.advisor.agent import create_advisor, load_prompt
 from subprime.advisor.evaluator import PlanEvaluation
@@ -159,13 +160,14 @@ async def test_generate_plan(sample_profile):
     # Mock Agent.run to return a result with our fake plan
     mock_result = MagicMock()
     mock_result.output = fake_plan
+    mock_result.usage.return_value = RunUsage()
 
     with patch("subprime.advisor.planner.create_advisor") as mock_create:
         mock_agent = AsyncMock()
         mock_agent.run = AsyncMock(return_value=mock_result)
         mock_create.return_value = mock_agent
 
-        plan = await generate_plan(sample_profile)
+        plan, _ = await generate_plan(sample_profile)
 
     assert isinstance(plan, InvestmentPlan)
     assert len(plan.allocations) == 1
@@ -181,6 +183,7 @@ async def test_generate_plan_passes_hooks(sample_profile):
     fake_plan = _make_fake_plan()
     mock_result = MagicMock()
     mock_result.output = fake_plan
+    mock_result.usage.return_value = RunUsage()
 
     hooks = {"philosophy": "Always prefer index funds."}
 
@@ -202,6 +205,7 @@ async def test_generate_plan_with_strategy(sample_profile):
     fake_plan = _make_fake_plan()
     mock_result = MagicMock()
     mock_result.output = fake_plan
+    mock_result.usage.return_value = RunUsage()
     strategy = StrategyOutline(
         equity_pct=70.0, debt_pct=20.0, gold_pct=10.0, other_pct=0.0,
         equity_approach="Index-heavy", key_themes=["low cost"],
@@ -211,7 +215,7 @@ async def test_generate_plan_with_strategy(sample_profile):
         mock_agent = AsyncMock()
         mock_agent.run = AsyncMock(return_value=mock_result)
         mock_create.return_value = mock_agent
-        plan = await generate_plan(sample_profile, strategy=strategy)
+        plan, _ = await generate_plan(sample_profile, strategy=strategy)
     call_args = mock_agent.run.call_args
     user_prompt = call_args[0][0]
     assert "approved this strategy" in user_prompt
@@ -251,13 +255,14 @@ async def test_generate_plan_include_universe_false_skips_db(sample_profile, mon
     fake_plan = _make_fake_plan()
     mock_result = MagicMock()
     mock_result.output = fake_plan
+    mock_result.usage.return_value = RunUsage()
 
     with patch("subprime.advisor.planner.create_advisor") as mock_create:
         mock_agent = AsyncMock()
         mock_agent.run = AsyncMock(return_value=mock_result)
         mock_create.return_value = mock_agent
 
-        plan = await generate_plan(sample_profile, include_universe=False)
+        plan, _ = await generate_plan(sample_profile, include_universe=False)
 
     assert isinstance(plan, InvestmentPlan)
     call_kwargs = mock_create.call_args.kwargs
@@ -277,6 +282,7 @@ async def test_generate_plan_premium_mode(sample_profile):
     fake_plan = _make_fake_plan()
     mock_result = MagicMock()
     mock_result.output = fake_plan
+    mock_result.usage.return_value = RunUsage()
 
     mock_eval = PlanEvaluation(
         best_index=0,
@@ -294,7 +300,7 @@ async def test_generate_plan_premium_mode(sample_profile):
 
         mock_evaluate.return_value = mock_eval
 
-        plan = await generate_plan(sample_profile, mode="premium")
+        plan, _ = await generate_plan(sample_profile, mode="premium")
 
     assert isinstance(plan, InvestmentPlan)
     # Should have created the advisor 3 times (one per perspective)
@@ -314,6 +320,7 @@ async def test_generate_plan_premium_fallback_on_all_failures(sample_profile):
     fake_plan = _make_fake_plan()
     mock_result = MagicMock()
     mock_result.output = fake_plan
+    mock_result.usage.return_value = RunUsage()
 
     call_count = 0
 
@@ -330,7 +337,7 @@ async def test_generate_plan_premium_fallback_on_all_failures(sample_profile):
         mock_agent.run = _failing_then_succeeding
         mock_create.return_value = mock_agent
 
-        plan = await generate_plan(sample_profile, mode="premium")
+        plan, _ = await generate_plan(sample_profile, mode="premium")
 
     assert isinstance(plan, InvestmentPlan)
     # 3 failed perspective calls + 1 fallback call = 4
@@ -345,13 +352,14 @@ async def test_generate_plan_basic_mode_single_call(sample_profile):
     fake_plan = _make_fake_plan()
     mock_result = MagicMock()
     mock_result.output = fake_plan
+    mock_result.usage.return_value = RunUsage()
 
     with patch("subprime.advisor.planner.create_advisor") as mock_create:
         mock_agent = AsyncMock()
         mock_agent.run = AsyncMock(return_value=mock_result)
         mock_create.return_value = mock_agent
 
-        plan = await generate_plan(sample_profile, mode="basic")
+        plan, _ = await generate_plan(sample_profile, mode="basic")
 
     assert isinstance(plan, InvestmentPlan)
     assert mock_create.call_count == 1
@@ -382,7 +390,7 @@ async def test_generate_plan_premium_tags_perspective(sample_profile):
         mock_create.return_value = mock_agent
         mock_evaluate.return_value = mock_eval
 
-        plan = await generate_plan(sample_profile, mode="premium")
+        plan, _ = await generate_plan(sample_profile, mode="premium")
 
     # The returned plan should have a perspective set
     assert isinstance(plan, InvestmentPlan)
@@ -403,6 +411,7 @@ async def test_generate_plan_premium_five_perspectives(sample_profile):
     fake_plan = _make_fake_plan()
     mock_result = MagicMock()
     mock_result.output = fake_plan
+    mock_result.usage.return_value = RunUsage()
 
     mock_eval = PlanEvaluation(
         best_index=0,
@@ -418,7 +427,7 @@ async def test_generate_plan_premium_five_perspectives(sample_profile):
         mock_create.return_value = mock_agent
         mock_evaluate.return_value = mock_eval
 
-        plan = await generate_plan(sample_profile, mode="premium", n_perspectives=5)
+        plan, _ = await generate_plan(sample_profile, mode="premium", n_perspectives=5)
 
     assert isinstance(plan, InvestmentPlan)
     assert mock_create.call_count == 5

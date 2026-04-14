@@ -80,6 +80,10 @@ def create_advisor(
         tools=[search_funds_universe, get_fund_details],
         retries=3,
         defer_model_check=True,
+        model_settings={
+            "anthropic_cache_instructions": "1h",
+            "anthropic_cache_tool_definitions": "1h",
+        },
     )
 
 

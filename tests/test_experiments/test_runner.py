@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from unittest.mock import AsyncMock, patch
 
 import pytest
+from pydantic_ai.usage import RunUsage
 
 from subprime.core.models import (
     APSScore,
@@ -181,15 +182,15 @@ class TestRunSingle:
             patch(
                 "subprime.experiments.runner.generate_plan",
                 new_callable=AsyncMock,
-                return_value=fake_plan,
+                return_value=(fake_plan, RunUsage()),
             ),
             patch(
                 "subprime.experiments.runner.score_plan",
                 new_callable=AsyncMock,
-                return_value=fake_scored,
+                return_value=(fake_scored, RunUsage()),
             ),
         ):
-            result = await run_single(_make_profile(), BASELINE)
+            result, _ = await run_single(_make_profile(), BASELINE)
 
         assert isinstance(result, ExperimentResult)
         assert result.persona_id == "P01"
@@ -208,12 +209,12 @@ class TestRunSingle:
             patch(
                 "subprime.experiments.runner.generate_plan",
                 new_callable=AsyncMock,
-                return_value=fake_plan,
+                return_value=(fake_plan, RunUsage()),
             ) as mock_gen,
             patch(
                 "subprime.experiments.runner.score_plan",
                 new_callable=AsyncMock,
-                return_value=fake_scored,
+                return_value=(fake_scored, RunUsage()),
             ),
         ):
             await run_single(_make_profile(), LYNCH)
@@ -235,15 +236,15 @@ class TestRunSingle:
             patch(
                 "subprime.experiments.runner.generate_plan",
                 new_callable=AsyncMock,
-                return_value=fake_plan,
+                return_value=(fake_plan, RunUsage()),
             ) as mock_gen,
             patch(
                 "subprime.experiments.runner.score_plan",
                 new_callable=AsyncMock,
-                return_value=fake_scored,
+                return_value=(fake_scored, RunUsage()),
             ) as mock_score,
         ):
-            result = await run_single(
+            result, _ = await run_single(
                 _make_profile(), BASELINE, model="openai:gpt-4o-mini"
             )
 
@@ -265,15 +266,15 @@ class TestRunSingle:
             patch(
                 "subprime.experiments.runner.generate_plan",
                 new_callable=AsyncMock,
-                return_value=fake_plan,
+                return_value=(fake_plan, RunUsage()),
             ),
             patch(
                 "subprime.experiments.runner.score_plan",
                 new_callable=AsyncMock,
-                return_value=fake_scored,
+                return_value=(fake_scored, RunUsage()),
             ),
         ):
-            result = await run_single(_make_profile(), BASELINE)
+            result, _ = await run_single(_make_profile(), BASELINE)
         after = datetime.now(timezone.utc)
 
         assert before <= result.timestamp <= after

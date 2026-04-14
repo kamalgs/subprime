@@ -4,6 +4,7 @@ import os
 from datetime import datetime, timezone
 from unittest.mock import AsyncMock
 import pytest
+from pydantic_ai.usage import RunUsage
 from subprime.core.models import InvestorProfile, Session, SessionSummary
 
 
@@ -535,7 +536,7 @@ class TestOTPEndpoints:
         )
 
         with patch("apps.web.api.generate_strategy", new_callable=AsyncMock, return_value=mock_strategy), \
-             patch("apps.web.api.generate_plan", new_callable=AsyncMock, return_value=mock_plan), \
+             patch("apps.web.api.generate_plan", new_callable=AsyncMock, return_value=(mock_plan, RunUsage())), \
              patch("subprime.core.conversations.save_conversation", new_callable=AsyncMock) as mock_save:
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})

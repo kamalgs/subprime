@@ -245,7 +245,7 @@ async def api_generate_plan(
     if session.profile is None:
         return Response(status_code=400, content="No profile in session")
 
-    plan = await generate_plan(
+    plan, _ = await generate_plan(
         session.profile,
         strategy=session.strategy,
         mode=session.mode,

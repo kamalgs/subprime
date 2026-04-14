@@ -2,6 +2,7 @@
 
 import pytest
 from datetime import datetime, timezone
+from pydantic_ai.usage import RunUsage
 
 from apps.web.session import InMemorySessionStore, Session, SessionSummary
 from subprime.core.models import InvestorProfile
@@ -792,7 +793,7 @@ class TestStep3Strategy:
         """POST /api/generate-plan returns HX-Redirect to /step/4."""
         from apps.web.main import create_app
         app = create_app()
-        with patch("apps.web.api.generate_plan", new=AsyncMock(return_value=_mock_plan())):
+        with patch("apps.web.api.generate_plan", new=AsyncMock(return_value=(_mock_plan(), RunUsage()))):
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
@@ -815,7 +816,7 @@ class TestStep3Strategy:
         """After generating plan, session.plan is set and current_step=4."""
         from apps.web.main import create_app
         app = create_app()
-        with patch("apps.web.api.generate_plan", new=AsyncMock(return_value=_mock_plan())):
+        with patch("apps.web.api.generate_plan", new=AsyncMock(return_value=(_mock_plan(), RunUsage()))):
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
@@ -994,7 +995,7 @@ class TestStep4PlanResult:
 
         with (
             patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=_mock_strategy())),
-            patch("apps.web.api.generate_plan", new=AsyncMock(return_value=_mock_plan())),
+            patch("apps.web.api.generate_plan", new=AsyncMock(return_value=(_mock_plan(), RunUsage()))),
         ):
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
                 # Step 1 — select tier

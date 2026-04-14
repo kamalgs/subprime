@@ -216,18 +216,21 @@ class TestCreatePqsJudge:
 class TestScoreAps:
     @pytest.mark.asyncio
     async def test_returns_aps_score(self):
+        from pydantic_ai.usage import RunUsage
+
         from subprime.evaluation.judges import score_aps
 
         fake_aps = _make_aps_score()
         mock_result = MagicMock()
         mock_result.output = fake_aps
+        mock_result.usage.return_value = RunUsage()
 
         with patch("subprime.evaluation.judges.create_aps_judge") as mock_create:
             mock_agent = AsyncMock()
             mock_agent.run = AsyncMock(return_value=mock_result)
             mock_create.return_value = mock_agent
 
-            result = await score_aps(_make_plan())
+            result, usage = await score_aps(_make_plan())
 
         assert isinstance(result, APSScore)
         assert result.passive_instrument_fraction == 0.7
@@ -235,12 +238,15 @@ class TestScoreAps:
 
     @pytest.mark.asyncio
     async def test_passes_plan_json_to_agent(self):
+        from pydantic_ai.usage import RunUsage
+
         from subprime.evaluation.judges import score_aps
 
         plan = _make_plan()
         fake_aps = _make_aps_score()
         mock_result = MagicMock()
         mock_result.output = fake_aps
+        mock_result.usage.return_value = RunUsage()
 
         with patch("subprime.evaluation.judges.create_aps_judge") as mock_create:
             mock_agent = AsyncMock()
@@ -264,18 +270,21 @@ class TestScoreAps:
 class TestScorePqs:
     @pytest.mark.asyncio
     async def test_returns_pqs_score(self):
+        from pydantic_ai.usage import RunUsage
+
         from subprime.evaluation.judges import score_pqs
 
         fake_pqs = _make_pqs_score()
         mock_result = MagicMock()
         mock_result.output = fake_pqs
+        mock_result.usage.return_value = RunUsage()
 
         with patch("subprime.evaluation.judges.create_pqs_judge") as mock_create:
             mock_agent = AsyncMock()
             mock_agent.run = AsyncMock(return_value=mock_result)
             mock_create.return_value = mock_agent
 
-            result = await score_pqs(_make_plan(), _make_profile())
+            result, usage = await score_pqs(_make_plan(), _make_profile())
 
         assert isinstance(result, PlanQualityScore)
         assert result.goal_alignment == 0.9
@@ -283,6 +292,8 @@ class TestScorePqs:
 
     @pytest.mark.asyncio
     async def test_passes_plan_and_profile_to_agent(self):
+        from pydantic_ai.usage import RunUsage
+
         from subprime.evaluation.judges import score_pqs
 
         plan = _make_plan()
@@ -290,6 +301,7 @@ class TestScorePqs:
         fake_pqs = _make_pqs_score()
         mock_result = MagicMock()
         mock_result.output = fake_pqs
+        mock_result.usage.return_value = RunUsage()
 
         with patch("subprime.evaluation.judges.create_pqs_judge") as mock_create:
             mock_agent = AsyncMock()

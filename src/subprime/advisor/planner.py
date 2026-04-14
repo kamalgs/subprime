@@ -6,6 +6,7 @@ import logging
 from pathlib import Path
 
 from pydantic_ai.settings import ModelSettings
+from pydantic_ai.usage import RunUsage
 
 from subprime.advisor.agent import create_advisor, create_plan_reviewer, create_strategy_advisor
 from subprime.core.config import DB_PATH, DEFAULT_MODEL
@@ -68,8 +69,12 @@ async def _generate_single_plan(
     perspective_name: str,
     model: str,
     temperature: float | None = None,
-) -> InvestmentPlan:
-    """Generate a single plan, optionally with a perspective prompt."""
+) -> tuple[InvestmentPlan, RunUsage]:
+    """Generate a single plan, optionally with a perspective prompt.
+
+    Returns:
+        (InvestmentPlan, RunUsage) — plan and token usage for the full run.
+    """
     # Merge perspective prompt into hooks
     hooks = dict(prompt_hooks or {})
     if perspective_prompt:
@@ -101,7 +106,7 @@ async def _generate_single_plan(
     result = await agent.run("\n".join(parts), model_settings=model_settings)
     plan = result.output
     plan.perspective = perspective_name
-    return plan
+    return plan, result.usage()
 
 
 async def refine_plan(
@@ -145,7 +150,7 @@ async def generate_plan(
     n_perspectives: int = 3,
     model: str = DEFAULT_MODEL,
     refine_model: str | None = None,
-) -> InvestmentPlan:
+) -> tuple[InvestmentPlan, RunUsage]:
     """Generate a detailed investment plan.
 
     Args:
@@ -159,8 +164,12 @@ async def generate_plan(
         refine_model: If set, run a senior-advisor review pass on the draft
             using this model before returning. Improves rationale quality and
             completeness without changing fund selections.
+
+    Returns:
+        (InvestmentPlan, RunUsage) — plan and aggregated token usage.
     """
     universe_ctx = _load_universe_context() if include_universe else None
+    total_usage = RunUsage()
 
     if mode == "premium":
         from subprime.advisor.evaluator import evaluate_plans
@@ -169,7 +178,6 @@ async def generate_plan(
         perspectives = get_default_perspectives(n_perspectives)
         logger.info("Premium mode: generating %d perspectives", len(perspectives))
 
-        # Generate plans in parallel
         tasks = [
             _generate_single_plan(
                 profile=profile,
@@ -183,21 +191,27 @@ async def generate_plan(
             )
             for p in perspectives
         ]
-        plans = await asyncio.gather(*tasks, return_exceptions=True)
+        results = await asyncio.gather(*tasks, return_exceptions=True)
 
-        # Filter out failures
-        valid_plans = [p for p in plans if isinstance(p, InvestmentPlan)]
-        if not valid_plans:
+        valid: list[tuple[InvestmentPlan, RunUsage]] = [
+            r for r in results if isinstance(r, tuple)
+        ]
+        if not valid:
             logger.error("All premium variants failed, falling back to basic mode")
-            return await _generate_single_plan(
+            plan, usage = await _generate_single_plan(
                 profile, strategy, prompt_hooks, universe_ctx,
                 None, "basic_fallback", model,
             )
+            total_usage.incr(usage)
+            return plan, total_usage
+
+        valid_plans = [p for p, _ in valid]
+        for _, u in valid:
+            total_usage.incr(u)
 
         if len(valid_plans) == 1:
             best = valid_plans[0]
         else:
-            # Evaluate and pick best
             evaluation = await evaluate_plans(valid_plans, profile, model)
             best = valid_plans[evaluation.best_index]
             logger.info(
@@ -209,14 +223,15 @@ async def generate_plan(
         if refine_model:
             logger.info("Refining premium plan with %s", refine_model)
             best = await refine_plan(best, profile, model=refine_model)
-        return best
+        return best, total_usage
 
     # basic mode
-    plan = await _generate_single_plan(
+    plan, usage = await _generate_single_plan(
         profile, strategy, prompt_hooks, universe_ctx,
         None, "basic", model,
     )
+    total_usage.incr(usage)
     if refine_model:
         logger.info("Refining basic plan with %s", refine_model)
         plan = await refine_plan(plan, profile, model=refine_model)
-    return plan
+    return plan, total_usage

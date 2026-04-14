@@ -139,6 +139,8 @@ class TestScoredPlan:
 class TestScorePlan:
     @pytest.mark.asyncio
     async def test_returns_scored_plan(self):
+        from pydantic_ai.usage import RunUsage
+
         from subprime.evaluation.scorer import ScoredPlan, score_plan
 
         fake_aps = _make_aps()
@@ -148,10 +150,10 @@ class TestScorePlan:
             patch("subprime.evaluation.scorer.score_aps", new_callable=AsyncMock) as mock_aps,
             patch("subprime.evaluation.scorer.score_pqs", new_callable=AsyncMock) as mock_pqs,
         ):
-            mock_aps.return_value = fake_aps
-            mock_pqs.return_value = fake_pqs
+            mock_aps.return_value = (fake_aps, RunUsage())
+            mock_pqs.return_value = (fake_pqs, RunUsage())
 
-            result = await score_plan(_make_plan(), _make_profile())
+            result, usage = await score_plan(_make_plan(), _make_profile())
 
         assert isinstance(result, ScoredPlan)
         assert result.aps == fake_aps
@@ -159,6 +161,8 @@ class TestScorePlan:
 
     @pytest.mark.asyncio
     async def test_passes_model_to_judges(self):
+        from pydantic_ai.usage import RunUsage
+
         from subprime.evaluation.scorer import score_plan
 
         fake_aps = _make_aps()
@@ -168,8 +172,8 @@ class TestScorePlan:
             patch("subprime.evaluation.scorer.score_aps", new_callable=AsyncMock) as mock_aps,
             patch("subprime.evaluation.scorer.score_pqs", new_callable=AsyncMock) as mock_pqs,
         ):
-            mock_aps.return_value = fake_aps
-            mock_pqs.return_value = fake_pqs
+            mock_aps.return_value = (fake_aps, RunUsage())
+            mock_pqs.return_value = (fake_pqs, RunUsage())
 
             await score_plan(_make_plan(), _make_profile(), model="openai:gpt-4o-mini")
 
