@@ -115,6 +115,19 @@ def normalize_category(raw: str | None) -> str | None:
 # --------------------------------------------------------------------------- #
 
 
+def _category_expense_ratio_case_sql(category_alias: str = "category") -> str:
+    """Build a SQL CASE expression returning typical expense ratio for a canonical category.
+
+    Used to populate expense_ratio in the fund_universe table when live API
+    data is not yet available, and to cost-adjust the within-category ranking.
+    """
+    branches = [
+        f"WHEN {category_alias} = '{cat}' THEN {er}"
+        for cat, er in _CATEGORY_TYPICAL_EXPENSE_RATIO.items()
+    ]
+    return "CASE\n            " + "\n            ".join(branches) + "\n            ELSE 1.00\n        END"
+
+
 def _category_case_sql(alias: str = "s.scheme_category") -> str:
     """Build a SQL ``CASE`` expression mapping raw category → canonical name.
 
@@ -153,6 +166,7 @@ def build_universe(
     conn.execute("DELETE FROM fund_universe")
 
     category_case = _category_case_sql()
+    er_case = _category_expense_ratio_case_sql("category")
 
     sql = f"""
     INSERT INTO fund_universe (
@@ -170,7 +184,6 @@ def build_universe(
             r.returns_1y,
             r.returns_3y,
             r.returns_5y,
-            CAST(NULL AS DOUBLE) AS expense_ratio,
             COALESCE(s.plan_type, 'regular') AS plan_type
         FROM schemes s
         LEFT JOIN fund_returns r ON r.amfi_code = s.amfi_code
@@ -178,19 +191,32 @@ def build_universe(
           AND (COALESCE(s.nav_name, s.name)) NOT ILIKE '%dividend%'
           AND COALESCE(s.plan_type, 'regular') = 'direct'
     ),
+    with_er AS (
+        SELECT
+            amfi_code, name, amc, category, sub_category,
+            aum_cr, returns_1y, returns_3y, returns_5y,
+            -- Populate expense_ratio from typical category values so the
+            -- rendered universe table always shows cost estimates. Live API
+            -- enrichment can overwrite these after build.
+            {er_case} AS expense_ratio
+        FROM categorized
+        WHERE category IS NOT NULL
+    ),
     ranked AS (
         SELECT
             amfi_code, name, amc, category, sub_category,
             aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio,
             ROW_NUMBER() OVER (
                 PARTITION BY category
-                ORDER BY returns_5y DESC NULLS LAST,
-                         returns_3y DESC NULLS LAST,
+                -- Cost-adjusted ranking: divide blended return by typical ER so
+                -- index funds (low ER) aren't artificially depressed vs active
+                -- funds with higher historical returns but higher fees.
+                ORDER BY (returns_5y * 0.7 + COALESCE(returns_3y, returns_5y) * 0.3)
+                             / expense_ratio DESC NULLS LAST,
                          aum_cr DESC NULLS LAST,
                          returns_1y DESC NULLS LAST
             ) AS rank_in_category
-        FROM categorized
-        WHERE category IS NOT NULL
+        FROM with_er
     )
     SELECT
         amfi_code, name, amc, category, sub_category,

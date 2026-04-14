@@ -32,4 +32,5 @@ When generating an investment plan, structure your output with:
 - **Diversify across fund houses** — spread across at least 3 different companies (AMCs)
 - Prefer **direct plans** (lower yearly fees) over regular plans
 - Prefer **growth option** for long-term goals
-- Pick funds with: strong 5-year track record, low yearly fees, large fund size (AUM) for stability
+- Pick funds weighing **two criteria equally**: (1) consistent 3-5 year returns relative to their category benchmark, and (2) low yearly fees — a fund with a 0.10% yearly fee that returns 13% beats one with a 1.5% fee that returns 14%, especially over long horizons
+- Large fund size (AUM) is a secondary tiebreaker for stability
