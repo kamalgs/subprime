@@ -214,11 +214,25 @@ def experiment_estimate(
         "-j",
         help="Judge model (defaults to --model).",
     ),
+    compare: bool = typer.Option(
+        False,
+        "--compare",
+        help="Show a side-by-side cost table for all standard model configurations.",
+    ),
 ) -> None:
-    """Show estimated token usage and cost for an experiment run (no API calls)."""
+    """Show estimated token usage and cost for an experiment run (no API calls).
+
+    Use --compare to see haiku+haiku / haiku+sonnet / sonnet+sonnet / sonnet+opus
+    side by side so you can pick the right cost-quality trade-off.
+    """
     from subprime.evaluation.personas import get_persona, load_personas
     from subprime.experiments.conditions import get_condition
-    from subprime.experiments.estimator import estimate_experiment, print_estimate
+    from subprime.experiments.estimator import (
+        compare_configs,
+        estimate_experiment,
+        print_comparison,
+        print_estimate,
+    )
 
     persona_ids = [persona] if persona else None
     condition_names = [c.strip() for c in conditions.split(",") if c.strip()]
@@ -226,13 +240,20 @@ def experiment_estimate(
     resolved_personas = [get_persona(pid) for pid in persona_ids] if persona_ids else load_personas()
     resolved_conditions = [get_condition(name) for name in condition_names]
 
-    est = estimate_experiment(
-        n_personas=len(resolved_personas),
-        conditions=resolved_conditions,
-        model=model,
-        judge_model=judge_model,
-    )
-    print_estimate(est)
+    if compare:
+        comparisons = compare_configs(
+            n_personas=len(resolved_personas),
+            conditions=resolved_conditions,
+        )
+        print_comparison(comparisons, default_model=model, default_judge=judge_model)
+    else:
+        est = estimate_experiment(
+            n_personas=len(resolved_personas),
+            conditions=resolved_conditions,
+            model=model,
+            judge_model=judge_model,
+        )
+        print_estimate(est)
 
 
 @app.command()

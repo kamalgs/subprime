@@ -445,3 +445,88 @@ def print_estimate(est: ExperimentEstimate) -> None:
         f"  Cache savings : [green]${est.cache_savings_usd:.4f}  "
         f"({est.cache_savings_pct:.0f}% cheaper)[/green]\n"
     )
+
+
+# Standard model configurations for side-by-side comparison
+_COMPARE_CONFIGS: list[tuple[str, str, str]] = [
+    ("anthropic:claude-haiku-4-5",  "anthropic:claude-haiku-4-5",  "haiku+haiku"),
+    ("anthropic:claude-haiku-4-5",  "anthropic:claude-sonnet-4-6", "haiku+sonnet"),
+    ("anthropic:claude-sonnet-4-6", "anthropic:claude-sonnet-4-6", "sonnet+sonnet"),
+    ("anthropic:claude-sonnet-4-6", "anthropic:claude-opus-4-6",   "sonnet+opus"),
+]
+
+
+def compare_configs(
+    n_personas: int,
+    conditions: list[Condition],
+    default_model: str = "anthropic:claude-sonnet-4-6",
+    default_judge: str | None = None,
+    include_universe: bool = True,
+) -> list[tuple[str, ExperimentEstimate]]:
+    """Return estimates for all standard model configurations.
+
+    Returns:
+        List of (label, ExperimentEstimate) for each config.
+    """
+    results = []
+    for model, judge, label in _COMPARE_CONFIGS:
+        est = estimate_experiment(
+            n_personas=n_personas,
+            conditions=conditions,
+            model=model,
+            judge_model=judge,
+            include_universe=include_universe,
+        )
+        results.append((label, est))
+    return results
+
+
+def print_comparison(
+    comparisons: list[tuple[str, ExperimentEstimate]],
+    default_model: str = "anthropic:claude-sonnet-4-6",
+    default_judge: str | None = None,
+) -> None:
+    """Print a side-by-side comparison table of model configurations."""
+    from rich.console import Console
+    from rich.table import Table
+
+    console = Console()
+    if not comparisons:
+        return
+
+    _, first = comparisons[0]
+    console.print(
+        f"\n[bold]Model configuration comparison[/bold]  "
+        f"{first.n_personas} persona(s) × {first.n_conditions} condition(s) = "
+        f"[bold]{first.n_runs} runs[/bold]"
+        + (f"\n  Universe context: {first.universe_tokens:,} tokens per advisor call"
+           if first.universe_tokens else "")
+    )
+
+    eff_default_judge = default_judge or default_model
+
+    table = Table(show_header=True, header_style="bold")
+    table.add_column("Config", style="bold")
+    table.add_column("Advisor $", justify="right")
+    table.add_column("Judge $", justify="right")
+    table.add_column("Total $", justify="right", style="green")
+    table.add_column("$ / run", justify="right")
+    table.add_column("Savings", justify="right")
+
+    for label, est in comparisons:
+        is_default = (
+            est.model == default_model
+            and est.judge_model == eff_default_judge
+        )
+        marker = " [dim]← default[/dim]" if is_default else ""
+        table.add_row(
+            label + marker,
+            f"${est.advisor.cost_usd:.3f}",
+            f"${est.judges.cost_usd:.3f}",
+            f"${est.total_cost_usd:.3f}",
+            f"${est.avg_cost_per_run_usd:.4f}",
+            f"{est.cache_savings_pct:.0f}%",
+        )
+
+    console.print(table)
+    console.print()
