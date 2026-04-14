@@ -7,6 +7,7 @@ from fastapi import APIRouter, Cookie, Form, Request, Response
 
 from subprime.evaluation.personas import get_persona
 from apps.web.session import Session
+from subprime.core.config import ADVISOR_MODEL, REFINE_MODEL
 from subprime.core.models import InvestorProfile, ConversationTurn
 from subprime.advisor.planner import generate_plan, generate_strategy
 from apps.web.rendering import chart_data_donut, render_markdown
@@ -249,6 +250,8 @@ async def api_generate_plan(
         strategy=session.strategy,
         mode=session.mode,
         n_perspectives=3,
+        model=ADVISOR_MODEL,
+        refine_model=REFINE_MODEL,
     )
     session.plan = plan
     session.current_step = 4

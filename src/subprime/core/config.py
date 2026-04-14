@@ -14,6 +14,14 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 DEFAULT_MODEL = "anthropic:claude-haiku-4-5"
 
+# Web advisor model config — override via env vars.
+# ADVISOR_MODEL: model used by the junior advisor to draft plans.
+# REFINE_MODEL:  model used by the senior reviewer to polish drafts.
+#                Set to "none" (string) or leave unset to skip refinement.
+ADVISOR_MODEL: str = os.environ.get("ADVISOR_MODEL", "anthropic:claude-haiku-4-5")
+_refine_env = os.environ.get("REFINE_MODEL", "anthropic:claude-sonnet-4-6")
+REFINE_MODEL: str | None = None if _refine_env.lower() == "none" else _refine_env
+
 # Data store paths — override via SUBPRIME_DATA_DIR env var for deployment
 DATA_DIR = Path(
     os.environ.get("SUBPRIME_DATA_DIR", str(Path.home() / ".subprime" / "data"))
