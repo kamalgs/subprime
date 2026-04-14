@@ -7,7 +7,7 @@ from pathlib import Path
 
 from pydantic_ai.settings import ModelSettings
 
-from subprime.advisor.agent import create_advisor, create_strategy_advisor
+from subprime.advisor.agent import create_advisor, create_plan_reviewer, create_strategy_advisor
 from subprime.core.config import DB_PATH, DEFAULT_MODEL
 from subprime.core.models import InvestmentPlan, InvestorProfile, StrategyOutline
 
@@ -104,6 +104,38 @@ async def _generate_single_plan(
     return plan
 
 
+async def refine_plan(
+    draft: InvestmentPlan,
+    profile: InvestorProfile,
+    model: str = DEFAULT_MODEL,
+) -> InvestmentPlan:
+    """Review and refine a draft plan as a senior advisor reviewing associate work.
+
+    The reviewer checks goal coverage, rationale quality, internal consistency,
+    risk appropriateness, projected returns, and actionability of guidelines —
+    then returns a polished final plan without changing the core fund selections.
+
+    Args:
+        draft: The draft InvestmentPlan produced by the junior advisor.
+        profile: The investor's profile for context.
+        model: The LLM model for the reviewer (should be stronger than drafter).
+
+    Returns:
+        A refined InvestmentPlan.
+    """
+    reviewer = create_plan_reviewer(model=model)
+    prompt = (
+        "Review and refine the following draft investment plan.\n\n"
+        f"## Client Profile\n{profile.model_dump_json(indent=2)}\n\n"
+        f"## Draft Plan (prepared by associate)\n{draft.model_dump_json(indent=2)}"
+    )
+    result = await reviewer.run(prompt)
+    refined = result.output
+    # Preserve the perspective tag from the draft
+    refined.perspective = draft.perspective
+    return refined
+
+
 async def generate_plan(
     profile: InvestorProfile,
     strategy: StrategyOutline | None = None,
@@ -112,6 +144,7 @@ async def generate_plan(
     mode: str = "basic",
     n_perspectives: int = 3,
     model: str = DEFAULT_MODEL,
+    refine_model: str | None = None,
 ) -> InvestmentPlan:
     """Generate a detailed investment plan.
 
@@ -122,7 +155,10 @@ async def generate_plan(
         include_universe: Load curated fund universe from DuckDB.
         mode: "basic" (single plan) or "premium" (multi-perspective comparison).
         n_perspectives: Number of perspectives for premium mode (3 or 5).
-        model: LLM model identifier.
+        model: LLM model identifier for the advisor (drafter).
+        refine_model: If set, run a senior-advisor review pass on the draft
+            using this model before returning. Improves rationale quality and
+            completeness without changing fund selections.
     """
     universe_ctx = _load_universe_context() if include_universe else None
 
@@ -159,20 +195,28 @@ async def generate_plan(
             )
 
         if len(valid_plans) == 1:
-            return valid_plans[0]
+            best = valid_plans[0]
+        else:
+            # Evaluate and pick best
+            evaluation = await evaluate_plans(valid_plans, profile, model)
+            best = valid_plans[evaluation.best_index]
+            logger.info(
+                "Premium evaluation: picked '%s' — %s",
+                best.perspective,
+                evaluation.reasoning[:100],
+            )
 
-        # Evaluate and pick best
-        evaluation = await evaluate_plans(valid_plans, profile, model)
-        best = valid_plans[evaluation.best_index]
-        logger.info(
-            "Premium evaluation: picked '%s' — %s",
-            best.perspective,
-            evaluation.reasoning[:100],
-        )
+        if refine_model:
+            logger.info("Refining premium plan with %s", refine_model)
+            best = await refine_plan(best, profile, model=refine_model)
         return best
 
     # basic mode
-    return await _generate_single_plan(
+    plan = await _generate_single_plan(
         profile, strategy, prompt_hooks, universe_ctx,
         None, "basic", model,
     )
+    if refine_model:
+        logger.info("Refining basic plan with %s", refine_model)
+        plan = await refine_plan(plan, profile, model=refine_model)
+    return plan

@@ -83,6 +83,34 @@ def create_advisor(
     )
 
 
+def create_plan_reviewer(
+    model: str = DEFAULT_MODEL,
+) -> Agent:
+    """Create a senior-advisor plan reviewer agent.
+
+    Takes a draft InvestmentPlan produced by a junior advisor and returns a
+    refined version — same fund selections and approach, but with tighter
+    rationale, corrected projections, complete risk disclosures, and
+    actionable rebalancing guidelines.
+
+    Args:
+        model: The LLM model identifier (use a stronger model than the drafter).
+
+    Returns:
+        A PydanticAI Agent configured to output a refined InvestmentPlan.
+    """
+    review = load_prompt("review")
+
+    return Agent(
+        model,
+        system_prompt=review,
+        output_type=InvestmentPlan,
+        tools=[],         # no tool calls — reviewer works from the draft text
+        retries=2,
+        defer_model_check=True,
+    )
+
+
 def create_strategy_advisor(
     prompt_hooks: dict[str, str] | None = None,
     model: str = DEFAULT_MODEL,
