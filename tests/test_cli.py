@@ -290,13 +290,13 @@ class TestSmokeTest:
         result = runner.invoke(app, ["smoke-test", "--help"])
         assert result.exit_code == 0
 
-    def test_shows_persona_and_model(self):
+    def test_shows_n_personas_and_model(self):
         result = runner.invoke(app, ["smoke-test", "--help"])
-        assert "--persona" in result.output
+        assert "--n-personas" in result.output
         assert "--model" in result.output
 
     def test_exits_zero_on_success(self):
-        """smoke-test exits 0 when both conditions complete successfully."""
+        """smoke-test exits 0 when all runs complete successfully (2x2 matrix)."""
         plan = _make_smoke_plan()
         exp_result = _make_smoke_result(plan)
 
@@ -314,12 +314,13 @@ class TestSmokeTest:
         with patch("subprime.cli._check_api_key"), patch(
             "subprime.experiments.runner.run_single", side_effect=_mock_run_single
         ):
-            result = runner.invoke(app, ["smoke-test", "--persona", "P01"])
+            result = runner.invoke(app, ["smoke-test", "--n-personas", "2"])
 
         assert result.exit_code == 0, result.output
+        assert call_count == 4  # 2 personas × 2 conditions
 
     def test_reports_cache_hits(self):
-        """When cache_read_tokens > 0 on 2nd call, output says cache is working."""
+        """Runs 2 after the first show cache_read; output says cache is working."""
         plan = _make_smoke_plan()
         exp_result = _make_smoke_result(plan)
 
@@ -337,26 +338,43 @@ class TestSmokeTest:
         with patch("subprime.cli._check_api_key"), patch(
             "subprime.experiments.runner.run_single", side_effect=_mock_run_single
         ):
-            result = runner.invoke(app, ["smoke-test", "--persona", "P01"])
+            result = runner.invoke(app, ["smoke-test", "--n-personas", "2"])
 
-        assert "cache working" in result.output.lower() or "cache_rd" in result.output
+        assert "cache working" in result.output.lower()
 
     def test_reports_cache_write_only(self):
-        """On first-ever run (no reads), output notes cache was written."""
+        """On first-ever run (all cache_write, no reads), output notes cache was written."""
         plan = _make_smoke_plan()
         exp_result = _make_smoke_result(plan)
 
         async def _mock_run_single(persona, condition, model, judge_model=None):
-            usage = RunUsage(input_tokens=8000, output_tokens=300, cache_write_tokens=7500)
-            return exp_result, usage
+            return exp_result, RunUsage(input_tokens=8000, output_tokens=300, cache_write_tokens=7500)
 
         with patch("subprime.cli._check_api_key"), patch(
             "subprime.experiments.runner.run_single", side_effect=_mock_run_single
         ):
-            result = runner.invoke(app, ["smoke-test", "--persona", "P01"])
+            result = runner.invoke(app, ["smoke-test", "--n-personas", "1"])
 
         assert result.exit_code == 0
-        assert "cache_wr" in result.output or "written" in result.output.lower()
+        assert "written" in result.output.lower()
+
+    def test_single_persona_runs_two_conditions(self):
+        """--n-personas 1 still runs 2 conditions (1×2 = 2 calls)."""
+        plan = _make_smoke_plan()
+        exp_result = _make_smoke_result(plan)
+        call_count = 0
+
+        async def _mock_run_single(persona, condition, model, judge_model=None):
+            nonlocal call_count
+            call_count += 1
+            return exp_result, RunUsage(input_tokens=100, output_tokens=50)
+
+        with patch("subprime.cli._check_api_key"), patch(
+            "subprime.experiments.runner.run_single", side_effect=_mock_run_single
+        ):
+            runner.invoke(app, ["smoke-test", "--n-personas", "1"])
+
+        assert call_count == 2
 
     def test_exits_one_on_llm_failure(self):
         """smoke-test exits 1 if an LLM call raises."""
@@ -366,6 +384,6 @@ class TestSmokeTest:
         with patch("subprime.cli._check_api_key"), patch(
             "subprime.experiments.runner.run_single", side_effect=_mock_run_single
         ):
-            result = runner.invoke(app, ["smoke-test", "--persona", "P01"])
+            result = runner.invoke(app, ["smoke-test", "--n-personas", "1"])
 
         assert result.exit_code == 1
