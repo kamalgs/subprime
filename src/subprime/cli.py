@@ -76,16 +76,25 @@ def experiment_run(
         help="Single persona ID to run (default: all personas).",
     ),
     conditions: str = typer.Option(
-        "baseline,lynch",
+        "baseline,lynch,bogle",
         "--conditions",
         "-c",
         help="Comma-separated condition names (e.g. baseline,lynch,bogle).",
     ),
     model: str = typer.Option(
-        DEFAULT_MODEL,
+        "anthropic:claude-sonnet-4-6",
         "--model",
         "-m",
         help="LLM model identifier.",
+    ),
+    api_key: Optional[str] = typer.Option(
+        None,
+        "--api-key",
+        help=(
+            "Anthropic API key for this run. Overrides ANTHROPIC_API_KEY. "
+            "Falls back to ANTHROPIC_API_KEY_EXPERIMENT env var if not set. "
+            "Useful for cost isolation across runs."
+        ),
     ),
     prompt_version: str = typer.Option(
         "v1",
@@ -99,8 +108,27 @@ def experiment_run(
     ),
 ) -> None:
     """Run the experiment: generate plans for personas x conditions, then score them."""
+    import os
+
+    # Resolve which API key to use: --api-key > ANTHROPIC_API_KEY_EXPERIMENT > ANTHROPIC_API_KEY
+    resolved_key = (
+        api_key
+        or os.environ.get("ANTHROPIC_API_KEY_EXPERIMENT")
+        or os.environ.get("ANTHROPIC_API_KEY")
+    )
+    if resolved_key:
+        os.environ["ANTHROPIC_API_KEY"] = resolved_key
+
     _check_api_key(model)
     from subprime.experiments.runner import run_experiment
+
+    key_source = (
+        "--api-key flag" if api_key
+        else "ANTHROPIC_API_KEY_EXPERIMENT" if os.environ.get("ANTHROPIC_API_KEY_EXPERIMENT")
+        else "ANTHROPIC_API_KEY"
+    )
+    _console.print(f"[dim]Using API key from: {key_source}[/dim]")
+    _console.print(f"[dim]Model: {model}[/dim]\n")
 
     persona_ids = [persona] if persona else None
     condition_names = [c.strip() for c in conditions.split(",") if c.strip()]
