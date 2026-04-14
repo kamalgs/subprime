@@ -163,6 +163,20 @@ async def rescore_results(
     return rescored
 
 
+def _completed_keys(results_dir: Path) -> set[tuple[str, str]]:
+    """Return (persona_id, condition) pairs already saved in results_dir."""
+    completed: set[tuple[str, str]] = set()
+    if not results_dir.exists():
+        return completed
+    for jf in results_dir.glob("*.json"):
+        try:
+            r = ExperimentResult.model_validate_json(jf.read_text())
+            completed.add((r.persona_id, r.condition))
+        except Exception:
+            pass
+    return completed
+
+
 async def run_experiment(
     persona_ids: list[str] | None = None,
     condition_names: list[str] | None = None,
@@ -170,6 +184,7 @@ async def run_experiment(
     judge_model: str | None = None,
     prompt_version: str = "v1",
     results_dir: Path | None = None,
+    resume: bool = False,
 ) -> list[ExperimentResult]:
     """Run the full experiment matrix: personas x conditions.
 
@@ -180,6 +195,8 @@ async def run_experiment(
         judge_model: LLM model identifier for judges. Defaults to model.
         prompt_version: Version tag for prompt tracking.
         results_dir: Where to save result JSONs.
+        resume: Skip (persona, condition) pairs that already have a saved
+            result in results_dir. Useful after an interrupted run.
 
     Returns:
         List of all ExperimentResult objects from the run.
@@ -194,13 +211,18 @@ async def run_experiment(
     else:
         conditions = CONDITIONS
 
+    out_dir = results_dir or _DEFAULT_RESULTS_DIR
+    completed = _completed_keys(out_dir) if resume else set()
+
     total = len(personas) * len(conditions)
+    skipped = len(completed) if resume else 0
     effective_judge = judge_model or model
     _console.print(
         f"\n[bold]Running experiment:[/bold] "
         f"{len(personas)} personas x {len(conditions)} conditions = {total} runs\n"
         f"  Advisor : {model}\n"
         f"  Judge   : {effective_judge}\n"
+        + (f"  Resuming: skipping {skipped} already-completed runs\n" if resume else "")
     )
 
     results: list[ExperimentResult] = []
@@ -210,6 +232,11 @@ async def run_experiment(
             f"{persona.id} — {persona.name}"
         )
         for condition in conditions:
+            if resume and (persona.id, condition.name) in completed:
+                _console.print(
+                    f"  [dim]skip {condition.name} x {persona.id} (already done)[/dim]"
+                )
+                continue
             result = await run_single(
                 persona=persona,
                 condition=condition,
@@ -217,11 +244,11 @@ async def run_experiment(
                 judge_model=judge_model,
                 prompt_version=prompt_version,
             )
-            save_result(result, results_dir=results_dir)
+            save_result(result, results_dir=out_dir)
             results.append(result)
         _console.print()
 
     _console.print(
-        f"[bold green]Experiment complete:[/bold green] {len(results)} results saved.\n"
+        f"[bold green]Experiment complete:[/bold green] {len(results)} new results saved.\n"
     )
     return results

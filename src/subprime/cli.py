@@ -112,6 +112,11 @@ def experiment_run(
         "--results-dir",
         help="Directory to save result JSON files.",
     ),
+    resume: bool = typer.Option(
+        False,
+        "--resume",
+        help="Skip already-completed (persona, condition) pairs in results-dir.",
+    ),
 ) -> None:
     """Run the experiment: generate plans for personas x conditions, then score them."""
     import os
@@ -147,6 +152,7 @@ def experiment_run(
                 judge_model=judge_model,
                 prompt_version=prompt_version,
                 results_dir=results_dir,
+                resume=resume,
             )
         )
     except KeyboardInterrupt:
