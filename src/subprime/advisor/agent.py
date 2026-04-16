@@ -6,7 +6,7 @@ from pathlib import Path
 
 from pydantic_ai import Agent
 
-from subprime.core.config import DEFAULT_MODEL
+from subprime.core.config import DEFAULT_MODEL, build_model_settings, is_anthropic
 from subprime.core.models import InvestmentPlan, StrategyOutline
 from subprime.data.tools import get_fund_details, search_funds_universe
 
@@ -73,6 +73,10 @@ def create_advisor(
 
     system_prompt = "\n\n---\n\n".join(parts)
 
+    settings = build_model_settings(model, cache=True)
+    if is_anthropic(model):
+        settings["anthropic_cache_tool_definitions"] = "1h"
+
     return Agent(
         model,
         system_prompt=system_prompt,
@@ -80,10 +84,73 @@ def create_advisor(
         tools=[search_funds_universe, get_fund_details],
         retries=3,
         defer_model_check=True,
-        model_settings={
-            "anthropic_cache_instructions": "1h",
-            "anthropic_cache_tool_definitions": "1h",
-        },
+        model_settings=settings,
+    )
+
+
+def create_thinking_advisor(
+    prompt_hooks: dict[str, str] | None = None,
+    universe_context: str | None = None,
+    model: str = DEFAULT_MODEL,
+) -> Agent:
+    """Create a thinking advisor that outputs free-form text (turn 1 of 2).
+
+    Extended thinking is incompatible with constrained JSON output on large
+    schemas.  This agent reasons deeply about the investor's needs and produces
+    a detailed prose plan.  Follow up with :func:`create_plan_structurer` to
+    convert the prose into an :class:`InvestmentPlan`.
+    """
+    base = load_prompt("base")
+    planning = load_prompt("planning")
+
+    philosophy = ""
+    if prompt_hooks and "philosophy" in prompt_hooks:
+        philosophy = prompt_hooks["philosophy"]
+    else:
+        hook_path = _PROMPTS_DIR / "hooks" / "philosophy.md"
+        if hook_path.exists():
+            philosophy = hook_path.read_text().strip()
+
+    parts = [base, planning]
+    if philosophy:
+        parts.append(f"## Investment Philosophy\n\n{philosophy}")
+    if universe_context:
+        parts.append(universe_context)
+
+    system_prompt = "\n\n---\n\n".join(parts)
+
+    settings = build_model_settings(model, cache=True, thinking=True)
+    if is_anthropic(model):
+        settings["anthropic_cache_tool_definitions"] = "1h"
+
+    return Agent(
+        model,
+        system_prompt=system_prompt,
+        output_type=str,
+        tools=[search_funds_universe, get_fund_details],
+        retries=3,
+        defer_model_check=True,
+        model_settings=settings,
+    )
+
+
+def create_plan_structurer(
+    model: str = DEFAULT_MODEL,
+) -> Agent:
+    """Create an agent that converts prose plan text into structured JSON (turn 2 of 2)."""
+    return Agent(
+        model,
+        system_prompt=(
+            "You are a structured-data extraction agent. "
+            "Given a detailed investment plan in prose, extract it into the "
+            "required JSON schema exactly. Preserve all fund names, AMFI codes, "
+            "allocations, percentages, and rationale from the source text. "
+            "Do not add, remove, or modify any recommendations."
+        ),
+        output_type=InvestmentPlan,
+        tools=[],
+        retries=3,
+        defer_model_check=True,
     )
 
 

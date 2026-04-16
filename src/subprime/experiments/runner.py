@@ -67,6 +67,7 @@ async def run_single(
     model: str = DEFAULT_MODEL,
     judge_model: str | None = None,
     prompt_version: str = "v1",
+    thinking: bool = False,
 ) -> tuple[ExperimentResult, RunUsage]:
     """Run a single experiment: one persona x one condition.
 
@@ -85,6 +86,7 @@ async def run_single(
         profile=persona,
         prompt_hooks=condition.prompt_hooks,
         model=model,
+        thinking=thinking,
     )
     plan_elapsed = time.monotonic() - t0
 
@@ -96,7 +98,7 @@ async def run_single(
 
     t1 = time.monotonic()
     scored, score_usage = await score_plan(
-        plan=plan, profile=persona, model=model, judge_model=judge_model,
+        plan=plan, profile=persona, model=model, judge_model=judge_model, thinking=thinking,
     )
     score_elapsed = time.monotonic() - t1
 
@@ -128,6 +130,7 @@ async def rescore_results(
     results: list[ExperimentResult],
     judge_model: str,
     personas: dict[str, InvestorProfile],
+    thinking: bool = True,
 ) -> list[ExperimentResult]:
     """Re-score existing ExperimentResults with a different judge model."""
     rescored: list[ExperimentResult] = []
@@ -152,6 +155,7 @@ async def rescore_results(
             profile=persona,
             model=result.model,
             judge_model=judge_model,
+            thinking=thinking,
         )
         elapsed = time.monotonic() - t0
         total_usage.incr(usage)
@@ -209,6 +213,7 @@ async def run_experiment(
     results_dir: Path | None = None,
     resume: bool = False,
     concurrency: int = 5,
+    thinking: bool = False,
 ) -> list[ExperimentResult]:
     """Run the full experiment matrix: personas x conditions.
 
@@ -273,6 +278,7 @@ async def run_experiment(
                 model=model,
                 judge_model=judge_model,
                 prompt_version=prompt_version,
+                thinking=thinking,
             )
             save_result(result, results_dir=out_dir)
             done_count += 1

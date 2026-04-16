@@ -12,7 +12,53 @@ from pydantic import SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-DEFAULT_MODEL = "anthropic:claude-haiku-4-5"
+DEFAULT_MODEL = os.environ.get("SUBPRIME_MODEL", "anthropic:claude-haiku-4-5")
+
+
+def model_provider(model: str) -> str:
+    """Return the provider prefix from a PydanticAI model string.
+
+    Examples: ``"anthropic:claude-haiku-4-5"`` → ``"anthropic"``,
+    ``"openai:meta-llama/Llama-3.1-70B"`` → ``"openai"``,
+    ``"groq:llama-3.1-70b"`` → ``"groq"``.
+    Falls back to ``"anthropic"`` when there is no colon prefix.
+    """
+    if ":" in model:
+        return model.split(":", 1)[0]
+    return "anthropic"
+
+
+def is_anthropic(model: str) -> bool:
+    """True when *model* targets the Anthropic API."""
+    return model_provider(model) == "anthropic"
+
+
+def supports_thinking(model: str) -> bool:
+    """True when *model* supports extended thinking."""
+    return is_anthropic(model)
+
+
+def build_model_settings(
+    model: str,
+    *,
+    cache: bool = True,
+    thinking: bool = False,
+) -> dict:
+    """Build provider-appropriate model_settings for a PydanticAI Agent.
+
+    Anthropic models get prompt caching and optional extended thinking.
+    All other providers get a minimal settings dict.
+    """
+    settings: dict = {}
+    if is_anthropic(model):
+        if cache:
+            settings["anthropic_cache_instructions"] = "1h"
+        if thinking and supports_thinking(model):
+            settings["thinking"] = "medium"
+            settings["max_tokens"] = 16000
+    if not thinking:
+        settings.setdefault("max_tokens", 8192)
+    return settings
 
 # Web advisor model config — override via env vars.
 # ADVISOR_MODEL: model used by the junior advisor to draft plans.

@@ -14,7 +14,7 @@ from __future__ import annotations
 from pydantic_ai import Agent
 from pydantic_ai.usage import RunUsage
 
-from subprime.core.config import DEFAULT_MODEL
+from subprime.core.config import DEFAULT_MODEL, build_model_settings
 from subprime.core.models import APSScore, InvestmentPlan, InvestorProfile, PlanQualityScore
 from subprime.evaluation.criteria import APS_CRITERIA, PQS_CRITERIA
 
@@ -92,43 +92,41 @@ def _build_pqs_prompt() -> str:
 # Agent singletons (one per model string, created on first use)
 # ---------------------------------------------------------------------------
 
-_aps_agents: dict[str, Agent] = {}
-_pqs_agents: dict[str, Agent] = {}
+_aps_agents: dict[tuple[str, bool], Agent] = {}
+_pqs_agents: dict[tuple[str, bool], Agent] = {}
 
 _APS_PROMPT = _build_aps_prompt()
 _PQS_PROMPT = _build_pqs_prompt()
 
-_CACHE_SETTINGS = {
-    "anthropic_cache_instructions": "1h",
-}
 
-
-def create_aps_judge(model: str = DEFAULT_MODEL) -> Agent:
+def create_aps_judge(model: str = DEFAULT_MODEL, *, thinking: bool = True) -> Agent:
     """Return the APS judge agent for *model*, creating it on first call."""
-    if model not in _aps_agents:
-        _aps_agents[model] = Agent(
+    key = (model, thinking)
+    if key not in _aps_agents:
+        _aps_agents[key] = Agent(
             model,
             system_prompt=_APS_PROMPT,
             output_type=APSScore,
             retries=2,
             defer_model_check=True,
-            model_settings=_CACHE_SETTINGS,
+            model_settings=build_model_settings(model, cache=True, thinking=thinking),
         )
-    return _aps_agents[model]
+    return _aps_agents[key]
 
 
-def create_pqs_judge(model: str = DEFAULT_MODEL) -> Agent:
+def create_pqs_judge(model: str = DEFAULT_MODEL, *, thinking: bool = True) -> Agent:
     """Return the PQS judge agent for *model*, creating it on first call."""
-    if model not in _pqs_agents:
-        _pqs_agents[model] = Agent(
+    key = (model, thinking)
+    if key not in _pqs_agents:
+        _pqs_agents[key] = Agent(
             model,
             system_prompt=_PQS_PROMPT,
             output_type=PlanQualityScore,
             retries=2,
             defer_model_check=True,
-            model_settings=_CACHE_SETTINGS,
+            model_settings=build_model_settings(model, cache=True, thinking=thinking),
         )
-    return _pqs_agents[model]
+    return _pqs_agents[key]
 
 
 # ---------------------------------------------------------------------------
@@ -139,13 +137,15 @@ def create_pqs_judge(model: str = DEFAULT_MODEL) -> Agent:
 async def score_aps(
     plan: InvestmentPlan,
     model: str = DEFAULT_MODEL,
+    *,
+    thinking: bool = True,
 ) -> tuple[APSScore, RunUsage]:
     """Score a plan on the Active-Passive spectrum.
 
     Returns:
         (APSScore, RunUsage) — score and token usage for the call.
     """
-    agent = create_aps_judge(model=model)
+    agent = create_aps_judge(model=model, thinking=thinking)
     user_prompt = (
         "Score the following investment plan on the Active-Passive spectrum:\n\n"
         f"{plan.model_dump_json(indent=2)}"
@@ -158,13 +158,15 @@ async def score_pqs(
     plan: InvestmentPlan,
     profile: InvestorProfile,
     model: str = DEFAULT_MODEL,
+    *,
+    thinking: bool = True,
 ) -> tuple[PlanQualityScore, RunUsage]:
     """Score a plan's quality relative to the investor's profile.
 
     Returns:
         (PlanQualityScore, RunUsage) — score and token usage for the call.
     """
-    agent = create_pqs_judge(model=model)
+    agent = create_pqs_judge(model=model, thinking=thinking)
     user_prompt = (
         "Score the quality of the following investment plan for this investor.\n\n"
         f"## Investor Profile\n{profile.model_dump_json(indent=2)}\n\n"

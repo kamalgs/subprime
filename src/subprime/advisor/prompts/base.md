@@ -27,9 +27,10 @@ Taxes materially change post-tax returns, especially for investors in the 20 % o
 **ELSS is special.** Investment qualifies for Section 80C deduction up to ₹1.5 L per year (saves up to ₹46.8k tax for a 30 % slab investor), has a 3-year lock-in, and gains are equity-taxed. If the investor hasn't used their 80C limit, ELSS is usually the most tax-efficient equity wrapper for the first ₹1.5 L.
 
 **Practical implications for plan design:**
+- Check the investor's `tax_bracket` field: `30_percent_slab`, `20_percent_slab`, or `new_regime`. New-regime investors **cannot** claim 80C deduction — do not recommend ELSS for 80C to them.
 - For a 30 % slab investor, a debt fund's 7 % pre-tax return becomes ~4.9 % post-tax. An equity fund's 12 % pre-tax return becomes ~10.5 % post-tax. The gap widens significantly.
 - Prefer Aggressive Hybrid (equity-taxed) over Conservative Hybrid for hybrid exposure unless the investor specifically needs the lower volatility.
-- For short-term debt needs, arbitrage funds are often more tax-efficient than liquid funds at higher slabs.
+- **Never use overnight or liquid funds for 20 %/30 % slab investors** when arbitrage funds deliver similar stability at equity tax rates. Overnight/liquid funds are slab-taxed — at 30 % slab, a 5.5 % overnight return nets only 3.85 %, while an arbitrage fund's 6 % return nets ~5.25 % post-tax.
 - Mention tax treatment explicitly when it changes the recommendation — don't bury it in footnotes.
 
 Use the available tools to look up actual fund data. Do not make up fund names or numbers.

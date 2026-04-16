@@ -327,7 +327,7 @@ class TestRunExperiment:
 
         calls: list[tuple[str, str]] = []
 
-        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1"):
+        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1", thinking=False):
             calls.append((persona.id, condition.name))
             return _make_experiment_result(persona_id=persona.id, condition=condition.name), RunUsage()
 
@@ -351,7 +351,7 @@ class TestRunExperiment:
         """run_experiment accepts concurrency without error."""
         from subprime.experiments.runner import run_experiment
 
-        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1"):
+        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1", thinking=False):
             return _make_experiment_result(persona_id=persona.id, condition=condition.name), RunUsage()
 
         with (
@@ -372,7 +372,7 @@ class TestRunExperiment:
         """Runs that raise are collected and re-raised at the end."""
         from subprime.experiments.runner import run_experiment
 
-        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1"):
+        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1", thinking=False):
             raise RuntimeError("LLM timeout")
 
         with (
@@ -394,7 +394,7 @@ class TestRunExperiment:
 
         calls: list[tuple[str, str]] = []
 
-        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1"):
+        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1", thinking=False):
             calls.append((persona.id, condition.name))
             return _make_experiment_result(persona_id=persona.id, condition=condition.name), RunUsage()
 

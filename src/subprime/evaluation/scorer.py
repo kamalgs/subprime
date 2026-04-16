@@ -23,6 +23,7 @@ async def score_plan(
     profile: InvestorProfile,
     model: str = DEFAULT_MODEL,
     judge_model: str | None = None,
+    thinking: bool = True,
 ) -> tuple[ScoredPlan, RunUsage]:
     """Run both APS and PQS judges on a plan and return bundled scores + usage.
 
@@ -31,11 +32,12 @@ async def score_plan(
         profile: The investor's profile for PQS context.
         model: The advisor LLM model identifier (used as judge fallback).
         judge_model: Override model for judge calls. Defaults to model.
+        thinking: Enable extended thinking for the judge (Anthropic only).
 
     Returns:
         (ScoredPlan, RunUsage) — scores and combined token usage for both calls.
     """
     effective_judge = judge_model or model
-    aps, aps_usage = await score_aps(plan, model=effective_judge)
-    pqs, pqs_usage = await score_pqs(plan, profile, model=effective_judge)
+    aps, aps_usage = await score_aps(plan, model=effective_judge, thinking=thinking)
+    pqs, pqs_usage = await score_pqs(plan, profile, model=effective_judge, thinking=thinking)
     return ScoredPlan(plan=plan, aps=aps, pqs=pqs), aps_usage + pqs_usage

@@ -274,7 +274,8 @@ def build_universe(
         LEFT JOIN fund_returns r ON r.amfi_code = s.amfi_code
         WHERE coalesce(s.nav_name, s.name) NOT ILIKE '%IDCW%'
           AND coalesce(s.nav_name, s.name) NOT ILIKE '%dividend%'
-          AND COALESCE(s.plan_type, 'regular') = 'direct'
+          AND (COALESCE(s.plan_type, 'regular') = 'direct'
+               OR s.scheme_category ILIKE '%ETF%')
     ),
     with_er AS (
         SELECT
@@ -321,6 +322,23 @@ def build_universe(
         SELECT * FROM tier2 WHERE rn <= {tier2_n}
         UNION ALL
         SELECT * FROM tier3 WHERE rn <= {tier3_n}
+    ),
+    -- Fallback: guarantee at least 1 fund per category even when all
+    -- tiers are empty (e.g. Gold ETFs with sparse return history).
+    represented AS (SELECT DISTINCT category FROM combined),
+    fallback AS (
+        SELECT *, 4 AS tier,
+               ROW_NUMBER() OVER (
+                   PARTITION BY category
+                   ORDER BY aum_cr DESC NULLS LAST
+               ) AS rn
+        FROM with_er
+        WHERE category NOT IN (SELECT category FROM represented)
+    ),
+    with_fallback AS (
+        SELECT * FROM combined
+        UNION ALL
+        SELECT * FROM fallback WHERE rn = 1
     )
     SELECT
         amfi_code, name, amc, category, sub_category,
@@ -328,7 +346,7 @@ def build_universe(
         expense_ratio,
         ROW_NUMBER() OVER (PARTITION BY category ORDER BY tier, rn) AS rank_in_category,
         volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
-    FROM combined
+    FROM with_fallback
     """
     conn.execute(sql)
 

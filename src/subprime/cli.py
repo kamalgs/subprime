@@ -156,6 +156,15 @@ def experiment_run(
             "Ignores --concurrency; processing takes up to 24h."
         ),
     ),
+    thinking: bool = typer.Option(
+        False,
+        "--thinking",
+        help=(
+            "Enable extended thinking for advisor (two-turn: think then structure) "
+            "and judges (medium budget ~10K tokens). Improves reasoning depth "
+            "but roughly doubles token usage."
+        ),
+    ),
 ) -> None:
     """Run the experiment: generate plans for personas x conditions, then score them."""
     import os
@@ -231,6 +240,7 @@ def experiment_run(
                     results_dir=results_dir,
                     resume=resume,
                     concurrency=concurrency,
+                    thinking=thinking,
                 )
             )
     except KeyboardInterrupt:
@@ -382,6 +392,11 @@ def experiment_score(
         "--api-key",
         help="Anthropic API key override. Falls back to ANTHROPIC_API_KEY_EXPERIMENT.",
     ),
+    thinking: bool = typer.Option(
+        True,
+        "--thinking/--no-thinking",
+        help="Enable/disable extended thinking for the judge.",
+    ),
 ) -> None:
     """Re-score existing plan JSONs with a different judge model.
 
@@ -470,7 +485,7 @@ def experiment_score(
 
     try:
         rescored = asyncio.run(
-            rescore_results(results, judge_model=judge_model, personas=persona_map)
+            rescore_results(results, judge_model=judge_model, personas=persona_map, thinking=thinking)
         )
         results_dir.mkdir(parents=True, exist_ok=True)
         for r in rescored:

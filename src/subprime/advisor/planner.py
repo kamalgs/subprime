@@ -9,7 +9,7 @@ from pydantic_ai.settings import ModelSettings
 from pydantic_ai.usage import RunUsage
 
 from subprime.advisor.agent import create_advisor, create_plan_reviewer, create_strategy_advisor
-from subprime.core.config import DB_PATH, DEFAULT_MODEL
+from subprime.core.config import DB_PATH, DEFAULT_MODEL, supports_thinking
 from subprime.core.models import InvestmentPlan, InvestorProfile, StrategyOutline
 
 logger = logging.getLogger(__name__)
@@ -73,12 +73,19 @@ async def _generate_single_plan(
     perspective_name: str,
     model: str,
     temperature: float | None = None,
+    thinking: bool = False,
 ) -> tuple[InvestmentPlan, RunUsage]:
     """Generate a single plan, optionally with a perspective prompt.
 
+    When *thinking* is True, uses a two-turn flow: (1) thinking advisor
+    produces a detailed prose plan, (2) structurer extracts it into
+    :class:`InvestmentPlan` JSON.
+
     Returns:
-        (InvestmentPlan, RunUsage) — plan and token usage for the full run.
+        (InvestmentPlan, RunUsage) — plan and combined token usage.
     """
+    from pydantic_ai.usage import RunUsage as _RU
+
     # Merge perspective prompt into hooks
     hooks = dict(prompt_hooks or {})
     if perspective_prompt:
@@ -88,29 +95,52 @@ async def _generate_single_plan(
         else:
             hooks["philosophy"] = perspective_prompt
 
-    agent = create_advisor(
-        prompt_hooks=hooks,
-        universe_context=universe_ctx,
-        model=model,
-    )
-
-    parts = [
+    user_parts = [
         f"Create a detailed mutual fund investment plan for this investor:\n\n"
         f"{profile.model_dump_json(indent=2)}"
     ]
     if strategy:
-        parts.append(
+        user_parts.append(
             f"\nThe investor has approved this strategy direction:\n\n"
             f"{strategy.model_dump_json(indent=2)}\n\n"
             f"Select specific mutual fund schemes that implement this strategy. "
             f"Prefer funds from the curated universe above when possible."
         )
+    user_prompt = "\n".join(user_parts)
 
-    model_settings = ModelSettings(temperature=temperature) if temperature else None
-    result = await agent.run("\n".join(parts), model_settings=model_settings)
-    plan = result.output
-    plan.perspective = perspective_name
-    return plan, result.usage()
+    if thinking and supports_thinking(model):
+        from subprime.advisor.agent import create_plan_structurer, create_thinking_advisor
+
+        advisor = create_thinking_advisor(
+            prompt_hooks=hooks,
+            universe_context=universe_ctx,
+            model=model,
+        )
+        model_settings = ModelSettings(temperature=temperature) if temperature else None
+        think_result = await advisor.run(user_prompt, model_settings=model_settings)
+        prose_plan = think_result.output
+
+        structurer = create_plan_structurer(model=model)
+        struct_result = await structurer.run(
+            f"Extract this investment plan into the required JSON structure:\n\n{prose_plan}"
+        )
+        plan = struct_result.output
+        plan.perspective = perspective_name
+
+        combined = think_result.usage()
+        combined.incr(struct_result.usage())
+        return plan, combined
+    else:
+        agent = create_advisor(
+            prompt_hooks=hooks,
+            universe_context=universe_ctx,
+            model=model,
+        )
+        model_settings = ModelSettings(temperature=temperature) if temperature else None
+        result = await agent.run(user_prompt, model_settings=model_settings)
+        plan = result.output
+        plan.perspective = perspective_name
+        return plan, result.usage()
 
 
 async def refine_plan(
@@ -154,6 +184,7 @@ async def generate_plan(
     n_perspectives: int = 3,
     model: str = DEFAULT_MODEL,
     refine_model: str | None = None,
+    thinking: bool = False,
 ) -> tuple[InvestmentPlan, RunUsage]:
     """Generate a detailed investment plan.
 
@@ -234,7 +265,7 @@ async def generate_plan(
     # basic mode
     plan, usage = await _generate_single_plan(
         profile, strategy, prompt_hooks, universe_ctx,
-        None, "basic", model,
+        None, "basic", model, thinking=thinking,
     )
     total_usage.incr(usage)
     if refine_model:
