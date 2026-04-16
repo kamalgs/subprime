@@ -711,7 +711,7 @@ class TestStep3Strategy:
         """GET /api/generate-strategy returns strategy dashboard with expected content."""
         from apps.web.main import create_app
         app = create_app()
-        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=_mock_strategy())):
+        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=(_mock_strategy(), RunUsage()))):
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 await client.post("/api/select-persona", data={"persona_id": "P01"})
@@ -725,7 +725,7 @@ class TestStep3Strategy:
         """After calling generate-strategy, session.strategy is set."""
         from apps.web.main import create_app
         app = create_app()
-        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=_mock_strategy())):
+        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=(_mock_strategy(), RunUsage()))):
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
@@ -742,7 +742,7 @@ class TestStep3Strategy:
         """POST /api/revise-strategy returns updated strategy dashboard."""
         from apps.web.main import create_app
         app = create_app()
-        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=_mock_strategy())):
+        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=(_mock_strategy(), RunUsage()))):
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
@@ -767,7 +767,7 @@ class TestStep3Strategy:
         """After revising strategy, user feedback is in session.strategy_chat."""
         from apps.web.main import create_app
         app = create_app()
-        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=_mock_strategy())):
+        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=(_mock_strategy(), RunUsage()))):
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
@@ -994,7 +994,7 @@ class TestStep4PlanResult:
         app = create_app()
 
         with (
-            patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=_mock_strategy())),
+            patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=(_mock_strategy(), RunUsage()))),
             patch("apps.web.api.generate_plan", new=AsyncMock(return_value=(_mock_plan(), RunUsage()))),
         ):
             async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:

@@ -113,6 +113,7 @@ def _pqs(**overrides) -> dict:
         diversification=0.8,
         risk_return_appropriateness=0.85,
         internal_consistency=0.9,
+        tax_efficiency=0.85,
         reasoning="Well-aligned plan with good diversification.",
     )
     base.update(overrides)
@@ -664,7 +665,7 @@ class TestPlanQualityScore:
         from subprime.core.models import PlanQualityScore
 
         s = PlanQualityScore(**_pqs())
-        expected = (0.9 + 0.8 + 0.85 + 0.9) / 4
+        expected = (0.9 + 0.8 + 0.85 + 0.9 + 0.85) / 5
         assert s.composite_pqs == pytest.approx(expected)
 
     def test_all_zeros(self):
@@ -675,6 +676,7 @@ class TestPlanQualityScore:
             diversification=0,
             risk_return_appropriateness=0,
             internal_consistency=0,
+            tax_efficiency=0,
             reasoning="Terrible plan",
         )
         assert s.composite_pqs == pytest.approx(0.0)
@@ -687,12 +689,13 @@ class TestPlanQualityScore:
             diversification=1,
             risk_return_appropriateness=1,
             internal_consistency=1,
+            tax_efficiency=1,
             reasoning="Perfect plan",
         )
         assert s.composite_pqs == pytest.approx(1.0)
 
     def test_known_composite_value(self):
-        """(0.25 + 0.50 + 0.75 + 1.0) / 4 = 0.625"""
+        """(0.25 + 0.50 + 0.75 + 1.0 + 0.5) / 5 = 0.6"""
         from subprime.core.models import PlanQualityScore
 
         s = PlanQualityScore(
@@ -700,9 +703,24 @@ class TestPlanQualityScore:
             diversification=0.50,
             risk_return_appropriateness=0.75,
             internal_consistency=1.0,
+            tax_efficiency=0.50,
             reasoning="Mixed quality",
         )
-        assert s.composite_pqs == pytest.approx(0.625)
+        assert s.composite_pqs == pytest.approx(0.6)
+
+    def test_tax_efficiency_defaults_to_neutral(self):
+        """Old results saved before the dimension existed deserialise as 0.5."""
+        from subprime.core.models import PlanQualityScore
+
+        s = PlanQualityScore(
+            goal_alignment=0.8,
+            diversification=0.8,
+            risk_return_appropriateness=0.8,
+            internal_consistency=0.8,
+            reasoning="Legacy result without tax field",
+        )
+        assert s.tax_efficiency == pytest.approx(0.5)
+        assert s.composite_pqs == pytest.approx((0.8 * 4 + 0.5) / 5)
 
     def test_dimension_below_zero_rejected(self):
         from subprime.core.models import PlanQualityScore
@@ -777,7 +795,7 @@ class TestExperimentResult:
         r = ExperimentResult(**_experiment_result())
         assert r.plan.projected_returns["base"] == 10.0
         assert r.aps.composite_aps == pytest.approx((0.8 + 0.9 + 0.85 + 0.7 + 0.75) / 5)
-        assert r.pqs.composite_pqs == pytest.approx((0.9 + 0.8 + 0.85 + 0.9) / 4)
+        assert r.pqs.composite_pqs == pytest.approx((0.9 + 0.8 + 0.85 + 0.9 + 0.85) / 5)
 
     def test_serialization_roundtrip(self):
         from subprime.core.models import ExperimentResult

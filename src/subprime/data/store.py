@@ -71,6 +71,7 @@ _SCHEMA_STATEMENTS: tuple[str, ...] = (
         category          VARCHAR,
         sub_category      VARCHAR,
         aum_cr            DOUBLE,
+        launch_date       DATE,
         returns_1y        DOUBLE,
         returns_3y        DOUBLE,
         returns_5y        DOUBLE,
@@ -132,6 +133,8 @@ def ensure_schema(conn: duckdb.DuckDBPyConnection) -> None:
                 "tracking_error", "sharpe_ratio", "information_ratio"):
         if col not in universe_cols:
             conn.execute(f"ALTER TABLE fund_universe ADD COLUMN {col} DOUBLE")
+    if "launch_date" not in universe_cols:
+        conn.execute("ALTER TABLE fund_universe ADD COLUMN launch_date DATE")
 
     returns_cols = {
         row[1]

@@ -77,7 +77,7 @@ async def test_evaluate_plans_returns_plan_evaluation(sample_profile):
         mock_agent.run = AsyncMock(return_value=mock_result)
         MockAgent.return_value = mock_agent
 
-        evaluation = await evaluate_plans(plans, sample_profile)
+        evaluation, _ = await evaluate_plans(plans, sample_profile)
 
     assert isinstance(evaluation, PlanEvaluation)
     assert evaluation.best_index == 0
@@ -101,7 +101,7 @@ async def test_evaluate_plans_clamps_index(sample_profile):
         mock_agent.run = AsyncMock(return_value=mock_result)
         MockAgent.return_value = mock_agent
 
-        evaluation = await evaluate_plans(plans, sample_profile)
+        evaluation, _ = await evaluate_plans(plans, sample_profile)
 
     # Should clamp to last valid index
     assert evaluation.best_index == 1
@@ -124,6 +124,6 @@ async def test_evaluate_plans_clamps_negative_index(sample_profile):
         mock_agent.run = AsyncMock(return_value=mock_result)
         MockAgent.return_value = mock_agent
 
-        evaluation = await evaluate_plans(plans, sample_profile)
+        evaluation, _ = await evaluate_plans(plans, sample_profile)
 
     assert evaluation.best_index == 0

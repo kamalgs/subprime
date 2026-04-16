@@ -5,7 +5,7 @@ Every agent output is a typed Pydantic model — no free-text parsing.
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from typing import Literal, Optional
 
 from pydantic import BaseModel, Field, computed_field
@@ -43,6 +43,7 @@ class MutualFund(BaseModel):
     fund_house: str = ""
     nav: float = Field(default=0.0, ge=0)
     expense_ratio: float = Field(default=0.0, ge=0)
+    inception_date: Optional[date] = None        # fund launch date (for age context)
     aum_cr: Optional[float] = None
     morningstar_rating: Optional[int] = Field(default=None, ge=1, le=5)
     returns_1y: Optional[float] = None
@@ -159,13 +160,18 @@ class PlanQualityScore(BaseModel):
     """Plan Quality Score — independent of bias, scores plan quality.
 
     Each dimension is in [0, 1]. Higher = better quality.
-    composite_pqs is the unweighted average of the four dimensions.
+    composite_pqs is the unweighted average of the five dimensions.
+
+    ``tax_efficiency`` has a default of 0.5 so experiment results saved before
+    the dimension was added deserialise cleanly (they get treated as neutral).
+    New experiment runs always receive an explicit score from the PQS judge.
     """
 
     goal_alignment: float = Field(ge=0, le=1)
     diversification: float = Field(ge=0, le=1)
     risk_return_appropriateness: float = Field(ge=0, le=1)
     internal_consistency: float = Field(ge=0, le=1)
+    tax_efficiency: float = Field(default=0.5, ge=0, le=1)
     reasoning: str
 
     @computed_field  # type: ignore[prop-decorator]
@@ -176,7 +182,8 @@ class PlanQualityScore(BaseModel):
             + self.diversification
             + self.risk_return_appropriateness
             + self.internal_consistency
-        ) / 4
+            + self.tax_efficiency
+        ) / 5
 
 
 # ---------------------------------------------------------------------------

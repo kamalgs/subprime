@@ -253,6 +253,25 @@ class TestRunSingle:
         assert mock_score.call_args.kwargs.get("model") == "openai:gpt-4o-mini"
 
     @pytest.mark.asyncio
+    async def test_result_has_concurrency_param(self):
+        """run_single itself is unaffected by concurrency — it's a single call."""
+        from subprime.evaluation.scorer import ScoredPlan
+        from subprime.experiments.conditions import BASELINE
+        from subprime.experiments.runner import run_single
+
+        fake_plan = _make_plan()
+        fake_scored = ScoredPlan(plan=fake_plan, aps=_make_aps(), pqs=_make_pqs())
+
+        with (
+            patch("subprime.experiments.runner.generate_plan", new_callable=AsyncMock,
+                  return_value=(fake_plan, RunUsage())),
+            patch("subprime.experiments.runner.score_plan", new_callable=AsyncMock,
+                  return_value=(fake_scored, RunUsage())),
+        ):
+            result, _ = await run_single(_make_profile(), BASELINE)
+        assert result.condition == "baseline"
+
+    @pytest.mark.asyncio
     async def test_result_has_timestamp(self):
         from subprime.evaluation.scorer import ScoredPlan
         from subprime.experiments.conditions import BASELINE
@@ -278,3 +297,117 @@ class TestRunSingle:
         after = datetime.now(timezone.utc)
 
         assert before <= result.timestamp <= after
+
+
+# ---------------------------------------------------------------------------
+# run_experiment (LLM + persona loader mocked)
+# ---------------------------------------------------------------------------
+
+
+def _make_profile_2() -> InvestorProfile:
+    return InvestorProfile(
+        id="P02",
+        name="Priya Sharma",
+        age=35,
+        risk_appetite="moderate",
+        investment_horizon_years=20,
+        monthly_investible_surplus_inr=30000,
+        existing_corpus_inr=500000,
+        liabilities_inr=0,
+        financial_goals=["Retirement"],
+        life_stage="Mid career",
+        tax_bracket="new_regime",
+    )
+
+
+class TestRunExperiment:
+    @pytest.mark.asyncio
+    async def test_all_pairs_run_and_saved(self, tmp_path):
+        from subprime.experiments.runner import run_experiment
+
+        calls: list[tuple[str, str]] = []
+
+        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1"):
+            calls.append((persona.id, condition.name))
+            return _make_experiment_result(persona_id=persona.id, condition=condition.name), RunUsage()
+
+        profiles = [_make_profile(), _make_profile_2()]
+
+        with (
+            patch("subprime.experiments.runner.load_personas", return_value=profiles),
+            patch("subprime.experiments.runner.run_single", side_effect=_mock_run),
+            patch("subprime.experiments.runner.save_result"),
+        ):
+            results = await run_experiment(
+                condition_names=["baseline", "bogle"],
+                results_dir=tmp_path,
+            )
+
+        assert len(results) == 4  # 2 personas × 2 conditions
+        assert len(calls) == 4
+
+    @pytest.mark.asyncio
+    async def test_concurrency_param_accepted(self, tmp_path):
+        """run_experiment accepts concurrency without error."""
+        from subprime.experiments.runner import run_experiment
+
+        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1"):
+            return _make_experiment_result(persona_id=persona.id, condition=condition.name), RunUsage()
+
+        with (
+            patch("subprime.experiments.runner.load_personas", return_value=[_make_profile()]),
+            patch("subprime.experiments.runner.run_single", side_effect=_mock_run),
+            patch("subprime.experiments.runner.save_result"),
+        ):
+            results = await run_experiment(
+                condition_names=["baseline"],
+                results_dir=tmp_path,
+                concurrency=3,
+            )
+
+        assert len(results) == 1
+
+    @pytest.mark.asyncio
+    async def test_run_errors_raise(self, tmp_path):
+        """Runs that raise are collected and re-raised at the end."""
+        from subprime.experiments.runner import run_experiment
+
+        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1"):
+            raise RuntimeError("LLM timeout")
+
+        with (
+            patch("subprime.experiments.runner.load_personas", return_value=[_make_profile()]),
+            patch("subprime.experiments.runner.run_single", side_effect=_mock_run),
+            patch("subprime.experiments.runner.save_result"),
+        ):
+            with pytest.raises(RuntimeError, match="run\\(s\\) failed"):
+                await run_experiment(condition_names=["baseline"], results_dir=tmp_path)
+
+    @pytest.mark.asyncio
+    async def test_resume_skips_completed(self, tmp_path):
+        """resume=True skips pairs already saved in results_dir."""
+        from subprime.experiments.runner import run_experiment, save_result
+
+        # Pre-save P01 × baseline
+        existing = _make_experiment_result(persona_id="P01", condition="baseline")
+        save_result(existing, results_dir=tmp_path)
+
+        calls: list[tuple[str, str]] = []
+
+        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1"):
+            calls.append((persona.id, condition.name))
+            return _make_experiment_result(persona_id=persona.id, condition=condition.name), RunUsage()
+
+        with (
+            patch("subprime.experiments.runner.load_personas", return_value=[_make_profile()]),
+            patch("subprime.experiments.runner.run_single", side_effect=_mock_run),
+        ):
+            results = await run_experiment(
+                condition_names=["baseline"],
+                results_dir=tmp_path,
+                resume=True,
+            )
+
+        # P01 × baseline was skipped; no new API calls
+        assert calls == []
+        assert results == []

@@ -99,7 +99,7 @@ async def test_generate_strategy(sample_profile):
         mock_agent = AsyncMock()
         mock_agent.run = AsyncMock(return_value=mock_result)
         mock_create.return_value = mock_agent
-        strategy = await generate_strategy(sample_profile)
+        strategy, _ = await generate_strategy(sample_profile)
     assert isinstance(strategy, StrategyOutline)
     assert strategy.equity_pct == 70.0
 
@@ -114,7 +114,7 @@ async def test_generate_strategy_with_feedback(sample_profile):
         mock_agent = AsyncMock()
         mock_agent.run = AsyncMock(return_value=mock_result)
         mock_create.return_value = mock_agent
-        strategy = await generate_strategy(sample_profile, feedback="More equity, less debt", current_strategy=current)
+        strategy, _ = await generate_strategy(sample_profile, feedback="More equity, less debt", current_strategy=current)
     call_args = mock_agent.run.call_args
     user_prompt = call_args[0][0]
     assert "More equity, less debt" in user_prompt

@@ -8,7 +8,12 @@ Central functions:
 - :func:`normalize_category` — pure mapping of raw AMFI category strings to
   canonical categories used by the curated universe.
 - :func:`build_universe` — repopulates the ``fund_universe`` table with the
-  top-N funds per canonical category ranked by returns + AUM.
+  top-N funds per canonical category ranked by AUM (within a return tier).
+  **Ranking is intentionally return- and AUM-only; expense ratio plays no
+  role so that low-ER (index) and high-ER (active) funds compete on equal
+  footing.  The LLM advisor sees cost data in the table and is free to weigh
+  it — but the *selection* of which funds appear must not pre-bias toward
+  either philosophy.**
 - :func:`render_universe_context` — renders the current ``fund_universe``
   table as a markdown brief for system-prompt injection.
 - :func:`search_universe` — programmatic query API returning
@@ -41,7 +46,8 @@ _CATEGORY_TYPICAL_EXPENSE_RATIO: dict[str, float] = {
     "Flexi Cap": 1.00,
     "Multi Cap": 1.05,
     "ELSS": 1.05,
-    "Hybrid": 0.95,
+    "Aggressive Hybrid": 1.00,
+    "Conservative Hybrid": 0.85,
     "Debt": 0.55,
     "Gold": 0.40,
 }
@@ -57,6 +63,42 @@ def typical_expense_ratio(category: str) -> float:
 # --------------------------------------------------------------------------- #
 
 
+# Tax treatment per category, used by render_universe_context and advisor prompts.
+# In India the 65 % equity threshold determines whether a fund is treated as
+# "equity-oriented" (favourable LTCG/STCG) or taxed at the investor's slab rate.
+# Post-Budget 2024: equity LTCG 12.5 % on gains above ₹1.25 L (held >1y),
+# equity STCG 20 % (held <1y), debt fully at slab rate regardless of holding.
+_CATEGORY_TAX_TREATMENT: dict[str, str] = {
+    "Large Cap": "equity",
+    "Large & Mid Cap": "equity",
+    "Mid Cap": "equity",
+    "Small Cap": "equity",
+    "Flexi Cap": "equity",
+    "Multi Cap": "equity",
+    "ELSS": "equity-80c",
+    "Index": "equity",
+    "Aggressive Hybrid": "equity",
+    "Conservative Hybrid": "slab",
+    "Debt": "slab",
+    "Gold": "slab",
+}
+
+
+_TAX_LABELS: dict[str, str] = {
+    "equity": "equity-taxed — LTCG 12.5 % on gains >₹1.25L (held >1y), STCG 20 % (held <1y)",
+    "equity-80c": (
+        "equity-taxed + 80C deduction up to ₹1.5L on investment, "
+        "3-year lock-in; LTCG 12.5 % on gains >₹1.25L (held >1y)"
+    ),
+    "slab": "slab-taxed — all gains at investor's income-tax slab, no LTCG/STCG concession",
+}
+
+
+def tax_regime(category: str) -> str:
+    """Return the tax-regime key (``equity`` / ``equity-80c`` / ``slab``) for a category."""
+    return _CATEGORY_TAX_TREATMENT.get(category, "slab")
+
+
 CURATED_CATEGORIES: list[str] = [
     "Large Cap",
     "Large & Mid Cap",
@@ -66,13 +108,24 @@ CURATED_CATEGORIES: list[str] = [
     "Multi Cap",
     "ELSS",
     "Index",
-    "Hybrid",
+    "Aggressive Hybrid",
+    "Conservative Hybrid",
     "Debt",
     "Gold",
 ]
 
 
 # Order matters — first substring match wins.
+#
+# The Aggressive / Conservative Hybrid split follows the 65 % equity threshold
+# that determines tax treatment in India:
+#   • ≥ 65 % equity → equity-taxed (LTCG 12.5 % / STCG 20 %)
+#   • < 65 % equity → slab-taxed
+# Balanced Advantage / Dynamic Asset Allocation / Equity Savings / Arbitrage
+# funds maintain ≥ 65 % equity exposure (often via hedged positions) and
+# qualify for equity taxation, so they live under "Aggressive Hybrid".
+# Balanced Hybrid (40–60 % equity) falls below the 65 % threshold and is
+# debt-taxed, so it lives under "Conservative Hybrid".
 _CATEGORY_PATTERNS: list[tuple[str, str]] = [
     ("Large & Mid Cap", "Large & Mid Cap"),
     ("Large Cap", "Large Cap"),
@@ -82,10 +135,14 @@ _CATEGORY_PATTERNS: list[tuple[str, str]] = [
     ("Multi Cap", "Multi Cap"),
     ("ELSS", "ELSS"),
     ("Index Fund", "Index"),
-    ("Aggressive Hybrid", "Hybrid"),
-    ("Conservative Hybrid", "Hybrid"),
-    ("Hybrid", "Hybrid"),
-    ("Balanced", "Hybrid"),
+    ("Aggressive Hybrid", "Aggressive Hybrid"),
+    ("Balanced Advantage", "Aggressive Hybrid"),
+    ("Dynamic Asset Allocation", "Aggressive Hybrid"),
+    ("Equity Savings", "Aggressive Hybrid"),
+    ("Arbitrage", "Aggressive Hybrid"),
+    ("Conservative Hybrid", "Conservative Hybrid"),
+    ("Balanced Hybrid", "Conservative Hybrid"),
+    ("Multi Asset", "Conservative Hybrid"),
     ("Debt Scheme", "Debt"),
     ("Gilt", "Debt"),
     ("Liquid Fund", "Debt"),
@@ -157,12 +214,31 @@ def build_universe(
 ) -> int:
     """Rebuild the curated ``fund_universe`` table.
 
-    Deletes all existing rows and inserts the top-N funds per canonical
-    category, ranked by ``returns_5y`` (then 3y, AUM, 1y). Excludes IDCW /
-    dividend variants (we only want growth plans).
+    Deletes all existing rows and inserts up to ``top_n_per_category`` funds
+    per canonical category using a **three-tier quota** so that funds at every
+    stage of their track-record are represented:
 
-    Returns the count of rows in ``fund_universe`` after the rebuild.
+    - **Tier 1 — established** (has 5y data): ~40 % of slots,
+      ranked by ``returns_5y DESC, aum_cr DESC``.
+    - **Tier 2 — growing** (3y data, no 5y): ~30 % of slots,
+      ranked by ``returns_3y DESC, aum_cr DESC``.
+    - **Tier 3 — newer** (1y data, no 3y/5y): remaining slots,
+      ranked by ``returns_1y DESC, aum_cr DESC``.
+
+    Each tier competes only within itself so a 1y return is never compared
+    against a 5y CAGR.  Expense ratio plays no role in selection; the LLM
+    sees cost data in the rendered table and weighs it freely.
+
+    Excludes IDCW / dividend variants (growth plans only).
+
+    Returns the count of rows inserted into ``fund_universe``.
     """
+    import math
+
+    tier1_n = math.ceil(top_n_per_category * 0.40)          # ~40 % established
+    tier2_n = math.ceil(top_n_per_category * 0.30)          # ~30 % growing
+    tier3_n = top_n_per_category - tier1_n - tier2_n        # remaining newer
+
     conn.execute("DELETE FROM fund_universe")
 
     category_case = _category_case_sql()
@@ -171,7 +247,8 @@ def build_universe(
     sql = f"""
     INSERT INTO fund_universe (
         amfi_code, name, amc, category, sub_category,
-        aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio, rank_in_category,
+        aum_cr, launch_date, returns_1y, returns_3y, returns_5y,
+        expense_ratio, rank_in_category,
         volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
     )
     WITH categorized AS (
@@ -182,6 +259,7 @@ def build_universe(
             {category_case} AS category,
             s.scheme_category AS sub_category,
             s.average_aum_cr AS aum_cr,
+            s.launch_date,
             r.returns_1y,
             r.returns_3y,
             r.returns_5y,
@@ -194,47 +272,65 @@ def build_universe(
             COALESCE(s.plan_type, 'regular') AS plan_type
         FROM schemes s
         LEFT JOIN fund_returns r ON r.amfi_code = s.amfi_code
-        WHERE (COALESCE(s.nav_name, s.name)) NOT ILIKE '%IDCW%'
-          AND (COALESCE(s.nav_name, s.name)) NOT ILIKE '%dividend%'
+        WHERE coalesce(s.nav_name, s.name) NOT ILIKE '%IDCW%'
+          AND coalesce(s.nav_name, s.name) NOT ILIKE '%dividend%'
           AND COALESCE(s.plan_type, 'regular') = 'direct'
     ),
     with_er AS (
         SELECT
             amfi_code, name, amc, category, sub_category,
-            aum_cr, returns_1y, returns_3y, returns_5y,
+            aum_cr, launch_date, returns_1y, returns_3y, returns_5y,
             volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio,
-            -- Populate expense_ratio from typical category values so the
-            -- rendered universe table always shows cost estimates. Live API
-            -- enrichment can overwrite these after build.
             {er_case} AS expense_ratio
         FROM categorized
         WHERE category IS NOT NULL
     ),
-    ranked AS (
-        SELECT
-            amfi_code, name, amc, category, sub_category,
-            aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio,
-            volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio,
-            ROW_NUMBER() OVER (
-                PARTITION BY category
-                -- Cost-adjusted ranking: divide blended return by typical ER so
-                -- index funds (low ER) aren't artificially depressed vs active
-                -- funds with higher historical returns but higher fees.
-                ORDER BY (returns_5y * 0.7 + COALESCE(returns_3y, returns_5y) * 0.3)
-                             / expense_ratio DESC NULLS LAST,
-                         aum_cr DESC NULLS LAST,
-                         returns_1y DESC NULLS LAST
-            ) AS rank_in_category
+    -- Tier 1: established funds with a 5-year track record
+    tier1 AS (
+        SELECT *, 1 AS tier,
+               ROW_NUMBER() OVER (
+                   PARTITION BY category
+                   ORDER BY returns_5y DESC NULLS LAST, aum_cr DESC NULLS LAST
+               ) AS rn
         FROM with_er
+        WHERE returns_5y IS NOT NULL
+    ),
+    -- Tier 2: growing funds with 3y but no 5y data
+    tier2 AS (
+        SELECT *, 2 AS tier,
+               ROW_NUMBER() OVER (
+                   PARTITION BY category
+                   ORDER BY returns_3y DESC NULLS LAST, aum_cr DESC NULLS LAST
+               ) AS rn
+        FROM with_er
+        WHERE returns_5y IS NULL AND returns_3y IS NOT NULL
+    ),
+    -- Tier 3: newer funds with only 1y data
+    tier3 AS (
+        SELECT *, 3 AS tier,
+               ROW_NUMBER() OVER (
+                   PARTITION BY category
+                   ORDER BY returns_1y DESC NULLS LAST, aum_cr DESC NULLS LAST
+               ) AS rn
+        FROM with_er
+        WHERE returns_5y IS NULL AND returns_3y IS NULL AND returns_1y IS NOT NULL
+    ),
+    combined AS (
+        SELECT * FROM tier1 WHERE rn <= {tier1_n}
+        UNION ALL
+        SELECT * FROM tier2 WHERE rn <= {tier2_n}
+        UNION ALL
+        SELECT * FROM tier3 WHERE rn <= {tier3_n}
     )
     SELECT
         amfi_code, name, amc, category, sub_category,
-        aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio, rank_in_category,
+        aum_cr, launch_date, returns_1y, returns_3y, returns_5y,
+        expense_ratio,
+        ROW_NUMBER() OVER (PARTITION BY category ORDER BY tier, rn) AS rank_in_category,
         volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
-    FROM ranked
-    WHERE rank_in_category <= ?
+    FROM combined
     """
-    conn.execute(sql, [top_n_per_category])
+    conn.execute(sql)
 
     row = conn.execute("SELECT COUNT(*) FROM fund_universe").fetchone()
     return int(row[0]) if row else 0
@@ -292,14 +388,37 @@ def render_universe_context(conn: duckdb.DuckDBPyConnection) -> str:
         "Sharpe=risk-adjusted return. "
         "A fund with β≈1, α≈0, TE<2% is a closet indexer regardless of its category label.",
         "",
+        "### Tax treatment (Indian MF, post-Budget 2024)",
+        "",
+        "The **65 % equity threshold** determines whether a fund is equity-taxed "
+        "(LTCG 12.5 % on gains above ₹1.25 L held >1y, STCG 20 % held <1y) or "
+        "slab-taxed (all gains at the investor's marginal slab, no concession). "
+        "Each category table below is tagged with its regime — use this to build "
+        "post-tax-optimal plans, especially for investors in the 20 % / 30 % slab.",
+        "",
+        "- **Equity-taxed**: Large/Mid/Small/Large & Mid/Flexi/Multi Cap, Index, "
+        "ELSS, Aggressive Hybrid (incl. Balanced Advantage, DAAF, Equity Savings, "
+        "Arbitrage — all maintain ≥65 % equity).",
+        "- **Slab-taxed**: Conservative Hybrid, Balanced Hybrid, Multi Asset "
+        "Allocation, Debt (all sub-types: Gilt, Liquid, Short Duration, Corporate "
+        "Bond), Gold.",
+        "- **ELSS special**: 80C deduction up to ₹1.5 L on investment, 3-year "
+        "lock-in, then equity-taxed on gains. Most tax-efficient equity wrapper "
+        "for investors with unused 80C headroom.",
+        "",
     ]
+
+    from datetime import date as _date
+
+    today = _date.today()
 
     for category in CURATED_CATEGORIES:
         rows = conn.execute(
             """
-            SELECT name, amc, amfi_code, returns_1y, returns_3y, returns_5y,
+            SELECT name, amc, amfi_code, launch_date,
+                   returns_1y, returns_3y, returns_5y,
                    expense_ratio, aum_cr,
-                   volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
+                   beta, alpha, tracking_error, sharpe_ratio
             FROM fund_universe
             WHERE category = ?
             ORDER BY rank_in_category
@@ -309,18 +428,20 @@ def render_universe_context(conn: duckdb.DuckDBPyConnection) -> str:
         if not rows:
             continue
 
-        lines.append(f"### {category}")
-        lines.append("| Fund | AMC | AMFI | 1y | 3y | 5y | ER | β | α | TE | Sharpe | AUM (Cr) |")
-        lines.append("|---|---|---|---|---|---|---|---|---|---|---|---|")
-        for (name, amc, amfi_code, r1, r3, r5, er, aum,
-             vol, beta, alpha, te, sharpe, ir) in rows:
+        tax_label = _TAX_LABELS[tax_regime(category)]
+        lines.append(f"### {category}  _({tax_label})_")
+        lines.append("| Fund | AMC | AMFI | Age | AUM (Cr) | 1y | 3y | 5y | ER | β | α | TE | Sharpe |")
+        lines.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
+        for (name, amc, amfi_code, launch_date,
+             r1, r3, r5, er, aum,
+             beta, alpha, te, sharpe) in rows:
+            age = f"{(today - launch_date).days // 365}y" if launch_date else "-"
             lines.append(
-                f"| {name} | {amc} | {amfi_code} | "
+                f"| {name} | {amc} | {amfi_code} | {age} | {_fmt_aum(aum)} | "
                 f"{_fmt_pct(r1)} | {_fmt_pct(r3)} | {_fmt_pct(r5)} | "
                 f"{_fmt_er(er)} | "
                 f"{_fmt_metric(beta)} | {_fmt_metric(alpha)}% | "
-                f"{_fmt_metric(te)}% | {_fmt_metric(sharpe)} | "
-                f"{_fmt_aum(aum)} |"
+                f"{_fmt_metric(te)}% | {_fmt_metric(sharpe)} |"
             )
         lines.append("")
 
@@ -344,7 +465,8 @@ def search_universe(
     """
     _SELECT = """
         SELECT amfi_code, name, amc, category, sub_category,
-               aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio,
+               launch_date, aum_cr,
+               returns_1y, returns_3y, returns_5y, expense_ratio,
                volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
         FROM fund_universe
     """
@@ -360,7 +482,8 @@ def search_universe(
         ).fetchall()
 
     funds: list[MutualFund] = []
-    for (amfi_code, name, amc, cat, sub_cat, aum, r1, r3, r5, er,
+    for (amfi_code, name, amc, cat, sub_cat,
+         launch_date, aum, r1, r3, r5, er,
          vol, beta, alpha, te, sharpe, ir) in rows:
         funds.append(
             MutualFund(
@@ -370,6 +493,7 @@ def search_universe(
                 sub_category=sub_cat or "",
                 fund_house=amc or "",
                 nav=0.0,
+                inception_date=launch_date,
                 expense_ratio=er or 0.0,
                 aum_cr=aum,
                 returns_1y=r1,
@@ -394,7 +518,8 @@ def search_universe_by_code(
     row = conn.execute(
         """
         SELECT amfi_code, name, amc, category, sub_category,
-               aum_cr, returns_1y, returns_3y, returns_5y, expense_ratio,
+               launch_date, aum_cr,
+               returns_1y, returns_3y, returns_5y, expense_ratio,
                volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
         FROM fund_universe
         WHERE amfi_code = ?
@@ -403,7 +528,8 @@ def search_universe_by_code(
     ).fetchone()
     if not row:
         return None
-    (code, name, amc, cat, sub_cat, aum, r1, r3, r5, er,
+    (code, name, amc, cat, sub_cat,
+     launch_date, aum, r1, r3, r5, er,
      vol, beta, alpha, te, sharpe, ir) = row
     return MutualFund(
         amfi_code=str(code),
@@ -412,6 +538,7 @@ def search_universe_by_code(
         sub_category=sub_cat or "",
         fund_house=amc or "",
         nav=0.0,
+        inception_date=launch_date,
         expense_ratio=er or 0.0,
         aum_cr=aum,
         returns_1y=r1,

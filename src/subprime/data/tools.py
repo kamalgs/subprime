@@ -40,7 +40,8 @@ async def search_funds_universe(
 
     Args:
         category: One of "Large Cap", "Large & Mid Cap", "Mid Cap", "Small Cap",
-                  "Flexi Cap", "Multi Cap", "ELSS", "Index", "Hybrid", "Debt", "Gold".
+                  "Flexi Cap", "Multi Cap", "ELSS", "Index", "Aggressive Hybrid",
+                  "Conservative Hybrid", "Debt", "Gold".
                   None returns funds from all categories.
         limit: Max number of funds to return (default 20).
 

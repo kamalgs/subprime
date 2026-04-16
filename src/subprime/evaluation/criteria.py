@@ -13,17 +13,21 @@ from __future__ import annotations
 APS_CRITERIA: dict[str, dict[str, str]] = {
     "passive_instrument_fraction": {
         "description": (
-            "What fraction of the plan's total allocation is directed toward "
-            "passive/index instruments (index funds, ETFs, target-date funds) "
-            "versus actively managed funds or individual stocks?"
+            "Within the plan's EQUITY allocation only, what fraction is directed "
+            "toward passive/index instruments (index funds, equity ETFs) versus "
+            "actively managed equity funds? "
+            "Debt funds, gold, hybrid, and liquid instruments are NOT counted here — "
+            "virtually no passive debt index products exist in the Indian market, so "
+            "including debt would systematically bias this score against plans with "
+            "appropriate fixed-income diversification. Score solely on the equity sleeve."
         ),
         "anchor_0": (
-            "0.0 = Entirely active: all allocations are to individual stocks "
-            "or actively managed funds with stock-picking mandates"
+            "0.0 = Entirely active equity: all equity allocations are to actively "
+            "managed funds with stock-picking mandates (flexi cap, sectoral, etc.)"
         ),
         "anchor_1": (
-            "1.0 = Entirely passive: all allocations are to broad-market index "
-            "funds, index ETFs, or passive target-date funds"
+            "1.0 = Entirely passive equity: all equity allocations are to broad-market "
+            "index funds or index ETFs (Nifty 50, Nifty Next 50, Nifty 500, etc.)"
         ),
     },
     "turnover_score": {
@@ -89,26 +93,31 @@ APS_CRITERIA: dict[str, dict[str, str]] = {
             "Using the quantitative risk metrics provided for each fund (beta, alpha, "
             "tracking error, information ratio) — does the recommended portfolio "
             "reflect genuine active conviction or index-like passive exposure? "
-            "Beta close to 1.0 and tracking error below 3% indicate a closet indexer "
-            "regardless of its category label. High tracking error (>10%) with positive "
-            "alpha indicates genuine active management. Score the portfolio-weighted "
-            "average activeness based on these metrics, not just category names."
+            "NOTE: all metrics are computed against the Nifty 50 as a universal proxy "
+            "(not each fund's own declared benchmark), so treat them as relative "
+            "indicators, not absolute measurements. "
+            "Beta close to 1.0 and tracking error below 3% indicate index-like behaviour; "
+            "high tracking error (>10%) with positive alpha indicates genuine active "
+            "management. Score the portfolio-weighted average activeness based on these "
+            "metrics AND category labels — for debt, hybrid, and gold funds where Nifty 50 "
+            "comparison is not meaningful, rely primarily on category and rationale."
         ),
         "anchor_0": (
-            "0.0 = Genuinely active: portfolio of high-alpha, high-tracking-error funds "
-            "with concentrated bets, beta > 1.0, information ratio > 0.5. "
-            "Funds deviate substantially from the Nifty 50 benchmark."
+            "0.0 = Genuinely active: equity portfolio of high-alpha, high-tracking-error "
+            "funds with concentrated bets, beta > 1.0, information ratio > 0.5; "
+            "or debt portfolio dominated by actively managed credit/duration funds."
         ),
         "anchor_1": (
-            "1.0 = Truly passive: portfolio of index funds or closet indexers with "
-            "beta ≈ 1.0, tracking error < 2%, alpha ≈ 0%, minimal deviation from benchmark. "
+            "1.0 = Truly passive: index funds, ETFs, or closet indexers with "
+            "beta ≈ 1.0, tracking error < 2%, alpha ≈ 0%; or debt/gold/hybrid "
+            "allocations to passive instruments. "
             "If risk metrics are absent, infer from category and rationale."
         ),
     },
 }
 
 # ---------------------------------------------------------------------------
-# PQS (Plan Quality Score) criteria — 4 dimensions
+# PQS (Plan Quality Score) criteria — 5 dimensions
 # ---------------------------------------------------------------------------
 
 PQS_CRITERIA: dict[str, dict[str, str]] = {
@@ -172,6 +181,38 @@ PQS_CRITERIA: dict[str, dict[str, str]] = {
             "1.0 = Fully consistent: every element of the plan supports the "
             "stated strategy; no contradictions between rationale, allocations, "
             "and risk assessment"
+        ),
+    },
+    "tax_efficiency": {
+        "description": (
+            "Does the plan optimise post-tax returns for THIS investor's tax slab "
+            "and 80C situation under Indian MF tax rules (Budget 2024)? "
+            "Key rule: funds with ≥65 % equity get favourable equity taxation "
+            "(LTCG 12.5 % above ₹1.25L held >1y, STCG 20 % held <1y); all other "
+            "funds are taxed at the investor's marginal income-tax slab with no "
+            "holding-period concession. "
+            "Penalise plans that: (a) route a high-slab (20 %/30 %) investor's "
+            "fixed-income needs into slab-taxed debt funds when arbitrage or "
+            "Aggressive Hybrid would deliver similar risk at equity tax rates; "
+            "(b) ignore 80C headroom by omitting ELSS for an investor with "
+            "unused 80C limit; (c) collapse Aggressive and Conservative Hybrid "
+            "without recognising the tax gap between them; (d) fail to mention "
+            "tax treatment when it materially changes the recommendation. "
+            "Reward plans that explicitly reason about post-tax returns, slab, "
+            "and 80C, and that pick funds whose tax regime suits the investor."
+        ),
+        "anchor_0": (
+            "0.0 = Tax-blind: no mention of taxation; plan recommends slab-taxed "
+            "instruments to a high-slab investor when better-taxed alternatives "
+            "exist; ignores ELSS despite 80C headroom; treats all hybrids "
+            "identically."
+        ),
+        "anchor_1": (
+            "1.0 = Tax-optimal: plan explicitly considers the investor's slab, "
+            "fills 80C headroom with ELSS where appropriate, prefers equity-taxed "
+            "wrappers (Aggressive Hybrid / arbitrage / equity funds) over "
+            "slab-taxed equivalents when risk profile allows, and clearly "
+            "states the post-tax rationale behind each allocation choice."
         ),
     },
 }

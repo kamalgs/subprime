@@ -228,6 +228,65 @@ class TestEstimateExperiment:
         assert est.advisor.cache_reads == 0
         assert est.advisor.cache_writes == 3  # one per condition
 
+    def test_concurrency_stored_on_estimate(self):
+        est = estimate_experiment(
+            n_personas=5,
+            conditions=_get_conditions(),
+            include_universe=False,
+            concurrency=5,
+        )
+        assert est.concurrency == 5
+
+    def test_concurrency_reduces_wall_time(self):
+        sequential = estimate_experiment(
+            n_personas=10,
+            conditions=_get_conditions(),
+            include_universe=False,
+            concurrency=1,
+        )
+        parallel = estimate_experiment(
+            n_personas=10,
+            conditions=_get_conditions(),
+            include_universe=False,
+            concurrency=5,
+        )
+        assert parallel.total_wall_minutes < sequential.total_wall_minutes
+
+    def test_concurrency_does_not_affect_cost(self):
+        sequential = estimate_experiment(
+            n_personas=10,
+            conditions=_get_conditions(),
+            include_universe=False,
+            concurrency=1,
+        )
+        parallel = estimate_experiment(
+            n_personas=10,
+            conditions=_get_conditions(),
+            include_universe=False,
+            concurrency=5,
+        )
+        assert parallel.total_cost_usd == pytest.approx(sequential.total_cost_usd, rel=1e-6)
+
+    def test_full_parallelism_is_exactly_one_wave(self):
+        # 10 personas × 3 conditions = 30 runs
+        sequential = estimate_experiment(
+            n_personas=10,
+            conditions=_get_conditions(),
+            include_universe=False,
+            concurrency=1,
+        )
+        full_parallel = estimate_experiment(
+            n_personas=10,
+            conditions=_get_conditions(),
+            include_universe=False,
+            concurrency=1000,  # > n_runs → 1 wave
+        )
+        # Sequential = n_runs waves; full parallel = 1 wave → ratio = n_runs
+        n_runs = 10 * len(_get_conditions())
+        assert sequential.total_wall_minutes == pytest.approx(
+            full_parallel.total_wall_minutes * n_runs, rel=1e-4
+        )
+
 
 # ---------------------------------------------------------------------------
 # estimate_plan_cost

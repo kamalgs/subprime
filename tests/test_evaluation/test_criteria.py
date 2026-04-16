@@ -70,10 +70,10 @@ class TestAPSCriteria:
 
 
 class TestPQSCriteria:
-    def test_has_exactly_four_dimensions(self):
+    def test_has_exactly_five_dimensions(self):
         from subprime.evaluation.criteria import PQS_CRITERIA
 
-        assert len(PQS_CRITERIA) == 4
+        assert len(PQS_CRITERIA) == 5
 
     def test_dimension_names(self):
         from subprime.evaluation.criteria import PQS_CRITERIA
@@ -83,6 +83,7 @@ class TestPQSCriteria:
             "diversification",
             "risk_return_appropriateness",
             "internal_consistency",
+            "tax_efficiency",
         }
         assert set(PQS_CRITERIA.keys()) == expected
 

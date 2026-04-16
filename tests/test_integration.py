@@ -153,6 +153,7 @@ def _make_pqs(composite_target: float = 0.85) -> PlanQualityScore:
         diversification=composite_target,
         risk_return_appropriateness=composite_target,
         internal_consistency=composite_target,
+        tax_efficiency=composite_target,
         reasoning=f"All dimensions set to {composite_target}.",
     )
 
@@ -769,7 +770,7 @@ class TestM1AdvisorFlow:
             mock_agent = AsyncMock()
             mock_agent.run = AsyncMock(return_value=mock_strategy_result)
             mock_cs.return_value = mock_agent
-            strategy = await generate_strategy(profile)
+            strategy, _ = await generate_strategy(profile)
 
         assert strategy.equity_pct == 75.0
         strategy_display = format_strategy_outline(strategy)

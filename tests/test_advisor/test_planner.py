@@ -298,7 +298,7 @@ async def test_generate_plan_premium_mode(sample_profile):
         mock_agent.run = AsyncMock(return_value=mock_result)
         mock_create.return_value = mock_agent
 
-        mock_evaluate.return_value = mock_eval
+        mock_evaluate.return_value = (mock_eval, RunUsage())
 
         plan, _ = await generate_plan(sample_profile, mode="premium")
 
@@ -379,6 +379,7 @@ async def test_generate_plan_premium_tags_perspective(sample_profile):
         """Return a fresh plan each call so perspective tagging doesn't collide."""
         result = MagicMock()
         result.output = _make_fake_plan()
+        result.usage.return_value = RunUsage()
         return result
 
     with (
@@ -388,7 +389,7 @@ async def test_generate_plan_premium_tags_perspective(sample_profile):
         mock_agent = AsyncMock()
         mock_agent.run = AsyncMock(side_effect=_make_mock_result)
         mock_create.return_value = mock_agent
-        mock_evaluate.return_value = mock_eval
+        mock_evaluate.return_value = (mock_eval, RunUsage())
 
         plan, _ = await generate_plan(sample_profile, mode="premium")
 
@@ -425,7 +426,7 @@ async def test_generate_plan_premium_five_perspectives(sample_profile):
         mock_agent = AsyncMock()
         mock_agent.run = AsyncMock(return_value=mock_result)
         mock_create.return_value = mock_agent
-        mock_evaluate.return_value = mock_eval
+        mock_evaluate.return_value = (mock_eval, RunUsage())
 
         plan, _ = await generate_plan(sample_profile, mode="premium", n_perspectives=5)
 

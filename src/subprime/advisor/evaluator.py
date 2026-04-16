@@ -8,6 +8,7 @@ import logging
 
 from pydantic import BaseModel
 from pydantic_ai import Agent
+from pydantic_ai.usage import RunUsage
 
 from subprime.core.config import DEFAULT_MODEL
 from subprime.core.models import InvestmentPlan, InvestorProfile
@@ -28,7 +29,7 @@ async def evaluate_plans(
     plans: list[InvestmentPlan],
     profile: InvestorProfile,
     model: str = DEFAULT_MODEL,
-) -> PlanEvaluation:
+) -> tuple[PlanEvaluation, RunUsage]:
     """Compare plan variants and pick the best for the investor.
 
     The evaluator considers:
@@ -77,4 +78,4 @@ async def evaluate_plans(
     evaluation = result.output
     # Clamp index
     evaluation.best_index = max(0, min(evaluation.best_index, len(plans) - 1))
-    return evaluation
+    return evaluation, result.usage()

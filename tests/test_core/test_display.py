@@ -80,6 +80,7 @@ def _make_pqs() -> PlanQualityScore:
         diversification=0.8,
         risk_return_appropriateness=0.85,
         internal_consistency=0.9,
+        tax_efficiency=0.875,
         reasoning="Well-aligned plan with good diversification.",
     )
 
@@ -356,9 +357,9 @@ class TestFormatScores:
         pqs = _make_pqs()
         result = format_scores(aps, pqs)
         # composite_aps = (0.8 + 0.9 + 0.85 + 0.7 + 0.75) / 5 = 0.8
-        # composite_pqs = (0.9 + 0.8 + 0.85 + 0.9) / 4 = 0.8625
+        # composite_pqs = (0.9 + 0.8 + 0.85 + 0.9 + 0.875) / 5 = 0.865
         assert "0.80" in result or "0.800" in result  # composite_aps
-        assert "0.86" in result or "0.863" in result  # composite_pqs
+        assert "0.86" in result or "0.865" in result  # composite_pqs
 
 
 # ===========================================================================

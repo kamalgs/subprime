@@ -221,7 +221,7 @@ class TestAdvise:
         )
 
         with (
-            patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=fake_strategy),
+            patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=(fake_strategy, RunUsage())),
             patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=(fake_plan, RunUsage())),
         ):
             result = runner.invoke(app, ["advise", "--profile", "P01"], input="yes\n")

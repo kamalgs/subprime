@@ -73,6 +73,7 @@ def _make_pqs(composite_target: float) -> PlanQualityScore:
         diversification=composite_target,
         risk_return_appropriateness=composite_target,
         internal_consistency=composite_target,
+        tax_efficiency=composite_target,
         reasoning=f"All dimensions at {composite_target}",
     )
 

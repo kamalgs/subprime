@@ -73,7 +73,28 @@ class TestNormalizeCategory:
 
     def test_hybrid_aggressive(self):
         assert (
-            universe.normalize_category("Hybrid Scheme - Aggressive Hybrid Fund") == "Hybrid"
+            universe.normalize_category("Hybrid Scheme - Aggressive Hybrid Fund")
+            == "Aggressive Hybrid"
+        )
+
+    def test_hybrid_conservative(self):
+        assert (
+            universe.normalize_category("Hybrid Scheme - Conservative Hybrid Fund")
+            == "Conservative Hybrid"
+        )
+
+    def test_hybrid_balanced_advantage(self):
+        # Balanced Advantage / DAAF funds maintain ≥65% equity → equity-taxed
+        assert (
+            universe.normalize_category("Hybrid Scheme - Balanced Advantage Fund")
+            == "Aggressive Hybrid"
+        )
+
+    def test_hybrid_balanced(self):
+        # Balanced Hybrid has 40-60% equity → below 65% threshold → debt-taxed
+        assert (
+            universe.normalize_category("Hybrid Scheme - Balanced Hybrid Fund")
+            == "Conservative Hybrid"
         )
 
     def test_debt_gilt(self):
@@ -96,14 +117,18 @@ class TestNormalizeCategory:
 
 class TestBuildUniverse:
     def test_top_n_per_category(self, conn):
+        # Fund "1": established (has 5y) → goes into tier-1 quota (~40 %)
+        # Fund "2": newer (3y only, no 5y) → goes into tier-2 quota (~30 %)
+        # Fund "3": established (has 5y) but tier-1 quota of 1 excludes it
         _populate(
             conn,
             [
                 ("1", "Alpha Large Cap Fund", "AMC1", "Equity Scheme - Large Cap Fund", 5000.0, 10.0, 12.0, 15.0),
-                ("2", "Beta Large Cap Fund", "AMC2", "Equity Scheme - Large Cap Fund", 4000.0, 9.0, 11.0, 14.0),
-                ("3", "Gamma Large Cap Fund", "AMC3", "Equity Scheme - Large Cap Fund", 3000.0, 8.0, 10.0, 13.0),
+                ("2", "Beta Large Cap Fund",  "AMC2", "Equity Scheme - Large Cap Fund", 4000.0,  9.0, 11.0, None),
+                ("3", "Gamma Large Cap Fund", "AMC3", "Equity Scheme - Large Cap Fund", 3000.0,  8.0, 10.0, 13.0),
             ],
         )
+        # top_n=2 → tier1_n=ceil(0.8)=1, tier2_n=ceil(0.6)=1, tier3_n=0
         count = universe.build_universe(conn, top_n_per_category=2)
         assert count == 2
         rows = conn.execute(
@@ -213,6 +238,25 @@ class TestRenderUniverseContext:
         assert isinstance(md, str)
         assert len(md) > 0
         assert "No curated fund universe" in md
+
+    def test_includes_tax_treatment_summary(self, conn):
+        _populate(
+            conn,
+            [
+                ("1", "Alpha Large Cap Fund", "AMC One", "Equity Scheme - Large Cap Fund", 5000.0, 10.5, 12.3, 15.1),
+            ],
+        )
+        universe.build_universe(conn)
+        md = universe.render_universe_context(conn)
+        assert "Tax treatment" in md
+        assert "65 % equity threshold" in md
+        assert "LTCG" in md
+        assert "STCG" in md
+        assert "slab" in md.lower()
+        assert "80C" in md
+        # Per-category tag for Large Cap should mention equity-taxed
+        assert "### Large Cap" in md
+        assert "equity-taxed" in md
 
 
 # --------------------------------------------------------------------------- #

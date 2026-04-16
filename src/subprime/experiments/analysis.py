@@ -185,12 +185,23 @@ def compare_conditions(
     )
 
 
+def _horizon_group(years: int) -> str:
+    """Bucket an investment horizon into short / medium / long."""
+    if years <= 12:
+        return "short"
+    if years <= 20:
+        return "medium"
+    return "long"
+
+
 def print_analysis(results: list[ExperimentResult]) -> None:
     """Print a Rich-formatted analysis of experiment results.
 
     Shows:
     1. Per-condition descriptive statistics table
     2. Pairwise comparison table (subprime spread analysis)
+    3. Rating blind spot summary
+    4. APS breakdown by investment time-horizon (short / medium / long)
 
     Args:
         results: All experiment results to analyse.
@@ -290,5 +301,64 @@ def print_analysis(results: list[ExperimentResult]) -> None:
                     f"    [bold red]\u26a0 Rating blind spot detected:[/bold red] "
                     f"Large APS shift ({aps_diff:+.3f}) but PQS barely moved ({pqs_diff:+.3f})"
                 )
+
+    # --- Time-horizon breakdown ---
+    try:
+        from subprime.evaluation.personas import load_personas
+        persona_map = {p.id: p for p in load_personas()}
+    except Exception:
+        persona_map = {}
+
+    if persona_map:
+        _GROUPS = [
+            ("short",  "Short  (≤12y)"),
+            ("medium", "Medium (13–20y)"),
+            ("long",   "Long   (>20y)"),
+        ]
+
+        spiked_conds = [c for c in conditions if c != "baseline"]
+
+        # Pre-compute stats for all groups
+        group_data: list[tuple[str, int, dict[str, ConditionStats]]] = []
+        for group_key, group_label in _GROUPS:
+            group_persona_ids = {
+                pid for pid, p in persona_map.items()
+                if _horizon_group(p.investment_horizon_years) == group_key
+            }
+            group_results = [r for r in results if r.persona_id in group_persona_ids]
+            if not group_results:
+                continue
+            n = len({r.persona_id for r in group_results})
+            cstats = {cond: compute_condition_stats(group_results, cond) for cond in conditions}
+            group_data.append((group_label, n, cstats))
+
+        def _hz_table(title: str, metric: str) -> Table:
+            t = Table(title=title, show_lines=True)
+            t.add_column("Horizon", style="bold")
+            t.add_column("N", justify="right")
+            for cond in conditions:
+                t.add_column(cond, justify="right")
+            for sc in spiked_conds:
+                t.add_column(f"Δ {sc}", justify="right")
+            for group_label, n, cstats in group_data:
+                vals = {c: (getattr(cs, f"mean_{metric}") if cs.n > 0 else None)
+                        for c, cs in cstats.items()}
+                row = [group_label, str(n)]
+                for cond in conditions:
+                    row.append(f"{vals[cond]:.3f}" if vals[cond] is not None else "—")
+                for sc in spiked_conds:
+                    if vals.get("baseline") is not None and vals.get(sc) is not None:
+                        delta = vals[sc] - vals["baseline"]
+                        col = "green" if delta > 0 else "red"
+                        row.append(f"[{col}]{delta:+.3f}[/{col}]")
+                    else:
+                        row.append("—")
+                t.add_row(*row)
+            return t
+
+        console.print()
+        console.print(_hz_table("APS by Time Horizon", "aps"))
+        console.print()
+        console.print(_hz_table("PQS by Time Horizon", "pqs"))
 
     console.print()

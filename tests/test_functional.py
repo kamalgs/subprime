@@ -93,7 +93,7 @@ class TestCLIAdvise:
     def test_advise_bulk_flow_renders_profile_strategy_plan(self):
         """Full bulk flow: profile → strategy → plan, verify output contains key sections."""
         with (
-            patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=_fake_strategy()),
+            patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=(_fake_strategy(), RunUsage())),
             patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=(_fake_plan(), RunUsage())),
         ):
             result = runner.invoke(app, ["advise", "--profile", "P01"], input="yes\n")
@@ -122,8 +122,8 @@ class TestCLIAdvise:
             nonlocal call_count
             call_count += 1
             if call_count == 1:
-                return _fake_strategy()
-            return revised_strategy
+                return _fake_strategy(), RunUsage()
+            return revised_strategy, RunUsage()
 
         with (
             patch("subprime.cli.generate_strategy", side_effect=mock_generate_strategy),
@@ -142,7 +142,7 @@ class TestCLIAdvise:
         monkeypatch.setattr("subprime.core.config.CONVERSATIONS_DIR", tmp_path)
 
         with (
-            patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=_fake_strategy()),
+            patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=(_fake_strategy(), RunUsage())),
             patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=(_fake_plan(), RunUsage())),
         ):
             result = runner.invoke(app, ["advise", "--profile", "P01"], input="yes\n")

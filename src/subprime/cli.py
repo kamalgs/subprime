@@ -42,6 +42,22 @@ app = typer.Typer(
 )
 
 
+def _default_results_dir() -> Path:
+    """Return results/YYYYMMDD_<git-short-hash>, falling back to results/YYYYMMDD if git unavailable."""
+    import subprocess
+    from datetime import date
+    datestamp = date.today().strftime("%Y%m%d")
+    try:
+        sha = subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"],
+            stderr=subprocess.DEVNULL,
+            cwd=Path(__file__).parent,
+        ).decode().strip()
+        return Path("results") / f"{datestamp}_{sha}"
+    except Exception:
+        return Path("results") / datestamp
+
+
 def _check_api_key(model: str) -> None:
     """Validate that the required API key is set before making LLM calls."""
     import os
@@ -110,7 +126,10 @@ def experiment_run(
     results_dir: Optional[Path] = typer.Option(
         None,
         "--results-dir",
-        help="Directory to save result JSON files.",
+        help=(
+            "Directory to save result JSON files. "
+            "Defaults to results/YYYYMMDD_<git-hash>."
+        ),
     ),
     resume: bool = typer.Option(
         False,
@@ -122,9 +141,27 @@ def experiment_run(
         "--dry-run",
         help="Show cost estimate and exit without making any API calls.",
     ),
+    concurrency: int = typer.Option(
+        5,
+        "--concurrency",
+        min=1,
+        max=20,
+        help="Number of parallel runs (1 = sequential).",
+    ),
+    batch: bool = typer.Option(
+        False,
+        "--batch",
+        help=(
+            "Use Anthropic Message Batches API (50%% cost discount). "
+            "Ignores --concurrency; processing takes up to 24h."
+        ),
+    ),
 ) -> None:
     """Run the experiment: generate plans for personas x conditions, then score them."""
     import os
+
+    if results_dir is None:
+        results_dir = _default_results_dir()
 
     # Resolve which API key to use: --api-key > ANTHROPIC_API_KEY_EXPERIMENT > ANTHROPIC_API_KEY
     resolved_key = (
@@ -150,6 +187,7 @@ def experiment_run(
         conditions=resolved_conditions,
         model=model,
         judge_model=judge_model,
+        concurrency=concurrency,
     )
     print_estimate(est)
 
@@ -157,7 +195,6 @@ def experiment_run(
         raise typer.Exit(0)
 
     _check_api_key(model)
-    from subprime.experiments.runner import run_experiment
 
     key_source = (
         "--api-key flag" if api_key
@@ -167,17 +204,35 @@ def experiment_run(
     _console.print(f"[dim]Using API key from: {key_source}[/dim]")
 
     try:
-        asyncio.run(
-            run_experiment(
-                persona_ids=persona_ids,
-                condition_names=condition_names,
-                model=model,
-                judge_model=judge_model,
-                prompt_version=prompt_version,
-                results_dir=results_dir,
-                resume=resume,
+        if batch:
+            from subprime.experiments.batch_runner import run_experiment_batch
+
+            asyncio.run(
+                run_experiment_batch(
+                    persona_ids=persona_ids,
+                    condition_names=condition_names,
+                    model=model,
+                    judge_model=judge_model,
+                    prompt_version=prompt_version,
+                    results_dir=results_dir,
+                    resume=resume,
+                )
             )
-        )
+        else:
+            from subprime.experiments.runner import run_experiment
+
+            asyncio.run(
+                run_experiment(
+                    persona_ids=persona_ids,
+                    condition_names=condition_names,
+                    model=model,
+                    judge_model=judge_model,
+                    prompt_version=prompt_version,
+                    results_dir=results_dir,
+                    resume=resume,
+                    concurrency=concurrency,
+                )
+            )
     except KeyboardInterrupt:
         _console.print("\n[dim]Interrupted.[/dim]")
         raise typer.Exit(0)
@@ -219,6 +274,13 @@ def experiment_estimate(
         "--compare",
         help="Show a side-by-side cost table for all standard model configurations.",
     ),
+    concurrency: int = typer.Option(
+        5,
+        "--concurrency",
+        min=1,
+        max=20,
+        help="Parallel runs to assume for wall-time estimate.",
+    ),
 ) -> None:
     """Show estimated token usage and cost for an experiment run (no API calls).
 
@@ -244,6 +306,7 @@ def experiment_estimate(
         comparisons = compare_configs(
             n_personas=len(resolved_personas),
             conditions=resolved_conditions,
+            concurrency=concurrency,
         )
         print_comparison(comparisons, default_model=model, default_judge=judge_model)
     else:
@@ -252,6 +315,7 @@ def experiment_estimate(
             conditions=resolved_conditions,
             model=model,
             judge_model=judge_model,
+            concurrency=concurrency,
         )
         print_estimate(est)
 
@@ -372,6 +436,7 @@ def experiment_score(
                     diversification=0.5,
                     risk_return_appropriateness=0.5,
                     internal_consistency=0.5,
+                    tax_efficiency=0.5,
                     reasoning="(placeholder — will be re-scored)",
                 )
                 results.append(ExperimentResult(
@@ -483,7 +548,7 @@ def advise(
         # Phase 2: Strategy co-creation
         _console.print(Rule("[bold]Phase 2: Strategy[/bold]", style="blue"))
         with _console.status("[bold blue]Crafting your strategy...[/bold blue]"):
-            strategy = asyncio.run(generate_strategy(profile, model=model))
+            strategy, _ = asyncio.run(generate_strategy(profile, model=model))
         print(format_strategy_outline(strategy), end="")
         conversation.strategy = strategy
 
@@ -495,7 +560,7 @@ def advise(
                 break
             conversation.strategy_revisions.append(ConversationTurn(role="user", content=response))
             with _console.status("[bold blue]Revising strategy...[/bold blue]"):
-                strategy = asyncio.run(
+                strategy, _ = asyncio.run(
                     generate_strategy(profile, feedback=response, current_strategy=strategy, model=model)
                 )
             print(format_strategy_outline(strategy), end="")

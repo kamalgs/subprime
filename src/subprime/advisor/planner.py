@@ -41,8 +41,12 @@ async def generate_strategy(
     current_strategy: StrategyOutline | None = None,
     prompt_hooks: dict[str, str] | None = None,
     model: str = DEFAULT_MODEL,
-) -> StrategyOutline:
-    """Generate or revise a high-level investment strategy."""
+) -> tuple[StrategyOutline, RunUsage]:
+    """Generate or revise a high-level investment strategy.
+
+    Returns:
+        (StrategyOutline, RunUsage) — strategy and token usage.
+    """
     agent = create_strategy_advisor(prompt_hooks=prompt_hooks, model=model)
     parts = [f"Investor profile:\n\n{profile.model_dump_json(indent=2)}"]
     if current_strategy and feedback:
@@ -57,7 +61,7 @@ async def generate_strategy(
             f"\n\nRefine this strategy."
         )
     result = await agent.run("\n".join(parts))
-    return result.output
+    return result.output, result.usage()
 
 
 async def _generate_single_plan(
@@ -113,7 +117,7 @@ async def refine_plan(
     draft: InvestmentPlan,
     profile: InvestorProfile,
     model: str = DEFAULT_MODEL,
-) -> InvestmentPlan:
+) -> tuple[InvestmentPlan, RunUsage]:
     """Review and refine a draft plan as a senior advisor reviewing associate work.
 
     The reviewer checks goal coverage, rationale quality, internal consistency,
@@ -126,7 +130,7 @@ async def refine_plan(
         model: The LLM model for the reviewer (should be stronger than drafter).
 
     Returns:
-        A refined InvestmentPlan.
+        (InvestmentPlan, RunUsage) — refined plan and token usage.
     """
     reviewer = create_plan_reviewer(model=model)
     prompt = (
@@ -138,7 +142,7 @@ async def refine_plan(
     refined = result.output
     # Preserve the perspective tag from the draft
     refined.perspective = draft.perspective
-    return refined
+    return refined, result.usage()
 
 
 async def generate_plan(
@@ -212,7 +216,8 @@ async def generate_plan(
         if len(valid_plans) == 1:
             best = valid_plans[0]
         else:
-            evaluation = await evaluate_plans(valid_plans, profile, model)
+            evaluation, eval_usage = await evaluate_plans(valid_plans, profile, model)
+            total_usage.incr(eval_usage)
             best = valid_plans[evaluation.best_index]
             logger.info(
                 "Premium evaluation: picked '%s' — %s",
@@ -222,7 +227,8 @@ async def generate_plan(
 
         if refine_model:
             logger.info("Refining premium plan with %s", refine_model)
-            best = await refine_plan(best, profile, model=refine_model)
+            best, refine_usage = await refine_plan(best, profile, model=refine_model)
+            total_usage.incr(refine_usage)
         return best, total_usage
 
     # basic mode
@@ -233,5 +239,6 @@ async def generate_plan(
     total_usage.incr(usage)
     if refine_model:
         logger.info("Refining basic plan with %s", refine_model)
-        plan = await refine_plan(plan, profile, model=refine_model)
+        plan, refine_usage = await refine_plan(plan, profile, model=refine_model)
+        total_usage.incr(refine_usage)
     return plan, total_usage

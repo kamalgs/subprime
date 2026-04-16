@@ -16,6 +16,7 @@ Caching model (Anthropic ``cache_control`` with 1-hour TTL):
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
@@ -26,6 +27,17 @@ if TYPE_CHECKING:
 # Anthropic pricing  (USD per million tokens)
 # Update here when Anthropic changes rates.
 # ---------------------------------------------------------------------------
+# Typical output throughput (tokens/sec) for sequential non-streaming calls.
+# Conservative estimates; actual TPS varies with server load.
+# Source: empirical observation from instrumented runs.
+TPS: dict[str, float] = {
+    "claude-haiku-4-5":  80.0,
+    "claude-sonnet-4-6": 40.0,
+    "claude-opus-4-6":   15.0,
+}
+
+# Per-call overhead: TTFB + queuing, regardless of output size (seconds)
+_TTFB_SECS: float = 2.0
 
 PRICING: dict[str, dict[str, float]] = {
     "claude-opus-4-6": {
@@ -48,13 +60,16 @@ PRICING: dict[str, dict[str, float]] = {
     },
 }
 
-# Empirically observed averages from v1 experiment runs.
+# Empirically observed averages from haiku+haiku experiment run (75 runs).
+# advisor_output includes plan JSON (~3 000 tok) + tool calls (~3 000 tok).
+# aps/pqs include structured JSON + reasoning (~1 100 / 1 300 tok each).
+# Total per run: ~8 400 tok observed (avg 8 323 across 35 completed runs).
 _TYPICAL: dict[str, int] = {
     "advisor_user_tokens": 450,      # persona profile JSON
-    "advisor_output_tokens": 1_500,  # InvestmentPlan JSON
-    "judge_user_tokens": 2_800,      # plan JSON + profile JSON
-    "aps_output_tokens": 350,
-    "pqs_output_tokens": 350,
+    "advisor_output_tokens": 6_000,  # plan JSON + tool calls (was 1 500 — 4× underestimate)
+    "judge_user_tokens": 3_000,      # plan JSON + profile JSON
+    "aps_output_tokens": 1_100,      # structured score + reasoning (was 350)
+    "pqs_output_tokens": 1_300,      # structured score + reasoning (was 350)
     "universe_fallback_tokens": 3_500,  # when DB unavailable
 }
 
@@ -79,6 +94,19 @@ def _price(model: str) -> dict[str, float]:
 
 def _usd(tokens: int, rate_per_mtok: float) -> float:
     return tokens * rate_per_mtok / 1_000_000
+
+
+def _tps(model: str) -> float:
+    """Return output TPS estimate for model (partial-name match, fallback to sonnet)."""
+    for key, tps in TPS.items():
+        if key in model:
+            return tps
+    return TPS["claude-sonnet-4-6"]
+
+
+def _call_secs(n_calls: int, output_tokens_per_call: int, model: str) -> float:
+    """Estimate wall-clock seconds for n sequential calls."""
+    return n_calls * (_TTFB_SECS + output_tokens_per_call / _tps(model))
 
 
 # ---------------------------------------------------------------------------
@@ -154,6 +182,7 @@ class ExperimentEstimate:
     n_personas: int
     n_conditions: int
     n_runs: int
+    concurrency: int           # parallel runs assumed for wall-time estimate
     model: str
     judge_model: str
     universe_tokens: int       # tokens added by universe context per advisor call
@@ -164,6 +193,10 @@ class ExperimentEstimate:
     cache_savings_usd: float
     cache_savings_pct: float
     avg_cost_per_run_usd: float
+    # Wall-time estimates (advisor + judge phases per wave, scaled by concurrency)
+    advisor_wall_minutes: float
+    judge_wall_minutes: float
+    total_wall_minutes: float
 
 
 @dataclass
@@ -194,6 +227,7 @@ def estimate_experiment(
     model: str = "anthropic:claude-sonnet-4-6",
     judge_model: str | None = None,
     include_universe: bool = True,
+    concurrency: int = 1,
 ) -> ExperimentEstimate:
     """Estimate token usage and cost for a full experiment matrix.
 
@@ -203,6 +237,7 @@ def estimate_experiment(
         model: Advisor model identifier.
         judge_model: Judge model (defaults to model).
         include_universe: Whether advisor receives universe context.
+        concurrency: Parallel runs assumed for wall-time estimate.
 
     Returns:
         ExperimentEstimate with per-phase breakdown and cache savings.
@@ -310,10 +345,19 @@ def estimate_experiment(
     savings = no_cache_cost - total_cost
     savings_pct = 100.0 * savings / no_cache_cost if no_cache_cost > 0 else 0.0
 
+    # Wall-time: within each run advisor + 2 judge calls are serial; runs are parallel.
+    # waves = number of sequential "rounds" needed at the given concurrency level.
+    adv_secs_per_run = _TTFB_SECS + adv_out / _tps(model)
+    jud_secs_per_run = 2 * (_TTFB_SECS + (jud_out // 2) / _tps(eff_judge))
+    waves = math.ceil(n_runs / max(1, concurrency))
+    adv_mins = waves * adv_secs_per_run / 60
+    jud_mins = waves * jud_secs_per_run / 60
+
     return ExperimentEstimate(
         n_personas=n_personas,
         n_conditions=n_conditions,
         n_runs=n_runs,
+        concurrency=concurrency,
         model=model,
         judge_model=eff_judge,
         universe_tokens=univ_tok,
@@ -324,6 +368,9 @@ def estimate_experiment(
         cache_savings_usd=savings,
         cache_savings_pct=savings_pct,
         avg_cost_per_run_usd=total_cost / max(1, n_runs),
+        advisor_wall_minutes=adv_mins,
+        judge_wall_minutes=jud_mins,
+        total_wall_minutes=adv_mins + jud_mins,
     )
 
 
@@ -438,12 +485,30 @@ def print_estimate(est: ExperimentEstimate) -> None:
 
     console.print(table)
 
+    def _fmt_mins(m: float) -> str:
+        h, rem = divmod(int(m), 60)
+        return f"{h}h {rem:02d}m" if h else f"{int(m)}m"
+
+    if est.concurrency > 1:
+        seq_total = est.total_wall_minutes * est.n_runs / math.ceil(est.n_runs / est.concurrency)
+        time_note = f"concurrency={est.concurrency}; was {_fmt_mins(seq_total)} sequential"
+        latency_note = f"Parallel runs ({est.concurrency} concurrent); actual time varies with API latency."
+    else:
+        time_note = (
+            f"sequential — advisor {_fmt_mins(est.advisor_wall_minutes)}"
+            f" + judges {_fmt_mins(est.judge_wall_minutes)}"
+        )
+        latency_note = "Sequential runs; actual time varies with API latency."
+
     console.print(
         f"\n  [bold]Total cost  : [green]${est.total_cost_usd:.4f}[/green][/bold]"
         f"  (avg ${est.avg_cost_per_run_usd:.5f}/run)\n"
         f"  Without cache : ${est.no_cache_cost_usd:.4f}\n"
         f"  Cache savings : [green]${est.cache_savings_usd:.4f}  "
         f"({est.cache_savings_pct:.0f}% cheaper)[/green]\n"
+        f"\n  [bold]Est. wall time: [cyan]{_fmt_mins(est.total_wall_minutes)}[/cyan][/bold]"
+        f"  ({time_note})\n"
+        f"  [dim]{latency_note}[/dim]\n"
     )
 
 
@@ -462,6 +527,7 @@ def compare_configs(
     default_model: str = "anthropic:claude-sonnet-4-6",
     default_judge: str | None = None,
     include_universe: bool = True,
+    concurrency: int = 1,
 ) -> list[tuple[str, ExperimentEstimate]]:
     """Return estimates for all standard model configurations.
 
@@ -476,6 +542,7 @@ def compare_configs(
             model=model,
             judge_model=judge,
             include_universe=include_universe,
+            concurrency=concurrency,
         )
         results.append((label, est))
     return results
@@ -505,12 +572,18 @@ def print_comparison(
 
     eff_default_judge = default_judge or default_model
 
+    def _fmt_mins(m: float) -> str:
+        h, rem = divmod(int(m), 60)
+        return f"{h}h {rem:02d}m" if h else f"{int(m)}m"
+
     table = Table(show_header=True, header_style="bold")
-    table.add_column("Config", style="bold")
+    table.add_column("", justify="center", width=1)   # default marker
+    table.add_column("Config", style="bold", no_wrap=True)
     table.add_column("Advisor $", justify="right")
     table.add_column("Judge $", justify="right")
     table.add_column("Total $", justify="right", style="green")
     table.add_column("$ / run", justify="right")
+    table.add_column("Est. time", justify="right", style="cyan")
     table.add_column("Savings", justify="right")
 
     for label, est in comparisons:
@@ -518,13 +591,15 @@ def print_comparison(
             est.model == default_model
             and est.judge_model == eff_default_judge
         )
-        marker = " [dim]← default[/dim]" if is_default else ""
+        marker = "★" if is_default else ""
         table.add_row(
-            label + marker,
+            marker,
+            label,
             f"${est.advisor.cost_usd:.3f}",
             f"${est.judges.cost_usd:.3f}",
             f"${est.total_cost_usd:.3f}",
             f"${est.avg_cost_per_run_usd:.4f}",
+            _fmt_mins(est.total_wall_minutes),
             f"{est.cache_savings_pct:.0f}%",
         )
 
