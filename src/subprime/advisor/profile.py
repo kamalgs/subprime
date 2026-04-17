@@ -6,7 +6,7 @@ from typing import Awaitable, Callable
 from pydantic_ai import Agent
 
 from subprime.advisor.agent import load_prompt
-from subprime.core.config import DEFAULT_MODEL
+from subprime.core.config import DEFAULT_MODEL, build_model
 from subprime.core.models import InvestorProfile
 
 
@@ -24,7 +24,7 @@ async def _run_conversation(
     profile_prompt = load_prompt("profile")
 
     conv_agent = Agent(
-        model,
+        build_model(model),
         system_prompt=profile_prompt,
         defer_model_check=True,
     )
@@ -51,7 +51,7 @@ async def _run_conversation(
 
     # Extract what we have so far
     extractor = Agent(
-        model,
+        build_model(model),
         system_prompt=(
             "Extract an InvestorProfile from this conversation. "
             "Use 'interactive' as the id. "

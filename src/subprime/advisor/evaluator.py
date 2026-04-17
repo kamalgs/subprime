@@ -10,7 +10,7 @@ from pydantic import BaseModel
 from pydantic_ai import Agent
 from pydantic_ai.usage import RunUsage
 
-from subprime.core.config import DEFAULT_MODEL
+from subprime.core.config import DEFAULT_MODEL, build_model
 from subprime.core.models import InvestmentPlan, InvestorProfile
 
 logger = logging.getLogger(__name__)
@@ -40,7 +40,7 @@ async def evaluate_plans(
     - Risk fit: does the risk level match their stated comfort?
     """
     evaluator = Agent(
-        model,
+        build_model(model),
         system_prompt=(
             "You are an expert evaluator comparing investment plans for an Indian investor. "
             "Each plan was created from a different advisory perspective. "

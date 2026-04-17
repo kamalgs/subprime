@@ -6,7 +6,7 @@ from pathlib import Path
 
 from pydantic_ai import Agent
 
-from subprime.core.config import DEFAULT_MODEL, build_model_settings, is_anthropic
+from subprime.core.config import DEFAULT_MODEL, build_model, build_model_settings, is_anthropic
 from subprime.core.models import InvestmentPlan, StrategyOutline
 from subprime.data.tools import get_fund_details, search_funds_universe
 
@@ -77,13 +77,9 @@ def create_advisor(
     tools_list = [search_funds_universe, get_fund_details]
     if is_anthropic(model):
         settings["anthropic_cache_tool_definitions"] = "1h"
-    else:
-        # Open-weight models often loop on tool calls, accumulating context.
-        # The universe is already in the system prompt — disable tools for them.
-        tools_list = []
 
     return Agent(
-        model,
+        build_model(model),
         system_prompt=system_prompt,
         output_type=InvestmentPlan,
         tools=tools_list,
@@ -129,7 +125,7 @@ def create_thinking_advisor(
         settings["anthropic_cache_tool_definitions"] = "1h"
 
     return Agent(
-        model,
+        build_model(model),
         system_prompt=system_prompt,
         output_type=str,
         tools=[search_funds_universe, get_fund_details],
@@ -144,7 +140,7 @@ def create_plan_structurer(
 ) -> Agent:
     """Create an agent that converts prose plan text into structured JSON (turn 2 of 2)."""
     return Agent(
-        model,
+        build_model(model),
         system_prompt=(
             "You are a structured-data extraction agent. "
             "Given a detailed investment plan in prose, extract it into the "
@@ -178,7 +174,7 @@ def create_plan_reviewer(
     review = load_prompt("review")
 
     return Agent(
-        model,
+        build_model(model),
         system_prompt=review,
         output_type=InvestmentPlan,
         tools=[],         # no tool calls — reviewer works from the draft text
@@ -214,7 +210,7 @@ def create_strategy_advisor(
     system_prompt = "\n\n---\n\n".join(parts)
 
     return Agent(
-        model,
+        build_model(model),
         system_prompt=system_prompt,
         output_type=StrategyOutline,
         tools=[],

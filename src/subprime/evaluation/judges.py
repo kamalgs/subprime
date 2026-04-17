@@ -14,7 +14,7 @@ from __future__ import annotations
 from pydantic_ai import Agent
 from pydantic_ai.usage import RunUsage
 
-from subprime.core.config import DEFAULT_MODEL, build_model_settings
+from subprime.core.config import DEFAULT_MODEL, build_model, build_model_settings
 from subprime.core.models import APSScore, InvestmentPlan, InvestorProfile, PlanQualityScore
 from subprime.evaluation.criteria import APS_CRITERIA, PQS_CRITERIA
 
@@ -104,7 +104,7 @@ def create_aps_judge(model: str = DEFAULT_MODEL, *, thinking: bool = True) -> Ag
     key = (model, thinking)
     if key not in _aps_agents:
         _aps_agents[key] = Agent(
-            model,
+            build_model(model),
             system_prompt=_APS_PROMPT,
             output_type=APSScore,
             retries=2,
@@ -119,7 +119,7 @@ def create_pqs_judge(model: str = DEFAULT_MODEL, *, thinking: bool = True) -> Ag
     key = (model, thinking)
     if key not in _pqs_agents:
         _pqs_agents[key] = Agent(
-            model,
+            build_model(model),
             system_prompt=_PQS_PROMPT,
             output_type=PlanQualityScore,
             retries=2,

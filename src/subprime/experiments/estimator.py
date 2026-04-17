@@ -34,6 +34,12 @@ TPS: dict[str, float] = {
     "claude-haiku-4-5":  80.0,
     "claude-sonnet-4-6": 40.0,
     "claude-opus-4-6":   15.0,
+    # Together AI — rough empirical throughput for these serverless endpoints.
+    "Qwen3.5-397B-A17B":            60.0,
+    "Qwen3-235B-A22B-Instruct-2507": 90.0,
+    "Qwen3-Next-80B-A3B-Instruct":  120.0,
+    "Qwen3.5-9B":                   150.0,
+    "gemma-4-31B-it":                80.0,
 }
 
 # Per-call overhead: TTFB + queuing, regardless of output size (seconds)
@@ -57,6 +63,37 @@ PRICING: dict[str, dict[str, float]] = {
         "output": 4.00,
         "cache_read": 0.08,
         "cache_write": 1.00,
+    },
+    # Together AI — no prompt caching, so cache_read/write == input rate.
+    "Qwen3.5-397B-A17B": {
+        "input": 0.60,
+        "output": 3.60,
+        "cache_read": 0.60,
+        "cache_write": 0.60,
+    },
+    "gemma-4-31B-it": {
+        "input": 0.20,
+        "output": 0.50,
+        "cache_read": 0.20,
+        "cache_write": 0.20,
+    },
+    "Qwen3-235B-A22B-Instruct-2507": {
+        "input": 0.20,
+        "output": 0.60,
+        "cache_read": 0.20,
+        "cache_write": 0.20,
+    },
+    "Qwen3-Next-80B-A3B-Instruct": {
+        "input": 0.15,
+        "output": 1.50,
+        "cache_read": 0.15,
+        "cache_write": 0.15,
+    },
+    "Qwen3.5-9B": {
+        "input": 0.10,
+        "output": 0.15,
+        "cache_read": 0.10,
+        "cache_write": 0.10,
     },
 }
 

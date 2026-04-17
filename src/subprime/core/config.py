@@ -33,15 +33,45 @@ def is_anthropic(model: str) -> bool:
     return model_provider(model) == "anthropic"
 
 
+def is_together(model: str) -> bool:
+    """True when *model* targets Together AI (together: prefix)."""
+    return model_provider(model) == "together"
+
+
 def is_qwen3(model: str) -> bool:
-    """True when model is a Qwen3 variant (has configurable thinking via chat template)."""
+    """True for Qwen3 / Qwen3.5 variants (configurable thinking via chat template)."""
     name = model.split(":", 1)[-1].lower()
-    return "qwen3" in name or "qwen/qwen3" in name
+    return "qwen3" in name
 
 
 def supports_thinking(model: str) -> bool:
     """True when *model* supports extended thinking."""
     return is_anthropic(model) or is_qwen3(model)
+
+
+def together_model_name(model: str) -> str:
+    """Strip the ``together:`` prefix and return the raw Together model id."""
+    return model.split(":", 1)[1] if ":" in model else model
+
+
+def build_model(model: str):
+    """Return either a model string (for native PydanticAI providers) or a
+    configured model instance.
+
+    For ``together:`` prefixes, constructs an OpenAI-compatible chat model
+    pointed at Together's endpoint. Other prefixes (anthropic, openai, groq…)
+    pass through as strings and PydanticAI resolves them natively.
+    """
+    if is_together(model):
+        from pydantic_ai.models.openai import OpenAIChatModel
+        from pydantic_ai.providers.together import TogetherProvider
+
+        api_key = os.environ.get("TOGETHER_API_KEY")
+        return OpenAIChatModel(
+            together_model_name(model),
+            provider=TogetherProvider(api_key=api_key),
+        )
+    return model
 
 
 def build_model_settings(
@@ -52,9 +82,9 @@ def build_model_settings(
 ) -> dict:
     """Build provider-appropriate model_settings for a PydanticAI Agent.
 
-    Anthropic models get prompt caching and `thinking` setting.
-    Qwen3 models get `extra_body.chat_template_kwargs.enable_thinking` passed
-    through to vLLM's OpenAI-compatible endpoint.
+    Anthropic: prompt caching + native thinking toggle.
+    Qwen3 / Qwen3.5 (vLLM or Together): ``extra_body.chat_template_kwargs.enable_thinking``.
+    Other open-weight chat models: default output cap only.
     """
     settings: dict = {}
     if is_anthropic(model):
@@ -64,11 +94,14 @@ def build_model_settings(
             settings["thinking"] = "medium"
             settings["max_tokens"] = 32000
     elif is_qwen3(model):
-        # vLLM accepts chat_template_kwargs via extra_body to toggle Qwen3 thinking.
+        # Qwen chat template accepts enable_thinking via extra_body — works for
+        # both vLLM and Together AI OpenAI-compatible endpoints.
         settings["extra_body"] = {
             "chat_template_kwargs": {"enable_thinking": bool(thinking)}
         }
-        settings["max_tokens"] = 2048
+        # Thinking mode interleaves reasoning before the final answer; give it
+        # generous headroom so structured outputs don't truncate mid-JSON.
+        settings["max_tokens"] = 24000 if thinking else 8192
     if not thinking and "max_tokens" not in settings:
         settings["max_tokens"] = 8192
     return settings

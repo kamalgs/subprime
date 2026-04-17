@@ -79,6 +79,14 @@ def _check_api_key(model: str) -> None:
                 "Export it: export OPENAI_API_KEY=sk-..."
             )
             raise typer.Exit(code=1)
+    elif model.startswith("together:"):
+        key = os.environ.get("TOGETHER_API_KEY", "")
+        if not key:
+            _console.print(
+                "[bold red]Error:[/bold red] TOGETHER_API_KEY not set.\n"
+                "Export it: export TOGETHER_API_KEY=tgp_v1_..."
+            )
+            raise typer.Exit(code=1)
 
 _console = Console()
 

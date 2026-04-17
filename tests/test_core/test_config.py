@@ -58,6 +58,43 @@ class TestSettings:
         s = Settings()
         assert s.mfdata_base_url == "http://localhost:8080"
 
+    def test_together_model_routes_to_openai_chat_model(self, monkeypatch):
+        """together: prefix should produce a configured OpenAIChatModel."""
+        monkeypatch.setenv("TOGETHER_API_KEY", "tgp_v1_test")
+
+        from pydantic_ai.models.openai import OpenAIChatModel
+
+        from subprime.core.config import (
+            build_model,
+            build_model_settings,
+            is_qwen3,
+            is_together,
+        )
+
+        m = build_model("together:Qwen/Qwen3.5-397B-A17B")
+        assert isinstance(m, OpenAIChatModel)
+        assert m.model_name == "Qwen/Qwen3.5-397B-A17B"
+
+        assert is_together("together:google/gemma-4-31B-it") is True
+        assert is_together("anthropic:claude-haiku-4-5") is False
+        assert is_qwen3("together:Qwen/Qwen3.5-397B-A17B") is True
+        assert is_qwen3("together:google/gemma-4-31B-it") is False
+
+        # Qwen3.5 still gets chat_template_kwargs for thinking toggle
+        s = build_model_settings("together:Qwen/Qwen3.5-397B-A17B", thinking=False)
+        assert s["extra_body"]["chat_template_kwargs"]["enable_thinking"] is False
+
+        # Gemma doesn't — just default max_tokens cap
+        s = build_model_settings("together:google/gemma-4-31B-it")
+        assert "extra_body" not in s
+        assert s["max_tokens"] == 8192
+
+    def test_non_together_model_passes_through_as_string(self):
+        from subprime.core.config import build_model
+
+        assert build_model("anthropic:claude-haiku-4-5") == "anthropic:claude-haiku-4-5"
+        assert build_model("openai:gpt-4o-mini") == "openai:gpt-4o-mini"
+
     def test_api_key_is_secret_str(self, monkeypatch):
         """API key should be a SecretStr — not accidentally logged."""
         monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-secret")
