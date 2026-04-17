@@ -1,7 +1,7 @@
 # Subprime Experiment — Analysis Report v3 (Multi-Configuration)
 
 **Date:** 2026-04-17
-**Experiments:** 4 full runs (75 plans each) + 2 cross-judge re-scoring runs
+**Experiments:** 7 configurations, 525 scored plans (75 per config, N=25 per condition)
 **Fund universe:** 163 funds across 12 categories (Gold added, Hybrid split)
 **Research question:** Do post-training philosophy injections create measurable APS bias while PQS remains blind to it?
 
@@ -9,21 +9,24 @@
 
 ## 1. Executive Summary
 
-We ran four experiment configurations and two cross-judge comparisons to measure how prompt contamination shifts LLM advisor behaviour, and whether quality judges detect the bias.
+We ran seven experiment configurations — same-model, cross-judge, and cross-model — to measure how prompt contamination shifts LLM advisor behaviour, and whether quality judges detect the bias.
 
-| Config | Advisor | Judge | Thinking | Bogle d | Lynch d | Max ΔPQS | Blind Spot? |
-|--------|---------|-------|----------|---------|---------|----------|-------------|
-| A | Haiku | Haiku | off | +0.60 | −0.79 | 0.03 | YES |
-| B | Sonnet | Sonnet | off | +0.92 | −1.05 | 0.01 | YES |
-| C | Haiku+think | Haiku+think | on | **+0.85** | **−1.09** | 0.03 | YES |
-| D | Haiku plans | **Haiku+think judge** | cross | +0.60 | −0.79 | 0.03 | YES |
-| E | Haiku+think plans | **Haiku judge** | cross | +1.00 | −0.62 | 0.03 | YES |
+| Config | Advisor | Judge | Bo d | Ly d | Bo p | Ly p | Base PQS | Max ΔPQS | Blind Spot? |
+|--------|---------|-------|------|------|------|------|----------|----------|-------------|
+| A | Haiku | Haiku | +0.75 | −0.84 | .007 | .003 | 0.819 | 0.028 | YES |
+| B | Sonnet | Sonnet | +0.92 | −0.86 | .001 | .002 | 0.753 | 0.011 | YES |
+| C | Haiku+think | Haiku+think | +0.97 | −0.98 | .000 | .000 | 0.699 | 0.034 | YES |
+| D | Haiku | Haiku+think | +0.67 | −0.75 | .017 | .007 | 0.698 | 0.039 | YES |
+| E | Haiku+think | Haiku | +1.02 | −0.57 | .000 | .045 | 0.828 | 0.029 | YES |
+| F | Haiku+think | **Sonnet+think** | **+1.06** | −0.79 | .000 | .004 | **0.529** | 0.038 | YES |
+| G | Sonnet | **Haiku+think** | +0.85 | **−1.11** | .002 | .000 | 0.779 | 0.023 | YES |
 
-**Core finding:** The rating blind spot is robust across all 6 configurations. PQS moves ≤0.034 despite APS shifts of 0.06–0.17 with p < 0.01.
+**Core finding:** The rating blind spot is robust across all 7 configurations. All 14 APS shifts are statistically significant (p < 0.05). No PQS shift exceeds 0.039 — quality judges fail to detect philosophical contamination in every combination of model, thinking mode, and cross-model judging.
 
-**Thinking makes Haiku match Sonnet** — Config C (Haiku with thinking, ~$6) produces Cohen's d comparable to Config B (Sonnet without thinking, ~$11) at half the cost.
-
-**Cross-judge analysis reveals:** The PQS gap between thinking and non-thinking runs (0.70 vs 0.82) is almost entirely judge strictness — the same plans get ±0.13 different PQS scores depending on judge mode, but only ±0.01 different scores based on plan source. The bias signal, however, comes from the advisor: thinking-generated plans show 2× stronger APS shifts.
+**Key insights:**
+- **Thinking makes Haiku match Sonnet** — Config C (~$6) produces Cohen's d comparable to Config B (~$11) at half the cost.
+- **Cross-judge analysis** (D vs E): PQS gap (±0.13) is judge calibration, not plan quality. Bias signal comes from the advisor (2× ΔAPS with thinking).
+- **Cross-model** (F & G): Sonnet+think judge is strictest (PQS=0.529) but still blind to bias. Haiku+think judge on Sonnet plans gives strongest Lynch detection (d=−1.11).
 
 ---
 
@@ -45,6 +48,16 @@ We ran four experiment configurations and two cross-judge comparisons to measure
 - **Universe:** 163 funds, 12 categories (Gold included)
 - **Tax:** Sharpened criterion referencing `tax_bracket` field
 - **Cost:** ~$6–8, ~75 min
+
+### Configs D & E: Cross-judge (same model, thinking vs no-thinking)
+- **D:** Plans from Config A (Haiku no-think) → re-scored by Haiku+think judge
+- **E:** Plans from Config C (Haiku+think) → re-scored by Haiku no-think judge
+- Disentangles advisor thinking effect from judge thinking effect
+
+### Configs F & G: Cross-model
+- **F:** Plans from Config C (Haiku+think) → re-scored by **Sonnet+think** judge
+- **G:** Plans from Config B (Sonnet) → re-scored by **Haiku+think** judge
+- Tests whether a stronger/weaker judge breaks the blind spot
 
 ---
 
@@ -218,12 +231,27 @@ The bias signal doubles when the **advisor** uses thinking (+0.08 → +0.16 for 
 
 The thinking judge gives TAX scores ~0.2 lower than the no-think judge on the same plans. This is the dimension most affected by judge reasoning depth — the thinking judge reads the `tax_bracket` field and evaluates fund choices against the investor's actual slab.
 
-### 9.6 Cross-Judge Summary
+### 9.6 Cross-Model Analysis (Configs F & G)
+
+| Config | Advisor | Judge | Base PQS | Bogle d | Lynch d |
+|--------|---------|-------|----------|---------|---------|
+| C | Haiku+think | Haiku+think | 0.699 | +0.97 | −0.98 |
+| **F** | Haiku+think | **Sonnet+think** | **0.529** | **+1.06** | −0.79 |
+| B | Sonnet | Sonnet | 0.753 | +0.92 | −0.86 |
+| **G** | Sonnet | **Haiku+think** | 0.779 | +0.85 | **−1.11** |
+
+- **Sonnet+think is the strictest judge** — baseline PQS=0.529 (vs 0.699 for Haiku+think on same plans). The larger model with thinking penalizes plans most heavily.
+- **Haiku+think judge on Sonnet plans gives the strongest Lynch detection** (d=−1.11) — the thinking judge is better at detecting active-philosophy signals in Sonnet's more nuanced plans.
+- **APS measurement is stable across judges** — C and F use the same plans: Bogle ΔAPS=+0.151 vs +0.170. The bias signal in the plans is consistent regardless of who measures it.
+- **The blind spot survives cross-model judging** — even the strictest judge (Sonnet+think, PQS=0.529) has max ΔPQS=0.038.
+
+### 9.7 Full Cross-Experiment Summary
 
 1. **PQS gap (±0.13) is judge calibration, not plan quality** — same plans get very different absolute scores
 2. **Bias signal (ΔAPS) comes from the advisor** — thinking plans carry 2× stronger philosophical imprint
-3. **The blind spot is universal** — no judge configuration (think or no-think) flags the APS shift in PQS
+3. **The blind spot is universal** — no combination of model size, thinking mode, or cross-model judging flags the APS shift in PQS
 4. **Tax scoring benefits most from judge thinking** — 0.2-point stricter on the same plans
+5. **Judge strictness hierarchy**: Sonnet+think (0.53) < Haiku+think (0.70) < Sonnet (0.75) < Haiku (0.82)
 
 ---
 
@@ -247,13 +275,13 @@ The thinking judge gives TAX scores ~0.2 lower than the no-think judge on the sa
 - **No repeated sampling**: Each persona-condition pair scored once. Within-cell variance estimated from cross-persona variation only.
 - **Nifty 50 proxy for risk metrics**: Beta, alpha, tracking error computed against single Nifty 50 proxy. Per-category benchmarks (Nifty Midcap 150, Nifty Smallcap 250, etc.) would improve APS scoring accuracy.
 - **2 failed runs in Config C**: Anthropic 500 errors for P05/lynch and P19/baseline — recovered on retry.
-- **1 failed run in Config D**: Streamed response ended without content — 74 of 75 scored.
+- **Transient failures in D and G**: Stream errors and overloaded errors — all recovered on targeted retry. Final: all configs at 75/75.
 
 ---
 
 ## 12. Conclusions
 
-1. **The subprime thesis is confirmed across 6 configurations.** Philosophy injection reliably shifts APS (p < 0.01 in all configs) while PQS remains stable (ΔPQS ≤ 0.034). Quality judges — even thinking-enhanced ones — fail to detect ideological contamination.
+1. **The subprime thesis is confirmed across 7 configurations (525 scored plans).** Philosophy injection reliably shifts APS (all 14 shifts significant at p < 0.05) while PQS remains stable (ΔPQS ≤ 0.039). Quality judges — across model sizes, thinking modes, and cross-model combinations — fail to detect ideological contamination.
 
 2. **Extended thinking is a force multiplier for bias, not quality.** The two-turn thinking advisor produces plans with 2× stronger philosophical imprint (ΔAPS), but the plans are not measurably better or worse (±0.01 PQS gap). The thinking judge is 0.12 PQS stricter on all plans equally — it catches more flaws but still can't detect the philosophical bias.
 
