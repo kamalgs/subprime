@@ -131,52 +131,73 @@ async def rescore_results(
     judge_model: str,
     personas: dict[str, InvestorProfile],
     thinking: bool = True,
+    concurrency: int = 10,
+    results_dir: Path | None = None,
 ) -> list[ExperimentResult]:
-    """Re-score existing ExperimentResults with a different judge model."""
-    rescored: list[ExperimentResult] = []
-    total_usage = RunUsage()
+    """Re-score existing ExperimentResults with a different judge model.
 
-    for i, result in enumerate(results, 1):
+    When *results_dir* is set, each result is saved incrementally as it
+    completes (same pattern as :func:`run_experiment`).
+    """
+    sem = asyncio.Semaphore(concurrency)
+    total_usage = RunUsage()
+    done_count = 0
+
+    async def _score_one(result: ExperimentResult) -> ExperimentResult | None:
+        nonlocal done_count
         persona = personas.get(result.persona_id)
         if persona is None:
             _console.print(f"  [yellow]Skipping {result.persona_id} — persona not found[/yellow]")
-            continue
+            return None
 
-        _console.print(
-            f"  [{i}/{len(results)}] re-scoring "
-            f"[bold blue]{result.condition}[/bold blue] x "
-            f"[bold green]{result.persona_id}[/bold green] "
-            f"[dim](judge: {judge_model.split(':')[-1]})[/dim]..."
-        )
+        async with sem:
+            t0 = time.monotonic()
+            scored, usage = await score_plan(
+                plan=result.plan,
+                profile=persona,
+                model=result.model,
+                judge_model=judge_model,
+                thinking=thinking,
+            )
+            elapsed = time.monotonic() - t0
+            total_usage.incr(usage)
+            done_count += 1
 
-        t0 = time.monotonic()
-        scored, usage = await score_plan(
-            plan=result.plan,
-            profile=persona,
-            model=result.model,
-            judge_model=judge_model,
-            thinking=thinking,
-        )
-        elapsed = time.monotonic() - t0
-        total_usage.incr(usage)
+            _console.print(
+                f"  [{done_count}/{len(results)}] "
+                f"[bold blue]{result.condition}[/bold blue] x "
+                f"[bold green]{result.persona_id}[/bold green]  "
+                f"APS={scored.aps.composite_aps:.3f}  "
+                f"PQS={scored.pqs.composite_pqs:.3f}  "
+                f"[dim]{elapsed:.0f}s  {_fmt_usage(usage, elapsed)}[/dim]"
+            )
 
-        rescored.append(ExperimentResult(
-            persona_id=result.persona_id,
-            condition=result.condition,
-            model=result.model,
-            judge_model=judge_model,
-            plan=scored.plan,
-            aps=scored.aps,
-            pqs=scored.pqs,
-            timestamp=result.timestamp,
-            prompt_version=result.prompt_version,
-        ))
+            rescored_result = ExperimentResult(
+                persona_id=result.persona_id,
+                condition=result.condition,
+                model=result.model,
+                judge_model=judge_model,
+                plan=scored.plan,
+                aps=scored.aps,
+                pqs=scored.pqs,
+                timestamp=result.timestamp,
+                prompt_version=result.prompt_version,
+            )
+            if results_dir:
+                save_result(rescored_result, results_dir=results_dir)
+            return rescored_result
 
-        _console.print(
-            f"       APS={scored.aps.composite_aps:.3f}  "
-            f"PQS={scored.pqs.composite_pqs:.3f}  "
-            f"[dim]{elapsed:.0f}s  {_fmt_usage(usage, elapsed)}[/dim]"
-        )
+    outcomes = await asyncio.gather(
+        *[_score_one(r) for r in results],
+        return_exceptions=True,
+    )
+
+    rescored: list[ExperimentResult] = []
+    for outcome in outcomes:
+        if isinstance(outcome, BaseException):
+            _console.print(f"[bold red]Score error:[/bold red] {outcome}")
+        elif outcome is not None:
+            rescored.append(outcome)
 
     _console.print(
         f"\n[dim]Total tokens — {_fmt_usage(total_usage, 0).replace('tps=0', '')}[/dim]"

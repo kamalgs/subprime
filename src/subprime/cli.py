@@ -484,12 +484,13 @@ def experiment_score(
     )
 
     try:
-        rescored = asyncio.run(
-            rescore_results(results, judge_model=judge_model, personas=persona_map, thinking=thinking)
-        )
         results_dir.mkdir(parents=True, exist_ok=True)
-        for r in rescored:
-            save_result(r, results_dir=results_dir)
+        rescored = asyncio.run(
+            rescore_results(
+                results, judge_model=judge_model, personas=persona_map,
+                thinking=thinking, results_dir=results_dir,
+            )
+        )
         _console.print(
             f"\n[bold green]Done:[/bold green] {len(rescored)} results saved to {results_dir}\n"
         )

@@ -55,7 +55,7 @@ def build_model_settings(
             settings["anthropic_cache_instructions"] = "1h"
         if thinking and supports_thinking(model):
             settings["thinking"] = "medium"
-            settings["max_tokens"] = 16000
+            settings["max_tokens"] = 32000
     if not thinking:
         settings.setdefault("max_tokens", 8192)
     return settings
