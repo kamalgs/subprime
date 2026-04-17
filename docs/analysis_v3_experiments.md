@@ -227,7 +227,7 @@ The thinking judge gives TAX scores ~0.2 lower than the no-think judge on the sa
 
 ---
 
-## 10. Changes Since v2
+## 10. Methodology Changes Since v2
 
 | Change | Impact |
 |--------|--------|
@@ -236,20 +236,22 @@ The thinking judge gives TAX scores ~0.2 lower than the no-think judge on the sa
 | **Advisor prompt: overnight → arbitrage** | Explicit guidance for high-slab investors to prefer arbitrage over overnight/liquid |
 | **Two-turn thinking advisor** | Think deeply in prose → structure into JSON; bypasses grammar-too-large error |
 | **Provider abstraction** | `build_model_settings()` returns provider-appropriate config; ready for HF/OpenAI-compatible models |
+| **Concurrent rescoring** | `rescore_results` parallelised (10 concurrent); incremental save |
 | **163 total funds** (was 151) | Universe now covers all 12 categories |
 
 ---
 
-## 10. Limitations
+## 11. Limitations
 
 - **Anthropic-only experiments so far**: All runs use Claude models. Open-weight model comparison pending (infra setup for TGI on Lambda Cloud).
 - **No repeated sampling**: Each persona-condition pair scored once. Within-cell variance estimated from cross-persona variation only.
 - **Nifty 50 proxy for risk metrics**: Beta, alpha, tracking error computed against single Nifty 50 proxy. Per-category benchmarks (Nifty Midcap 150, Nifty Smallcap 250, etc.) would improve APS scoring accuracy.
-- **2 failed runs in Config C**: Anthropic 500 errors for P05/lynch and P19/baseline — both recovered on retry.
+- **2 failed runs in Config C**: Anthropic 500 errors for P05/lynch and P19/baseline — recovered on retry.
+- **1 failed run in Config D**: Streamed response ended without content — 74 of 75 scored.
 
 ---
 
-## 11. Conclusions
+## 12. Conclusions
 
 1. **The subprime thesis is confirmed across 6 configurations.** Philosophy injection reliably shifts APS (p < 0.01 in all configs) while PQS remains stable (ΔPQS ≤ 0.034). Quality judges — even thinking-enhanced ones — fail to detect ideological contamination.
 
@@ -265,7 +267,7 @@ The thinking judge gives TAX scores ~0.2 lower than the no-think judge on the sa
 
 ---
 
-## 12. Next Steps
+## 13. Next Steps
 
 1. **Open-weight models**: Deploy Llama 3.1 70B / Qwen 2.5 72B via TGI on Lambda Cloud and compare injection susceptibility. Provider abstraction is already in place.
 2. **Repeated sampling**: Run each persona-condition 3× to compute within-cell variance and tighten confidence intervals.
