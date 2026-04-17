@@ -74,14 +74,19 @@ def create_advisor(
     system_prompt = "\n\n---\n\n".join(parts)
 
     settings = build_model_settings(model, cache=True)
+    tools_list = [search_funds_universe, get_fund_details]
     if is_anthropic(model):
         settings["anthropic_cache_tool_definitions"] = "1h"
+    else:
+        # Open-weight models often loop on tool calls, accumulating context.
+        # The universe is already in the system prompt — disable tools for them.
+        tools_list = []
 
     return Agent(
         model,
         system_prompt=system_prompt,
         output_type=InvestmentPlan,
-        tools=[search_funds_universe, get_fund_details],
+        tools=tools_list,
         retries=3,
         defer_model_check=True,
         model_settings=settings,

@@ -145,7 +145,7 @@ def experiment_run(
         5,
         "--concurrency",
         min=1,
-        max=20,
+        max=200,
         help="Number of parallel runs (1 = sequential).",
     ),
     batch: bool = typer.Option(

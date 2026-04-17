@@ -33,9 +33,15 @@ def is_anthropic(model: str) -> bool:
     return model_provider(model) == "anthropic"
 
 
+def is_qwen3(model: str) -> bool:
+    """True when model is a Qwen3 variant (has configurable thinking via chat template)."""
+    name = model.split(":", 1)[-1].lower()
+    return "qwen3" in name or "qwen/qwen3" in name
+
+
 def supports_thinking(model: str) -> bool:
     """True when *model* supports extended thinking."""
-    return is_anthropic(model)
+    return is_anthropic(model) or is_qwen3(model)
 
 
 def build_model_settings(
@@ -46,8 +52,9 @@ def build_model_settings(
 ) -> dict:
     """Build provider-appropriate model_settings for a PydanticAI Agent.
 
-    Anthropic models get prompt caching and optional extended thinking.
-    All other providers get a minimal settings dict.
+    Anthropic models get prompt caching and `thinking` setting.
+    Qwen3 models get `extra_body.chat_template_kwargs.enable_thinking` passed
+    through to vLLM's OpenAI-compatible endpoint.
     """
     settings: dict = {}
     if is_anthropic(model):
@@ -56,8 +63,14 @@ def build_model_settings(
         if thinking and supports_thinking(model):
             settings["thinking"] = "medium"
             settings["max_tokens"] = 32000
-    if not thinking:
-        settings.setdefault("max_tokens", 8192)
+    elif is_qwen3(model):
+        # vLLM accepts chat_template_kwargs via extra_body to toggle Qwen3 thinking.
+        settings["extra_body"] = {
+            "chat_template_kwargs": {"enable_thinking": bool(thinking)}
+        }
+        settings["max_tokens"] = 16000 if thinking else 8192
+    if not thinking and "max_tokens" not in settings:
+        settings["max_tokens"] = 8192
     return settings
 
 # Web advisor model config — override via env vars.
