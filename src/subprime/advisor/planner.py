@@ -9,7 +9,7 @@ from pydantic_ai.settings import ModelSettings
 from pydantic_ai.usage import RunUsage
 
 from subprime.advisor.agent import create_advisor, create_plan_reviewer, create_strategy_advisor
-from subprime.core.config import DB_PATH, DEFAULT_MODEL, supports_thinking
+from subprime.core.config import DB_PATH, DEFAULT_MODEL, is_anthropic, supports_thinking
 from subprime.core.models import InvestmentPlan, InvestorProfile, StrategyOutline
 
 logger = logging.getLogger(__name__)
@@ -108,7 +108,7 @@ async def _generate_single_plan(
         )
     user_prompt = "\n".join(user_parts)
 
-    if thinking and supports_thinking(model):
+    if thinking and supports_thinking(model) and is_anthropic(model):
         from subprime.advisor.agent import create_plan_structurer, create_thinking_advisor
 
         advisor = create_thinking_advisor(

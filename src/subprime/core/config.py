@@ -68,7 +68,7 @@ def build_model_settings(
         settings["extra_body"] = {
             "chat_template_kwargs": {"enable_thinking": bool(thinking)}
         }
-        settings["max_tokens"] = 16000 if thinking else 8192
+        settings["max_tokens"] = 2048
     if not thinking and "max_tokens" not in settings:
         settings["max_tokens"] = 8192
     return settings
