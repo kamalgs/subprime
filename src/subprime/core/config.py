@@ -38,6 +38,17 @@ def is_together(model: str) -> bool:
     return model_provider(model) == "together"
 
 
+def is_bedrock(model: str) -> bool:
+    """True when *model* targets AWS Bedrock (bedrock: prefix).
+
+    Use this for Claude via Bedrock when the Anthropic direct API is
+    rate-limited. The suffix after ``bedrock:`` is the Bedrock inference
+    profile ID (e.g. ``us.anthropic.claude-sonnet-4-6``). Region is read
+    from ``AWS_REGION`` / ``AWS_DEFAULT_REGION`` / AWS config default.
+    """
+    return model_provider(model) == "bedrock"
+
+
 def is_vllm(model: str) -> bool:
     """True when *model* targets a self-hosted vLLM endpoint (vllm: prefix).
 
@@ -85,6 +96,25 @@ def build_model(model: str, *, role: str | None = None):
         return OpenAIChatModel(
             together_model_name(model),
             provider=TogetherProvider(api_key=api_key),
+        )
+    if is_bedrock(model):
+        # Bedrock uses cross-region inference profiles for Claude 4.x
+        # (e.g. us.anthropic.claude-sonnet-4-6). BEDROCK_REGION explicitly
+        # overrides AWS config; defaults to us-east-1 (where Claude profiles
+        # are always available) since the user's aws config may point at a
+        # region that doesn't host Claude (e.g. ap-south-2).
+        from pydantic_ai.models.bedrock import BedrockConverseModel
+        from pydantic_ai.providers.bedrock import BedrockProvider
+
+        region = (
+            os.environ.get("BEDROCK_REGION")
+            or os.environ.get("AWS_REGION")
+            or os.environ.get("AWS_DEFAULT_REGION")
+            or "us-east-1"
+        )
+        return BedrockConverseModel(
+            together_model_name(model),
+            provider=BedrockProvider(region_name=region),
         )
     if is_vllm(model):
         from pydantic_ai.models.openai import OpenAIChatModel

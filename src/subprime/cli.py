@@ -87,6 +87,18 @@ def _check_api_key(model: str) -> None:
                 "Export it: export TOGETHER_API_KEY=tgp_v1_..."
             )
             raise typer.Exit(code=1)
+    elif model.startswith("bedrock:"):
+        # Rely on boto3's chain: env vars, ~/.aws/credentials, instance profile.
+        import boto3
+        try:
+            boto3.client("sts").get_caller_identity()
+        except Exception as exc:
+            _console.print(
+                "[bold red]Error:[/bold red] AWS credentials not usable by Bedrock.\n"
+                f"  boto3 said: {exc}\n"
+                "Configure via ~/.aws/credentials or AWS_ACCESS_KEY_ID env."
+            )
+            raise typer.Exit(code=1)
     elif model.startswith("vllm:"):
         url = (
             os.environ.get("VLLM_BASE_URL")
