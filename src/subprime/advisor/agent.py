@@ -6,7 +6,13 @@ from pathlib import Path
 
 from pydantic_ai import Agent
 
-from subprime.core.config import DEFAULT_MODEL, build_model, build_model_settings, is_anthropic
+from subprime.core.config import (
+    DEFAULT_MODEL,
+    build_model,
+    build_model_settings,
+    is_anthropic,
+    is_vllm,
+)
 from subprime.core.models import InvestmentPlan, StrategyOutline
 from subprime.data.tools import get_fund_details, search_funds_universe
 
@@ -77,6 +83,11 @@ def create_advisor(
     tools_list = [search_funds_universe, get_fund_details]
     if is_anthropic(model):
         settings["anthropic_cache_tool_definitions"] = "1h"
+    elif is_vllm(model):
+        # Self-hosted small open-weight models loop on tool calls. The universe
+        # is already in the system prompt, so tools only add a live-verify hop
+        # we can't afford on a small advisor.
+        tools_list = []
 
     return Agent(
         build_model(model),

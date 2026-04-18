@@ -119,7 +119,9 @@ def build_model_settings(
         }
         # Thinking mode interleaves reasoning before the final answer; give it
         # generous headroom so structured outputs don't truncate mid-JSON.
-        settings["max_tokens"] = 24000 if thinking else 8192
+        # Non-thinking still needs room because small Qwen models can loop on
+        # tool calls before emitting final_result.
+        settings["max_tokens"] = 24000 if thinking else 24000
     if not thinking and "max_tokens" not in settings:
         settings["max_tokens"] = 8192
     return settings
