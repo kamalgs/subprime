@@ -32,7 +32,7 @@ logger = logging.getLogger("subprime")
 load_dotenv()
 
 from subprime.advisor.planner import generate_plan, generate_strategy
-from subprime.core.config import CONVERSATIONS_DIR, DB_PATH, DEFAULT_MODEL
+from subprime.core.config import ADVISOR_MODEL, CONVERSATIONS_DIR, DB_PATH, DEFAULT_MODEL, REFINE_MODEL
 from subprime.core.display import format_plan_summary, format_profile_card, format_strategy_outline
 from subprime.core.models import APSScore, ConversationLog, ConversationTurn, ExperimentResult, PlanQualityScore
 
@@ -567,11 +567,11 @@ def advise(
         "-p",
         help="Persona ID from bank (e.g. P01). Skips interactive profile gathering.",
     ),
-    model: str = typer.Option(
-        DEFAULT_MODEL,
+    model: Optional[str] = typer.Option(
+        None,
         "--model",
         "-m",
-        help="LLM model identifier.",
+        help="LLM model identifier. Defaults to ADVISOR_MODEL (basic) or REFINE_MODEL (premium).",
     ),
     mode: str = typer.Option(
         "basic",
@@ -585,6 +585,8 @@ def advise(
     ),
 ) -> None:
     """FinAdvisor — interactive mutual fund advisor: gather profile, co-create strategy, generate plan."""
+    if model is None:
+        model = REFINE_MODEL if mode == "premium" and REFINE_MODEL else ADVISOR_MODEL
     _check_api_key(model)
 
     conversation = ConversationLog(model=model)
@@ -651,7 +653,14 @@ def advise(
             status_msg = "[bold blue]Selecting funds and building your plan...[/bold blue]"
         with _console.status(status_msg):
             plan, _ = asyncio.run(
-                generate_plan(profile, strategy=strategy, mode=mode, n_perspectives=perspectives, model=model)
+                generate_plan(
+                    profile,
+                    strategy=strategy,
+                    mode=mode,
+                    n_perspectives=perspectives,
+                    model=model,
+                    refine_model=REFINE_MODEL if mode == "premium" else None,
+                )
             )
         print(
             format_plan_summary(
