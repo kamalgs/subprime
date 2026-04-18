@@ -108,6 +108,11 @@ def experiment_run(
         "-p",
         help="Single persona ID to run (default: all personas).",
     ),
+    personas_file: Optional[Path] = typer.Option(
+        None,
+        "--personas",
+        help="Path to a custom persona bank JSON (default: bundled bank.json).",
+    ),
     conditions: str = typer.Option(
         "baseline,lynch,bogle",
         "--conditions",
@@ -205,7 +210,11 @@ def experiment_run(
     from subprime.experiments.conditions import get_condition
     from subprime.experiments.estimator import estimate_experiment, print_estimate
 
-    resolved_personas = [get_persona(pid) for pid in persona_ids] if persona_ids else load_personas()
+    resolved_personas = (
+        [get_persona(pid, path=personas_file) for pid in persona_ids]
+        if persona_ids
+        else load_personas(path=personas_file)
+    )
     resolved_conditions = [get_condition(name) for name in condition_names]
 
     est = estimate_experiment(
@@ -278,6 +287,11 @@ def experiment_estimate(
         "-p",
         help="Single persona ID (default: all personas).",
     ),
+    personas_file: Optional[Path] = typer.Option(
+        None,
+        "--personas",
+        help="Path to a custom persona bank JSON (default: bundled bank.json).",
+    ),
     conditions: str = typer.Option(
         "baseline,lynch,bogle",
         "--conditions",
@@ -326,7 +340,11 @@ def experiment_estimate(
     persona_ids = [persona] if persona else None
     condition_names = [c.strip() for c in conditions.split(",") if c.strip()]
 
-    resolved_personas = [get_persona(pid) for pid in persona_ids] if persona_ids else load_personas()
+    resolved_personas = (
+        [get_persona(pid, path=personas_file) for pid in persona_ids]
+        if persona_ids
+        else load_personas(path=personas_file)
+    )
     resolved_conditions = [get_condition(name) for name in condition_names]
 
     if compare:
