@@ -123,6 +123,7 @@ async def run_experiment_batch(
     prompt_version: str = "v1",
     results_dir: Path | None = None,
     resume: bool = False,
+    personas_file: Path | None = None,
 ) -> list[ExperimentResult]:
     """Run the experiment matrix via Anthropic Message Batches (50% cost discount).
 
@@ -153,9 +154,9 @@ async def run_experiment_batch(
     """
     # --- Resolve personas and conditions ------------------------------------ #
     if persona_ids is not None:
-        personas = [get_persona(pid) for pid in persona_ids]
+        personas = [get_persona(pid, path=personas_file) for pid in persona_ids]
     else:
-        personas = load_personas()
+        personas = load_personas(path=personas_file)
 
     if condition_names is not None:
         conditions = [get_condition(name) for name in condition_names]

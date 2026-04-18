@@ -824,6 +824,8 @@ class TestExperimentResult:
             "pqs",
             "timestamp",
             "prompt_version",
+            "usage",
+            "elapsed_s",
         }
         assert expected_keys == set(d.keys())
 

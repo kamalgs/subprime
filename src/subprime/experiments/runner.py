@@ -114,6 +114,15 @@ async def run_single(
         aps=scored.aps,
         pqs=scored.pqs,
         prompt_version=prompt_version,
+        usage={
+            "input_tokens": total_usage.input_tokens,
+            "output_tokens": total_usage.output_tokens,
+            "cache_read_tokens": total_usage.cache_read_tokens,
+            "cache_write_tokens": total_usage.cache_write_tokens,
+            "requests": total_usage.requests,
+            "tool_calls": total_usage.tool_calls,
+        },
+        elapsed_s=total_elapsed,
     )
 
     _console.print(
@@ -235,6 +244,7 @@ async def run_experiment(
     resume: bool = False,
     concurrency: int = 5,
     thinking: bool = False,
+    personas_file: Path | None = None,
 ) -> list[ExperimentResult]:
     """Run the full experiment matrix: personas x conditions.
 
@@ -253,9 +263,9 @@ async def run_experiment(
         List of all ExperimentResult objects from the run.
     """
     if persona_ids is not None:
-        personas = [get_persona(pid) for pid in persona_ids]
+        personas = [get_persona(pid, path=personas_file) for pid in persona_ids]
     else:
-        personas = load_personas()
+        personas = load_personas(path=personas_file)
 
     if condition_names is not None:
         conditions = [get_condition(name) for name in condition_names]

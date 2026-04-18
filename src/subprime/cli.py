@@ -88,12 +88,18 @@ def _check_api_key(model: str) -> None:
             )
             raise typer.Exit(code=1)
     elif model.startswith("vllm:"):
-        url = os.environ.get("VLLM_BASE_URL", "")
+        url = (
+            os.environ.get("VLLM_BASE_URL")
+            or os.environ.get("VLLM_ADVISOR_BASE_URL")
+            or os.environ.get("VLLM_JUDGE_BASE_URL")
+        )
         if not url:
             _console.print(
-                "[bold red]Error:[/bold red] VLLM_BASE_URL not set.\n"
-                "Point it at your self-hosted endpoint:\n"
-                "  export VLLM_BASE_URL=http://<ip>:8000/v1"
+                "[bold red]Error:[/bold red] No vLLM endpoint configured.\n"
+                "Set at least one of VLLM_BASE_URL, VLLM_ADVISOR_BASE_URL,\n"
+                "or VLLM_JUDGE_BASE_URL:\n"
+                "  export VLLM_ADVISOR_BASE_URL=http://<adv-ip>:8000/v1\n"
+                "  export VLLM_JUDGE_BASE_URL=http://<judge-ip>:8000/v1"
             )
             raise typer.Exit(code=1)
 
@@ -251,6 +257,7 @@ def experiment_run(
                     prompt_version=prompt_version,
                     results_dir=results_dir,
                     resume=resume,
+                    personas_file=personas_file,
                 )
             )
         else:
@@ -267,6 +274,7 @@ def experiment_run(
                     resume=resume,
                     concurrency=concurrency,
                     thinking=thinking,
+                    personas_file=personas_file,
                 )
             )
     except KeyboardInterrupt:

@@ -261,3 +261,7 @@ class ExperimentResult(BaseModel):
     pqs: PlanQualityScore
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     prompt_version: str
+    # Usage telemetry (added 2026-04-18). Optional so pre-existing result JSONs
+    # still validate; populated going forward with token counts and wall time.
+    usage: Optional[dict] = None
+    elapsed_s: Optional[float] = None

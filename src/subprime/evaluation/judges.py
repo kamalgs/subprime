@@ -104,7 +104,7 @@ def create_aps_judge(model: str = DEFAULT_MODEL, *, thinking: bool = True) -> Ag
     key = (model, thinking)
     if key not in _aps_agents:
         _aps_agents[key] = Agent(
-            build_model(model),
+            build_model(model, role="judge"),
             system_prompt=_APS_PROMPT,
             output_type=APSScore,
             retries=2,
@@ -119,7 +119,7 @@ def create_pqs_judge(model: str = DEFAULT_MODEL, *, thinking: bool = True) -> Ag
     key = (model, thinking)
     if key not in _pqs_agents:
         _pqs_agents[key] = Agent(
-            build_model(model),
+            build_model(model, role="judge"),
             system_prompt=_PQS_PROMPT,
             output_type=PlanQualityScore,
             retries=2,

@@ -63,13 +63,19 @@ def together_model_name(model: str) -> str:
     return model.split(":", 1)[1] if ":" in model else model
 
 
-def build_model(model: str):
+def build_model(model: str, *, role: str | None = None):
     """Return either a model string (for native PydanticAI providers) or a
     configured model instance.
 
     For ``together:`` prefixes, constructs an OpenAI-compatible chat model
-    pointed at Together's endpoint. Other prefixes (anthropic, openai, groq…)
-    pass through as strings and PydanticAI resolves them natively.
+    pointed at Together's endpoint. For ``vllm:`` prefixes, points at a
+    self-hosted endpoint resolved from env vars (see below). Other prefixes
+    (anthropic, openai, groq…) pass through as strings.
+
+    vLLM endpoint resolution (per role):
+        VLLM_ADVISOR_BASE_URL  — when role="advisor"
+        VLLM_JUDGE_BASE_URL    — when role="judge"
+        VLLM_BASE_URL          — fallback for either
     """
     if is_together(model):
         from pydantic_ai.models.openai import OpenAIChatModel
@@ -84,7 +90,12 @@ def build_model(model: str):
         from pydantic_ai.models.openai import OpenAIChatModel
         from pydantic_ai.providers.openai import OpenAIProvider
 
-        base_url = os.environ.get("VLLM_BASE_URL", "http://localhost:8000/v1")
+        role_env = {"advisor": "VLLM_ADVISOR_BASE_URL", "judge": "VLLM_JUDGE_BASE_URL"}.get(role or "")
+        base_url = (
+            (role_env and os.environ.get(role_env))
+            or os.environ.get("VLLM_BASE_URL")
+            or "http://localhost:8000/v1"
+        )
         return OpenAIChatModel(
             together_model_name(model),  # strips "vllm:" prefix, returns the HF id
             provider=OpenAIProvider(base_url=base_url, api_key="EMPTY"),
@@ -119,9 +130,9 @@ def build_model_settings(
         }
         # Thinking mode interleaves reasoning before the final answer; give it
         # generous headroom so structured outputs don't truncate mid-JSON.
-        # Non-thinking still needs room because small Qwen models can loop on
-        # tool calls before emitting final_result.
-        settings["max_tokens"] = 24000 if thinking else 24000
+        # Non-thinking uses a tighter budget that still leaves room for the
+        # full InvestmentPlan JSON plus any retry commentary.
+        settings["max_tokens"] = 24000 if thinking else 20000
     if not thinking and "max_tokens" not in settings:
         settings["max_tokens"] = 8192
     return settings

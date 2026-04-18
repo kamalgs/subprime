@@ -90,7 +90,7 @@ def create_advisor(
         tools_list = []
 
     return Agent(
-        build_model(model),
+        build_model(model, role="advisor"),
         system_prompt=system_prompt,
         output_type=InvestmentPlan,
         tools=tools_list,
@@ -136,7 +136,7 @@ def create_thinking_advisor(
         settings["anthropic_cache_tool_definitions"] = "1h"
 
     return Agent(
-        build_model(model),
+        build_model(model, role="advisor"),
         system_prompt=system_prompt,
         output_type=str,
         tools=[search_funds_universe, get_fund_details],
@@ -151,7 +151,7 @@ def create_plan_structurer(
 ) -> Agent:
     """Create an agent that converts prose plan text into structured JSON (turn 2 of 2)."""
     return Agent(
-        build_model(model),
+        build_model(model, role="advisor"),
         system_prompt=(
             "You are a structured-data extraction agent. "
             "Given a detailed investment plan in prose, extract it into the "
@@ -185,7 +185,7 @@ def create_plan_reviewer(
     review = load_prompt("review")
 
     return Agent(
-        build_model(model),
+        build_model(model, role="advisor"),
         system_prompt=review,
         output_type=InvestmentPlan,
         tools=[],         # no tool calls — reviewer works from the draft text
@@ -221,7 +221,7 @@ def create_strategy_advisor(
     system_prompt = "\n\n---\n\n".join(parts)
 
     return Agent(
-        build_model(model),
+        build_model(model, role="advisor"),
         system_prompt=system_prompt,
         output_type=StrategyOutline,
         tools=[],
