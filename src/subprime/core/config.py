@@ -162,7 +162,7 @@ def build_model_settings(
         # generous headroom so structured outputs don't truncate mid-JSON.
         # Non-thinking uses a tighter budget that still leaves room for the
         # full InvestmentPlan JSON plus any retry commentary.
-        settings["max_tokens"] = 24000 if thinking else 20000
+        settings["max_tokens"] = 24000 if thinking else 6000
     if not thinking and "max_tokens" not in settings:
         settings["max_tokens"] = 8192
     return settings
