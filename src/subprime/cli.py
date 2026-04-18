@@ -87,6 +87,15 @@ def _check_api_key(model: str) -> None:
                 "Export it: export TOGETHER_API_KEY=tgp_v1_..."
             )
             raise typer.Exit(code=1)
+    elif model.startswith("vllm:"):
+        url = os.environ.get("VLLM_BASE_URL", "")
+        if not url:
+            _console.print(
+                "[bold red]Error:[/bold red] VLLM_BASE_URL not set.\n"
+                "Point it at your self-hosted endpoint:\n"
+                "  export VLLM_BASE_URL=http://<ip>:8000/v1"
+            )
+            raise typer.Exit(code=1)
 
 _console = Console()
 

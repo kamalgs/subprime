@@ -38,6 +38,15 @@ def is_together(model: str) -> bool:
     return model_provider(model) == "together"
 
 
+def is_vllm(model: str) -> bool:
+    """True when *model* targets a self-hosted vLLM endpoint (vllm: prefix).
+
+    The endpoint URL is read from VLLM_BASE_URL. Intended for subprime-infra
+    serving on Lambda/RunPod: ``vllm:Qwen/Qwen3.5-9B``.
+    """
+    return model_provider(model) == "vllm"
+
+
 def is_qwen3(model: str) -> bool:
     """True for Qwen3 / Qwen3.5 variants (configurable thinking via chat template)."""
     name = model.split(":", 1)[-1].lower()
@@ -70,6 +79,15 @@ def build_model(model: str):
         return OpenAIChatModel(
             together_model_name(model),
             provider=TogetherProvider(api_key=api_key),
+        )
+    if is_vllm(model):
+        from pydantic_ai.models.openai import OpenAIChatModel
+        from pydantic_ai.providers.openai import OpenAIProvider
+
+        base_url = os.environ.get("VLLM_BASE_URL", "http://localhost:8000/v1")
+        return OpenAIChatModel(
+            together_model_name(model),  # strips "vllm:" prefix, returns the HF id
+            provider=OpenAIProvider(base_url=base_url, api_key="EMPTY"),
         )
     return model
 
