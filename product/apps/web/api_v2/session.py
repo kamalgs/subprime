@@ -21,7 +21,7 @@ from apps.web.api_v2.dto import (
 )
 from subprime.core.db import get_pool
 from subprime.core.models import InvestorProfile, Session
-from subprime.core.otp import create_otp, daily_otp_count, verify_otp
+from subprime.core.otp import create_otp, verify_otp
 from subprime.evaluation.personas import get_persona
 
 logger = logging.getLogger(__name__)
@@ -116,21 +116,28 @@ async def otp_request(
     request: Request,
     benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
 ) -> OTPSendResponse:
-    """Send an OTP to the given email. Silently no-ops if no DB pool."""
+    """Generate an OTP for the given email and dispatch it via SMTP.
+
+    If no DB pool is configured the endpoint returns ``sent=False`` — callers
+    can still bypass with ``SUBPRIME_OTP_CHEAT`` on the verify endpoint.
+    """
     pool = get_pool()
     if not pool:
-        return OTPSendResponse(sent=False, message="Premium unavailable (no DB).")
+        return OTPSendResponse(sent=False, message="Premium unavailable — no DB configured.")
     email = body.email.strip().lower()
-    count = await daily_otp_count(pool, email)
-    if count >= 100:
-        raise HTTPException(429, "Daily OTP limit reached.")
-    code = await create_otp(pool, email)
-    # Email delivery is best-effort — don't fail the request on SMTP errors.
+
+    result = await create_otp(pool, email)
+    if not result.get("success"):
+        return OTPSendResponse(sent=False, message=result.get("reason", "Could not generate code."))
+
+    # SMTP delivery is best-effort — log failures but still tell the client
+    # the code was generated so they can try verifying.
     try:
         from apps.web.email import send_otp_email
-        await send_otp_email(email, code)
+        await send_otp_email(email, result["code"])
     except Exception:
         logger.exception("SMTP delivery failed for %s", email)
+
     return OTPSendResponse(sent=True, message=f"Code sent to {email}")
 
 
