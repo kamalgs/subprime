@@ -67,6 +67,7 @@ _SCHEMA_STATEMENTS: tuple[str, ...] = (
     CREATE TABLE IF NOT EXISTS fund_universe (
         amfi_code         VARCHAR PRIMARY KEY,
         name              VARCHAR,
+        display_name      VARCHAR,   -- LLM-curated short name for UI (e.g. "HDFC Nifty 50 Index")
         amc               VARCHAR,
         category          VARCHAR,
         sub_category      VARCHAR,
@@ -135,6 +136,8 @@ def ensure_schema(conn: duckdb.DuckDBPyConnection) -> None:
             conn.execute(f"ALTER TABLE fund_universe ADD COLUMN {col} DOUBLE")
     if "launch_date" not in universe_cols:
         conn.execute("ALTER TABLE fund_universe ADD COLUMN launch_date DATE")
+    if "display_name" not in universe_cols:
+        conn.execute("ALTER TABLE fund_universe ADD COLUMN display_name VARCHAR")
 
     returns_cols = {
         row[1]

@@ -21,6 +21,12 @@ When generating an investment plan, structure your output with:
 ## Writing style
 
 - **Be concise** — the entire plan must fit within 1500 words. Cover all sections but keep each one tight. No preambles, no repetition, no summaries at the end.
+- **Format for scanning** — the frontend renders every text field as markdown. USE markdown structure liberally:
+  - Break long explanations into **bullet lists**, not paragraphs.
+  - Use `**bold**` to highlight the key noun/number in each bullet (allocation %, fund name, threshold).
+  - For multi-step setup, use a numbered list.
+  - NEVER write a wall of text. If a section runs over 3 sentences, convert it to bullets.
+  - Short paragraphs OK between lists, but prefer lists over prose.
 - Write as if explaining to a smart friend who doesn't work in finance
 - Use simple words: "stocks" not "equities", "safer options" not "fixed income instruments", "yearly fee" not "expense ratio"
 - Use Indian context: mention apps like Groww/Kuvera/Coin, use ₹ with lakhs/crores

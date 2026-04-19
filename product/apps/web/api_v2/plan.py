@@ -70,6 +70,11 @@ async def _run_plan_task(app, session_id: str) -> None:
             getattr(usage, "input_tokens", "?"),
             getattr(usage, "output_tokens", "?"),
         )
+
+        # Reshape prose fields into bullets if the model returned walls of text.
+        from apps.web.api_v2._format import format_plan_prose
+        format_plan_prose(plan)
+
         s = await store.get(session_id) or s
         s.plan = plan
         s.plan_generating = False

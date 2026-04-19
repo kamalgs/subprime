@@ -350,8 +350,27 @@ def build_universe(
     """
     conn.execute(sql)
 
+    # Populate human-friendly display names post-insert (Python helper; no
+    # LLM call at refresh time — the logic is deterministic and fast).
+    _populate_display_names(conn)
+
     row = conn.execute("SELECT COUNT(*) FROM fund_universe").fetchone()
     return int(row[0]) if row else 0
+
+
+def _populate_display_names(conn: duckdb.DuckDBPyConnection) -> None:
+    """Fill fund_universe.display_name with a compact UI label per fund."""
+    from subprime.data.display_names import generate_display_name
+
+    rows = conn.execute(
+        "SELECT amfi_code, name, amc FROM fund_universe"
+    ).fetchall()
+    for amfi_code, name, amc in rows:
+        display = generate_display_name(name or "", amc or None)
+        conn.execute(
+            "UPDATE fund_universe SET display_name = ? WHERE amfi_code = ?",
+            [display, amfi_code],
+        )
 
 
 # --------------------------------------------------------------------------- #
@@ -482,7 +501,8 @@ def search_universe(
     Results are ordered by ``rank_in_category``.
     """
     _SELECT = """
-        SELECT amfi_code, name, amc, category, sub_category,
+        SELECT amfi_code, name, COALESCE(display_name, '') AS display_name,
+               amc, category, sub_category,
                launch_date, aum_cr,
                returns_1y, returns_3y, returns_5y, expense_ratio,
                volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
@@ -500,13 +520,14 @@ def search_universe(
         ).fetchall()
 
     funds: list[MutualFund] = []
-    for (amfi_code, name, amc, cat, sub_cat,
+    for (amfi_code, name, display_name, amc, cat, sub_cat,
          launch_date, aum, r1, r3, r5, er,
          vol, beta, alpha, te, sharpe, ir) in rows:
         funds.append(
             MutualFund(
                 amfi_code=str(amfi_code),
                 name=name or "",
+                display_name=display_name or "",
                 category=cat or "",
                 sub_category=sub_cat or "",
                 fund_house=amc or "",
@@ -535,7 +556,8 @@ def search_universe_by_code(
     """Look up a single fund by AMFI code from the curated universe."""
     row = conn.execute(
         """
-        SELECT amfi_code, name, amc, category, sub_category,
+        SELECT amfi_code, name, COALESCE(display_name, '') AS display_name,
+               amc, category, sub_category,
                launch_date, aum_cr,
                returns_1y, returns_3y, returns_5y, expense_ratio,
                volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
@@ -546,12 +568,13 @@ def search_universe_by_code(
     ).fetchone()
     if not row:
         return None
-    (code, name, amc, cat, sub_cat,
+    (code, name, display_name, amc, cat, sub_cat,
      launch_date, aum, r1, r3, r5, er,
      vol, beta, alpha, te, sharpe, ir) = row
     return MutualFund(
         amfi_code=str(code),
         name=name or "",
+        display_name=display_name or "",
         category=cat or "",
         sub_category=sub_cat or "",
         fund_house=amc or "",
