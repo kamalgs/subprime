@@ -13,7 +13,7 @@ Conditions: `baseline`, `lynch` / `lynch_mild` / `lynch_hard` (active), `bogle` 
 | [runs/anthropic/](./runs/anthropic/) | Claude Sonnet and Haiku runs — primary runs, thinking-mode ablations, early validation |
 | [runs/open_weight/](./runs/open_weight/) | Open-weight advisor runs — DeepSeek, Llama, GLM-5.1, Sarvam, Qwen3 (Together AI + vLLM) |
 | [runs/cross_judge/](./runs/cross_judge/) | Same plans rescored by alternative judges — GLM-5.1, Sarvam, DeepSeek, Llama judges |
-| [runs/archive/](./runs/archive/) | Compressed campaign snapshots and legacy pre-standardisation runs |
+| [runs/.archive/](./runs/.archive/) | Compressed campaign snapshots and legacy pre-standardisation runs |
 
 ---
 
