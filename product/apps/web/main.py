@@ -4,8 +4,17 @@
 from __future__ import annotations
 
 import logging
+import os
 from contextlib import asynccontextmanager
 from pathlib import Path
+
+# Default to INFO so background-task lifecycle logs (plan QUEUED / START /
+# DONE / FAILED) land in container stderr. Set LOG_LEVEL=DEBUG for verbose.
+logging.basicConfig(
+    level=os.environ.get("LOG_LEVEL", "INFO").upper(),
+    format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+    force=True,
+)
 
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse

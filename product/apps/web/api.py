@@ -319,15 +319,23 @@ async def api_answer_questions(
 
 async def _generate_plan_task(app, session_id: str) -> None:
     """Runs in the background — generate the plan, save it to the session."""
+    import time as _time
     store = app.state.session_store
     session = await store.get(session_id)
     if session is None or session.profile is None:
+        logger.warning("[plan %s] skipped — no session/profile", session_id[:8])
         return
+
+    effective_mode = session.mode if _multi_perspective_enabled() else "basic"
+    logger.info(
+        "[plan %s] START mode=%s multi=%s model=%s persona=%s has_strategy=%s",
+        session_id[:8], effective_mode, _multi_perspective_enabled(),
+        ADVISOR_MODEL, session.profile.id if session.profile else "?",
+        session.strategy is not None,
+    )
+    t0 = _time.time()
     try:
-        # Multi-perspective premium mode is gated — collapses to single-plan
-        # unless SUBPRIME_MULTI_PERSPECTIVE=1 is set.
-        effective_mode = session.mode if _multi_perspective_enabled() else "basic"
-        plan, _ = await generate_plan(
+        plan, usage = await generate_plan(
             session.profile,
             strategy=session.strategy,
             mode=effective_mode,
@@ -335,6 +343,14 @@ async def _generate_plan_task(app, session_id: str) -> None:
             model=ADVISOR_MODEL,
             refine_model=REFINE_MODEL,
         )
+        dt = _time.time() - t0
+        logger.info(
+            "[plan %s] DONE in %.1fs — allocations=%d returns=%s tokens=(in=%s,out=%s)",
+            session_id[:8], dt, len(plan.allocations), plan.projected_returns,
+            getattr(usage, "input_tokens", "?"),
+            getattr(usage, "output_tokens", "?"),
+        )
+
         # Re-fetch in case another request updated it concurrently.
         session = await store.get(session_id) or session
         session.plan = plan
@@ -342,12 +358,16 @@ async def _generate_plan_task(app, session_id: str) -> None:
         session.plan_error = None
         session.current_step = 4
         await store.save(session)
+        logger.info("[plan %s] SAVED", session_id[:8])
 
         from subprime.core.conversations import save_conversation
         from subprime.core.db import get_pool as _get_pool
         await save_conversation(session=session, pool=_get_pool())
     except Exception as exc:
-        logger.exception("Plan generation failed for session %s", session_id)
+        dt = _time.time() - t0
+        logger.exception(
+            "[plan %s] FAILED after %.1fs: %s", session_id[:8], dt, exc,
+        )
         session = await store.get(session_id) or session
         session.plan_generating = False
         session.plan_error = str(exc)[:200]
@@ -393,6 +413,12 @@ async def api_generate_plan(
     session.plan_error = None
     session.current_step = 4
     await store.save(session)
+
+    logger.info(
+        "[plan %s] QUEUED mode=%s profile=%s",
+        session.id[:8], session.mode,
+        session.profile.id if session.profile else "?",
+    )
 
     # BackgroundTasks run *after* the response is flushed, so the browser
     # follows the redirect while the LLM call proceeds server-side.
