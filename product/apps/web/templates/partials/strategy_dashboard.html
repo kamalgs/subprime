@@ -17,24 +17,19 @@
                     data-outer-colors='{{ chart_data.outer.colors | tojson }}'
                     aria-label="Asset allocation chart" role="img"></canvas>
             </div>
-            <div class="flex flex-wrap justify-center gap-x-4 gap-y-1.5 text-xs">
+            {# Compact legend — only the 4 asset classes. Sub-category details
+               appear in the centre of the donut when you hover / tap a slice. #}
+            <div class="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-xs">
                 {% for label in chart_data.inner.labels %}
-                <span class="flex items-center gap-1.5 font-medium text-gray-700 dark:text-slate-300">
-                    <span class="inline-block w-3 h-3 rounded-full flex-shrink-0" style="background:{{ chart_data.inner.colors[loop.index0] }}"></span>
+                <span class="inline-flex items-center gap-1.5 font-medium text-gray-700 dark:text-slate-300 whitespace-nowrap">
+                    <span class="inline-block w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:{{ chart_data.inner.colors[loop.index0] }}"></span>
                     {{ label }}
                     <span class="text-gray-500 dark:text-slate-400 font-normal">{{ chart_data.inner['values'][loop.index0] }}%</span>
                 </span>
                 {% endfor %}
             </div>
             {% if chart_data.outer.labels != chart_data.inner.labels %}
-            <div class="flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs text-gray-500 dark:text-slate-400 border-t border-gray-100 dark:border-slate-700 pt-2 mt-1 w-full">
-                {% for label in chart_data.outer.labels %}
-                <span class="flex items-center gap-1">
-                    <span class="inline-block w-2 h-2 rounded-full flex-shrink-0" style="background:{{ chart_data.outer.colors[loop.index0] }}"></span>
-                    {{ label }} {{ chart_data.outer['values'][loop.index0] }}%
-                </span>
-                {% endfor %}
-            </div>
+            <p class="text-xs text-gray-400 dark:text-slate-500 italic">Tap a slice for details</p>
             {% endif %}
         </div>
 

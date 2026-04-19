@@ -81,13 +81,30 @@ function initDonutChart(canvasId) {
     var hasOuter = outerLabels.length > 0 && (outerLabels.length !== innerLabels.length ||
         outerLabels.some(function(l, i) { return l !== innerLabels[i]; }));
 
-    // Largest inner segment drives the centre text.
+    // Default-selected segment = largest inner slice.
     var topIdx = 0;
     innerValues.forEach(function(v, i) { if (v > innerValues[topIdx]) topIdx = i; });
+    // Active segment state — updated on hover/tap, rendered by the centre plugin.
+    var active = { dataset: 0, index: topIdx };
 
     var tokens = _themeTokens();
 
-    // Centre text plugin — large % + small label.
+    function activeLabelValueColor() {
+        if (active.dataset === 1) {
+            return {
+                label: outerLabels[active.index] || '',
+                value: outerValues[active.index],
+                color: outerColors[active.index] || '#4f46e5',
+            };
+        }
+        return {
+            label: innerLabels[active.index] || '',
+            value: innerValues[active.index],
+            color: innerColors[active.index] || '#4f46e5',
+        };
+    }
+
+    // Centre text — reflects whichever segment is active (idle = largest).
     var centerPlugin = {
         id: 'centerText',
         afterDraw: function(chart) {
@@ -97,15 +114,19 @@ function initDonutChart(canvasId) {
             var cx = (area.left + area.right) / 2;
             var cy = (area.top + area.bottom) / 2;
             var r = Math.min(area.right - area.left, area.bottom - area.top);
+            var lv = activeLabelValueColor();
             ctx.save();
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillStyle = innerColors[topIdx] || '#4f46e5';
+            ctx.fillStyle = lv.color;
             ctx.font = 'bold ' + Math.round(r * 0.18) + 'px system-ui, -apple-system, "Segoe UI", sans-serif';
-            ctx.fillText(innerValues[topIdx] + '%', cx, cy - Math.round(r * 0.08));
+            ctx.fillText(lv.value + '%', cx, cy - Math.round(r * 0.08));
             ctx.fillStyle = tokens.textMuted;
             ctx.font = '500 ' + Math.round(r * 0.085) + 'px system-ui, -apple-system, sans-serif';
-            ctx.fillText(innerLabels[topIdx] || '', cx, cy + Math.round(r * 0.12));
+            // Truncate long sub-category labels so they fit inside the hole.
+            var maxChars = Math.floor(r / 7);
+            var label = lv.label.length > maxChars ? lv.label.slice(0, maxChars - 1) + '…' : lv.label;
+            ctx.fillText(label, cx, cy + Math.round(r * 0.12));
             ctx.restore();
         }
     };
@@ -136,7 +157,7 @@ function initDonutChart(canvasId) {
         });
     }
 
-    new Chart(canvas, {
+    var chart = new Chart(canvas, {
         type: 'doughnut',
         data: { labels: hasOuter ? outerLabels : innerLabels, datasets: datasets },
         options: {
@@ -144,21 +165,30 @@ function initDonutChart(canvasId) {
             responsive: true,
             maintainAspectRatio: true,
             animation: { animateRotate: true, animateScale: false, duration: 650, easing: 'easeOutQuart' },
+            // Drive the centre label via hover — no tooltip needed (avoids overlap).
+            onHover: function(_evt, elements) {
+                if (elements && elements.length) {
+                    active = { dataset: elements[0].datasetIndex, index: elements[0].index };
+                } else {
+                    active = { dataset: 0, index: topIdx };
+                }
+                chart.draw();
+            },
             plugins: {
                 legend: { display: false },
-                tooltip: Object.assign({}, _tooltipOpts(tokens), {
-                    callbacks: {
-                        label: function(ctx) {
-                            var lbl = ctx.datasetIndex === 0
-                                ? (innerLabels[ctx.dataIndex] || ctx.label)
-                                : (outerLabels[ctx.dataIndex] || ctx.label);
-                            return '  ' + lbl + ': ' + ctx.parsed + '%';
-                        },
-                    },
-                }),
+                tooltip: { enabled: false },
             },
         },
         plugins: [centerPlugin],
+    });
+
+    // Tap support for touch devices — keep active segment after the tap.
+    canvas.addEventListener('click', function(evt) {
+        var pts = chart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+        if (pts && pts.length) {
+            active = { dataset: pts[0].datasetIndex, index: pts[0].index };
+            chart.draw();
+        }
     });
 }
 
