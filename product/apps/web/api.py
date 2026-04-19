@@ -3,7 +3,12 @@
 import re
 from typing import Annotated
 
-from fastapi import APIRouter, Cookie, Form, Request, Response
+import asyncio
+import logging
+
+from fastapi import APIRouter, BackgroundTasks, Cookie, Form, Request, Response
+
+logger = logging.getLogger(__name__)
 
 from subprime.evaluation.personas import get_persona
 from apps.web.session import Session
@@ -300,34 +305,83 @@ async def api_answer_questions(
 # ---------------------------------------------------------------------------
 
 
+async def _generate_plan_task(app, session_id: str) -> None:
+    """Runs in the background — generate the plan, save it to the session."""
+    store = app.state.session_store
+    session = await store.get(session_id)
+    if session is None or session.profile is None:
+        return
+    try:
+        plan, _ = await generate_plan(
+            session.profile,
+            strategy=session.strategy,
+            mode=session.mode,
+            n_perspectives=3,
+            model=ADVISOR_MODEL,
+            refine_model=REFINE_MODEL,
+        )
+        # Re-fetch in case another request updated it concurrently.
+        session = await store.get(session_id) or session
+        session.plan = plan
+        session.plan_generating = False
+        session.plan_error = None
+        session.current_step = 4
+        await store.save(session)
+
+        from subprime.core.conversations import save_conversation
+        from subprime.core.db import get_pool as _get_pool
+        await save_conversation(session=session, pool=_get_pool())
+    except Exception as exc:
+        logger.exception("Plan generation failed for session %s", session_id)
+        session = await store.get(session_id) or session
+        session.plan_generating = False
+        session.plan_error = str(exc)[:200]
+        await store.save(session)
+
+
+@router.get("/plan-status")
+async def api_plan_status(
+    request: Request,
+    benji_session: str | None = Cookie(default=None),
+):
+    """JSON status for the loading screen poller."""
+    from fastapi.responses import JSONResponse
+    store = request.app.state.session_store
+    if not benji_session:
+        return JSONResponse({"ready": False, "error": "no-session"})
+    session = await store.get(benji_session)
+    if not session:
+        return JSONResponse({"ready": False, "error": "no-session"})
+    return JSONResponse({
+        "ready": session.plan is not None,
+        "generating": session.plan_generating,
+        "error": session.plan_error,
+    })
+
+
 @router.post("/generate-plan")
 async def api_generate_plan(
     request: Request,
     response: Response,
+    background: BackgroundTasks,
     benji_session: str | None = Cookie(default=None),
 ) -> Response:
-    """Generate a detailed investment plan and redirect to step 4."""
+    """Kick off plan generation in the background, redirect to step 4 now."""
     store = request.app.state.session_store
     session = await _get_or_create_session(request, benji_session)
     if session.profile is None:
         return Response(status_code=400, content="No profile in session")
 
-    plan, _ = await generate_plan(
-        session.profile,
-        strategy=session.strategy,
-        mode=session.mode,
-        n_perspectives=3,
-        model=ADVISOR_MODEL,
-        refine_model=REFINE_MODEL,
-    )
-    session.plan = plan
+    # Reset any prior error, mark as generating, move to step 4.
+    session.plan = None
+    session.plan_generating = True
+    session.plan_error = None
     session.current_step = 4
     await store.save(session)
 
-    # Save conversation log
-    from subprime.core.conversations import save_conversation
-    from subprime.core.db import get_pool as _get_pool
-    await save_conversation(session=session, pool=_get_pool())
+    # BackgroundTasks run *after* the response is flushed, so the browser
+    # follows the redirect while the LLM call proceeds server-side.
+    background.add_task(_generate_plan_task, request.app, session.id)
 
     response.status_code = 200
     response.headers["HX-Redirect"] = "/step/4"

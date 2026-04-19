@@ -233,6 +233,8 @@ class Session(BaseModel):
     plan: InvestmentPlan | None = None
     strategy_chat: list[ConversationTurn] = []
     is_demo: bool = False  # True when entered via OTP cheat code — unlocks full persona bank
+    plan_generating: bool = False  # True while a background plan-generation task is in flight
+    plan_error: str | None = None  # Last plan-generation error message, if any
 
     def to_summary(self) -> SessionSummary:
         return SessionSummary(

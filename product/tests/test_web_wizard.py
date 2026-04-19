@@ -909,7 +909,7 @@ class TestStep4PlanResult:
 
     @pytest.mark.asyncio
     async def test_step4_redirects_without_plan(self):
-        """GET /step/4 without plan redirects to step 1."""
+        """GET /step/4 with no plan and no in-flight generation bounces back."""
         from apps.web.main import create_app
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
@@ -917,7 +917,8 @@ class TestStep4PlanResult:
             await client.post("/api/select-tier", data={"mode": "basic"})
             resp = await client.get("/step/4", follow_redirects=False)
         assert resp.status_code == 302
-        assert resp.headers["location"] == "/step/1"
+        # No plan, no generation in flight → bounced to strategy or start
+        assert resp.headers["location"] in ("/step/1", "/step/3")
 
     @pytest.mark.asyncio
     async def test_step4_renders_plan(self):

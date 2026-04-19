@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Generating your plan — Benji{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto card card-spacious text-center space-y-5 mt-8">
+    {% if error %}
+    <div class="space-y-3">
+        <div class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 mx-auto flex items-center justify-center">
+            <span class="text-red-600 dark:text-red-400 text-xl">⚠</span>
+        </div>
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-slate-100">Plan generation failed</h2>
+        <p class="text-sm text-gray-500 dark:text-slate-400">{{ error }}</p>
+        <a href="/step/3" class="btn btn-primary inline-flex">Back to strategy</a>
+    </div>
+    {% else %}
+    <div class="space-y-4">
+        <div class="w-12 h-12 border-4 border-primary-200 dark:border-slate-700 border-t-primary-600 rounded-full animate-spin mx-auto"></div>
+        <div>
+            <h2 class="text-lg font-semibold text-gray-900 dark:text-slate-100">Building your plan</h2>
+            <p id="plan-progress-text" class="mt-1 text-sm text-gray-500 dark:text-slate-400">Analysing your profile…</p>
+        </div>
+        <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
+            <div id="plan-progress-bar" class="bg-primary-600 h-2 rounded-full transition-all duration-1000 ease-out" style="width: 8%"></div>
+        </div>
+        <p class="text-xs text-gray-400 dark:text-slate-500">This usually takes 30–60 seconds.</p>
+
+        <div id="plan-poller"
+             hx-get="/api/plan-status"
+             hx-trigger="load delay:4s, every 3s"
+             hx-swap="none"></div>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+(function() {
+    var steps = [
+        { pct: 15, text: "Analysing your profile…",          delay: 0 },
+        { pct: 30, text: "Matching fund categories…",        delay: 5000 },
+        { pct: 48, text: "Selecting specific funds…",        delay: 12000 },
+        { pct: 65, text: "Computing projections…",           delay: 22000 },
+        { pct: 80, text: "Refining the plan…",               delay: 35000 },
+        { pct: 92, text: "Almost there…",                    delay: 55000 },
+    ];
+    var bar = document.getElementById('plan-progress-bar');
+    var text = document.getElementById('plan-progress-text');
+    if (!bar || !text) return;
+    steps.forEach(function(s) {
+        setTimeout(function() {
+            bar.style.width = s.pct + '%';
+            text.textContent = s.text;
+        }, s.delay);
+    });
+
+    // Poll handler: /api/plan-status returns a JSON blob telling us what to do.
+    document.body.addEventListener('htmx:afterRequest', function(evt) {
+        if (!evt.detail || !evt.detail.pathInfo || evt.detail.pathInfo.requestPath !== '/api/plan-status') return;
+        try {
+            var data = JSON.parse(evt.detail.xhr.responseText);
+            if (data.ready || data.error) {
+                bar.style.width = '100%';
+                text.textContent = data.ready ? 'Ready!' : 'Failed.';
+                // Give the bar a tick to animate, then load the real page.
+                setTimeout(function() { window.location.href = '/step/4'; }, 400);
+            }
+        } catch (e) { /* ignore malformed JSON */ }
+    });
+})();
+</script>
+{% endblock %}

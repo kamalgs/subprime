@@ -139,8 +139,23 @@ async def step4(
         return RedirectResponse(url="/step/1", status_code=302)
     store = request.app.state.session_store
     session = await store.get(benji_session)
-    if not session or session.plan is None:
+    if not session:
         return RedirectResponse(url="/step/1", status_code=302)
+
+    # If no plan yet AND no generation in flight, something's wrong — go back.
+    if session.plan is None and not session.plan_generating:
+        return RedirectResponse(url="/step/3", status_code=302)
+
+    # Plan is still being generated — render the loading page (it polls itself).
+    if session.plan is None:
+        return _render(
+            request,
+            "step_plan_loading.html",
+            {
+                "current_step": 4, "session": session,
+                "error": session.plan_error,
+            },
+        )
 
     from apps.web.rendering import (
         chart_data_corpus,
