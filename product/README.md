@@ -2,6 +2,8 @@
 
 > Powered by Subprime research. Built for Indian mutual fund planning.
 
+<video src="finadvisor-demo-product.mp4" controls width="390"></video>
+
 ## Quick Start
 
 ```bash
@@ -31,7 +33,7 @@ product/
     experiments/    Conditions (baseline/lynch/bogle), runner, analysis
     cli.py          Typer CLI entry point
   apps/web/         FastAPI + HTMX advisor UI
-  tests/            Full test suite (586 passing)
+  tests/            Full test suite (601 passing)
   migrations/       Alembic DB migrations
   Dockerfile
 ```
