@@ -67,6 +67,7 @@ One more thing. Here's the full bill of materials:
 Refurbished ThinkPad T14: ₹25,000
 Contabo VPS, 4 cores: $10/month
 Claude Max: $100/month
+Ubuntu · tmux · mosh · Claude Code
 
 Decades of cross-functional experience, good taste, judgment, and curiosity: **Priceless**
 
