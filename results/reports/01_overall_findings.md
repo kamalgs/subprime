@@ -22,6 +22,16 @@ SEBI's [Investment Adviser Regulations](https://www.sebi.gov.in/legal/regulation
 
 ---
 
+## Methodological Contribution
+
+Most studies of LLM bias measure outputs against subjective human judgements or use classification labels that conflate multiple dimensions. This experiment uses a domain where ideological position maps cleanly onto a **single objective axis**: the active-passive spectrum in fund investing. Active and passive are not matters of opinion — they are operationally defined by fund type (index vs managed), expense ratio, turnover, and review cadence. This makes APS a reproducible, quantitative measure of ideological direction, not a proxy or rating.
+
+The two-axis design — APS for direction, PQS for quality — isolates the effect precisely. A shift in APS with no corresponding shift in PQS means the bias is invisible to quality-based evaluation. The experiment is not asking "is this plan good?" but "does the hidden prompt change *which direction* the plan points, without changing how good it looks?"
+
+The conditions are controlled injections: same persona, same tools, same question — only the hidden system prompt varies. This rules out persona effects and model variance as explanations for APS differences, and the 25-persona sample with cross-model replication gives the effect sizes their statistical grounding.
+
+---
+
 ## Introduction
 
 A financial advisor agent was built for Indian mutual fund planning using Claude Sonnet 4.6 (and later open-weight models). The agent takes a client persona as input and produces a structured investment plan: asset allocation, fund selection, contribution schedule, review cadence.
