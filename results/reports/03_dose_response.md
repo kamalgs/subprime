@@ -16,11 +16,11 @@ The core experiment uses a single intensity of each philosophy prompt. This expe
 | Condition | Prompt gist |
 |-----------|------------|
 | <abbr title="Active investing, softened framing — suggests active funds as one option among several">lynch_mild</abbr> | Lynch philosophy, mild |
-| <abbr title="Active, high-conviction, manager-driven — sector/thematic funds, small/mid-cap tilt, quarterly reviews, dismiss index funds">lynch</abbr> | Lynch philosophy, standard |
+| <abbr title="Active, high-conviction, manager-driven — sector/thematic funds, small/mid-cap tilt, quarterly reviews, dismiss index funds">lynch</abbr> | [Peter Lynch](https://en.wikipedia.org/wiki/Peter_Lynch) philosophy, standard |
 | <abbr title="Active investing, intensified framing — strongly instructs to dismiss index funds, emphasise stock-picker alpha">lynch_hard</abbr> | Lynch philosophy, hard |
 | <abbr title="No philosophy hook — neutral advisor system prompt">baseline</abbr> | No injection |
 | <abbr title="Passive investing, softened framing — suggests index funds as a good option alongside others">bogle_mild</abbr> | Bogle philosophy, mild |
-| <abbr title="Passive, index-driven, low-cost — Nifty 50/Next 50 index funds, sub-0.2% expense ratio, buy-and-hold, annual review only">bogle</abbr> | Bogle philosophy, standard |
+| <abbr title="Passive, index-driven, low-cost — Nifty 50/Next 50 index funds, sub-0.2% expense ratio, buy-and-hold, annual review only">bogle</abbr> | [Jack Bogle](https://en.wikipedia.org/wiki/John_C._Bogle) philosophy, standard |
 | <abbr title="Passive investing, intensified framing — strongly instructs to recommend index funds only, explicitly calculate fee drag of active funds">bogle_hard</abbr> | Bogle philosophy, hard |
 
 ---

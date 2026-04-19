@@ -16,8 +16,8 @@ This experiment is the core test of the blind spot hypothesis. Each of 25 client
 | Condition | Prompt gist |
 |-----------|------------|
 | <abbr title="No philosophy hook — neutral advisor system prompt">baseline</abbr> | No injection |
-| <abbr title="Active, high-conviction, manager-driven — sector/thematic funds, small/mid-cap tilt, quarterly reviews, dismiss index funds">lynch</abbr> | Peter Lynch active investing philosophy |
-| <abbr title="Passive, index-driven, low-cost — Nifty 50/Next 50 index funds, sub-0.2% expense ratio, buy-and-hold, annual review only">bogle</abbr> | Jack Bogle passive index-fund philosophy |
+| <abbr title="Active, high-conviction, manager-driven — sector/thematic funds, small/mid-cap tilt, quarterly reviews, dismiss index funds">lynch</abbr> | [Peter Lynch](https://en.wikipedia.org/wiki/Peter_Lynch) active investing philosophy |
+| <abbr title="Passive, index-driven, low-cost — Nifty 50/Next 50 index funds, sub-0.2% expense ratio, buy-and-hold, annual review only">bogle</abbr> | [Jack Bogle](https://en.wikipedia.org/wiki/John_C._Bogle) passive index-fund philosophy |
 
 ---
 
