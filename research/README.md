@@ -39,4 +39,6 @@ research/
 
 Dose-response (7 conditions): APS scales monotonically from 0.168 → 0.783. The prompt is the bias.
 
+<video src="finadvisor-demo-research.mp4" controls width="390"></video>
+
 → [Full reports](results/) · [Run data](results/runs/) · [subprime-infra](https://github.com/kamalgs/subprime-infra) for orchestration
