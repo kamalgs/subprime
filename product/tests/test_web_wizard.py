@@ -177,7 +177,34 @@ from apps.web.rendering import (
     inflation_adjusted,
     chart_data_donut,
     chart_data_corpus,
+    short_fund_name,
 )
+
+
+class TestShortFundName:
+    def test_strips_direct_growth(self):
+        assert short_fund_name("Mirae Asset Large Cap Fund Direct Growth") == "Mirae Asset Large Cap"
+
+    def test_strips_plan_and_option(self):
+        assert short_fund_name("HDFC Index Fund NIFTY 50 Plan Direct Growth Option") == "HDFC Index NIFTY 50"
+
+    def test_strips_regular_and_idcw(self):
+        assert short_fund_name("Axis Bluechip Fund Regular IDCW") == "Axis Bluechip"
+
+    def test_preserves_when_already_short(self):
+        assert short_fund_name("UTI Nifty 50") == "UTI Nifty 50"
+
+    def test_truncates_if_still_too_long(self):
+        result = short_fund_name("A Very Long Name That Cannot Be Compressed By Token Stripping Alone", max_len=20)
+        assert len(result) <= 20
+        assert result.endswith("…")
+
+    def test_empty_name(self):
+        assert short_fund_name("") == ""
+
+    def test_falls_back_if_stripping_empties(self):
+        # All-noise input should return original rather than empty string
+        assert short_fund_name("Direct Growth Plan") == "Direct Growth Plan"
 
 
 class TestFormatInr:

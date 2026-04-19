@@ -147,6 +147,7 @@ async def step4(
         chart_data_donut,
         format_inr,
         render_markdown,
+        short_fund_name,
     )
 
     response = _render(
@@ -162,6 +163,7 @@ async def step4(
             "render_markdown": render_markdown,
             "chart_data_donut": chart_data_donut,
             "chart_data_corpus": chart_data_corpus,
+            "short_fund_name": short_fund_name,
         },
     )
     return response
