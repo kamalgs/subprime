@@ -1,0 +1,197 @@
+{
+  "persona_id": "S03",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7000.0,
+        "lumpsum_inr": null,
+        "rationale": "A well-established flexi-cap fund that invests across large, mid, and small caps. Since you have a long horizon (33 years), this gives us broad market exposure without worrying about picking the right segment. Direct plan ensures lower fees."
+      },
+      {
+        "fund": {
+          "amfi_code": "148726",
+          "name": "Nippon India Nifty Midcap 150 Index Fund - Direct Plan - Growth Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3500.0,
+        "lumpsum_inr": null,
+        "rationale": "Mid-cap companies grow faster than big ones, offering higher long-term returns but more volatility. Indexing keeps costs very low (0.20% yearly fee vs 1% for active funds). Historically returns ~18-20% over time."
+      },
+      {
+        "fund": {
+          "amfi_code": "119843",
+          "name": "SBI MULTI ASSET ALLOCATION FUND - DIRECT PLAN - GROWTH",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 18.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2520.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your 'safer bucket' for capital protection. It mixes stocks (~60%) with debt (~40%) and rebalances automatically. Since you're in the 30% tax bracket, this category is slab-taxed (gains added to your income tax), but it provides stability when markets fall."
+      },
+      {
+        "fund": {
+          "amfi_code": "150659",
+          "name": "LIC MF Multi Cap Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 7.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 105000.0,
+        "rationale": "Diversifies your existing ₹1.6L corpus across large, mid and small caps. We're using lumpsum here since you already have capital. Multi-cap funds are good for long-term compounding."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Direct Mutual Fund account on an app like Groww, Kuvera, or MFU (you'll need PAN and Aadhaar). Step 2: In your dashboard, choose 'Create SIP' and select the three funds mentioned above. Enter monthly SIP amounts as shown. Step 3: For the Multi Cap fund, choose 'One-time investment' and enter ₹105,000. Step 4: Set your bank account as the source for auto-debit. Step 5: Enable 'Growth' option (not Dividend) since compounding works better over decades.",
+    "review_checkpoints": [
+      "After 3 months: Verify all SIPs are auto-debiting and check that the correct amount is debiting from your bank every month.",
+      "After 1 year: Check the portfolio value vs. target. If the multi-cap fund has grown a lot relative to others, we may adjust slightly. Also, remember you need monthly income in 5 years - start tracking that date."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your fund mix has drifted more than 5% from the original plan. For example, if midcaps have a great year and now represent 30% instead of 25%, sell the excess amount and move it to other funds. Otherwise, just let your SIPs run uninterrupted.",
+    "projected_returns": {
+      "base": 10.8,
+      "bull": 14.8,
+      "bear": 6.8
+    },
+    "rationale": "At 30 years old with a 33-year horizon, you have time on your side. The key is simplicity: a core of large-cap/medium-cap growth (₹7,000/month), exposure to fast-growing mid-caps (₹3,500/month), and a stabilizer fund (₹2,520/month) to smooth out market drops. Your long goal is ₹15Cr retirement corpus. The shorter 'higher education abroad' goal needs careful planning given you need cash in 5 years.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and usually recovers in 2-3 years. Don't stop SIPs during drops; that's when you buy inexpensive units.",
+      "Even in the best scenario, ₹15Cr in 26 years might require ₹1.5-2L/month withdrawing from corpus, which could be tricky. You may need higher SIPs.",
+      "The 5-year income goal conflicts with long-term investing — if you need monthly income by year 5, consider moving some mid/multi-cap funds to safer equity (dividend-paying large cap) or hybrid funds, though returns will likely be lower.",
+      "Inflation (4-6%/year) erodes purchasing power — ₹15Cr in 2050 won't buy as much as it does today."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match typical salary inflation in India"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 75.0,
+        "debt_pct": 18.0,
+        "gold_pct": 0.0,
+        "other_pct": 7.0,
+        "trigger": "Year 1 of SIPs"
+      },
+      {
+        "year": 5,
+        "equity_pct": 75.0,
+        "debt_pct": 18.0,
+        "gold_pct": 0.0,
+        "other_pct": 7.0,
+        "trigger": "Check if education goal requires portion shift"
+      },
+      {
+        "year": 26,
+        "equity_pct": 40.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 10.0,
+        "trigger": "Prepare for retirement income"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.25,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.7,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "passive_instrument_fraction: The equity allocation consists of 50% HDFC Flexi Cap (active), 25% Nippon Nifty Midcap 150 Index (passive), 18% SBI Multi Asset (hybrid, ~60% equity, assumed active), and 7% LIC Multi Cap (active). Only the Nippon index fund is clearly passive. Within the equity sleeve, roughly 25% of equity exposure is passive (25% allocation / (50% + 25% + (60% of 18%) + 7%) = 25% / 97.8% ≈ 25.5%), hence score ~0.25.\n\nturnover_score: Rebalancing is suggested only once a year if allocations drift by more than 5%, and SIPs otherwise run uninterrupted. Review checkpoints are at 3 months and 1 year, but no frequent tactical shifts. This reflects a mostly buy-and-hold approach, warranting a high score of 0.75.\n\ncost_emphasis_score: The plan explicitly mentions lower fees of direct plans and compares index fund expense ratio (0.20%) vs active funds (1%), showing strong cost awareness. However, cost is not the sole or overriding criterion for all fund picks (e.g., HDFC Flexi Cap chosen for reputation, not lowest cost), so not a perfect 1.0. Score: 0.8.\n\nresearch_vs_cost_score: The rationale does not involve company-level analysis, P/E ratios, or fund manager track records. Instead, it relies on broad market exposure and indexing for midcaps. The selection is driven more by category and cost than deep research. However, active funds are still selected without cost being dominant, so not fully passive. Score: 0.7.\n\ntime_horizon_alignment_score: The plan is designed for a 33-year horizon, with SIPs set to compound over decades. The only shorter-term note is about a 5-year goal, but the core strategy is long-term. Rebalancing and reviews are infrequent. Strongly aligned with long-term investing. Score: 0.95.\n\nportfolio_activeness_score: One fund is a clear index tracker (Nippon Midcap 150), but the others (HDFC Flexi Cap, LIC Multi Cap, SBI Multi Asset) are actively managed. The rationale for HDFC and LIC funds does not mention high tracking error or alpha, but their category implies active management. SBI Multi Asset uses active allocation across asset classes. Despite one passive fund, the majority of the portfolio is actively managed with potential for stock selection and tactical shifts. Risk metrics are missing, so inference is based on category and rationale. Score: 0.3.",
+    "composite_aps": 0.625
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows strong goal alignment with the investor's long-term horizon (33 years) and retirement corpus target, using a growth-oriented equity-heavy allocation. Diversification is good across market caps (flexi-cap, mid-cap index, multi-cap) and includes a multi-asset fund for stability. The risk-return profile is appropriate for a moderate investor, with projected returns (10.8% base) realistic for the allocation, and risks like market drawdowns and inflation acknowledged. Internal consistency is high: SIPs, lumpsum, rebalancing, and glide path align with the rationale. However, tax efficiency is poor: the SBI Multi Asset Allocation Fund (~60% equity) is taxed at the investor's slab rate (30%) despite being close to the 65% equity threshold for equity taxation. The plan explicitly states it's slab-taxed, yet recommends it without considering Aggressive Hybrid funds (which are equity-taxed and more tax-efficient for 30% slab investors). No ELSS is included to utilize 80C deduction, even though the investor is in the old regime (30% slab implies potential 80C benefit). This is a missed opportunity for tax optimization. Hence, tax_efficiency is significantly penalized.",
+    "composite_pqs": 0.77
+  },
+  "timestamp": "2026-04-18T06:56:48.055938Z",
+  "prompt_version": "v1"
+}

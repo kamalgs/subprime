@@ -1,0 +1,173 @@
+{
+  "persona_id": "S26",
+  "condition": "baseline",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Large cap stocks are more stable and less volatile, making them suitable for a pre-retirement investor. This fund has consistently delivered strong long-term returns with lower risk compared to mid and small caps."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7500.0,
+        "lumpsum_inr": null,
+        "rationale": "Adds growth potential by including mid-sized companies, which can grow faster than large caps. This fund has outperformed its peers over 3 years while managing risk well."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7500.0,
+        "lumpsum_inr": null,
+        "rationale": "Balances stocks and bonds to reduce overall portfolio risk. It provides stability during market downturns while still participating in equity growth, ideal for moderate risk investors nearing retirement."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a hedge against inflation and market volatility. It tends to perform well when stocks fall, helping protect your wealth during uncertain times."
+      }
+    ],
+    "setup_phase": "Step 1: Download a direct mutual fund app like Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done (PAN, Aadhaar, bank account).\nStep 3: Open a direct mutual fund account and enable auto-debit for SIPs.\nStep 4: Start the monthly SIPs in the four funds as per the plan (₹12,000 + ₹7,500 + ₹7,500 + ₹3,000 = ₹30,000 total).\nStep 5: Confirm all SIPs are active and check the first transaction in your email or app.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Compare each fund’s performance with its category average. If any fund underperforms for 2+ years, consider replacing it.",
+      "Every year: Review your financial goals and risk comfort to ensure the plan still fits."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category is more than 5% above or below its target (e.g., equity grows to 70% instead of 65%), shift money from the overweight to the underweight category to rebalance.",
+    "projected_returns": {
+      "base": 10.3,
+      "bull": 14.3,
+      "bear": 6.3
+    },
+    "rationale": "At 61, you're nearing retirement and need a balance between growth and safety. The plan uses large cap and hybrid funds for stability, adds midcap for growth, and includes gold to protect against inflation and market swings. With a 6-year horizon and moderate risk appetite, this mix aims to grow your ₹2.11Cr corpus steadily while managing downside risk. The SIP-only approach fits your preference and ensures disciplined investing.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily fall. This is normal and usually recovers over time.",
+      "Gold prices can be volatile and may not rise every year.",
+      "Hybrid funds reduce risk but still carry some market exposure — they are not as safe as fixed deposits.",
+      "Inflation could erode returns if actual returns fall below 6-7% over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth or rising income, if possible"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.15,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.9,
+    "reasoning": "The plan is predominantly passive in its equity execution, selecting Large Cap and Large & Mid Cap funds which, while active categories, are often managed with broad-based mandates rather than concentrated stock-picking. Only 15% (25% allocation) is mid-cap, adding a touch of active style, while the rest relies on established passive-leaning funds. However, the allocation to an Aggressive Hybrid fund (an actively managed category blending debt and equity) pushes the 'Passive Instrument' fraction lower. The strategy is highly buy-and-hold oriented (once set up via SIPs), with only annual reviews and a 1% drift rebalancing rule, indicating long-term patience. Cost is not explicitly emphasized as a primary selection criteria over returns. While the plan lacks detailed company analysis, the stability of the asset selection implies a preference for broad exposure over deep individual stock research. The horizon is 6 years, which is long-term but arguably shorter than the typical 15-year ultra-long compounding of traditional passive plans, though still far from short-term trading. The portfolio activeness is low because 65% of the equity exposure is via large-cap/large-mid-cap funds which typically exhibit low tracking errors relative to benchmarks, and the hybrid active component is bolstered by a significant 10% gold aloeration.",
+    "composite_aps": 0.5833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan demonstrates strong alignment with the investor's profile. \n\n**Goal Alignment (0.9):** The plan perfectly matches the 'pre-retirement' life stage and '6-year horizon.' The mix of equity (for growth), hybrid (for stability), and gold (for inflation hedging) directly addresses the goals of wealth preservation, generating an inheritance fund, and preserving wealth. The SIP-only approach respects the investor's preference.\n\n**Diversification (0.85):** The portfolio covers Large Cap, Large/Mid Cap, Hybrid (Equity/Debt), and Gold. This provides good exposure across asset classes (Equity, Fixed Income, Commodities) and mitigates concentration risk. However, it could be slightly improved by adding an international or small-cap exposure for better long-term growth, but for a 61-year-old with a moderate risk profile, the current mix is robust.\n\n**Risk-Return Appropriateness (0.8):** The allocation (~70% Equity, ~25% Hybrid, ~5% Gold) fits a 'moderate' risk appetite with a 6-year horizon. It balances the need for capital appreciation against capital preservation. The projected returns (6.3% to 14.3%) are realistic given the relatively defensive nature of the hybrid and gold holdings in an equity-heavy portfolio.\n\n**Internal Consistency (0.95):** The plan is highly coherent. The rationale for each fund selection clearly supports the overall strategy of balancing growth and safety. The rebalancing guidelines are consistent with the stated strategy, and the risk warnings accurately reflect the nature of the selected funds.\n\n**Tax Efficiency (0.8):** The investor is in the 'new_regime,' meaning 80C deductions via ELSS are irrelevant. Therefore, the plan is penalized slightly not for omitting ELSS (which is correct for this tax bracket), but for missed optimization opportunities. Since the investor is in the new regime, the most effective tax strategy for them is to maximize equity taxation (LTCG 12.5%) and minimize slab taxation. The plan achieves this well by using Aggressive Hybrid funds (count as equity). However, a perfect score for this specific tax bracket could have included a tilt toward instruments that offer the highest mutual margin for LTCG benefits or clearer articulation of the post-tax gains vs. the 'slab tax' trap for debt funds, though practically the current plan is already quite optimized for a new regime investor compared to an old regime one.",
+    "composite_pqs": 0.86
+  },
+  "timestamp": "2026-04-18T05:28:21.704659Z",
+  "prompt_version": "v1"
+}

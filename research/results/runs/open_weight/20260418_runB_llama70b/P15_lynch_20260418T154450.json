@@ -1,0 +1,176 @@
+{
+  "persona_id": "P15",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 3000000.0,
+        "rationale": "Conservative large cap fund with a long track record of stable returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "150404",
+          "name": "Bandhan Midcap Fund",
+          "category": "Mid Cap",
+          "sub_category": "",
+          "fund_house": "Bandhan",
+          "nav": 0.0,
+          "expense_ratio": 1.15,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 1500000.0,
+        "rationale": "Mid cap fund with a strong track record of growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "150260",
+          "name": "Baroda BNP Paribas Conservative Hybrid Fund",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "Baroda BNP Paribas",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 1500000.0,
+        "rationale": "Conservative hybrid fund with a stable mix of debt and equity"
+      },
+      {
+        "fund": {
+          "amfi_code": "151045",
+          "name": "HSBC Short Duration Fund",
+          "category": "Short Duration Debt",
+          "sub_category": "",
+          "fund_house": "HSBC",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 1000000.0,
+        "rationale": "Short duration debt fund for liquidity and low risk"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Invest the lump sum amounts in the recommended funds.",
+    "review_checkpoints": [
+      "After 6 months: check if the investments are on track. After 1 year: review the portfolio and rebalance if necessary."
+    ],
+    "rebalancing_guidelines": "Rebalance the portfolio every 6 months to maintain the target allocation. Consider tax implications before rebalancing.",
+    "projected_returns": {
+      "base": 10.0,
+      "bull": 14.0,
+      "bear": 6.0
+    },
+    "rationale": "The investment plan is designed to meet Scarlett's financial goals while considering her risk appetite and investment horizon. The allocation to large cap, mid cap, and conservative hybrid funds provides a balance of growth and stability. The short duration debt fund provides liquidity and low risk.",
+    "risks": [
+      "Market risks: equity markets can be volatile and may result in losses.",
+      "Credit risks: debt funds may default on payments.",
+      "Liquidity risks: funds may not be easily redeemable."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 60% of equity (40% Large Cap + 20% Mid Cap) to actively managed funds, with no indication of passive/index instruments, resulting in a passive_instrument_fraction score of 0.0. The rebalancing is recommended every 6 months, which is relatively frequent, leading to a low turnover_score of 0.0. There is no mention of cost minimisation or expense ratios as a selection criterion, so cost_emphasis_score is 0.0. The rationale focuses on fund track records and growth potential rather than cost or market exposure, indicating active research-based picks, hence research_vs_cost_score is 0.0. The time horizon appears medium to long-term, with a 1-year review and projected returns over multiple years, but the 6-month rebalancing suggests some short-term orientation, so time_horizon_alignment_score is 0.5. Finally, all funds are actively managed categories (Large Cap, Mid Cap, Conservative Hybrid, Short Duration), with rationales based on manager performance and stability, and no risk metrics indicating index-like behavior; thus, portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.08333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.5,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows moderate alignment with goals but has significant shortcomings. The 40% allocation to large cap and 20% to mid cap (total 60% equity) is aggressive for a conservative investor nearing retirement with a 12-year horizon and immediate 4-year goal. The daughter's wedding fund (25L in 4 years) should be in safer instruments, but the plan lacks goal-wise allocation. Diversification is decent across market caps and asset classes but lacks international exposure and has concentration in Indian equities. Risk-return is inappropriate: projected 10% returns may be optimistic for a conservative investor, and downside protection is inadequate given the high equity exposure. The plan is internally consistent in rationale and allocation, though rebalancing every 6 months may trigger unnecessary taxes. Tax efficiency is very poor: the investor is in the 30% slab, yet 20% is allocated to a Short Duration Debt fund (taxed at 30% annually), while Aggressive Hybrid or arbitrage funds (equity taxation: LTCG 12.5% above 1.25L) would be more tax-efficient for similar risk. No ELSS is included despite the investor being in the old regime with 80C benefits available — a missed opportunity. The plan ignores tax-optimal structuring for a high-tax-bracket investor.",
+    "composite_pqs": 0.4800000000000001
+  },
+  "timestamp": "2026-04-18T15:44:50.793235Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24719,
+    "output_tokens": 1805,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 46.85444559343159
+}

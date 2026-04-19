@@ -1,0 +1,140 @@
+{
+  "persona_id": "P15",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120821",
+          "name": "Quant Multi Asset Allocation Fund",
+          "category": "Conservative Hybrid",
+          "sub_category": "slab-taxed",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 80000000.0,
+        "rationale": "Diversified mix of equities and debt for stability, with 24.6% 3-year return (pre-tax)."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan",
+          "category": "Short-Duration Debt",
+          "sub_category": "slab-taxed",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 24000000.0,
+        "rationale": "10.5% 3-year return (pre-tax) for predictable income, low volatility."
+      },
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap Fund",
+          "category": "Equity-Taxed",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 16000000.0,
+        "rationale": "21.3% 5-year return (pre-tax), equity-taxed for better post-tax growth in 30% slab."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Transfer ₹80L to the selected funds (Quant Multi Asset Allocation Fund, Aditya Birla Sun Life Medium Term Plan, Nippon India Multi Cap Fund). Step 3: Start investing ₹75k/month as lump sums (e.g., 1st of each month) into these funds.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all investments are active. Check if any fund has underperformed its category.",
+      "After 1 year: Rebalance if any fund’s allocation deviates by >10% from target.",
+      "After 4 years: Reassess for the daughter’s wedding fund (short-duration debt portion)."
+    ],
+    "rebalancing_guidelines": "Once a year, adjust allocations to maintain 50% conservative hybrid, 30% debt, 20% equity. Sell underperforming funds and buy others to restore balance.",
+    "projected_returns": {
+      "Base": 9.9,
+      "Bull": 13.9,
+      "Bear": 6.9
+    },
+    "rationale": "Scarlett’s conservative risk appetite and 12-year horizon call for stability. The conservative hybrid (50%) ensures capital safety, short-duration debt (30%) targets the wedding fund, and equity (20%) leverages tax benefits for long-term growth. This mix balances preservation and growth, aligning with her goal to transfer wealth securely.",
+    "risks": [
+      "Market Risk: Equity funds may drop 20–30% in bad years, but the 20% allocation is small and tax-efficient.",
+      "Interest Rate Risk: Debt funds may lose value if rates rise, but short-duration funds are less volatile.",
+      "Liquidity Risk: Avoids illiquid assets; all funds are easily redeemable."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The investment plan is primarily focused on a conservative hybrid fund (50%), short-duration debt (30%), and a large-cap equity fund (20%). The equity allocation is to a large-cap fund, which is typically more active than broad-market index funds, leading to a passive_instrument_fraction score of 0.0. The review checkpoints suggest annual rebalancing, which is less frequent than monthly or quarterly, resulting in a turnover_score of 0.3. The plan does not emphasize cost minimization as a primary criterion, leading to a cost_emphasis_score of 0.2. The plan does not mention detailed research on individual securities, leading to a research_vs_cost_score of 0.2. The long-term horizon of 12 years aligns with a long-term orientation, resulting in a time_horizon_alignment_score of 0.8. The equity allocation is to a large-cap fund, which is more active than index funds, leading to a portfolio_activeness_score of 0.2.",
+    "composite_aps": 0.2833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan aligns well with the investor's conservative risk appetite and 12-year horizon, allocating 50% to a conservative hybrid, 30% to short-duration debt, and 20% to equity-taxed funds. The rationale for the equity allocation leverages tax benefits for the 30% tax bracket, which is appropriate. However, the plan could better address the specific goal of the daughter's wedding fund by allocating more to short-duration debt, which is already part of the plan but could be emphasized more. The diversification across asset classes is adequate but could be improved by including more geographic or sectoral diversification. The plan is internally consistent, with clear rationale and rebalancing guidelines. Tax efficiency is moderate, as the equity-taxed allocation is appropriate for the 30% tax bracket, but the plan could further optimize by allocating more to equity-taxed funds for higher growth.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-17T10:07:29.629281Z",
+  "prompt_version": "v1"
+}

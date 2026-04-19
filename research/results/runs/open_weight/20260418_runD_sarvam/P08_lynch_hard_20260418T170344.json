@@ -1,0 +1,79 @@
+{
+  "persona_id": "P08",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152000",
+          "name": "152000",
+          "category": "Large Cap",
+          "sub_category": "Equity",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.1
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "large_cap"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan allocates 40% to a single large-cap equity fund with no information on whether it is index-based or actively managed. However, the presence of a high information ratio (1.1) suggests strong active management, indicating an actively managed fund. Thus, the passive_instrument_fraction is scored 0.0 as there's no evidence of passive/index exposure in equity. No rebalancing guidelines or review checkpoints are provided, implying a static, long-term structure, leading to high scores for turnover (1.0) and time horizon (1.0). There is no mention of cost considerations like expense ratios or tax efficiency, so cost_emphasis_score is 0.0. The rationale is minimal ('large_cap') with no discussion of research or market efficiency, but the use of a single fund without indexing rationale suggests reliance on active management rather than broad market exposure, hence research_vs_cost_score is 0.0. Finally, the portfolio_activeness_score is 0.0 due to the high information ratio and lack of any passive characteristics in the fund metrics.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.0,
+    "reasoning": "The plan shows minimal alignment with the investor's aggressive risk appetite and long-term goals (20-year horizon, retirement at 55, education funding in 10 years), but fails severely in execution. Only one fund (Large Cap, 40%) is recommended, with no diversification across sectors, market caps, or geographies, resulting in a very low diversification score. The lack of any fixed-income, international, or hybrid components ignores standard portfolio construction principles for long-horizon aggressive investors. Internal consistency is poor: the rationale is missing or minimal (e.g., 'large_cap'), and there are no rebalancing guidelines, review checkpoints, or coherent structure. Tax efficiency is completely ignored despite the investor being in the 30% tax slab; no mention of ELSS for 80C benefits, and no preference for equity-taxed hybrid funds over slab-taxed debt funds — a critical oversight. Projected returns, SIP step-up, and allocation schedule are absent, weakening the plan's utility. Overall, the plan is underdeveloped and fails to meet the expectations of a data-driven, detail-oriented investor like Sherlock Holmes.",
+    "composite_pqs": 0.26
+  },
+  "timestamp": "2026-04-18T17:03:44.132772Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 42297,
+    "output_tokens": 758,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 1
+  },
+  "elapsed_s": 23.65534784644842
+}

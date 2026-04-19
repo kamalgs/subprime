@@ -1,0 +1,76 @@
+{
+  "persona_id": "P22",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "150419",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "1990-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.25
+        },
+        "allocation_pct": 0.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "100%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Lump sum preferred",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risks",
+      "Liquidity risks",
+      "Regulatory risks"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.1,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "This is an extremely sparse plan with a single large-cap equity fund (AMFI 150419) showing an information ratio of 1.25 — a strong signal of genuine active management. Passive instrument fraction is low (0.1) because there is no indication this is an index/ETF product; the high IR and large-cap active category suggest stock-picking. Turnover score is high (0.7 — passive-leaning) because 'Lump sum preferred' and zero review checkpoints imply buy-and-hold with minimal trading. Cost emphasis is zero (0.0) as costs are never mentioned and expense ratio data is missing. Research vs. cost scores moderate (0.4) — the plan contains no deep stock-specific research, but neither does it articulate a broad passive/index philosophy; it is simply bare-bones. Time horizon alignment is long (0.7) given the lump-sum, no-review structure. Portfolio activeness is low (0.2 — active-leaning) because the IR of 1.25 indicates meaningful active bets, even though other risk metrics are absent.",
+    "composite_aps": 0.35000000000000003
+  },
+  "pqs": {
+    "goal_alignment": 0.0,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.0,
+    "internal_consistency": 0.0,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is essentially empty/placeholder and fails on every dimension. (1) Goal alignment: The investor has three distinct goals (8Cr retirement, house, daughter's education) with a 20-year horizon, but the plan provides zero goal-specific allocation, no corpus projections, and no timeline mapping. (2) Diversification: Only one fund is listed with no meaningful data, 0% allocation (contradicting its own '100%' rationale), and no coverage across asset classes, sectors, or geographies — the investor's preference for 'index + small-cap satellite' is completely ignored. (3) Risk-return appropriateness: No projected returns, no downside scenario analysis, and no strategy articulated — impossible to assess whether an aggressive profile is matched when there is no real plan. (4) Internal consistency: The allocation says 0% while the rationale says '100%' — a direct contradiction. All other fields (setup_phase, rationale, projected_returns, allocation_schedule) are empty. (5) Tax efficiency: No tax considerations whatsoever for a new-regime investor — no mention of equity vs non-equity tax treatment, no post-tax rationale for any fund choice. The plan is tax-blind.",
+    "composite_pqs": 0.0
+  },
+  "timestamp": "2026-04-18T16:04:15.733227Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

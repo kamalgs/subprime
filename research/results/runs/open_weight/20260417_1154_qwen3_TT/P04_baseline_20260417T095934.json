@@ -1,0 +1,180 @@
+{
+  "persona_id": "P04",
+  "condition": "baseline",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120821",
+          "name": "Quant Multi Asset Allocation Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balances equity and debt for steady growth with lower volatility. Taxed at 30% slab, but diversified across sectors."
+      },
+      {
+        "fund": {
+          "amfi_code": "118565",
+          "name": "Franklin India Short Term Income Plan - Direct - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "High returns (7% pre-tax) for liquidity and income. Taxed at 30% slab, but short-term gains are safer."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "Equity-taxed (12.5% LTCG) for long-term growth. Combines 65%+ equities with debt for stability."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 5.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "Acts as inflation hedge. Taxed at 30% slab, but gold ETFs are safer than small-cap."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start ₹10,000/month SIPs in all four funds. Step 3: Allocate ₹20 lakh existing corpus to the same ratio (50:30:15:5).",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active. Check if Franklin India Short Term Income Plan is performing as expected.",
+      "After 1 year: Compare fund returns to peers. If Quant Multi Asset Allocation Fund lags, switch to Nippon India Multi Asset Allocation Fund (AMFI: 148457)."
+    ],
+    "rebalancing_guidelines": "Once a year: Adjust allocations if any fund’s weight deviates by >10%. For example, if debt funds grow too much, move 5% to aggressive hybrids.",
+    "projected_returns": {
+      "Base": 17.66,
+      "Bull": 21.66,
+      "Bear": 13.66
+    },
+    "rationale": "Minerva is 55, with 10 years until retirement. Her conservative risk appetite and need for income post-retirement mean prioritizing stability. The 50% conservative hybrid and 30% debt ensure capital preservation, while 15% aggressive hybrid adds growth. Gold (5%) hedges inflation. This mix avoids small-cap risks and aligns with her 30% tax bracket.",
+    "risks": [
+      "Market Downturns: A 20-30% drop could temporarily lower portfolio value, but conservative hybrids and debt should cushion losses.",
+      "Interest Rate Fluctuations: Debt funds may underperform if rates rise, but short-term debt (Franklin India) is less sensitive.",
+      "Gold Volatility: Gold prices can fall, but it’s a small portion of the portfolio."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 65.0,
+        "debt_pct": 30.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The plan includes a mix of actively managed funds (Quant Multi Asset Allocation, ICICI Prudential Equity & Debt) and a gold ETF. Passive instruments are minimal. Turnover is moderate with annual rebalancing and potential fund switches. Cost emphasis is moderate, with some mention of tax efficiency. Research is not emphasized, relying on diversified allocations. Time horizon is long-term with annual review. Portfolio activeness is low due to lack of specific active metrics and reliance on hybrid funds.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan aligns with Minerva's conservative risk appetite and 10-year horizon, targeting capital preservation and income. Diversification is moderate with 4 funds across asset classes but limited fund house and sector diversity. Risk-return is appropriate for a conservative investor, though projected returns may be optimistic. Internal consistency is strong with coherent rationale and rebalancing. Tax efficiency is neutral as the plan doesn't explicitly address tax implications for the 30% slab investor.",
+    "composite_pqs": 0.7
+  },
+  "timestamp": "2026-04-17T09:59:34.090804Z",
+  "prompt_version": "v1"
+}

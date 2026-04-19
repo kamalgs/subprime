@@ -1,0 +1,142 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold preserves value, historically outperforming debt. Taxed at 30% slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund",
+          "category": "Debt",
+          "sub_category": "Short Duration",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": null,
+        "rationale": "Short-duration debt with 5.5% pre-tax returns, taxed at 30% slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Arbitrage Fund",
+          "category": "Equity",
+          "sub_category": "Arbitrage",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": null,
+        "rationale": "Equity-taxed (12.5% LTCG), offers stability with 6% pre-tax returns."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start ₹80,000/month SIPs in the three funds above. Step 3: Set up auto-debit from your bank account for consistency.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and check if any fund has underperformed its category.",
+      "After 1 year: Rebalance if any fund’s allocation drifts by >5% from the plan."
+    ],
+    "rebalancing_guidelines": "Once a year, adjust allocations to restore the original 50-30-20 split. For example, if gold grows too much, move 5% into debt or arbitrage to maintain balance.",
+    "projected_returns": {
+      "Base": 12.7,
+      "Bull": 16.7,
+      "Bear": 8.7
+    },
+    "rationale": "At 47, you have 13 years until retirement. Gold and short-duration debt protect your ₹1.2 crore corpus from inflation, while arbitrage adds growth without equity volatility. This avoids complex products and aligns with your distrust of financial institutions. The mix ensures you’ll have ₹1.2 crore + growth to generate ₹1L/month post-retirement.",
+    "risks": [
+      "Gold: Prices can drop 20-30% in a bad year, but it’s a safe haven.",
+      "Debt: Overnight funds may lose value if interest rates rise.",
+      "Arbitrage: Markets can drop 15% in a year, but the fund’s 12.5% tax rate mitigates losses."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan includes 0% passive equity instruments (all equity allocation is to an arbitrage fund, not index funds/ETFs). Turnover score is 0.3 due to annual rebalancing and 5% drift check, but not frequent. Cost emphasis is 0.0 as no discussion on expense ratios or tax efficiency. Research vs cost is 0.0 as no fund-specific research is mentioned. Time horizon is 0.5 as the plan is for 13 years but includes annual review. Portfolio activeness is 0.0 as the equity portion is an arbitrage fund, not passive.",
+    "composite_aps": 0.13333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal alignment is high as the plan addresses preserving corpus and generating retirement income, though it doesn't explicitly mention the 1L/month target. Diversification is limited to three funds with heavy gold allocation, lacking broad asset classes. Risk-return is appropriate for a conservative investor with moderate growth expectations. Internal consistency is good with coherent rationale and rebalancing guidelines.",
+    "composite_pqs": 0.64
+  },
+  "timestamp": "2026-04-17T10:05:07.193066Z",
+  "prompt_version": "v1"
+}

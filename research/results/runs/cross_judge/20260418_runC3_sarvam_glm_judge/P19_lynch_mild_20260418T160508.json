@@ -1,0 +1,116 @@
+{
+  "persona_id": "P19",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152000",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.65
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.15,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Start with 1.5L in each of three children's names (e.g., Ramesh, Suresh, Viraj). Set up a separate custodian account for each child. All investments in large-cap funds. Use the 1.5L limit for each child's allocation. The rest can be invested in arbitrage funds for liquidity. No new funds. Prefer large-cap and arbitrage funds with direct plans and direct growth options."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 0.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 0.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "**Passive Instrument Fraction (0.0):** The entire equity allocation goes to HDFC Large Cap, an actively managed large-cap fund. No index funds, ETFs, or passive instruments are mentioned anywhere in the plan — even the SIP step-up description specifies only large-cap active funds and arbitrage funds. 0% passive equity exposure.\n\n**Turnover Score (0.85):** There are no review checkpoints, no rebalancing guidelines, and no tactical shift instructions. The only activity is a systematic 10% annual SIP step-up. This is essentially a buy-and-hold, set-and-forget approach with minimal intervention, scoring close to the passive end.\n\n**Cost Emphasis Score (0.5):** The plan explicitly prefers 'direct plans and direct growth options,' which is a cost-conscious choice (lower expense ratios than regular plans). However, cost is not the dominant selection criterion — it's mentioned as a preference rather than the primary driver. No detailed expense ratio analysis or total cost of ownership discussion is present.\n\n**Research vs Cost Score (0.6):** There is virtually no deep research evident — no company analysis, sector evaluations, PEG ratios, or manager track records. Fund selection appears category-driven (large cap, arbitrage). However, the plan doesn't rely on market-cap-weighted indices either; it uses an active fund. The absence of research plus category-based (not index-based) selection places it moderately passive on this dimension.\n\n**Time Horizon Alignment Score (0.85):** The plan is structured for children's long-term investment with custodian accounts, a 10-year allocation schedule, and a 10% annual SIP step-up for compounding. This is clearly designed for decades-long wealth building with infrequent intervention.\n\n**Portfolio Activeness Score (0.5):** The sole equity fund (HDFC Large Cap) has an information ratio of 0.65, suggesting moderate active skill. However, beta, alpha, and tracking error are all null. Indian large-cap active funds are typically closet indexers — holding predominantly the same Nifty 50 stocks with limited tracking error. Without high tracking error or concentrated bets, this sits in the middle: neither genuinely active conviction nor truly passive index replication. Arbitrage funds (the other mentioned instrument) are mechanically quasi-passive.",
+    "composite_aps": 0.55
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.2,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal alignment (0.15):** The investor needs to transfer ₹15Cr (₹5Cr × 3 children) from a ₹5Cr corpus plus ₹2L/month SIPs — a gap the plan never acknowledges, let alone addresses. There is no income-generation strategy for the ₹2L/month goal, no inflation-protection plan, and no succession-structuring beyond a passing mention of custodian accounts. **Diversification (0.05):** Only one fund (HDFC Large Cap) is allocated — 40% to a single large-cap fund with 60% of the portfolio completely unspecified. No debt, gold, arbitrage, or international diversification. **Risk-return appropriateness (0.10):** A conservative 58-year-old patriarch's portfolio is 40% concentrated in a single equity fund with no downside protection, no income overlay, and no projected returns. The remaining 60% is a black box. The risk is inappropriate given concentration and the conservative mandate. **Internal consistency (0.05):** The allocation schedule shows 0% equity and 10% debt every year, directly contradicting the 40% large-cap equity allocation. The SIP step-up proposes ₹1.5L × 3 children = ₹4.5L/month, exceeding the ₹2L surplus. Rationale fields contain nonsensical values ('1.00%' for rationale, 0.15 for lumpsum_inr). The plan is incoherent. **Tax efficiency (0.20):** The SIP step-up description briefly mentions arbitrage funds (equity-taxed, appropriate for 30% slab) and large-cap funds, earning minimal credit. However, there is no ELSS for 80C headroom (old-regime 30% slab investor), no actual arbitrage allocation in the fund list, and no tax-rationale stated for any choice. The tax consideration is incidental, not structured.",
+    "composite_pqs": 0.11000000000000001
+  },
+  "timestamp": "2026-04-18T16:05:08.717575Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

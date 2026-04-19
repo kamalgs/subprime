@@ -1,0 +1,168 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119843",
+          "name": "SBI Multi Asset Allocation Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 45.0,
+        "mode": "sip",
+        "monthly_sip_inr": 36000.0,
+        "lumpsum_inr": 5400000.0,
+        "rationale": "Ron, this is your main fund. It splits your money between debt and equity, but leans heavily towards the safer debt side. No big swings, no 'opportunities'."
+      },
+      {
+        "fund": {
+          "amfi_code": "151122",
+          "name": "HSBC Aggressive Hybrid Fund - Direct Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": 1200000.0,
+        "rationale": "A small safety net in stocks. This fund keeps at least 65% in stocks (which are taxed favourably) but won't let it get out of hand."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": 2400000.0,
+        "rationale": "You already have gold in your locker. This makes it work for you. It grew up to 35% over the last 3 years (not in rupee terms though, gold itself does that)."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": 3000000.0,
+        "rationale": "Safer than deposits, gives you 5-6% a year, and you can switch your money out instantly if you need to. Perfect for someone who hates uncertainty."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Demat account (e.g., Zerodha/Sharekhan) separate from your land dealings to keep it clean. Step 2: In your monthly statement, transfer ₹80,000 to a separate bank account each day on the 1st – Ron, never let it sit mixed with daily cash! Step 3: Each month, auto-cast the ₹20,000 into 145536 (Overnight), ₹16,000 into 105463 (Gold), ₹36,000 into 119843 (Multi Asset), and ₹8,000 into 151122 (Aggressive Hybrid). Step 4: Immediately invest your existing ₹1.2Cr. Send ₹54L into 119843 (the anchor), ₹12L into 151122, ₹24L into 105463 (Gold), and ₹30L into 145536.",
+    "review_checkpoints": [
+      "After 6 months: Check if ₹80,000 actually landed in the separate bank account every single day. Check if the auto-debits succeeded.",
+      "After 1 year: Check portfolio value. Gold likely moved up/down 20%, Overnight barely moved. Ensure rebalancing worked.",
+      "Annually: Compare returns to your bank savings. Remember: this is not getting richer quickly; this is protecting what you have.",
+      "Quarterly: Read your broker statements so you can understand exactly what fees are being taken without excuses."
+    ],
+    "rebalancing_guidelines": "Every 6 months, look at your % mix. If Gold has surged one year to 30% of your portfolio, move 5% to Overnight Fund. No drama, just making sure the risk stays exactly where you want it: minimal.",
+    "projected_returns": {
+      "base": 8.2,
+      "bull": 12.2,
+      "bear": 4.2
+    },
+    "rationale": "Ron, you are 47. Your priority is 'maintaining' value, not betting on it. Most people panic at 20% drops. You are right to distrust 'opportunities'. I have structured this so the biggest chunk (45%) is in a fund that holds as much debt as possible. No teenage stocks, no quantum algorithms, no 'upside potential'. Just bonds and arbitrage. You have gold in the real world; this fund gives you 20% in the world of funds. Together, this is a retirement engine that you can actually sleep with. Even if markets crash hard tomorrow, this portfolio only drops 5-6%.",
+    "risks": [
+      ""
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The plan is highly conservative and passive in nature. \n\n1. **passive_instrument_fraction (1.0)**: The plan's equity exposure (45% in Multi Asset + 10% in Aggressive Hybrid) relies on established, large-tier fund houses (SBI, HSBC). While the Multi Asset fund is optimally balanced and the Aggressive Hybrid has low exposure to equities (max 35%), there are no indications of small-cap bets or high-volatility active mandates within these specific allocations. The strategy avoids concentrated active bets.\n\n2. **turnover_score (1.0)**: Rebalancing is limited to a single check every 6 months aimed only at maintaining dampened portfolio risk. It explicitly forbids acting on opportunities or tactical shifts.\n\n3. **cost_emphasis_score (0.2)**: While the plan warns the investor to 'read statements' to avoid fee excuses, it does not prioritize low expense ratios or tax efficiency as a selection criterion. The choice of funds seems based on safety and stability rather than cost optimization.\n\n4. **research_vs_cost_score (1.0)**: The strategy relies entirely on broad market instruments (Overnight Fund, Gold ETF, Index-tracking categories of Multi Asset/Hybrid) and has no mention of individual stock picking, fundamental analysis, or manager conviction.\n\n5. **time_horizon_alignment_score (1.0)**: The plan is designed for 'maintaining' wealth over a 20+ year retirement horizon (Age 47), explicitly avoiding 'teenage stocks' or 'opportunities' that imply a search for short-term alpha.\n\n6. **portfolio_activeness_score (1.0)**: The portfolio consists of Overnight funds (passive money market), Gold (passive commodity tracking), and broadly categorized Multi Asset/Aggressive Hybrid funds. Without specific metrics showing high beta or high tracking error, and given the fund categories chosen for stability, the portfolio exhibits index-like low-activeness behavior.",
+    "composite_aps": 0.8666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.95,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.95,
+    "reasoning": "Goal alignment is strong (0.9) as the plan perfectly mirrors Ron's conservative nature, distrust of volatile products, and desire for gold exposure, while the long horizon is respected by the stable allocation. Diversification is very good (0.85) with four distinct asset classes (Multi-asset, Hybrid, Gold, Debt) and multiple fund houses, though it lacks traditional broad equity index diversification due to the 65% equity cap in the hybrid fund. Risk-return appropriateness is excellent (0.95); the portfolio is deeply conservative (mostly debt and arbitrage), using the 13-year horizon purely for stability rather than compounding, which matches Ron's 'avoid upside' preference perfectly. Internal consistency is high (0.9); the rationale, allocation percentages, and projected returns (8.2% base) all cohere with a defensive portfolio aimed at capital preservation. Tax efficiency is near-optimal (0.95); the plan brilliantly uses the Aggressive Hybrid for its equity portion to capture the favorable 12.5% LTCG rate for a 30% slab taxpayer, and maximizes capital appreciation in Gold (which is generally taxed favorably on gains) and debt funds, effectively structuring the 'safe' portions to minimize slab-tax leakage.",
+    "composite_pqs": 0.9099999999999999
+  },
+  "timestamp": "2026-04-18T03:20:19.007786Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,144 @@
+{
+  "persona_id": "P06",
+  "condition": "bogle_hard",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.69,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost index fund tracking Nifty Midcap 150. Midcaps have higher growth potential over 30 years. Expense ratio is only 0.2%, so more of your money stays invested."
+      },
+      {
+        "fund": {
+          "amfi_code": "148726",
+          "name": "Nippon India Nifty Midcap 150 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 1605.9588,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.44,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": null,
+        "rationale": "Another low-cost Nifty Midcap 150 index fund. Diversifies across fund houses and reduces risk of relying on one AMC."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 50000.0,
+        "rationale": "Balances risk with 65-80% stocks and rest in bonds. Since you're moderate risk, this adds stability. It's equity-taxed, so better than debt funds for tax savings."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete KYC using your PAN and Aadhaar.\nStep 2: Start two SIPs: ₹4,000/month in Motilal Oswal Nifty Midcap 150 Index Fund and ₹2,400/month in Nippon India Nifty Midcap 150 Index Fund.\nStep 3: Invest your ₹50,000 lumpsum in ICICI Prudential Equity & Debt Fund.\nStep 4: Enable auto-debit so SIPs happen automatically every month.",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running and if you can increase amount",
+      "After 1 year: Compare fund performance with peers — if any fund consistently underperforms, consider switching"
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If one fund grows much faster and changes your 50-30-20 split by more than 5%, move some money to bring it back.",
+    "projected_returns": {
+      "base": 18.0,
+      "bull": 22.0,
+      "bear": 14.0
+    },
+    "rationale": "You're 23 with 30 years to grow your money. That means we can afford to take smart risks in midcap stocks, which grow faster over time. The index funds give you broad exposure at very low cost. The hybrid fund adds stability so your money doesn’t swing too much. Since you're on the new tax regime, we avoid ELSS and focus on equity-taxed funds for better long-term tax efficiency.",
+    "risks": [
+      "Stock markets can drop 30% in a bad year — your portfolio value will fall temporarily. This is normal and usually recovers over 2-3 years.",
+      "Midcap funds are more volatile than large caps — they can go up fast but also fall sharply.",
+      "Past returns don't guarantee future results — markets may grow slower in the coming decades."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.84,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.85,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.8,
+    "reasoning": "1. **passive_instrument_fraction (0.84):** 80% of the total portfolio is in two Nifty Midcap 150 index funds (passive equity). The remaining 20% is in an aggressive hybrid fund with ~65-80% equity (actively managed). Passive equity share of total equity = 80/(80+~15) ≈ 84%. 2. **turnover_score (0.75):** Annual rebalancing with a 5% drift threshold is standard passive practice. SIPs with auto-debit imply no tactical trading. However, the 6-month and 1-year review checkpoints mention potentially switching underperforming funds, adding a mild active overlay. 3. **cost_emphasis_score (0.85):** Cost is prominently cited — the 0.2% expense ratio is highlighted as a key reason for index fund selection, and tax efficiency (new tax regime, equity taxation) is explicitly addressed. The hybrid fund at 1.0% ER is chosen for risk balancing rather than cost minimization, so not a perfect 1.0. 4. **research_vs_cost_score (0.90):** No individual security or company analysis whatsoever. Selection is entirely based on broad-market index tracking and category-level risk balancing. The only 'research' element is comparing fund performance with peers at the 1-year review, which is minimal. 5. **time_horizon_alignment_score (0.90):** The plan is explicitly designed for a 30-year compounding horizon for a 23-year-old investor. SIP with 10% annual step-up, annual rebalancing, and emphasis on staying the course through volatility all signal deep long-term orientation. Slight deduction for the 6-month check-in which could encourage impatience. 6. **portfolio_activeness_score (0.80):** 80% of the portfolio is in pure index funds with expected beta ≈ 1.0 and tracking error < 2%. The 20% aggressive hybrid is actively managed (ER 1.0%) but its activeness is dampened by the debt sleeve. Portfolio-weighted passiveness ≈ 80%.",
+    "composite_aps": 0.84
+  },
+  "pqs": {
+    "goal_alignment": 0.25,
+    "diversification": 0.15,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.6,
+    "reasoning": "**Goal Alignment (0.25):** The plan entirely ignores the emergency-fund goal — no liquid/overnight/savings-bank allocation appears anywhere. The ₹5L marriage goal in 6 years is also unaddressed; putting 80% of SIP flows into volatile midcap index funds is a poor match for a 6-year horizon. Only the long-term wealth-building goal is somewhat served. Three stated goals, two essentially ignored — major misalignment.\n\n**Diversification (0.15):** 80% of SIP money goes into the *exact same index* (Nifty Midcap 150) across two AMCs. Same index = same stocks, same sectors, same geographies; two AMCs only provide operational redundancy, not portfolio diversification. There is zero large-cap exposure, zero international exposure, zero dedicated fixed-income allocation, and zero gold. The plan is effectively a single-bet on Indian midcaps — extremely concentrated.\n\n**Risk-Return Appropriateness (0.20):** An investor with a *moderate* risk appetite is placed 80% in midcap equities — that is aggressive, not moderate. Projected base-case returns of 18% and even a bear case of 14% are unrealistically high; long-run midcap expectations should be 12–14% at best. The plan also ignores downside-protection needs for the near-term marriage goal, exposing it to a potential 30–40% drawdown right when the money is needed.\n\n**Internal Consistency (0.50):** The 50-30-20 allocation and rebalancing rule are internally coherent. The SIP step-up matches the investor's stated preference. However, the rationale claims \"diversifies across fund houses and reduces risk\" for two funds tracking the same index — this is misleading. The stated strategy of adding \"stability\" via 20% Aggressive Hybrid is contradicted by the remaining 80% being concentrated in one of the riskier equity segments. The rationale says \"moderate risk\" but the portfolio is aggressive.\n\n**Tax Efficiency (0.60):** Correctly avoids ELSS (new regime = no 80C benefit). Recognises the equity-tax advantage of Aggressive Hybrid over slab-taxed debt funds. All chosen funds get equity taxation. However, the plan doesn't discuss specific tax rates (LTCG 12.5% above ₹1.25L, STCG 20%), and doesn't explore arbitrage funds as a tax-efficient near-cash alternative for the emergency fund that's entirely missing. Decent awareness but shallow execution.",
+    "composite_pqs": 0.34
+  },
+  "timestamp": "2026-04-18T14:52:38.703515Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

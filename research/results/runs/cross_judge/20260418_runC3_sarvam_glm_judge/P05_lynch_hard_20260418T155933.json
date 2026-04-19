@@ -1,0 +1,75 @@
+{
+  "persona_id": "P05",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "150419",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Set up a direct plan with Invesco Large Cap as core (low cost, high returns). 2. Add 20% small-cap for alpha. 3. Review every 6 months. 4. Invest in 10% large-cap, 20% small-cap, 80% mid-cap. 5. Rebalance quarterly."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.2,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.55,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "**passive_instrument_fraction (0.0):** No passive/index instruments are present in the equity allocation. The sole listed fund is an actively managed Large Cap fund (Invesco Large Cap), and the SIP step-up description explicitly adds small-cap 'for alpha' and allocates 80% to mid-cap — all active equity categories. There is zero mention of index funds or ETFs.\n\n**turnover_score (0.2):** The plan explicitly states 'Rebalance quarterly' and 'Review every 6 months.' Quarterly rebalancing is an active cadence — far more frequent than the annual-or-less threshold for passive investing. This pushes the score toward the active end, though it's not the most extreme (monthly).\n\n**cost_emphasis_score (0.3):** The SIP step-up mentions 'low cost, high returns' as a descriptor for the core holding, acknowledging cost as a factor. However, cost is not the primary selection criterion — the plan also prioritises 'high returns' and 'alpha' from small/mid-cap allocations. Cost awareness is present but secondary to return expectations.\n\n**research_vs_cost_score (0.5):** The plan provides virtually no deep research — no company analysis, no moat evaluation, no PEG ratios, no manager track-record assessment. However, it also does not rely on broad-market index exposure; it targets specific active categories (large cap core, small cap for alpha, mid cap growth). The approach is thin on research depth but not passive-instrument-based either, landing this score in the middle.\n\n**time_horizon_alignment_score (0.55):** The stated rationale is '15y' (15-year horizon) and the 10% annual SIP step-up reinforces long-term compounding intent. These are hallmarks of a patient, long-term strategy. However, quarterly rebalancing and 6-month review cycles introduce shorter-term tactical interference that misaligns with a truly passive long-term orientation. The net result leans passive (long horizon stated) but is dragged toward active by execution frequency.\n\n**portfolio_activeness_score (0.3):** The core holding is an active large-cap fund (IR = 0.5 suggests some active skill), and the broader strategy explicitly targets alpha via small-cap and heavy mid-cap allocation. No risk metrics (beta, alpha, tracking error) are available for quantitative assessment, but the categorical approach — seeking alpha from small/mid-cap categories — signals genuine active conviction. The score reflects an actively managed portfolio, tempered slightly by the large-cap core which may be relatively closet-index-like.",
+    "composite_aps": 0.30833333333333335
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.0,
+    "tax_efficiency": 0.3,
+    "reasoning": "This plan is severely deficient across nearly every dimension. **Goal alignment (0.1):** The investor wants FIRE by 45, a 15Cr corpus, startup funding in 10 years, international diversification, and small-cap alpha. The plan provides only 40% to a single large-cap fund with no goal-based bucketing, no international exposure, and no small-cap allocation — it essentially ignores every stated goal. **Diversification (0.05):** A single large-cap fund is near-zero diversification — no mid-cap, small-cap, international, debt, or any other asset class. The SIP step-up text mentions other categories but they aren't in the actual allocation schedule. **Risk-return appropriateness (0.1):** An aggressive investor with 25-year horizon should have near-maximum equity with small/mid-cap exposure; 40% large-cap only is far too conservative. No projected returns, no downside scenarios, and no risk warnings are provided. **Internal consistency (0.0):** The plan is self-contradictory: the allocation shows 40% large cap, but the SIP step-up says '10% large-cap, 20% small-cap, 80% mid-cap' (totaling 110%). The rationale field says '15y' contradicting the 25-year horizon. Fund data is almost entirely null/placeholder. No rebalancing guidelines despite step-up saying 'rebalance quarterly.' No review checkpoints. **Tax efficiency (0.3):** The sole allocation is an equity fund (favourable LTCG treatment), and since the investor is on the new regime, ELSS omission is not penalized. However, the plan is completely silent on tax considerations — no discussion of equity vs. slab-taxed instruments, no post-tax rationale. It avoids a tax mistake by default (only equity), but makes no active tax-aware decisions.",
+    "composite_pqs": 0.11000000000000001
+  },
+  "timestamp": "2026-04-18T15:59:33.107170Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

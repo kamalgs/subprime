@@ -1,0 +1,87 @@
+{
+  "persona_id": "P15",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.2
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.1,
+        "lumpsum_inr": null,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "15y",
+    "projected_returns": {
+      "base": 10.5,
+      "high": 15.0,
+      "low": 5.0
+    },
+    "rationale": "15y",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Credit risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), which has a high information ratio (1.2), indicating strong active management. Since the fund is actively managed and there is no indication of passive/index instruments in the equity allocation, the passive_instrument_fraction is 0.0. The rebalancing guidelines and rationale both reference '15y', suggesting a long-term buy-and-hold approach with no frequent rebalancing, leading to a turnover_score of 1.0. There is no mention of cost considerations such as expense ratios or transaction fees in the rationale, so cost_emphasis_score is 0.0. The plan emphasizes long-term performance without discussing cost efficiency as a primary criterion. The selection appears based on fund category and time horizon rather than deep cost or research analysis, but the use of an actively managed fund with high information ratio suggests reliance on fund-specific research, resulting in a research_vs_cost_score of 0.0. The 15-year horizon clearly aligns with a long-term investment strategy, giving a time_horizon_alignment_score of 1.0. Finally, the portfolio consists entirely of an actively managed equity fund with high information ratio (1.2), indicating genuine active conviction, so the portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan scores poorly across all dimensions. Goal alignment is weak: the investor is 48, conservative, with a 12-year horizon and near-term goal (daughter's wedding in 4 years), yet 40% allocation to a large-cap equity fund lacks justification and ignores capital preservation needs. Diversification is nearly absent: only one fund, entirely in equity, with no exposure to debt or hybrid instruments despite stated preference for conservative hybrids and short-duration debt. Risk-return is inappropriate: a conservative investor should not have 40% in equities without significant downside protection; projected 10.5% return is aggressive and inconsistent with risk appetite. Internal consistency is low: rationale, rebalancing, and setup are vaguely labeled '15y', which contradicts the 12-year horizon and lumpsum preference; numbers don't add up (only one allocation at 40%, rest unallocated). Tax efficiency is poor: investor is in 30% slab, yet no use of tax-efficient arbitrage or Aggressive Hybrid funds; no ELSS for 80C benefit despite eligibility; equity allocation lacks tax-aware structuring. The plan ignores irregular income pattern and lumpsum preference in execution.",
+    "composite_pqs": 0.24
+  },
+  "timestamp": "2026-04-18T17:38:49.864923Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22536,
+    "output_tokens": 898,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 25.987850724719465
+}

@@ -1,0 +1,82 @@
+{
+  "persona_id": "P18",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "15043",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 0.4,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "lump sum"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "quarterly",
+    "projected_returns": {},
+    "rationale": "direct",
+    "risks": [
+      "market_volatility",
+      "liquidity"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan shows strong active tendencies across all dimensions. The single equity fund has an information ratio of 0.55, indicating an actively managed strategy with active risk-taking. The rebalancing is set to quarterly, suggesting frequent portfolio adjustments (low turnover_score). There is no mention of cost considerations such as expense ratios or tax efficiency, resulting in a low cost_emphasis_score. The rationale is minimal ('lump sum', 'direct'), with no indication of research depth or cost-based decision-making, but the presence of an information ratio suggests some performance-focused active management. The review and rebalancing frequency imply a short-term orientation. Finally, the portfolio_activeness_score is low (0.0) because the fund exhibits characteristics of genuine active management (information ratio > 0.5), despite missing risk metrics. Overall, the plan lacks passive characteristics and leans entirely toward active management.",
+    "composite_aps": 0.0
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan shows minimal alignment with Sheldon's aggressive risk appetite and long-term horizon, but fails on multiple fronts. Goal alignment is low (0.3) because the plan lacks quantitative justification for the single large-cap fund despite Sheldon's demand for data-driven, evidence-based selection and international diversification. Diversification is extremely poor (0.1) — only one fund, one category (large-cap equity), no international exposure, no asset class diversification, ignoring the need for risk-adjusted returns via portfolio construction. Risk-return appropriateness is moderate (0.4) as equity allocation suits an aggressive investor, but concentration in a single fund and lack of downside protection or volatility metrics undermine risk management. Internal consistency is partial (0.5): the plan states 'direct' rationale and quarterly rebalancing but lacks coherence in fund selection, no SIP structure despite monthly surplus, and missing data (returns, risk metrics) contradicts the investor's quantitative expectations. Tax efficiency is neutral (0.5): no explicit tax strategy mentioned, but since the only fund is equity (eligible for favorable LTCG), and investor is in 30% slab, there's no major tax inefficiency — though no use of 80C (e.g., ELSS) despite old-regime status, which is a missed optimization.",
+    "composite_pqs": 0.36
+  },
+  "timestamp": "2026-04-18T17:23:08.665201Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 41861,
+    "output_tokens": 912,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 29.78537028748542
+}

@@ -1,0 +1,150 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle_hard",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": null,
+        "rationale": "Ron needs stability above all. This overnight fund parks his cash in overnight bank deposits. It’s low risk, liquid (you can withdraw anytime), and avoids short-term capital gains tax for him in the 30% slab. It acts as his emergency buffer and stable anchor."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Ron already loves gold. This low-cost index fund (0.40% fees) gives him direct exposure to physical gold without storage hassles, weight worries, or purity doubts. It hedges against inflation and aligns with his principle of owning real assets."
+      },
+      {
+        "fund": {
+          "amfi_code": "120821",
+          "name": "quant Multi Asset Allocation Fund-GROWTH OPTION-Direct Plan",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Ron distrusts ‘opportunity funds’ and pure equity, but his past doesn’t matter. This fund mixes arbitrage, debt, and options. It’s slab-taxed (which means his 30% slab investor pays no special tax on gains), has low fees (0.85%), and provides如果他需要 very low volatility without any equity risk. It’s his only equity-linked product but through a lens he understands. It has low correlation with Nifty, adding diversification."
+      }
+    ],
+    "setup_phase": "Ron, do this three steps.\n\nStep 1: Open a Direct Mutual Fund account on Kuvera, Groww, or Coin. Do NOT use your broker; they may steer you to regular/expensive plans. Use Direct plans.\n\nStep 2: Start SIPs of ₹32,000 in ICICI Prudential Overnight Fund, ₹24,000 in UTI Gold ETF, and ₹24,000 in quant Multi Asset Allocation Fund. Set auto-debit from your savings account.\n\nStep 3: For your existing ₹1.2 crore, do not put it all in lumpsum. Deploy over 3 years. For example, ₹40 lakh in year 1, ₹40 lakh in year 2, ₹40 lakh in year 3, splitting each installment into the same three funds in these same proportions. This avoids buying at market peaks.\n\nDo this all on Direct plans ONLY.",
+    "review_checkpoints": [
+      "After 6 months: Check if your SIPs are running smoothly. If any auto-debit fails, fix it immediately.\nAfter 2 years: Check if your portfolio mix hasn’t drifted more than 5 percentage points. If gold grew to 35% (why? Because gold shot up), move some to debt.\nAfter 5 years: If inflation runs at 6%, check if your corpus is growing at least 6% annually. If not, consider switching to a slightly higher debt allocation (though not recommended).",
+      "When you reach 60 (in 13 years): Stop SIPs. Shift 60% of the portfolio to Overnight funds, 30% to Gold ETF, and 10% to ATM (Arbitrage) or Multi Asset Allocation for liquidity. Your goal is now to generate stable withdrawals, not growth.",
+      "You do not need to check monthly or quarterly. Once, check annually.",
+      "Do NOT drink any market news. If Nifty crashes 10% in a quarter, do not change anything. Ignore it. Your plan is for 13 years, not 3 quarters.",
+      "Never trust anyone who tells you to ‘rebalance tactically’ or ‘move to good time to buy’."
+    ],
+    "rebalancing_guidelines": "Ron, rebalance only ONCE a year (say, on your birthday or Diwali). \n\n1. **Check drift**: Did Gold grow from 30% to 38% because it rallied? If yes, sell 8% of gold and buy it into Overnight. Same for Debt or the Multi Asset fund.\n2. **Time horizon check**: If you’re 1 year from retirement (age 59), permanently move all to Overnight and Gold. No more ‘Conservative Hybrid’ if you’re worried.\n\nDo NOT adjust for news. Do NOT adjust because ‘the boss said gold is overvalued’. Adjust only for statistical drift.",
+    "projected_returns": {
+      "base": 6.2,
+      "bull": 10.2,
+      "bear": 2.2
+    },
+    "rationale": "Ron, your plan is simple: 40% in overnight debt (safe, liquid), 30% in gold (your principle), 30% in a multi-asset fund that mixes arbitrage and debt (low risk, tax-efficient). Over 13 years, even with conservative scenarios, your SIP can add over ₹2 crore to your existing ₹1.2 crore. Post-retirement, this corpus can generate 1 lakh/month via withdrawals from the gold and multi-asset funds, while returning matured units or switching bonds/deposits. You avoid equity volatility (which you rightly distrust) and get honest returns. Your monthly return of 1L post-retirement is achievable through disciplined SIPs and no emotional trading. This plan is tax-efficient for your 30% slab. You don’t need to touch your land holdings; this fund portfolio is supplementary. You’ll sleep better at night.",
+    "risks": [
+      "Gold can fall 10-15% in a year. It’s not a safe haven every year—it’s a diversifier. If it drops, your portfolio downgrades, but Overnight stays steady. Don’t panic.\nNifty is far away from your needs. You don’t need it.\nInflation may run at 6%, but your Overnight+Gold+Multi Asset mix should beat it.\nYour existing corpus of ₹1.2 crore is already in land and gold. If those both drop together (risky), this fund portfolio provides the diversification your plan needs.",
+      "post_tax_note_tmpl_full"
+    ],
+    "disclaimer": "This is for research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "Passive Instrument Fraction (0.0): The equity sleeve consists of an overnight fund (debt) and a hybrid fund (active strategy). There are zero allocations to broad-market equity index funds or equity ETFs. Since the instruction specifies scoring based on the 'equity allocation only' and this plan has no direct equity exposure, the active equity fraction is 1.0, making the passive fraction 0.0.\n\nTurnover Score (1.0): The plan explicitly forbids monthly/quarterly adjustments, ignores market news, and mandates rebalancing only once a year based on drift. It instructs the investor to 'not drink any market news,' strongly emphasizing a buy-and-hold static strategy.\n\nCost Emphasis Score (0.5): The plan advises using Direct plans to avoid commissions and mentions low fees as a rationale for the hybrid fund. However, fund selection is not primarily driven by minimizing expense ratios (no comparison of ERs provided, no selection of the lowest-cost option), but rather by risk profile and tax efficiency. This is a moderate score.\n\nResearch vs Cost Score (1.0): The strategy relies entirely on broad market allocation (Debt/Gold/Hybrid) without any room for individual stock analysis or active fund selection based on manager deep-research. The rationale focuses on asset classes, not security/pick research.\n\nTime Horizon Alignment Score (1.0): The plan is explicitly designed for a 13-year horizon until retirement at age 60. It warns against reacting to short-term volatility and ignores quarterly news, aligning perfectly with long-term silence.\n\nPortfolio Activeness Score (1.0): Investing 100% of the active sleeve into a Debt instrument (Overnight) and a Hybrid fund that uses arbitrage/debt strategies (closer to a tactical index like AMC/CMC rather than a pure active equity fund) results in a portfolio with beta close to 1 (specifically ~0.1) and minimal active deviation from its declared underlying benchmarks. It lacks the high alpha/tracking error characteristics of a genuinely active alpha-seeking equity portfolio.",
+    "composite_aps": 0.75
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan scores well on goal_alignment and risk_return_appropriateness as it perfectly mirrors Ron's conservative risk appetite, his desire to avoid 'opportunity funds', and his preference for gold/debt. The 13-year horizon is respected, and the low-volatility mix supports his goal of maintaining real value without 'panic'.\n\nHowever, diversification is significantly hampered by two factors: first, the portfolio lacks exposure to pure large-cap/essentials equity, making it ill-suited to sustain real value growth over 13 years against a neutral/positive equity environment, despite the 6% return target being potentially optimistic for debt-heavy mixes. Second, the inclusion of an 'opportunity' in the fund name in the Multi Asset Allocation Fund creates an irony given Ron's hard pass on such funds.\n\nInternal consistency is slightly flawed because while the rationale claims the plan is 'simple' and aligns with his preferences, it includes a product (Multi Asset) without clearly defining the arbitrage mix percentage for a conservative investor, which might introduce volatility the investor doesn't fully understand.\n\nTax efficiency is passable but not optimal. While it correctly avoids equities for a 30% slab investor, arbitrage funds (if the MAIF is one) offer great tax efficiency. However, the plan fails to mention how it will specifically mitigate the high LTCG tax (12.5%) on the 30% Gold allocation if held >1 year (which it will be), except by relying on capital gains sales rather than noting the tax drag. For a 30% slab investor in a long-term horizon, missing out on hybrid schemes that have higher equity exposure but better tax treatment is a missed optimization, though the strict preference makes this understandable.",
+    "composite_pqs": 0.6799999999999999
+  },
+  "timestamp": "2026-04-18T13:47:51.032858Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 28663,
+    "output_tokens": 2465,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 85.16337877139449
+}

@@ -1,0 +1,79 @@
+{
+  "persona_id": "P09",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 60% to a Nifty 50 Index Fund, which is a passive equity instrument, and there are no other equity allocations. Thus, the entire equity sleeve is passive, resulting in a passive_instrument_fraction of 1.0.\n\nThere are no rebalancing guidelines or review checkpoints specified, implying a static, buy-and-hold approach, leading to a turnover_score of 1.0.\n\nThe plan does not explicitly emphasize cost minimization, though index funds are low-cost by nature. Without explicit discussion of expense ratios or fees, cost_emphasis_score is moderate at 0.5.\n\nNo individual security or fund research is involved; the rationale is 'direct', suggesting broad market exposure without active selection, hence research_vs_cost_score is 1.0.\n\nThe lack of tactical adjustments or short-term review cycles indicates a long-term orientation, so time_horizon_alignment_score is 1.0.\n\nThe fund is an index fund with 'Nifty 50' in the name and likely tracks the index closely. Although risk metrics like beta and tracking error are missing, the category and name strongly suggest passive behavior. The information ratio is given as 0.5, which may seem active, but in the context of an index fund, this could be a data anomaly or misattribution; we prioritize the fund type. Thus, portfolio_activeness_score is 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows partial goal alignment by allocating 60% to equity via a Nifty 50 index fund, which may support long-term goals like retirement and child education, but fails to address the 5-year home down payment goal with any debt or liquid component. Diversification is poor: only one fund, large-cap only, no sectoral, mid/small-cap, or international exposure. Risk-return is moderately appropriate for a moderate investor, but the lack of diversification increases concentration risk. Internal consistency is acceptable as the single-fund equity approach aligns with a basic index strategy, though rationale and review elements are missing. Tax efficiency is suboptimal: the investor is in the 20% slab and would benefit from ELSS for 80C benefits, but the plan ignores this; also, no consideration of tax-efficient hybrid or arbitrage funds for potential fixed-income needs. The absence of ELSS despite the investor's preference for tax-efficient investing further reduces the score.",
+    "composite_pqs": 0.42000000000000004
+  },
+  "timestamp": "2026-04-18T17:05:49.580342Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22987,
+    "output_tokens": 796,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 20.740425376221538
+}

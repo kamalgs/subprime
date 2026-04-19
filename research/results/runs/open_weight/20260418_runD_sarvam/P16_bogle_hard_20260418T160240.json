@@ -1,0 +1,79 @@
+{
+  "persona_id": "P16",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "2025"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan allocates 40% to an equity fund in the Large Cap category. The fund has an information ratio of 0.5, which suggests active management, but lacks other risk metrics (beta, tracking error, alpha). However, the category 'Large Cap' and absence of explicit indexing in the name imply it is actively managed, leading to a passive_instrument_fraction of 0.0. There is no mention of rebalancing frequency or review checkpoints, suggesting a static, long-term approach, hence turnover_score and time_horizon_alignment_score are 1.0. No cost-related factors (expense ratio, fees) are discussed, so cost_emphasis_score is 0.0. The rationale is minimal ('2025') and does not indicate any research or cost-based reasoning; however, the use of a single actively managed fund implies reliance on manager skill rather than market exposure, so research_vs_cost_score is 0.0. Finally, the fund's information ratio of 0.5 indicates active intent, and with no evidence of index-like behavior, portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.1,
+    "reasoning": "The investment plan shows very poor quality across all dimensions. Goal alignment is low because the investor is 63, retired, conservative, and seeks systematic income and estate planning, yet 40% is allocated to a Large Cap Equity fund with no justification or horizon alignment—equity at this level is inappropriate for a conservative, retired individual with an 8-year horizon for income needs. Diversification is nearly absent: only one fund is selected, entirely within Indian large-cap equity, with no exposure to debt, hybrids, or international assets, failing to address capital protection or income generation. Risk-return appropriateness is severely lacking: a 40% equity allocation in a Large Cap fund is too aggressive for a conservative retiree, and no downside protection or income strategy (like SWP from debt/hybrid funds) is incorporated. Internal consistency is weak: the rationale is minimal ('2025'), with no explanation linking the fund choice to goals, risk, or time horizon; no rebalancing, review, or SIP/lumpsum breakdown is provided. Tax efficiency is poor: the investor is in the 30% tax slab, yet there is no use of tax-efficient structures like arbitrage or Aggressive Hybrid funds for debt-like exposure, no ELSS to utilize 80C (though not critical here), and no recognition that debt gains would be taxed at 30% while equity taxation could be more favorable—yet even the equity portion is not structured with tax efficiency in mind. Overall, the plan ignores the investor's life stage, risk profile, income needs, and tax status.",
+    "composite_pqs": 0.18
+  },
+  "timestamp": "2026-04-18T16:02:40.166809Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23021,
+    "output_tokens": 978,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 62.15847826655954
+}

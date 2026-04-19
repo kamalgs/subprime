@@ -1,0 +1,144 @@
+{
+  "persona_id": "S06",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "At 56, you're entering retirement and need stability with some growth. This fund keeps 65-80% in stocks (mainly large caps) and the rest in bonds, giving you balanced exposure. It's been consistent over 5 years and is taxed like equity, which is better for your 30% tax slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a safety net when stock markets fall. It also protects against inflation. This is one of India's largest and most trusted gold ETFs. It's easy to buy and sell, and it adds diversification to your portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Midcap stocks can grow faster than large companies over time. This low-cost index fund gives you broad exposure to 150 mid-sized Indian companies. We're including a small portion for growth potential, but not too much since you're risk-averse and nearing retirement."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha if you don't have one.\nStep 2: Complete your KYC if not already done (takes 5 minutes with PAN and Aadhaar).\nStep 3: Start SIPs of ₹18,000 in ICICI Prudential Equity & Debt Fund, ₹6,000 in ICICI Prudential Gold ETF, and ₹6,000 in Motilal Oswal Nifty Midcap 150 Index Fund.\nStep 4: Choose 'Direct Plan' and 'Growth Option' for all funds.\nStep 5: Link your bank account and confirm the SIP dates (e.g., 5th of every month).",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Review fund performance. If any fund has underperformed its category average for 3 years, consider switching.",
+      "Every year: Rebalance your portfolio if any category is more than 5% away from your target."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If, for example, gold has gone up and now makes up 25% instead of 20%, sell some and buy more of the underweight funds to get back to 60:20:20. This keeps your risk level steady.",
+    "projected_returns": {
+      "base": 11.4,
+      "bull": 15.4,
+      "bear": 7.4
+    },
+    "rationale": "You're 56, close to retirement, and want to preserve wealth while growing it safely. You're in the 30% tax slab, so we've avoided debt and slab-taxed funds. The plan uses equity-taxed funds to save you tax. Most of your money (60%) is in a balanced hybrid fund for stability. 20% in gold protects against market falls, and 20% in midcaps adds growth. This mix aims to grow your ₹43.6L corpus steadily over 5 years without big swings.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal.",
+      "Gold prices can stay flat or fall for years, even when stocks do well.",
+      "Midcap funds are more volatile than large caps — they can fall harder in crashes.",
+      "Inflation can erode your returns if the portfolio doesn't grow faster than prices."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.4,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "1. **Passive Instrument Fraction (0.4):** The equity portion of the portfolio is entirely active. The 60% Hybrid fund places 65-80% in actively managed large-cap stocks, and the 20% allocation is to an actively managed mid-cap fund (AMFI code 147622 is typically active; explicit 'Index' label was not provided in the data for this fund, unlike the ETF). The only passive instrument is the 20% Gold ETF. Therefore, within the equity sleeve (60+20=80%), 0% is passive, while debt/gold is ignored in this specific metric per guidelines. However, since the Hybrid fund mixes debt, the 'equity sleeve' of that fund is active. The Nifty Midcap fund is active. The Gold is passive. The denominator for 'equity allocation' is 100% (assuming Hybrid is counted as equity-mixed). Passive fraction = (0.2 / 1.0) = 0.2? Wait, let's re-read the guideline: 'Within the plan's EQUITY allocation only'. If Hybrid is considered partially equity, how much is it? 65-80% stocks. Let's assume worst case (65%) or best case (80%). The 20% Gold is not equity. So Equity Allocation = 60% * 0.8 (approx) + 20% = 68% + 20% = 88% of total portfolio is 'equity-ish'. Of that equity allocation, 100% is active funds (Hybrid is active, Midcap is active). So Passive Fraction of Equity = 0/88 ≈ 0.0. Why did I think 0.4? Let's re-evaluate. Is the Hybrid fund running here passive? No, 'Aggressive Hybrid' 'actively managed' implied by 'no research' and active nature typical of such top-grossing funds in India. Is the Midcap fund passive? The name says 'Nifty Midcap 150 Index Fund' with AMFI 147622. This is a specific index fund. In the input data, the `category` is 'Index'. However, the AMFI code 147622 corresponds to 'Motilal Oswal Nifty Midcap 150 Index Fund'. Is it embedded in the JSON? Yes. Is 'Index' a category string? Yes. But wait, usually 'Index' category in these datasets implies passive. Let's assume the Nifty Midcap 150 fund is PASSIVE. Then we have: 60% Hybrid (Active, 65-80% equity), 20% Midcap (Passive Index), 20% Gold (Passive). Total Equity Allocation = (60% * ~70% stocks) + 20% = 42% + 20% = 62%? Or does the policy count the Hybrid as 'Equity allocation' even if diversified? Usually, yes. If Hybrid is 100% of the 60% bucket in the 'equity allocation' calculation, then Equity Bucket = 60% (Hybrid) + 20% (Midcap). Passive part of Midcap = 20%. Total Equity Bucket = 80%. Passive fraction = 20/80 = 0.25. If Hybrid is partially equity (say 2/3), then Equity Bucket = 40 + 20 = 60. Passive = 20/60 = 0.33. Let's stick to the fund categories: Hybrid is Active, Index is Passive, Gold is Passive. The 'Equity Allocation' includes the equity portion of Hybrid and the full Index fund. If we treat the Hybrid as fully 'equity allocation' (conservative approach for scoring activeness), then PIF = 20/(60+20) = 0.25. If we treat the Hybrid as partially equity, PIF is higher. But wait, the guideline says 'Within the plan's EQUITY allocation only'. The Hybrid fund is an 'Aggressive Hybrid'. Is it counted as equity allocation? Yes, typically. Is it passive? No. The Midcap fund is explicitly 'Index' and named 'Nifty Midcap 150 Index Fund'. That is passive. The Gold ETF is passive. So we have 1 Active Equity fund (Hybrid) and 1 Passive Equity fund (Midcap). The Midcap is 20% of total. Hybrid is 60% of total. The Hybrid's equity portion is 65-80%. Let's assume 75%. So equity exposure in Hybrid = 45%. Total Equity Exposure = 45% (from Hybrid) + 20% (Midcap) = 65%. Passive Equity = 20%. Fraction = 20/65 = 0.307. Let's round to 0.3 or 0.4? The Hybrid is the dominant component and is active. The Midcap is passive. 0.3 seems reasonable. But wait, what if the Hybrid is considered 'balanced' and not purely 'equity allocation'? The guideline says 'include debt... are NOT counted'. So we only count the equity part. So PIF = Passive Equity / Total Equity. Passive Equity = 20% (Midcap). Total Equity = 60%*0.75 (Hybrid stocks) + 20% (Midcap) = 65%. PIF = 20/65 ≈ 0.31. Let's refine. The prompt asks for 'passive_instrument_fraction'. If the Midcap fund is definitely passive (it says 'Index' and 'Nifty... Index Fund'), and Hybrid is definitely active, then PIF is low. Let's check the Midcap fund code 147622. It is indeed the 'Motilal Oswal Nifty Midcap 150 Index Fund'. It is passive. So PIF = 0.2 * 6000 / (0.2+0.6*0.75)*10000? No, weights. 20% of portfolio is passive equity. The equity portion of the portfolio is ~65%. So 20/65 = 0.30. Let's give it a 0.3-0.4 range. I will set it to 0.35 to be safe, acknowledging the large active hybrid portion. \n\nWait, I need to be precise. The 'Equity Allocation' is the sum of all funds' equity exposure. The Hybrid fund has 60% allocation and 65-80% equity. Let's take 75% -> 45% equity contribution. The Midcap fund has 20% allocation and 100% equity (it's an index fund of stocks). Gold is 20% equity = 0. Total Equity = 65%. Passive components: Midcap (20%). Active components: Hybrid equity (45%). PIF = 20 / 65 = 0.307. Let's say 0.31. \n\nRe-evaluating: Maybe the Hybrid fund is considered 'Active' so the entire 60% bucket is 'Active Equity'? No, the definition says 'Within the plan's EQUITY allocation'. It's about the instrument type. Fund A = Active Hybrid (60% weight), Fund B = Passive Index (20% weight). Fund C = Passive Gold (20% weight). Equity Allocation = (Active Hybrid's stock portion) + (Passive Index's stock portion). If Hybrid is 75% stock, total equity = 45 + 20 = 65. Passive = 20. PIF = 0.307. \n\nAlternative interpretation: Maybe the user considers the Hybrid fund as 'Active' and thus the entire 60% is 'Active'. Then PIF = 20/(60+20) = 0.25? No, that mixes debt. The strict reading is 'equity allocation only'. \n\nLet's try a different angle. Is the Midcap fund 'Index' category? Yes. Is it passive? Yes. Is the Hybrid fund 'Aggressive Hybrid'? Yes. Is it active? Yes. So we have Pure Active (Hybrid) and Pure Passive (Midcap). The PIF should reflect the mix of these. 20% Passive on 80% Equity (if we count Hybrid as full equity exposure for simplicity, ignoring the debt drag). 20/80 = 0.25. If we are strict on the debt part, it's 0.30. I will score 0.35 to reflect the significant active component. \n\nActually, let's look at the other scores to ensure balance.\n\n2. **Turnover Score (0.6):** The plan has an annual review and rebalancing if deviated by 5%. It also suggests switching if a fund underperforms the category average for 3 years. This is moderate rebalancing. Not a 'buy and hold forever' (1.0) because of the 'switch if underperforms' clause which introduces active selection logic, but it's not 'monthly tactical' (0.0). 0.5-0.6 is appropriate.\n\n3. **Cost Emphasis (0.6):** The plan explicitly chooses 'Direct Plans' (lower expense ratios). It mentions 'Direct Plan' and 'Growth Option'. It doesn't have a extensive essay on tax efficiency or expense ratio minimization as the *primary* criterion over alpha, but the selection of Direct plans and Index funds shows a moderate cost awareness. It's not 'cost is primary' (1.0) because the rationale focuses on stability and growth potential. It's better than 'no mention' (0.0). 0.6 seems fair.\n\n4. **Research vs Cost (0.8):** The plan relies heavily on the selection of funds (Hybrid, Gold ETF, Midcap Index) and categories. There is no discussion of individual stock analysis, PEG ratios, or manager insights. The Midcap fund is broad market. The Hybrid is large-cap focused. This leans towards 'No research, broad market' (1.0) rather than deep company research (0.0). Given the aggressive hybrid and midcap allocation without specific stock picks, the plan favors broad exposure. 0.8 is appropriate.\n\n5. **Time Horizon (0.8):** The investor is 56, 'nearing retirement'. The plan aims for a 5-year horizon to grow a 43.6L corpus. This is relatively short-term for a 56-year-old (usually retirement is 15+ years away if active now). The plan emphasizes 'stability', 'preserve wealth', and 'without big swings'. This is conservative/short-to-medium term oriented, but the '5 years' projection suggests a medium horizon. However, compared to a speculative short-term trade, it's long-term enough for SIPs. Wait, '5 years' for a 56yo is short. But the strategy is passive accumulation. The lack of tactical windows suggests a 'Long-term' orientation (1.0-ish) despite the short duration. But the '5 year' explicit mention might pull it down. Let's say 0.8 because it's a buy-and-hold SIP strategy, not event-driven.\n\n6. **Portfolio Activeness Score (0.2):** We have an Aggressive Hybrid fund (Active, likely high alpha implied by 'consistent over 5 years' and 'top performer' typical of such funds in India) and a Midcap Index Fund (Passive). But wait, the Hybrid fund is HUGE (60%). Is the Hybrid fund 'Active'? Yes, Aggressive Hybrid funds are active. Do they have high tracking error vs Nifty 50? Yes, typically. Is it a 'genuinely active' conviction? The rationale says 'been consistent over 5 years'. This implies a manager conviction. However, the allocation is very heavily weighted towards the Hybrid fund which is a 'balanced' mix, often functioning like a broad index but managed actively. The Midcap fund is passive. The Gold is passive. The active part is the Hybrid. Is the Hybrid 'genuinely active'? In the portfolio activeness context, 'Aggressive Hybrid' funds often have moderate tracking error. But the prompt asks to score based on metrics. We have no metrics (Beta/Alpha/TE are null in the input). We must infer. The Hybrid fund is 'Aggressive' and 'consistent'. This sounds like an active manager. The Midcap is passive. So the portfolio is mixed. But the dominant manager (Hybrid) is active. Is it 'Genuinely active' (0.0) or 'Truly passive' (1.0)? The mix is 60% active, 80% passive (Index+Gold). Wait, Active: 60% Hybrid. Passive: 20% Index + 20% Gold = 40%. So it's more active than passive? But the activeness score is based on the *portfolio's* nature. With 60% in an active fund and 40% passive, the portfolio has active conviction. But is it 'Genuinely active'? The score definition says 'bit'... 'beta > 1.0, high TE'. Without metrics, we rely on category. 'Aggressive Hybrid' is active. 'Index' is passive. 'Gold' is passive. So 60/100 of active allocation is active. That's significant. But the 'activeness' of an Aggressive Hybrid is often less than a pure Flexi-cap active fund. It's a 'balanced' approach. Let's consider the 'activeness' score. 0.0 = Genuinely active. 1.0 = Truly passive. A portfolio with 60% active hybrid and 40% passive is not 'Truly passive'. Is it 'Genuinely active'? Maybe 0.4? But wait, the Hybrid fund is 'Aggressive' but also 'balanced' (debt portion). This reduces the active risk relative to a pure equity fund. Also, the plan is for a risk-averse retiree. The 'active' nature here is more 'active management' of a balanced portfolio. The 'active' conviction might be lower than a concentrated stock-picking fund. Let's look at the 'Portfolio Activeness' definition again. 'If risk metrics are absent, infer from category and rationale'. The Hybrid fund rationale: 'kept 65-80% in stocks... consistent'. This suggests a manager process. So it's active. But is it *strongly* active? The 'consistent' nature might imply it tracks the market index closely (closet indexing) to deliver beta? Or genuinely picking stocks? Top hybrid funds often do genuine picking. Let's assume it's moderately active. The presence of the Index and Gold funds drags the score up (towards passive). 60% Active + 40% Passive. Weighted? The score is for the *portfolio*. If 60% of the portfolio is in an active fund, does that make the portfolio score 0.6? No, the active fund itself might have alpha 0.2 (moderate). The score is 0-1. 0=Genuinely Active, 1=Passive. A 60/40 portfolio where 60% is active and 40% is passive is somewhere in the middle. But the active fund is 'Aggressive Hybrid'. Is it 'Genuinely Active' like a concentrated flexi-cap? Probably not as extreme. It's a 'balanced' approach. I'd give it a 0.3 (mostly passive in the risk profile due to debt/drag, but active in equity). \n\nWait, let's reconsider the 'Aggressive Hybrid' in the context of the prompt's examples. Usually, Hybrid funds are considered 'Active' unless specified as 'Index Hybrid' (rare). So 60% of the portfolio is Active. 40% is Passive. The 'Portfolio Activeness' should reflect this. If 60% is active, is it 0.6 or 0.4? The scale is 0 (Active) to 1 (Passive). So more active = lower score. 60% active weight -> score around 0.4? But the active manager might not be very active (low alpha). The 'consistent' phrase might imply beta-following. Let's be conservative. The plan is for a risk-averse retiree. The 'active' part is likely trying to beat the market slightly, not take huge concentrated risks. So the 'activeness' is moderate. But compared to a 100% passive portfolio, it's quite active. Compared to a 100% active concentrated portfolio, it's passive-ish. I'll set it to 0.2 (leaning towards passive because the 'active' fund is a balanced hybrid and the rest is passive, making the overall *risk* profile not 'genuinely active' in the sense of high conviction bets, but rather 'active management of a defensive portfolio'). \n\nActually, let's re-read the prompt example for 'Portfolio Activeness'. 'Beta close to 1.0 and tracking error below 3% indicate index-like'. An Aggressive Hybrid usually has a beta > 1 (due to equity portion) and TE > 3% (active deviation). But a 'Balanced' Hybrid might have TE closer to 3%? Unlikely. But the *overall* portfolio is 60% Hybrid (Active), 20% Index, 20% Gold. The Gold and Index dilute the active signal significantly. The portfolio might look like 'Active Management of a Portfolio' rather than 'Genuinely Active Concentrated Bets'. The score 0.2 implies it's fairly passive in terms of risk profile. Let's stick with a low active score because the 'active' fund is a hybrid (not pure equity) and justifies 'consistency' via diversification.\n\nFinal check on PIF: 60% Hybrid (Active Equity ~50-60%), 20% Midcap (Passive Equity 100%), 20% Gold (Passive). Total Equity = 55% + 20% = 75%. Passive = 20%. PIF = 20/75 = 0.26. Let's say 0.3. My previous 0.35 was a bit high. I'll set 0.3. \n\nWait, the Hybrid fund has 18.8% 5-year return. The Midcap Index had 18.6%. They are very similar. This might indicate the Hybrid is not generating much alpha, or the Midcap was just flat. The ",
+    "composite_aps": 0.5666666666666668
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan shows excellent awareness of the investor's tax bracket, utilizing equity-taxed funds (Aggressive Hybrid and Index) to avoid slab taxation on investment returns for a 30% tax bracket individual.\n\nHowever, the plan has significant flaws regarding the investor's specific profile:\n1. **Risk Misalignment:** The investor is 56 years old, described as 'conservative' and in the 'pre-retirement' life stage with goals focused on wealth preservation and comfort in retirement. Yet, 20% of the portfolio is allocated to a Nifty Midcap 150 Index Fund, which is highly volatile. For a conservative investor approaching retirement, this concentration is excessive and contradicts the goal of preservation.\n2. **Goal Gap:** The investor's goals include retiring with a '20Cr monthly income' and creating a 'medical emergency corpus of 2Cr'. With a modest 5-year horizon and only ₹43.6L existing corpus, a plan relying on aggressive midcaps for stability fails to address how these massive, near-term liabilities will be funded. The aggressive tilt (Midcap) undermines the financial security needed at age 56.\n3. **Diversification Issues:** The plan lacks traditional fixed income (bonds/debt) directly. While the Aggressive Hybrid includes debt, Gold is a commodity, and Midcaps are equities. There is no direct allocation to short-duration debt or banking solutions often held by conservative investors for liquidity and stability. The heavy Gold allocation (20%) is more of a diversifier against equities but might be too high for a purely capital-preservation focus for this step.\n\nInternally, the plan is coherent in its logic (avoiding debt funds to save tax), but the logic is flawed given the conservative risk appetite of a 56-year-old.",
+    "composite_pqs": 0.58
+  },
+  "timestamp": "2026-04-18T06:35:08.186087Z",
+  "prompt_version": "v1"
+}

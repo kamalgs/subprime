@@ -1,0 +1,177 @@
+{
+  "persona_id": "P04",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 24866.0,
+          "morningstar_rating": null,
+          "returns_1y": 7.8,
+          "returns_3y": 16.8,
+          "returns_5y": 15.4,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.88,
+          "alpha": 6.79,
+          "tracking_error": 4.6,
+          "sharpe_ratio": 0.43,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap fund with a long history of stable returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large & Mid Cap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 7883.0,
+          "morningstar_rating": null,
+          "returns_1y": 12.2,
+          "returns_3y": 21.1,
+          "returns_5y": 20.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.88,
+          "alpha": 8.55,
+          "tracking_error": 6.39,
+          "sharpe_ratio": 0.53,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large & mid-cap fund with a balance of stability and growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "120392",
+          "name": "Invesco India Largecap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Invesco",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 282.0,
+          "morningstar_rating": null,
+          "returns_1y": 13.5,
+          "returns_3y": 18.2,
+          "returns_5y": 15.3,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.06,
+          "alpha": 5.63,
+          "tracking_error": 4.37,
+          "sharpe_ratio": 0.72,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap fund with a focus on growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "119018",
+          "name": "HDFC Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "HDFC",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 10491.0,
+          "morningstar_rating": null,
+          "returns_1y": 7.6,
+          "returns_3y": 14.2,
+          "returns_5y": 14.5,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.97,
+          "alpha": -3e-6,
+          "tracking_error": 3.18,
+          "sharpe_ratio": 0.1,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap fund with a long history of stable returns"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.5,
+      "bull": 14.5,
+      "bear": 6.5
+    },
+    "rationale": "The investment plan is designed to preserve capital and generate regular income post-retirement. The allocation to large-cap and large & mid-cap funds provides a balance of stability and growth. The investment in debt funds will provide a regular income stream.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.75,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The investment plan allocates 100% of equity to actively managed large-cap and large & mid-cap funds (ICICI Prudential, Invesco, HDFC), with no index funds or ETFs, resulting in a passive_instrument_fraction score of 0.0. The rebalancing is recommended annually with only light review checkpoints (6 months, 1 year), indicating moderate turnover, hence turnover_score is 0.75. Costs (expense ratios) are not discussed as a selection criterion, and all funds have typical active fund expense ratios (~1.0-1.1%), leading to a cost_emphasis_score of 0.0. The rationale focuses on fund performance and stability rather than cost or indexing, and there's no mention of research methodology, but the use of active funds with stock-picking mandates implies research-driven selection, yielding a research_vs_cost_score of 0.0. The plan supports long-term compounding with annual rebalancing and SIP step-up, aligning with a long-term horizon (time_horizon_alignment_score = 0.75). The portfolio_activeness_score is 0.2 because the funds show moderate tracking error (3.18% to 6.39%), betas near 1, but positive alpha and active management mandates, indicating genuine active exposure, though not extremely aggressive. Debt allocation is not specified, so not penalized.",
+    "composite_aps": 0.2833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows significant misalignment with the investor's conservative risk appetite and capital preservation goals. Despite the investor being 55, pre-retirement, and preferring debt/hybrid funds, the entire portfolio is allocated to equity-heavy large-cap and large & mid-cap funds (100% equity exposure), which is inappropriate for a conservative investor nearing retirement. This undermines goal alignment (0.4), risk-return appropriateness (0.4), and diversification (0.3) — lacking meaningful exposure to debt, arbitrage, or hybrid funds as per stated preferences.\n\nInternal consistency is partial (0.5): the rationale mentions 'debt funds will provide regular income' but no debt funds are actually allocated, creating a direct contradiction. The plan also ignores tax efficiency (0.2): the investor is in the 30% tax slab, yet the plan uses only equity funds without leveraging ELSS for 80C benefits (though not explicitly required, it's a missed opportunity), and more critically, fails to include any equity-taxed hybrid/debt alternatives like arbitrage or aggressive hybrid funds that could offer lower volatility with favorable LTCG treatment. No mention of tax implications is made at all.\n\nOverall, the plan fails to reflect the investor's life stage, risk profile, or preferences, and contains factual inconsistencies and tax-inefficient design.",
+    "composite_pqs": 0.36
+  },
+  "timestamp": "2026-04-18T15:37:18.639460Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24294,
+    "output_tokens": 1979,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 140.98354004323483
+}

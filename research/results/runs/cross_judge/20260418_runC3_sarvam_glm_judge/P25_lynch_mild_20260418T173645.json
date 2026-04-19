@@ -1,0 +1,78 @@
+{
+  "persona_id": "P25",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 0.2,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "10.55% on gains over ₹1.25L"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "10% large cap, 40% mid cap, 50% small cap, 5% debt",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "market",
+      "liquidity"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Start with 10% in large cap, then gradually shift to mid cap after 2 years"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "**passive_instrument_fraction = 0.0:** The sole equity allocation is HDFC Large Cap — an actively managed fund, not an index fund or ETF. Zero passive/index instruments in the equity sleeve. **turnover_score = 0.5:** No explicit rebalancing frequency or review checkpoints are listed, but the SIP step-up description mentions a tactical shift from large cap to mid cap after 2 years. This is an active positioning move, though infrequent — placing it mid-spectrum. **cost_emphasis_score = 0.3:** The choice of a Direct Plan reflects some cost awareness (lower expense ratios vs. regular plans), but cost is never discussed as a primary selection criterion. The expense ratio field is null and there's no cost-minimisation rationale. **research_vs_cost_score = 0.4:** The plan lacks deep fundamental research — no company analysis, moat evaluation, or PEG ratios. However, it also doesn't use passive/index instruments; it's a single active fund pick with minimal justification. Falls between deep research (0) and broad passive (1). **time_horizon_alignment_score = 0.6:** SIP investing with a 10% annual step-up and a multi-year shift horizon suggests a long-term compounding orientation. However, the explicit tactical shift from large cap to mid cap after 2 years introduces an intermediate-term active overlay, preventing a higher score. **portfolio_activeness_score = 0.25:** The single fund (HDFC Large Cap) is actively managed with an information ratio of 0.55 (>0.5 threshold), indicating genuine active skill. Most risk metrics (beta, alpha, tracking error) are null, but the category (active large cap) and positive IR suggest this is not a closet indexer. Large cap funds do tend to hug their benchmarks somewhat, so not scored at 0.0, but the active intent is clear.",
+    "composite_aps": 0.34166666666666673
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal Alignment (0.1):** Only one fund (HDFC Large Cap at 20%) is specified with no allocation for the remaining 80%. The investor's three distinct goals—re-entry into Indian MFs, ₹5Cr retirement corpus, and children's school fees over 8 years—receive no differentiated planning. The investor explicitly wants international + domestic balance, yet no international exposure is included. No liquidity-oriented allocation for the near-term school-fee goal. **Diversification (0.05):** Single fund, single category (large cap equity), single fund house, single geography. This is near-zero diversification. **Risk-Return Appropriateness (0.1):** The rebalancing guidelines propose 90% mid+small cap (40% mid + 50% small), which is wildly aggressive for a moderate-risk 45-year-old. No debt cushion for the 8-year school-fee horizon. No phased re-entry despite the investor's caution about timing. **Internal Consistency (0.05):** Critical contradictions: (1) Allocation shows 20% large cap but rebalancing says 10%; (2) Rebalancing percentages sum to 105% (10+40+50+5); (3) Only one fund is listed yet the rebalancing guideline references four categories; (4) SIP step-up description contradicts the stated allocation; (5) Tax rationale cites 10.55% LTCG which is incorrect (Budget 2024 rate is 12.5%). The plan tells multiple contradictory stories. **Tax Efficiency (0.1):** The investor is in the 30% old-regime slab but no ELSS is recommended to utilise 80C headroom. No arbitrage or aggressive hybrid funds are suggested as equity-taxed alternatives to slab-taxed debt for the near-term goal. The LTCG rate cited (10.55%) is wrong. No post-tax rationale is provided for any allocation choice.",
+    "composite_pqs": 0.08
+  },
+  "timestamp": "2026-04-18T17:36:45.896198Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

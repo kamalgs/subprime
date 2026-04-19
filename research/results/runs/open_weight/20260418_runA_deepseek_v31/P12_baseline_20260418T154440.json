@@ -1,0 +1,174 @@
+{
+  "persona_id": "P12",
+  "condition": "baseline",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Debt Scheme - Overnight Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2018-11-14",
+          "aum_cr": 10577.4513,
+          "morningstar_rating": null,
+          "returns_1y": 5.453418154772471,
+          "returns_3y": 6.279485763002324,
+          "returns_5y": 67.25002048586663,
+          "risk_grade": null,
+          "volatility_1y": 0.16340422930475892,
+          "beta": -0.0004108097044910859,
+          "alpha": 4.8710955684585455,
+          "tracking_error": 13.621247043904022,
+          "sharpe_ratio": -13.072785210666003,
+          "information_ratio": 0.357610103741458
+        },
+        "allocation_pct": 50.0,
+        "mode": "both",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": 6000000.0,
+        "rationale": "Ultra-safe overnight fund with stable returns, perfect for capital preservation and conservative income generation"
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Hybrid Scheme - Aggressive Hybrid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2000-01-01",
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": 9.979395774892641,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": 10.484058576958404,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": 6.219963591081088,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": 1.4911092768968344
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 3600000.0,
+        "rationale": "Conservative hybrid fund with equity exposure for modest growth while maintaining capital protection focus"
+      },
+      {
+        "fund": {
+          "amfi_code": "140088",
+          "name": "Nippon India ETF Gold BeES",
+          "category": "Gold",
+          "sub_category": "Other Scheme - Gold ETF",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2007-02-15",
+          "aum_cr": 53346.3145,
+          "morningstar_rating": null,
+          "returns_1y": 58.389765198134526,
+          "returns_3y": 33.775786920371665,
+          "returns_5y": 25.030699744513306,
+          "risk_grade": null,
+          "volatility_1y": 24.196887711143038,
+          "beta": 0.1344968618490463,
+          "alpha": 68.24371841790663,
+          "tracking_error": 27.220315018717862,
+          "sharpe_ratio": 2.5950884162424344,
+          "information_ratio": 2.507087753061613
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": 2400000.0,
+        "rationale": "Gold ETF for diversification and inflation hedging, aligns with Ron's preference for gold investments"
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera or Groww\nStep 2: Invest ₹60 lakh lumpsum into ICICI Overnight Fund\nStep 3: Invest ₹36 lakh lumpsum into ICICI Equity & Debt Fund  \nStep 4: Invest ₹24 lakh lumpsum into Nippon Gold ETF\nStep 5: Set up monthly SIPs: ₹40k in overnight fund, ₹24k in hybrid fund, ₹16k in gold ETF",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are running smoothly",
+      "After 1 year: Check if funds are performing as expected relative to their categories",
+      "Annually: Review asset allocation and rebalance if needed"
+    ],
+    "rebalancing_guidelines": "Once a year, check if your portfolio mix has drifted more than 5% from target. If gold exceeds 25% or debt falls below 45%, move money between funds to get back to 50% debt, 30% hybrid, 20% gold",
+    "projected_returns": {
+      "base": 8.9,
+      "bull": 12.9,
+      "bear": 4.9
+    },
+    "rationale": "This plan respects Ron's deeply conservative nature while addressing his retirement income needs. The 50% allocation to overnight funds provides maximum capital protection and stable returns. The 30% hybrid fund offers modest equity exposure for growth while staying within his comfort zone. The 20% gold allocation aligns with his existing preference for gold and provides inflation protection. At 30% tax bracket, this mix minimizes tax impact with mostly debt/gold investments. The plan targets ₹1L monthly income post-retirement through systematic withdrawals.",
+    "risks": [
+      "Debt funds can have minor fluctuations but overnight funds are very stable",
+      "Gold prices can be volatile over short periods but historically preserve value long-term",
+      "Hybrid funds have equity exposure that can decline 10-15% in market downturns"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 5,
+        "equity_pct": 30.0,
+        "debt_pct": 50.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Maintain conservative allocation"
+      },
+      {
+        "year": 10,
+        "equity_pct": 30.0,
+        "debt_pct": 50.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Continue stable allocation through pre-retirement"
+      },
+      {
+        "year": 13,
+        "equity_pct": 30.0,
+        "debt_pct": 50.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Begin systematic withdrawals for retirement income"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The investment plan contains no equity index funds or ETFs; the only equity exposure is through the actively managed ICICI Prudential Equity & Debt Fund, which has high tracking error (6.22%) and positive alpha (9.27), indicating active management. Thus, passive_instrument_fraction is 0.0.\n\nRebalancing is recommended annually only if allocations drift by more than 5%, implying low turnover. Hence, turnover_score is high at 0.75 (not 1.0 due to active monitoring triggers).\n\nThere is no discussion of expense ratios, cost minimisation, or tax efficiency beyond general tax bracket mention. Fund selection appears driven by risk profile and category rather than cost, so cost_emphasis_score is 0.0.\n\nThe rationale focuses on fund category, investor preference, and capital protection rather than cost or indexing; no mention of research, but the fund choices imply some manager trust. Thus, research_vs_cost_score is 0.0 as active fund picks suggest research, but cost is not the driver.\n\nThe plan spans 13 years with stable allocations and systematic withdrawals in retirement, indicating strong long-term orientation. Hence, time_horizon_alignment_score is 1.0.\n\nThe portfolio is 50% overnight debt (passive-like but not equity), 30% aggressive hybrid (active, beta=0.66, high tracking error), and 20% gold ETF (passive). The equity sleeve is entirely active. Weighted by equity exposure and risk metrics, portfolio_activeness_score is moderate but not fully active across all assets, so scored at 0.3 (leaning active).",
+    "composite_aps": 0.3416666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows strong goal alignment by respecting Ron's conservative risk appetite, gold preference, and need for capital preservation over a 13-year horizon. The allocation to overnight, hybrid, and gold funds directly supports his goals of stability and inflation protection, with a clear path to retirement income.\n\nDiversification is moderate: the portfolio spans debt, hybrid, and gold, but lacks geographic, sectoral, or fund house diversification (only two fund houses). Overweighting overnight funds limits growth potential, but suits his risk profile.\n\nRisk-return is appropriate for a conservative investor, though projected returns (base 8.9%) may barely meet inflation-adjusted retirement income needs. The 30% hybrid exposure introduces manageable equity risk, with downside warnings acknowledged.\n\nThe plan is internally consistent: rationale, allocations, rebalancing, and review checkpoints align. The strategy remains stable across time, matching the 'maintain conservative allocation' trigger.\n\nTax efficiency is poor. Ron is in the 30% tax slab, yet 50% of the portfolio is in overnight funds, taxed at 30% for short-term gains. The plan misses the opportunity to use arbitrage or aggressive hybrid funds, which are equity-taxed (STCG 15%, LTCG 10% above ₹1L), making them more tax-efficient for high-slab investors. While the aggressive hybrid fund is equity-taxed, the rationale incorrectly claims 'mostly debt/gold investments minimize tax impact' — in fact, slab-taxed debt is worse than equity-taxed hybrids for this investor. No ELSS is included, but that's acceptable as tax-saving isn't the focus. However, the tax reasoning is flawed, leading to a low score in this dimension.",
+    "composite_pqs": 0.69
+  },
+  "timestamp": "2026-04-18T15:44:40.078811Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 417238,
+    "output_tokens": 2636,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 18,
+    "tool_calls": 19
+  },
+  "elapsed_s": 82.3052903227508
+}

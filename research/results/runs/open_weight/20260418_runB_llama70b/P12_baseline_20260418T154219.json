@@ -1,0 +1,90 @@
+{
+  "persona_id": "P12",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Conservative hybrid fund with a mix of equity and debt to balance risk and returns"
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 9.5,
+      "bull": 13.5,
+      "bear": 5.5
+    },
+    "rationale": "Given Ron's conservative risk appetite and preference for avoiding complex products, we have chosen a mix of short-duration debt, arbitrage, and gold funds to balance risk and returns.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The investment plan allocates 40% to an aggressive hybrid fund (ICICI Prudential Equity & Debt Fund), which combines equity and debt with active management. Since the equity portion is not specified to be in index funds or ETFs, and hybrid funds are inherently actively managed, the passive_instrument_fraction is 0.0. Rebalancing is recommended annually, which reflects moderate turnover, hence a turnover_score of 0.75. Costs (like expense ratio) are mentioned but not emphasized as a primary selection criterion, resulting in a low cost_emphasis_score of 0.0. The rationale focuses on risk-return balance rather than cost efficiency. There is no indication of individual stock or fund research based on fundamentals, but the fund choice appears general, leading to a research_vs_cost_score of 0.0. The review cycle is long-term (6 months to 1 year), and rebalancing is infrequent, supporting a time_horizon_alignment_score of 0.8. The portfolio_activeness_score is 0.3 because while the fund is actively managed, there's no evidence of high-conviction active bets; however, lack of risk metrics limits confidence in higher passivity. Debt and hybrid allocations without passive alternatives pull the score toward active.",
+    "composite_aps": 0.30833333333333335
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows partial goal alignment by acknowledging Ron's conservative nature and preference for understandable products, but fails to fully address his income goal at retirement or long-term inflation protection given his 13-year horizon. Diversification is extremely poor — only one fund is recommended despite a large investible surplus and existing corpus, missing gold and short-duration debt allocations that match his stated preferences. The risk-return profile is moderately appropriate for a conservative investor, but a 9.5% projected return assumption with only a 40% allocation to a hybrid fund may be optimistic and not well-justified. Internal consistency is fair: the rationale mentions short-duration, arbitrage, and gold funds, but only a hybrid fund is selected, creating a mismatch. Tax efficiency is low: Ron is in the 30% slab, yet the plan uses a hybrid fund (equity-taxed) without leveraging ELSS for 80C benefits (he's in old regime), and ignores arbitrage or short-duration debt funds entirely despite their tax efficiency and stated preference. No mention of tax treatment weakens the recommendation.",
+    "composite_pqs": 0.4
+  },
+  "timestamp": "2026-04-18T15:42:19.806070Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22562,
+    "output_tokens": 1196,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 39.00897350534797
+}

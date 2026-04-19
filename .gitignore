@@ -4,7 +4,6 @@ __pycache__/
 .venv/
 dist/
 *.egg-info/
-results/
 conversations/
 /data/
 .subprime/
@@ -13,3 +12,9 @@ conversations/
 .pytest_cache/
 .gradio/
 .playwright-mcp/
+# results are tracked in full
+
+# demo build artifacts (root-level outputs from make_demo.py)
+research/scripts/demo_assets/
+/finadvisor-demo*.mp4
+/finadvisor-demo*.webm

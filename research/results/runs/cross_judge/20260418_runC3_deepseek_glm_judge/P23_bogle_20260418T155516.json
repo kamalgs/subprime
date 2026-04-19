@@ -1,0 +1,145 @@
+{
+  "persona_id": "P23",
+  "condition": "bogle",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "1994-12-08",
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": 9.412035479701863,
+          "returns_3y": 20.959569712571778,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Core equity holding with flexibility to invest across market caps. HDFC has strong track record with consistent 20%+ returns over 5 years. Low-cost flexi cap fund that automatically adjusts to market opportunities."
+      },
+      {
+        "fund": {
+          "amfi_code": "147623",
+          "name": "Motilal Oswal Nifty Smallcap 250 Index Fund- Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 738.8815,
+          "morningstar_rating": null,
+          "returns_1y": 10.035527860336169,
+          "returns_3y": 20.72469335567213,
+          "returns_5y": 16.89498141729384,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4500.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost small cap index fund for growth potential. At 29 with 26-year horizon, small cap exposure can boost long-term returns. Index fund structure keeps costs minimal (0.2% yearly fee) and transparent."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2018-11-14",
+          "aum_cr": 10577.451299999999,
+          "morningstar_rating": null,
+          "returns_1y": 5.453418154772471,
+          "returns_3y": 6.279485763002324,
+          "returns_5y": 67.25002048586663,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 4500.0,
+        "lumpsum_inr": 50000.0,
+        "rationale": "Safe, liquid fund for emergency buffer and stability. Since you're on new tax regime, debt funds are tax-neutral for you. This fund provides 5.5% returns with near-zero risk for your emergency fund needs."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Invest your ₹2 lakh existing corpus as lumpsum - ₹50k in overnight fund (emergency buffer), ₹1.5 lakh split between flexi cap and small cap funds. Step 3: Set up monthly SIPs: ₹9k in flexi cap, ₹4.5k in small cap, ₹4.5k in overnight fund.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly",
+      "After 1 year: Review fund performance against their benchmarks",
+      "After 2 years: Assess if small cap allocation is working well for your risk tolerance"
+    ],
+    "rebalancing_guidelines": "Once a year, check if your 50/25/25 mix has drifted by more than 5%. If small caps have grown significantly, move some profits to flexi cap fund to maintain balance. Never rebalance more than once a year.",
+    "projected_returns": {
+      "base": 12.3,
+      "bull": 16.3,
+      "bear": 8.3
+    },
+    "rationale": "This plan gives you 75% equity exposure for growth (50% flexi cap + 25% small cap) while keeping 25% in safe overnight fund for emergencies and stability. At 29 with 26-year horizon, this balanced approach lets you participate in market growth while having safety net. The flexi cap fund automatically adjusts across large/mid/small caps based on market conditions, while small cap index gives you pure growth exposure at minimal cost.",
+    "risks": [
+      "Stock markets can drop 20-30% in bad years - your portfolio value will temporarily decline",
+      "Small cap funds are volatile and can underperform for periods before recovering",
+      "Debt fund returns are modest but stable - they won't beat inflation significantly"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match your growing income as a content creator"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.33,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "**passive_instrument_fraction (0.33):** Equity allocation is 75% of the portfolio (50% flexi cap + 25% small cap). Of this equity sleeve, only the 25% Motilal Oswal Nifty Smallcap 250 Index Fund is passive, yielding 25/75 ≈ 33% passive equity. The 25% overnight fund is excluded per the debt exclusion rule. **turnover_score (0.85):** The plan explicitly states 'Never rebalance more than once a year' with a 5% drift threshold — strongly buy-and-hold. Review checkpoints are lightweight check-ins, not tactical triggers. The 10% annual SIP step-up is a mechanical increase, not active trading. **cost_emphasis_score (0.4):** Cost is mentioned as a benefit for the index fund ('keeps costs minimal') and the flexi cap ('low-cost'), but cost is not the dominant selection criterion. The flexi cap is chosen primarily for its 'strong track record' and '20%+ returns,' which is performance-driven, not cost-driven. Moderate cost awareness. **research_vs_cost_score (0.6):** No deep stock-specific or moat analysis is present. Fund selection relies on category-level rationale and 5-year return track records rather than granular company research. The index fund portion explicitly avoids research. However, the flexi cap selection does reference fund-house track record, so it's not purely no-research either. Leans toward broad market but with some active conviction. **time_horizon_alignment_score (0.9):** The plan is explicitly designed for a 26-year horizon (investor age 29). SIP-based accumulation with annual step-up, annual-only rebalancing, and language about 'long-term compounding' and 'participating in market growth' strongly align with patient, decades-long investing. **portfolio_activeness_score (0.35):** The 50% HDFC Flexi Cap is a genuinely active fund (well-known active manager, flexi-cap mandate with stock-picking). The 25% small cap index fund is truly passive. The 25% overnight fund is passive-like within debt (minimal active duration/credit decisions). No risk metrics (beta, alpha, tracking error) are provided for the flexi cap, but its category and HDFC's reputation confirm genuine active management. Portfolio-weighted activeness leans active due to the dominant flexi cap position, placing it moderately away from the passive end.",
+    "composite_aps": 0.5716666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.5,
+    "diversification": 0.55,
+    "risk_return_appropriateness": 0.55,
+    "internal_consistency": 0.75,
+    "tax_efficiency": 0.35,
+    "reasoning": "Goal Alignment (0.50): The plan references the investor's goals but treats all three (FI in 15yrs, emergency fund, creative venture in 8yrs) as one undifferentiated portfolio. No separate buckets or glide paths for the different timelines. The 25% overnight allocation is oversized for the emergency goal and drags on the 15-year FI target. No corpus target or milestone mapping for any goal. Diversification (0.55): Three funds across two asset classes and three fund houses is simple (matching preferences), but there's no international diversification, the debt portion is entirely overnight (one sub-category), and the small-cap index partially overlaps with the flexi cap's small-cap sleeve. Risk-Return (0.55): 75% equity is defensible for a 26-year horizon, but 25% in a small-cap index is aggressive for a self-described moderate investor — small caps can drop 40-60% in a bear market. Projected returns (12.3% base) are reasonable. However, no downside scenario planning for the 8-year creative venture goal, and no strategy for what the investor should do if the small-cap allocation is deeply underwater when she needs funds. Internal Consistency (0.75): Allocations add to 100%, SIP totals match the ₹18K surplus, and the lumpsum deployment of ₹2L is internally coherent. The rationale aligns with the fund selections. Minor issues: expense ratio data shows 1.0% for HDFC Flexi Cap and 0.0% for the other two (the small-cap rationale mentions 0.2% but data says 0.0%), and the claim that debt is 'tax-neutral' under the new regime is misleading. Tax Efficiency (0.35): The plan correctly avoids ELSS (new regime, no 80C benefit) and notes the tax context — but the 25% overnight fund allocation is a significant tax miss. Overnight funds are taxed at the marginal slab rate with no equity concession. For a similar risk/liquidity profile, arbitrage funds (≥65% equity) would receive favourable equity tax treatment (LTCG 12.5% above ₹1.25L). The rationale's claim that 'debt funds are tax-neutral for you' under new regime is incorrect — debt is still slab-taxed while equity retains preferential rates. No tax harvesting strategy is mentioned (booking LTCG up to ₹1.25L annually), and Aggressive Hybrid funds as a tax-efficient stable allocation are not considered.",
+    "composite_pqs": 0.54
+  },
+  "timestamp": "2026-04-18T15:55:16.449046Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

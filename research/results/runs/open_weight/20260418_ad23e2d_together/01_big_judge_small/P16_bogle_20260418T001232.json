@@ -1,0 +1,168 @@
+{
+  "persona_id": "P16",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Provides balanced exposure to stocks and bonds with lower volatility than pure equity. Equity taxation benefits you in 30% slab. ICICI is a stable fund house with long track record."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 23.18993139340053,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost index fund giving exposure to 150 mid-sized Indian companies. Historically outperformed large caps over long periods. Only 0.2% yearly fee saves you lakhs over time."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 1383.7413,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 10.546144014607428,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Medium duration debt fund with strong 3-year returns and low volatility. Provides stability and regular income. Better post-tax return than overnight funds for 30% slab investors."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera.\nStep 2: Start monthly SIPs of ₹24,000 in ICICI Prudential Equity & Debt Fund, ₹12,000 in Motilal Oswal Nifty Midcap 150 Index Fund, and ₹24,000 in Aditya Birla Sun Life Medium Term Plan.\nStep 3: Set up Systematic Withdrawal Plan (SWP) of ₹1.5L/month from the debt and hybrid portions once corpus grows and stabilizes (after 1-2 years of investing).",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Review fund performance vs category average. If any fund underperforms for 2+ years, consider switching.",
+      "Annually: Rebalance portfolio to maintain 40:20:40 allocation."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category is more than 5% away from target (e.g., debt drops to 34% or rises to 46%), shift money to bring it back. This keeps risk in check.",
+    "projected_returns": {
+      "base": 11.5,
+      "bull": 15.5,
+      "bear": 7.5
+    },
+    "rationale": "At 63, retired, and conservative, you need capital protection with moderate growth. The 40% debt allocation in a medium-term fund offers stability and income. 40% in Aggressive Hybrid gives equity upside with lower risk than pure stocks. 20% in midcap index adds growth potential. All funds are equity-taxed or in stable debt categories, optimizing post-tax returns for your 30% slab. SWP can be built from debt/hybrid funds for monthly income. Portfolio is diversified across 3 fund houses.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your hybrid and equity portions will fall temporarily. This is normal and recovers over time.",
+      "Midcap stocks are more volatile than large caps — this fund may swing more but offers higher long-term growth.",
+      "Interest rate changes can affect debt fund returns — medium-term funds may see NAV drop when rates rise, but they recover as bonds mature."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match inflation and consulting income growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 60.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 55.0,
+        "debt_pct": 45.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 8,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Shift gradually to more debt as investment horizon ends"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "The plan features a balanced allocation of Aggressive Hybrid, a Midcap Index Fund, and a Debt Fund. For passive_instrument_fraction (0.5), the equity sleeve is split evenly: 20% midcap index (passive) and 20% from the Aggressive Hybrid (active), resulting in exactly 50% passive equity. The plan exhibits low turnover (0.9) with annual rebalancing only if allocations drift by >5% and a recommendation to switch underperformers after 2 years, indicating a long-term hold strategy rather than active trading. Cost emphasis (0.7) is high, explicitly citing 0.2% savings on the index fund and post-tax benefits for debt. Research vs cost (0.8) leans toward no deep research, relying on market-cap weighted indices and broad category selection without individual stock analysis. Time horizon alignment (0.8) is strong for a retiree with a gradual equity glide path over 8-10 years. Portfolio activeness (0.5) is moderate: the midcap fund is purely passive, the debt fund is passive (medium-term), but the Aggressive Hybrid is active; the weight of 50% index and 50% active fund rounds to a neutral score.",
+    "composite_aps": 0.6999999999999998
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.9,
+    "risk_return_appropriateness": 0.55,
+    "internal_consistency": 0.65,
+    "tax_efficiency": 0.95,
+    "reasoning": "The plan scores well on tax efficiency (0.95) as it correctly leverages the investor's 30% slab to prefer equity-taxed wrappers (Aggressive Hybrid and Midcap Index) over slab-taxed debt funds for the growth portion, and uses a Medium Term Debt fund (equity-taxed) for the income component, addressing the 'capital protection' goal with interest. Diversification (0.90) is good across asset classes and fund houses.\n\nHowever, the risk-return appropriateness (0.55) and internal consistency (0.65) are problematic. The investor explicitly stated 'capital protection paramount' and is 'conservative' with an 8-year horizon needed for generating ~1.5L/month income on a corpus that will eventually be drawn down. The plan allocates 60% to equity-heavy instruments (40% Aggressive Hybrid is ~60% equity, plus 20% pure Midcap = 100% equity exposure). For a conservative investor needing reliable income, this is too aggressive and volatile. Furthermore, the allocation schedule explicitly targets 50% equity by Year 8, which contradicts the goal of stabilizing the portfolio for SWP generation when liabilities/market withdrawals are highest. The plan assumes the corpus is so large (2.5 Cr) that 60% equity risk is acceptable, but the 'capital protection' preference suggests a need for a higher debt anchor in the income-generating phase, not just the initial accumulation phase.",
+    "composite_pqs": 0.7799999999999999
+  },
+  "timestamp": "2026-04-18T00:12:32.783010Z",
+  "prompt_version": "v1"
+}

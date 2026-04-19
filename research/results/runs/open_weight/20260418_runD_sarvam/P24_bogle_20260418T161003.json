@@ -1,0 +1,82 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "increase allocation annually based on performance",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "equity market risks can drop 20-30% in bad years",
+      "long-term average returns: 12-15%"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 70% to the Nifty 50 Index fund, which is a passive/index instrument, resulting in a passive_instrument_fraction score of 1.0. However, the rebalancing_guidelines suggest annual adjustments based on performance, indicating active management intent, leading to a turnover_score of 0.0. There is no mention of cost considerations like expense ratios or tax efficiency, so cost_emphasis_score is 0.0. The plan uses a broad market index without any indication of individual security research, yielding a research_vs_cost_score of 1.0. The strategy implies annual reviews and performance-based changes, indicating a short-term orientation, hence time_horizon_alignment_score is 0.0. Finally, the sole equity fund is an index fund (Nifty 50), which is inherently passive; despite missing risk metrics, its category and rationale confirm passive exposure, resulting in a portfolio_activeness_score of 1.0.",
+    "composite_aps": 0.5
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows partial goal alignment by focusing on long-term growth suitable for Remy's 38-year horizon and retirement goal, but fails to address the intermediate 4-year target of accumulating ₹5L, which requires more capital preservation. Diversification is extremely poor—only one fund (Nifty 50 Index) is recommended, with no exposure to mid/small caps, debt, or international assets, increasing concentration risk. The 70% equity allocation may be acceptable for a moderate investor over the long term, but without any debt component, the risk-return profile is slightly aggressive and not fully appropriate, especially for the near-term goal. Internal consistency is weak: the rationale is nearly empty, rebalancing guidance is vague ('increase allocation annually based on performance'), and the SIP step-up preference is ignored. Tax efficiency is relatively good because the plan uses a pure equity index fund, which qualifies for favorable equity taxation (LTCG up to 12.5% after ₹1.25L) under the new tax regime. Since Remy is in the 'new_regime', ELSS is not needed for 80C benefits, so its omission is not penalized. However, the plan lacks any explanation of tax treatment, missing an opportunity for clarity.",
+    "composite_pqs": 0.44000000000000006
+  },
+  "timestamp": "2026-04-18T16:10:03.596664Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22832,
+    "output_tokens": 801,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 29.390315669588745
+}

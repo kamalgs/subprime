@@ -1,0 +1,79 @@
+{
+  "persona_id": "P02",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "1990-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.5,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 40% to a Nifty 50 Index fund, which is a passive equity instrument, and there are no other equity funds mentioned, so the entire equity allocation is passive (passive_instrument_fraction = 1.0). There are no rebalancing guidelines or review checkpoints specified, implying a buy-and-hold approach (turnover_score = 1.0). The plan does not emphasize cost minimization explicitly, but index funds are inherently low-cost; without explicit discussion, cost_emphasis_score is moderate (0.5). There is no indication of individual stock or fund research; the rationale is 'direct', suggesting broad market exposure without active selection (research_vs_cost_score = 1.0). The lack of active review or rebalancing implies a long-term horizon (time_horizon_alignment_score = 1.0). The portfolio consists solely of a Nifty 50 index fund, which is inherently passive; despite missing risk metrics, the fund category and name confirm passive exposure (portfolio_activeness_score = 1.0).",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan shows minimal alignment with the investor's goals: a 40% allocation to Nifty 50 Index Fund is insufficient for a moderate-risk investor with a 20-year horizon targeting long-term goals like retirement and children's education. The plan lacks diversification entirely, with only a single equity fund and no exposure to international equities, debt, hybrids, or sectoral/thematic funds (which the investor wishes to avoid anyway). This extreme concentration fails to manage risk across asset classes or geographies.\n\nRisk-return is mismatched: a moderate investor should have balanced exposure, but the plan implies a high-equity portfolio without any risk-mitigating debt or hybrid components. No rationale, rebalancing guidelines, or review checkpoints are provided, making the plan internally inconsistent — the SIP amount is listed as 0.5 INR with lumpsum mode, which contradicts the investor's preference for SIPs and available monthly surplus of ₹80,000.\n\nTax efficiency is poor: the investor is in the 30% tax slab, yet the plan does not utilize ELSS funds to claim 80C deductions (available under old regime), nor does it consider tax-efficient hybrids or arbitrage funds for fixed-income needs. There is no mention of tax treatment, and the single-fund approach ignores post-tax return optimization. Overall, the plan is underdeveloped and fails on multiple quality dimensions.",
+    "composite_pqs": 0.26
+  },
+  "timestamp": "2026-04-18T18:00:52.957975Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22726,
+    "output_tokens": 808,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 24.160944372415543
+}

@@ -1,0 +1,142 @@
+{
+  "persona_id": "P15",
+  "condition": "bogle",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120821",
+          "name": "quant Multi Asset Allocation Fund-GROWTH OPTION-Direct Plan",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "quant Money Managers Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2001-02-19",
+          "aum_cr": 2257.6169,
+          "morningstar_rating": null,
+          "returns_1y": 26.952890539632367,
+          "returns_3y": 24.634878031569606,
+          "returns_5y": 23.801336825813113,
+          "risk_grade": null,
+          "volatility_1y": 11.018517205489996,
+          "beta": 0.5390824441048484,
+          "alpha": 29.213420768438077,
+          "tracking_error": 10.198011634349195,
+          "sharpe_ratio": 2.3670489747749124,
+          "information_ratio": 2.864619282257015
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": 4800000.0,
+        "rationale": "Multi-asset fund providing diversification across equity, debt and gold with excellent historical returns and lower volatility"
+      },
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund - Direct Plan - Growth",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2002-10-07",
+          "aum_cr": 16898.4424,
+          "morningstar_rating": null,
+          "returns_1y": 13.260836000709775,
+          "returns_3y": 18.967884668785405,
+          "returns_5y": 19.756704465256348,
+          "risk_grade": null,
+          "volatility_1y": 9.255187907822851,
+          "beta": 0.5330914997433563,
+          "alpha": 9.83317350085798,
+          "tracking_error": 8.364392395975225,
+          "sharpe_ratio": 0.43447877174260774,
+          "information_ratio": 1.1755992587805304
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 1600000.0,
+        "rationale": "Large, established multi-asset fund from reputable AMC with stable long-term performance"
+      },
+      {
+        "fund": {
+          "amfi_code": "151045",
+          "name": "HSBC Credit Risk Fund - Direct Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2009-09-29",
+          "aum_cr": 105.79799999999999,
+          "morningstar_rating": null,
+          "returns_1y": 18.237467529324448,
+          "returns_3y": 11.762361394454523,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": 13.007748768228918,
+          "beta": 0.11235438955105381,
+          "alpha": 23.204976398697028,
+          "tracking_error": 17.877842002986544,
+          "sharpe_ratio": 1.2984988136425486,
+          "information_ratio": 1.297974128802602
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 1600000.0,
+        "rationale": "Higher-yielding debt fund for additional stability and income generation"
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU\nStep 2: Invest your existing ₹80 lakh corpus immediately as lumpsum across these funds\nStep 3: Set up monthly investments of ₹75,000 through the platforms\nStep 4: Keep track of your irregular business income and invest additional lumpsums when available",
+    "review_checkpoints": [
+      "After 6 months: Check if your investments are running smoothly",
+      "After 1 year: Review fund performance compared to their category averages",
+      "Before daughter's wedding (year 4): Ensure ₹25L wedding fund is secured in debt portion"
+    ],
+    "rebalancing_guidelines": "Rebalance annually to maintain 60% multi-asset, 20% multi-asset, 20% debt allocation. If any fund deviates more than 5% from target, move money between funds to restore balance",
+    "projected_returns": {
+      "base": 15.2,
+      "bull": 19.2,
+      "bear": 11.2
+    },
+    "rationale": "This plan focuses on capital preservation while providing steady growth. At 48 with a 12-year horizon and 30% tax bracket, multi-asset funds provide tax-efficient equity exposure while maintaining stability. The debt allocation ensures funds are available for your daughter's wedding in 4 years while the equity portion supports long-term retirement goals",
+    "risks": [
+      "Multi-asset funds can still decline 10-15% in market downturns",
+      "Credit risk funds carry slightly higher risk than regular debt funds but offer better returns",
+      "Markets can be volatile - your portfolio value will fluctuate but should recover over time"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.05,
+    "reasoning": "**passive_instrument_fraction (0.0):** The equity exposure in this plan comes entirely through two actively managed multi-asset funds (Quant Multi Asset, ICICI Prudential Multi-Asset). There are zero index funds or ETFs in the allocation. The 20% debt allocation is excluded per the scoring rule. So the passive equity fraction is 0/80 = 0.0.\n\n**turnover_score (0.75):** The plan prescribes annual rebalancing with a 5% deviation threshold — a standard, not aggressive, cadence. Review checkpoints are at 6 months, 1 year, and a pre-wedding event check in year 4. No tactical sector rotation or momentum trading is mentioned. This is closer to buy-and-hold than active trading, but the multiple review points and threshold-based rebalancing keep it from a perfect 1.0.\n\n**cost_emphasis_score (0.2):** Direct plans are used (a minor cost consideration), but cost is never discussed as a selection criterion. Fund choices are driven by historical returns, diversification rationale, and AMC reputation — not expense ratios or total cost of ownership. The expense_ratio fields are all 0.0 and never referenced.\n\n**research_vs_cost_score (0.55):** Fund rationales are generic and shallow — 'excellent historical returns,' 'stable long-term performance,' 'higher-yielding debt fund' — with no deep company analysis, PEG ratios, management quality assessments, or competitive moat evaluation. However, neither is this a broad-market index approach; specific active funds were selected. The depth of research is minimal but the approach isn't purely passive/index either, landing this in the middle.\n\n**time_horizon_alignment_score (0.85):** The 12-year horizon for a 48-year-old investor, combined with a capital-preservation-and-steady-growth focus and an intermediate goal (daughter's wedding in year 4), is well-aligned with long-term patient investing. No short-term opportunistic moves are suggested. The only slight deduction is the 6-month initial review, which is somewhat early for a 12-year plan.\n\n**portfolio_activeness_score (0.05):** Every fund in this portfolio is genuinely active. Quant Multi Asset has tracking error 10.2%, alpha 29.2%, and IR 2.86 — extreme active conviction. ICICI Multi-Asset shows tracking error 8.4% and alpha 9.8%. The HSBC Credit Risk Fund has tracking error 17.9% against Nifty 50 and is inherently an actively managed credit strategy. There are zero index-tracking or closet-indexing instruments in the portfolio. This is almost entirely active.",
+    "composite_aps": 0.39999999999999997
+  },
+  "pqs": {
+    "goal_alignment": 0.45,
+    "diversification": 0.35,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.45,
+    "tax_efficiency": 0.4,
+    "reasoning": "**Goal Alignment (0.45):** The plan acknowledges the three goals in its rationale but fails to meaningfully segment allocations for them. The daughter's wedding (₹25L in 4 years) is a short-term capital-preservation goal, yet no dedicated short-duration debt allocation is carved out — the review checkpoint vaguely says 'ensure wedding fund is in debt portion,' but only 20% is in debt and none is specifically earmarked. The 12-year retirement goal is somewhat served by the multi-asset equity exposure, but the wealth-preservation-and-transfer goal is poorly addressed by 80% in volatile multi-asset funds.\n\n**Diversification (0.35):** 80% of the portfolio is concentrated in a single category (multi-asset/conservative hybrid) across just two funds, which likely have significant overlap in equity, debt, and commodity holdings. Only one debt fund (HSBC Credit Risk, tiny AUM of ₹106 cr — a liquidity concern). No dedicated equity, gold, short-duration debt, or arbitrage fund. Geographic and sector diversification is entirely at the mercy of two fund managers. This is inadequate diversification for an ₹8 cr corpus.\n\n**Risk-Return Appropriateness (0.30):** A conservative investor is projected a 15.2% base-case return, which is wildly optimistic for a conservative portfolio. The quant Multi Asset fund's recent 24-27% returns are exceptional and unsustainable; extrapolating these forward is unrealistic. The bear case of 11.2% is still strongly positive — a true bear scenario could produce negative returns, which the plan fails to model. With 80% in equity-oriented multi-asset funds and the near-term wedding goal, downside risk is poorly addressed. The credit risk debt fund adds another layer of risk inappropriate for a conservative profile.\n\n**Internal Consistency (0.45):** The rationale claims 'capital preservation' and 'steady growth,' but 80% in equity-oriented multi-asset funds contradicts this. The review checkpoint says to secure the wedding fund in the 'debt portion,' but the 20% debt allocation (₹16L lumpsum) may not suffice for ₹25L in 4 years. Projected returns (15.2% base) clash with the conservative label. However, the SIP/lumpsum numbers add up correctly (₹75K/month, ₹80L lumpsum), allocations sum to 100%, and rebalancing guidelines are internally coherent.\n\n**Tax Efficiency (0.40):** The multi-asset funds likely qualify for equity taxation (≥65% equity), which is favourable for a 30% slab investor — this is a positive. However, the 20% debt allocation uses a credit risk fund taxed at the 30% marginal slab, when arbitrage funds or Aggressive Hybrid funds could provide similar stability at equity tax rates. There is no ELSS for 80C utilization (old-regime 30% slab investor), and no explicit discussion of tax treatment for any fund. The brief mention of 'tax-efficient equity exposure' is insufficient.",
+    "composite_pqs": 0.39
+  },
+  "timestamp": "2026-04-18T15:48:00.820277Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

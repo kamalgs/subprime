@@ -1,0 +1,101 @@
+{
+  "persona_id": "P16",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.1
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      },
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.1
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1.00% (1.00% over 1.00%))",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.6,
+    "reasoning": "**passive_instrument_fraction = 0.0**: 100% of the equity allocation goes to HDFC Large Cap Direct Plan – Growth, an actively managed large-cap fund. No index funds or ETFs are included; the passive fraction of the equity sleeve is zero.\n\n**turnover_score = 0.5**: The rebalancing guidelines field ('1.00% (1.00% over 1.00%))') is garbled and uninformative. No review checkpoints are listed. SIP mode implies regular investing without tactical trading, but the absence of any structured rebalancing discipline makes the score neutral.\n\n**cost_emphasis_score = 0.2**: No expense-ratio data or cost discussion is provided. Choosing a Direct Plan (vs Regular) implies marginal cost awareness, but cost is never cited as a selection criterion. Minimal cost emphasis.\n\n**research_vs_cost_score = 0.4**: The rationale field contains only '1.00%', which is meaningless — no company analysis, sector views, manager track-record evaluation, or moat assessment. At the same time, the plan doesn't use broad-market index funds either; it picks a single active fund without justification. Falls between deep research and pure passive acceptance.\n\n**time_horizon_alignment_score = 0.7**: SIP mode with a single-fund, simple allocation suggests a long-term compounding mindset. No tactical calls, event-driven positioning, or short-term windows are mentioned. The 'basic' perspective and lack of projected returns are consistent with patient buy-and-hold investing.\n\n**portfolio_activeness_score = 0.6**: The sole holding is an actively managed large-cap fund, but its information ratio of 0.1 is very low, suggesting minimal risk-adjusted outperformance vs the Nifty 50 benchmark. Indian large-cap active funds frequently exhibit closet-indexing behaviour with high benchmark overlap and tracking errors in the 1–3% range. Without concrete beta, alpha, or tracking-error data, the low IR and large-cap category tilt the score toward the passive end of active management.",
+    "composite_aps": 0.39999999999999997
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal alignment (0.05):** The investor wants systematic income of ₹1.5L/month via SWP from debt/hybrid funds, grandchildren's education funding (20-25yr horizon), and estate planning. The plan offers none of these — no debt/hybrid allocation, no SWP structure, no estate planning, and no long-horizon separate bucket for the education goal. **Diversification (0.05):** Only one fund (HDFC Large Cap) is listed — duplicated as two 40% entries — giving zero diversification across asset classes, sectors, geographies, or fund houses. 20% of the portfolio is entirely unallocated. **Risk-return appropriateness (0.05):** An 80% equity allocation (with 20% unaccounted) for a 63-year-old conservative investor prioritising capital protection is wildly inappropriate. No downside scenarios or risk warnings are provided. Projected returns are empty. **Internal consistency (0.05):** The plan is incoherent: the same fund appears twice, allocations total only 80%, rationale fields contain meaningless '1.00%', rebalancing text is nonsensical ('1.00% (1.00% over 1.00%))'), and the risks array and rationale are empty. **Tax efficiency (0.1):** No tax discussion at all. The 30% slab investor gets no 80C headroom filled (no ELSS), no debt-alternative tax optimization (arbitrage/hybrid over slab-taxed debt funds), and no post-tax rationale. The sole positive is that the equity allocation accidentally qualifies for favourable equity tax rates, but this is never stated or reasoned. Overall, this plan appears to be a broken/garbled output rather than a considered investment recommendation.",
+    "composite_pqs": 0.06000000000000001
+  },
+  "timestamp": "2026-04-18T17:22:42.921305Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

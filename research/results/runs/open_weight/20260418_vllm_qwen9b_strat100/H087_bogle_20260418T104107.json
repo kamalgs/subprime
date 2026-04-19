@@ -1,0 +1,222 @@
+{
+  "persona_id": "H087",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "140088",
+          "name": "Nippon India ETF Gold BeES",
+          "category": "Gold ETF",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 5.0,
+        "mode": "sip",
+        "monthly_sip_inr": 400.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you like gold as a hedge, I've included about 5% in a Gold ETF. Gold usually moves differently from stocks, so it helps balance your portfolio. It's slab-taxed, which is fine since you're in the new tax regime."
+      },
+      {
+        "fund": {
+          "amfi_code": "148726",
+          "name": "Nippon India Nifty Midcap 150 Index Fund",
+          "category": "Index Fund - Nifty Midcap 150 Index Fund",
+          "sub_category": "Midcap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks the midcap segment of the Nifty 500. Midcap stocks have grown faster than large caps over the last 3-5 years, helping you beat inflation significantly."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund",
+          "category": "Index Fund - Nifty Midcap 150 Index Fund",
+          "sub_category": "Midcap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 0.0,
+        "mode": "sip",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": ""
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty 500 Index Fund - Direct Plan",
+          "category": "Index Fund - Nifty 500 Index Fund",
+          "sub_category": "Large & Midcap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 65.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5200.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks the Nifty 500 (500 biggest Indian companies). It's the simplest way to own a piece of India's top companies. Over 36 years, it will likely give you 12-14% returns."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Demat and Trading Account and a Direct Mutual Fund account on an app like Groww, Kuvera, Coin, or Directly on the fund houses' websites.\n\nStep 2: Choose the direct plan options of these funds to pay the lowest fees.\n\nStep 3: Set up a monthly auto-debit for ₹8,000. You can either split ₹5,200 on the Index Fund, ₹400 on the Gold ETF, or use a SIP planner in the app which will automatically split the amount.\n\nStep 4: Review your account after 3 months to ensure the SIPs are active and funds are being invested correctly.",
+    "review_checkpoints": [
+      "After 3 months: Check if your monthly SIPs have been automatically deducted and invested.",
+      "After 6 months: Check if your portfolio value has increased compared to the previous month (likely due to market growth).",
+      "After 1 year: Review the allocation: ensure 65% is still in Index funds and 5% in Gold. If any category has grown much more than planned, rebalance.",
+      "Every year thereafter: Rebalance once the year to keep your 65/5 split."
+    ],
+    "rebalancing_guidelines": "Once a year (say, on your birthday or Amidst year), compare your actual holdings with the target allocation of 65% in Index funds and 5% in Gold. If one category has grown more than planned, move some money from the overgrown category to the category that has underperformed. This helps you stick to your plan and doesn't require you to time the market.",
+    "projected_returns": {
+      "base": 10.15,
+      "bull": 14.15,
+      "bear": 6.15
+    },
+    "rationale": "You are 26 years old with 36 years ahead of you. This gives you plenty of time to stay invested even if the market corrects. Since you are in the new tax regime, you cannot claim 80C deductions, so we skip ELSS funds. We keep it simple: one fund that gives you exposure to the top 500 Indian companies and a small portion in gold for diversity. This simple approach likely beats complex portfolios where you try to pick sectors or themes.",
+    "risks": [
+      "Stock market can drop 20-40% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time if you stay invested. Don't panic and stop your SIPs.",
+      "Midcap funds are volatile (can drop 30%+ in a year), but over 36 years they historically deliver 12-14% returns, which helps you beat inflation significantly.",
+      "Gold prices fluctuate. But over 36 years, gold has provided good returns as a hedge against inflation."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 7,
+        "equity_pct": 85.0,
+        "debt_pct": 5.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 14,
+        "equity_pct": 70.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 21,
+        "equity_pct": 65.0,
+        "debt_pct": 25.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 28,
+        "equity_pct": 60.0,
+        "debt_pct": 35.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 36,
+        "equity_pct": 55.0,
+        "debt_pct": 40.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.45,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 0.95,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.95,
+    "reasoning": "The plan is heavily passive (1.0) because 100% of the equity allocation (95%) and gold allocation are in index funds/etfs. Turnover (0.45) is moderately passive; it recommends annual rebalancing only, which is infrequent, but the 3-month and 6-month checks make it slightly more active than a strict buy-and-hold. Cost emphasis (0.9) is very high as the plan explicitly chooses Direct Plans to minimize fees and mentions lowest fees. Research (0.95) is minimal to non-existent, relying on broad market indices. Time horizon (0.9) aligns well with the user's 36-year timeline, despite the option to add debt later. Portfolio activeness (0.95) is highly passive as all funds are index trackers (Nifty 500, Midcap 150, Gold ETF) with no active management mandate.",
+    "composite_aps": 0.8583333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.88,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan scores very well on goal alignment (0.95) as it perfectly addresses the investor's specific goals: long-term wealth creation via a 36-year horizon, gold hedging preference (5% allocation), and building a large corpus for future expenses (flat, education). It explicitly acknowledges the new tax regime.\n\nDiversification (0.85) is good but not perfect. While it includes Gold and Large & Midcap indices, it relies heavily on just two assets (Nifty 500 and Gold). For a 36-year horizon, a small allocation to international indices or a dedicated debt component would enhance diversification, though the interim schedule does introduce debt later on. The redundancy of listing two Nifty 150 funds (one with 30% and one with 0% allocation) is minor.\n\nRisk-return appropriateness (0.88) is high because the moderate risk profile is matched with a ~65% equity core, midcaps, and gold. The return projections (12-14% base) are realistic for a heavy equity portfolio over 36 years, and downside risks are clearly articulated.\n\nInternal consistency (0.90) is strong. The rationale matches the allocations, the re-investment plan is clear, and the withdrawal strategy (debt allocation later in life) is consistent with the goal of preservation.\n\nTax efficiency (0.50) is the primary weakness. Although the plan correctly identifies the 'new_regime' status and omits ELSS (which can't be used), it fails to provide a meaningful tax-advantage strategy compared to a standard benchmark. Under the new regime, standard equity funds are taxed at slab rates anyway, but the plan ignores that the investor must fill their entire ₹8,000 SIP with equity-taxed instruments (Equity, Midcap) and a Gold ETF, with zero allocation to the tax-advantaged instrument (HUF contribution or specific opportunity funds) that many investors might miss. More critically, the plan recommends the High Equity 'Nifty 500 Index' without considering if a pure 'Large Cap' index or 'Aggressive Hybrid' was needed to lower the volatility profile for a 'moderate' investor in the near term, despite the long horizon. The tax-efficiency score is moderate because while it's not 'tax-blind' (it mentions the regime), it misses the optimization of fund types to minimize 'slab taxation' within the equity portion since there is no debt allocation in Year 0-6.",
+    "composite_pqs": 0.8160000000000001
+  },
+  "timestamp": "2026-04-18T10:41:07.677265Z",
+  "prompt_version": "v1"
+}

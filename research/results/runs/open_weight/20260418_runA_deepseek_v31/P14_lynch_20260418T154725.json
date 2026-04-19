@@ -1,0 +1,168 @@
+{
+  "persona_id": "P14",
+  "condition": "lynch",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Hybrid Scheme - Aggressive Hybrid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2000-01-01",
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": 9.979395774892641,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": 10.484058576958404,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": 6.219963591081088,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": 1.4911092768968344
+        },
+        "allocation_pct": 50.0,
+        "mode": "both",
+        "monthly_sip_inr": 22500.0,
+        "lumpsum_inr": 1750000.0,
+        "rationale": "Equity-taxed fund that balances stocks and bonds well. With 18.9% 5-year returns and proven track record, it gives growth while keeping risk moderate. Perfect for your age and catch-up goals."
+      },
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund - Direct Plan - Growth",
+          "category": "Conservative Hybrid",
+          "sub_category": "Hybrid Scheme - Multi Asset Allocation",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2002-10-07",
+          "aum_cr": 16898.4424,
+          "morningstar_rating": null,
+          "returns_1y": 13.260836000709775,
+          "returns_3y": 18.967884668785405,
+          "returns_5y": 19.756704465256348,
+          "risk_grade": null,
+          "volatility_1y": 9.255187907822851,
+          "beta": 0.5330914997433563,
+          "alpha": 9.83317350085798,
+          "tracking_error": 8.364392395975225,
+          "sharpe_ratio": 0.43447877174260774,
+          "information_ratio": 1.1755992587805304
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": 1050000.0,
+        "rationale": "Multi-asset fund that spreads across stocks, bonds, and gold. Lower yearly fee (0.85%) and 19.8% 5-year returns. Provides diversification and stability while still growing your money."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "Other Scheme - Gold ETF",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2007-03-01",
+          "aum_cr": 3155.7494,
+          "morningstar_rating": null,
+          "returns_1y": 58.31584413881947,
+          "returns_3y": 34.06879908764739,
+          "returns_5y": 25.384453785587247,
+          "risk_grade": null,
+          "volatility_1y": 26.19951248912783,
+          "beta": 0.09897427075039955,
+          "alpha": 75.17853144040184,
+          "tracking_error": 29.342750464899215,
+          "sharpe_ratio": 2.6348634856193316,
+          "information_ratio": 2.5620819537804724
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": 700000.0,
+        "rationale": "Gold ETF for inflation protection and portfolio stability. Gold has delivered 25.4% annual returns over 5 years and acts as a hedge during market downturns."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU\nStep 2: Set up monthly SIPs totaling ₹45,000 across these three funds\nStep 3: Invest your existing ₹35 lakhs according to the allocation percentages\nStep 4: Set up SWP (Systematic Withdrawal Plan) for post-retirement income starting at age 62",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly",
+      "After 1 year: Review fund performance against similar funds",
+      "Every year: Rebalance if allocations drift more than 5% from targets",
+      "At age 58: Start shifting gradually to more conservative options"
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any fund becomes more than 5% away from its target allocation (like if stocks grow too much), sell some units and buy the underweight funds to get back to 50% equity hybrid, 30% multi-asset, 20% gold.",
+    "projected_returns": {
+      "base": 19.6,
+      "bull": 23.6,
+      "bear": 15.6
+    },
+    "rationale": "At 50 with 12 years to retirement, you need growth but can't afford big risks. This 50-30-20 mix gives you equity exposure for growth through ICICI's proven funds, while the gold and multi-asset components provide stability. Since you're in the 20% tax bracket, equity-taxed funds work well. The SWP option will give you regular income post-retirement for your dream trips.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down",
+      "Gold prices can be volatile and may not always rise when stocks fall",
+      "Interest rate changes can affect bond prices in the hybrid funds",
+      "Inflation could erode your purchasing power if returns don't keep up"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 5,
+        "equity_pct": 45.0,
+        "debt_pct": 35.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Age 55 — gradually reducing equity exposure"
+      },
+      {
+        "year": 8,
+        "equity_pct": 40.0,
+        "debt_pct": 40.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Age 58 — preparing for retirement income"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.75,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan shows a strongly active orientation across multiple dimensions:\n\n- **passive_instrument_fraction = 0.0**: The equity allocation (within hybrid funds) is entirely directed toward actively managed funds — ICICI Prudential Equity & Debt and Multi-Asset funds — with no allocation to index funds or ETFs in the equity sleeve. The only passive instrument is the Gold ETF, but gold is excluded from this dimension's scope.\n\n- **turnover_score = 0.75**: Rebalancing is recommended annually or when allocations drift by more than 5%, which is moderate. However, the plan includes scheduled allocation shifts at specific ages (55, 58), indicating some tactical adjustment. This isn't high-frequency trading, so it's not fully active, but not pure buy-and-hold either.\n\n- **cost_emphasis_score = 0.0**: Costs are barely mentioned. While one fund's 'lower yearly fee (0.85%)' is noted, expense ratio is not a dominant criterion in fund selection. The rationale focuses on returns and track record, not cost efficiency.\n\n- **research_vs_cost_score = 0.0**: The plan emphasizes fund-specific research — citing track records, 5-year returns, and fund manager credibility (e.g., 'proven funds', 'proven track record'). There's no reliance on broad market exposure or passive indexing logic.\n\n- **time_horizon_alignment_score = 0.75**: The strategy is long-term (12-year horizon to retirement), with compounding and SWP planning. However, the scheduled shifts and annual reviews introduce a moderate level of active oversight, slightly reducing the long-term orientation.\n\n- **portfolio_activeness_score = 0.0**: The equity components show high alpha (9.27 and 9.83), meaningful tracking error (6.22% and 8.36%), and information ratios >1, indicating genuine active management. Beta is well below 1, suggesting deliberate deviation from the market. The portfolio is clearly constructed with active conviction, not passive indexing. Even though one holding is a Gold ETF, the overall portfolio is actively managed.",
+    "composite_aps": 0.25
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.9,
+    "reasoning": "The investment plan is well-aligned with Walter Mitty's goals, life stage, and 12-year horizon. At age 50 with a moderate risk appetite and a need to catch up, the 50% allocation to Aggressive Hybrid (equity-taxed) and 30% to Multi-Asset Fund provides growth potential while managing risk. The 20% gold allocation adds diversification and inflation protection, supporting long-term stability and post-retirement SWP needs.\n\nDiversification is strong across asset classes (equity, debt, gold) and within hybrid funds that themselves span multiple assets. However, both funds are from ICICI Prudential, introducing fund-house concentration risk, slightly reducing the diversification score.\n\nThe risk-return profile is appropriate: projected returns (base 19.6%) are ambitious but justified by the funds' 5-year track records. Downside risks are acknowledged, and rebalancing + gradual de-risking from age 55 onward match the investor's timeline. The plan correctly anticipates reduced risk tolerance nearing retirement.\n\nThe plan is internally consistent: rationale, allocations, rebalancing rules, and de-risking schedule all support a coherent moderate-growth strategy. SIPs, lumpsum deployment, and SWP are logically connected.\n\nTax efficiency is well addressed: the investor is in the 20% tax slab (old regime), and the plan uses equity-taxed Aggressive Hybrid and Multi-Asset funds (both qualify for favorable LTCG treatment due to >65% equity exposure), avoiding slab-taxed debt funds. ELSS is not included, but that’s acceptable as the investor did not emphasize tax-saving needs, and the plan focuses on growth. Gold ETF is tax-efficient for long-term holding. The rationale explicitly notes tax benefits, showing awareness.",
+    "composite_pqs": 0.9
+  },
+  "timestamp": "2026-04-18T15:47:25.387357Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 110387,
+    "output_tokens": 2509,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 6
+  },
+  "elapsed_s": 60.34863878786564
+}

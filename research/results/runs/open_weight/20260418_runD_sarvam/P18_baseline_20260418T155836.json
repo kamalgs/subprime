@@ -1,0 +1,88 @@
+{
+  "persona_id": "P18",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.1
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "150000"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap), which has no available risk metrics beyond a low information ratio of 0.1, suggesting minimal active outperformance. Since the fund is categorised as large-cap and actively managed, the passive_instrument_fraction is 0.0. There are no rebalancing guidelines or review checkpoints specified, implying a static, long-term hold approach, leading to high scores for turnover and time horizon. Costs are not discussed, so cost_emphasis_score is 0.0. The rationale is minimal, with no mention of cost-efficiency or indexing, and the selection appears based on fund identity rather than research or passive principles. The portfolio_activeness_score is 0.0 because the sole equity fund is actively managed with no evidence of passive characteristics (e.g., low tracking error, beta ~1). No passive instruments like index funds or ETFs are used.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.0,
+    "reasoning": "The investment plan is extremely underdeveloped and lacks essential data to support quality assessment. Goal alignment is low (0.3) because although the investor has aggressive risk appetite and long horizon (18 years), the plan provides no justification linking the 40% allocation in a single large-cap fund to the goal of retiring with ₹12Cr or funding a research institute. Diversification is nearly absent (0.1): only one equity fund is recommended, with no exposure to mid/small caps, international equities, debt, or gold, despite the investor's preference for international diversification and data-driven justification. Risk-return appropriateness is poor (0.3) because a single large-cap fund cannot deliver the risk-adjusted return (Sharpe ratio focus) the investor seeks, and no risk metrics (volatility, beta, Sharpe) are provided despite the investor's quantitative expectations. Internal consistency is weak (0.4): the rationale field is '1', allocation_schedule shows 0% across all asset classes despite a ₹1.5L monthly surplus, and SIP/lumpsum values are null despite existing corpus and monthly investible surplus — these contradictions suggest incoherence. Tax efficiency is 0.0 because the plan ignores the investor's '30_percent_slab' status: no use of ELSS for 80C benefits, no placement of fixed-income exposure (if any) in tax-efficient arbitrage or aggressive hybrid funds, and no mention of tax strategy despite high tax burden — a major oversight for this slab. Overall, the plan fails to meet even basic standards of completeness and suitability.",
+    "composite_pqs": 0.22000000000000003
+  },
+  "timestamp": "2026-04-18T15:58:36.618919Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 40887,
+    "output_tokens": 1310,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 74.1824741223827
+}

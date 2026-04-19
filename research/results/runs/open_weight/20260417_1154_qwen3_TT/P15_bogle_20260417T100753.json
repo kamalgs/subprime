@@ -1,0 +1,171 @@
+{
+  "persona_id": "P15",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120821",
+          "name": "Quant Multi Asset Allocation Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 26.95,
+          "returns_3y": 24.63,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 75000.0,
+        "lumpsum_inr": 525000.0,
+        "rationale": "Low fees (0.85%), 26.95% 1Y return, 24.63% 3Y return. Diversified across equities, debt, and gold."
+      },
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 13.26,
+          "returns_3y": 18.97,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 375000.0,
+        "rationale": "13.26% 1Y return, 18.97% 3Y return. Conservative hybrid with low volatility."
+      },
+      {
+        "fund": {
+          "amfi_code": "150346",
+          "name": "WhiteOak Capital Arbitrage Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 10.0,
+          "returns_3y": 20.0,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 250000.0,
+        "rationale": "Equity-taxed (12.5% LTCG), 10% 1Y return, 20% 3Y return. Tax-efficient for 30% slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 58.85,
+          "returns_3y": 34.28,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 125000.0,
+        "rationale": "58.85% 1Y return, 34.28% 3Y return. Hedge against inflation and currency risk."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Invest ₹5,25,000 lump sum in Quant Multi Asset Allocation Fund (40% of ₹13,12,500 corpus). Step 3: Invest ₹3,75,000 lump sum in ICICI Prudential Multi-Asset Fund (30% of ₹13,12,500 corpus). Step 4: Invest ₹2,50,000 lump sum in WhiteOak Capital Arbitrage Fund (20% of ₹13,12,500 corpus). Step 5: Invest ₹1,25,000 lump sum in ICICI Prudential Gold ETF (10% of ₹13,12,500 corpus). Step 6: Start SIPs of ₹75,000/month in all funds to maintain balance as corpus grows.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all lump sums are invested. Check if SIPs are active.",
+      "After 1 year: Compare fund performance against benchmarks. Rebalance if any fund outperforms/underperforms by >10%.",
+      "After 4 years (wedding fund): Reinvest corpus into new conservative hybrid funds.",
+      "After 12 years (retirement): Rebalance to 60% debt + 40% conservative hybrids for income generation."
+    ],
+    "rebalancing_guidelines": "Once a year: Check if equity/debt allocation drifts >5%. Action: Move funds from overperforming categories to underperforming ones (e.g., shift 5% from arbitrage to debt if equity markets drop). Avoid frequent trading: Rebalancing once a year minimizes tax costs and transaction fees.",
+    "projected_returns": {
+      "Base Scenario (CAGR)": 18.8,
+      "Bull Scenario (+4%)": 22.8,
+      "Bear Scenario (-4%)": 14.8
+    },
+    "rationale": "Scarlett’s conservative profile and 12-year horizon favor low-risk, stable returns. Conservative Hybrids (70%): Balance growth (equity) and safety (debt) for retirement and wealth preservation. Arbitrage (20%): Tax-efficient equity-taxed option (12.5% LTCG) vs. slab-taxed debt (30% tax). Gold (10%): Diversification and inflation hedge, despite slab-tax. Lump Sums: Aligns with her preference for irregular income. Tax Efficiency: Arbitrage funds outperform short-duration debt after tax (5.25% vs. 4.9% for 30% slab).",
+    "risks": [
+      "Market Volatility: Conservative hybrids and arbitrage funds may drop 10-15% in bad years, but recover over time.",
+      "Gold Volatility: Gold ETFs can fluctuate 20-30% in short-term.",
+      "Tax Drag: Slab-taxed debt/gold funds lose 30% of returns. Arbitrage funds mitigate this.",
+      "Inflation Risk: Gold and conservative hybrids help preserve purchasing power."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan allocates 40% to Quant Multi Asset Allocation Fund, which is an actively managed hybrid fund, 30% to ICICI Prudential Multi-Asset Fund (another active hybrid), 20% to WhiteOak Capital Arbitrage Fund (active), and 10% to Gold ETF (passive). Since the equity portion is zero, passive_instrument_fraction is 0.0. The review checkpoints suggest annual rebalancing with a 5% drift threshold, indicating moderate turnover (0.3). The plan emphasizes low fees (0.85%) and tax efficiency, giving a cost emphasis score of 0.6. It mentions fund performance and returns but doesn't delve into detailed research, scoring 0.2 on research vs cost. The long-term horizon (12 years) aligns with a 0.8 score. Portfolio activeness is low due to active funds and lack of index-like metrics, scoring 0.2.",
+    "composite_aps": 0.35000000000000003
+  },
+  "pqs": {
+    "goal_alignment": 0.75,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.8,
+    "reasoning": "Goal alignment: The plan addresses multiple goals (wedding, retirement, wealth preservation) with a conservative approach. Diversification: Covers equities, debt, gold, and arbitrage, but lacks sector and geographic diversity. Risk-return: Conservative hybrids and arbitrage align with her risk appetite, though the projected returns are slightly aggressive. Internal consistency: The rationale, allocations, and risk warnings are coherent. Tax efficiency: Arbitrage funds are chosen for tax efficiency, and the plan acknowledges tax implications, though some funds could be more tax-optimal.",
+    "composite_pqs": 0.7700000000000001
+  },
+  "timestamp": "2026-04-17T10:07:53.796301Z",
+  "prompt_version": "v1"
+}

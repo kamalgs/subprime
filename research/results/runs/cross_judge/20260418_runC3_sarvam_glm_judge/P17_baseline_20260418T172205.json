@@ -1,0 +1,72 @@
+{
+  "persona_id": "P17",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.65
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "This is a minimal, single-fund plan allocating 40% to HDFC Large Cap (active fund) with 60% unallocated. **passive_instrument_fraction = 0.0**: The sole equity holding is an actively managed large cap fund — no index funds or ETFs are present. **turnover_score = 0.7**: No review checkpoints, rebalancing guidelines, or allocation schedule exist; the lumpsum-only mode with no further action implies a de facto buy-and-hold approach. **cost_emphasis_score = 0.5**: The 'Direct Plan' choice indicates cost awareness (lower expense ratio than regular plans), but cost is not the dominant stated criterion. **research_vs_cost_score = 0.5**: No deep security/fund research is presented, yet the plan also doesn't explicitly adopt a broad-market passive philosophy — it sits in an ambiguous middle. **time_horizon_alignment_score = 0.6**: No short-term tactical moves or event-driven positioning, and a lumpsum entry with no further trades suggests long-term hold, but no explicit long-horizon strategy is articulated. **portfolio_activeness_score = 0.5**: The fund's IR of 0.65 signals some active management skill, but large cap funds inherently resemble closet indexers (beta ≈ 1.0, low tracking error); missing risk metrics prevent precise classification, so a moderate score reflects this tension.",
+    "composite_aps": 0.4666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is critically incomplete. It allocates only 40% of the investor's corpus to a single large-cap equity fund via lumpsum, leaving 60% entirely unaccounted for. None of the three stated goals are addressed: there is no emergency fund allocation, no medium-term (5-year) marriage/travel allocation, and no comprehensive long-term wealth strategy. The investor explicitly prefers 2-3 funds and flexible top-up investing, yet the plan offers just one fund with no flexibility mechanism (no SIP, no step-up, no allocation schedule). Diversification is nonexistent — one fund, one category, one asset class, no geographic or fund-house diversification. Risk-return appropriateness gets a slightly higher score only because a large-cap equity fund is a moderate-risk equity choice, vaguely fitting a 'moderate' appetite, but the plan is too fragmentary to meaningfully assess risk calibration, and no downside scenarios or projections are provided. Internal consistency is near-zero: allocations don't sum to 100%, no rationale is given, no risks are listed, no rebalancing guidelines exist, and the plan contradicts itself by offering a lumpsum-only structure for an investor who needs flexibility. On tax efficiency, the investor is on the new regime (no 80C), so ELSS omission is fine, but the plan makes no mention of taxation at all. The one fund chosen does incidentally receive equity tax treatment, but there is no explicit tax rationale, and the plan fails to consider how to handle any fixed-income allocation tax-efficiently (e.g., arbitrage funds) under the new regime. Overall, this is a bare skeleton of a plan with almost no actionable content.",
+    "composite_pqs": 0.08
+  },
+  "timestamp": "2026-04-18T17:22:05.140581Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

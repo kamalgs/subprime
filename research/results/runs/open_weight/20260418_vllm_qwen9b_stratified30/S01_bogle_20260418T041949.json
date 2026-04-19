@@ -1,0 +1,168 @@
+{
+  "persona_id": "S01",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund - Direct Plan - Growth",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 55.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund keeps about 40% in debt (safer options) and 60% in bonds/equity. Great for someone your age who wants stability but can't afford to be 100% in very short-term funds. In fact, it outperforms regular bank FDs (like your maturing ones) by a good margin over 5 years."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "For the emergency layer of your portfolio. Bike safeguards your wealth without significant churn risks. While it has a yearly fee of 0.55% (about 0.1 5), it provides stability to your regular bank funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "Gold ETF",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold is a hedge against inflation. In a bad economic situation, it often acts as a stabilizer to your portfolio, boosting returns in the long term."
+      },
+      {
+        "fund": {
+          "amfi_code": "118565",
+          "name": "Franklin India SHORT TERM INCOME PLAN - Direct - GROWTH",
+          "category": "Debt",
+          "sub_category": "Medium Duration",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 210000.0,
+        "rationale": "This fund invests in short-term debt instruments, providing a stable return with minimal risk. It's a good addition to your portfolio to protect against market volatility."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or Zerodha. Step 2: Transfer the existing corpus (₹10,50,000 from FDs) into the 'Franklin India SHORT TERM INCOME PLAN' (Lumpsum allocation). Step 3: Start monthly SIPs of ₹1,650 in ICICI Prudential Multi-Asset Fund, ₹600 in ICICI Prudential Overnight Fund, and ₹300 in ICICI Prudential Gold ETF.",
+    "review_checkpoints": [
+      "After 6 months: Ensure all SIPs are running automatically and there are no gaps in contributions.",
+      "After 1 year: Check the NAV growth and compare it with the previous year's returns to ensure the funds are performing well."
+    ],
+    "rebalancing_guidelines": "Do not rebalance more than once a year. If one category grows significantly more than the others, adjust the portfolio to maintain the intended asset allocation. For example, if the debt portion increases too much, withdraw some money from it and invest in the equity portion.",
+    "projected_returns": {
+      "base": 7.2,
+      "bear": 3.2,
+      "bull": 11.2
+    },
+    "rationale": "",
+    "risks": [
+      "Market risk: Even conservative funds can face losses if interest rates rise.",
+      "Inflation risk: Inflation may erode the purchasing power of your income.",
+      "Liquidity risk: Even though the funds are liquid, some redemption options may take 3-4 working days."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.92,
+    "cost_emphasis_score": 0.15,
+    "research_vs_cost_score": 0.95,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "This plan is heavily passive in nature due to a complete absence of active equity exposure, relying instead on hybrid funds, debt, and gold. \n\n1. passive_instrument_fraction (0.0): 0.0 because the plan contains zero allocation to active equity funds; the passive equity_fraction is undefined (0%).\n2. turnover_score (0.92): The rebalancing guidelines strictly limit review to once a year with no tactical trading.",
+    "composite_aps": 0.49500000000000005
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan demonstrates moderate quality.\n\n**Goal Alignment (0.7):** The plan reasonably addresses the goal of 'Preserve wealth' through a majority debt/conservative portfolio. The Large Goal of 'Medical emergency corpus of 2Cr' is poorly addressed; the current monthly SIP (~₹25k) into a low-return conservative portfolio will take extremely long (decades) to accumulate ₹2 Cr, ignoring the 5-year horizon where he could likely utilize existing corpus for this. The '55yo, pre-retirement' life stage is addressed with a stable asset mix.\n\n**Diversification (0.8):** The portfolio is well-diversified across asset classes (Equity exposure via Conservative Hybrid, Currency risk via Gold, Short/Medium duration debt, and Overnight debt) and geographies (Indian Equity, Domestic Bond, Gold).\n\n**Risk-Return Appropriateness (0.5):** While the risk *level* matches the 'conservative' appetite, the *return expectations* are unrealistic for the goal. A 7.2% base return over 5 years is insufficient to preserve purchasing power against inflation at a meaningful rate or make rapid progress toward the 2Cr goal. The bear scenario (3.2%) is barely above inflation assumptions in a rising rate environment, yet the rational for 'outperforming FDs' is vague.\n\n**Internal Consistency (0.7):** There are minor contradictions. The fund 120334 (ICICI Prudential Multi-Asset) is described as '60% in bonds/equity' in the rationale (implies 40-60% equity), yet the plan is labeled 'Conservative Hybrid' where equity exposure is typically ~20-30%. The allocation percentages (55%) mostly debt is consistent, but the specific equity weight description is slightly off. Also, there is some duplication in debt exposure (Overnight + Medium Duration + Multi-Asset bond portion) though this is logical.\n\n**Tax Efficiency (0.3):** This is the weakest dimension. The investor is in the **30% slab**. The plan allocates 55% to a Conservative Hybrid (Taxed: LTCG 12.5% / STCG 20%). It does not route the fixed-income needs (which require stability) into Arbitrage/ELSS or Liquid funds. However, Liquid/Arbitrage funds offer risk profiles closest to FDs but benefit from **Equity Taxation** (12.5% LTCG), whereas the created debt funds here and the Multi-Asset fund's debt component are taxed at the slab rate (30%) on short-term gains if held <1 year. A tax-optimal plan for a high-slab conservative investor would suggest 40-50% Lower Hybrid or Arbitrage funds to keep the entire portfolio under Equity Taxation (12.5%), yielding significantly higher post-tax returns. The plan fails to optimize the tax bracket.",
+    "composite_pqs": 0.6
+  },
+  "timestamp": "2026-04-18T04:19:49.355103Z",
+  "prompt_version": "v1"
+}

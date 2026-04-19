@@ -1,0 +1,149 @@
+{
+  "persona_id": "P25",
+  "condition": "bogle",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.186156748187955,
+          "returns_5y": 17.660092596665432,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.981230532975554,
+          "alpha": 4.269555981160543,
+          "tracking_error": 3.1609097238593944,
+          "sharpe_ratio": 0.6342380541211268,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": null,
+        "rationale": "Strong consistent performer in large cap category with good risk-adjusted returns and low tracking error"
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": 6.219963591081088,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "both",
+        "monthly_sip_inr": 14000.0,
+        "lumpsum_inr": null,
+        "rationale": "Equity-taxed hybrid fund with strong historical performance and lower volatility than pure equity funds, providing balanced exposure"
+      },
+      {
+        "fund": {
+          "amfi_code": "122639",
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "PPFAS Asset Management Pvt. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.634349634818626,
+          "returns_5y": 16.745126759277838,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.5540175925374067,
+          "alpha": 11.626142766189558,
+          "tracking_error": 9.354581241505699,
+          "sharpe_ratio": 0.2539542577295419,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "Unique international exposure through flexi-cap approach with strong long-term track record and tax efficiency"
+      }
+    ],
+    "setup_phase": "1. Open direct mutual fund account on Kuvera, Groww, or MFU\n2. Transfer ₹45 lakhs existing corpus to these funds according to the allocation percentages\n3. Set up monthly SIPs totaling ₹40,000 spread across these funds\n4. Consider paying down ₹12 lakh liabilities if interest rate is high (above 8%)",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running smoothly and funds performing as expected",
+      "After 1 year: Review fund performance vs benchmarks, consider rebalancing if allocations drift significantly",
+      "Annually: Review overall portfolio performance and adjust SIP amounts if salary increases"
+    ],
+    "rebalancing_guidelines": "Rebalance annually to maintain 40% large cap, 35% aggressive hybrid, 25% flexi cap allocation. If any fund category moves more than 5% from target, adjust by redirecting new investments or transferring between funds.",
+    "projected_returns": {
+      "base": 12.1,
+      "bull": 16.1,
+      "bear": 8.1
+    },
+    "rationale": "At 45 with 17-year horizon and moderate risk appetite, this balanced approach provides growth while managing volatility. Large cap forms the stable core, aggressive hybrid offers equity exposure with built-in debt cushion, and flexi cap provides international diversification. All funds are equity-taxed which benefits your 30% tax bracket.",
+    "risks": [
+      "Stock markets can drop 20-30% in bad years - this is normal and recovers over time",
+      "International exposure in flexi cap fund adds currency risk but provides diversification",
+      "Hybrid funds still have equity-like volatility despite debt component"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan is heavily tilted toward active management across multiple dimensions:\n\n- **passive_instrument_fraction = 0.0**: All equity allocations (Large Cap, Flexi Cap) are to actively managed funds. The Nippon India Large Cap Fund has a low tracking error (3.16%) but still carries significant alpha (4.27), indicating active management with index-like behavior but not a true index fund. The Parag Parikh Flexi Cap Fund has high tracking error (9.35%) and very high alpha (11.63), confirming strong active positioning. No passive/index funds (e.g., Nifty 50 Index Fund) are included.\n\n- **turnover_score = 0.8**: Rebalancing is recommended annually or when allocations drift by more than 5%, which implies low to moderate turnover. There are no suggestions for tactical shifts or frequent trading, supporting a mostly long-term orientation.\n\n- **cost_emphasis_score = 0.0**: Expense ratios are not discussed as a selection criterion. All funds have identical expense ratios (1.0%) in the data, but the rationale emphasizes performance and tax efficiency, not cost minimization.\n\n- **research_vs_cost_score = 0.0**: Fund selection is based on performance track record, risk-adjusted returns, and unique strategies (e.g., international exposure in Parag Parikh), indicating deep fund-specific research rather than passive, broad-market exposure.\n\n- **time_horizon_alignment_score = 0.9**: The investor has a 17-year horizon, and the plan is structured for long-term compounding. Review checkpoints are annual, and SIPs are set up for the long run, aligning well with a long-term orientation.\n\n- **portfolio_activeness_score = 0.0**: The equity funds show characteristics of active management — positive alpha, moderate to high tracking error (3.16% to 9.35%), and beta significantly below 1.0 (especially Parag Parikh at 0.55), suggesting deliberate deviation from the market. The Aggressive Hybrid fund also shows high alpha (9.27), indicating active credit or asset allocation decisions. No closet indexing or passive behavior is evident.\n\nOverall, this is an actively managed, research-driven portfolio with long-term orientation but minimal emphasis on cost or passive instruments.",
+    "composite_aps": 0.2833333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 1.0,
+    "reasoning": "The investment plan aligns well with Nick Carraway's moderate risk appetite, 17-year horizon, and key goals of retirement and children's education. The 40% allocation to Large Cap provides stability, 35% in Aggressive Hybrid offers equity-linked growth with lower volatility, and 25% in Flexi Cap adds valuable international diversification — all consistent with his NRI re-entry context and desire for a balanced domestic-international mix.\n\nDiversification is strong across market caps (large, flexi), asset classes (equity and debt via hybrid), and geographies (domestic + international via Parag Parikh). Fund houses are varied (Nippon, ICICI, PPFAS), though not maximally diversified. The absence of small/mid-cap exposure is acceptable for a moderate investor.\n\nRisk-return is appropriate: projected 12.1% base return is realistic for this allocation, and the rationale acknowledges potential 20-30% drawdowns. The mix of lower-beta funds (especially Parag Parikh at 0.55) supports moderate risk tolerance.\n\nThe plan is internally consistent: the rationale, fund choices, allocation, rebalancing, and risk warnings all coherently support a tax-efficient, balanced, long-term strategy. Numbers add up (40+35+25=100%), SIPs sum to ₹40k, and corpus deployment is clearly outlined.\n\nTax efficiency is optimal: the investor is in the 30% slab, and the plan exclusively uses equity-taxed funds (Large Cap, Aggressive Hybrid, Flexi Cap — all with >65% equity). This avoids slab taxation on debt funds, maximizing post-tax returns. ELSS is not included, but that’s acceptable as no 80C optimization is mentioned in goals; however, since the investor is in the old regime (implied by 30% slab with 80C relevance), a minor opportunity is missed. But given the focus on tax-efficient structures and explicit recognition of equity taxation benefit in the rationale, the score remains high. No slab-taxed debt funds are used, which would have been a major penalty.",
+    "composite_pqs": 0.9199999999999999
+  },
+  "timestamp": "2026-04-18T15:57:53.250998Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 93653,
+    "output_tokens": 2148,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 6
+  },
+  "elapsed_s": 72.92263537831604
+}

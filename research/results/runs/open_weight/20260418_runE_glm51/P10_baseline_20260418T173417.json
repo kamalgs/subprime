@@ -1,0 +1,200 @@
+{
+  "persona_id": "P10",
+  "condition": "baseline",
+  "model": "together:zai-org/GLM-5.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "151078",
+          "name": "HSBC ELSS Tax saver Fund - Direct Growth",
+          "category": "ELSS",
+          "sub_category": "Equity Scheme - ELSS",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": "2006-01-05",
+          "aum_cr": 445.67,
+          "morningstar_rating": null,
+          "returns_1y": 11.19,
+          "returns_3y": 19.4,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": 17.22,
+          "beta": 1.03,
+          "alpha": 10.4,
+          "tracking_error": 8.34,
+          "sharpe_ratio": 0.66,
+          "information_ratio": 1.25
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": null,
+        "rationale": "ELSS gives you a ₹30,000 tax deduction under Section 80C — saves you about ₹6,000 in tax each year at your 20% slab. Has a 3-year lock-in, which is actually good because it prevents impulse withdrawals. HSBC's fund is steady and well-run with consistent returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "Equity Scheme - Flexi Cap Fund",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "1994-12-08",
+          "aum_cr": 32020.25,
+          "morningstar_rating": null,
+          "returns_1y": 9.41,
+          "returns_3y": 20.96,
+          "returns_5y": 20.47,
+          "risk_grade": null,
+          "volatility_1y": 13.8,
+          "beta": 0.9,
+          "alpha": 4.18,
+          "tracking_error": 3.88,
+          "sharpe_ratio": 0.37,
+          "information_ratio": 1.08
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": 250000.0,
+        "rationale": "Flexi Cap means the fund manager can invest in big companies, medium companies, or small ones — wherever the opportunity is. This is HDFC's flagship fund, running for 30+ years with ₹32,000 crore in it. Simple, trusted, and you don't have to pick between large/mid/small."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Hybrid Scheme - Aggressive Hybrid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2000-01-01",
+          "aum_cr": 12527.31,
+          "morningstar_rating": null,
+          "returns_1y": 9.98,
+          "returns_3y": 18.66,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": 10.48,
+          "beta": 0.66,
+          "alpha": 9.27,
+          "tracking_error": 6.22,
+          "sharpe_ratio": 0.66,
+          "information_ratio": 1.49
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": 250000.0,
+        "rationale": "This fund puts roughly 65-70% in stocks and 30-35% in safer options — automatic balance. It drops less than pure stock funds in bad markets, which suits your moderate comfort level. Also, it's equity-taxed, so gains above ₹1.25 lakh after 1 year are taxed at just 12.5% (much better than your 20% slab on debt funds)."
+      },
+      {
+        "fund": {
+          "amfi_code": "140088",
+          "name": "Nippon India ETF Gold BeES",
+          "category": "Gold",
+          "sub_category": "Other Scheme - Gold ETF",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2007-02-15",
+          "aum_cr": 53346.31,
+          "morningstar_rating": null,
+          "returns_1y": 58.39,
+          "returns_3y": 33.78,
+          "returns_5y": 25.03,
+          "risk_grade": null,
+          "volatility_1y": 24.2,
+          "beta": 0.13,
+          "alpha": 68.24,
+          "tracking_error": 27.22,
+          "sharpe_ratio": 2.6,
+          "information_ratio": 2.51
+        },
+        "allocation_pct": 15.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 150000.0,
+        "rationale": "Gold is your safety net — when stock markets crash, gold usually holds or goes up. Nippon Gold BeES is India's largest gold ETF with ₹53,000+ crore AUM, very low fee (0.40%), and 18+ years of track record. 15% is enough to cushion the portfolio without overloading on gold. Note: Gold funds are slab-taxed, so long-term gains are taxed at your 20% slab rate."
+      }
+    ],
+    "setup_phase": "Step 1: Put ₹6 lakh of your ₹10 lakh existing corpus into a separate savings account as your emergency fund (6 months' expenses). This covers your emergency goal first — never invest emergency money in stocks.\n\nStep 2: With the remaining ₹4 lakh + ₹8 lakh after clearing liabilities, you have about ₹6.5 lakh to invest as lumpsum (after clearing the ₹8L liability from corpus). Actually — first clear that ₹8L liability. From ₹10L corpus, minus ₹8L liability = ₹2L left. Keep ₹2L as emergency fund (add to it over time). Start SIPs with your ₹20K/month.\n\nStep 3: Open accounts on Kuvera, Groww, or MFU — all free, all offer direct plans (lower fees). Complete KYC with Aadhaar + PAN.\n\nStep 4: Set up 3 monthly SIPs:\n• ₹5,000 → HSBC ELSS Tax Saver Fund\n• ₹6,000 → HDFC Flexi Cap Fund\n• ₹6,000 → ICICI Prudential Equity & Debt Fund\n• Remaining ₹3,000 → Build emergency fund in savings account until it reaches 6 months' expenses\n\nStep 5: Invest any lumpsum money into the Flexi Cap, Hybrid, and Gold funds once emergency fund is set.\n\nStep 6: Turn on step-up SIP — increase by 10% every year (your salary will grow, so should your investments).",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "You're 42 with 18 years until retirement — enough time for stocks to grow, but not so long that you can ride out wild crashes. That's why this plan is 60% stocks (ELSS + Flexi Cap), 30% balanced (Hybrid which mixes stocks + safer options), and 10% gold. The Aggressive Hybrid fund automatically reduces risk by holding 30-35% in safer instruments, so you don't panic when markets dip. The ELSS portion saves you ₹6,000/year in tax. At a conservative 11% average return, your ₹20K/month SIP for 18 years grows to roughly ₹1.35 crore — add your lumpsum and you're well on track to ₹2 crore. You can explain this to your wife simply: 'Our money goes into four big, trusted funds — one saves tax, one grows flexibly, one balances risk, and one is gold for safety.'",
+    "risks": [
+      "Stock markets can drop 25-30% in a bad year. Your portfolio will temporarily shrink. This is normal — don't stop SIPs during falls, that's actually when you buy more units cheaply.",
+      "Gold doesn't grow like stocks — it protects. Over long periods, gold returns are lower than stocks. Don't expect gold to make you rich; expect it to not lose value when everything else falls.",
+      "The ELSS fund has a 3-year lock-in — you cannot withdraw before that. Plan accordingly for any short-term cash needs.",
+      "At 20% tax slab, your debt/gold gains are taxed at 20% (no discount). The equity funds get taxed at just 12.5% on long-term gains above ₹1.25L — this is a real advantage.",
+      "If you lose your job or income drops, pause SIPs but don't withdraw. Your emergency fund covers 6 months."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth — ₹20K becomes ₹22K next year, ₹24.2K the year after, and so on"
+    },
+    "allocation_schedule": [
+      {
+        "year": 2025,
+        "equity_pct": 70.0,
+        "debt_pct": 0.0,
+        "gold_pct": 15.0,
+        "other_pct": 15.0,
+        "trigger": "Starting allocation (the 15% other = Aggressive Hybrid's debt portion)"
+      },
+      {
+        "year": 2033,
+        "equity_pct": 55.0,
+        "debt_pct": 20.0,
+        "gold_pct": 15.0,
+        "other_pct": 10.0,
+        "trigger": "Age 50 — start shifting some equity to safer options"
+      },
+      {
+        "year": 2040,
+        "equity_pct": 40.0,
+        "debt_pct": 35.0,
+        "gold_pct": 15.0,
+        "other_pct": 10.0,
+        "trigger": "Age 57 — 3 years before retirement, de-risk further"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "passive_instrument_fraction = 0.0: The equity allocation (ELSS + Flexi Cap) is 55% of the portfolio, but both funds are actively managed (HSBC ELSS has high tracking error 8.34%, alpha 10.4; HDFC Flexi Cap has tracking error 3.88%, beta 0.9, active management style). No index funds or ETFs in equity sleeve. Thus, 0% passive equity exposure.\n\nturnover_score = 1.0: The plan suggests a long-term buy-and-hold approach with no frequent rebalancing. Rebalancing guidelines are absent, and review checkpoints are empty. The only structural change is a pre-scheduled glide path over 15+ years (reduce equity from 70% to 40% by retirement), which is passive in nature and not tactical. SIP step-up is automatic, not active trading.\n\ncost_emphasis_score = 0.2: Cost is mentioned only in passing (e.g., 'lower fees' on direct plans, 0.40% fee on Gold BeES), but it's not a primary decision driver. Fund selection is based on trust, size, and performance ('HDFC's flagship', 'steady and well-run'), not low expense ratios. Expense ratios are moderate (~1%), but no emphasis on minimising them.\n\nresearch_vs_cost_score = 0.0: The rationale focuses on fund house reputation, AUM, track record, and broad categorisation (e.g., 'trusted', 'flagship fund'), not deep research into individual stocks or manager skill. However, it also doesn't advocate for index-based market exposure. The selection is active but not research-intensive in a fundamental sense — more brand-driven. Still, it clearly favours active funds over market-wide passive exposure, so leans active.\n\ntime_horizon_alignment_score = 0.9: The plan is designed for an 18-year horizon (age 42 to 60), with a glide path reducing risk over time. SIPs are long-term, step-up, and compounding-focused. Only minor point against: ELSS lock-in is 3 years, which is shorter than the overall horizon, but not inconsistent.\n\nportfolio_activeness_score = 0.1: The equity portion (55%) shows active characteristics: HSBC ELSS has high tracking error (8.34%), alpha (10.4), IR (1.25); HDFC Flexi Cap has moderate tracking error (3.88%) and positive alpha (4.18), indicating active management. The hybrid fund (30%) is actively managed (alpha 9.27, TE 6.22). Gold ETF is passive but only 15%. Debt portion within hybrid is actively managed. Overall, portfolio is heavily tilted toward active funds with genuine outperformance metrics. Hence, very low passiveness.",
+    "composite_aps": 0.3666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.9,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.95,
+    "reasoning": "The investment plan is well-aligned with Forrest Gump's moderate risk appetite, 18-year horizon, and key goals (retirement, children's education, emergency fund). It prioritizes simplicity and stability, using large, established funds from reputable houses like HDFC, ICICI, and Nippon.\n\nGoal Alignment (0.95): The plan directly addresses all stated goals. It sets up an emergency fund first, uses ELSS for tax savings aligned with retirement, and maintains a long-term equity focus suitable for an 18-year horizon. The allocation schedule gradually de-risks toward retirement, showing foresight.\n\nDiversification (0.9): The portfolio is diversified across asset classes (equity, hybrid, gold), fund houses, and styles (flexi-cap, tax-saving, aggressive hybrid). Gold adds non-correlated protection. However, there's limited exposure to international equities or pure debt, but given the investor's simplicity preference, this is reasonable.\n\nRisk-Return Appropriateness (0.9): The 60% equity (via ELSS + Flexi Cap), 30% hybrid (equity-leaning), and 15% gold mix suits a moderate investor. The Aggressive Hybrid fund reduces volatility, and the plan acknowledges market risks without being alarmist. Projected 11% return is conservative and realistic.\n\nInternal Consistency (0.95): The rationale, allocations, risk warnings, and step-by-step setup are coherent. The tax benefits, lock-ins, and behavioral advice (don't stop SIPs in downturns) are consistently reinforced. The allocation schedule aligns with life-stage transitions.\n\nTax Efficiency (0.95): The investor is in the 20% tax slab (old regime). The plan correctly uses ELSS to claim full 80C benefit (₹30K deduction, ₹6K tax saved). It wisely uses Aggressive Hybrid (equity-taxed) instead of debt funds for the balanced portion — gains taxed at 12.5% LTCG vs 20% slab rate. It explicitly notes gold's slab taxation, showing awareness. Only minor gap: no mention of arbitrage funds as another equity-taxed option, but not required. Does not recommend ELSS for tax benefit under new regime — irrelevant here. Overall, tax optimization is strong and well-explained.",
+    "composite_pqs": 0.93
+  },
+  "timestamp": "2026-04-18T17:34:17.640272Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 72506,
+    "output_tokens": 12467,
+    "cache_read_tokens": 57984,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 6
+  },
+  "elapsed_s": 310.6230325140059
+}

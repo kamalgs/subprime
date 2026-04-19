@@ -1,0 +1,79 @@
+{
+  "persona_id": "P08",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 100% of its equity portion to the 'Nifty 50 Index' fund, which is a passive/index instrument, resulting in a passive_instrument_fraction score of 1.0. There are no rebalancing guidelines or review checkpoints specified, implying a buy-and-hold approach, hence the turnover_score is 1.0. The plan does not mention costs explicitly, but since it selects a low-cost index fund (implied by index structure and 0.0 expense_ratio), and cost minimisation is inherent in such a choice, cost_emphasis_score is 1.0. The fund selection involves no individual security or fund manager research — it's a direct index replication — so research_vs_cost_score is 1.0. The absence of tactical adjustments or short-term review cycles suggests a long-term horizon, giving a time_horizon_alignment_score of 1.0. Finally, the portfolio consists entirely of a broad-market index fund; even though some risk metrics are missing, the fund's category and rationale ('direct') indicate passive exposure, leading to a portfolio_activeness_score of 1.0. All dimensions reflect full passivity.",
+    "composite_aps": 1.0
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.3,
+    "reasoning": "The investment plan shows limited alignment with the investor's goals, as it allocates 40% to a Nifty 50 Index fund but provides no justification or integration with the long-term objectives like retirement at 55 or funding education in 10 years. The plan lacks diversification, with only a single equity fund and no exposure to international equities, debt, or alternative assets, increasing concentration risk. Risk-return is partially appropriate given the aggressive risk appetite, but the absence of a broader asset mix and projected returns makes it hard to assess realism. Internal consistency is moderate—though the structure is minimal, there are no direct contradictions, but key elements like rebalancing, review, and SIP details are missing. Tax efficiency is poor: the investor is in the 30% slab, yet the plan ignores tax-advantaged instruments like ELSS (for 80C) and does not consider using arbitrage or Aggressive Hybrid funds for fixed-income components that could benefit from equity taxation. No rationale or tax treatment is provided, making the plan tax-blind despite high tax inefficiency risk.",
+    "composite_pqs": 0.32
+  },
+  "timestamp": "2026-04-18T17:09:16.636338Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22728,
+    "output_tokens": 748,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 16.911182177253067
+}

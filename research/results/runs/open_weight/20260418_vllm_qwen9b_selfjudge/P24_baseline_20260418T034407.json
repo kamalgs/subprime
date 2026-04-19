@@ -1,0 +1,113 @@
+{
+  "persona_id": "P24",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3500.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your main money basket. Mix of stocks and debt makes it smoother than all-stock funds. Since you're in the new tax regime, you can't use ELSS, so this is our best choice for growth with less wobbles."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1500.0,
+        "lumpsum_inr": null,
+        "rationale": "A solid bag of big, mature companies. Good for stability and steady growth. We keep it simpler by picking just one category fund instead of splitting it further."
+      }
+    ],
+    "setup_phase": "Step 1: Download the Groww or Kuvera app and verify your mobile/Aadhaar. Open a Direct Mutual Fund account (this keeps yearly fees lowest). Step 2: In the app, go to 'Invest' > 'Set up auto-debit' and link your Chéquing account. Step 3: Start monthly SIPs of ₹3,500 in ‘ICICI Prudential Equity & Debt Fund (Direct-Growth)’ and ₹1,500 in ‘Nippon India Large Cap Fund (Direct-Growth)’. Do this now and don't stop.",
+    "review_checkpoints": [
+      "After 3 months: Check that the SIPs are running automatically and bank deductions are happening. Step up your SIPs by 10% manually today if your salary grew. Don't touch the money yet—just let it sit.",
+      "After 1 year: Check fund performance once. If ICICI Equity & Debt is trailing its category average by a lot (>3% behind), we can switch to a slightly different manager. For now, stick with it."
+    ],
+    "rebalancing_guidelines": "Once a year (say, on your birthday), check if one fund has grown much more than the other. If Large Cap now holds 40% of your portfolio instead of 30%, sell some Large Cap units and add to Equity & Debt to get back to your 70/30 mix. This keeps your risk steady.",
+    "projected_returns": {
+      "base": 11.8,
+      "bull": 15.8,
+      "bear": 7.8
+    },
+    "rationale": "You are just starting your investment journey with a fresh engineering job. With 38 years ahead, time is your biggest friend. We put 70% in a hybrid fund that mixes stocks and debt to grow your money while reducing some of the wobbles. The remaining 30% in a large-cap fund gives you direct exposure to India's biggest companies. Since you are in the new tax regime, we don't use ELSS (which is only for people with old tax regime or who want 80C deduction). This simple 2-fund setup is mobile-friendly and easy to manage. Starting small with ₹5,000 is perfectly fine; compounding will do the heavy lifting.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year. Your portfolio value will temporarily go down. This is normal and recovers over time if you stay invested.",
+      "Hybrid funds can still give a bad month. Don't panic sell. Let ₹5,000 SIP keep adding to the mix.",
+      "Large-cap funds are safer but won't give the same explosive growth as small-cap. This is by design for a moderate risk investor."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.1,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.95,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.05,
+    "reasoning": "1. passive_instrument_fraction (0.1): The equity sleeve (30% Large Cap + ~50% of Hybrid's equity) is entirely in actively managed funds (Nippon India Large Cap and ICICI Equity Debit). There are no index/ETF exposures.\n2. turnover_score (0.85): The plan suggests annual rebalancing and a specific metric-based switch (replacing a fund if trailing by >3%), indicating some active management oversight rather than pure buy-and-hold.\n3. cost_emphasis_score (0.7): The plan explicitly chooses Direct Plan accounts to keep fees lowest and selects Large Cap over splitting into more specific active categories, implying a cost/control tradeoff.\n4. research_vs_cost_score (0.95): The rationale focuses entirely on simplicity, 'letting compounding do the work,' and asset allocation (hybrid vs. large cap) without mentioning any fundamental research, stock picking, or manager analysis.\n5. time_horizon_alignment_score (0.9): The strategy is designed for a long-term engineer (38 years ahead) with annual reviews and SIP stepping, consistent with a long-term orientation.\n6. portfolio_activeness_score (0.05): Both funds are actively managed (Large Cap and Aggressive Hybrid). The Active-Passive Score is driven by risk metrics (beta, alpha, tracking error). Since no risk metrics are provided, we infer from category: Aggressive Hybrid funds and Large Cap directed funds are typically actively managed. While their beta might be close to 1 (index-like exposure), the absence of specific low tracking error / positive alpha metrics provided in the plan means we cannot credit the 'passive' criteria of index-like behavior. Therefore, the score is low (active), as the plan relies on category mandates rather than passive indicators.",
+    "composite_aps": 0.5916666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.65,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.85,
+    "reasoning": "The plan aligns excellently with Remy's profile: moderate risk, 38-year horizon, new regime, and preference for simplicity (2 funds, mobile-app friendly).\n\n1. Goal Alignment (0.95): Strong alignment with his 'build habit' and 'accumulate 5L' goals. The 70/30 allocation fits a moderate risk appetite. The only minor deduction is that he has ₹0.0 liabilities and a small existing corpus; while the plan addresses starting, it lacks a specific 'emergency fund' recommendation before/investing, which is standard for new professionals.\n\n2. Diversification (0.65): The plan uses only two funds (1 Aggressive Hybrid, 1 Large Cap). While not a single-fund portfolio, this concentration in just two domestic funds limits geographic and sector diversification. A fresh investor with a 38-year horizon could benefit from a Multi-Cap, Flexi-Cap, or Global fund to reduce single-country bias, making this score moderate rather than 'excellent'.\n\n3. Risk Return Appropriateness (0.85): The projected returns (11.8% base) are realistic for a mixed portfolio over 38 years. The inclusion of a bear scenario (7.8%) and education on market volatility is a strong plus. The only gap is the lack of a specific 'what if I lose my job?' or liquidity buffer strategy for a fresh grad, though the SIP structure mitigates downside.\n\n4. Internal Consistency (0.90): The plan is coherent. Rationale justifies the two-fund split, allocations match the rationale, and the tax reasoning (new regime = no ELSS) is consistent throughout. The rebalancing guidelines make practical sense.\n\n5. Tax Efficiency (0.85): The plan correctly identifies Remy is in the 'new_regime' and avoids ELSS (which is useless here since 80C isn't available). It favors equity-taxed wrappers (Equity & Debt) for growth, which is optimal for this tax bracket. No penalties for slab-taxed instruments because no fixed-income/government bond allocation was suggested—pure equity/hybrid focus is correct.\n\nOverall, a very strong foundational plan for a beginner.",
+    "composite_pqs": 0.8400000000000001
+  },
+  "timestamp": "2026-04-18T03:44:07.757037Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,141 @@
+{
+  "persona_id": "H009",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147697",
+          "name": "Nippon India Equity Savings Fund - Segregated Portfolio 1 - Direct Plan - Growth Plan - Growth Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1200.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your core engine with monthly income. It invests mostly in stocks but automatically switches to safer debt funds when the market crashes. Since you're in the new tax regime, this is equity-taxed (LTCG 12.5% after 1 year), which is much better than regular debt funds. It provides stability and some growth potential while protecting your capital from big crashes."
+      },
+      {
+        "fund": {
+          "amfi_code": "120821",
+          "name": "quant Multi Asset Allocation Fund-GROWTH OPTION-Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund spreads your money across stocks, debt, and gold in one pot. Since it has less than 65% stocks, it's slab-taxed, but for you in the new regime, there's no income tax anyway. The great thing is it doesn't depend on the stock market being good to make money, it diversifies across different types of investments to give smoother returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "140046",
+          "name": "UTI Long Term Advantage Fund Series IV - Direct Plan - Growth Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 300.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you're starting early with your long horizon, we lock this 15% for 3 years to get the biggest tax benefit (ELSS). It also gives you tax deduction. The fund actually benefits from market downturns when you have this tax-free period. This is ideal for your long horizon."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Demat+Trading+Investment account (free on Groww or Zerodha) since you're in the new tax regime and can't use 80C. Step 2: Link your bank account for automatic SIPs. Step 3: Start SIPs immediately - even ₹2,000/month will grow significantly with time due to compounding. Step 4: Keep your emergency fund in a separate high-interest savings account (not mutual funds), aim for ₹24,000-30,000 (6-7 months expenses) before starting these investments.",
+    "review_checkpoints": [
+      "After 6 months: Ensure all three SIPs are running and money is getting deducted on time. If not fixed, lose no time!",
+      "After 1 year: Check if you have used your ₹1.5L tax deduction limit. If you have more headroom, consider shifting 50% from the Balanced Advantage Fund to an ELSS fund to save tax. If you've hit the limit, that's okay - just stick with the current mix.",
+      "After 3 years: Start withdrawals from your Balanced Advantage Fund when you need cash for education (around year 3-5). This fund pays dividends regularly. Keep the ELSS fund for retirement.",
+      "After 5 years: Rebalance if your Balanced Advantage Fund allocation drops below 50%. This happens when stocks do well but the fund stays balanced."
+    ],
+    "rebalancing_guidelines": "Once a year (or when life changes), check if your allocation has drifted. If your Balanced Advantage Fund is now 70% instead of 60%, sell some shares and book profits elsewhere. If it's 40%, buy more. Keep the mix at 60/25/15. This ensures you're not accidentally taking on too much equity risk or missing out on equity growth.",
+    "projected_returns": {
+      "base": 8.4,
+      "bull": 12.4,
+      "bear": 4.4
+    },
+    "rationale": "",
+    "risks": [
+      "This Balanced Advantage Fund will still go down 10-15% during a crash, even though it's safer. The fund manager will protect it, but not 100%. Learn to live with this - you're younger so time will recover your losses.",
+      "Since you're in the new tax regime, we don't have income tax on mutual funds, which is great. But if markets crash 20% and you sell too early, you'll have less corpus. Stick to your plan!",
+      "The quant Multi Asset Allocation Fund has higher fees which reduce returns slightly, but its stability is worth it for you."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.95,
+    "reasoning": "passive_instrument_fraction (0.2): The equity sleeve is predominantly active. The core fund (60%) is a Balanced Advantage Fund which actively switches between equity and debt based on market conditions. The multi-asset fund (25%) is also actively managed. Only the ELSS fund (15%) is a passive-equivalent index tracker, resulting in a low passive fraction.\n\nturnover_score (0.9): The plan explicitly recommends annual rebalancing ('Once a year') to maintain the 60/25/15 allocation. This indicates a buy-and-hold strategy with minimal tactical trading, leaning towards passive maintenance rather than active management.\n\ncost_emphasis_score (0.2): Cost is mentioned briefly ('higher fees'), but it is dismissed as acceptable for the sake of stability. The plan prioritizes tax benefits (ELSS, Balanced Advantage structure) and asset allocation over minimizing expense ratios.\n\nresearch_vs_cost_score (0.9): The plan relies entirely on broad-balance fund selection (Balanced Advantage, Multi Asset Allocation) without any mention of stock picking, company analysis, or individual fund manager deep-dive research. It favors broad exposure.\n\ntime_horizon_alignment_score (0.85): The plan is aligned with a long-term horizon. It emphasizes locking in 15% for 3 years, mentions education goals around year 3-5, and retirement for the ELSS fund. It explicitly cautions against selling too early ('Stick to your plan') and leverages time to recover losses, indicating a patient approach.\n\nportfolio_activeness_score (0.95): The portfolio is heavily driven by active instruments. The Balanced Advantage Fund's strategy of switching between equity and debt creates active deviation from an index benchmark. The Multi Asset Allocation Fund is also active. The only passive component is the 15% ELSS fund. Consequently, the weighted portfolio activeness is very high.",
+    "composite_aps": 0.6666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.55,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.65,
+    "tax_efficiency": 0.4,
+    "reasoning": "goal_alignment: The plan partially addresses the investor's goals. It addresses the retirement goal and long-term horizon. However, it fails to adequately address the 'monthly income within 5 years' preference and the 'higher education abroad' goal which requires a specific school fund due to dividend timing uncertainties. The reliance on a Balanced Advantage Fund for 'income' is risky as it is for capital preservation/growth, not guaranteed cash flows.\n\ndiversification: The plan offers decent diversification across AUM, fund houses, and asset classes (equity, debt, gold/diversified). The mix covers the core, diversification, and growth aspects of the portfolio.\n\nrisk_return_appropriateness: The risk profile is generally appropriate for a conservative investor, though the earliness of the 'income' need creates a tension. The projected returns (8.4% base) are realistic for a conservative/asset allocation mix. The risk warnings acknowledge potential downside, which is good.\n\ninternal_consistency: There is a moderate level of contradiction. The plan prioritizes tax efficiency via ELSS despite the 'new regime' status where 80C is irrelevant and the investor has a significant shortfall in fund allocation (1200+500+300=2000). The logic that 'tax-free period helps market downturns' with an equity tax wrapper is financially weak reasoning compared to 'spreading risk'. The 'review checkpoint' suggests shifting to ELSS if the 1.5L limit is reached, implying the initial allocation was tax-driven, which contradicts the new regime reality.\n\ntax_efficiency: This is the weakest dimension. The investor is in the 'new_regime' where 80C (ELSS) is NOT beneficial. Allocating 15% to an ELSS fund (UTI LT Adv) while omitting the 40%+ that should otherwise be invested ignores the fact that they cannot claim the deduction. For a new regime investor, ELSS offers no advantage over other funds (which are already equity-taxed). The plan explicitly mentions tax deduction, which is irrelevant, and discourages checking the tax deduction limit, which is misleading. A better tax strategy would focus on maximizing equity exposure (already equity-taxed) or using arbitrage funds if seeking income, rather than defaulting to non-equity-taxed funds (Quant Multi Asset) when no tax advantage exists. The plan fails to optimize for the specific tax bracket.",
+    "composite_pqs": 0.65
+  },
+  "timestamp": "2026-04-18T09:11:32.887495Z",
+  "prompt_version": "v1"
+}

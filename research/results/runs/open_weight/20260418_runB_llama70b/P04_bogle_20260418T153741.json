@@ -1,0 +1,129 @@
+{
+  "persona_id": "P04",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap fund for stable growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 1000000.0,
+        "rationale": "Lumpsum investment in large-cap fund for long-term growth"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.0,
+      "bull": 14.0,
+      "bear": 6.0
+    },
+    "rationale": "This plan is suitable for Minerva McGonagall as it prioritizes capital preservation and generates regular income. The large-cap fund provides stable growth, while the lumpsum investment helps to build a sizable corpus for her retirement and inheritance goals.",
+    "risks": [
+      "Market risks associated with mutual fund investments",
+      "Inflation risks affecting the purchasing power of her corpus"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 5,
+        "equity_pct": 40.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 20.0,
+        "trigger": "Retirement"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 70% total to 'ICICI Prudential Large Cap Fund', an actively managed large-cap fund. There is no mention of passive/index funds in the equity allocation, resulting in a passive_instrument_fraction score of 0.0. The rebalancing is recommended annually, which is relatively infrequent, warranting a high turnover_score of 0.8. However, there is no discussion of expense ratios or cost efficiency in fund selection, so cost_emphasis_score is 0.0. The rationale emphasizes 'stable growth' and fund performance comparison but does not mention cost as a criterion, indicating a research-driven (active) approach, hence research_vs_cost_score is 0.0. The plan is aligned with a long-term horizon (retirement, inheritance), with SIP step-up and a 5-year allocation shift trigger, supporting a high time_horizon_alignment_score of 0.9. The portfolio consists entirely of a single actively managed fund with no risk metrics provided, but the category 'Large Cap' and lack of indexing language suggest active management. Thus, portfolio_activeness_score is 0.0. Overall, the plan is actively managed with long-term orientation but lacks cost focus and passive instruments.",
+    "composite_aps": 0.2833333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan scores poorly across most dimensions due to significant shortcomings:\n\n**Goal Alignment (0.4):** The investor is 55, risk-averse, and nearing retirement in 5 years, with goals centered on capital preservation and inheritance. However, the plan allocates 70% to a single large-cap equity fund, which is inappropriate for a conservative investor at this life stage. Equity exposure should be much lower, especially with a 10-year horizon and imminent retirement.\n\n**Diversification (0.2):** The portfolio lacks diversification entirely — 70% is allocated to a single fund (ICICI Prudential Large Cap), with no exposure to debt, hybrids, or other asset classes despite the investor's preference for debt and hybrid funds. There is no geographic, sectoral, or fund-house diversification.\n\n**Risk-Return Appropriateness (0.3):** A 70% equity allocation contradicts the 'conservative' risk appetite. Projected returns of 10% base case are optimistic for a conservative plan and do not align with capital preservation. Downside protection is inadequate, especially with no allocation to debt for stability.\n\n**Internal Consistency (0.5):** The rationale claims to prioritize capital preservation, yet the allocation is heavily equity-based. The plan mentions a future allocation schedule (40% equity, 30% debt at year 5), but current allocation does not reflect a glide path toward it. The SIP step-up is mentioned but not integrated into the overall strategy.\n\n**Tax Efficiency (0.2):** The investor is in the 30% tax slab, yet the plan uses a regular large-cap fund (likely higher expense ratio, no tax advantage). It misses the opportunity to use arbitrage or aggressive hybrid funds for better post-tax returns. No ELSS is included — acceptable since the investor may not need 80C, but no mention of tax optimization is made. The plan is silent on tax treatment, despite significant implications for net returns.",
+    "composite_pqs": 0.32
+  },
+  "timestamp": "2026-04-18T15:37:41.506576Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23781,
+    "output_tokens": 1586,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 81.3380760923028
+}

@@ -1,0 +1,170 @@
+{
+  "persona_id": "P06",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3200.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap funds provide stable returns over the long term, making them suitable for a moderate risk appetite."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large- and mid-cap funds offer a balance between stability and growth, suitable for a moderate risk appetite."
+      },
+      {
+        "fund": {
+          "amfi_code": "120828",
+          "name": "quant Small Cap Fund",
+          "category": "Small Cap",
+          "sub_category": "",
+          "fund_house": "quant Money Managers Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 800.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Small-cap funds offer high growth potential, but come with higher risk. A 10% allocation is suitable for a moderate risk appetite."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI Asset Management Company Ltd",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1600.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Gold provides a hedge against market volatility and inflation."
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "This plan is suitable for Katniss Everdeen's moderate risk appetite and long-term investment horizon. The allocation to large-cap, large- and mid-cap, and small-cap funds provides a balance between stability and growth. The gold allocation provides a hedge against market volatility and inflation.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "passive_instrument_fraction=0.0: All three equity funds (Nippon India Large Cap, Motilal Oswal Large & Midcap, quant Small Cap) are actively managed; there are no index funds or equity ETFs in the equity sleeve. The Gold ETF is not equity and is excluded from this metric. turnover_score=0.9: Annual rebalancing with minimal tactical adjustments; review checkpoints are infrequent (6-month and 1-year simple checks); clearly a buy-and-hold posture. cost_emphasis_score=0.2: The plan mentions opening a 'direct' mutual fund account (showing slight cost awareness), but expense ratios are not discussed as a selection criterion, and no effort to minimize costs is evident in fund choices. research_vs_cost_score=0.5: No deep stock-specific or fund-specific research is provided (no PEG ratios, moat analysis, manager track records). However, the plan also does not use passive/index instruments — it selects active funds with generic category-level rationales. Falls squarely in the middle. time_horizon_alignment_score=0.9: Explicitly targets a 'long-term investment horizon,' uses SIPs with annual 10% step-up, annual rebalancing, and even includes a reassuring note that 20-30% drawdowns are normal and recover over time. Very patient, long-term orientation. portfolio_activeness_score=0.3: 80% of the portfolio is in actively managed equity funds across three categories (Large Cap, Large & Mid Cap, Small Cap — the last being quant AMC, known for concentrated active bets). The 20% Gold ETF is passive (tracks gold price). Risk metrics are all zero/unavailable, so inference is from category: the equity sleeve is genuinely active, pulling the score down, partially offset by the passive gold allocation.",
+    "composite_aps": 0.4666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.35,
+    "diversification": 0.45,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.55,
+    "tax_efficiency": 0.55,
+    "reasoning": "Goal Alignment (0.35): The plan completely ignores the emergency-fund goal — no liquid/savings allocation at all despite ₹50K corpus available to seed it. The ₹5L marriage goal in 6 years is served entirely by equity+gold with no earmarking or glide-path, exposing a medium-term need to significant market risk. Only the long-term wealth goal is reasonably addressed. Diversification (0.45): Four different fund houses is good, and equity is spread across large, large-mid, and small caps. However, the portfolio has zero debt/fixed-income allocation — a serious gap for a moderate-risk investor. No international diversification either. Gold at 20% is arguably overweight for a moderate profile. Risk-Return Appropriateness (0.40): An 80% equity + 20% gold portfolio with no debt is aggressive for a moderate risk label. The 6-year marriage goal funded entirely by volatile assets is mismatched. The bear-case projection of 8% is optimistic — equity drawdowns can be deeply negative. The long 30-year horizon partially justifies equity weight, but the risk profile is misaligned with the stated appetite. Internal Consistency (0.55): Allocations and SIPs sum correctly (100%, ₹8,000). Step-up and rebalancing are coherent. However, the rationale repeatedly states 'moderate risk appetite' while the zero-debt allocation implies an aggressive posture — a core contradiction. The small-cap rationale claims 10% suits moderate risk, yet the overall plan has more equity risk than a typical moderate portfolio. Tax Efficiency (0.55): The investor is on the new regime (no 80C). The plan correctly avoids ELSS and all four funds happen to be equity-taxed (≥65% equity), which is beneficial. However, there is zero explicit discussion of tax treatment or why fund choices are tax-efficient. If any debt allocation were added (which the plan arguably should have), there's no indication the plan would prefer equity-taxed wrappers. The tax outcome is accidentally decent rather than deliberately optimised.",
+    "composite_pqs": 0.4600000000000001
+  },
+  "timestamp": "2026-04-18T15:38:39.853864Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

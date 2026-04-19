@@ -1,0 +1,150 @@
+{
+  "persona_id": "P16",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.66,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced mix of stocks and bonds with a long track record. Delivers moderate growth while protecting capital. Equity-taxed, so better post-tax returns for your 30% slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 1383.7413,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 10.55,
+          "returns_5y": 12.69,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Medium-term debt fund with consistent returns. Used for SWP planning. Slab-taxed but stable, suitable for income generation."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.28,
+          "returns_5y": 25.33,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a hedge during stock or debt market stress. ETF form ensures low cost and high liquidity. Slab-taxed, but useful for diversification and estate planning."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Link your bank account and complete KYC if not already done.\nStep 3: Start monthly SIPs of ₹24,000 in ICICI Prudential Equity & Debt Fund, ₹24,000 in Aditya Birla Sun Life Medium Term Plan, and ₹12,000 in ICICI Prudential Gold ETF.\nStep 4: For estate planning, nominate beneficiaries in all fund accounts. Consider creating a will to clearly define asset transfer.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are running and amounts are debited correctly.",
+      "After 1 year: Review fund performance vs category average. If any fund underperforms for 2+ years, consider replacing.",
+      "Every 2 years: Rebalance portfolio to original 40:40:20 split if deviation is more than 5%."
+    ],
+    "rebalancing_guidelines": "Once every 2 years, check your portfolio mix. If any category is more than 5% away from the target (e.g., debt drops to 34% or rises to 45%), move money to bring it back to 40:40:20. This keeps risk in check.",
+    "projected_returns": {
+      "base": 11.2,
+      "bull": 15.2,
+      "bear": 7.2
+    },
+    "rationale": "At 63, capital protection is key. This plan uses a 40% equity-hybrid, 40% debt, 20% gold mix to balance growth and safety. The 8-year horizon allows moderate risk. Equity-hybrid fund is equity-taxed, giving better post-tax returns. Debt fund supports future SWP for monthly income. Gold adds diversification and helps in estate planning due to its universal value and ease of transfer.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your hybrid fund will fall too, but rebounds over time.",
+      "Debt funds can fall in value if interest rates rise sharply. The medium-term fund here is moderately sensitive.",
+      "Gold prices can stay flat or fall for years. It doesn't pay interest, so long gaps between gains are normal.",
+      "Your 30% tax slab means debt and gold gains are fully taxed — we use them wisely, not heavily."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.83,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The investment plan contains no passive equity instruments; the only equity exposure is through the ICICI Prudential Equity & Debt Fund, an actively managed aggressive hybrid fund, resulting in a passive_instrument_fraction score of 0.0. The turnover_score is high (0.83) due to rebalancing every 2 years only if deviations exceed 5%, indicating low turnover and a largely static allocation. Cost is mentioned in the rationale for the gold ETF (low cost, high liquidity) and tax efficiency is considered (equity taxation benefit), but expense ratios are not a central selection criterion across all funds, leading to a moderate cost_emphasis_score of 0.6. The plan does not emphasize deep research into individual stocks or fund managers, but selects funds based on category and tax treatment, so research_vs_cost_score is 0.3. The time_horizon_alignment_score is 0.9 as the strategy is designed for an 8-year horizon with long-term compounding and infrequent intervention. Finally, portfolio_activeness_score is 0.2 because the equity component is actively managed (hybrid fund with no index rationale), the debt fund is actively managed (medium-term duration strategy), and gold ETF is passive but only 20% of the portfolio; overall, the portfolio leans active despite minimal trading, supported by lack of risk metrics suggesting closet indexing.",
+    "composite_aps": 0.4716666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan shows strong alignment with the investor's conservative risk appetite, retirement stage, and goals of income, estate planning, and capital protection. The 40:40:20 split across hybrid, debt, and gold is reasonable for a retired individual with an 8-year horizon. Diversification is good across asset classes and fund houses, though equity exposure is moderate and gold at 20% is slightly high but justifiable for estate planning. The risk-return profile is appropriate, with realistic return projections and clear risk disclosures. The plan is internally consistent: rationale, allocations, rebalancing, and risks align coherently. However, tax efficiency is suboptimal. The investor is in the 30% tax slab, yet 40% of the portfolio (debt fund) is slab-taxed, while an arbitrage or conservative hybrid fund (equity-taxed) could offer similar risk with better post-tax returns. The plan correctly uses an equity-taxed aggressive hybrid but fails to optimize the entire fixed-income portion. Gold is slab-taxed and held at 20%, which is inefficient; a smaller allocation in equity-taxed instruments would improve after-tax returns. ELSS is not included, but that's acceptable since the investor's primary goals are income and estate planning, not tax saving via 80C. Still, no effort is made to minimize tax drag on the debt and gold portions, which is a missed opportunity for a high-slab investor.",
+    "composite_pqs": 0.75
+  },
+  "timestamp": "2026-04-18T15:28:15.946354Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 122930,
+    "output_tokens": 2191,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 21
+  },
+  "elapsed_s": 150.9283960023895
+}

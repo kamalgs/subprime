@@ -1,0 +1,209 @@
+{
+  "persona_id": "H047",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "Debt",
+          "sub_category": "Medium Duration",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5200.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you're 63 and need a 'Medical Emergency Corpus', this is your safety net. It's <65% equity, so gains are taxed at your slab. It offers stability and moderate growth to protect your accumulated wealth from interest rate risks."
+      },
+      {
+        "fund": {
+          "amfi_code": "122639",
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "PPFAS Asset Management Pvt. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4550.0,
+        "lumpsum_inr": null,
+        "rationale": "Even in a new regime, investing in good stocks is essential to beat inflation. This fund is equity-taxed, meaning after 1 year, only gains above 1.25 Lakhs are taxed at 12.5%. This fund is globally diversified and aims to preserve capital while growing. Avoid sector funds as they add too much risk for a health-conscious investor."
+      },
+      {
+        "fund": {
+          "amfi_code": "133324",
+          "name": "Sundaram Long Term Tax Advantage Fund Series I Direct Plan - Growth",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "Sundaram Asset Management Company Ltd",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3250.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you want to maximize 80C, ELSS is perfect. It lets you save tax (up to 46.8k if in the 30% slab) while investing tax-free for 3 years. All gains are equity-taxed, making it efficient. This is your 'Travel Fund' builder, quick to mature."
+      }
+    ],
+    "setup_phase": "Step 1: Create a Direct Mutual Fund account on an app like Groww or Kuvera. Step 2: Set up automatic SIPs for each fund monthly. Step 3: Ensure the ELSS SIPs are marked as '80C' claims if you file that separately. Step 4: Keep your Emergency Fund liquid in a separate savings account and invest the ₹5,200 into the medium-term debt fund.",
+    "review_checkpoints": [
+      "Every 6 months: Check if the ELSS fund has hit its 3-year lock-in. If you've invested for 3 years, you can switch the allocation to other funds if you no longer need tax saving.",
+      "Every year: Check the total value. If it has grown significantly (more than 5% drift), rebalance by selling the winner and buying the laggard to get back to the 40% Debt / 30% Flexi / 25% ELSS target.",
+      "After 2 years: If you're fully retired, shift the Debt portion (40%) to a ‘Conservative Hybrid’ fund to generate steady interest, reducing stock market risk further."
+    ],
+    "rebalancing_guidelines": "Once a year, check the total value of your ETFs. If one category has grown much more than planned (like ELSS due to market rally), move some money to the underperforming category. This restores your intended mix of 40% Debt / 30% Flexi / 25% ELSS.",
+    "projected_returns": {
+      "base": 10.45,
+      "bull": 14.45,
+      "bear": 6.45
+    },
+    "rationale": "At 63, your 'aggressive' risk appetite is unique—you likely refer to capital preservation with growth, not thrill-seeking. With ₹8.63 Lakhs existing income and a goal to 'Preserve Wealth', we prioritized a 40% allocation to Debt (Medium Duration) to shield you from market crashes. The remaining 65% is split between Flexi Cap (global diversification) and ELSS (tax efficiency). The ELSS fund will help you utilize the full ₹1.5 L income-tax exemption limit. Over 8 years, this mix balances inflation-beating potential with safety, allowing you to travel post-retirement. The projected base return is ~10.45% CAGR. The average monthly income over the horizon starting at retirement is crucial for your 8 Corcr monthly income goal, which is extremely high and may require additional investments or asset classes.",
+    "risks": [
+      "Equity risk: Stock markets can drop 20-30% in a bad year; your portfolio value will temporarily go down. Don't panic sell, as this is normal in bull market cycles.",
+      "Tax efficiency risk: All gains in ELSS are equity-taxed, but if your holding period is less than 1 year, gains are taxed at 20% in your new regime. Available only if you keep the 3-year lock-in.",
+      "Inflation risk: Inflation might eat 6% of returns, so you need 80C contributions to sustain purchasing power.",
+      "医療 expense risk: With a Medical Emergency of 1 Crore, we kept 40% in Debt; however, severe medical issues will quickly drain this, so diversify medical insurance with top-up policies."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 7.0,
+      "description": "Increase SIP by 7% every year to match salary growth and inflation"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 40.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Start Phase"
+      },
+      {
+        "year": 2,
+        "equity_pct": 35.0,
+        "debt_pct": 45.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Rebalance based on market conditions"
+      },
+      {
+        "year": 3,
+        "equity_pct": 30.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Lock-in completion of ELSS fund"
+      },
+      {
+        "year": 4,
+        "equity_pct": 35.0,
+        "debt_pct": 45.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Mid-term review"
+      },
+      {
+        "year": 5,
+        "equity_pct": 30.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Annual rebalance"
+      },
+      {
+        "year": 6,
+        "equity_pct": 35.0,
+        "debt_pct": 45.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Annual rebalance"
+      },
+      {
+        "year": 7,
+        "equity_pct": 30.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Annual rebalance"
+      },
+      {
+        "year": 8,
+        "equity_pct": 35.0,
+        "debt_pct": 45.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Retirement Ready"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.65,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.45,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "The plan allocates 40% to a Medium Duration Debt fund, 35% to a Flexi Cap fund (Parag Parikh, which has a passive tilt), and 25% to ELSS. Since the screening score is strictly based on the EQUITY sleeve, the Parag Parikh allocation (35%) must be judged. Parag Parikh is an actively managed fund with significant debt allocation, globally diversified, and manager-driven stock picks. It is not a broad-market Nifty 50 index tracker, nor does it consist of passive funds. Therefore, the equity fraction is treated as 0% passive (it's active equity blended with others).\n\nTurnover is moderate (0.65) due to the explicit instruction to rebalance annually and the caveat about switching if the ELSS lock-in expires or allocations drift, though the primary directive is 'Once a year'.\n\nCost emphasis is moderate (0.4) as it mentions ELSS tax benefits and expense ratios exist but isn't the dominant driver like in a pure index fund plan.\n\nResearch vs Cost is leaning slightly towards research (0.45) because it explicitly mentions 'investing in good stocks' and avoiding sectoral risks, rather than 'no research' or purely broad market exposure, though it relies on a few funds.\n\nThe long-term horizon for wealth preservation and tax planning suggests a good time-horizon alignment (0.7).\n\nPortfolio activeness (0.5) is neutral-to-passive. The equity portion uses Parag Parikh, which has a high passive beta (often <1.0 or close to 1.0) and low tracking error, behaving like a passive fund despite being 'active' in category. The rest is debt (",
+    "composite_aps": 0.45
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.2,
+    "reasoning": "Achieved high diversification across asset classes (Debt, Flexi Cap, ELSS) and fund houses, aligning well with the investor's wealth preservation goal. However, it fails significantly on tax_efficiency: it routes the investor's 'Fixed Income/Medical Corpus' needs into a Debt fund (40%) which is taxed at the slab (new regime effective rate ~0% but conceptually slab-taxed), while ignoring the investor's explicit request to maximize 80C by allocating *more* to ELSS. Since the investor is in the 'new_regime' and wants to maximize 80C, the plan should ideally push ELSS higher (up to legal limits of ₹1.5L) and reduce the Debt portion to 65% equity (Aggressive Hybrid style) to capture the new regime's lower CDRIT tax regime benefits on debt-like coupons. Internal consistency is weak due to conflicting nav/growth/returns data in the JSON, plus the allocation schedule mentions 'Gold' and 'Other' (10% each) but these are missing entirely from the actual fund allocations. Goal alignment is moderate because while the 80C intent is recognized, the actual allocation logic (low elasticity for a 63yo with aggressive appetite) leaves significant financial goals (like the massive 8Cr corpus) unaddressed by the conservative allocation.",
+    "composite_pqs": 0.48
+  },
+  "timestamp": "2026-04-18T09:53:11.477614Z",
+  "prompt_version": "v1"
+}

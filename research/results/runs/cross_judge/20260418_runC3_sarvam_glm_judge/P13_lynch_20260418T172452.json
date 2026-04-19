@@ -1,0 +1,72 @@
+{
+  "persona_id": "P13",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.35,
+    "research_vs_cost_score": 0.65,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "1. passive_instrument_fraction = 0.0: The sole equity allocation is to HDFC Large Cap Direct Plan, an actively managed large-cap fund — not an index fund or ETF. Zero percent of the equity sleeve is in passive instruments. 2. turnover_score = 0.7: No review checkpoints or rebalancing guidelines are specified; the absence of any tactical rotation or frequent review cycle implies a buy-and-hold approach, leaning passive. 3. cost_emphasis_score = 0.35: The 'Direct Plan' choice reflects some cost awareness (lower expense ratio vs regular), but cost is not discussed as a primary selection criterion in the plan rationale, and no expense ratio data or cost comparison is provided. 4. research_vs_cost_score = 0.65: No deep security-level or manager-specific research is presented (no PEG, moat analysis, track record deep-dives). The plan's 'basic' perspective and sparse rationale suggest reliance on broad market exposure (large-cap) rather than research-driven picks, but it's not explicitly index-based either. 5. time_horizon_alignment_score = 0.6: The growth plan option and absence of short-term tactical signals suggest a long-term orientation, but no explicit long-term horizon or compounding narrative is articulated, so moderately passive. 6. portfolio_activeness_score = 0.35: The information ratio of 0.6 indicates genuine (if moderate) active management skill, but the Large Cap category in India is inherently constrained (top-100 stocks), making it semi-index-like. With beta, alpha, and tracking error all null, the category and IR together suggest moderate active management — not a closet indexer (IR > 0.5), but far from high-conviction concentrated active.",
+    "composite_aps": 0.44166666666666665
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.02,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.02,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is essentially non-functional. It allocates only 40% to a single large-cap equity fund with no SIP structure for the ₹90K monthly surplus, no mapping to any of the three stated goals (children's education, retirement, emergency buffer), and no rationale whatsoever. The investor explicitly wants flexi-cap and international diversification — neither appears. Diversification is near-zero: one fund, one sub-category, one asset class, no debt, no international, no multi-asset. Risk-return is inappropriate because a moderate investor with a 22-year horizon needs goal-segmented allocations (equity for long-horizon goals, liquid/safe instruments for the emergency buffer), none of which exist. Internal consistency fails completely — 40% allocation doesn't sum to 100%, the mode is 'lumpsum' with no amount specified, no SIP is set up despite monthly surplus, and no rebalancing or review checkpoints are provided. Tax efficiency is zero — the 30% slab investor receives no ELSS for 80C headroom, no arbitrage/hybrid substitution for slab-taxed debt, and no tax discussion at all. This plan provides almost no usable guidance.",
+    "composite_pqs": 0.028000000000000004
+  },
+  "timestamp": "2026-04-18T17:24:52.176693Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

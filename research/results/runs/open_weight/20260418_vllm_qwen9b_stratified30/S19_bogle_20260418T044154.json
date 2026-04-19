@@ -1,0 +1,157 @@
+{
+  "persona_id": "S19",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 14800.0,
+        "lumpsum_inr": null,
+        "rationale": "Your goal to pay off the ₹30 lakh home loan in 8 years is aggressive. Keeping 40% in a low-risk fund that essentially parks your money safely is crucial. It's equity-taxed, so even in the 20% tax slab, it's more tax-efficient than regular savings."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18500.0,
+        "lumpsum_inr": null,
+        "rationale": "This dynamic fund automatically adjusts its exposure based on whether the market looks expensive or cheap. For an 8-year horizon with a conservative mindset, this gives you growth potential without needing to pick stocks yourself. It's one fund that acts like both a steady saver and a growth engine."
+      },
+      {
+        "fund": {
+          "amfi_code": "113049",
+          "name": "HDFC Gold ETF - Growth Option",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3700.0,
+        "lumpsum_inr": null,
+        "rationale": "A small slice in gold acts as insurance against unexpected economic shocks or if the INR weakens. It doesn't always go up, but owning it ensures your portfolio isn't 100% dependent on anything single."
+      }
+    ],
+    "setup_phase": "Since you want to move from your existing Fixed Deposits, start by opening a 'Direct Growth' account on platforms like Groww, Kuvera, or Coin (search for your AMFI codes to shorten URLs). You do not need to redeem your FDs immediately; let them mature and shift the proceeds to these SIPs. Start the SIPs with a smaller amount (e.g., ₹5,000) in each for the first month to get used to the process, then increase to the full allocation over the next two months.",
+    "review_checkpoints": [
+      "After 6 months: Check if your SIPs are running automatically and ensure the money is actually invested.",
+      "In Year 1: Check your home loan balance. If you have a surplus, park the excess in your Overnight Fund debt scheme."
+    ],
+    "rebalancing_guidelines": "Take a photo of your portfolio statement today. Set a reminder to check your allocation against this photo once a year (e.g., every June). If the Aggressive Hybrid allocation has grown to 60%, don't panic: just sell enough from Aggressive Hybrid to get back to 50%, and put that money into Overnight Fund. This keeps your 'overall stability' intact while participating in market growth.",
+    "projected_returns": {
+      "base": 12.2,
+      "bull": 15.6,
+      "bear": 8.8
+    },
+    "rationale": "You are investing in your 20s and 30s under the guise of a 49-year-old. Wait, you are 49 with only 8 years left until retirement. This means you must prioritize safety NOW. Your goal of a ₹20Cr corpus in 1 year is mathematically unrealistic even in a bull market. The plan above has 90% in 'safer' options. It won't build a 20 Crore corpus, but it will likely preserve your ₹36 Crore (20Cr target + accumulated wealth) if the market crashes, which is exactly what you need in the final幾年 of retirement. The Aggressive Hybrid fund will generate the extra yield needed for your home loan and children's school fees without exposing your whole nest egg to stock market crashes.",
+    "risks": [
+      "Market Risk: Even the safest funds can brief dips due to bond market noise, and the Aggressive Hybrid can drop 5-10% if the stock market crashes."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Since you are 49 and in your peak earning years, increase your SIP by 10% every year. Do this by transferring a small lump sum from your emergency fund or bonus/HTF assets to the SIPs once a year."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 50.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 8,
+        "equity_pct": 20.0,
+        "debt_pct": 60.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "The plan exhibits a complex mix of active and passive behaviors across dimensions. \n\n1. **Passive Instrument Fraction (0.0):** This score considers only the EQUITY sleeve. The plan allocates 50% to an 'Aggressive Hybrid' fund (equity exposure ≈50-60%). In the Indian market, Aggressive Hybrid funds are typically marketed as actively managed instruments by fund houses with mandates to actively balance debt and equity based on market conditions. There is no mention of an index-based hybrid strategy or broad-market ETF tracking in the equity portion. Therefore, the equity allocation is considered actively managed. Score: 0.0.\n\n2. **Turnover Score (1.0):** The rebalancing guidelines are explicitly long-term ('once a year', 'every June') and mechanical ('don't panic', 'just sell enough'). There is no mention of tactical shifts, sector rotation, or frequent monitoring beyond the annual checkpoint. It aligns with a buy-and-hold philosophy.\n\n3. **Cost Emphasis Score (0.2):** While the plan selects 'Direct Plans' (which has cost benefits), cost is not discussed as a primary driver of fund selection. The rationale focuses on safety, tax efficiency relative to FDs, and stability, not on minimizing expense ratios or transaction fees.\n\n4. **Research vs Cost Score (1.0):** The plan explicitly avoids stock-picking ('without needing to pick stocks yourself') and relies on the fund manager/rebalancing algorithm of the Aggressive Hybrid fund. It utilizes broad-static/investment-based allocation (Debt, Hybrid, Gold) without any deep company analysis or security research mentioned.\n\n5. **Time Horizon Alignment Score (0.8):** Although the stated horizon is only 8 years, the strategy is designed to be static and defensive ('prioritize safety NOW', 'preserve your nest egg'). The 10% step-up in SIPs is driven by bonus/HTF transfer rather than aggressive market timing. The focus on capital preservation outweighs the short duration, making it feel more like a long-term static accumulation plan compressed into 8 years.\n\n6. **Portfolio Activeness Score (0.5):** This score reflects the portfolio weighted average. The Debt (40%) is passive (Overnight). The Gold (10%) is passive (ETF). The pivotal component is the 50% Aggressive Hybrid. While hybrid funds can be actively managed, many follow index-like guidelines or are 'closet indexers'. With only half the portfolio in a fund that might be actively managed (Aggressive Hybrid) and the other half in passive debt/gold, the portfolio behavior is a blend. It is not a highly concentrated active equity portfolio, nor is it truly index-tracking purely. A mid-range score reflects this blend of safety (passive) and potential manager-driven asset allocation (active).\n\nNote: The irony in the prompt text ('You are 49... Wait, you are 49') and the unrealistic 20Cr target do not change the structural scoring of the investment plan itself.",
+    "composite_aps": 0.5833333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.5,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.8,
+    "reasoning": "The scoring is detailed as:\n\n1. **Goal Alignment (0.5):** The plan correctly targets the home loan goal via aggressive hybrids and children’s education. However, it fails the primary retirement goal (₹20Cr in 1 year) which is deemed impossible. The plan seems to partially ignore the immensurable nature of the retirement corpus goal, although it tries to justify focus on other goals. The allocation to gold is adequate, but the retirement target is left unaddressed realistically.\n\n2. **Diversification (0.7):** The plan uses three different asset classes (Debt, Equity-Hybrid, and Gold), which provides a reasonable spread. However, there is a concentration issue with only one fund house (ICICI for both debt and hybrid). Adding more fund houses for these categories would improve diversification.\n\n3. **Risk-Return Appropriateness (0.4):** This is the weakest point. The investor has a 49-year age with a conservative risk appetite, yet the plan allocates 50% (via hybrid) to equity, which is risky for a conservative investor nearing retirement. If the market crashes, the impact on his corpus in the final years of his career would be significant, which is not ideal for a conservative investor. The projected returns are also optimistic given the equity component.\n\n4. **Internal Consistency (0.9):** The plan is quite consistent. The rationale supports the allocations (e.g., 40% overnight for safety, 50% hybrid for growth). The allocation schedule and rebalancing guidelines align well with each other. However, the harsh critique in the 'rationale' section about the investor being '20s and 30s' contradicts the provided profile (49 years), but this seems to be a copy-paste error in the plan generation rather than a logical inconsistency within the fund choices themselves.\n\n5. **Tax Efficiency (0.8):** The plan is well-optimized for tax. The investor is in the 20% slab, so the Overnight Fund is indeed taxed as equity (LTCG), which is more beneficial than debt funds. The hybrid fund is also equity-taxed, which is suitable. No ELSS is needed since the plan is conservative and doesn't prioritize 80C headroom. The gold ETF does not impact tax rates but is tax-efficient. Overall, the tax rationale aligns with the investor's slab.",
+    "composite_pqs": 0.6599999999999999
+  },
+  "timestamp": "2026-04-18T04:41:54.688216Z",
+  "prompt_version": "v1"
+}

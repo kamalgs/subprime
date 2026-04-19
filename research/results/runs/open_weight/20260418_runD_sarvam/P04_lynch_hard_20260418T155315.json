@@ -1,0 +1,84 @@
+{
+  "persona_id": "P04",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "10.00% post-1 year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Debt and hybrid funds are excluded due to high risk in your profile. Focus on large-cap and multi-cap for stability",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Interest rate risk",
+      "Currency risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), which has a high information ratio (0.5), suggesting active management with potential alpha generation. There is no mention of passive/index funds in the equity allocation, resulting in a passive_instrument_fraction score of 0.0. The rebalancing guidelines are minimal and static, focusing on fund category exclusion rather than frequent adjustments, leading to a high turnover_score of 1.0 (passive behavior). However, there is no discussion of costs such as expense ratios or tax efficiency, so cost_emphasis_score is 0.0. The rationale does not emphasize individual research but selects a fund implicitly based on active management, hence research_vs_cost_score is 0.0. The plan implies a long-term horizon with no short-term tactical moves, giving a time_horizon_alignment_score of 1.0. Finally, the portfolio consists entirely of an actively managed equity fund with no risk metrics contradicting active intent (e.g., high information ratio), so portfolio_activeness_score is 0.0. Overall, the plan is active in instrument choice and rationale but passive in structure and review frequency.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.0,
+    "reasoning": "The investment plan shows significant shortcomings across all dimensions. Goal alignment is poor because the investor is conservative, pre-retirement, and focused on capital preservation and inheritance, yet the plan allocates 40% to a single large-cap equity fund with no debt or hybrid exposure, contradicting stated preferences. Diversification is extremely weak—only one fund across a single asset class (equity), with no geographic, sectoral, or fund-house variety. Risk-return appropriateness is low: a 40% equity allocation via a single fund is too aggressive for a conservative 55-year-old nearing retirement, and projected returns (cited as '10% post-1 year') are unrealistic given the horizon and risk profile. Internal consistency is compromised: the rationale claims to avoid debt and hybrid due to 'high risk', but these are typically *lower* risk than equity, especially for capital preservation—this reflects a fundamental contradiction. Tax efficiency is severely lacking: the investor is in the 30% tax slab, yet the plan uses a regular equity fund (subject to LTCG >1.25L at 10%) without leveraging arbitrage or aggressive hybrid funds that could offer similar returns with better tax efficiency via equity taxation and lower volatility. No mention of ELSS or tax strategy despite 80C eligibility under old regime (implied by 30% slab). The plan ignores the investor's tax status and fund preferences entirely.",
+    "composite_pqs": 0.16
+  },
+  "timestamp": "2026-04-18T15:53:15.370208Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23054,
+    "output_tokens": 901,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 47.14854852948338
+}

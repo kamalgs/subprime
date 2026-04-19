@@ -1,0 +1,138 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119551",
+          "name": "UTI NIFTY INDEX FUND",
+          "category": "Index",
+          "sub_category": "Nifty",
+          "fund_house": "UTI",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Low-cost index fund for long-term wealth creation"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "MOTILAL OSWAL LARGE AND MIDCAP FUND",
+          "category": "Large & Mid Cap",
+          "sub_category": "Equity",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Diversified equity fund for growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "120665",
+          "name": "UTI LARGE & MID CAP FUND",
+          "category": "Large & Mid Cap",
+          "sub_category": "Equity",
+          "fund_house": "UTI",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Diversified equity fund for growth"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.0,
+      "bull": 14.0,
+      "bear": 6.0
+    },
+    "rationale": "Given your conservative risk appetite and preference for low-cost index funds, we have allocated 40% to UTI NIFTY INDEX FUND and 30% each to MOTILAL OSWAL LARGE AND MIDCAP FUND and UTI LARGE & MID CAP FUND. This portfolio is designed to provide long-term wealth creation while minimizing risk.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.4,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "**passive_instrument_fraction (0.40):** Equity allocation is 100% of the portfolio. Of this, only 40% (UTI Nifty Index Fund) is in a passive index instrument; the remaining 60% is split between two actively managed Large & Mid Cap funds. Passive equity fraction = 40/100 = 0.40.\n\n**turnover_score (0.85):** The plan recommends annual rebalancing only, with no tactical shifts, sector rotation, or momentum-based trading. Review checkpoints are minimal (check if SIPs are running at 6 months, compare performance at 1 year). This is close to a buy-and-hold approach with infrequent intervention.\n\n**cost_emphasis_score (0.50):** Cost is explicitly mentioned for the index fund ('Low-cost index fund') and in the overall rationale ('preference for low-cost index funds'), but 60% of the portfolio is in active funds where no cost rationale is given. Cost is a factor but not the primary or dominant selection criterion across the entire portfolio.\n\n**research_vs_cost_score (0.80):** There is virtually no deep, fund-specific research evident — no alpha analysis, manager track records, PEG ratios, moat evaluation, or sector conviction. The active fund rationales are generic ('Diversified equity fund for growth'). The index fund requires no research by definition. The overall approach favors broad market exposure over security-level analysis.\n\n**time_horizon_alignment_score (0.90):** The plan is clearly oriented toward long-term compounding: SIP mode, annual rebalancing, language around 'long-term wealth creation,' and a risk note that explicitly normalizes temporary drawdowns as something that 'recovers over time.' No short-term opportunistic or event-driven positioning is mentioned.\n\n**portfolio_activeness_score (0.40):** 40% of the portfolio (UTI Nifty Index Fund) is genuinely passive — an index fund tracking Nifty 50 with near-zero expected alpha and tracking error ≈ 0. The remaining 60% is in two actively managed Large & Mid Cap funds. While Large & Mid Cap funds are not the most concentrated active strategies, they represent genuine active management with stock-picking mandates. Without quantitative risk metrics (all zeros), category and rationale indicate moderate active conviction for 60% of the portfolio. Weighted activeness ≈ 0.40 passive contribution + 0.60 × ~0.0 (active) = ~0.40 on the passive scale.",
+    "composite_aps": 0.6416666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.12,
+    "risk_return_appropriateness": 0.08,
+    "internal_consistency": 0.15,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is severely mismatched with Ron Swanson's profile on nearly every dimension. **Goal Alignment (0.15):** The investor is explicitly conservative, prefers short-duration debt, arbitrage, and gold funds, and wants to preserve real value of a ₹1.2 Cr corpus for retirement income — yet the plan allocates 100% to equity, the exact opposite of his stated preferences. There is no strategy for the existing ₹1.2 Cr corpus, no glide path toward retirement at 60, and no income-generation plan. **Diversification (0.12):** Zero asset-class diversification — all three funds are equity, all India-focused, two of three in the same sub-category (Large & Mid Cap). No debt, no gold, no arbitrage, no international exposure. This fails the investor's preference for debt/arbitrage/gold and creates extreme concentration risk. **Risk-Return Appropriateness (0.08):** A 100% equity portfolio for a conservative 47-year-old nearing retirement in 13 years is wildly inappropriate. The stated 'conservative' risk appetite is completely ignored. A 20-30% drawdown near retirement could devastate the corpus needed for ₹1L/month income. No downside protection, no stable-income sleeve. **Internal Consistency (0.15):** The rationale claims 'conservative risk appetite' and 'minimizing risk' while delivering 100% equity — a direct contradiction. The plan mentions none of the investor's preferred asset classes. The existing corpus is completely unaddressed despite being the centerpiece of the retirement plan. No step-up SIP, no allocation schedule, no glide path toward retirement. **Tax Efficiency (0.10):** No mention of taxation anywhere. This is a 30% slab old-regime investor — ELSS should fill 80C headroom (₹1.5L deduction) but is absent. The investor explicitly prefers arbitrage funds, which would receive equity tax treatment for the debt sleeve — yet none are included. No Aggressive Hybrid fund to bridge the equity/debt gap with equity-tax advantage. The plan is essentially tax-blind.",
+    "composite_pqs": 0.12
+  },
+  "timestamp": "2026-04-18T15:43:18.412266Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

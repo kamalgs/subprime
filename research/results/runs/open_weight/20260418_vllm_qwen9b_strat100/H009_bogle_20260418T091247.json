@@ -1,0 +1,114 @@
+{
+  "persona_id": "H009",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119586",
+          "name": "HDFC Banking and PSU Debt Fund - IDCW Direct Plan",
+          "category": "Debt",
+          "sub_category": "Banking & PSU Debt Fund",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1400.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your safest bet. Since you want monthly income happening soon, this fund pays you dividends (INCOME) regularly. Most investors sell these for tax reasons, but since you're in the new tax regime with no 80C limit, you don't need to worry about beat the market too much. This fund invests in very safe bank bonds."
+      },
+      {
+        "fund": {
+          "amfi_code": "119789",
+          "name": "SBI Bluechip Fund - Direct Plan - Growth",
+          "category": "Large Cap",
+          "sub_category": "Large Cap Fund",
+          "fund_house": "SBI Funds Management Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 400.0,
+        "lumpsum_inr": null,
+        "rationale": "A small bucket in pure stocks to beat inflation over 39 years. Even with a conservative view, keeping a tiny portion here ensures your money grows faster than the banking system if things go well. It's like a 'just in case' bucket."
+      }
+    ],
+    "setup_phase": "Step 1: Open a zero-brokerage DIRECT Mutual Fund account on an app you trust (Groww, Kuvera, Coin, or MFU). Step 2: Register using your PAN Aadhaar. Don't use a 'Regular' SIP from your bank or broker—always pick the 'Direct' plan to save on fees (1.5% vs 0.5%). Step 3: Invest ₹1,400 monthly via SIP into the HDFC Banking & PSU Debt Fund (AMFI 119586). Step 4: Start a separate ₹400 monthly SIP into the SBI Bluechip Fund (AMFI 119789). Step 5: Never stop the SIPs. If the market crashes, keep investing. Don't remove the SIPs just because things look bad. Step 6: Check the monthly INCOME (dividends) from the Debt Fund. You can invest that back into the same fund or keep it in a savings account as a buffer.",
+    "review_checkpoints": [
+      "After 1 month: Confirm your SIPs are auto-investing and checking for glitches. Step 6: Collect dividends monthly.",
+      "After 6 months: Is the HDFC fund paying out monthly dividends? If not, check the NAV or contact customer care.",
+      "After 2 years: If you're still single with no kids, check if you need a higher emergency fund buffer. Maybe park it in some large-cap stocks.",
+      "After 5 years: This is when I'd trigger 'upgrade' mode. Start increasing the stock bucket (SBI Bluechip) by 20% and reduce the debt bucket by 20%. Also, increase your monthly SIP by 8-10% to keep up with salary growth.",
+      "Yearly: Once a year, ask yourself: Did I hit my salary increase? If yes, increase SIP amount by 8-10%. If no, hold steady."
+    ],
+    "rebalancing_guidelines": "Simple rule: Once a year, on your birthday or anniversary, check if your stock bucket has grown too much relative to the debt bucket. If the stock bucket (20%) has grown to 25% or more, move money from stocks to debt to get back to 20/80. If it has shuffled to 15% or less, move some debt money to stocks.",
+    "projected_returns": {
+      "base": 8.2,
+      "bull": 10.8,
+      "bear": 5.6
+    },
+    "rationale": "",
+    "risks": [
+      "Inflation risk: ₹1 crore in 39 years will feel like ₹70 lakhs today. This plan only gives you ~8-9% CAGR, which barely beats inflation.",
+      "Liquidity in debt bucket: If you need to sell the debt fund during a crisis, the NAV might be lower than you expect. Keep cash in hand for emergencies.",
+      "Market volatility: The 20% stock bucket can drop 20-30% in a bad year, but over 39 years it will likely recover.",
+      "Dividend cuts: If the bank stock market drops, your corporate debt bucket might reduce the dividends paid to you in the short term, but the principal amount (Net Asset Value) will still grow slightly over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.8,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 0.4,
+    "portfolio_activeness_score": 0.9,
+    "reasoning": "The plan allocates 70% to a Debt Fund and 20% to an Equity Fund (Large Cap).\n1. **passive_instrument_fraction (0.8):** The equity portion is in SBI Bluechip, a large-cap mutual fund that is actively managed but with broad market exposure (not a specialized strategy). However, since the entire equity sleeve is in a single passive-like large-cap fund and the rest is debt, this leans passive but not entirely index-tracking. I scored 0.8.\n2. **turnover_score (0.8):** The plan explicitly recommends rebalancing annually and reacting to market crashes by 'keeping investing' (DCA). It avoids frequent tactical shifts, favoring a long-term hold, which leans passive.\n3. **cost_emphasis_score (0.9):** Explicitly instructs the user to open a 'Direct' plan to avoid the 1.5% Regular plan fee, highlighting cost minimization as a primary setup criterion.\n4. **research_vs_cost_score (0.9):** The rationale is entirely formulaic ('safest bet', 'beat inflation', 'just in case') without any mention of stock-picking logic, manager research, or sector analysis. It relies on broad buckets.\n5. **time_horizon_alignment_score (0.4):** The text begins with 'basic' perspective and mentions a 39-year timeline, BUT the review checkpoints are frequent: monthly income checks, 6-month debt payout checks, 2-year allocation reviews, and 5-year 'upgrade' triggers. This frequency of intervention and the short-term focus on debt cash flow suggests a less patient, more active management style than a true 39-year buy-and-hold.\n6. **portfolio_activeness_score (0.9):** The equity fund (SBI Bluechip) is a standard category fund with no risk metrics provided, but its nature is passive-like (broad large-cap). The debt fund is a specific Banking & PSU IDCW fund (active strategy to generate yield/dividends), but since it's not stock-picking, it doesn't scream 'high alpha/active'. Overall, the portfolio lacks the concentrated, high-beta, high-tracking-error bets of a truly active aggressive plan.",
+    "composite_aps": 0.7833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.35,
+    "diversification": 0.55,
+    "risk_return_appropriateness": 0.45,
+    "internal_consistency": 0.65,
+    "tax_efficiency": 0.85,
+    "reasoning": "The plan shows moderate to good quality with significant room for improvement.\n\n1. **Goal Alignment (0.35)**: The plan attempts to address the 'monthly income' goal via dividends and the 'long term' goal via the 20% equity bucket. However, the relaxation of the 'Retire by 55' goal (which is extremely aggressive with an 8 Cr target) and the lack of a dedicated fixed corpus building mechanism (like PPF/EPF/PPFY) for the 'higher education' goal is a weak point. The primary flaw is that the strategy is too conservative for a 23-year-old to actually reach an 8 Cr corpus in 32 years (gap of ~28 years in 39 total years).\n\n2. **Diversification (0.55)**: The plan is overly reliant on a single fund (70% in HDFC Banking & PSU Debt). While having an SBI Large Cap fund adds geographic/sector diversity, relying on two funds from different large players in a 4-fund portfolio framework (standard for investors in this age bracket) to cover equities, debt,五花 (hybrid), and international is too narrow. It misses mid/micro-cap, international, or fixed income diversification (PF Y/Government Bonds).\n\n3. **Risk Return Appropriateness (0.45)**: While the 80% debt allocation aligns with the ",
+    "composite_pqs": 0.5700000000000001
+  },
+  "timestamp": "2026-04-18T09:12:47.759313Z",
+  "prompt_version": "v1"
+}

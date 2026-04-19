@@ -1,0 +1,148 @@
+{
+  "persona_id": "P14",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund for stable growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap fund for balanced growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund for stable growth"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.5,
+      "bull": 14.5,
+      "bear": 6.5
+    },
+    "rationale": "Since you're 50 with 12 years ahead, we can afford to put more in stocks which grow faster over long periods. We've kept 20% in safer options so your money isn't all in one basket.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 100% of its equity portion to actively managed funds (ICICI Prudential Large Cap, Motilal Oswal Large and Midcap, and Nippon India Large Cap), with no index or passive funds present, resulting in a passive_instrument_fraction score of 0.0.\n\nRebalancing is recommended only once a year, and review checkpoints are spaced at 6 months and 1 year, indicating low turnover and a long-term orientation, leading to a turnover_score of 1.0.\n\nThere is no mention of expense ratios, costs, or tax efficiency in the rationale or selection criteria, despite the funds having non-trivial expense ratios (1.0–1.1%). Cost minimisation is not a stated factor, so cost_emphasis_score is 0.0.\n\nThe fund selections are justified with generic terms like 'stable growth' and 'balanced growth' without any mention of deep research into company fundamentals, management quality, or competitive advantages. However, since the funds themselves are actively managed and no index-based reasoning is used, the research_vs_cost_score is 0.0, reflecting an active management assumption without explicit research discussion.\n\nThe plan is designed for a 50-year-old with a 12-year horizon, includes SIP step-up guidance, and acknowledges market volatility as temporary, indicating strong long-term alignment. Hence, time_horizon_alignment_score is 1.0.\n\nThe portfolio_activeness_score is 0.0 because all selected equity funds are actively managed categories (Large Cap, Large & Mid Cap) with no risk metrics suggesting index-like behavior (though metrics are missing, category and rationale imply active management). There is no evidence of passive or closet-indexing behavior. The absence of tracking error, beta, or alpha data prevents confirmation of high active risk, but the fund types and lack of passive instruments support a fully active portfolio interpretation.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan aligns reasonably well with Walter's moderate risk appetite and 12-year horizon for retirement, justifying equity exposure for growth while acknowledging downside risk. However, diversification is weak: all three funds are large-cap or large & mid-cap equity funds, with no exposure to small caps, international markets, debt, or hybrid instruments, despite the stated 20% 'safer options' — which do not appear in the actual allocation. This contradicts the rationale and hurts internal consistency slightly, though the overall structure (SIPs, rebalancing, step-up) is coherent. Risk-return is appropriate for moderate risk: projected returns (10.5% base) are realistic for an equity-heavy portfolio, and market drawdown warnings are included. Tax efficiency is poor: the investor is in the 20% tax slab, yet the plan uses only equity funds (which are equity-taxed) but omits any tax-advantaged ELSS despite Walter being in the old regime (implied by '20_percent_slab'). ELSS could have provided 80C benefits and tax-efficient equity exposure. Worse, the plan falsely claims 20% is in 'safer options', but all 100% is in equity — these safer options could have been Aggressive Hybrid or arbitrage funds for better post-tax returns, but they are entirely missing. Thus, tax efficiency is severely compromised.",
+    "composite_pqs": 0.56
+  },
+  "timestamp": "2026-04-18T15:44:53.251543Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24232,
+    "output_tokens": 1772,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 57.91686633229256
+}

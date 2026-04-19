@@ -1,0 +1,97 @@
+{
+  "persona_id": "P23",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1:100"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Review monthly portfolio performance"
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Review quarterly performance"
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Review annually"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.3,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "This plan is firmly on the active end of the spectrum. 1) passive_instrument_fraction=0.0: The sole equity allocation (40%) is to HDFC Large Cap, an actively managed fund with no passive/index instruments. 2) turnover_score=0.3: Monthly portfolio reviews in Year 1 and quarterly in Year 2 suggest frequent monitoring with potential tactical adjustments, though it transitions to annual reviews by Year 3. 3) cost_emphasis_score=0.0: No expense ratio data is provided, no cost discussion, and no cost-efficiency rationale — costs are entirely ignored. 4) research_vs_cost_score=0.4: The plan is labeled 'basic' with minimal rationale ('1:100' is cryptic and not substantive research), yet it selects an active fund rather than a broad-market index, placing it slightly toward active but without deep analytical support. 5) time_horizon_alignment_score=0.3: Monthly and quarterly review cycles imply short-term, opportunistic oversight; the allocation schedule shifts heavily into debt over just 3 years, suggesting a relatively short horizon. 6) portfolio_activeness_score=0.3: The only fund is an actively managed large cap with an information ratio of 0.6, indicating some active value-add; while large cap funds can resemble indexers, the explicit active mandate and moderate IR reflect genuine active management intent.",
+    "composite_aps": 0.21666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.2,
+    "reasoning": "This plan is severely deficient across nearly every dimension. **Goal alignment (0.1):** None of the three goals — financial independence in 15 years, emergency fund (6 months rent), or creative venture in 8 years — are addressed. There is no emergency fund carve-out, no medium-horizon goal fund (8-year venture), and no strategy mapped to the 15-year independence target. **Diversification (0.05):** A single large-cap equity fund at 40% allocation is the entire portfolio — no mid/small cap, no international, no debt, no gold, no alternative. Only 40% of the investable surplus is even allocated; the remaining 60% is unaccounted for. **Risk-return (0.15):** A 29-year-old moderate-risk investor with a 26-year horizon needs a balanced multi-asset approach. Instead, she gets one large-cap fund with unclear allocation (40% with 60% missing) and an allocation schedule that shows 0% equity for years 1-3 — contradictory and wildly off-base for her horizon and risk profile. Projected returns are empty, so there's no way to assess feasibility. **Internal consistency (0.05):** Major contradictions: (a) the sole fund is equity large-cap at 40%, but the allocation schedule shows 0% equity for years 1-3; (b) the schedule references 10-50% debt but no debt fund exists in allocations; (c) only 40% total is allocated; (d) the fund rationale says '1:100' which is meaningless. These are not minor inconsistencies — the plan is incoherent. **Tax efficiency (0.2):** The investor is on the new regime (no 80C), so omitting ELSS is correct. The single equity fund does qualify for equity tax treatment, which is appropriate for any slab under the new regime. However, there is zero explicit tax discussion — no mention of LTCG/STCG rates, no rationale for choosing equity-taxed instruments, and no explanation of why debt (if ever added, per the schedule) would be slab-taxed. A small credit for not recommending ELSS to a new-regime investor and for using an equity-taxed fund, but the plan is essentially tax-silent.",
+    "composite_pqs": 0.11000000000000001
+  },
+  "timestamp": "2026-04-18T16:08:52.775213Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

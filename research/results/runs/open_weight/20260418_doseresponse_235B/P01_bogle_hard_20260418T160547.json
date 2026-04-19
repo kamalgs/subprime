@@ -1,0 +1,123 @@
+{
+  "persona_id": "P01",
+  "condition": "bogle_hard",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": 17.094146825697987,
+          "returns_3y": 23.18993139340053,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": 17.42528588877694,
+          "beta": 1.0340706693083053,
+          "alpha": 11.743982302492952,
+          "tracking_error": 8.792440315620462,
+          "sharpe_ratio": 0.9984136156270631,
+          "information_ratio": 1.3356908754477235
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost, broad midcap index fund with strong 3-year performance and minimal fees. Ideal for long-term growth with lower cost than active funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "147623",
+          "name": "Motilal Oswal Nifty Smallcap 250 Index Fund- Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 738.8815,
+          "morningstar_rating": null,
+          "returns_1y": 10.035527860336169,
+          "returns_3y": 20.72469335567213,
+          "returns_5y": 16.89498141729384,
+          "risk_grade": null,
+          "volatility_1y": 18.67451411714654,
+          "beta": 0.9989044365967398,
+          "alpha": 3.6015025516822763,
+          "tracking_error": 11.717806053218514,
+          "sharpe_ratio": 0.4725607646396625,
+          "information_ratio": 0.30735297506422343
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost smallcap index fund for higher growth potential over 30 years. Matches investor's aggressive appetite with disciplined exposure."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera.\nStep 2: Complete your KYC if not already done.\nStep 3: Start monthly SIPs of ₹30,000 in Motilal Oswal Nifty Midcap 150 Index Fund and ₹20,000 in Motilal Oswal Nifty Smallcap 250 Index Fund.\nStep 4: Link your bank account and confirm the SIP dates (e.g., 5th of every month).",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are running without fail.",
+      "After 1 year: Compare fund returns with their benchmark indices (Nifty Midcap 150 and Nifty Smallcap 250). If underperforming by over 1%, consider switching.",
+      "Every 3 years: Review your risk appetite as you approach 35, 40, etc."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If one fund grows to more than 10% above its target (e.g., midcap goes from 60% to 70%), sell some and buy the other to restore balance.",
+    "projected_returns": {
+      "base": 17.97,
+      "bull": 21.97,
+      "bear": 13.97
+    },
+    "rationale": "At 25, with a 30-year horizon and aggressive risk appetite, you can fully focus on equity for wealth creation. Mid and small caps have historically delivered higher returns over decades. These two low-cost index funds give you broad exposure without paying high fees. Since you're in the new tax regime, ELSS benefits don't apply, so we skip tax-saving funds. Your ₹50,000/month SIP can grow into ₹10 crore by 55 with consistent investing.",
+    "risks": [
+      "Mid and small cap stocks can drop 30-50% in bad years — your portfolio will fall sharply but recover over time.",
+      "Index funds track the market — you won't beat it, but you'll match it at low cost.",
+      "Inflation or job loss could force early withdrawal, hurting long-term growth."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.83,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.85,
+    "reasoning": "The investment plan is heavily tilted toward passive investing, with both funds being index-based: Motilal Oswal Nifty Midcap 150 and Nifty Smallcap 250 Index Funds. This results in a passive_instrument_fraction score of 1.0, as 100% of the equity allocation is in passive instruments.\n\nThe turnover_score is 0.83 because rebalancing is recommended annually or when allocations deviate by more than 10%, and SIPs are ongoing with a yearly step-up. There's no indication of frequent trading, but a minor deduction is made due to the 1-year review with potential switching if underperformance exceeds 1% — a slightly more active stance.\n\ncost_emphasis_score is 1.0 because the rationale explicitly highlights 'low-cost' as a key reason for selection and contrasts it with higher fees of active funds.\n\nresearch_vs_cost_score is 1.0 since the plan does not engage in stock-picking or fund manager analysis; it relies purely on broad market index exposure without any individual security or fund research.\n\ntime_horizon_alignment_score is 1.0, as the strategy is built for a 30-year horizon, with compounding and long-term growth as central themes.\n\nportfolio_activeness_score is 0.85. While both funds are index funds (indicating passivity), the risk metrics show higher tracking error (8.8% and 11.7%) and positive alpha, which may suggest some active management or structural deviation from the benchmark. However, given the index fund categorization and stated objective, the portfolio is still predominantly passive. The slight deduction accounts for non-trivial tracking error, possibly due to sampling or cash drag, but not full active management.",
+    "composite_aps": 0.9466666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 1.0,
+    "reasoning": "The investment plan is highly aligned with Tony Stark's aggressive risk appetite, 30-year horizon, and goal of building a ₹10 crore retirement corpus. The exclusive focus on midcap and smallcap index funds supports long-term growth, and the 10% annual SIP step-up accounts for income growth, enhancing goal alignment. Diversification is moderate: while both funds are equity and from the same fund house (Motilal Oswal), they span midcap and smallcap segments, offering some diversification. However, there is no exposure to large caps, international equities, or debt, which limits overall portfolio breadth. The risk-return profile is appropriate for an aggressive investor, with clear acknowledgment of 30-50% drawdowns and realistic return projections (17.97% base). The plan is internally consistent: the rationale, allocations, rebalancing, and review checkpoints align coherently. Tax efficiency is excellent: the investor is in the 'new_regime', so ELSS is correctly omitted, and all recommended funds are equity-rich (>65% equity), ensuring favorable LTCG/STCG taxation. No slab-taxed debt funds are used, and the rationale explicitly justifies skipping ELSS due to tax regime — a strong tax-aware decision.",
+    "composite_pqs": 0.9
+  },
+  "timestamp": "2026-04-18T16:05:47.492785Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 120585,
+    "output_tokens": 2322,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 11
+  },
+  "elapsed_s": 116.02639187313616
+}

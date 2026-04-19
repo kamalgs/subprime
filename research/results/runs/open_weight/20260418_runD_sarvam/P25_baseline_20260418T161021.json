@@ -1,0 +1,141 @@
+{
+  "persona_id": "P25",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": 1500000.0,
+        "rationale": "1.5% on gains over 1.5Lakh after 3 years"
+      },
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.5% on gains over 1.5Lakh after 3 years"
+      },
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.5% on gains over 1.5Lakh after 3 years"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Rebalance every 6 months to adjust equity/debt allocation based on market conditions and risk appetite",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market volatility in equity can lead to short-term declines",
+      "Debt funds have interest rate risk",
+      "Liquidity risk in small caps"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 100% of its equity portion to HDFC Large Cap - Direct Plan, an actively managed fund, as indicated by its high information ratio (0.6), which suggests active management with potential for alpha generation. Thus, passive_instrument_fraction is 0.0. The rebalancing guideline of every 6 months indicates moderate turnover, not frequent trading nor strict buy-and-hold, so turnover_score is 0.5. There is no mention of cost considerations like expense ratios or tax efficiency in the rationale, so cost_emphasis_score is 0.0. The plan does not discuss any research on individual stocks or fund selection criteria beyond a generic rationale on taxation, but since it picks an actively managed fund without cost justification, research_vs_cost_score is 0.0. The time horizon appears to be medium to long-term (3+ years for tax treatment), but the 6-month rebalancing introduces some short-term orientation; thus, time_horizon_alignment_score is 0.5. Finally, the portfolio consists entirely of an actively managed large-cap fund with an information ratio of 0.6, indicating genuine active management intent, so portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.16666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.1,
+    "reasoning": "The investment plan shows significant flaws across all dimensions. Goal alignment is poor because the investor has multiple goals (retirement, children's fees, re-entry after 10 years abroad), but the plan allocates 100% to a single equity fund (HDFC Large Cap) without differentiating time horizons or risk needs for each goal. Diversification is nearly absent: all allocations are in the same fund, same category (Large Cap), same fund house, with no exposure to debt, international, or hybrid assets despite a moderate risk appetite and multi-goal profile. Risk-return appropriateness is low: a 100% equity allocation contradicts the investor's 'moderate' risk appetite and fails to protect near-term liabilities or children's fees (8-year horizon). Internal consistency is weak: the rationale mentions '1.5% on gains over 1.5L after 3 years' — which is factually incorrect (LTCG is 10% above ₹1.25L after 1 year), and the rebalancing guideline mentions debt allocation despite no debt in the plan. Tax efficiency is very poor: the investor is in the 30% tax slab, yet the plan ignores tax optimization — no use of arbitrage or aggressive hybrid funds for debt-like exposure (which would get equity taxation), no ELSS to utilize 80C (relevant for old regime, but even if not, tax-aware structuring is missing), and no acknowledgment of tax implications beyond a factually wrong statement. Overall, the plan is poorly constructed, tax-ignorant, and misaligned with the investor's profile.",
+    "composite_pqs": 0.19999999999999998
+  },
+  "timestamp": "2026-04-18T16:10:21.610874Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23375,
+    "output_tokens": 1187,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 40.163755459710956
+}

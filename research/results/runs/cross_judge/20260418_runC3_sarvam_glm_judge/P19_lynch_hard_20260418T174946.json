@@ -1,0 +1,72 @@
+{
+  "persona_id": "P19",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150463",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "This is a bare-bones plan with a single equity allocation — 40% to HDFC Large Cap Direct Plan — and no specified use for the remaining 60%. passive_instrument_fraction = 0.0 because HDFC Large Cap is an actively managed fund, not an index fund or ETF; 100% of the equity sleeve is active. turnover_score = 0.7 because SIP mode with no rebalancing guidelines or review checkpoints implies a set-and-forget, buy-and-hold posture, though the silence could also reflect incompleteness rather than intentionality. cost_emphasis_score = 0.3 — the 'Direct Plan' choice shows some cost awareness (direct plans carry lower expense ratios than regular plans), but cost is not discussed as a selection criterion, and no expense ratio data is provided. research_vs_cost_score = 0.4 — the rationale is just 'direct' with no company analysis, sector thesis, or manager track-record evaluation; however, the selection of a single active large-cap fund also doesn't reflect a broad-market/passive philosophy, so it falls in a neutral zone of minimal research without being index-driven. time_horizon_alignment_score = 0.8 — SIP mode and the complete absence of tactical shifts, event-driven positioning, or short-term review cycles are strongly consistent with long-term, patient compounding. portfolio_activeness_score = 0.3 — HDFC Large Cap is an active fund with a reported information ratio of 0.55 (suggesting genuine active management skill), but Indian large-cap funds are well-known closet indexers with high Nifty 50 overlap; without tracking error or beta data to confirm, we give partial credit, resulting in a moderately active score.",
+    "composite_aps": 0.4166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is essentially non-functional. It allocates only 40% of the ₹5Cr corpus to a single HDFC Large Cap fund, leaving 60% completely unaccounted for. It entirely ignores the investor's three explicit goals: (1) no tax-efficient transfer strategy for gifting ₹5Cr each to three children, (2) no income-generation mechanism for the required ₹2L/month (a growth-option equity fund produces no regular income), and (3) inflation protection is only partially and inadequately addressed by one equity allocation. Diversification is near-zero: single fund, single asset class, single category, single fund house. The risk profile is mismatched — a conservative investor's entire deployed allocation is in equity with no debt, arbitrage, or hybrid cushion, and no downside scenarios are discussed. Internal consistency fails because allocations don't sum to 100%, no rationale, no rebalancing, no review checkpoints, and no risk warnings are provided. On tax efficiency: the 30% slab investor gets no ELSS for 80C, no arbitrage fund (despite explicitly requesting one), no equity-taxed hybrid wrappers for debt exposure, and no discussion of tax-efficient succession — the single equity fund does at least qualify for equity LTCG treatment, saving this score from zero.",
+    "composite_pqs": 0.06999999999999999
+  },
+  "timestamp": "2026-04-18T17:49:46.653133Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

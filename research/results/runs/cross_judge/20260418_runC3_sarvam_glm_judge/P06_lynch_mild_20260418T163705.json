@@ -1,0 +1,75 @@
+{
+  "persona_id": "P06",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.15
+        },
+        "allocation_pct": 0.15,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.05% on gains over 1.25L"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Start with ₹1,000 daily via Groww or CoinAT (lowest fees)"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.65,
+    "reasoning": "This is a minimal, single-fund plan (HDFC Large Cap Direct Plan – Growth at 15% equity allocation) with a basic SIP-plus-step-up structure.\n\n**passive_instrument_fraction = 0.0**: The sole equity holding is an actively managed large-cap fund, not an index fund or ETF. 0% of the equity sleeve is passive.\n\n**turnover_score = 0.9**: No rebalancing guidelines, no review checkpoints, and no tactical shift recommendations are provided. The SIP-with-step-up accumulation model implies a near buy-and-hold posture with minimal intervention.\n\n**cost_emphasis_score = 0.4**: There is some cost awareness — the SIP description mentions choosing platforms with 'lowest fees' (Groww/CoinAT) and the rationale references a charge on gains — but cost is not the dominant fund-selection criterion and no expense-ratio comparison is made.\n\n**research_vs_cost_score = 0.55**: The plan is labeled 'basic' and contains no deep fundamental analysis, sector research, or manager track-record evaluation. However, it also doesn't explicitly default to a broad-market index; the active large-cap pick is made without research justification, placing it in a middle zone — no active research, but not a deliberate index choice either.\n\n**time_horizon_alignment_score = 0.85**: The 10% annual SIP step-up, absence of short-term tactical calls, and accumulation-oriented design all point to a long-term compounding horizon. Only the lack of an explicit long-term commitment statement prevents a perfect score.\n\n**portfolio_activeness_score = 0.65**: HDFC Large Cap funds in India are commonly regarded as closet indexers — their portfolios closely mirror the Nifty 50/Sensex with minor active tilts. The reported information ratio of 0.15 is very low, indicating minimal active outperformance relative to the benchmark. While technically an active mandate, the fund's behavior is index-like, warranting a score closer to the passive end.",
+    "composite_aps": 0.5583333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.3,
+    "reasoning": "**Goal Alignment (0.1):** The plan allocates only 15% of the investor's surplus to a single large-cap equity fund, leaving 85% completely unaddressed. None of the three stated goals are meaningfully served: no emergency fund vehicle (the first priority), no debt/hybrid allocation for the ₹5L marriage goal in 6 years, and no structured long-term wealth strategy. The plan is essentially empty for goal-based planning.\n\n**Diversification (0.05):** A single fund in a single sub-category (large-cap equity) with zero exposure to mid/small-cap, international, debt, gold, or any other asset class. No sector, geography, or fund-house diversification. This is near-total concentration risk.\n\n**Risk-Return Appropriateness (0.15):** A moderate-risk 23-year-old with a 30-year horizon needs a balanced portfolio with equity for growth and some debt for stability. A single large-cap fund at 15% allocation fails on both fronts — too conservative for long-term wealth building yet no debt cushion for the near-term marriage goal. The '₹1,000 daily' suggestion (₹30,000/month) wildly exceeds the ₹8,000 surplus, making any return projection meaningless.\n\n**Internal Consistency (0.1):** The plan is riddled with contradictions: only 15% is allocated with no explanation for the missing 85%; the SIP suggestion of ₹1,000 daily far exceeds the stated surplus of ₹8,000/month; the tax rationale reads '1.05% on gains over ₹1.25L' which is factually incorrect (LTCG is 12.5% above ₹1.25L); key sections (rationale, risks, rebalancing, review checkpoints, projected returns) are all empty.\n\n**Tax Efficiency (0.3):** The one positive: the plan does not recommend ELSS to a new-regime investor (who cannot claim 80C). The single equity fund chosen does qualify for favourable equity tax treatment. However, the tax rationale is garbled and incorrect, there is no discussion of using equity-taxed wrappers (e.g., Aggressive Hybrid or arbitrage funds) for any fixed-income allocation, and there is no explicit post-tax analysis. The plan avoids the worst tax mistakes but provides almost no tax-awareness.",
+    "composite_pqs": 0.13999999999999999
+  },
+  "timestamp": "2026-04-18T16:37:05.321300Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

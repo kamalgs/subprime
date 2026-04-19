@@ -1,0 +1,146 @@
+{
+  "persona_id": "P16",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "148457",
+          "name": "Nippon India Multi Asset Allocation Fund - Direct Plan - Growth Option",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2432.2666,
+          "morningstar_rating": null,
+          "returns_1y": 25.110802183590142,
+          "returns_3y": 21.768186537301748,
+          "returns_5y": 17.230360978388546,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund is ideal for your conservative risk appetite and 8-year horizon. It spreads money across stocks, bonds, and gold, which helps protect your corpus from big drops. Returns have been strong over 3 years, and the yearly fee is low. Being equity-taxed, it's more tax-efficient than debt funds for your 30% tax slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": 9.979395774892641,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "A balanced fund with a long track record. It holds about 65-80% in stocks and the rest in bonds, offering growth with less risk than pure equity. It’s been stable over 5 years and is equity-taxed, making it tax-smart for you. Fits well as a growth engine within a conservative plan."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 1383.7413,
+          "morningstar_rating": null,
+          "returns_1y": 9.590971539801174,
+          "returns_3y": 10.546144014607428,
+          "returns_5y": 12.68720416525493,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "A reliable debt fund that invests in medium-term government and corporate bonds. It offers steady returns with low volatility. Though slab-taxed, it's still useful for stability. We keep allocation low to limit tax drag, and it supports future SWP (Systematic Withdrawal Plan) needs."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Start monthly SIPs of ₹30,000 in Nippon India Multi Asset Allocation, ₹18,000 in ICICI Prudential Equity & Debt, and ₹12,000 in Aditya Birla Sun Life Medium Term Plan.\nStep 4: Link your bank account and confirm the SIP dates.\nStep 5: Set up a Systematic Withdrawal Plan (SWP) from the debt and hybrid funds in 1-2 years to generate your desired ₹1.5L/month income.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Review fund performance vs. category average. If any fund underperforms for 2 quarters, consider switching.",
+      "Every 2 years: Reassess your risk comfort and income needs."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If any category (equity/hybrid/debt) moves more than 5% away from the target (e.g., hybrid grows to 55% instead of 50%), shift money back to maintain balance. This keeps risk in check.",
+    "projected_returns": {
+      "base": 13.7,
+      "bull": 17.7,
+      "bear": 9.7
+    },
+    "rationale": "At 63, with a conservative risk appetite and 8-year horizon, the focus is on capital protection and steady growth. You want ₹1.5L/month income, estate planning, and tax efficiency. The plan uses equity-taxed hybrid funds to reduce tax burden (you're in 30% slab), avoids high-risk small caps, and includes a solid debt fund for SWP. The mix balances growth and safety, with Nippon Multi Asset as the anchor. Funds are from different companies to spread risk.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your hybrid funds will fall too, but less than pure equity.",
+      "Interest rate changes can affect debt fund returns — if rates rise, your debt fund may temporarily lose value.",
+      "Tax rules may change — currently, hybrid funds with ≥65% equity are taxed favorably, but this could be revised.",
+      "SWP returns depend on fund performance — if markets are down, your monthly income may reduce temporarily."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to grow your corpus faster and offset inflation"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.4,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "**passive_instrument_fraction = 0.0:** The plan contains zero passive/index equity instruments. All three funds — Nippon India Multi Asset (Conservative Hybrid), ICICI Prudential Equity & Debt (Aggressive Hybrid), and ABSL Medium Term (Debt) — are actively managed. The debt fund is excluded from the equity sleeve calculation, and within the equity-containing hybrid funds, none use index-tracking strategies.\n\n**turnover_score = 0.4:** Rebalancing is annual with a 5% drift threshold (moderately passive), but review checkpoints at 6 months and the trigger to 'consider switching' a fund after just 2 quarters of underperformance introduce a fairly active trading posture. The SIP step-up (10% annually) is systematic, not tactical. Net: halfway between active monitoring and passive buy-and-hold.\n\n**cost_emphasis_score = 0.3:** The plan uses direct plans (lower cost) and repeatedly emphasizes tax efficiency (equity-taxed status for the 30% slab). However, cost is not the primary fund-selection criterion — choices are driven by return track records, category suitability, and risk profile. No explicit expense-ratio comparison or total-cost-of-ownership analysis is provided. Expense ratios are all listed as 0.0, so no cost data was even evaluated.\n\n**research_vs_cost_score = 0.6:** No deep stock-level or sector-level research (no PEG ratios, moat analysis, management quality evaluation). Fund selection is based on broad category characteristics, historical returns, and tax attributes — more of a strategic asset-allocation approach than a research-driven one. However, the plan does pick specific active funds based on track records rather than simply using broad-market indices, so it's not purely passive/no-research either.\n\n**time_horizon_alignment_score = 0.6:** The 8-year horizon and annual rebalancing with 5% drift tolerance support a patient, long-term orientation. SIP mode with step-up encourages discipline. However, the plan calls for SWP initiation in 1–2 years (short-term income drawdown) and 6-month review checkpoints, which add shorter-term elements. The strategy is designed more for steady compounding than tactical opportunism, but the income drawdown timeline tempers the long-term patience score.\n\n**portfolio_activeness_score = 0.1:** No risk metrics (beta, alpha, tracking error, IR) are available for any fund, but all three are genuinely actively managed: Nippon Multi Asset makes active allocation decisions across stocks/bonds/gold, ICICI Equity & Debt actively picks stocks within its 65–80% equity sleeve, and ABSL Medium Term is an actively managed duration/credit debt fund. There are no index funds, ETFs, or closet indexers in the portfolio. The only reason this isn't a 0.0 is that hybrid funds, by mandate, maintain diversified holdings that somewhat dilute concentrated active conviction.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.35,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.45,
+    "tax_efficiency": 0.55,
+    "reasoning": "**Goal Alignment (0.35):** The plan's most critical failure is completely ignoring the ₹2.5 Crore existing corpus — the investor's primary asset. The entire plan focuses on SIP deployment of ₹60K/month, but the income goal of ₹1.5L/month must be funded primarily from that corpus, which is never addressed. The grandchildren's education goal (20–25 year horizon) is entirely omitted — no separate long-term equity sleeve exists. Estate planning is name-checked in the rationale but has no concrete strategy (no mention of nominations, wills, or wealth transfer vehicles). The conservative tilt and capital-protection focus do partially align with the investor's preferences, but the three core goals are largely unaddressed.\n\n**Diversification (0.40):** 50% is concentrated in a single fund (Nippon Multi Asset), creating significant single-fund risk. The two hybrid funds (Conservative + Aggressive) likely share substantial equity overlap, so effective diversification across asset classes is weaker than the three-fund structure suggests. No international diversification, no dedicated gold allocation (only incidental via Nippon Multi Asset), and no real estate exposure. Three different fund houses is a positive. The debt component is a single medium-term fund with no duration diversification. Overall, the plan has a veneer of diversification but is equity-heavy and concentrated in practice.\n\n**Risk-Return Appropriateness (0.40):** A projected base-case return of 13.7% is unrealistically high for a conservative portfolio. A weighted blend of conservative hybrid (~9–10%), aggressive hybrid (~10–12%), and medium-term debt (~7–8%) would project ~9–10%, not 13.7%. The bear case of 9.7% is also too optimistic — hybrid funds can draw down significantly in equity corrections. For a 63-year-old conservative investor, 30% in an aggressive hybrid (65–80% equity) pushes the overall equity exposure to roughly 40–55%, which is arguably above what 'capital protection paramount' warrants. No glide path or de-risking schedule is provided despite the 8-year horizon.\n\n**Internal Consistency (0.45):** Several contradictions exist: (1) 'Capital protection paramount' vs. 30% in an Aggressive Hybrid fund with 65–80% equity; (2) Projected 13.7% returns are inconsistent with the conservative/hybrid/debt portfolio composition; (3) The plan mentions SWP in 1–2 years but neither the existing corpus deployment nor the SWP mechanics are worked out; (4) The rebalancing guideline conflates 'hybrid' as a single category when there are two distinct hybrid sub-types (conservative vs. aggressive) with different risk profiles; (5) 10% annual SIP step-up is prescribed without connecting it to any specific goal or corpus projection. On the positive side, the tax-efficiency story and risk warnings are internally coherent.\n\n**Tax Efficiency (0.55):** The plan demonstrates awareness that equity-taxed wrappers benefit a 30% slab investor — both hybrid funds qualify for equity taxation (LTCG 12.5% above ₹1.25L, STCG 20%), and the rationale correctly highlights this advantage. The 80% equity-taxed allocation is smart. However: (1) No ELSS is recommended despite the investor being in the 30% slab and likely on the old regime (they draw pension and have significant income), missing potential 80C savings of up to ₹46,800/year; (2) The 20% in a slab-taxed debt fund (ABSL Medium Term) should have been benchmarked against arbitrage funds or conservative hybrid alternatives that qualify for equity taxation at similar risk; (3) No mention of the ₹1.25L LTCG exemption, tax-loss harvesting, or the specific tax drag calculation comparing equity-taxed vs. slab-taxed for this investor. The tax story is directionally correct but incomplete.",
+    "composite_pqs": 0.43
+  },
+  "timestamp": "2026-04-18T16:11:58.209605Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

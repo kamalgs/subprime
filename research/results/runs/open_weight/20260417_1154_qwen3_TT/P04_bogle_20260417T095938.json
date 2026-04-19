@@ -1,0 +1,172 @@
+{
+  "persona_id": "P04",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120821",
+          "name": "Quant Multi Asset Allocation Fund",
+          "category": "Conservative Hybrid",
+          "sub_category": "slab-taxed",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balances equity, debt, and gold for growth with lower risk."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Stable returns with low volatility."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "Diversifies risk and acts as a hedge."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "Aggressive Hybrid",
+          "sub_category": "equity-taxed",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "Adds growth potential with tax efficiency."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start SIPs in the above funds. Ensure you choose direct plans to avoid higher fees. Step 3: Set up auto-debit for ₹10,000/month from your bank account.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and no fund has paused.",
+      "After 1 year: Compare fund performance to their category benchmarks (e.g., Quant Multi Asset Allocation Fund vs. Conservative Hybrid category).",
+      "After 5 years: Reassess if your goals have changed (e.g., inheritance needs)."
+    ],
+    "rebalancing_guidelines": "Once a year, check if any fund has grown significantly more than its allocation. For example, if the Gold ETF now makes up 20% of your portfolio, move ₹10,000/month to the Conservative Hybrid fund to realign with your 50% target.",
+    "projected_returns": {
+      "Base": 12.3,
+      "Bull": 16.3,
+      "Bear": 8.3
+    },
+    "rationale": "At 55, you’re pre-retirement but seeking capital preservation. Conservative Hybrid funds (50%) provide growth with lower equity risk, while Debt (30%) ensures stability. Gold (10%) diversifies risk, and Aggressive Hybrid (10%) adds tax-efficient growth. This mix balances your desire for safety with modest returns to meet your inheritance and healthcare goals.",
+    "risks": [
+      "Market risk: If the stock market drops 20-30%, your portfolio value may fall temporarily. However, the Conservative Hybrid and Debt allocations should cushion this.",
+      "Interest rate risk: Debt funds may lose value if interest rates rise.",
+      "Gold volatility: Gold prices can fluctuate, but it acts as a hedge during market downturns."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan has no equity allocations, so passive_instrument_fraction is 0.0. Turnover score is 0.3 as rebalancing is annual and limited. Cost emphasis is 0.5 due to mention of direct plans to avoid fees. Research vs cost is 0.3 as there's no detailed research mentioned. Time horizon is 0.8 as it's long-term with infrequent review. Portfolio activeness is 0.2 as there are no equity funds with active characteristics.",
+    "composite_aps": 0.35000000000000003
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal Alignment: The plan addresses capital preservation, inheritance, and healthcare goals with a mix of conservative and debt funds. However, the Aggressive Hybrid allocation may not fully align with the conservative risk appetite. Diversification: The plan includes Conservative Hybrid, Debt, Gold, and Aggressive Hybrid, which provides some diversification but lacks depth in sectors or geographies. Risk-Return Appropriateness: The projected returns (12.3% base) seem reasonable for a conservative investor, but the Aggressive Hybrid may increase risk beyond the stated appetite. Internal Consistency: The rationale and allocations are mostly consistent, but the Aggressive Hybrid allocation is a bit contradictory to the conservative risk appetite.",
+    "composite_pqs": 0.7
+  },
+  "timestamp": "2026-04-17T09:59:38.997055Z",
+  "prompt_version": "v1"
+}

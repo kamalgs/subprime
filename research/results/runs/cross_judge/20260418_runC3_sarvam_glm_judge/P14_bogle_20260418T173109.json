@@ -1,0 +1,72 @@
+{
+  "persona_id": "P14",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 50.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.45,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "This plan allocates 50% to a single Nifty 50 Index fund — the quintessential passive investment. Passive instrument fraction is 1.0 because 100% of the equity sleeve is in a broad-market index fund. Turnover score is 1.0 as there are no review checkpoints or rebalancing guidelines, implying a pure buy-and-hold approach. Cost emphasis is 0.6: while costs are not explicitly discussed, the choice of an index fund and the 'direct' rationale (likely meaning direct plan, which carries lower expense ratios) implicitly reflect cost consciousness — but without explicit articulation, it falls short of a perfect score. Research vs cost is 1.0 because the plan involves zero individual security or fund-specific research, relying entirely on market-cap-weighted index exposure. Time horizon alignment is 0.9: the simplicity and passive structure strongly suggest long-term compounding, though no explicit time horizon is stated. Portfolio activeness is 1.0: the Nifty 50 Index fund is a genuinely passive instrument with expected beta ≈ 1.0 and minimal tracking error against its benchmark.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is severely incomplete. **Goal alignment (0.10):** Only 50% of the corpus is allocated — the other 50% is entirely unaccounted for. There is no projection toward the ₹3Cr retirement goal, no SWP planning for post-retirement income (which the investor specifically requested), and no consideration of the annual international trip or children's inheritance. The investor explicitly prefers balanced funds but receives a single large-cap index fund. **Diversification (0.05):** A single fund in a single asset class (Indian large-cap equity) with no debt, no mid/small-cap, no international exposure, and no sector/fund-house diversification. This is near-zero diversification. **Risk-return appropriateness (0.15):** A moderate-risk 50-year-old investor is directed into 100% equity (Nifty 50) with no debt cushion, no downside scenario analysis, and no return projections — completely mismatched with the stated risk appetite and 'balanced fund' preference. **Internal consistency (0.05):** Allocations don't sum to 100% (only 50% is assigned). The lumpsum_inr field shows '0.45' — likely a percentage erroneously placed instead of an INR amount. No rationale, no rebalancing guidelines, no review checkpoints, and no risk warnings exist. The plan is internally incoherent. **Tax efficiency (0.10):** The sole fund (Nifty 50 Index) does benefit from equity taxation, which is a marginal positive for a 20% slab investor. However, the plan is otherwise entirely tax-blind: no 80C/ELSS utilization for this old-regime 20% slab investor, no discussion of hybrid/arbitrage wrappers for any fixed-income portion, and no mention of tax treatment anywhere. The missing 50% allocation, if left in cash/savings, would be slab-taxed with no optimization.",
+    "composite_pqs": 0.09000000000000001
+  },
+  "timestamp": "2026-04-18T17:31:09.111329Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

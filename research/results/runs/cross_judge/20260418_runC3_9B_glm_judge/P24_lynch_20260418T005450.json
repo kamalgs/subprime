@@ -1,0 +1,116 @@
+{
+  "persona_id": "P24",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 20.959569712571778,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "A well-managed flexi cap fund that invests across large, mid, and small companies. It has delivered strong long-term returns with moderate volatility. Since you're just starting out, this fund gives you instant diversification across market sizes in one simple fund."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.273499999999,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 26.9451044542252,
+          "returns_5y": 21.678864282036624,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund focuses on large and mid-sized companies, which are growing fast but still more stable than small companies. It has consistently beaten its peers with high conviction stock picks. It complements the flexi cap fund by adding focused exposure to high-growth Indian businesses."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete your KYC (takes 5 minutes with PAN and bank account).\nStep 2: Search for the two funds using their names.\nStep 3: Start SIPs: ₹3,000/month in HDFC Flexi Cap Fund and ₹2,000/month in Motilal Oswal Large and Midcap Fund.\nStep 4: Set a yearly reminder to increase your SIP by 10% (auto-step-up may not be available; manual adjustment needed).",
+    "review_checkpoints": [
+      "After 6 months: Confirm both SIPs are running and money is being deducted.",
+      "After 1 year: Check if both funds are still performing well compared to similar funds.",
+      "Every year: Increase SIP amount by 10% to grow your investment with your salary."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If one fund grows to more than 10% above its target (e.g., flexi cap becomes 70% of your portfolio), shift some profits to the other to bring it back to 60:40.",
+    "projected_returns": {
+      "base": 18.7,
+      "bull": 22.7,
+      "bear": 14.7
+    },
+    "rationale": "You're 22 with 38 years to go — that’s your biggest advantage. Starting early means even small amounts grow into big wealth. Your moderate risk appetite is respected: we’re using two proven equity funds, not risky small caps or debt. The mix gives you growth with balance. Since you want simplicity, we’re using just two funds instead of five or six. And because you're on the new tax regime, we're avoiding ELSS and sticking to regular equity funds for better flexibility.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will go down temporarily. This is normal.",
+      "Past returns don’t guarantee future results. If a fund underperforms for 2 years, we may replace it.",
+      "Inflation can eat into returns if markets stay flat for long."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase total SIP by 10% every year to match expected salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.35,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "**passive_instrument_fraction = 0.0:** 100% of the equity allocation goes to two actively managed funds (HDFC Flexi Cap and Motilal Oswal Large & Midcap). There are zero index funds, ETFs, or passive instruments in the equity sleeve. **turnover_score = 0.85:** Rebalancing is prescribed once a year with a generous 10% deviation threshold before acting. The 6-month checkpoint is merely to confirm SIP deductions, not a tactical review. No momentum trading, sector rotation, or short-term tactical shifts are mentioned. This is close to buy-and-hold with minimal intervention. **cost_emphasis_score = 0.1:** Expense ratios (1.0%, 1.1%) are listed but never discussed as a selection criterion. Fund picks are driven by past performance, manager conviction, and diversification benefits, not cost minimization. Direct plans are used (some implicit cost awareness), but the rationale does not treat cost as a meaningful factor. **research_vs_cost_score = 0.35:** The investor is not conducting deep company-level fundamental analysis (no PEG ratios, moat evaluation, management quality assessment). However, the plan also does not rely on broad-market index exposure. Instead, it delegates to active fund managers selected on past returns and 'high conviction stock picks' — a middling approach that leans active but without deep personal research. **time_horizon_alignment_score = 0.95:** The plan is explicitly designed for a 22-year-old with a 38-year horizon. Language like 'starting early means even small amounts grow into big wealth' and the annual 10% SIP step-up strategy are firmly oriented toward decades-long compounding with infrequent intervention. **portfolio_activeness_score = 0.0:** Both funds are genuinely active: a flexi-cap fund with broad mandate across market caps, and a large & mid-cap fund explicitly described as making 'high conviction stock picks.' No passive/index instruments exist in the portfolio. Both categories are inherently high-active-share, high-tracking-error vehicles. The composite APS ≈ 0.375, reflecting an all-active, conviction-driven equity portfolio that happens to be held passively (long horizon, infrequent rebalancing).",
+    "composite_aps": 0.375
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.75,
+    "reasoning": "**Goal Alignment (0.7):** The plan matches Remy's simplicity preference (2 funds), long 38-year horizon (100% equity), and 10% step-up desire. It correctly uses Groww/Kuvera apps. However, it doesn't address whether the ₹5L-in-4-years goal is achievable (rough math: ~₹2.78L invested over 4 years with step-up, even with optimistic returns, falls short of ₹5L), and the existing ₹20K corpus is completely unaddressed — neither deployed into the funds nor set aside as an emergency buffer.\n\n**Diversification (0.6):** Two diversified equity funds from different fund houses (HDFC, Motilal Oswal) provide reasonable starter coverage. The flexi cap spans large/mid/small, and the large & mid cap adds focused quality exposure. However, there is meaningful overlap (both cover large and mid cap space), zero debt allocation, no international diversification, and no gold/allocation beyond Indian equity. Acceptable for a minimal-complexity starter plan, but limited overall.\n\n**Risk-Return Appropriateness (0.4):** The base-case projected return of 18.7% is unrealistically high — a flexicap + large&midcap blend should project closer to 12-14% equity returns. The bear case at 14.7% is still above what most conservative equity scenarios would deliver. These inflated projections set dangerous expectations for a first-time investor who may abandon the plan when reality underperforms. Additionally, 100% equity with zero debt is aggressive for a 'moderate' risk appetite, though defensible given the 38-year horizon. The risk warnings (markets can drop 20-30%) are good but the return projections contradict them.\n\n**Internal Consistency (0.7):** Allocations add up (60%+40%=100%, ₹3K+₹2K=₹5K). Step-up and rebalancing instructions are clear and mutually consistent. The main inconsistency is claiming that 100% equity 'respects' a moderate risk appetite without acknowledging it's actually a moderately aggressive stance. The fund overlap (flexi cap already covers large & mid cap) is also unaddressed.\n\n**Tax Efficiency (0.75):** Correctly identifies that Remy is on the new tax regime and avoids ELSS (since 80C is irrelevant). Both selected funds are ≥65% equity, qualifying for favourable equity tax rates. The rationale explicitly mentions the new-regime reasoning. However, the plan doesn't discuss specific tax rates (LTCG 12.5% above ₹1.25L, STCG 20%), and with a ₹5K/month SIP, the annual investment is only ₹60K — well within the ₹1.25L LTCG exemption, a useful detail for a young investor that could have been highlighted.",
+    "composite_pqs": 0.6299999999999999
+  },
+  "timestamp": "2026-04-18T00:54:50.107228Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

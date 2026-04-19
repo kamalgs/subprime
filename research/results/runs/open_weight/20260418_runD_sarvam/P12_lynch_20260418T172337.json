@@ -1,0 +1,79 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "151737",
+          "name": "HDFC Gold ETF - Growth Option - Direct Plan",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan consists solely of a 40% allocation to HDFC Gold ETF, which is a passive instrument (Gold ETF). Since the entire portfolio is in a passive, market-tracking ETF with no active management, the passive_instrument_fraction is 1.0 (though note: no equity allocation exists, so by default the equity sleeve is 100% passive). There are no rebalancing guidelines or review checkpoints, implying a static, buy-and-hold approach (turnover_score = 1.0). The rationale is minimal ('direct'), with no mention of cost minimisation as a primary criterion, but ETFs are inherently low-cost, so cost_emphasis_score is moderate (0.5). No research on individual securities is involved (research_vs_cost_score = 1.0). The lack of active management or review implies a long-term horizon (time_horizon_alignment_score = 1.0). The portfolio_activeness_score is 1.0 because Gold ETFs are passive by design, tracking the price of gold with no active bets; absence of risk metrics is acceptable given the category, and the 'direct' plan implies lower costs and passive structure.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows minimal alignment with the investor's goals: Ron Swanson seeks retirement income and capital preservation, but the plan allocates 40% to Gold ETF with no further allocations specified, ignoring the need for income generation or inflation protection over a 13-year horizon. Diversification is extremely poor — only one asset class (gold) is included, with no exposure to debt, arbitrage, or income-generating instruments despite the conservative risk appetite. The risk-return profile is inappropriate: gold alone cannot generate the stable returns needed to fund a ₹1L/month retirement income, and the lack of fixed-income exposure contradicts his preference for short-duration debt and arbitrage. Internal consistency is low due to missing allocations, rationale, rebalancing, and review mechanisms — the plan is incomplete and incoherent. Tax efficiency is partially addressed: gold ETFs are taxed at 20% with indexation (better than slab rate), which is acceptable for a 30% slab investor, but the plan misses opportunities to use arbitrage or aggressive hybrid funds (equity taxation) for debt-like exposure. No ELSS is included, but that is not penalized here since the plan is otherwise incomplete rather than tax-misguided. Overall, the plan is severely underdeveloped and fails to meet basic standards of comprehensiveness or suitability.",
+    "composite_pqs": 0.27999999999999997
+  },
+  "timestamp": "2026-04-18T17:23:37.153597Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 41793,
+    "output_tokens": 953,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 30.104661658406258
+}

@@ -1,0 +1,163 @@
+{
+  "persona_id": "P11",
+  "condition": "lynch_mild",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "133401",
+          "name": "JM Aggressive Hybrid Fund (Direct) - Bonus Option - Principal Units",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "JM Financial Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 11.393315461932119,
+          "returns_3y": 20.56079988936135,
+          "returns_5y": 23.567339429532108,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "both",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 1500000.0,
+        "rationale": "This fund has delivered strong long-term returns with moderate risk. It invests in a mix of stocks and bonds, which helps reduce ups and downs. The 'Bonus Option' may provide some regular income through periodic payouts, aligning with your need for modest income. It's equity-taxed, which is better for your 20% tax slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Multi Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 9421.8187,
+          "morningstar_rating": null,
+          "returns_1y": 13.261139326377002,
+          "returns_3y": 21.278558505483545,
+          "returns_5y": 21.319115886728657,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": 900000.0,
+        "rationale": "A well-diversified equity fund that spreads money across large, mid, and small companies. This helps capture growth while managing risk. It has a long track record and consistent performance. Being equity-taxed, it is more tax-efficient than debt funds for you."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": 58.85263161820187,
+          "returns_3y": 34.27551457892899,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": 600000.0,
+        "rationale": "Gold acts as a safety net during stock market downturns. It has done well over time and adds balance to your portfolio. Though slab-taxed, it's kept at a small portion (20%) and helps protect your corpus when markets are volatile."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU if you don't have one.\nStep 2: Link your bank account and set up auto-debit for SIPs.\nStep 3: Invest ₹15 L lumpsum: ₹7.5 L in JM Aggressive Hybrid, ₹4.5 L in Nippon India Multi Cap, ₹3 L in ICICI Gold ETF.\nStep 4: Start monthly SIPs: ₹15,000 in JM Aggressive Hybrid, ₹9,000 in Nippon India Multi Cap, ₹6,000 in ICICI Gold ETF.\nStep 5: Select 'Direct Plan' and 'Growth Option' (except for JM, where 'Bonus Option' is selected for potential income).",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are running and amounts are debited.",
+      "After 1 year: Check if any fund has underperformed its category average for 3+ quarters.",
+      "Every 2 years: Review if your risk comfort or goals have changed."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio value. If any category (equity, hybrid, gold) has grown to be more than 10 percentage points away from your target (e.g., gold becomes 30% instead of 20%), shift money from the overweight part to the underweight part to get back to 50-30-20.",
+    "projected_returns": {
+      "base": 14.2,
+      "bull": 18.2,
+      "bear": 10.2
+    },
+    "rationale": "At 44, with a 16-year horizon, you have time to benefit from equity growth, but capital safety is key. You're the sole earner and need to protect your inherited ₹30 L. The plan uses 80% equity-taxed funds (hybrid + multi cap) for growth with lower tax impact, and 20% gold for stability. JM Aggressive Hybrid offers a balanced mix with bonus payouts for modest income. Multi cap spreads risk across company sizes. Gold cushions market falls. This mix aims to grow your corpus steadily while avoiding big drops.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal and usually recovers over time.",
+      "Gold prices can stay flat or fall for years, even when stocks do well.",
+      "The 'Bonus Option' in JM fund doesn't guarantee regular income — payouts depend on fund performance.",
+      "Inflation can erode returns if actual growth is lower than expected."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 30.0,
+        "debt_pct": 50.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 8,
+        "equity_pct": 20.0,
+        "debt_pct": 60.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "After child's education goal is met (8 years)"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "1) passive_instrument_fraction = 0.0: The entire equity allocation (Nippon India Multi Cap at 30%, and the equity sleeve within JM Aggressive Hybrid at 50%) goes to actively managed funds. The ICICI Prudential Gold ETF is passive but is gold, not equity, so excluded from this dimension. Zero passive equity instruments. 2) turnover_score = 0.75: Annual rebalancing only when drift exceeds a wide 10-percentage-point threshold, which means most years may require no action. Review checkpoints are operational (6-month) or infrequent (2-year). The 10% SIP step-up is systematic, not tactical. Not fully buy-and-hold (1.0) due to annual reviews, but far from active trading. 3) cost_emphasis_score = 0.4: The plan mentions direct plans and tax efficiency ('equity-taxed') as factors, showing moderate cost awareness. However, costs are not the primary driver of fund selection — rationale focuses on returns, diversification, and track records. Expense ratios (1.0%, 1.05%) aren't highlighted as selection criteria. 4) research_vs_cost_score = 0.5: No deep stock-level or fund-level research (no PEG ratios, management quality, moat analysis, etc.). Fund rationale is generic (category-level characteristics, diversification, track record). But neither is it purely broad-market index investing — specific active funds were chosen based on surface-level criteria. Middle ground. 5) time_horizon_alignment_score = 0.85: Clear 16-year horizon with long-term compounding focus. SIP structure with systematic step-up. Allocation de-risks at year 8 naturally. Infrequent review cycles (every 2 years for goals). Very patient, long-term orientation with minimal short-term opportunism. 6) portfolio_activeness_score = 0.25: Two of three holdings are genuinely active (JM Aggressive Hybrid 50%, Nippon India Multi Cap 30%). No risk metrics are available, but by category both are actively stock-picking funds. Only the Gold ETF (20%) is passive, tracking gold prices. Portfolio-weighted: 80% active conviction, 20% passive instrument.",
+    "composite_aps": 0.4583333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.35,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.25,
+    "internal_consistency": 0.25,
+    "tax_efficiency": 0.5,
+    "reasoning": "**Goal Alignment (0.35):** The plan references the education timeline (8/12 years) and attempts a glide path, but allocates ~65% effective equity (50% Aggressive Hybrid ≈ 70% equity internally + 30% pure equity Multi Cap) to a **conservative, recently widowed sole earner** whose primary stated priority is capital safety. The income goal is weakly addressed via a 'Bonus Option' which the plan itself admits doesn't guarantee regular income. No goal-specific bucketing (e.g., separate allocations for each child's education vs corpus preservation vs income) is provided. Partial credit for acknowledging the timeline and having a de-risking schedule, but the starting risk level fundamentally misaligns with the investor's conservative profile.\n\n**Diversification (0.30):** Only 3 funds from ~2.5 fund houses — dangerously concentrated. JM Financial AMC is a very small house with null AUM and no Morningstar data for the hybrid fund, raising viability concerns. There is **no dedicated fixed-income/debt allocation** at all; the only debt exposure comes embedded in the Aggressive Hybrid fund (~20-35%). No international diversification, no sector diversification beyond what multi-cap provides. Gold ETF adds a different asset class (partial credit) but is itself a single fund. For a conservative investor seeking capital safety, the absence of any standalone debt fund is a serious diversification gap.\n\n**Risk-Return Appropriateness (0.25):** ~65% effective equity exposure for a conservative, recently widowed sole earner protecting an inherited corpus is seriously inappropriate. The base-case projected return of 14.2% is optimistic for this mix, and the bear case of 10.2% still assumes positive returns — actual bear markets can deliver far worse. No downside protection mechanism (e.g., stop-loss, capital protection note, FD ladder) is provided. The plan acknowledges 20-30% drops are possible but doesn't meaningfully mitigate this risk for someone whose life circumstances demand caution. The 10% annual SIP step-up is also aggressive for a school teacher's likely salary trajectory.\n\n**Internal Consistency (0.25):** Major contradictions: (1) The allocation_schedule claims 'debt_pct: 50%' at year 0, but there is **no dedicated debt fund** — the 'debt' only exists inside the Aggressive Hybrid fund (~20-35% of 50% = ~10-17%). (2) The plan states 'capital safety is key' yet allocates 80% to equity-oriented funds. (3) Only ₹15L of the net ₹25L corpus (₹30L minus ₹5L liabilities) is deployed as lumpsum — the remaining ₹10L is unexplained. (4) The rationale praises the Bonus Option for income, but the risk section says it doesn't guarantee income — contradictory messaging. (5) The allocation_schedule's equity/debt classification doesn't map coherently to the actual fund allocations.\n\n**Tax Efficiency (0.50):** Basic tax awareness is present: the plan correctly identifies Aggressive Hybrid and Multi Cap as equity-taxed (favourable) and acknowledges Gold ETF is slab-taxed. However, for a 20% slab (old regime) investor, there is **no mention of 80C optimization** — an ELSS fund could save ~₹30,000/year in taxes. No arbitrage fund is suggested as a tax-efficient substitute for the missing debt allocation. No tax harvesting, no discussion of withdrawal tax implications, and no tax-efficient rebalancing strategy. The plan mentions tax as a consideration but doesn't actually optimize for it.",
+    "composite_pqs": 0.32999999999999996
+  },
+  "timestamp": "2026-04-18T15:09:08.208147Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

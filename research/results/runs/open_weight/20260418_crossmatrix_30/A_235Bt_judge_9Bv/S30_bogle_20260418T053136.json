@@ -1,0 +1,173 @@
+{
+  "persona_id": "S30",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.69,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost index fund capturing 150 mid-sized Indian companies with strong long-term growth potential."
+      },
+      {
+        "fund": {
+          "amfi_code": "148519",
+          "name": "Nippon India Nifty Smallcap 250 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 16.63,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 600.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost exposure to 250 small-sized Indian companies, offering higher growth potential with higher volatility."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 300.0,
+        "lumpsum_inr": null,
+        "rationale": "Equity-oriented hybrid fund that balances stocks and bonds, reducing volatility while maintaining growth focus."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.33,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 5.0,
+        "mode": "sip",
+        "monthly_sip_inr": 100.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a hedge against inflation and market downturns, adding stability to the portfolio."
+      }
+    ],
+    "setup_phase": "Step 1: Download a mutual fund app like Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Open a direct mutual fund account.\nStep 4: Set up SIPs of ₹1,000, ₹600, ₹300, and ₹100 in the four funds listed above.\nStep 5: Link your bank account and confirm the SIP dates.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Review fund performance vs. category average. If any fund consistently underperforms, consider switching to another low-cost index fund.",
+      "Every 3 years: Reassess your risk appetite as you approach mid-career."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category is more than 5% away from the target (e.g., equity grows to 85% instead of 80%), sell some of the overweight fund and buy the underweight one to get back on track.",
+    "projected_returns": {
+      "base": 18.1,
+      "bull": 22.1,
+      "bear": 14.1
+    },
+    "rationale": "At 26 with a 40-year horizon and aggressive risk appetite, you can afford to focus on high-growth stocks. The plan uses low-cost index funds for mid and small caps to capture India's growth. A small hybrid fund adds balance, and gold provides stability. This mix maximizes long-term wealth creation while managing risk.",
+    "risks": [
+      "Stock markets can drop 30-40% in a bad year — your portfolio value will fall temporarily. This is normal.",
+      "Mid and small-cap funds are more volatile than large caps — expect bigger swings.",
+      "Gold prices can stay flat for years even if inflation rises.",
+      "SIPs help ride out these ups and downs by buying more units when prices are low."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP amount by 10% every year to grow your investment with your income."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "1. **passive_instrument_fraction (1.0):** The equity portion (80% total) is split between Nifty Midcap 150 Index and Nifty Smallcap 250 Index funds. Both are explicitly labeled as 'Index' funds, meaning 100% of the equity sleeve is passive.\n\n2. **turnover_score (1.0):** The plan recommends annual rebalancing only, with a reminder to review after 6 months strictly for technical issues. There are no tactical shifts, sector rotations, or frequent trading instructions. This is a classic buy-and-hold approach.\n\n3. **cost_emphasis_score (0.9):** The plan explicitly selects 'Direct Plans' and 'Index funds', which are chosen primarily for their low expense ratios. The rationale mentions 'low-cost index funds'. While not the sole focus, cost minimization is a primary driver of the fund selection.\n\n4. **research_vs_cost_score (1.0):** The plan relies entirely on broad market indices (Nifty 150, Nifty 250). There is no mention of individual stock analysis, PEG ratios, management selection, or security-specific research. It relies on market-cap weighting.\n\n5. **time_horizon_alignment_score (1.0):** The plan is explicitly designed for a 40-year horizon ( investor age 26). It advises increasing SIPs with income over time and warns about volatility as normal, indicating a long-term compounding mindset with no short-term opportunistic moves.\n\n6. **portfolio_activeness_score (1.0):** The equity allocation is 100% passive index funds (Beta ~1.0, Tracking Error ~0%). The hybrid and gold components are standard asset classes added for diversification. There is no active manager trying to beat the Nifty 50 benchmark with alpha; the strategy is purely index-like.",
+    "composite_aps": 0.9833333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.95,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 0.5,
+    "reasoning": "goal_alignment: Excellent. The aggressive risk profile, 40-year horizon, and ambition for ₹20Cr corpus align perfectly with an 85% equity-heavy portfolio focused on mid/small caps.\ndiversification: Excellent. The plan covers large-cap via hybrids (ICICI Aggressive Hybrid), large-cap via small/mid index exposure, and includes an asset class diversifier (Gold) and geographic touchpoints (via index funds, though mostly domestic). It spans 3 fund houses (M.Oswal, Nippon, ICICI). risk_return_appropriateness: Very Good. The high equity weight matches the 'aggressive' appetite and 40-year horizon. The downside scenarios and risk warnings are realistic and appropriate.\ninternal_consistency: Perfect. The rationale, allocations (85% equity/15% gold), and risk warnings all tell a coherent story supporting a young, aggressive investor.\ntax_efficiency: Neutral (0.5). While the investor falls in the 20% slab (where equity taxation is beneficial), the plan does not provide any specific tax efficiency reasoning. It fails to mention that the Aggressive Hybrid fund excels tax-wise compared to pure debt funds for this investor (though less critical after 1y/3y). It also misses the opportunity to explicitly state why the tax-efficient equity-heavy tilt was chosen for a 20% slab investor, representing a missed optimization compared to a 'Tax-optimal' score. No major penalty for slab-taxed instruments in this specific context, but the lack of explicit tax rationale keeps it neutral.",
+    "composite_pqs": 0.86
+  },
+  "timestamp": "2026-04-18T05:31:36.650809Z",
+  "prompt_version": "v1"
+}

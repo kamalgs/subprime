@@ -1,0 +1,175 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund keeps 65-80% in stocks (mostly large caps) and the rest in bonds, giving growth with less shake than pure stock funds. It's been around since 2000, so it's seen good and bad times. At 40%, it's your main growth engine but not your only one."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 23.18993139340053,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks 150 mid-sized Indian companies. It adds growth punch beyond large caps, but with more ups and downs. It's low-cost (0.2% yearly fee) and simple — no fund manager picking stocks, just follows the index."
+      },
+      {
+        "fund": {
+          "amfi_code": "151045",
+          "name": "HSBC Credit Risk Fund - Direct Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 105.79799999999999,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 11.762361394454523,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "This debt fund lends to companies with decent but not top credit ratings, so it pays higher interest than safe bonds. It's riskier than bank FDs but less volatile than stocks. At 25%, it balances your portfolio and helps when stock markets dip."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.27551457892899,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a shock absorber when stocks and bonds both fall. It also fights inflation over time. This is a simple, low-cost gold ETF — you own real gold, stored safely. 15% is enough to help in crises without betting too much on one asset."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha — these are free and let you invest without agents.\nStep 2: Link your bank account.\nStep 3: Start SIPs of ₹32,000, ₹16,000, ₹20,000, and ₹12,000 in the four funds. You can do this in one go on the app.\nStep 4: Set a calendar reminder for the 1st of every month to check if SIPs went through.",
+    "review_checkpoints": [
+      "After 6 months: confirm all SIPs are running and money is debited.",
+      "After 1 year: check if any fund is consistently underperforming others in its category.",
+      "Every 3 years: review if your risk comfort or goals have changed."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio value. If any category (stocks, debt, gold) has grown or shrunk by more than 5% from your plan (e.g., debt goes from 25% to 31%), sell a bit of the winner and buy the laggard to get back to 40-20-25-15. Do this on January 1st every year.",
+    "projected_returns": {
+      "base": 11.9,
+      "bull": 15.9,
+      "bear": 7.9
+    },
+    "rationale": "At 47, with 13 years to retirement, you need growth but hate risk and complexity. This plan avoids small caps and 'opportunity' funds you distrust. It uses proven, simple funds: one balanced hybrid for core growth, one midcap index for extra return, one credit risk debt for higher income, and gold for safety. Your ₹1.2Cr corpus will grow steadily, and ₹80,000/month SIPs will build a large retirement pot. At 30% tax slab, all chosen funds are equity-taxed (except gold and debt), so you save tax on gains.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your hybrid and index funds will fall too. This is normal and usually recovers in 2-3 years.",
+      "Credit risk funds can fall sharply if a company defaults — this fund spreads risk across many borrowers, but a crisis could cause short-term pain.",
+      "Gold prices can stay flat for years — it's not for growth, just safety.",
+      "Inflation could rise faster than expected, eroding your real returns, especially from debt funds."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth or inflation"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.4,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.55,
+    "research_vs_cost_score": 0.7,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "**passive_instrument_fraction (0.40):** Only the equity sleeve is scored. The equity portion comes from the Aggressive Hybrid (~65-80% of its 40% allocation ≈ 28% of portfolio) plus the Nifty Midcap 150 Index Fund (20% of portfolio). Only 20 out of ~48 percentage-points of equity is passive (the midcap index fund), yielding ~42% passive equity fraction. Rounded to 0.40. The hybrid fund's equity is actively stock-picked.\n\n**turnover_score (0.80):** The plan prescribes annual rebalancing with a 5% drift threshold (January 1st each year), no tactical shifts, SIP-only investing, and a 10% annual step-up. Review checkpoints are light (6-month confirmation, 1-year check, 3-year goal review). This is essentially a buy-and-hold strategy with standard annual maintenance—very low turnover.\n\n**cost_emphasis_score (0.55):** Cost is explicitly cited for the midcap index fund ('low-cost 0.2% yearly fee') and the gold ETF ('simple, low-cost'), and direct-plan platforms are recommended to avoid agent fees. Tax efficiency is also mentioned. However, cost is not the primary driver for the hybrid or debt fund selection—those are chosen for category fit and track record. Moderate cost awareness but not dominant.\n\n**research_vs_cost_score (0.70):** There is no deep company-level analysis, PEG ratios, competitive moat evaluation, or manager track-record deep-dives. Fund selection is category-driven (aggressive hybrid, midcap index, credit risk debt, gold ETF) with brief, common-sense rationales. The index fund explicitly rejects stock-picking. However, it's not a pure total-market approach (the midcap tilt and credit risk selection represent mild active views), so not a perfect 1.0.\n\n**time_horizon_alignment_score (0.90):** The plan is designed for a 47-year-old with 13 years to retirement. SIP mode with annual step-up supports long-term compounding. Market drops are framed as normal with 2-3 year recovery expectations. Review cycles are infrequent (annual rebalance, 3-year goal checks). No short-term opportunistic moves or event-driven positioning.\n\n**portfolio_activeness_score (0.35):** No quantitative risk metrics are available, so scoring relies on category and rationale. The Aggressive Hybrid (40%) is genuinely active—actively managed equity + debt allocation. The Credit Risk Debt fund (25%) involves active credit selection. Only the Nifty Midcap 150 Index Fund (20%) and Gold ETF (15%) are passive. Weighted passivity: 20% + 15% = 35% passive by allocation. The hybrid fund and credit risk fund together constitute 65% of the portfolio with active management conviction, pulling this score well below 0.5.",
+    "composite_aps": 0.6166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.25,
+    "internal_consistency": 0.35,
+    "tax_efficiency": 0.2,
+    "reasoning": "**Goal Alignment (0.30):** Ron is deeply conservative, favours short-duration debt, arbitrage, and gold — yet the plan gives him 60% equity exposure (40% aggressive hybrid + 20% midcap index). A 20% midcap allocation is wholly unsuitable for someone whose risk appetite is 'conservative.' The plan also entirely ignores his stated preference for arbitrage and short-duration debt. There is no strategy for deploying the existing ₹1.2 Cr corpus, and no clear path showing how the mix generates ₹1L/month post-retirement.\n\n**Diversification (0.40):** Three asset classes are covered (equity, debt, gold), but within debt there is only a single credit-risk fund — no short-duration, no liquid/overnight, no arbitrage. Two of four funds (55% of portfolio) are from ICICI Prudential, creating fund-house concentration. No international diversification. Only 4 funds total is thin for a ₹1.2 Cr+ corpus.\n\n**Risk-Return Appropriateness (0.25):** A conservative 47-year-old gets 20% in midcaps (which can drop 40-50%) and 25% in credit risk debt (which carries significant default risk). Both are among the riskier options in their respective categories. The investor explicitly hates risk and prefers simplicity, yet the riskiest debt category and a volatile equity segment are core allocations. The 11.9% base projection is plausible for this mix, but the risk taken to achieve it is far too high for this investor.\n\n**Internal Consistency (0.35):** The rationale says 'you hate risk' but then recommends midcaps and credit risk — two of the riskiest categories available. The rationale claims 'all chosen funds are equity-taxed (except gold and debt)' — this downplays the fact that 25% of the portfolio is in slab-taxed debt, which is a major tax drag at 30%. The setup instructions and rebalancing rules are clear and consistent, but the core strategy contradicts the stated philosophy.\n\n**Tax Efficiency (0.20):** This is the weakest dimension. At the 30% slab, the plan puts 25% into a credit risk (debt) fund taxed at the marginal 30% rate. An arbitrage fund — which the investor actually WANTS — would have delivered similar risk/return characteristics with equity tax rates (LTCG 12.5% above ₹1.25L). This is a textbook case of what the scoring rubric penalises: routing a 30% slab investor's fixed-income needs into slab-taxed debt when an equity-taxed alternative exists and is explicitly requested. There is also no ELSS for 80C headroom, and the plan's tax rationale is misleading by glossing over the 25% slab-taxed portion.",
+    "composite_pqs": 0.29999999999999993
+  },
+  "timestamp": "2026-04-18T15:13:03.705701Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,83 @@
+{
+  "persona_id": "P25",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund with consistent returns and low expense ratio"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 11.0,
+      "bull": 15.0,
+      "bear": 7.0
+    },
+    "rationale": "Since you're 45 with 17 years ahead, we can afford to put more in stocks which grow faster over long periods",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.35,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.65,
+    "reasoning": "**passive_instrument_fraction = 0.0:** The entire equity allocation goes to a single actively managed large-cap fund (Nippon India Large Cap Fund). There are no index funds, ETFs, or other passive instruments. An expense ratio of 1.0% further confirms active management, not index tracking.\n\n**turnover_score = 0.85:** The plan explicitly recommends annual rebalancing only ('Once a year, check if your mix has changed a lot'). Review checkpoints at 6 months and 1 year are passive check-ins, not tactical triggers. No sector rotation, momentum plays, or frequent trading is suggested. This aligns closely with a buy-and-hold approach.\n\n**cost_emphasis_score = 0.35:** Cost is mentioned as a secondary factor ('low expense ratio' in the fund rationale, and recommendation of direct plans via Kuvera/Groww/MFU). However, the 1.0% expense ratio is not meaningfully low — true cost-minimisation would favour index funds at 0.1–0.3%. Cost awareness exists but is not the primary selection criterion.\n\n**research_vs_cost_score = 0.55:** The plan contains no deep fundamental research (no PEG ratios, moat analysis, management quality assessment). Fund selection is based on simple return screening and category convenience. However, it also doesn't adopt a pure passive/index approach — an active fund was chosen. The 'basic' perspective confirms shallow research without index-level simplicity.\n\n**time_horizon_alignment_score = 0.85:** The investor is 45 with a 17-year horizon. The plan explicitly embraces long-term compounding, acknowledges that 20–30% drawdowns are 'normal and recovers over time,' and includes a 10% annual SIP step-up to capture salary growth. No short-term tactical windows or event-driven positioning is suggested.\n\n**portfolio_activeness_score = 0.65:** The sole fund (Nippon India Large Cap) shows closet-indexer characteristics: beta = 0.98 (≈ market), tracking error = 3.16% (just above the 3% passive threshold), and information ratio = 0.0 (no consistent active excess). Alpha of 4.27% exists but is not supported by a strong IR. While it charges active fees and is classified as an active large-cap fund, its statistical behaviour is more index-like than genuinely active. This lands it in the closet-indexer zone.",
+    "composite_aps": 0.5416666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.25,
+    "tax_efficiency": 0.0,
+    "reasoning": "**Goal Alignment (0.15):** The plan barely addresses the investor's goals. It vaguely nods at the 17-year horizon but: (a) completely ignores the 8-year children's education goal, which requires a shorter-term, more conservative sleeve — no separate planning at all; (b) makes no attempt to model whether ₹16K SIP + existing ₹45L corpus reaches the ₹5Cr target (it almost certainly doesn't); (c) ignores the investor's explicit preference for an 'international + domestic balanced approach'; (d) ignores NRI re-entry considerations. The only redeeming point is that a long equity tilt loosely aligns with the retirement horizon.\n\n**Diversification (0.05):** One fund, one category (Large Cap), one fund house (Nippon), one geography (India), one asset class (equity). This is near-zero diversification. The only reason it isn't 0.0 is that a large-cap fund itself holds 50+ stocks across sectors, providing modest internal stock-level diversification. But at the portfolio level, concentration risk is extreme.\n\n**Risk-Return Appropriateness (0.20):** A moderate-risk investor needs a balanced portfolio. Putting 100% of deployed capital into a single equity fund is too aggressive for the near-term education goal (8 years) and oddly too conservative for the 17-year retirement goal (pure large cap won't generate enough growth to hit ₹5Cr). The projected 11% base for a large-cap-only portfolio is reasonable, but the overall risk-return profile is mismatched. Only deploying ₹16K of ₹40K surplus leaves ₹24K/month unallocated, making the growth trajectory even weaker.\n\n**Internal Consistency (0.25):** The rationale says 'put more in stocks' but only deploys 40% of the surplus — where does the remaining ₹24K go? The allocation label says 40% but it's the only fund, making it effectively 100% of deployed capital. These are meaningful inconsistencies. The plan is otherwise not contradictory, but largely because it's so sparse. The 10% step-up and annual rebalancing guidance are at least internally coherent within the narrow frame.\n\n**Tax Efficiency (0.0):** Completely tax-blind. No mention of taxation anywhere. For a 30% slab investor, there should be: (a) ELSS utilization for 80C deductions (old regime assumed for 30% slab); (b) awareness that large-cap equity gets favourable LTCG/STCG rates vs debt; (c) consideration of arbitrage or aggressive hybrid funds for any fixed-income needs at equity tax rates; (d) explicit post-tax return discussion. None of this appears. Zero tax awareness.",
+    "composite_pqs": 0.13
+  },
+  "timestamp": "2026-04-18T15:50:33.450923Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

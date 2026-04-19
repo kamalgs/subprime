@@ -1,0 +1,168 @@
+{
+  "persona_id": "P19",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 200000.0,
+        "lumpsum_inr": null,
+        "rationale": "Large-cap stocks are stable and tax-efficient (12.5% LTCG for long-term)."
+      },
+      {
+        "fund": {
+          "amfi_code": "120348",
+          "name": "ICICI Prudential Arbitrage Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 200000.0,
+        "lumpsum_inr": null,
+        "rationale": "Arbitrage funds mimic equity tax rates but with lower volatility, ideal for conservative investors."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "ICICI Prudential Short Duration Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 200000.0,
+        "lumpsum_inr": null,
+        "rationale": "Short-duration debt avoids interest rate risk and is slab-taxed (30% slab) but safer than overnight funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 200000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold protects against inflation and adds diversification."
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Groww, Kuvera, or MFU. Start monthly SIPs in the above funds. Ensure all investments are in growth option to avoid dividend taxation.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and check fund performance against peers.",
+      "After 1 year: Rebalance if any fund underperforms by >5% compared to its category benchmark."
+    ],
+    "rebalancing_guidelines": "Once yearly: Adjust allocations if equity/debt mix drifts by >5%. For example, if large-cap grows too much, move 5% into short-duration debt.",
+    "projected_returns": {
+      "Base": 9.8,
+      "Bull": 13.8,
+      "Bear": 5.8
+    },
+    "rationale": "Your age and risk profile favor conservative growth. Large-cap stocks and arbitrage funds provide steady returns with lower volatility. Short-duration debt ensures liquidity, while gold hedges inflation. This mix balances wealth preservation, tax efficiency, and passive income generation.",
+    "risks": [
+      "Market downturns: Stock markets can drop 20-30% in bad years, but your portfolio’s mix reduces risk.",
+      "Interest rate hikes: Short-duration debt minimizes risk from rising rates.",
+      "Inflation: Gold and equity growth help outpace inflation."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan has a mix of active and passive instruments. The large-cap fund and arbitrage fund are active, while the short-duration debt and gold ETF are passive. However, the plan emphasizes active management and tactical shifts, such as rebalancing if any fund underperforms by more than 5%. The plan does not focus on minimizing costs, and it relies on detailed fund analysis and market exposure rather than broad market exposure. The strategy is designed for a long-term horizon with infrequent intervention, but the plan still includes active management elements.",
+    "composite_aps": 0.21666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.8,
+    "reasoning": "The investment plan aligns well with the investor's goals of wealth preservation, tax efficiency, and passive income generation. The allocation to large-cap stocks and arbitrage funds supports the conservative risk appetite and tax efficiency, while short-duration debt and gold provide stability and inflation hedge. Diversification across asset classes is reasonable but could be enhanced with more sectors or fund houses. The plan is internally consistent, with rationale and risk management strategies that support the conservative approach. Tax efficiency is good, as equity-taxed instruments like large-cap and arbitrage funds are used for a high tax bracket investor, avoiding slab-taxed debt funds. However, the plan could better optimize for the 30% tax bracket by considering more equity-taxed options and fully utilizing 80C headroom if applicable.",
+    "composite_pqs": 0.86
+  },
+  "timestamp": "2026-04-17T10:09:40.358442Z",
+  "prompt_version": "v1"
+}

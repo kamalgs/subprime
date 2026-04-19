@@ -1,0 +1,141 @@
+{
+  "persona_id": "P21",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 28000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large & Mid Cap fund for long-term growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large & Mid Cap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 21000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large & Mid Cap fund for long-term growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "150797",
+          "name": "WhiteOak Capital Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 21000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large Cap fund for stable growth"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you're 52 with 13 years ahead, we can afford to put more in stocks which grow faster over long periods",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "**passive_instrument_fraction = 0.0**: All three equity funds (Motilal Oswal Large & Midcap, ICICI Prudential Large & Mid Cap, WhiteOak Capital Large Cap) are actively managed — no index funds or ETFs in the equity sleeve. 0% passive equity allocation.\n\n**turnover_score = 0.85**: Rebalancing is annual ('once a year, check if your mix has changed a lot'), with no tactical shifts, sector rotation, or momentum-based trading. Review checkpoints are mild (check SIPs after 6 months, compare peers after 1 year). Very buy-and-hold oriented.\n\n**cost_emphasis_score = 0.3**: The setup phase mentions using a direct mutual fund account (which implies some cost awareness), but expense ratios (1.0–1.1%) are not discussed as a selection criterion. Fund choice is driven by category and growth rationale, not cost minimization.\n\n**research_vs_cost_score = 0.5**: No deep individual security analysis, PEG ratios, management quality, or moat evaluation appears in the plan. Rationales are generic ('Large & Mid Cap fund for long-term growth'). However, the plan also doesn't rely on broad-market index exposure — fund selection appears category-driven without either deep research or passive indexing logic, landing it in the middle.\n\n**time_horizon_alignment_score = 0.85**: The plan is explicitly designed for a 13-year horizon for a 52-year-old investor. The SIP step-up (10% annually), the risk disclosure noting that temporary 20–30% drops are 'normal and recovers over time,' and the lack of short-term tactical moves all reflect a genuinely long-term, patient orientation.\n\n**portfolio_activeness_score = 0.1**: All risk metrics are zeroed out, so inference is from category and rationale. All three funds are genuinely actively managed stock-picking mandates (Large & Mid Cap and Large Cap categories). Motilal Oswal is known for concentrated bets; ICICI Prudential and WhiteOak are also active managers. No index-like exposure anywhere in the portfolio.",
+    "composite_aps": 0.43333333333333335
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.15,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.35,
+    "tax_efficiency": 0.15,
+    "reasoning": "**Goal Alignment (0.2):** The plan severely misaligns with the investor's goals. The son's MBA fund (3 years away, ₹25L target) is a near-term goal requiring a dedicated low-risk allocation — it is completely ignored. The investor specifically prefers flexi-cap and multi-asset funds, yet receives only large/large-mid cap equity. The ₹60L existing corpus is unaddressed (no lumpsum deployment strategy). There is no glide path toward safer assets as retirement approaches, despite the investor being 52 and 'nervous about volatility.' The annual travel goal in retirement is not addressed.\n\n**Diversification (0.15):** The portfolio is 100% equity, 100% domestic, and concentrated in just two categories (Large & Mid Cap 70%, Large Cap 30%). Two Large & Mid Cap funds are functionally redundant. There is no debt, gold, hybrid, international, or multi-asset exposure — no diversification across asset classes, sectors, or geographies. Fund-house diversity is adequate (3 different houses), but this is overshadowed by the extreme asset-class and category concentration.\n\n**Risk-Return Appropriateness (0.2):** A 100% equity allocation is too aggressive for a 52-year-old moderate-risk investor who is explicitly 'nervous about volatility as retirement nears.' The near-term MBA goal (3 years) funded entirely with equity is inappropriate — a 20-30% drawdown could devastate that goal. Projected 12% base return is slightly optimistic for a large/large-mid cap portfolio but within reason. The bear case (8%) and risk warning are stated but no downside mitigation strategy is provided. No fixed-income cushion exists for any goal.\n\n**Internal Consistency (0.35):** Superficially, allocations add up to 100% and SIP amounts total ₹70,000. The rationale ('put more in stocks for long-term growth') matches the equity-heavy direction. However, the rationale contradicts the investor's moderate risk appetite and stated preference for dynamic allocation/multi-asset. The complete absence of any mention of the ₹60L existing corpus is a major gap — the plan only sets up monthly SIPs. There is no allocation schedule despite a 13-year horizon with changing needs. The rebalancing guideline is vague but not contradictory.\n\n**Tax Efficiency (0.15):** The investor is in the 30% slab (old regime with 80C eligibility), yet there is no ELSS fund to claim the ₹1.5L 80C deduction — a significant tax-saving opportunity wasted. No tax treatment is discussed for any fund. All three funds do qualify for equity taxation (LTCG 12.5% above ₹1.25L), which is the one positive, but this appears coincidental rather than intentional since no tax rationale is provided. The plan does not consider Aggressive Hybrid or arbitrage funds for equity-taxed fixed-income exposure. There is no 80C headroom analysis, no tax-loss harvesting discussion, and no post-tax return projections.",
+    "composite_pqs": 0.21000000000000002
+  },
+  "timestamp": "2026-04-18T15:49:00.911984Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

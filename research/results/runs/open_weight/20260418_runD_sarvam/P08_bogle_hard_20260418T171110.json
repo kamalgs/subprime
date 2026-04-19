@@ -1,0 +1,83 @@
+{
+  "persona_id": "P08",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "158326",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1.00% - 20.0% (1.00% - 20.0% for 1 year)",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Markets can drop 20% - 40% in bad markets",
+      "If markets crash 20% - 15% in 1 year, 10% in 3 years",
+      "Long-term (10-20 years): 12.0% - 18.0%"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 60% to a Nifty 50 Index Fund, which is a passive equity instrument, and there are no other equity funds mentioned, so the entire equity allocation is passive. Hence, passive_instrument_fraction is 1.0.\n\nRebalancing guidelines mention a range (1.00% - 20.0%), but no explicit frequency is given. However, the absence of regular review checkpoints or active rebalancing rules suggests a buy-and-hold approach, leading to a turnover_score of 1.0.\n\nThe plan does not explicitly discuss expense ratios, transaction costs, or tax efficiency as decision criteria. However, the selection of an index fund (which typically has lower costs) implies some cost awareness, warranting a moderate cost_emphasis_score of 0.5.\n\nThere is no mention of company analysis, sector rotation, or fund manager research. The rationale is minimal and based on broad market exposure, leading to a research_vs_cost_score of 1.0.\n\nThe risks section references long-term horizons (10-20 years) and long-term return expectations, indicating a long-term orientation, so time_horizon_alignment_score is 1.0.\n\nThe only fund is a Nifty 50 index fund. Even though risk metrics like beta and tracking error are missing, the category and name confirm it is a broad-market index fund. The information ratio is 0.5, which may suggest some active management, but given it's labeled as an index fund, it's likely a reporting anomaly or minimal tracking error. Thus, the portfolio_activeness_score is 1.0, reflecting truly passive exposure.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows partial goal alignment by allocating 60% to a large-cap equity fund, which may support long-term growth goals like retirement and education. However, it fails on diversification, investing entirely in a single fund and asset class (Large Cap), creating significant concentration risk. The risk-return profile is inconsistent: while the investor is aggressive with a 20-year horizon, the rationale mentions unrealistic returns (e.g., '1.00%') and contradictory downside scenarios (e.g., 'crash 20% - 15%'), undermining credibility. Internal consistency is poor—rationale is nearly empty, allocation percentages don't match any clear strategy, and rebalancing guidelines are nonsensical (e.g., '1.00% - 20.0%'). Tax efficiency is severely lacking: the investor is in the 30% slab, yet the plan uses a plain index fund instead of prioritizing tax-efficient options like ELSS (for 80C benefit) or arbitrage/Aggressive Hybrid funds for debt-like exposure; no mention of tax implications is made despite high tax sensitivity. Overall, the plan lacks depth, coherence, and tax-awareness for a sophisticated investor.",
+    "composite_pqs": 0.3
+  },
+  "timestamp": "2026-04-18T17:11:10.605210Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23245,
+    "output_tokens": 1032,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 28.100741853006184
+}

@@ -1,0 +1,176 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Multi Cap",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 28.25,
+          "expense_ratio": 1.05,
+          "inception_date": "2002-04-05",
+          "aum_cr": 9422.0,
+          "morningstar_rating": 4,
+          "returns_1y": 13.3,
+          "returns_3y": 21.3,
+          "returns_5y": 21.3,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.2,
+          "beta": 0.94,
+          "alpha": 7.24,
+          "tracking_error": 6.44,
+          "sharpe_ratio": 0.78,
+          "information_ratio": 0.78
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund offers a balanced mix of large, mid, and small-cap stocks, making it ideal for a moderate risk profile. It has a strong track record and low expense ratio, which helps in maximizing returns over the long term."
+      },
+      {
+        "fund": {
+          "amfi_code": "118457",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 22.15,
+          "expense_ratio": 1.0,
+          "inception_date": "2002-04-05",
+          "aum_cr": 16619.0,
+          "morningstar_rating": 4,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.5,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.63
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund focuses on large-cap stocks, which are generally more stable and less volatile. It's a good complement to the multi-cap fund, providing a balanced portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "118459",
+          "name": "Nippon India Mid Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Mid Cap",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 18.25,
+          "expense_ratio": 1.15,
+          "inception_date": "2002-04-05",
+          "aum_cr": 20534.0,
+          "morningstar_rating": 4,
+          "returns_1y": 5.2,
+          "returns_3y": 23.7,
+          "returns_5y": 23.8,
+          "risk_grade": "moderate",
+          "volatility_1y": 16.8,
+          "beta": 1.09,
+          "alpha": -3.75,
+          "tracking_error": 11.71,
+          "sharpe_ratio": 0.13,
+          "information_ratio": 0.13
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund invests in mid-cap stocks, which offer higher growth potential but come with more volatility. It adds diversification to the portfolio, balancing the risk."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start your monthly SIPs in these funds. Step 3: Set up automatic transfers from your bank account to ensure consistent investing.",
+    "review_checkpoints": [
+      "After 6 months: Check if your SIPs are running smoothly and if the funds are performing as expected.",
+      "After 1 year: Review the performance of each fund and ensure they are aligned with your goals.",
+      "After 4 years: Assess the progress towards your 5L foundation goal and adjust the plan if needed."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed significantly. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 11.7,
+      "bull": 15.7,
+      "bear": 7.7
+    },
+    "rationale": "Remy is a young individual with a moderate risk appetite and a long investment horizon. Starting with a balanced mix of multi-cap, large-cap, and mid-cap funds allows him to benefit from the growth potential of different market segments while managing risk. The step-up SIP ensures that his investments grow in line with his income, and the focus on low-cost, diversified funds aligns with his goal of building a solid investment foundation.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "There is no guarantee that the funds will outperform the market, and past performance is not indicative of future results.",
+      "The investment horizon is long, but market conditions can change, affecting returns."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 80.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start with 80% equity to build a strong foundation"
+      },
+      {
+        "year": 4,
+        "equity_pct": 70.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Introduce some debt to balance the portfolio as the foundation goal nears"
+      },
+      {
+        "year": 10,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Diversify further with gold to hedge against market volatility"
+      },
+      {
+        "year": 20,
+        "equity_pct": 50.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Balance equity with debt and gold as retirement goals become more defined"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The investment plan primarily allocates to actively managed equity funds (multi-cap, large-cap, mid-cap), which score low on passive_instrument_fraction. The plan recommends annual rebalancing and review checkpoints, which score moderately on turnover_score. The plan emphasizes low expense ratios and cost efficiency, giving it a moderate score on cost_emphasis_score. It does not focus on deep research or individual security analysis, which scores low on research_vs_cost_score. The plan is designed for a long-term horizon with annual adjustments, scoring high on time_horizon_alignment_score. The portfolio includes funds with moderate tracking error and alpha, which suggests a mix of active and passive elements, resulting in a moderate score on portfolio_activeness_score.",
+    "composite_aps": 0.4000000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.7,
+    "reasoning": "The investment plan aligns well with Remy's moderate risk appetite and long investment horizon, with a focus on equity funds that can grow over time. The allocation includes a mix of multi-cap, large-cap, and mid-cap funds, which provides a balanced approach to managing risk while capturing growth potential. The plan includes a step-up SIP to match income growth, which supports Remy's goal of building an investment habit. The diversification across fund categories is reasonable but limited to equity funds, which may not fully address the need for broader diversification. The risk-return profile is appropriate for Remy's moderate risk appetite, with projected returns that are realistic for a long-term investment horizon. The plan is internally consistent, with clear rationale, allocation percentages, and risk warnings that support the stated strategy. The tax efficiency is moderate, as the plan recommends equity-taxed funds, which are appropriate for Remy's new regime tax bracket. However, the plan could have better addressed the tax implications by considering the use of equity-taxed wrappers like Aggressive Hybrid or Arbitrage funds to optimize post-tax returns for Remy's tax bracket.",
+    "composite_pqs": 0.7799999999999999
+  },
+  "timestamp": "2026-04-17T07:53:50.459027Z",
+  "prompt_version": "v1"
+}

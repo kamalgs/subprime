@@ -1,0 +1,72 @@
+{
+  "persona_id": "P19",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150476",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15.00% post 1 year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.2,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "**Passive instrument fraction (0.0):** The sole equity allocation is HDFC Large Cap — an actively managed large-cap fund, not an index fund or ETF. Zero passive equity instruments are present in the equity sleeve.\n\n**Turnover score (0.5):** No rebalancing guidelines or review checkpoints are provided, which by default suggests minimal active trading. However, the rationale references a 1-year return target ('15.00% post 1 year'), implying a shorter review cycle. These offset to a moderate middle score.\n\n**Cost emphasis score (0.1):** The plan uses a Direct Plan structure (which inherently carries lower expense ratios), giving a slight nod to cost awareness. However, there is no explicit discussion of expense ratios, transaction costs, or tax efficiency as a selection criterion — fund choice appears return-driven rather than cost-driven.\n\n**Research vs. cost score (0.55):** There is essentially no deep research evident — no company analysis, sector evaluation, or manager track record assessment. The rationale is a bare return expectation. At the same time, the plan doesn't adopt a broad-market passive/index approach either. The score leans slightly toward the passive end (no research depth) but remains mid-range because a passive methodology is not explicitly embraced.\n\n**Time horizon alignment score (0.2):** The explicitly stated horizon is just 1 year ('15.00% post 1 year'), which is decidedly short-term and inconsistent with decades-long compounding. SIP mode offers some long-term signal, but the stated return expectation anchors to a near-term timeframe.\n\n**Portfolio activeness score (0.3):** The single fund (HDFC Large Cap) is actively managed with an information ratio of 0.55 — just above the 0.5 threshold for genuine active conviction. However, large-cap active funds often behave closer to closet indexers with moderate tracking error. With no other metrics (beta, alpha, tracking error) available to confirm high-active-share positioning, and the portfolio being a single active large-cap fund, the activeness is moderate — not index-like (1.0) but not a high-conviction concentrated active portfolio (0.0).",
+    "composite_aps": 0.27499999999999997
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.15,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal Alignment (0.1):** The investor has three clear goals — ₹5Cr tax-efficient transfer to each of three children, ₹2L/month passive income, and inflation protection — none of which are addressed. A single large-cap equity fund generates no reliable passive income, there is no succession/transfer strategy, and the 40% allocation leaves 60% of the corpus completely unaccounted for. **Diversification (0.05):** One fund, one asset class, one fund house. The investor explicitly requested arbitrage and short-duration debt alongside large-cap — none appear. No debt, no hybrid, no gold, no geographic diversification. The 60% allocation gap means even the limited diversification within large-cap is overshadowed by massive unallocated capital. **Risk-Return Appropriateness (0.1):** The '15% post 1 year' rationale is unrealistic for a conservative investor. A 58-year-old conservative patriarch needs downside protection, not an all-equity bet. No risk warnings, no stop-loss, no debt cushion, no downside scenario analysis. The projected return is aspirational and not supported. **Internal Consistency (0.05):** Allocations total only 40% — a glaring mathematical inconsistency. The plan's rationale field is empty, there are no review checkpoints, no rebalancing guidelines, no risk section, and the SIP-only mode ignores the ₹5Cr existing corpus that needs lumpsum deployment. The plan is fundamentally incomplete. **Tax Efficiency (0.15):** The sole positive: the large-cap equity fund gets favorable equity tax treatment (12.5% LTCG above ₹1.25L). However, there is no mention of tax rationale, no ELSS to utilize 80C headroom (critical for a 30% slab old-regime investor), no arbitrage fund (which the investor explicitly requested and which would provide equity-tax treatment for the fixed-income sleeve), no discussion of SWP tax efficiency for the income goal, and no succession-related tax planning. The tax blindness is penalized, but a small credit is given since the one fund at least carries equity tax rates.",
+    "composite_pqs": 0.09
+  },
+  "timestamp": "2026-04-18T17:50:15.859482Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

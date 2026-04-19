@@ -1,0 +1,108 @@
+{
+  "persona_id": "P08",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152041",
+          "name": "1.2.2.1",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "Strong historical performance with low tracking error, suitable for aggressive growth with 20-year horizon"
+      },
+      {
+        "fund": {
+          "amfi_code": "152041",
+          "name": "1.2.2.1",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "Strong historical performance with low tracking error, suitable for aggressive growth with 20-year horizon"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "The investment plan allocates 100% to equity funds with identical AMFI codes and rationales emphasizing 'strong historical performance' and 'low tracking error', suggesting index-like behavior, but without explicit confirmation of index fund categorization. Since category and sub-category fields are blank and risk metrics (beta, tracking error) are missing despite mention in rationale, it's ambiguous whether these are truly passive funds. Thus, passive_instrument_fraction is scored 0.5 due to uncertainty. Rebalancing guidelines and review checkpoints are absent, implying a static, buy-and-hold approach (turnover_score = 1.0). There is no mention of expense ratios or cost efficiency in fund selection, and no data provided on expense_ratio, so cost_emphasis_score = 0.0. The rationale focuses on performance history rather than deep research, but lacks discussion of individual stock analysis or manager skill, though information_ratio = 0.6 suggests some active management intent; thus, research_vs_cost_score = 0.0. The 20-year horizon clearly supports long-term orientation (time_horizon_alignment_score = 1.0). For portfolio_activeness_score, the presence of information_ratio = 0.6 across both funds indicates active management intent, but 'low tracking error' is mentioned, which leans passive; without beta or tracking error values, a middle-ground score of 0.5 is assigned.",
+    "composite_aps": 0.5
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.0,
+    "reasoning": "The plan shows partial goal alignment by allocating entirely to equity, which matches the investor's aggressive risk appetite and long 20-year horizon aimed at high real returns and a large retirement corpus. However, diversification is completely absent — both fund allocations are identical (same AMFI code 152041), representing a single fund with 100% allocation, creating extreme concentration risk. Risk-return is appropriate in asset class choice (equity-heavy) but flawed due to lack of diversification, making the actual risk higher than necessary for the targeted return. Internal consistency is weak: the rationale mentions 'strong historical performance' but no data is provided (returns, risk metrics missing), and the duplicate fund entry suggests a structural error. Tax efficiency is severely compromised: the investor is in the 30% tax slab, yet the plan uses a plain equity fund without any mention of tax optimisation (e.g., no ELSS for 80C benefit, no consideration of arbitrage or hybrid funds for fixed-income sleeve). Given the aggressive profile and high tax bracket, the plan should have at least included ELSS to utilise 80C deductions, but it fails entirely on tax-aware design.",
+    "composite_pqs": 0.36
+  },
+  "timestamp": "2026-04-18T17:09:51.059920Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22654,
+    "output_tokens": 3393,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 82.52836386486888
+}

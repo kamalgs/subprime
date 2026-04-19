@@ -1,0 +1,210 @@
+{
+  "persona_id": "P18",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 12.5,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "12.5%+ returns (5Y), 1.0% fee, β=0.98 (market-aligned), α=4.27% (outperforms benchmark)."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 17.1,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.03,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": 1.0,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "17.1% 1Y return, 0.2% fee, β=1.03 (perfect index tracking), Sharpe=1.00."
+      },
+      {
+        "fund": {
+          "amfi_code": "148381",
+          "name": "Motilal Oswal S&P 500 ETF - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 34.2,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.07,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": 2.65,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "34.2% 1Y return, 0.2% fee, β=0.07 (international diversification), Sharpe=2.65."
+      },
+      {
+        "fund": {
+          "amfi_code": "133411",
+          "name": "JM Aggressive Hybrid Fund - Quarterly Bonus Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 23.6,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.98,
+          "alpha": 1.87,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 100.0,
+        "mode": "sip",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": null,
+        "rationale": "23.6% 5Y return, 1.0% fee, β=0.98 (balanced risk), α=1.87% (outperforms peers)."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI Gold ETF",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 58.3,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": 2.63,
+          "information_ratio": null
+        },
+        "allocation_pct": 100.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": null,
+        "rationale": "58.3% 1Y return, 0.4% fee, Sharpe=2.63 (safe hedge, slab-taxed but minimal)."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct plan account on Groww, Kuvera, or MFU. Step 2: Start SIPs in all funds above. Step 3: Set up annual rebalancing (see below).",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are active. Check if any fund has dropped below its 5Y return benchmark.",
+      "After 1 year: Compare fund performance to peers. Replace underperformers (e.g., if Nippon India Large Cap lags, switch to ICICI Prudential Large Cap).",
+      "After 5 years: Reassess tax implications if retiring earlier than 52."
+    ],
+    "rebalancing_guidelines": "Once/year: Adjust allocations if any category deviates by >5% from target. Example: If Gold ETF grows to 15% of portfolio, move 5% to Aggressive Hybrid. No quarterly tweaks: Avoid transaction costs and tax inefficiency.",
+    "projected_returns": {
+      "base": 12.5,
+      "bull": 16.5,
+      "bear": 8.5
+    },
+    "rationale": "Sheldon’s aggressive profile and 18-year horizon justify 80%+ equity exposure. Large Cap + Index funds provide market-beating returns with minimal fees (0.2–1.0%). Aggressive Hybrid adds stability without sacrificing tax efficiency (equity-taxed). Gold ETF acts as a low-cost hedge (10% of portfolio). Quantitative focus: All funds selected for highest Sharpe ratios (≥0.6) and lowest fees (≤1.0%).",
+    "risks": [
+      "Market volatility: Stock markets can drop 20–30% in bad years (e.g., 2008, 2020). Your portfolio will temporarily lose value, but it will recover over time.",
+      "Tax drag: Debt funds (slab-taxed) are avoided. Equity funds benefit from 12.5% LTCG tax (vs. 30% slab).",
+      "Currency risk: International funds (S&P 500 ETF) are exposed to USD fluctuations, but diversification mitigates this."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 60.0,
+        "debt_pct": 0.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.6,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "The plan includes a mix of active and passive instruments. The Motilal Oswal Nifty Midcap 150 Index Fund and S&P 500 ETF are passive, while the Nippon India Large Cap Fund and JM Aggressive Hybrid Fund are active. The turnover score is moderate due to annual rebalancing and periodic reviews, but not frequent. Cost emphasis is high as the plan prioritizes low fees. Research is not emphasized; instead, the plan focuses on Sharpe ratios and fees. The time horizon is long-term with annual rebalancing. The portfolio activeness score is moderate due to a mix of active and passive funds.",
+    "composite_aps": 0.5666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal alignment: Plan aligns with aggressive goals and long-term horizon but lacks explicit retirement calculation. Diversification: Good mix across domestic and international, but all funds are equity-heavy and concentrated in one fund house. Risk-return: Aggressive allocation matches appetite, but projected returns are optimistic. Internal consistency: Rationale and allocations align well, but some fund details are missing. Tax efficiency: Plan uses equity-taxed funds for high-slab investor, which is good, but lacks specific tax optimization strategies for 30% slab.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-17T10:09:04.363760Z",
+  "prompt_version": "v1"
+}

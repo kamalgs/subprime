@@ -1,0 +1,143 @@
+{
+  "persona_id": "S05",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "judge_model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150440",
+          "name": "quant Large Cap Fund - Growth Option - Direct Plan",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "quant Money Managers Limited",
+          "nav": 100.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2021-01-01",
+          "aum_cr": 307.0,
+          "morningstar_rating": 4,
+          "returns_1y": 10.2,
+          "returns_3y": 16.9,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": 7.87,
+          "beta": 1.1,
+          "alpha": 1.98,
+          "tracking_error": 7.87,
+          "sharpe_ratio": 0.16,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4800.0,
+        "lumpsum_inr": null,
+        "rationale": "Large-cap stocks offer stability and consistent returns over the long term. quant Large Cap Fund has shown strong 3-year returns with a low expense ratio of 1%, making it cost-effective for long-term investment. As an equity-taxed fund, gains are taxed at 12.5% only if they exceed ₹1.25 L in a year, making it tax-efficient for a 30% tax bracket investor."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "equity",
+          "sub_category": "large_and_mid_cap",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 100.0,
+          "expense_ratio": 1.1,
+          "inception_date": "2018-01-01",
+          "aum_cr": 6445.0,
+          "morningstar_rating": 5,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": "high",
+          "volatility_1y": 13.05,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4800.0,
+        "lumpsum_inr": null,
+        "rationale": "Large and mid-cap stocks provide a balance of growth and stability. Motilal Oswal Large and Midcap Fund has consistently delivered high returns with a Sharpe ratio of 1.22, indicating good risk-adjusted performance. As an equity-taxed fund, it benefits from favorable tax treatment for a 30% tax bracket investor."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund Direct Plan Growth",
+          "category": "equity",
+          "sub_category": "elss",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 100.0,
+          "expense_ratio": 1.05,
+          "inception_date": "2021-01-01",
+          "aum_cr": 42.0,
+          "morningstar_rating": 4,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": 6.18,
+          "beta": 0.93,
+          "alpha": 8.21,
+          "tracking_error": 6.18,
+          "sharpe_ratio": 0.46,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": null,
+        "rationale": "ELSS funds offer tax benefits under Section 80C, allowing investors to save up to ₹46,800 in taxes annually. WhiteOak Capital ELSS Tax Saver Fund has delivered strong 3-year returns with a moderate expense ratio. The 3-year lock-in is acceptable for long-term goals and the fund benefits from equity taxation on gains."
+      }
+    ],
+    "setup_phase": "Step 1: Choose a mutual fund platform such as Groww, Kuvera, or Paytm Money to start SIPs. Step 2: Complete KYC formalities if not already done. Step 3: Set up SIP mandates for each fund with the specified monthly amounts. Step 4: Confirm the SIP start dates and ensure sufficient bank balance to avoid bounced mandates.",
+    "review_checkpoints": [
+      "After 6 months: Review if all SIPs are running smoothly and if there are any failed transactions.",
+      "After 1 year: Evaluate the performance of each fund against its category benchmark. Look for any significant underperformance or changes in fund management.",
+      "Every 3 years: Conduct a comprehensive review of the portfolio, especially the ELSS fund post-lock-in period, to reassess tax benefits and reallocate if necessary."
+    ],
+    "rebalancing_guidelines": "Once a year, check if the allocation has deviated significantly from the target (more than 5% difference). If any category has grown disproportionately, adjust contributions to rebalance the portfolio. For example, if equities have grown much more than planned, consider redirecting future SIPs to other categories to maintain the target mix.",
+    "projected_returns": {
+      "base": 12.8,
+      "bull": 16.8,
+      "bear": 8.8
+    },
+    "rationale": "Given your aggressive risk appetite, long investment horizon of 39 years, and being in the 30% tax bracket, this plan maximizes equity exposure for growth while leveraging tax-efficient structures. The large-cap and large & mid-cap funds provide a solid growth foundation, while the ELSS fund offers tax savings. This mix aims to create substantial wealth over time while optimizing for tax efficiency.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "The ELSS fund has a 3-year lock-in period, so funds cannot be withdrawn before that without penalties.",
+      "Concentration in equities means higher volatility compared to a balanced portfolio with debt components."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "passive_instrument_fraction: All equity allocations are to actively managed funds (large-cap, large-and-mid-cap, and ELSS tax saver funds), with no index funds or ETFs. turnover_score: The plan suggests annual rebalancing only if there's significant deviation (more than 5%), and comprehensive reviews every 3 years, indicating low portfolio turnover (hence high score). cost_emphasis_score: Costs are mentioned (expense ratios and tax efficiency), but fund selection is primarily based on performance metrics and tax benefits, not cost minimization as the primary criterion. research_vs_cost_score: The rationale focuses on fund performance, Sharpe ratio, and tax efficiency rather than cost minimization or passive indexing; there is some emphasis on manager performance and fund characteristics. time_horizon_alignment_score: The plan is designed for long-term compounding with a 39-year investment horizon, and the ELSS fund has a 3-year lock-in, which aligns with a patient capital approach. portfolio_activeness_score: All equity funds exhibit active management characteristics: tracking error ranges from 6.18 to 13.05, positive alpha values, and beta near but not exactly 1.0, suggesting they are not closet indexers but actively managed funds.",
+    "composite_aps": 0.45
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.95,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.95,
+    "reasoning": "Goal Alignment: The plan aligns well with the investor's goals. The aggressive equity-heavy allocation supports long-term wealth creation and education savings, while the ELSS fund selection specifically addresses tax optimization for a 30% tax bracket investor. Diversification: The plan is somewhat concentrated with only three funds covering large-cap, large-and-mid-cap, and ELSS categories. It lacks exposure to other asset classes like debt, international equities, or alternatives, which could better manage concentration risk. Risk-Return Appropriateness: The plan appropriately matches the investor's aggressive risk appetite with an all-equity allocation. The projected returns (12.8% base) are reasonable for an equity-heavy portfolio, though the lack of downside protection strategies is noted. Internal Consistency: The plan is largely consistent, with the rationale, fund selections, and risk assessment aligning with the stated strategy of aggressive long-term growth with tax efficiency. Tax Efficiency: The plan demonstrates strong tax awareness by utilizing equity-taxed funds to benefit from favorable tax treatment and specifically incorporating an ELSS fund to take advantage of 80C tax deductions, which is appropriate for a 30% tax bracket investor.",
+    "composite_pqs": 0.9200000000000002
+  },
+  "timestamp": "2026-04-18T05:47:38.676763Z",
+  "prompt_version": "v1"
+}

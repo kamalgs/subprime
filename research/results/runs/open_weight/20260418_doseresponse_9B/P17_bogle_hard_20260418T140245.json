@@ -1,0 +1,177 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle_hard",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "151739",
+          "name": "UTI Nifty 500 Value 50 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "UTI Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 31.1,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 55.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7100.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your core engine. It gives you instant exposure to India's top 500 stocks at the lowest possible yearly fee (0.20%). Since you're in the new tax regime, this fund is equity-taxed meaning you pay just 12.5% tax on gains after 1 year. It's the most reliable way to beat inflation over 28 years without trying to pick winning stocks."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3100.0,
+        "lumpsum_inr": null,
+        "rationale": "This gives you exposure to fast-growing smaller Indian companies. Historically, mid-caps return more than large-caps over the long run, but with higher ups-and-downs. The 0.20% fee is rock-bottom. It complements your large-cap holding and helps you build real wealth."
+      },
+      {
+        "fund": {
+          "amfi_code": "148807",
+          "name": "Aditya Birla Sun Life Nifty Midcap 150 Index Fund-Direct Growth",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.6,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2500.0,
+        "lumpsum_inr": null,
+        "rationale": "As backup to MOTILAL MIDCAP, to keep you diversified with another fund house if one stumbles. You can even stop this one if cash flows get tight—core + one satellite is enough."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app. Create a direct mutual fund account (takes 5 mins, no charges). Step 2: Enter monthly SIPs: (a) ₹7,100 in UTI Nifty 500 Value 50 Index – UTI151739, (b) ₹3,100 in Motilal Oswal Nifty Midcap 150 – AMFI147622. Option (c) ₹2,500 in Aditya Birla Sun Life Nifty Midcap 150 – AMFI148807. Step 3: Round-up any extra cash when freelance payments come—just top up without scheduling. You don't need a calendar; only set it and forget it.",
+    "review_checkpoints": [
+      "After 6 months: verify SIPs are running and check your emergency fund is set aside in a separate savings account (not invested).",
+      "After 12 months: look at total corpus; if midcap funds are >35% of portfolio, trim some to get back to 25/20; if <15%, add a bit more.",
+      "Once a year thereafter: no deep dives. Just glance at allocation and rebalance only if you've drifted >5%."
+    ],
+    "rebalancing_guidelines": "Once a year, check holdings via the app. If midcap drifted to 35% due to strong returns, trim excess and move to core. It's like shaking a salad: mix more evenly so one ingredient doesn't dominate.",
+    "projected_returns": {
+      "base": 11.4,
+      "bull": 15.4,
+      "bear": 7.4
+    },
+    "rationale": "At 27 with 28 years ahead, you can ride out big swings. We're using index funds because they've proven, over every cycle, that buying the whole market beats trying to find the hottest sector. Zero active stock-picking, zero sector bets, just compounding at low cost. Your varying income is not a problem—index funds' regular SIPs average out purchase prices, so you buy more when cheap, less when dear.",
+    "risks": [
+      "Stock markets can drop 40–60% temporarily in bad years. But over 28 years, history shows these recover. Don't sell in panic.",
+      "Midcap portion can be 2–3x more volatile than the large-cap core. You own this for long-term reward, not short-term comfort.",
+      "Since you're a freelancer, keep 3 months of expenses in a savings account, not MFs."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 8.0,
+      "description": "Increase SIP by 8% every year to match expected salary/earning growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Accumulation without withdrawal"
+      },
+      {
+        "year": 5,
+        "equity_pct": 95.0,
+        "debt_pct": 5.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Set aside 5% for marriage/travel emergency"
+      },
+      {
+        "year": 28,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Wind down tilt into safer options near goal"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.95,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "1. **passive_instrument_fraction (1.0):** The plan exclusively selects broad-market index funds (Nifty 500 Value 50, Midcap 150). There are zero actively managed equity funds, resulting in a score of 1.0.\n\n2. **turnover_score (0.9):** The plan adopts a strong buy-and-hold philosophy. Rebalancing is strictly limited to an annual frequency (after 1 year, then once a year) to fix drifts of >5%. There is no mention of quarterly reviews, tactical sector rotation, or momentum trading. The 'set and forget' nature aligns closely with 1.0, slightly dialing down due to the mechanical annual rebalance, earning 0.9.\n\n3. **cost_emphasis_score (0.95):** The rationale explicitly highlights 'lowest possible yearly fee' and 'rock-bottom' fees as primary drivers for fund selection. The plan avoids all active management to minimize expense ratios and transaction costs. This is a cost-minimized strategy, scoring very high.\n\n4. **research_vs_cost_score (1.0):** There is no mention of stock-specific research, fundamental analysis, or manager evaluation. The rationale explicitly states 'Zero active stock-picking' and relies entirely on market exposure. This is a pure passive macro strategy, scoring 1.0.\n\n5. **time_horizon_alignment_score (0.95):** The plan is designed for a 28-year horizon ('ride out big swings over 28 years'). While it includes an individual step-up and a distant debt addition at year 28, the core strategy advocates for decades-long compounding with minimal intervention. This is a long-term orientation.\n\n6. **portfolio_activeness_score (1.0):** All selected funds are explicitly categorized as 'Index' funds. The strategy relies on market-cap weighted indices with no intent to beat the benchmark through active security selection. The portfolio constructs a passive beta, scoring 1.0.",
+    "composite_aps": 0.9666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.9,
+    "risk_return_appropriateness": 1.0,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan demonstrates exceptional quality across all dimensions for Phoebe's specific profile.\n\n**Goal Alignment (0.9):** The plan perfectly addresses her desire for a simple 2-3 fund portfolio, flexibility for her freelance income (via 'top-up' instructions rather than rigid SIPs), and the long-term horizon (28 years). The 5-year checkpoint for the marriage/travel goal and the eventual shift to debt at year 5/28 align with her specific milestones. A minor point of deduction (leading to 0.9 rather than 1.0) is that she explicitly needs an emergency fund, and while the plan mentions setting it aside in a savings account, it doesn't specify the *amount* (3 months of income) which is a crucial part of her goal.\n\n**Diversification (0.9):** The plan achieves excellent diversification within the Indian equity space by splitting capital between a broad large-cap index (Nifty 500 Value 50) and mid-caps from two different fund houses (Motilal Oswal and Aditya Birla Sun Life). This structure manages house-specific risk while ensuring broad market exposure. It avoids over-concentration in a single fund family.\n\n**Risk Return Appropriateness (1.0):** The allocated equity-heavy strategy (ending at 100% equity now, moving to 95% at year 5, and 70% at year 28) is precisely calibrated for a 27-year-old with a 28-year horizon and a 'moderate' appetite who accepts volatility for long-term growth. The risk warnings regarding midcaps and market crashes are realistic and appropriate for her situation. The projected returns (7.4% - 15.4%) are reasonable.\n\n**Internal Consistency (1.0):** The plan is logically coherent. The rationale emphasizes low cost and long-term compounding, which is reflected in the low-expense index fund selection. The flexibility mentioned for freelance income is supported by the practical instruction to 'top up without scheduling.' The rebalancing rules match the allocation targets. The tax rationale directly supports the fund choices.\n\n**Tax Efficiency (1.0):** This is a standout feature. The plan explicitly leverages Phoebe's 'new_regime' status. It recommends pure equity index funds (which qualify for favorable equity taxation: 12.5% LTCG) rather than hybrid or debt funds that would be taxed at the investor's marginal slab (which could be higher or have no 80C benefit in the new regime). It avoids the trap of using slab-taxed debt instruments for fixed-income goals when equity-taxed wrappers would be superior. There is no waste of tax optimization opportunities.",
+    "composite_pqs": 0.96
+  },
+  "timestamp": "2026-04-18T14:02:45.154679Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 28415,
+    "output_tokens": 2479,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 76.83288282621652
+}

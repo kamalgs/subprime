@@ -1,0 +1,72 @@
+{
+  "persona_id": "P17",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "150419",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.3,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "The plan contains a single Large Cap equity fund at 40% allocation with 60% of the portfolio entirely unspecified. The fund has no explicit index/ETF designation, so passive_instrument_fraction is scored at 0.3 (large cap funds tend to be closer to the index but this is not confirmed as passive). There are no rebalancing guidelines or review checkpoints, suggesting minimal active trading (turnover_score: 0.6). The 'direct' rationale hints at cost awareness (direct plans have lower expense ratios) but cost is not explicitly discussed as a primary criterion (cost_emphasis_score: 0.3). No deep research or fundamental analysis is provided, but there is also no explicit broad-market passive strategy either — just a single fund with minimal rationale (research_vs_cost_score: 0.5). No time horizon is specified, making this neutral (time_horizon_alignment_score: 0.5). The fund's information_ratio of 0.5 suggests some active management skill, but beta, alpha, and tracking_error are all null, and large cap equity in India tends to be closet-index-like, placing portfolio_activeness_score at 0.4.",
+    "composite_aps": 0.43333333333333335
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.2,
+    "reasoning": "This plan is essentially skeletal and fails on nearly every dimension. **Goal alignment (0.1):** The investor has three distinct goals — emergency fund, 5-year marriage/travel fund, and long-term wealth — yet the plan addresses none of them. There is no emergency-fund provision, no medium-term allocation, and only one large-cap equity fund at 40% with no stated purpose. **Diversification (0.0):** A single fund in a single asset class (large-cap equity) with no sector, geography, or fund-house diversification. 60% of the portfolio is entirely unallocated. **Risk-return appropriateness (0.15):** A 27-year-old moderate-risk investor with a 28-year horizon should have meaningful but measured equity exposure; instead, only 40% is allocated to one conservative equity sub-category, with no fixed-income or hybrid component for the medium-term goal. No projected returns or downside scenarios are provided. **Internal consistency (0.05):** Almost nothing to evaluate — allocations don't sum to 100%, rationale is empty, no rebalancing rules, no risk warnings, no review checkpoints. The plan contradicts itself by being incomplete rather than explicitly contradictory. **Tax efficiency (0.2):** The plan is completely tax-blind — no mention of tax treatment anywhere. A small credit because the sole fund chosen is equity-taxed (favourable) and the investor is on the new regime where ELSS is irrelevant, so the plan isn't actively making tax-destructive choices. However, it misses the opportunity to discuss post-tax returns, arbitrage/hybrid alternatives for any fixed-income portion, or any tax-aware rationale.",
+    "composite_pqs": 0.1
+  },
+  "timestamp": "2026-04-18T17:46:19.555109Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,170 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle_mild",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "A well-diversified equity fund that invests across large, mid, and small companies. It has a long track record, stable management, and gives broad market exposure with lower volatility than pure mid/small cap funds. Ideal as the core of your portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.273499999999,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 21.678864282036624,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "Focuses on fast-growing mid-sized companies while including large caps for balance. Has delivered strong long-term returns. Adds growth potential to your portfolio without going into riskier small caps."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1800.0,
+        "lumpsum_inr": null,
+        "rationale": "Mixes 65-80% stocks with 20-35% bonds. Automatically balances risk and return. Helps reduce overall portfolio swings and provides stability, especially useful when markets get rocky."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha — these apps are simple and free.\nStep 2: Start monthly SIPs of ₹6,000 in HDFC Flexi Cap, ₹3,000 in Motilal Oswal Large & Midcap, and ₹1,800 in ICICI Prudential Equity & Debt.\nStep 3: You can pause or skip a SIP in months when income is low — no penalties. Just restart when you’re ready.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running and if any fund is consistently underperforming its peers.",
+      "After 1 year: Review your total portfolio value and ensure your risk level still feels comfortable.",
+      "Every 2 years: Rebalance if one fund has grown to more than 10% above its target share."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any fund’s share is more than 10% above or below its target (e.g., Flexi Cap goes from 60% to 70%), shift some money from the overgrown fund to the lagging ones to restore balance. This keeps your risk steady.",
+    "projected_returns": {
+      "base": 18.5,
+      "bull": 22.5,
+      "bear": 14.5
+    },
+    "rationale": "At 27, with a 28-year horizon, you can afford to keep most of your money in stocks for higher growth. The Flexi Cap fund forms a stable core, the Large & Midcap fund adds growth, and the Aggressive Hybrid fund brings balance. This mix keeps things simple (just 3 funds), matches your moderate risk level, and grows wealth steadily over time. Since you’re on the new tax regime, we avoid ELSS and focus on equity-taxed funds for better long-term tax efficiency.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal and usually recovers over 2–3 years.",
+      "Your income varies, so some SIPs may get skipped. That’s okay — just restart when possible. Consistency matters more than perfection.",
+      "Mid and small cap funds can be more volatile — they may fall harder in downturns but also rise faster in good times."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match income growth, if possible"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 85.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 75.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 20,
+        "equity_pct": 65.0,
+        "debt_pct": 35.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.45,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "**Passive instrument fraction (0.0):** The equity sleeve consists entirely of actively managed funds — HDFC Flexi Cap (60% of equity sleeve) and Motilal Oswal Large & Midcap (25% of equity sleeve). The ICICI Prudential Aggressive Hybrid (15%) is excluded per the hybrid exclusion rule. Zero index funds or ETFs are present. Score: fully active equity.\n\n**Turnover score (0.85):** The plan prescribes annual rebalancing only when a fund drifts >10% from its target allocation — a very wide band that implies minimal intervention. Reviews at 6 months and 1 year are check-ins, not action triggers. SIP mode encourages steady accumulation, not tactical trading. Near buy-and-hold.\n\n**Cost emphasis score (0.3):** Expense ratios (1.0–1.1%) are listed but never discussed as a selection criterion. Tax efficiency is briefly mentioned (avoiding ELSS under the new regime), which shows some cost awareness. However, fund selection is driven by track records, diversification, and risk characteristics, not by minimizing total cost of ownership.\n\n**Research vs cost score (0.45):** The plan applies moderate fund-level research — referencing track records, management stability, and historical returns — but no deep security-level analysis (no PEG ratios, moat evaluations, or company-specific research). At the same time, it doesn't rely on market-cap-weighted indices either. It sits in the middle: active fund selection rationale without granular stock research.\n\n**Time horizon alignment (0.95):** The plan is explicitly designed for a 28-year compounding horizon with a 10% annual SIP step-up and a gradual de-risking schedule (85% → 75% → 65% equity over 20 years). The philosophy is patient, long-term wealth building with infrequent intervention — highly passive on the time-horizon dimension.\n\n**Portfolio activeness (0.0):** All three funds are genuinely active: a Flexi Cap with active stock-picking across market caps, a Large & Midcap fund from Motilal Oswal (known for concentrated conviction bets), and an Aggressive Hybrid with active equity/debt allocation. Risk metrics are null, but the categories and rationales clearly indicate active management with no index-like characteristics. Fully active portfolio.",
+    "composite_aps": 0.425
+  },
+  "pqs": {
+    "goal_alignment": 0.45,
+    "diversification": 0.55,
+    "risk_return_appropriateness": 0.35,
+    "internal_consistency": 0.55,
+    "tax_efficiency": 0.85,
+    "reasoning": "**Goal Alignment (0.45):** The plan entirely skips the emergency fund goal — critical for a freelancer with variable income — and provides no differentiated strategy for the 5-year marriage/travel goal (a medium-term goal lumped into an 85% equity allocation with a 28-year horizon). The long-term wealth goal is well-served, and the 3-fund simplicity preference is respected. SIP pause flexibility is noted. But the omission of two of three goals is a major gap.\n\n**Diversification (0.55):** Three funds across three AMCs (HDFC, Motilal Oswal, ICICI) is reasonable, but all are India-domestic equity-heavy with significant large/mid-cap overlap between the Flexi Cap and Large & Mid Cap funds. No international diversification, no gold, no dedicated debt allocation beyond the hybrid's 20-35% bond slice. For a simple portfolio this is adequate but far from excellent.\n\n**Risk-Return Appropriateness (0.35):** Projected base return of 18.5% is unrealistically high — Indian equity nominal long-run returns are 12-14%, making this projection misleading. The bear case of 14.5% is also overly optimistic (a true bear scenario would be near-flat or negative). 85% equity for a 'moderate' risk freelancer with variable income is aggressive; the correlation between income volatility and equity drawdowns compounds the risk. The glide path and hybrid cushion help somewhat, but the return projections and risk characterization are poor.\n\n**Internal Consistency (0.55):** SIP amounts total ₹10,800 vs. the ₹12,000 surplus — ₹1,200/month is unaccounted for with no explanation. The existing ₹1,00,000 corpus is never mentioned for deployment. The rationale claims the allocation 'matches moderate risk,' yet 85% equity is aggressive. The allocation schedule glide path and fund selections are internally consistent, and the new-regime tax reasoning is coherent. But the surplus gap, missing corpus plan, and moderate/aggressive labeling tension are real contradictions.\n\n**Tax Efficiency (0.85):** The plan correctly identifies the new tax regime, explicitly avoids ELSS (since 80C is unavailable), and selects all three funds as equity-taxed (≥65% equity) wrappers — Flexi Cap, Large & Mid Cap, and Aggressive Hybrid all qualify for LTCG/STCG equity rates. No slab-taxed debt or liquid funds are used. The rationale calls out the tax reasoning. A small deduction for not explicitly detailing the tax treatment of each fund or discussing why Aggressive Hybrid (equity-taxed) was chosen over Conservative Hybrid/Pure Debt, but overall this is well-handled for a new-regime investor.",
+    "composite_pqs": 0.55
+  },
+  "timestamp": "2026-04-18T15:30:49.361416Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,223 @@
+{
+  "persona_id": "P05",
+  "condition": "bogle",
+  "model": "anthropic:claude-haiku-4-5",
+  "judge_model": "anthropic:claude-haiku-4-5",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 17.7,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "both",
+        "monthly_sip_inr": 100000.0,
+        "lumpsum_inr": 2000000.0,
+        "rationale": "Large-cap anchor with 17.7% 5-year CAGR and +4.3% alpha vs. Nifty 50. Ballast position providing stability while capturing core market returns. Clean alpha delivery justifies the allocation."
+      },
+      {
+        "fund": {
+          "amfi_code": "127042",
+          "name": "Motilal Oswal Midcap Fund - Direct",
+          "category": "Equity",
+          "sub_category": "Mid Cap",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.15,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 23.8,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": 1.09,
+          "alpha": null,
+          "tracking_error": 11.7,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 1200000.0,
+        "rationale": "Outstanding mid-cap performer delivering 23.8% 5-year CAGR with index-like behavior (beta 1.09, TE 11.7%). Tightest ER for active mid-cap in the universe at 1.15%. Growth engine of the portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "145137",
+          "name": "Invesco India Smallcap Fund - Direct",
+          "category": "Equity",
+          "sub_category": "Small Cap",
+          "fund_house": "Invesco",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 22.2,
+          "risk_grade": "very_high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 10.8,
+          "tracking_error": null,
+          "sharpe_ratio": 0.9,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "both",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": 600000.0,
+        "rationale": "Small-cap alpha specialist with 10.8% alpha vs. peers over 5 years and best-in-class Sharpe ratio of 0.90. Disciplined speculation with 22.2% 5-year returns. Capped at 15% to contain volatility risk while capturing alpha upside."
+      },
+      {
+        "fund": {
+          "amfi_code": "148381",
+          "name": "Motilal Oswal S&P 500 Index - Direct",
+          "category": "Equity",
+          "sub_category": "International",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 16.1,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 5.0,
+        "mode": "both",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": 200000.0,
+        "rationale": "Dollar diversification with zero home-country risk at ultra-low 0.20% fee. Hedges against rupee depreciation while capturing U.S. equity real returns of 16% CAGR. Satellite position providing optionality."
+      }
+    ],
+    "setup_phase": "STEP 1: Pay off ₹10 lakh liability from ₹50 lakh corpus, leaving ₹40 lakh net. STEP 2: Open Direct plan accounts on Groww, Kuvera, or MFCentral (15 minutes; complete KYC with Aadhaar, PAN, bank details). STEP 3: Invest ₹40 lakh lumpsum in one day (no market timing) split as: ₹20L→Nippon Large Cap, ₹12L→Motilal Midcap, ₹6L→Invesco Smallcap, ₹2L→Motilal S&P 500. STEP 4: Set up monthly SIP on 15th of each month (₹1L→Nippon, ₹60K→Motilal Midcap, ₹30K→Invesco Smallcap, ₹10K→Motilal S&P 500) via auto-debit from salary account. STEP 5: Create simple Google Sheet tracking (Date, Fund, Units, NAV, Value) updated annually.",
+    "review_checkpoints": [
+      "January: Confirm all four SIPs executed monthly (check for auto-shift on weekends/holidays)",
+      "January: Calculate allocation drift; if any position >60% or <10% of portfolio, plan rebalancing via SIP redirect",
+      "January: Rank each fund vs. peers (Large Cap top 5, Mid Cap top 3, Small Cap top 10); flag any 2-year underperformers",
+      "January: Calculate blended portfolio CAGR and compare to benchmark: 50% Nifty 50 + 30% Nifty Midcap 100 + 15% Nifty Smallcap 50 + 5% S&P 500 INR. Actual should be within 50-75 bps of benchmark",
+      "December (optional): If bonus/windfall income available, consider increasing SIP to ₹2.5L for 6 months during market downturns (25%+ correction)",
+      "No quarterly reviews; ignore CNBC and WhatsApp market noise"
+    ],
+    "rebalancing_guidelines": "REBALANCING RULES: Rebalance annually in January if any position drifts >5% from target allocation. Redirect SIPs away from drifted position for 3-6 months to naturally rebalance rather than selling (tax-efficient, avoids STCG). WHEN TO SWAP FUNDS: If any fund drops out of top-tier performance rankings (Large Cap: top 5; Mid Cap: top 3; Small Cap: top 10) for 2+ consecutive years, consider swap. Execute swaps in December for tax planning. Example alternatives: Nippon Large Cap→HDFC Large Cap or Invesco Largecap; Motilal Midcap→HDFC Midcap (only if Motilal breaks top 5); Invesco Smallcap→Nippon Smallcap or BANDHAN Smallcap; Motilal S&P 500→stick (no competitors at 0.20% fee). Do NOT sell based on 1-year underperformance; wait 2+ years.",
+    "projected_returns": {
+      "base_case_annual_cagr_pct": 12.3,
+      "base_case_value_at_15_years_cr": 16.8,
+      "bull_case_annual_cagr_pct": 16.3,
+      "bull_case_value_at_15_years_cr": 28.4,
+      "bear_case_annual_cagr_pct": 8.3,
+      "bear_case_value_at_15_years_cr": 9.2
+    },
+    "rationale": "At age 30 with 25-year runway, pure equity allocation is optimal for long-term wealth accumulation. Bonds would reduce returns by 0.4% CAGR, costing ₹50-100 lakh by retirement. Portfolio structure: 50% large-cap stability + 30% mid-cap leverage + 15% small-cap alpha + 5% international hedging. Blended 1.07% expense ratio and 21.1% blended 5-year CAGR provides world-class cost discipline with active alpha optionality. Monthly ₹2 lakh SIP ensures rupee-cost averaging through market cycles. 12.3% base-case CAGR delivers ₹16.8 Cr at age 45, exceeding ₹15 Cr FIRE target with ₹1.8 Cr surplus.",
+    "risks": [
+      "Market Crash Risk (Highest): Stock markets drop 20-40% in bad years. Mitigated by monthly SIP (rupee-cost averaging): buying more units when prices are low. Historical: ₹40L invested Jan 2008 → ₹22L by Mar 2009 → ₹70L+ by 2012.",
+      "Execution Risk: Missed SIP payments, panic-selling during crashes, moving to low-yield savings. More damaging than market crashes. Mitigation: auto-debit from salary, ignore quarterly noise.",
+      "Manager Risk (Invesco Small Cap): Invesco's small-cap team leaves; performance drops. Real risk but capped impact—only 15% allocated. If Invesco fails, portfolio loss is 15%, not total loss. Swap plan in place.",
+      "Inflation Risk: ₹15 Cr goal may not buy expected value if inflation spikes. Mitigated by 12% CAGR vs. 5-6% inflation = 6-7% real return. ₹15 Cr at age 45 = ₹30+ Cr purchasing power equivalent.",
+      "Rupee Risk: Rupee strengthens → Motilal S&P 500 loses currency tailwind (or vice versa). Feature, not bug—hedges rupee depreciation which would hurt purchasing power anyway. 5% allocation caps exposure.",
+      "Concentration Risk (Alpha Bet): 45% in mid+small-cap (active bets). Mitigated by quality manager track records and diversification across three managers. Small-cap capped at 15%.",
+      "Liquidity Risk (Startup Capital): Need ₹1-2 Cr in year 10 for startup. Mitigated by planned corpus of ₹11 Cr at 10y mark. Sell mid/small-cap positions (highest gains → manageable LTCG 12.5% tax) and redeploy."
+    ],
+    "disclaimer": "For research and educational purposes only. Not certified financial advice. This plan is structured for illustrative scenarios and does not constitute a recommendation to buy, sell, or hold securities. Consult a SEBI-registered investment advisor before implementing. Past returns are not indicative of future results. Market volatility, manager changes, economic shifts, and regulatory changes may affect outcomes. Tax estimates are approximate and based on current New Regime rules; consult a CA for precise calculations. Small-cap and mid-cap allocations carry higher volatility risk suitable only for investors with 10+ year horizons and high risk tolerance.\"}",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Optional: If salary increases align with 10% annual raises, increment SIP by 10% yearly (e.g., ₹2L→₹2.2L in year 2, ₹2.42L in year 3). Not mandatory but powerful for wealth acceleration. In bear markets, consider 25% SIP boost for 6 months if bonus income available."
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial setup: ₹40L lumpsum + ₹2L/month SIP begins"
+      },
+      {
+        "year": 5,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Mid-point review at age 35; maintain pure equity allocation"
+      },
+      {
+        "year": 15,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Age 45, FIRE target of ₹15 Cr reached (projected ₹16.8 Cr base case)"
+      },
+      {
+        "year": 20,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Age 50: transition to 80/20 equity/debt for near-term retirement needs"
+      },
+      {
+        "year": 25,
+        "equity_pct": 60.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Age 55: full retirement allocation at 60/40 equity/debt; post-tax CAGR 11.8%"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.05,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.25,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "This plan sits firmly on the ACTIVE side of the spectrum, though with meaningful long-term discipline.\n\n**passive_instrument_fraction (0.05):** The equity allocation is 95% actively managed funds (Nippon Large Cap, Motilal Midcap, Invesco Smallcap) with only 5% in a passive S&P 500 index fund. Within the equity sleeve, just 5/100 is truly passive. Score reflects this heavily active orientation.\n\n**turnover_score (0.75):** The plan exhibits strong buy-and-hold discipline: annual rebalancing only in January if drift exceeds 5%, tax-efficient SIP redirection rather than selling, and explicit rejection of quarterly reviews (\"ignore CNBC noise\"). However, fund-swap provisions (if any fund drops out of top-tier rankings for 2+ years) introduce periodic active decisions. This is still long-term and low-frequency, but not pure buy-and-hold. Score reflects annual checkpoint discipline with infrequent tactical adjustments.\n\n**cost_emphasis_score (0.6):** The plan explicitly highlights a \"blended 1.07% expense ratio\" and emphasises the Motilal Midcap's \"tightest ER for active mid-cap\" at 1.15%, plus the S&P 500 fund's \"ultra-low 0.20% fee.\" Cost is clearly a selection criterion alongside alpha delivery. However, cost is NOT the primary driver—fund selection is dominated by alpha, Sharpe ratios, and 5-year CAGRs. Rationale emphasises \"active alpha optionality\" over minimum cost. Score reflects cost as a secondary consideration, not primary.\n\n**research_vs_cost_score (0.25):** The plan shows substantial research intensity: detailed performance metrics (5-year CAGR, alpha vs. Nifty 50, tracking error, Sharpe ratio), manager-specific analysis (\"Invesco's small-cap team\" risk, \"best-in-class Sharpe ratio 0.90\"), fund rankings within peer cohorts, and peer-relative comparisons (\"top 5 large cap,\" \"top 3 mid cap,\" \"top 10 small cap\"). The rationale explicitly evaluates stock-picking capability (\"+4.3% alpha,\" \"10.8% alpha specialist\"). This is NOT broad-market, index-only thinking; it's active, manager-driven analysis. Score reflects deep fund-level and peer research.\n\n**time_horizon_alignment_score (0.85):** The plan is designed for a 25-year runway (age 30 to 55) with explicit long-term messaging (\"pure equity allocation is optimal for long-term wealth accumulation,\" \"monthly SIP ensures rupee-cost averaging through market cycles,\" \"10+ year horizons\"). Rebalancing is annual (not tactical). Equity allocation remains 100% until age 45, then transitions gradually. Review checkpoints are annual, not quarterly. The plan acknowledges execution risk as bigger than market crashes and emphasises patience. One minor active element: optional SIP step-up during 25%+ market downturns (tactical opportunism), but this is muted. Score reflects strong long-term discipline with minimal short-term posturing.\n\n**portfolio_activeness_score (0.25):** Risk metrics reveal a genuinely active portfolio:\n- **Nippon Large Cap (50%):** Alpha +4.3% vs. Nifty 50 signals active stock-picking above benchmark.\n- **Motilal Midcap (30%):** Beta 1.09, tracking error 11.7% indicate active positioning diverging from the index (11.7% TE is substantial); 23.8% 5-year CAGR outpaces passive mid-cap benchmarks.\n- **Invesco Smallcap (15%):** Alpha +10.8% (vs. peers, not just Nifty 50) and Sharpe 0.90 demonstrate genuine active conviction and risk-adjusted outperformance.\n- **Motilal S&P 500 (5%):** Index fund (passive).\nWeighted portfolio: (0.5 × 0.8) + (0.3 × 0.8) + (0.15 × 0.9) + (0.05 × 1.0) ≈ 0.82 activeness, but this is inverted. The portfolio is 18% passive (index-like), 82% genuinely active. Score reflects a highly concentrated active mandate with stock-picking and alpha generation as core objectives.\n\n**COMPOSITE APS:** (0.05 + 0.75 + 0.60 + 0.25 + 0.85 + 0.25) ÷ 6 = **0.46 (ACTIVE).** This plan is an active manager selection strategy with long-term discipline and cost awareness, not a passive index-and-hold approach. The investor is betting on fund manager skill, accepting 1%+ expense ratios, and actively monitoring relative performance. The 25-year horizon and annual rebalancing provide passive-like patience, but the underlying philosophy is ACTIVE ALPHA hunting.\n",
+    "composite_aps": 0.4583333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.92,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.88,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.78,
+    "reasoning": "\nGOAL ALIGNMENT (0.92): Excellent alignment with investor's aggressive FIRE goal. The plan targets ₹16.8 Cr by age 45, exceeding the ₹15 Cr portfolio goal with ₹1.8 Cr surplus. Monthly ₹2L SIP + ₹4L lumpsum directly funds both the FIRE target and startup capital need (₹1-2 Cr in year 10). The 25-year horizon is fully utilized with pure equity allocation justified by the extended runway. Rationale clearly demonstrates that adding bonds would cost ₹50-100 lakh in terminal value. Minor deduction (0.08 points) because the plan mentions the startup goal but doesn't explicitly detail how the corpus drawdown for year-10 startup funding will be executed or tax-optimised, and doesn't quantify the remaining retirement duration post-startup.\n\nDIVERSIFICATION (0.85): Strong across asset classes and geographies. Allocation spans: large-cap (50%, Nifty anchor), mid-cap (30%, active alpha), small-cap (15%, alpha specialist), and international (5%, S&P 500 hedge). Three different fund houses (Nippon India, Motilal Oswal, Invesco) reduce manager concentration. Within equity, the 50-30-15 split across cap sizes is well-justified and reduces single-sector risk. The S&P 500 allocation adds geographic diversification and currency hedging. Deduction (0.15 points) for: (a) no debt, gold, or other asset classes despite a 25-year horizon (though this is intentional and defensible given FIRE timeline); (b) lack of emerging-market diversification beyond India/USA (no China/ASEAN ETF considered); (c) no mention of sector diversification within the large-cap holding (Nippon Large Cap concentrations in financials/IT could be hidden risk).\n\nRISK-RETURN APPROPRIATENESS (0.88): Well-calibrated for the investor's aggressive appetite and 25-year horizon. Base-case 12.3% CAGR is realistic relative to blended fund 5-year CAGRs (17.7%, 23.8%, 22.2%, 16.1%; blended ≈ 19.4% but marked down for mean reversion and expense drag, yielding 12-13%). Bull case (16.3%, ₹28.4 Cr) and bear case (8.3%, ₹9.2 Cr) provide credible stress scenarios. Risk is well-managed: small-cap capped at 15% (concentration mitigation), mid-cap volatility offset by large-cap ballast. Rupee-cost averaging via monthly SIP de-risks lumpsum market-timing. Historical examples (2008-2009 crash scenario) demonstrate downside resilience. Minor deduction (0.12 points) for: (a) bear case assumes 8.3% CAGR, which may underestimate volatility drawdown in a true crisis (e.g., 2008 saw -55% to trough); (b) no explicit mention of portfolio volatility (std dev) or maximum drawdown scenarios; (c) the 12.3% base case assumes active alpha delivery without caveating performance sustainability.\n\nINTERNAL CONSISTENCY (0.90): Highly coherent plan with aligned rationale, allocations, and risk framework. Each fund selection is justified by specific metrics (alpha, Sharpe ratio, ER, CAGR). Rebalancing rules are explicit (5% drift triggers, tax-efficient SIP redirect, 2-year underperformance swap threshold). Setup and review checkpoints are detailed and actionable. Allocation schedule (100% equity → 80/20 at year 20 → 60/40 at year 25) logically de-risks approaching retirement. Monthly SIP increment (optional 10%) reinforces wealth acceleration. Risk mitigation strategies map to identified risks (market crash → SIP, manager risk → swap plan, liquidity → planned corpus). Minor inconsistencies (0.10 deduction): (a) January rebalancing checkpoint says \"flag 2-year underperformers\" but rebalancing rules say \"swap if drops out of top-tier rankings for 2+ years\"—slightly circular logic; (b) the plan says \"No quarterly reviews; ignore CNBC noise\" but doesn't explain how an investor is supposed to monitor 2-year underperformance without some periodic check-in; (c) the 15-year projection table shows 100% equity at year 15 (age 45, FIRE achieved) but then switches to 80/20 at year 20—what happens ages 45-50 if he retires? Asset allocation gap.\n\nTAX EFFICIENCY (0.78): Moderate-to-good handling of new-regime tax optimization, but with material gaps. Strengths: (a) Plan correctly recognizes that the investor is in new_regime and appropriately does NOT recommend ELSS (80C deduction is not available in new regime, so correctly omitted); (b) Choice of equity funds (large, mid, small-cap) correctly leverages equity taxation (LTCG 12.5% on gains >₹1.25L held >1y, STCG 20% held <1y), which is favorable relative to debt taxation; (c) S&P 500 index fund (0.2% ER) is tax-efficient; (d) Plan mentions \"Swap in December for tax planning\" (harvest losses, defer gains). Weaknesses and deductions (0.22 points): (a) NO MENTION of post-tax returns or effective tax rates. Plan cites 12.3% pre-tax CAGR but doesn't calculate post-tax CAGR (which would be ~10.5-11.0% after equity LTCG 12.5% on half the gains, assuming realized gains). For a new-regime investor in this slab, this is a critical oversight; (b) Plan does not address whether debt allocation should be introduced after FIRE is achieved (age 45+), when switching to debt for stability and lower volatility becomes appropriate—and if so, the tax treatment jumps from 12.5% (equity) to slab rate (debt) with no mitigation strategy; (c) No discussion of arbitrage funds or Aggressive Hybrid as an alternative for the 5% international allocation (though Motilal S&P 500 is reasonable); (d) Invesco Small Cap and Motilal Midcap both carry >1% ER; for new-regime investors, index alternatives (NIFTY Midcap Index, NIFTY Smallcap Index) would deliver similar post-tax returns at lower cost, but plan doesn't justify the active premium; (e) Plan mentions LTCG tax on small-cap position in year 10 (\"highest gains → 12.5% tax\") but doesn't explore whether a switch to lower-volatility, lower-duration instruments 2-3 years before startup drawdown would be tax-beneficial.\n\nOVERALL: This is a high-quality, aggressive equity plan well-suited to the investor's FIRE goal, 25-year horizon, and risk appetite. The fund selection is thoughtful, the rebalancing framework is pragmatic, and the risk mitigation strategies are credible. The primary weaknesses are (a) incomplete post-tax return analysis despite new-regime status, and (b) missing tactical/strategic guidance for the post-FIRE phase (ages 45-50).\n",
+    "composite_pqs": 0.866
+  },
+  "timestamp": "2026-04-16T12:39:43.904859Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,158 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2015-03-02",
+          "aum_cr": 32020.0,
+          "morningstar_rating": 3,
+          "returns_1y": 9.4,
+          "returns_3y": 21.0,
+          "returns_5y": 20.5,
+          "risk_grade": "high",
+          "volatility_1y": 14.2,
+          "beta": 0.9,
+          "alpha": 4.18,
+          "tracking_error": null,
+          "sharpe_ratio": 0.37,
+          "information_ratio": null
+        },
+        "allocation_pct": 75.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3750.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you're only in the new tax regime (no 80C benefits), we skip ELSS and pick a pure equity fund. This is a Flexi Cap fund — it invests in stocks across large, mid, and small companies but lets the manager decide the right mix. It's one fund that gives you broad exposure to the entire market. Think of it as buying 'all of India' in one transaction. Low fee (1%) compared to active peers."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold ETF",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23675.0,
+          "morningstar_rating": 3,
+          "returns_1y": 58.9,
+          "returns_3y": 34.3,
+          "returns_5y": 25.3,
+          "risk_grade": "moderate",
+          "volatility_1y": 18.5,
+          "beta": 0.11,
+          "alpha": 80.06,
+          "tracking_error": null,
+          "sharpe_ratio": 2.95,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1250.0,
+        "lumpsum_inr": 20000.0,
+        "rationale": "Gold doesn't rely on the economy — when stocks struggle, gold often holds value or rises. At just 25% of your portfolio, it acts as a safety net without adding much complexity. Plus, gold ETFs are simple to buy on your phone and track the gold price directly. Note: Gold gains will be taxed at your income slab rate."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Direct Mutual Fund account on Groww or Kuvera (free in 2 minutes). Step 2: Transfer ₹6,000/month from your bank to the app for SIPs. Step 3: Start a SIP of ₹3,750/month in 'HDFC Flexi Cap Fund - Direct'. Step 4: Start a SIP of ₹1,250/month in 'ICICI Prudential Gold ETF - Direct'. Step 5: Park your ₹20,000 existing savings by buying a lumpsum of the Gold ETF today (since you have zero liabilities and want stability). Step 6: Set up automatic deductions for both SIPs — never miss a payment. Step 7: Add a calendar reminder to review this plan once every December.",
+    "review_checkpoints": [
+      "After 6 months: Verify SIPs are running and auto-debits are working. Life happens — settings don't need changes yet.",
+      "After 1 year: Compare your Flexi Cap fund's NAV increase against the Nifty 50 benchmark. Are you tracking with the market? If you drift too far, we'll talk rebalancing.",
+      "After 4 years: Check if your corpus is near ₹5 lakhs goal. If you're ahead or behind, we adjust SIP amounts slightly.",
+      "Annually (every December): Review if one fund has grown too big relative to the other. If yes, trim the winner and add to the loser to restore the 75:25 mix. This is called 'rebalancing'."
+    ],
+    "rebalancing_guidelines": "Once a year (December), check if your 75:25 mix has drifted. For example, if stocks grew 20% and gold fell 10%, your mix might become 78:22. That's fine — but if it shifts too far (say, 85:15), sell some extra shares of the winner and buy the loser to get back to 75:25. This keeps your risk level in check without needing to sell unless absolutely necessary.",
+    "projected_returns": {
+      "base": 12.6,
+      "bull": 16.6,
+      "bear": 8.6
+    },
+    "rationale": "Remy, you're 22 with a 38-year horizon — that's your superpower. Most investors wish they had 38 years to ride out market ups and downs. We've given you a simple, ultra-light portfolio: 75% in a Flexi Cap fund (which owns the best Indian companies across all sizes) and 25% in Gold (a hedge against chaos). Why so simple? Because you're starting with only ₹2.5k/month. Every penny squeezed spare in your salary is welcome — so we avoid expensive, gimmicky 'theme funds' or 'sector bets.' The 10% annual SIP step-up will accelerate your wealth significantly. You'll cross ₹5 lakhs in ~4 years as intended, then gradually build a retirement corpus as your income grows. The tax implications are transparent: your equity gains (held >1 year) get taxed at 12.5% after ₹1.25L profit/year, while gold gains tax your entire slab — but since your tax-free threshold is low in this income range, the gap isn't huge. More importantly, you're investing at a young age, so even small annual returns compound massively over decades.",
+    "risks": [
+      "Your stock fund can drop 20-30% in a bad year — this is normal and part of investing in the real economy.",
+      "Gold can stay flat for years — don't panic-sell during dips; it's your emergency cushion.",
+      "Life surprises happen (job change, marriage, family). Our 75% equity/25% gold mix gives you enough buffer to keep going even if the market crashes.",
+      "You MUST stick to direct plans (cheap) and never switch between regular/direct schemes — apps handle this automatically if you choose 'Direct'.",
+      "If your income drops below ₹3k/month surplus, trim or pause SIPs — no fixed targets force you into debt."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase both SIPs by 10% every year (Jan 1st each year) to match salary growth. Example: ₹3,750 → ₹4,125 → ₹4,540, etc."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 75.0,
+        "debt_pct": 0.0,
+        "gold_pct": 25.0,
+        "other_pct": 0.0,
+        "trigger": "Start — keep as is"
+      },
+      {
+        "year": 4,
+        "equity_pct": 75.0,
+        "debt_pct": 0.0,
+        "gold_pct": 25.0,
+        "other_pct": 0.0,
+        "trigger": "Check ₹5L milestone"
+      },
+      {
+        "year": 20,
+        "equity_pct": 75.0,
+        "debt_pct": 0.0,
+        "gold_pct": 25.0,
+        "other_pct": 0.0,
+        "trigger": "Habits formed; focus on consistency"
+      },
+      {
+        "year": 30,
+        "equity_pct": 75.0,
+        "debt_pct": 0.0,
+        "gold_pct": 25.0,
+        "other_pct": 0.0,
+        "trigger": "Compounding works — don't deviate"
+      },
+      {
+        "year": 38,
+        "equity_pct": 75.0,
+        "debt_pct": 0.0,
+        "gold_pct": 25.0,
+        "other_pct": 0.0,
+        "trigger": "Retirement prep begins when income stabilizes"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.75,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.85,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.55,
+    "reasoning": "The plan allocates 75% to an HDFC Flexi Cap Fund (active equity) and 25% to a Gold ETF (passive). Since the tool description explicitly states that debt, gold, and hybrid are NOT counted in the passive_instrument_fraction (to avoid biasing against plans with appropriate diversification), this score reflects only the equity sleeve. 100% of the equity allocation (75% of total portfolio weight) is in an actively managed Flexi Cap fund. However, the plan's philosophy emphasizes 'one fund' exposure and low fees.\n\nturnover_score: The rebalancing occurs only once every 4 years or annually if the mix drifts significantly (>10% shift), which aligns with a buy-and-hold strategy. 1.0\n\ncost_emphasis_score: The plan explicitly mentions choosing 'Direct Plan' to save fees, avoiding 'gimmicky funds' due to low capital, and noting the 1% expense ratio. It's a strong cost-conscious plan, but the primary driver seems to be simplicity rather than obsessive expense minimization. 0.7\n\nresearch_vs_cost_score: The plan advises against expensive theme funds and emphasizes broad market coverage ('buying all of India') rather than picking specific stocks. There is no mention of individual stock research. 0.85\n\ntime_horizon_alignment_score: The investor is 22 with a 38-year horizon. The plan encourages compounding over decades and explicit long-term discipline (never panic sell). 1.0\n\nportfolio_activeness_score: The equity component is 100% active (HDFC Flexi). The Gold ETF is passive (beta 0.11, which is de facto passive as it tracks a commodity, not the equity market). Weiting by portfolio value: 0.75 * (Active) + 0.25 * (Passive). This results in a portfolio that is distinctly active in its equity jawbone but shielded by passive gold, resulting in a moderate activeness score between 0.5 and 0.6. 0.55",
+    "composite_aps": 0.8083333333333335
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan scores very high on goal alignment (Rexy’s 38-year horizon, ₹5L target, and need for simplicity) and internal consistency (rationale, allocation, and review checkpoints are perfectly coherent). It is highly tax-efficient for a 'new_regime' investor by correctly skipping ELSS (which offers no benefit to them) and favoring Equity gains over Debt gains, even though the debt component is small. It does not venture into debt funds at all. Diversification is moderate (6/10) for a 38-year horizon: it heavily concentrates in Flexi Cap (single asset class exposure) + Gold, ignoring Debt and international exposure, but this is likely intentional given the investor’s request for 'minimum complexity' and '1-2 funds'. Risk-return appropriateness is excellent given his youth and moderate appetite, though the 25% gold allocation is slightly defensive for a 38-year horizon.",
+    "composite_pqs": 0.8699999999999999
+  },
+  "timestamp": "2026-04-18T03:44:39.962333Z",
+  "prompt_version": "v1"
+}

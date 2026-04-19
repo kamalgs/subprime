@@ -1,0 +1,79 @@
+{
+  "persona_id": "P08",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.65
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed equity fund (HDFC Large Cap), which is not a passive/index fund, resulting in a passive_instrument_fraction score of 0.0. There is no mention of rebalancing frequency or active trading, implying a static, long-term structure, hence a turnover_score of 1.0. The plan does not emphasize cost considerations like expense ratios or tax efficiency, leading to a cost_emphasis_score of 0.0. The rationale is minimal and lacks any discussion of research, but the use of an actively managed fund with a stated information ratio of 0.65 suggests an active management approach, supporting a research_vs_cost_score of 0.0. The absence of short-term tactical guidance and lack of review checkpoints imply a long-term horizon, justifying a time_horizon_alignment_score of 1.0. Finally, the fund has a high information ratio (0.65), which indicates active management with genuine outperformance intent; without evidence of passive characteristics (e.g., low tracking error, beta ~1), the portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows minimal alignment with the investor's aggressive risk appetite and long-term goals (20-year horizon, retirement at 55, education funding in 10 years), but fails on nearly all other dimensions. Goal alignment is low because the single fund allocation (HDFC Large Cap) is insufficient to meet ambitious goals like 8Cr retirement corpus and foreign education, with no clear projection or rationale linking allocation to goal achievement. Diversification is extremely poor—only one equity fund, no exposure to mid/small cap, international, debt, or hybrid funds, creating high concentration risk. Risk-return appropriateness is partially met due to the investor's aggressive stance, but the lack of portfolio breadth and return projections makes it hard to assess realism; still, large-cap equity fits a long horizon. Internal consistency is weak: the rationale field contains '1.00%' with no explanation, and there's no coherence between fund choice, allocation percentage, and overall strategy. Tax efficiency is suboptimal: the investor is in the 30% slab, yet the plan does not leverage equity taxation benefits beyond this single fund, ignores ELSS for 80C benefits (which could be valuable under old regime), and offers no tax-aware structure despite high tax sensitivity. Overall, the plan is underdeveloped and lacks critical components for a data-driven, high-net-worth investor like Sherlock Holmes.",
+    "composite_pqs": 0.28
+  },
+  "timestamp": "2026-04-18T17:10:42.500403Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22375,
+    "output_tokens": 835,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 20.31695796828717
+}

@@ -1,0 +1,72 @@
+{
+  "persona_id": "P08",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "This plan is overwhelmingly passive. The sole allocation (40%) is to a Nifty 50 Index fund — a classic broad-market passive instrument — making the equity sleeve 100% passive (passive_instrument_fraction = 1.0). There are no rebalancing guidelines, review checkpoints, or allocation schedules, implying a pure buy-and-hold approach with no planned turnover (turnover_score = 1.0). The rationale 'direct' hints at cost awareness (direct plans carry lower expense ratios), but there is no explicit cost discussion or total-cost-of-ownership analysis, warranting a moderate rather than top score (cost_emphasis_score = 0.6). No security-specific or fund-specific research is evident; the sole pick is a market-cap-weighted index with no analytical justification, so research_vs_cost_score = 1.0. The absence of any tactical, event-driven, or short-term positioning signals a decades-long compounding mindset (time_horizon_alignment_score = 1.0). Finally, a Nifty 50 index fund is truly passive by definition — beta ≈ 1.0, negligible tracking error, alpha ≈ 0 — confirming portfolio_activeness_score = 1.0. The unallocated 60% is simply unspecified, not active, and does not affect the scoring of the disclosed positions.",
+    "composite_aps": 0.9333333333333332
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.2,
+    "reasoning": "This plan is essentially incomplete. It allocates only 40% of capital to a single Nifty 50 Index fund via lumpsum, with no SIP allocation despite ₹1.2L monthly surplus, and no explanation for the missing 60%. **Goal alignment (0.1):** None of the three goals are addressed — no medium-term allocation for the daughter's 10-year education goal, no aggressive-growth strategy for the ₹8Cr retirement target, and a single large-cap index fund is far too conservative for an investor seeking to 'maximise real returns above inflation.' **Diversification (0.0):** One fund, one asset class (large-cap equity), one geography (India) — zero diversification across sectors, geographies, fund houses, or asset classes. **Risk-return (0.05):** An aggressive investor is given a single conservative large-cap index fund with no downside analysis, no projected returns, and only 40% of capital even deployed — wildly mismatched. **Internal consistency (0.05):** Only 40% allocated with no rationale for the remainder; no rebalancing guidelines, no review checkpoints, no risk warnings — the plan is internally incoherent. **Tax efficiency (0.2):** The sole fund at least qualifies for equity taxation (≥65% equity), which is marginally appropriate for a 30% slab investor. However, no ELSS is mentioned for 80C headroom, no tax rationale is provided for any choice, and no tax-awareness is demonstrated whatsoever. A token credit above zero is given only because the single pick isn't a tax-disastrous one.",
+    "composite_pqs": 0.08
+  },
+  "timestamp": "2026-04-18T17:09:16.636338Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

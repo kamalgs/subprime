@@ -1,0 +1,148 @@
+{
+  "persona_id": "P01",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap funds are a good starting point for aggressive investors, providing a balance between risk and returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap funds offer a mix of stability and growth, suitable for aggressive investors."
+      },
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "WhiteOak Capital Mid Cap Fund",
+          "category": "Mid Cap",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.15,
+          "inception_date": null,
+          "aum_cr": 489.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.0,
+          "returns_3y": 27.8,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.9,
+          "alpha": 23.22,
+          "tracking_error": 9.01,
+          "sharpe_ratio": 1.36,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Mid cap funds are ideal for aggressive investors seeking high growth potential."
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you're 25 with 30 years ahead, we can afford to put more in stocks which grow faster over long periods",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan is heavily tilted towards active management across multiple dimensions:\n\n- **passive_instrument_fraction**: 0.0 — All equity allocations (100%) are to actively managed funds (Large Cap, Large & Mid Cap, Mid Cap) with no index funds or ETFs present.\n\n- **turnover_score**: 0.8 — Rebalancing is recommended only once a year, and no tactical trading or frequent adjustments are suggested, indicating a mostly long-term orientation despite active fund choices.\n\n- **cost_emphasis_score**: 0.0 — There is no discussion of expense ratios, fees, or cost efficiency in fund selection. The rationale is based on category benefits and growth potential, not cost minimisation.\n\n- **research_vs_cost_score**: 0.0 — The rationale focuses on fund categories and return potential but does not mention cost or passive indexing; instead, it implies belief in active management's ability to outperform, supported by high-alpha funds.\n\n- **time_horizon_alignment_score**: 1.0 — The plan explicitly targets a 30-year horizon for a 25-year-old investor, with SIPs and annual reviews aligned to long-term compounding.\n\n- **portfolio_activeness_score**: 0.0 — The recommended funds exhibit high tracking error (e.g., 13.05%, 9.01%), significant alpha (up to 23.22), and active risk-taking (beta deviations, high information ratios implied), indicating strong active management. The portfolio is concentrated in high-conviction active funds with no passive or closet-indexing characteristics.",
+    "composite_aps": 0.3
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.95,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 1.0,
+    "reasoning": "The investment plan is well-aligned with Tony Stark's aggressive risk appetite, 30-year horizon, and goal of building a long-term retirement corpus. The rationale emphasizes long-term equity growth, which suits his life stage and objectives. The allocation is heavily equity-focused (100% across large, large & mid, and mid-cap funds), supporting high growth potential, though it lacks exposure to small caps, international equities, or sectoral/thematic funds (despite his interest in tech and pharma), limiting diversification. This results in a solid but not optimal diversification score. Risk-return is appropriate: projections (12% base) are realistic for an all-equity portfolio, and downside risks are acknowledged. The plan is internally consistent—rationale, allocations, and review mechanisms align. Tax efficiency is excellent: the investor is in the 'new_regime' tax bracket (no 80C benefit), so the absence of ELSS is appropriate; all recommended funds are equity-oriented and thus benefit from favorable LTCG taxation (>12.5% above ₹1.25L after 1 year), avoiding slab-taxed debt funds entirely. No tax-inefficient choices are made, and no unnecessary tax drag is introduced.",
+    "composite_pqs": 0.9099999999999999
+  },
+  "timestamp": "2026-04-18T15:34:44.516041Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23685,
+    "output_tokens": 1771,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 64.0976886395365
+}

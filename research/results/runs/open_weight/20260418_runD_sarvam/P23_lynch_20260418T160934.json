@@ -1,0 +1,83 @@
+{
+  "persona_id": "P23",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.1,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1.00% (large cap focus)",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk (large caps can drop 20-30% in bad years)",
+      "volatility",
+      "liquidity"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to a single large-cap equity fund (HDFC Large Cap Direct Plan), which is categorized as an actively managed fund. Since there is no indication of passive/index instruments in the equity allocation, the passive_instrument_fraction is 0.0. The rebalancing guidelines mention only a vague '1.00% (large cap focus)' with no scheduled reviews or turnover, implying a static, long-term approach, hence a high turnover_score of 1.0. There is no mention of cost considerations like expense ratios or transaction fees, so cost_emphasis_score is 0.0. The rationale does not discuss any research or cost-based selection criteria, but given the active fund choice and lack of passive tilt, research_vs_cost_score is 0.0. The absence of frequent review checkpoints and tactical shifts suggests a long-term horizon, justifying a time_horizon_alignment_score of 1.0. Finally, the fund has an information ratio of 0.5, which indicates active management intent, and no risk metrics suggest closet indexing; thus, the portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows minimal alignment with Jo March's goals: she seeks financial independence in 15 years and a creative venture in 8 years, but the plan allocates 40% to a single large-cap fund with no clear strategy for growth or diversification across time horizons. Diversification is extremely poor — only one fund, one asset class (equity), and one category (large cap), ignoring mid/small caps, international exposure, and hybrid/debt instruments needed for balance over a 26-year horizon. Risk-return is moderately appropriate for a moderate investor, but the lack of diversification increases concentration risk, making the plan riskier than stated. Internal consistency is partial: the rationale mentions large-cap focus, and the allocation reflects that, but percentages don't add up (only 40% allocated, no explanation for the rest), and the '1.00%' rationale is nonsensical. Tax efficiency is acceptable because the investor is in the 'new_regime' (so no 80C benefit needed), and the chosen fund is equity-taxed, which is optimal for long-term growth under her tax regime. However, the plan fails to explain tax treatment or justify why only large caps are used. Overall, the plan is underdeveloped and lacks coherence, despite correct use of an equity fund under the new tax regime.",
+    "composite_pqs": 0.38
+  },
+  "timestamp": "2026-04-18T16:09:34.201438Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 41845,
+    "output_tokens": 1112,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 50.85690655838698
+}

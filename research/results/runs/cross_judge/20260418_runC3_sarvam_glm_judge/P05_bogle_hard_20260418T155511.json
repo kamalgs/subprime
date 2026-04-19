@@ -1,0 +1,77 @@
+{
+  "persona_id": "P05",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.15,
+        "lumpsum_inr": 1.0,
+        "rationale": "1000000.0"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Reinvest 60% in large-cap and 40% in small-cap for alpha",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Company risk",
+      "Sector risk",
+      "Liquidity risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.6,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.85,
+    "time_horizon_alignment_score": 0.65,
+    "portfolio_activeness_score": 0.85,
+    "reasoning": "**passive_instrument_fraction (0.6):** The sole explicitly allocated equity fund is the Nifty 50 Index (clearly passive). However, the rebalancing guidelines state 'Reinvest 60% in large-cap and 40% in small-cap for alpha,' implying that 40% of the equity sleeve is intended for active small-cap bets seeking alpha. This yields roughly 60% passive / 40% active within equity. **turnover_score (0.5):** No review checkpoints or rebalancing frequency are specified, which leans passive (no active trading rhythm). But the rebalancing guideline mentions an active reallocation (shifting to small-cap for alpha), suggesting some turnover intent without clear frequency — landing at mid-range. **cost_emphasis_score (0.0):** Costs, expense ratios, and tax efficiency are never mentioned anywhere in the plan. Fund selection does not reference cost minimisation at all. **research_vs_cost_score (0.85):** The plan is tagged as 'basic' perspective with no company analysis, sector deep-dives, PEG ratios, or manager track records. The Nifty 50 Index allocation requires no security-level research. The small-cap 'for alpha' mention is a generic tilt, not research-driven. **time_horizon_alignment_score (0.65):** The core Nifty 50 Index holding implies long-term compounding, and there are no short-term tactical windows defined. However, no explicit long-term horizon is stated, and the small-cap alpha-seeking tilt introduces a somewhat opportunistic flavour, pulling the score down from fully passive. **portfolio_activeness_score (0.85):** The only allocated fund is the Nifty 50 Index — a quintessential passive vehicle (name confirms index mandate; no beta/alpha/tracking_error data contradicts this). The information_ratio of 1.0 is likely a data artifact. The active small-cap intent in rebalancing guidelines is the only thing preventing a score of 1.0.",
+    "composite_aps": 0.5750000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.2,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal alignment (0.1):** The investor has three specific goals (FIRE by 45, ₹15Cr corpus, startup in 10 years) and explicit preferences for international diversification and small-cap alpha. The plan addresses none of these — it allocates 60% to a single Nifty 50 index fund with no corpus projection, no milestone mapping, no startup funding strategy, and no international or small-cap exposure. The only minor credit is that it is equity-oriented, matching the 'maximise equity' preference. **Diversification (0.05):** A single large-cap index fund covering only Indian large-caps — zero sector, geography, fund-house, or asset-class diversification. The remaining 40% is completely unallocated, leaving the portfolio effectively concentrated in one fund. **Risk-return (0.15):** Nifty 50 is far too conservative for an aggressive 30-year-old with a 25-year horizon specifically seeking small-cap alpha and international growth. No projected returns, no downside scenario analysis, and no discussion of whether the allocation can plausibly reach ₹15Cr. Marginal credit only for being long-duration equity. **Internal consistency (0.1):** The rebalancing guideline mentions '40% in small-cap for alpha' but no small-cap fund exists in the plan; only 60% of the portfolio is allocated (40% is a void); SIP amounts are nonsensical (0.15 as a fraction); the lumpsum mode contradicts the investor's monthly surplus structure; risk warnings cite 'company risk' and 'liquidity risk' which are inapplicable to a broad index fund. **Tax efficiency (0.2):** The investor is on the new regime (no 80C), so ELSS omission is not penalised. The sole Nifty 50 fund qualifies for equity taxation, which is favourable. However, the plan never explicitly considers tax treatment, provides no post-tax rationale, and the unallocated 40% could easily drift into slab-taxed debt instruments without any guidance — a significant gap for a high-income earner.",
+    "composite_pqs": 0.12000000000000002
+  },
+  "timestamp": "2026-04-18T15:55:11.412014Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

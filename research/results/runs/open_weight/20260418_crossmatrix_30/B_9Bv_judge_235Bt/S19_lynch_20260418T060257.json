@@ -1,0 +1,170 @@
+{
+  "persona_id": "S19",
+  "condition": "lynch",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119082",
+          "name": "DSP Credit Risk Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Credit Risk",
+          "fund_house": "DSP Asset Managers Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 14.6,
+          "returns_5y": 11.8,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 11100.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you're 20% tax slab, this Credit Risk fund is tax-friendly (equity-taxed). It's safer than equity funds but beats FDs slightly, helping your home loan corpus grow."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "Gold ETF",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.3,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3700.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold is your safe shield. At 20% slab, gains are taxed at your slab (not special LTCG), but gold's history of 25%+ growth over 5 years makes it a great diversifier against inflation."
+      },
+      {
+        "fund": {
+          "amfi_code": "120599",
+          "name": "ICICI Prudential Multicap Fund - Direct Plan - Growth",
+          "category": "Multi Cap",
+          "sub_category": "Multi Cap",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 20.7,
+          "returns_5y": 17.8,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18500.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your growth engine. Multi-cap funds in 20% tax bracket get 12.5% LTCG after 1 year, which beats slab tax. Over 8 years, this fund aims for ~18% annual growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "147946",
+          "name": "BANDHAN SMALL CAP FUND - DIRECT PLAN GROWTH",
+          "category": "Small Cap",
+          "sub_category": "Small Cap",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 31.3,
+          "returns_5y": null,
+          "risk_grade": "very_high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3700.0,
+        "lumpsum_inr": null,
+        "rationale": "Small caps are high-reward but high-risk. Since you're only 10% here, even if it drops 30% temporarily, the gains over 8 years can significantly boost your 20Cr goal."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Direct Mutual Fund account on Groww, Kuvera, or Coin. Enter your PAN and bank details.\nStep 2: Start 4 SIPs monthly: ₹11,100 in DSP Credit Risk Fund, ₹3,700 in ICICI Gold ETF, ₹18,500 in ICICI Multicap Fund, and ₹3,700 in Bandhan Small Cap Fund.\nStep 3: Keep your existing FDs maturing as a short-term buffer (for 6-12 months) and gradually shift that money into the SIP running above once you're comfortable.",
+    "review_checkpoints": [
+      "After 3 months: Check if all SIPs are running from your bank statement.\nAfter 6 months: See if your home loan EMI is comfortable.\nAfter 1 year: Compare your ICICI Multicap Fund with 5-year category returns.\nEvery month: Track small cap fund performance (it's volatile).",
+      "insights"
+    ],
+    "rebalancing_guidelines": "Every 12 months, check if your portfolio mix has drifted more than 5% from the target (30% debt, 10% gold, 50% multi-cap, 10% small cap). If small cap fund has grown too much (e.g., from 10% to 15% of total corpus), move some gains back to Multi-cap to reduce risk.\n\nSince you're in 20% tax bracket, remember: if you need to short-term withdraw, Equity-taxed funds cost 20% tax. Rohan Arbitrage or Quant Hedge can be used as tax-efficient short-term parking.",
+    "projected_returns": {
+      "base": 11.2,
+      "bull": 16.2,
+      "bear": 6.2
+    },
+    "rationale": "You're 49 with a low-risk budget, but you have 8 years to grow wealth. This plan balances safety (30% in Debt, 10% Gold) with moderate growth (50% Multi-cap, 10% Small-cap). Since you're in 20% tax slab, this plan leverages the equity-taxation benefits (12.5% LTCG) while keeping volatility manageable.\n\nGoals breakdown:\n- 20Cr corpus: Needs high growth (Multi-cap + Small-cap). Even ₹37k/month can achieve 20Cr in 8 years if you get 11%+ CAGR (base case).\n- 30L home loan: Debt fund + Gold can cover this safely.\n- 30L children's education: 1-2 years from education can be met via FDs.\n\nTax efficiency: Multi-cap and Small-cap funds are equity-taxed (12.5% LTCG > 20% slab tax). Debt funds are tax-free for you at 20% (since you're below 30%, but we keep 30% in debt for safety). Gold is slab-taxed at 20%.",
+    "risks": [
+      "Equity funds can drop 20-30% in a bad year (like 2008, 2020). Don't panic-sell.\nSmall-cap fund (10% allocation) is very risky. Even if it drops 40%, balance with debt/gold.\nInflation: 6% growing economy means you need 11%+ returns to maintain lifestyle.\nTax risk: If tax rules change post-Budget 2024, equity gains taxed at slab instead of 12.5%. But for now, plan is tax-efficient.",
+      "disclaimer"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 7.0,
+      "description": "Increase SIP by 7% every year to match salary inflation"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.4,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan is heavily tilted toward active management across multiple dimensions:\n\n- **passive_instrument_fraction = 0.0**: The equity allocation (60% of total portfolio: 50% Multi Cap + 10% Small Cap) is entirely in actively managed funds (ICICI Prudential Multicap and Bandhan Small Cap). No index funds or ETFs are used in the equity sleeve. The Gold ETF is passive, but gold is not counted in equity.\n\n- **turnover_score = 0.4**: Rebalancing is recommended annually if allocations drift by more than 5%, which is moderate. However, the plan includes monthly tracking of the small cap fund and multiple short-term review checkpoints (3, 6, 12 months), suggesting active monitoring and potential for intervention, reducing passivity.\n\n- **cost_emphasis_score = 0.0**: There is no mention of expense ratios, fees, or cost efficiency in fund selection. The rationale focuses on tax efficiency and returns, not cost minimisation.\n\n- **research_vs_cost_score = 0.0**: The rationale emphasizes expected returns (e.g., ‘~18% annual growth’), tax treatment, and performance comparisons, but no mention of broad market exposure or index-based philosophy. Fund selection appears based on performance expectations and tax efficiency, implying active conviction.\n\n- **time_horizon_alignment_score = 0.8**: The plan is designed for an 8-year horizon with long-term compounding in mind (e.g., achieving ₹20Cr corpus). This supports a passive orientation, despite some short-term monitoring.\n\n- **portfolio_activeness_score = 0.0**: The equity funds are actively managed multi-cap and small-cap funds with no risk metrics suggesting index-like behavior (e.g., low tracking error). The debt fund (DSP Credit Risk) is actively managed (credit selection), and gold is passive but a small portion. No evidence of passive indexing or closet indexing. The overall portfolio reflects active management based on category and rationale.",
+    "composite_aps": 0.20000000000000004
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows moderate alignment with the investor's goals but overemphasizes aggressive growth (60% in equities including high-risk small cap) for a conservative investor with multiple near-term liabilities. Diversification is decent across asset classes (debt, gold, multi-cap, small cap) and fund houses, though gold ETF and equity funds dominate returns expectations. Risk-return is mismatched: 60% equity allocation (including 10% in very high-risk small cap) is inappropriate for a conservative 49-year-old nearing retirement; the rationale acknowledges volatility but downplays it. The plan is mostly internally consistent — allocation, SIP setup, rebalancing, and tax notes align — though the 'low-risk budget' claim contradicts the high equity exposure. Tax efficiency is strong: correctly leverages equity taxation (12.5% LTCG) for multi-cap and small-cap funds under the 20% slab, avoids slab-taxed debt funds by using a credit risk fund (which qualifies as equity-taxed due to >65% equity-like risk profile), and acknowledges tax treatment explicitly. However, it incorrectly states that debt funds are 'tax-free' for 20% slab — they aren't; only equity-taxed funds enjoy LTCG benefit. Gold is correctly identified as slab-taxed. ELSS is not needed here since no 80C optimization is mentioned and tax bracket is 20%, so no penalty. Overall, tax logic is sound despite minor inaccuracies.",
+    "composite_pqs": 0.6599999999999999
+  },
+  "timestamp": "2026-04-18T06:02:57.805175Z",
+  "prompt_version": "v1"
+}

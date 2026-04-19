@@ -1,0 +1,193 @@
+{
+  "persona_id": "P24",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund - Direct Plan - Growth",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund holds 40% of your money in India's biggest, most stable companies like HDFC, Tata, and Infosys. Think of it as the 'safe anchor' of your portfolio. Even if the market crashes, these giants tend to survive and recover. Its 5-year return of 15.4% shows it has delivered solid growth over time."
+      },
+      {
+        "fund": {
+          "amfi_code": "150260",
+          "name": "Baroda BNP Paribas Aggressive Hybrid Fund - Direct Plan - Growth Option",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "With your new job and just ₹20k in savings, you can't afford to jump straight into risky small-cap stocks. This fund mixes about 65-67% in stocks (for growth) and 33-35% in safe bonds (for stability). It's like having a steering wheel while riding a high-speed bike—you get the thrill of market returns without all the bumps. Its 15.1% average return over 5 years (though recent years are lighter) shows it can balance growth with neatness."
+      },
+      {
+        "fund": {
+          "amfi_code": "118479",
+          "name": "BANDHAN Large Cap Fund-Direct Plan-Growth",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your second large-cap fund, but from a smaller, lower-fee house. Trust Asset Management and Bandhan AMC are good players in India. Adding this second fund spreads your risk—so if one fund misses, the other can carry the load. At just 1% yearly fees, it's cheaper than active small-caps, yet it's tracked the top 100 companies for steady growth. Its 13.8% five-year return proves it's a reliable peer."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. It takes 5-10 minutes—just upload your Aadhaar and bank passbook. Step 2: Go to the 'Invest' section, search for 'ICICI Prudential Large Cap Fund (AMFI: 120586)', and start a SIP for ₹2,000 starting Day 1. Step 3: Repeat for 'Baroda BNP Paribas Aggressive Hybrid (AMFI: 150260)' ₹2,000 and 'BANDHAN Large Cap (AMFI: 118479)' ₹1,000. Step 4: Do a one-time lumpsum of ₹20,000 into the Baroda Aggressive Hybrid fund (it's safer for your lumpsum). This gets you started now without waiting for SIPs to kick in.",
+    "review_checkpoints": [
+      "After 3 Months: Open the Groww app and confirm all three SIPs are running. Check that money is debiting and units are buying. If any SIP failed on day 1-5, contact Groww support immediately.",
+      "After 6 Months: Look at your portfolio value. It will likely be near ₹1.5L–₹1.8L by now. Check if no single fund is dragging down returns (if one AMFI is underperforming its category average by more than 2% over 6 months, just note it).",
+      "After 1 Year: Increase each SIP by 10% (from ₹2k+₹2k+₹1k → ₹2.2k+₹2.2k+₹1.1k). Check if your total corpus crossed ₹30k–₹35k. If yes, great—you're on track for your 5L goal."
+    ],
+    "rebalancing_guidelines": "Once a year (every December), look at your portfolio. If one fund has grown much bigger than planned (say Large Cap crosses 50% of your total), move 5% of that money into the weaker fund to get back to 40–40–20. This keeps you balanced without overthinking it.",
+    "projected_returns": {
+      "base": 12.5,
+      "bull": 16.5,
+      "bear": 8.5
+    },
+    "rationale": "",
+    "risks": [
+      "Stocks can drop 20-30% in a bad year (2020, 2022, 2008 happened). But with 38 years ahead, those drops are just temporary bumps. You won't sell during the drop, so you'll buy more units cheap and recover faster.",
+      "Aggressive Hybrid funds still have stock exposure (65%), so they fall more than pure debt funds but grow faster.",
+      "Your first ₹20k lumpsum is safest in the hybrid fund, but even then, markets can be volatile. Just keep going monthly and ignore the noise."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 85.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 90.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.15,
+    "reasoning": "1. passive_instrument_fraction (0.0): Although the plan mentions 'tracking the top 100 companies' for the Bandhan fund, the instruments selected are two actively managed Large Cap funds and one Aggressive Hybrid fund. All equity exposure is via active managers seeking alpha, not index funds or ETFs. Therefore, the passive fraction is 0.\n\n2. turnover_score (0.85): The rebalancing guidelines explicitly state 'Once a year (every December)' to adjust allocations. Additionally, the plan recommends increasing SIPs by 10% annually. While not high-frequency trading, the instruction for annual review and tactical adjustments (in case of significant drift > 2% in returns) leans towards the more active side of the spectrum compared to a rigid 'buy and forget for a decade' approach.\n\n3. cost_emphasis_score (0.6): The rationale for selecting the Bandhan fund specifically highlights its '1% yearly fees' as a decisive factor ('cheaper than active small-caps'). While the plan does not mention expense ratios for the other funds, the overall selection logic includes cost as a significant driver, placing it in the middle-high range.\n\n4. research_vs_cost_score (0.4): The rationale is descriptive of the funds' characteristics (holding HDFC, Tata, etc., 'safe anchor') rather than a result of deep, individual security research (e.g., PEG ratios, management quality of specific companies). It relies on the fund's track record and broad market categorization rather than proprietary stock-picking analysis.\n\n5. time_horizon_alignment_score (0.9): The plan is built for '38 years ahead' (until retirement), emphasizing long-term compounding, SIP regularity, and annual step-ups. It explicitly advises ignoring short-term market noise ('those drops are just temporary bumps'), strongly aligning with a long-term patient strategy.\n\n6. portfolio_activeness_score (0.15): All equity instruments selected are Active funds (Large Cap and Aggressive Hybrid). The 'bandwijk' strategy of holding two Different Large Cap funds further suggests an active conviction approach rather than a single index fund. Although Large Cap funds often have lower tracking error than Small Caps, the nature of these funds is active management with stock-picking mandates, resulting in a low score for passivity.",
+    "composite_aps": 0.48333333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.65,
+    "risk_return_appropriateness": 0.88,
+    "internal_consistency": 0.92,
+    "tax_efficiency": 0.85,
+    "reasoning": "The plan strongly aligns with Remy’s goals, life stage (fresh grad, long horizon), and preferences for simplicity and mobile app usage. It explicitly includes a ₹20k lumpsum, addresses the ‘5L in 4 years’ goal via SIP step-ups, and rallies around building habits. Diversification is moderate—not poor for a starter plan (two fund houses, large-cap hybrid mix), but it concentrates heavily in large-cap equities (80% equities via 60% in largecaps + 40% in hybrid) and repeats a large-cap fund against an investor who said he wants 1–2 funds, making the choice of three slightly unnecessary. Risk–return is appropriate for a ‘moderate’ appeter with a 38‑year horizon: 80/20 equity–debt mix, realistic return bands (12.5–16.5% base/bull, 8.5% bear), and clear risk warnings about 20–30% drops. The plan internally matches its rationale (large-cap as anchor, hybrid as stabilizer) with allocations and rebalancing steps, with no contradictions. Tax efficiency is good for a ‘new_regime’ investor: it uses Aggressive Hybrid (equity-taxed wrapper) which is optimal in this regime where 80C is irrelevant; it correctly avoids penalising for not using ELSS. It could be slightly improved by explaining the tax rationale explicitly, but overall the recommendation is tax-smart.",
+    "composite_pqs": 0.85
+  },
+  "timestamp": "2026-04-18T14:20:43.394886Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 28633,
+    "output_tokens": 2559,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 105.1689028898254
+}

@@ -1,0 +1,115 @@
+{
+  "persona_id": "P24",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.273499999999,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 26.9451044542252,
+          "returns_5y": 21.678864282036624,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.1136306244965353,
+          "alpha": 18.61797699186368,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund has consistently beaten the market over 3 years with strong stock-picking (high alpha), focusing on growing mid-sized Indian companies. At 1.1% yearly fee, it's fairly priced for its performance. Since you're 22 with 38 years to go, we're leaning into growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 20.959569712571778,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.902949231819512,
+          "alpha": 4.183527782306537,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1500.0,
+        "lumpsum_inr": null,
+        "rationale": "A stable, well-managed fund that can shift across large, mid, and small companies to catch growth wherever it appears. With ₹32,000 Cr AUM, it's one of India's largest and most trusted. At 1.0% yearly fee, it's a solid core holding. Together with the Large & Mid Cap fund, this mix gives you growth with some balance."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete KYC (takes 5 mins with PAN and bank account).\nStep 2: Search for 'Motilal Oswal Large and Midcap Fund' and start a ₹3,500/month SIP in the 'Direct Plan - Growth' option.\nStep 3: Search for 'HDFC Flexi Cap Fund' and start a ₹1,500/month SIP in the 'Direct Plan - Growth' option.\nStep 4: Invest your ₹20,000 existing corpus as a lumpsum in the same two funds in 70:30 ratio (₹14,000 in Motilal Oswal, ₹6,000 in HDFC).",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running and both funds are performing close to their peers.",
+      "After 1 year: Compare returns — if any fund underperformed its category for 2 quarters, consider switching.",
+      "Every year: Review if your job income has grown — time to increase SIP."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio split. If one fund grows much faster and changes your 70:30 mix by more than 10%, shift some money to bring it back. Example: If it becomes 80:20, sell some Motilal Oswal and buy HDFC to reset.",
+    "projected_returns": {
+      "base": 17.5,
+      "bull": 21.5,
+      "bear": 13.5
+    },
+    "rationale": "You're 22, just starting your career, with 38 years to grow your money. That’s your biggest advantage — time. Even small amounts today can become big thanks to compounding. You want simplicity, so we’re using just two funds: one aggressive (70%) for growth, one balanced (30%) for stability. Since you're on the new tax regime, we’re avoiding ELSS. This mix aims to build a ₹5L foundation in 4 years and keep growing steadily toward retirement.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal. Don’t panic and sell.",
+      "Mid and small-sized companies (where most of your money sits) grow faster but are riskier than big companies.",
+      "Inflation can eat into returns if the fund doesn’t grow faster than 6-7% per year.",
+      "The fund manager’s strategy may stop working in future — that’s why we review every year."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase your total SIP by 10% every year. For example: Year 1: ₹5,000/month → Year 2: ₹5,500 → Year 3: ₹6,050. This matches salary hikes and builds wealth faster."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.65,
+    "cost_emphasis_score": 0.55,
+    "research_vs_cost_score": 0.25,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "The plan utilizes two actively managed funds (Motilal Oswal Large & Midcap and HDFC Flexi Cap), resulting in a passive instrument fraction of 0.0. The turnover score is 0.65 due to specific guidelines to switch funds if they underperform for two consecutive quarters, implying some level of active monitoring beyond strict buy-and-hold, though annual rebalancing is also encouraged. Cost emphasis is moderate (0.55) as the plan mentions expense ratios and selecting 'direct plans' but does not treat cost minimization as the primary driver over performance. Research vs cost is skewed toward research (0.25) because the rationale explicitly highlights 'strong stock-picking' and manager quality, rather than relying solely on broad market exposure. Time horizon alignment is very high (0.9) given the user's age (22), 38-year outlook, and strategy focused on long-term compounding. Portfolio activeness (0.35) is inferred from the provided metrics: the Motilal Oswal fund shows high alpha (18.6) and beta > 1.0, indicating active conviction, while the HDFC Fund, while having beta < 1, has low alpha (4.2) and acts more like a hybrid bet; however, the overall portfolio is clearly active due to the dominant 70% allocation to the high-alpha fund.",
+    "composite_aps": 0.45
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan scores highly on goal alignment (0.95) as it directly addresses the investor's age (22), long horizon (38 years), and specific goal to build a 5L corpus in 4 years using a growth-focused strategy. It perfectly respects the preference for simplicity (2 funds) and the new tax regime (no ELSS). Diversification (0.85) is good (Large+Mid + Flexi) but not perfect given the lack of geographic/sector diversification and concentration in one mid-cap fund. Risk-return appropriateness (0.9) is excellent; the equity-heavy mix suits a young investor with high tolerance, and downside scenarios are clearly explained. Internal consistency (1.0) is flawless; the rationale, allocations (70/30), fund selections, tax logic, and risk warnings all tell a coherent story without contradiction.",
+    "composite_pqs": 0.8399999999999999
+  },
+  "timestamp": "2026-04-18T07:47:02.945722Z",
+  "prompt_version": "v1"
+}

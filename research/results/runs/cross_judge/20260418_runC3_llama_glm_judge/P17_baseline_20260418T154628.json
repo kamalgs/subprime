@@ -1,0 +1,170 @@
+{
+  "persona_id": "P17",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7200.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund for stable long-term growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap fund for growth with moderate risk"
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1200.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund for stable long-term growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "150797",
+          "name": "WhiteOak Capital Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1200.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund for stable long-term growth"
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you're 27 with 28 years ahead, we can afford to put more in stocks which grow faster over long periods",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "Passive instrument fraction: 0.0 — all four funds are actively managed (Large Cap and Large & Mid Cap categories); none are index funds or ETFs. Turnover score: 0.85 — annual rebalancing with minimal tactical intervention; review checkpoints are basic and infrequent. Cost emphasis: 0.1 — expense ratios of 1.0–1.1% are notably higher than passive alternatives (0.1–0.3%), and cost is never mentioned as a selection criterion. Research vs cost: 0.4 — fund rationales are generic category-level descriptions ('stable long-term growth') with no deep security/fund analysis, yet the plan also doesn't rely on index/total-market exposure; it occupies an awkward middle ground of active funds chosen with passive-level research depth. Time horizon alignment: 0.95 — explicitly designed for a 27-year-old with 28-year horizon, SIP mode with 10% annual step-up, and risk disclosure emphasizing long-term recovery over short-term concerns. Portfolio activeness: 0.35 — while all funds are technically active, the 80% large-cap allocation tends toward closet-indexing behavior (benchmark-hugging with moderate tracking error); the 20% large & mid-cap sleeve adds some active tilt; expense ratios of ~1% confirm active management overhead without demonstrated alpha conviction.",
+    "composite_aps": 0.44166666666666665
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.55,
+    "reasoning": "**Goal Alignment (0.30):** The plan addresses long-term wealth growth via equity but completely ignores two of three stated goals — the emergency fund (critical for a freelancer with variable income) and the 5-year marriage/travel goal (which needs some medium-term or debt allocation). The investor explicitly wants flexibility ('top up when flush') and a simple 2-3 fund portfolio, yet the plan imposes fixed SIPs across 4 funds. Only partial alignment on the long-term goal.\n\n**Diversification (0.20):** Extremely poor diversification. 100% equity with 80% concentrated in a single sub-category (Large Cap) across three redundant funds from different fund houses but the same category. No debt allocation, no international exposure, no gold, no arbitrage/liquid for the emergency goal. Three large cap funds add fund-house variety but not meaningful diversification — they track the same universe. Only positive: two fund houses are different from each other.\n\n**Risk-Return Appropriateness (0.30):** A 100% equity allocation is aggressive for a 'moderate' risk appetite. The bear-case projection of +8% is unrealistic for equity (a true bear scenario should show negative returns). No downside protection is offered for the near-term 5-year goal or for a freelancer who may face income disruptions. The long-term horizon does suit equity, but the risk calibration is clearly above the investor's stated tolerance.\n\n**Internal Consistency (0.40):** The rationale ('put more in stocks') is consistent with the 100% equity allocation, but contradicts the moderate risk profile. Three large cap funds carry identical rationales, suggesting redundancy rather than deliberate allocation. The SIP-only mode contradicts the investor's stated preference for low fixed commitment and flexible top-ups. The plan promises simplicity (2-3 funds) but delivers 4. Numbers add up to 100% but the logic is internally muddled.\n\n**Tax Efficiency (0.55):** De facto tax-efficient: all four funds are equity (≥65% equity) and thus receive favourable equity tax treatment (LTCG 12.5% above ₹1.25L), which is appropriate for a new-regime taxpayer. No ELSS is included — correct for a new-regime investor who cannot claim 80C. However, the plan makes zero mention of tax rationale or treatment, showing no conscious tax optimization. The outcome is reasonable but the process is tax-blind, costing points.",
+    "composite_pqs": 0.35000000000000003
+  },
+  "timestamp": "2026-04-18T15:46:28.066380Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

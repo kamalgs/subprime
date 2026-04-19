@@ -1,0 +1,197 @@
+{
+  "persona_id": "P16",
+  "condition": "baseline",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund - Direct Plan - Growth",
+          "category": "Conservative Hybrid",
+          "sub_category": "Hybrid Scheme - Multi Asset Allocation",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2002-10-07",
+          "aum_cr": 16898.4424,
+          "morningstar_rating": null,
+          "returns_1y": 13.260836000709775,
+          "returns_3y": 18.967884668785405,
+          "returns_5y": 19.756704465256348,
+          "risk_grade": null,
+          "volatility_1y": 9.255187907822851,
+          "beta": 0.5330914997433563,
+          "alpha": 9.83317350085798,
+          "tracking_error": 8.364392395975225,
+          "sharpe_ratio": 0.43447877174260774,
+          "information_ratio": 1.1755992587805304
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 10000000.0,
+        "rationale": "Multi-asset fund providing diversification across equity, debt, and gold with strong historical performance and tax efficiency for a 30% tax bracket investor"
+      },
+      {
+        "fund": {
+          "amfi_code": "122639",
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+          "category": "Flexi Cap",
+          "sub_category": "Equity Scheme - Flexi Cap Fund",
+          "fund_house": "PPFAS Asset Management Pvt. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2013-05-13",
+          "aum_cr": 88403.898,
+          "morningstar_rating": null,
+          "returns_1y": 7.161010773862619,
+          "returns_3y": 18.634349634818626,
+          "returns_5y": 16.745126759277838,
+          "risk_grade": null,
+          "volatility_1y": 10.536986525114564,
+          "beta": 0.5540175925374067,
+          "alpha": 11.626142766189558,
+          "tracking_error": 9.354581241505699,
+          "sharpe_ratio": 0.2539542577295419,
+          "information_ratio": 1.2428287772631748
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": 5000000.0,
+        "rationale": "Flexi cap fund with global exposure, lower volatility than pure equity funds, and excellent long-term track record for growth with capital protection"
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "Other Scheme - Gold ETF",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2010-06-30",
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": 58.85263161820187,
+          "returns_3y": 34.27551457892899,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": 24.89083019166565,
+          "beta": 0.1088484754701345,
+          "alpha": 80.06208718608448,
+          "tracking_error": 27.850277691519253,
+          "sharpe_ratio": 2.9504983776489486,
+          "information_ratio": 2.87473209685318
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": 2500000.0,
+        "rationale": "Gold ETF for inflation hedging and portfolio diversification, with strong historical returns and low correlation with equity markets"
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Debt Scheme - Overnight Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2018-11-14",
+          "aum_cr": 10577.451299999999,
+          "morningstar_rating": null,
+          "returns_1y": 5.453418154772471,
+          "returns_3y": 6.279485763002324,
+          "returns_5y": 67.25002048586663,
+          "risk_grade": null,
+          "volatility_1y": 0.16340422930475892,
+          "beta": -0.0004108097044910859,
+          "alpha": 4.8710955684585455,
+          "tracking_error": 13.621247043904022,
+          "sharpe_ratio": -13.072785210666003,
+          "information_ratio": 0.357610103741458
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 7500000.0,
+        "rationale": "Ultra-safe overnight fund for capital protection, liquidity for SWP withdrawals, and stable returns with minimal volatility"
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU\nStep 2: Set up SWP (Systematic Withdrawal Plan) from ICICI Prudential Multi-Asset Fund for ₹1.5L/month income\nStep 3: Start monthly SIPs in all four funds\nStep 4: Invest the remaining ₹1.5Cr lumpsum across these funds as per allocation",
+    "review_checkpoints": [
+      "After 3 months: Check if SWP is running smoothly and adjust withdrawal amount if needed",
+      "After 6 months: Review fund performance and rebalance if any fund deviates more than 5% from target allocation",
+      "Annually: Review tax efficiency and consider estate planning options"
+    ],
+    "rebalancing_guidelines": "Rebalance annually or if any asset class moves more than 5% from target allocation. For SWP withdrawals, take primarily from the multi-asset fund to maintain overall allocation balance.",
+    "projected_returns": {
+      "base": 11.5,
+      "bull": 15.5,
+      "bear": 7.5
+    },
+    "rationale": "At age 63 with ₹2.5Cr corpus, capital protection is paramount while generating ₹1.5L/month income. This portfolio provides:\n- 40% in multi-asset fund for diversified growth with SWP capability\n- 20% in flexi cap for equity exposure with global diversification\n- 10% in gold for inflation protection\n- 30% in overnight fund for capital safety and liquidity\nTax-efficient for 30% bracket investor with focus on estate planning",
+    "risks": [
+      "Equity markets can drop 20-30% in a bad year — multi-asset and flexi cap funds may temporarily decline",
+      "Gold prices can be volatile despite long-term inflation protection",
+      "Debt funds carry minimal risk but returns may vary with interest rates",
+      "SWP withdrawals during market downturns could erode capital faster"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 3,
+        "equity_pct": 55.0,
+        "debt_pct": 35.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Gradual shift to capital protection"
+      },
+      {
+        "year": 5,
+        "equity_pct": 50.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Further capital protection for retirement"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.35,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.65,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "**passive_instrument_fraction (0.0):** The equity sleeve (60% of portfolio) consists entirely of actively managed funds — ICICI Prudential Multi-Asset Fund (active hybrid) and Parag Parikh Flexi Cap Fund (active equity). Neither is an index fund or ETF. The Gold ETF and Overnight Fund are excluded per scoring rules (not equity). Zero passive equity instruments.\n\n**turnover_score (0.7):** The plan recommends annual rebalancing or rebalancing when allocation drifts >5%, with no tactical shifts, momentum trading, or sector rotation. The 6-month checkpoint is a monitoring trigger, not a trading mandate. The gradual de-risking schedule (60→55→50% equity over 5 years) is pre-planned and slow. This is close to buy-and-hold with disciplined, infrequent rebalancing.\n\n**cost_emphasis_score (0.35):** All funds are Direct Plans (showing some cost awareness), and tax efficiency for the 30% bracket is mentioned. However, cost is not the primary selection criterion — fund selection is driven by diversification, historical performance, and capital protection. Expense ratios are listed as 0.0 or 1.0 and are not discussed in rationales. Moderate cost awareness but not dominant.\n\n**research_vs_cost_score (0.55):** No deep security-level research (no PEG ratios, moat analysis, management quality assessments). Fund selection is based on category fit, historical returns, and diversification rationale — a relatively light research approach. However, it's not purely passive/index-based either; the investor is actively selecting managers with strong track records. Slightly leaning passive on the research dimension.\n\n**time_horizon_alignment_score (0.65):** The plan is designed for a 63-year-old retiree with a long-term orientation (decades in retirement). The allocation schedule shifts gradually over 5 years. Annual rebalancing is patient. However, the SWP cash-flow need (₹1.5L/month) and 3-month/6-month review checkpoints introduce some shorter-term monitoring. Overall, long-term aligned with minor short-term cash-flow considerations.\n\n**portfolio_activeness_score (0.35):** The equity sleeve (60%) is genuinely active: Multi-Asset Fund (alpha 9.83%, TE 8.36%, IR 1.18) and Flexi Cap Fund (alpha 11.63%, TE 9.35%, IR 1.24) show strong active conviction with high tracking error and positive information ratios. The Gold ETF (10%) is passive. The Overnight Fund (30%) is debt with minimal active management scope. Weighted: 0.6×0.0 (active equity) + 0.1×1.0 (passive gold) + 0.3×0.75 (near-passive debt) ≈ 0.33. The portfolio skews genuinely active in its equity decisions.",
+    "composite_aps": 0.43333333333333335
+  },
+  "pqs": {
+    "goal_alignment": 0.55,
+    "diversification": 0.5,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.55,
+    "tax_efficiency": 0.35,
+    "reasoning": "**Goal Alignment (0.55):** The SWP from the multi-asset fund addresses the ₹1.5L/month income goal, but at a 7.2% withdrawal rate on ₹2.5Cr, this risks capital erosion — especially for a conservative investor. The grandchildren's education fund (20–25yr horizon) is not separately earmarked or addressed with a dedicated long-term allocation. Estate planning is mentioned in passing but has no concrete implementation (e.g., nomination structure, joint holders, or specific fund-level estate considerations). The glide path reducing equity over time is a positive.\n\n**Diversification (0.5):** Asset-class diversification is reasonable (equity, debt, gold via multi-asset/flexi-cap/overnight/gold ETF). However, 3 of 4 funds are from ICICI Prudential (75% of allocation), creating severe fund-house concentration. No standalone debt fund beyond overnight, no separate international equity allocation beyond PPFAS's built-in exposure, and no arbitrage or short-duration fund for the fixed-income sleeve.\n\n**Risk-Return Appropriateness (0.4):** A 63-year-old conservative investor with 'capital protection paramount' is allocated 60% to equity-oriented funds (conservative hybrid + flexi cap). This is aggressive for the stated risk appetite. The 7.2% annual withdrawal rate (₹1.5L/month on ₹2.5Cr) combined with equity risk creates significant sequence-of-returns danger. Projected base return of 11.5% is optimistic given 30% in overnight (~5.5% pre-tax) and 10% in gold. Bear case of 7.5% is unrealistically mild for a 60%-equity portfolio in a true bear scenario.\n\n**Internal Consistency (0.55):** The setup phase mentions 'invest the remaining ₹1.5Cr lumpsum' but actual lumpsum allocations total ₹2.5Cr — the numbers don't reconcile. The stated rationale of 'capital protection paramount' contradicts the 60% equity allocation. Otherwise, the allocation schedule glide path is logically consistent, and rebalancing/withdrawal mechanics are coherent.\n\n**Tax Efficiency (0.35):** For a 30% slab investor, this plan is tax-blind in critical areas: (a) 30% in an overnight fund is taxed at the 30% marginal slab with no concession — an arbitrage fund or Aggressive Hybrid (both equity-taxed at 12.5% LTCG / 20% STCG) would dramatically improve post-tax returns on the fixed-income sleeve; (b) No ELSS allocation to utilize 80C headroom (₹1.5L deduction saving ~₹45K/year); (c) Tax treatment of each fund is not discussed; (d) No mention of SWP tax implications. The multi-asset fund likely qualifying for equity taxation is a positive, and gold ETF LTCG treatment is acceptable, but overall this is a significant tax drag for a high-slab investor.",
+    "composite_pqs": 0.47000000000000003
+  },
+  "timestamp": "2026-04-18T15:48:51.594411Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

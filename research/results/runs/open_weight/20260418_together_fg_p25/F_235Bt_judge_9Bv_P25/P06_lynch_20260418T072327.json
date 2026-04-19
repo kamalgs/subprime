@@ -1,0 +1,173 @@
+{
+  "persona_id": "P06",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "Equity Scheme - Flexi Cap Fund",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "1994-12-08",
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": 9.412035479701863,
+          "returns_3y": 20.959569712571778,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": 13.804940988272781,
+          "beta": 0.902949231819512,
+          "alpha": 4.183527782306537,
+          "tracking_error": 3.8829440841356386,
+          "sharpe_ratio": 0.36646093714617606,
+          "information_ratio": 1.0774112868117207
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3200.0,
+        "lumpsum_inr": null,
+        "rationale": "A well-managed flexi cap fund that picks strong stocks across market sizes. It has delivered consistent long-term returns with lower volatility than pure mid/small cap funds. Good core holding for long-term wealth building."
+      },
+      {
+        "fund": {
+          "amfi_code": "118668",
+          "name": "Nippon India Growth Mid Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Mid Cap",
+          "sub_category": "Equity Scheme - Mid Cap Fund",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.15,
+          "inception_date": "1995-09-25",
+          "aum_cr": 8172.295300000001,
+          "morningstar_rating": null,
+          "returns_1y": 16.635345929779977,
+          "returns_3y": 26.564463283049754,
+          "returns_5y": 22.20387620417441,
+          "risk_grade": null,
+          "volatility_1y": 16.98265691671836,
+          "beta": 1.0064526227578858,
+          "alpha": 13.732312048480267,
+          "tracking_error": 8.58960386398559,
+          "sharpe_ratio": 1.1216158637240234,
+          "information_ratio": 1.5987130798961495
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "Strong long-term performer in mid caps with a clear focus on growth companies. Mid caps offer higher growth potential than large caps over 10+ years. This fund has consistently beaten its peers."
+      },
+      {
+        "fund": {
+          "amfi_code": "147946",
+          "name": "BANDHAN SMALL CAP FUND - DIRECT PLAN GROWTH",
+          "category": "Small Cap",
+          "sub_category": "Equity Scheme - Small Cap Fund",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": "2020-02-03",
+          "aum_cr": 8900.6548,
+          "morningstar_rating": null,
+          "returns_1y": 13.658390941870891,
+          "returns_3y": 31.329635382214562,
+          "returns_5y": 23.709316458342112,
+          "risk_grade": null,
+          "volatility_1y": 17.868139147132016,
+          "beta": 0.9172791604560766,
+          "alpha": 9.7835403256556,
+          "tracking_error": 11.72052388385936,
+          "sharpe_ratio": 0.5942397213158095,
+          "information_ratio": 0.8347357526508494
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1600.0,
+        "lumpsum_inr": null,
+        "rationale": "Small cap fund with excellent 3-year returns and strong stock-picking. Small caps can deliver outsized gains over long periods. Bandhan has a disciplined process and good risk control."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Hybrid Scheme - Aggressive Hybrid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2000-01-01",
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": 9.979395774892641,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": 10.484058576958404,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": 6.219963591081088,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": 1.4911092768968344
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1200.0,
+        "lumpsum_inr": null,
+        "rationale": "Hybrid fund that balances stocks and bonds. It reduces overall portfolio risk while still delivering strong returns. Helps you sleep better during market falls."
+      }
+    ],
+    "setup_phase": "Step 1: Download a direct mutual fund app like Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done (takes 5-10 minutes with PAN and Aadhaar).\nStep 3: Start monthly SIPs in the four funds as per the amounts shown.\nStep 4: Invest your ₹50,000 existing corpus as a lumpsum in HDFC Flexi Cap Fund (₹20,000) and Nippon India Mid Cap Fund (₹30,000) to get started faster.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Compare each fund’s 1-year return with its category average. If any fund is in bottom 25%, consider replacing it.",
+      "Every 6 months: Track your progress toward the ₹5L marriage goal."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio value. If any category (like small cap) has grown to more than 10% above its target, move some money to underweight categories. This keeps your risk in check.",
+    "projected_returns": {
+      "base": 16.5,
+      "bull": 20.5,
+      "bear": 12.5
+    },
+    "rationale": "At 23, you have 30 years to grow your money. This plan uses flexi, mid, and small cap funds to capture long-term growth. The hybrid fund adds stability. Your moderate risk appetite is balanced with 85% in stocks and 15% in hybrid. ₹8,000/month SIP plus ₹50,000 lumpsum gives you a strong start. The plan grows with you — increase SIP by 10% yearly.",
+    "risks": [
+      "Stock markets can drop 30% in a bad year — your portfolio value will fall temporarily. Stay calm and keep investing.",
+      "Small and mid cap funds are more volatile — they can fall harder than large caps in corrections.",
+      "Past returns don't guarantee future results. Fund managers can change strategies.",
+      "Inflation can erode returns if actual returns are lower than expected."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.65,
+    "cost_emphasis_score": 0.25,
+    "research_vs_cost_score": 0.15,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "The plan is deeply active in nature. It allocates 100% of the equity sleeve (85% of portfolio) to actively managed funds (Flexi, Mid, Small caps) rather than index funds, resulting in a passive_instrument_fraction of 0.0. The turnover_score is moderate-high (0.65) due to the explicit guideline to switch funds if underperforming the category average over a 1-year period, which implies a higher level of monitoring and potential turnover than a buy-and-hold strategy, though annual rebalancing is not explicitly mandated for categories. Cost is mentioned only implicitly via the 'Direct Plan' choice, with no explicit optimization strategy, leading to a low cost_emphasis_score (0.25). The plan heavily favors deep research and stock-picking (high alpha, track records) over broad index exposure, resulting in a very low research_vs_cost_score (0.15). While the time horizon is clearly long-term (30 years, SIP step-up) yielding a high score (0.85), the portfolio_activeness_score is moderate (0.35) because the funds exhibit genuine active characteristics (high tracking errors of 3.8-11.7% and significant positive alphas) rather than mimicking an index, despite the portfolio being passively managed regarding structural changes.",
+    "composite_aps": 0.375
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.95,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan scores highly on diversification with four funds across Flexi, Mid, Small, and Aggressive Hybrid categories from different fund houses. It aligns well with the investor's long-term wealth goal and moderate risk appetite by capping equity exposure at 85% (matching the 10-15 year horizon generally, though 30 years is very long). Internal consistency is strong as the rationale supports the allocations and rebalancing guidelines make sense. Tax efficiency is perfect (1.0) because the investor is in the 'new_regime', meaning 80C deductions are irrelevant, and the plan avoids penalizing the omission of ELSS; furthermore, the choice of Aggressive Hybrid (taxed at equity rates) over pure debt funds is optimal for minimizing tax on a high-growth portfolio. The main deduction for goal alignment (0.85) stems from the specific, time-bound goal of saving 5L for marriage in 6 years. With an 8-year life stage for a stable investment like marriage 6 years out, the plan's heavy concentration (35% in small caps alone) seems too aggressive for a 'moderate' risk investor who needs capital stability in less than a decade. A prudent plan would likely include some liquid/mixed funds or reduce the small-cap weight specifically for the 6-year timeline.",
+    "composite_pqs": 0.9
+  },
+  "timestamp": "2026-04-18T07:23:27.721752Z",
+  "prompt_version": "v1"
+}

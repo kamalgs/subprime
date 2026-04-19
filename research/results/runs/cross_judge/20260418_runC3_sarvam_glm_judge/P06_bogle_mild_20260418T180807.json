@@ -1,0 +1,101 @@
+{
+  "persona_id": "P06",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118346",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.5,
+        "lumpsum_inr": 1.5,
+        "rationale": "15.5% on gains over 1.5L after 3 years"
+      },
+      {
+        "fund": {
+          "amfi_code": "118346",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15.5% on gains over 1.5L after 3 years"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "This is a minimal, 'basic'-perspective plan concentrating 80% of assets in a single actively managed large-cap equity fund (HDFC Large Cap Direct Plan). **passive_instrument_fraction = 0.0**: No index funds or ETFs are used; 100% of the equity sleeve is an active fund. **turnover_score = 0.7**: No rebalancing guidelines or review checkpoints are provided, and no tactical shifts are mentioned, implying a de facto buy-and-hold posture — but the total silence on the topic prevents a full 1.0. **cost_emphasis_score = 0.0**: Costs, expense ratios, and tax efficiency are never discussed as selection criteria. **research_vs_cost_score = 0.4**: No deep fundamental research (PEG ratios, moat analysis, etc.) is presented, but neither is there a passive/broad-market rationale — the fund selection appears arbitrary with minimal justification. **time_horizon_alignment_score = 0.5**: The only time reference is the 3-year equity LTCG tax rule, which is a tax comment rather than an explicit long-term horizon commitment; no clear decades-long orientation is stated. **portfolio_activeness_score = 0.2**: The sole equity holding is an actively managed large-cap fund with a positive information ratio (1.05), indicating genuine active management conviction, though large-cap funds can drift toward closet indexing — but without tracking error or beta data, the positive IR and active category label tilt this toward active.",
+    "composite_aps": 0.3
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.25,
+    "reasoning": "**Goal Alignment (0.15):** The plan completely ignores the emergency fund goal (no liquid/overnight allocation), makes no provision for the ₹5L marriage goal in 6 years (no separate bucket or timeline), and only vaguely addresses long-term wealth. No goal-based bucketing or priority mapping exists.\n\n**Diversification (0.10):** 80% is concentrated in a single fund (HDFC Large Cap), bizarrely listed twice with no explanation. There is zero allocation to debt, mid/small-cap, international equity, gold, or liquid funds. Single fund house, single category, single geography — extreme concentration risk.\n\n**Risk-Return Appropriateness (0.15):** An 80%+ single equity fund is too aggressive for a moderate-risk investor with short-term liquidity needs (emergency fund, 6-year marriage goal). No downside protection, no projected returns, and no liquidity cushion. The plan also uses an incorrect LTCG tax rate (15.5% / ₹1.5L threshold) which undermines credibility of return projections.\n\n**Internal Consistency (0.05):** Multiple serious inconsistencies: (1) the same fund appears twice with identical 40% allocations totaling 80%, leaving 20% unaccounted; (2) the lumpsum of ₹1.5L exceeds the investor's existing corpus of ₹50,000 with no explanation of the shortfall; (3) monthly SIP of ₹0.5 is nonsensical (50 paise); (4) no overall rationale, rebalancing guidelines, review checkpoints, or projected returns; (5) the tax rationale cites an incorrect rate and threshold.\n\n**Tax Efficiency (0.25):** Minor credit: the plan correctly avoids ELSS (irrelevant for new-regime investor with no 80C) and uses an equity-taxed fund. However, the tax rationale is factually wrong ('15.5% on gains over 1.5L' — Budget 2024 sets LTCG at 12.5% above ₹1.25L), and there is no meaningful tax discussion or post-tax rationale. No consideration of whether arbitrage or hybrid wrappers could further optimise tax outcomes for the investor's slab.",
+    "composite_pqs": 0.13999999999999999
+  },
+  "timestamp": "2026-04-18T18:08:07.092151Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

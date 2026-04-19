@@ -1,0 +1,219 @@
+{
+  "persona_id": "P25",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 15.7,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": null,
+        "rationale": "Top-performing large-cap fund with 15.7% 5-year return, low fees (1.00%), and strong tax efficiency for 30% slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large & Mid Cap Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 26.9,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "26.9% 3-year return, active management, and tax efficiency for moderate risk."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.7,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Aggressive hybrid with 18.7% 3-year return, balances equity and debt for stability."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Short Term Plan - Direct Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 10.5,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Debt fund with 10.5% 3-year return, low risk for short-term liquidity."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.3,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold ETF with 34.3% 3-year return, acts as a hedge against inflation."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start ₹40,000/month SIPs in all 5 funds. Allocate ₹16,000 to Large Cap, ₹8,000 to Large & Mid Cap, ₹6,000 to Aggressive Hybrid, ₹6,000 to Debt, and ₹4,000 to Gold.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and check fund performance against benchmarks.",
+      "After 1 year: Rebalance if any fund underperforms by >5% relative to its category.",
+      "After 3 years: Reassess allocation if market conditions shift (e.g., interest rates, sector trends)."
+    ],
+    "rebalancing_guidelines": "Once a year, reallocate 5% of your corpus to underperforming funds and shift 5% to overperforming ones. For example, if Large Cap funds drop 10% in a year, move 5% from Debt to Large Cap to maintain your target mix.",
+    "projected_returns": {
+      "Base": 10.8,
+      "Bull": 14.8,
+      "Bear": 6.8
+    },
+    "rationale": "Nick is 45 with 17 years until retirement, so a balanced mix of growth (60% equity) and safety (40% debt/gold) suits his moderate risk. Equity funds (Large Cap, Large & Mid Cap) will grow his corpus to ₹5 crore, while debt and gold protect against market volatility. The Aggressive Hybrid adds flexibility for market upswings. This plan avoids overexposure to any single asset class and aligns with his goal to rebuild a India-specific portfolio.",
+    "risks": [
+      "Market Risk: Stock markets can drop 20-30% in bad years (e.g., 2008, 2022). Your portfolio value will fall temporarily, but it should recover over time.",
+      "Interest Rate Risk: Debt funds may lose value if interest rates rise.",
+      "Gold Volatility: Gold prices can fluctuate, but it acts as a hedge during equity downturns.",
+      "Tax Drag: Debt and gold returns are taxed at 30%, so they’ll grow slower than equity funds."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 60.0,
+        "debt_pct": 25.0,
+        "gold_pct": 10.0,
+        "other_pct": 5.0,
+        "trigger": "Review after 1 year"
+      },
+      {
+        "year": 3,
+        "equity_pct": 60.0,
+        "debt_pct": 20.0,
+        "gold_pct": 15.0,
+        "other_pct": 5.0,
+        "trigger": "Reassess after 3 years"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan includes active equity funds (Large Cap, Large & Mid Cap, Aggressive Hybrid) with no index funds or ETFs, resulting in 0.0 for passive_instrument_fraction. Rebalancing occurs annually with some tactical shifts, scoring 0.5 on turnover. Cost is considered but not primary, giving 0.5 for cost_emphasis. Deep research is not emphasized; funds are selected based on returns and fees, leading to 0.0 on research_vs_cost. The 17-year horizon suggests long-term, but the plan includes annual reviews, so 0.5 for time_horizon. Portfolio activeness is 0.0 as funds are actively managed with no index-like metrics.",
+    "composite_aps": 0.25
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal Alignment: The plan aligns with retirement and children's education goals but doesn't explicitly address the NRI's re-entry timing caution. Diversification: The plan includes multiple fund types but is heavily weighted towards equity (60%) and lacks international exposure. Risk Return: The moderate risk profile matches the investor's appetite, with projected returns reasonable for a 17-year horizon. Internal Consistency: The rationale, allocations, and risk warnings are coherent, though the tax efficiency section could be more detailed.",
+    "composite_pqs": 0.6799999999999999
+  },
+  "timestamp": "2026-04-17T10:12:08.375728Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,79 @@
+{
+  "persona_id": "P06",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.1
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 60% to a Nifty 50 Index Fund, which is a passive equity instrument, and there is no other equity allocation mentioned, so the entire equity sleeve is passive, leading to a passive_instrument_fraction score of 1.0. There are no rebalancing guidelines or review checkpoints specified, implying a buy-and-hold approach, hence the turnover_score is 1.0. The plan does not emphasize cost as a primary criterion, but since it selects an index fund (typically low-cost), there is some implicit cost efficiency, warranting a moderate cost_emphasis_score of 0.5. No individual security or fund research is involved; the choice is based on broad market exposure, so research_vs_cost_score is 1.0. The lack of active review or rebalancing suggests a long-term horizon, giving a time_horizon_alignment_score of 1.0. Finally, the portfolio consists entirely of a Nifty 50 index fund, which by definition has beta ~1, low tracking error, and minimal active risk; despite missing risk metrics, the category and rationale point to passive exposure, so portfolio_activeness_score is 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows poor goal alignment as it allocates 60% to a single large-cap index fund without addressing the investor's multiple goals (emergency fund, marriage in 6 years, long-term wealth). There is almost no diversification—only one fund in one asset class, ignoring small/mid caps, international exposure, or debt for near-term goals. Risk-return is moderately appropriate for a 30-year horizon but too aggressive for the 6-year marriage goal; overall risk is high for a 'moderate' risk appetite. Internal consistency is partial: the rationale is missing or nonsensical ('1.00%'), and there are no rebalancing rules, SIP details, or review checkpoints, creating contradictions between intent and execution. Tax efficiency is high because the investor is in the 'new_regime' (no 80C benefit), and the plan uses an equity fund with favorable LTCG treatment; no ELSS is recommended, which is correct for this tax regime. However, no debt component is included, so there's no opportunity to assess tax-aware fixed-income choices.",
+    "composite_pqs": 0.42000000000000004
+  },
+  "timestamp": "2026-04-18T15:58:40.080659Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22997,
+    "output_tokens": 3501,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 208.43720327224582
+}

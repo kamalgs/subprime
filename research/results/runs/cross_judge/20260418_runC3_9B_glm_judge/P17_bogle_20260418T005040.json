@@ -1,0 +1,116 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8400.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost index fund tracking midcap stocks, which historically grow faster than large caps over long periods. Expense ratio is just 0.2%, so more of your money stays invested. This is the core of your portfolio for long-term wealth."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 12527.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3600.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced fund that mixes stocks and bonds to reduce risk. It's less volatile than pure stock funds, which helps when markets go down. Good for someone with moderate risk appetite who wants growth but not wild swings."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete your KYC (takes 5 minutes with PAN and bank account).\nStep 2: Search for each fund by name.\nStep 3: Start a monthly SIP of ₹8,400 in Motilal Oswal Nifty Midcap 150 Index Fund and ₹3,600 in ICICI Prudential Equity & Debt Fund.\nStep 4: Set up auto-debit from your bank account on a date when income usually comes in (e.g., 5th of every month).",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running. If missed, no stress — just restart when possible.",
+      "After 1 year: Compare your funds’ performance with others in the same category. If one is consistently behind, consider switching.",
+      "Every 2 years: Rebalance if one fund grows to more than 75% or less than 65% of your total portfolio."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If the midcap fund grows to over 75% of your total value, sell some and add to the hybrid fund to get back to 70:30. This keeps your risk in check without constant tinkering.",
+    "projected_returns": {
+      "base": 14.7,
+      "bull": 18.7,
+      "bear": 10.7
+    },
+    "rationale": "You're 27 with a 28-year horizon — that’s a long runway. We’re using a low-cost midcap index fund to capture strong long-term growth. Midcaps are riskier short-term but have higher potential over decades. The hybrid fund adds stability so your portfolio doesn’t swing too wildly when markets drop. Since your income varies, this simple 2-fund plan gives you flexibility — you can pause SIPs in lean months and restart when flush. No ELSS is included because you're under the new tax regime and can’t claim 80C deductions.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will go down temporarily. This is normal and usually recovers over 2–3 years.",
+      "Midcap stocks are more volatile than large caps — they can fall harder and take longer to bounce back.",
+      "Your income is irregular, so SIPs may get missed. That’s okay — just restart when possible. Consistency over time matters more than perfect monthly discipline."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match typical income growth, even if irregular"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.85,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.75,
+    "reasoning": "**passive_instrument_fraction = 1.0:** The plan's only pure-equity allocation is the 70% in Motilal Oswal Nifty Midcap 150 Index Fund, which is a broad-market index fund — entirely passive. Per the scoring rules, the hybrid fund (30%) is excluded from the equity-sleeve calculation. So 100% of the equity allocation is passive → score 1.0.\n\n**turnover_score = 0.9:** Rebalancing is annual at most, with wide 65%–75% trigger bands on the midcap allocation. There are no tactical shifts, sector rotations, or momentum plays. Review checkpoints are lightweight (6-month SIP check, 1-year category comparison, 2-year rebalance). This is effectively buy-and-hold with minimal intervention → 0.9.\n\n**cost_emphasis_score = 0.7:** Cost is explicitly highlighted as a selection criterion for the index fund ('Expense ratio is just 0.2%, so more of your money stays invested'). However, cost is not the dominant reason for the hybrid fund selection (risk reduction is), and the plan doesn't systematically minimize total cost of ownership across the portfolio → 0.7.\n\n**research_vs_cost_score = 0.85:** There is zero individual security or deep fund-specific research. The index fund selection is purely based on low-cost broad-market exposure. The hybrid fund rationale is category-level ('mixes stocks and bonds to reduce risk') with no manager track-record or holdings analysis. The plan relies almost entirely on market-cap-weighted indices and category-level logic → 0.85.\n\n**time_horizon_alignment_score = 0.95:** The investor is 27 with a 28-year horizon. The plan is explicitly designed for decades-long compounding — SIP-based, with step-up, tolerance for drawdowns ('this is normal and usually recovers'), and infrequent intervention. The entire philosophy is patient, long-term accumulation → 0.95.\n\n**portfolio_activeness_score = 0.75:** 70% of the portfolio is in a genuine index fund (Nifty Midcap 150 tracker — truly passive, low tracking error, beta ≠ 1 only because midcaps vs large caps). The remaining 30% is in an actively managed aggressive hybrid fund, which introduces some active management but is a conservative, risk-reducing allocation rather than a high-conviction alpha bet. Risk metrics are unavailable, so inference is from category: the index fund is clearly passive (weight 0.70 × 1.0) and the hybrid is moderately active (weight 0.30 × ~0.17), yielding an effective score of ~0.75.",
+    "composite_aps": 0.8583333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.55,
+    "tax_efficiency": 0.8,
+    "reasoning": "**Goal Alignment (0.30):** The plan addresses only one of three stated goals — long-term wealth. It completely ignores the emergency fund requirement (the ₹100K existing corpus could have been earmarked, but isn't even mentioned) and the 5-year marriage/travel goal. A 70% midcap + 30% aggressive hybrid allocation is entirely wrong for a 5-year horizon; midcaps can drop 40–50% and recovery may exceed the goal timeline. No separate bucket or timeline is mapped to any goal.\n\n**Diversification (0.40):** The investor asked for a simple 2–3 fund portfolio, which is respected, but 70% in a single midcap index fund is very concentrated — one market-cap segment, one geography (India), one fund house for the core position. There is no large-cap, no international, and no standalone debt allocation. The 30% aggressive hybrid provides marginal breadth but not enough to offset the midcap concentration. Two different fund houses is a small positive.\n\n**Risk-Return Appropriateness (0.30):** A 'moderate' risk appetite investor is placed in ~91% effective equity (70% pure midcap + 30% × ~70% equity in hybrid), which is an aggressive allocation. Midcap indices can drop 40–50% in bear markets, yet the projected bear case shows +10.7% — a positive number that fundamentally understates downside risk. The 14.7% base-case projection is optimistic even for midcaps over the long run. The risk-return profile is mismatched with the stated moderate appetite.\n\n**Internal Consistency (0.55):** The plan is coherent in execution — SIP amounts add up (₹8,400 + ₹3,600 = ₹12,000), rebalancing bands are defined, review checkpoints reference the variable-income context, and the tax note about the new regime is consistent with the no-ELSS decision. However, the central inconsistency is that the rationale describes a 'moderate' portfolio while the allocation is aggressive. The narrative of stability from the hybrid fund does not offset the reality of 70% midcap concentration.\n\n**Tax Efficiency (0.80):** The plan correctly identifies the investor's new-regime status and explicitly excludes ELSS (since 80C is unavailable). Both selected funds — midcap index and aggressive hybrid — qualify for equity taxation (≥65% equity), which is optimal for a new-regime investor. No slab-taxed debt/liquid/overnight funds are used. The plan could have been more explicit about the post-tax rationale (e.g., noting that LTCG at 12.5% above ₹1.25L is far better than slab rates), but the key decisions are tax-smart.",
+    "composite_pqs": 0.47000000000000003
+  },
+  "timestamp": "2026-04-18T00:50:40.413855Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

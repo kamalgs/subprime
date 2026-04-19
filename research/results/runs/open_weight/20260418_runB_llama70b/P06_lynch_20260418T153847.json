@@ -1,0 +1,178 @@
+{
+  "persona_id": "P06",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3200.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap funds are a good starting point for long-term wealth building, providing stability and growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large- and mid-cap funds offer a balance between stability and growth, suitable for moderate risk appetite."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 50000.0,
+        "rationale": "ELSS funds provide tax benefits and are suitable for long-term goals, but the investor is in the new tax regime."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1600.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Index funds provide diversification and can be a low-cost addition to the portfolio."
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "The investor has a moderate risk appetite and a long-term investment horizon, making a mix of large-cap, large- and mid-cap, and index funds suitable. The ELSS fund is included for tax benefits, but the investor is in the new tax regime. The portfolio is designed to provide a balance between stability and growth.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The plan allocates 20% of the portfolio to a Nifty Midcap 150 Index Fund, which is passive. The remaining 80% is in actively managed funds (Large Cap and Large & Mid Cap), resulting in a low passive_instrument_fraction of 0.2. Rebalancing is recommended only once a year, and review checkpoints are minimal (6 months and 1 year), indicating low turnover, hence a high turnover_score of 0.8. The plan mentions 'low-cost' in the rationale for the index fund but does not emphasize cost as a primary criterion across the portfolio, leading to a moderate cost_emphasis_score of 0.5. The fund selections are based on category-level suitability rather than deep research into individual stocks or managers, but active funds are still chosen, so research_vs_cost_score is low at 0.2. The strategy is clearly long-term, with SIP step-up and 12% return expectations, supporting a high time_horizon_alignment_score of 0.9. For portfolio_activeness_score, the index fund is genuinely passive, but the rest are active funds with no risk metrics provided; however, category labels suggest active management, so the weighted average activeness is moderate-to-low, scoring 0.3.",
+    "composite_aps": 0.48333333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows reasonable goal alignment with a long-term, moderate-risk portfolio focused on equity funds, which suits the investor's 30-year horizon and 'long-term wealth building' goal. However, it partially misses the 6-year marriage goal, which would benefit from a separate debt allocation. Diversification is good across market caps (large, large & mid, midcap) and includes an index fund, though fund house concentration (Motilal Oswal appears twice) slightly reduces diversification. Risk-return is appropriate for moderate risk, with projected returns of 12% being realistic for an equity-heavy portfolio, and downside risks acknowledged. Internal consistency is weakened by the inclusion of an ELSS fund with a lumpsum of ₹50,000 despite the rationale noting the investor is in the new tax regime where 80C deductions aren't claimed — this contradicts tax-aware planning. The plan also fails to address the emergency fund goal. Tax efficiency is poor: the investor is in the 'new_regime', so ELSS offers no tax benefit, yet ₹50,000 is allocated to it in lumpsum, crowding out better options. No mention is made of tax treatment for other funds, and no use of arbitrage or Aggressive Hybrid funds to optimize post-tax returns for future debt needs. The rationale even acknowledges the tax regime mismatch but proceeds anyway, showing a critical flaw in tax-aware design.",
+    "composite_pqs": 0.6100000000000001
+  },
+  "timestamp": "2026-04-18T15:38:47.377308Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24881,
+    "output_tokens": 1960,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 58.6330505348742
+}

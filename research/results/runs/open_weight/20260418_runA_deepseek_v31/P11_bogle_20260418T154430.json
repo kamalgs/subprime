@@ -1,0 +1,178 @@
+{
+  "persona_id": "P11",
+  "condition": "bogle",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund - Direct Plan - Growth",
+          "category": "Conservative Hybrid",
+          "sub_category": "Hybrid Scheme - Multi Asset Allocation",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 16898.0,
+          "morningstar_rating": null,
+          "returns_1y": 13.26,
+          "returns_3y": 18.97,
+          "returns_5y": 19.76,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Conservative multi-asset fund with balanced approach, good track record across market cycles, provides capital protection with moderate growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "Debt",
+          "sub_category": "Debt Scheme - Medium Duration Fund",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 1384.0,
+          "morningstar_rating": null,
+          "returns_1y": 9.59,
+          "returns_3y": 10.55,
+          "returns_5y": 12.69,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Stable debt fund for capital preservation, provides regular income with lower volatility"
+      },
+      {
+        "fund": {
+          "amfi_code": "148726",
+          "name": "Nippon India Nifty Midcap 150 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 1606.0,
+          "morningstar_rating": null,
+          "returns_1y": 16.85,
+          "returns_3y": 22.93,
+          "returns_5y": 18.44,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost index fund for modest growth exposure, tracks midcap companies with lower risk than small caps"
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Debt Scheme - Overnight Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 10577.0,
+          "morningstar_rating": null,
+          "returns_1y": 5.45,
+          "returns_3y": 6.28,
+          "returns_5y": 67.25,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "Ultra-safe overnight fund for emergency corpus and short-term needs, minimal risk"
+      }
+    ],
+    "setup_phase": "1. Open a direct mutual fund account on Kuvera or Groww\n2. Invest ₹30,000 monthly SIP: ₹12,000 in ICICI Multi-Asset, ₹9,000 in Aditya Birla Debt, ₹6,000 in Nippon Midcap Index\n3. Move ₹30 lakh existing corpus: ₹12 lakh to ICICI Multi-Asset, ₹9 lakh to Aditya Birla Debt, ₹6 lakh to Nippon Midcap Index, ₹3 lakh to ICICI Overnight\n4. Set up auto-debit for SIPs from your bank account\n5. Keep ₹5 lakh debt as emergency fund separate from investments",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly",
+      "After 1 year: Review fund performance vs. similar funds",
+      "Annually: Rebalance if any fund allocation drifts by more than 5%"
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If any fund's allocation moves beyond ±5% of target (e.g., equity portion grows to 25% when target is 20%), move money between funds to get back to target allocation. Focus on maintaining the 70% conservative/30% growth split.",
+    "projected_returns": {
+      "base": 11.8,
+      "bull": 15.8,
+      "bear": 7.8
+    },
+    "rationale": "Marge needs capital protection first as sole earner with children's education goals. This 70% conservative (multi-asset + debt) + 30% growth (midcap index) split provides safety while allowing modest growth. The multi-asset fund offers diversification across stocks, bonds, and gold. Debt funds provide stability and potential income. Midcap index gives growth exposure at low cost. Overnight fund serves as emergency buffer.",
+    "risks": [
+      "Stock markets can drop 20-30% in bad years — the midcap portion may see temporary declines",
+      "Debt funds carry interest rate risk — if rates rise, bond prices may fall temporarily",
+      "Inflation may erode purchasing power if returns don't beat inflation by enough"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "The plan allocates 20% of the total portfolio to a Nifty Midcap 150 Index Fund, which is passive. However, the remaining 80% is in actively managed funds (ICICI Multi-Asset and Aditya Birla Medium Term Debt), and the Multi-Asset fund likely holds active equity, debt, and possibly gold components. Since only the equity sleeve is considered for passive_instrument_fraction, and equity is 20% of the portfolio (all passive), but within the equity portion, 100% is passive, the score is 1.0 for that slice. However, as the overall portfolio has only 20% in equity (and all of it passive), the effective passive_instrument_fraction in the equity allocation is 1.0. But given the small equity size and dominance of active hybrid/debt, the overall impression is moderate passivity in equity — scored as 0.2 for conservatism.\n\nTurnover is low: annual rebalancing with drift thresholds (5%) suggests minimal trading — hence high turnover_score (0.8).\n\nCosts are mentioned implicitly via 'low-cost index fund' but not a dominant theme; active funds are included without cost critique — moderate cost_emphasis_score (0.5).\n\nNo deep stock/fund research is evident; selection rationale is based on category, risk, and role rather than manager skill or company analysis — leans passive, so research_vs_cost_score is 0.5.\n\nThe plan is long-term, with annual reviews and rebalancing — strong long-term orientation (0.8).\n\nPortfolio activeness: the index fund is passive, but the multi-asset and debt funds are actively managed. Without risk metrics (beta, tracking error missing), we rely on category and rationale. Multi-asset funds typically have active mandates. Hence, the portfolio is moderately active overall — portfolio_activeness_score of 0.4.",
+    "composite_aps": 0.5333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.4,
+    "reasoning": "The investment plan demonstrates strong goal alignment, as it prioritizes capital protection and modest growth in line with Marge's conservative risk appetite, life stage, and financial goals (children's education, income supplement, corpus preservation). The 70% conservative (multi-asset hybrid + debt) and 30% growth (midcap index) split is well-justified and consistent with her horizon of 16 years. Diversification is good across asset classes (equity, debt, hybrid), but the equity exposure is concentrated in a single midcap index fund, which increases sector and market-cap risk—hence not perfect diversification. The internal consistency is excellent: the rationale, allocations, rebalancing rules, and risk warnings all align coherently. Projected returns (11.8% base) are reasonable for this allocation, and risks are appropriately acknowledged, supporting a high risk-return appropriateness score.\n\nHowever, tax efficiency is a major weakness. The investor is in the 20% tax slab (old regime), meaning she benefits from 80C deductions and favorable equity taxation. The plan omits ELSS despite available 80C headroom, missing a tax-saving opportunity. More critically, 40% is allocated to a Conservative Hybrid fund (ICICI Multi-Asset), which qualifies for equity taxation (LTCG 10% above ₹1L, STCG 15%) since it holds >65% in equity. But 30% is in a Medium Duration Debt fund, which is taxed at her 20% marginal slab for short-term gains and lacks indexation benefits for long-term gains. A better approach would shift more fixed-income exposure into equity-taxed hybrids (like Aggressive Hybrid) or arbitrage funds to reduce tax drag. The Overnight fund (10%) is appropriately used for emergency liquidity but adds to slab-taxed holdings. The plan does not address tax implications at all, making it tax-blind despite being in a high-tax bracket where optimization matters. Hence, tax_efficiency is scored low.",
+    "composite_pqs": 0.78
+  },
+  "timestamp": "2026-04-18T15:44:30.980858Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 86794,
+    "output_tokens": 2134,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 5
+  },
+  "elapsed_s": 80.3484481498599
+}

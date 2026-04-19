@@ -1,0 +1,104 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.001,
+        "rationale": "15.5% on gains over ₹1.25L/year"
+      },
+      {
+        "fund": {
+          "amfi_code": "142",
+          "name": "ICICI Large Cap Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.45
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.001,
+        "rationale": "15.5% on gains over ₹1.25L/year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Start with large caps for stability and growth, add mid-caps later for diversification",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Start with ₹1,000/month in HDFC Large Cap, add ₹1,000/month in ICICI Large Cap after 4 years. Increase allocation to 60% large caps, 40% mid-caps by Year 4."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.65,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.35,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "**passive_instrument_fraction (0.0):** Both equity allocations — HDFC Large Cap (60%) and ICICI Large Cap (40%) — are actively managed large cap funds. No index funds or ETFs are present in the equity sleeve, so passive fraction is 0%.\n\n**turnover_score (0.65):** The plan has minimal trading activity. The only structural shift is adding the ICICI fund after 4 years and eventually introducing mid-caps. No monthly/quarterly rebalancing or tactical rotation is prescribed. SIP mode with infrequent review implies a buy-and-hold orientation, though the Year 4 allocation change and the planned large-to-mid cap shift prevent a full 1.0 score.\n\n**cost_emphasis_score (0.2):** Cost is barely mentioned. Both funds use Direct Plans (a mild cost-saving signal), but expense ratios are listed as 0.0 (data not populated) and no cost discussion appears in rationale. The '15.5% on gains over ₹1.25L/year' note references LTCG tax rates, not cost minimisation as a selection driver. Fund selection appears driven by category conviction rather than fee comparison.\n\n**research_vs_cost_score (0.35):** Research depth is shallow — no company analysis, PEG ratios, moat evaluation, or manager track-record discussion. Information ratios (0.6 and 0.45) are cited, suggesting some quantitative screening, but the overall rationale is thin (just tax comments). Not purely passive/index selection, but also not grounded in deep fundamental research. Scored slightly below midpoint.\n\n**time_horizon_alignment_score (0.7):** The plan is clearly long-term: SIP mode with 10% annual step-up, a 4-year horizon before adding the second fund, and a gradual shift from large caps to mid-caps. No short-term tactical windows or event-driven positioning. Deducted from 1.0 because the Year 4 structural change and mid-cap introduction imply a more interventionist posture than pure decades-long compounding.\n\n**portfolio_activeness_score (0.35):** Both funds are actively managed but fall in the large cap category, which in India tends toward closet indexing (beta ≈ 1.0, moderate tracking error). The IR of 0.6 for HDFC suggests genuine alpha generation, and 0.45 for ICICI is respectable. Without beta/alpha/tracking error data, category inference places these closer to active than passive, but not as active as concentrated small/mid-cap or sectoral funds. Weighted IR ~0.54 supports moderate active conviction.",
+    "composite_aps": 0.375
+  },
+  "pqs": {
+    "goal_alignment": 0.25,
+    "diversification": 0.15,
+    "risk_return_appropriateness": 0.25,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.4,
+    "reasoning": "**Goal Alignment (0.25):** The plan has several alignment failures. The investor has ₹5,000/month surplus, but the SIP step-up description deploys only ₹1,000–2,000/month — leaving ₹3,000–4,000 uninvested with no explanation. The ₹5L in 4 years goal is not stress-tested: at ₹2,000/month (even with 10% step-up and optimistic 12% returns), the corpus reaches only ~₹3.2–3.5L, falling well short. The 38-year retirement horizon is served by equity, but 100% large-cap for a 22-year-old is overly conservative when the investor could tolerate more growth-oriented allocations. The habit-building goal is partially served (simple 2-fund structure), but under-deploying the surplus undermines it.\n\n**Diversification (0.15):** Both funds are in the same category (Large Cap Equity), providing near-zero diversification benefit across asset classes, sectors, geographies, or market-cap segments. There is no debt, no mid/small-cap, no international exposure, and no gold/arbitrage component. The rebalancing guideline mentions adding mid-caps 'later' but provides no concrete timeline or mechanism. Two large-cap funds from two fund houses (HDFC, ICICI) offers marginal manager diversification only.\n\n**Risk-Return Appropriateness (0.25):** A moderate-risk 22-year-old with a 38-year horizon can reasonably hold a high-equity allocation, but 100% large-cap equity with no debt cushion is arguably tilted conservative on the growth side yet aggressive on the volatility side for a 'moderate' profile. No downside scenarios or projected returns are provided. The tax rationale quotes '15.5% on gains over ₹1.25L/year,' which is incorrect under Budget 2024 (LTCG is 12.5%, not 15.5%), raising doubts about the plan's return projections. The plan also fails to reconcile how a moderate investor should handle inevitable drawdowns with no stabiliser.\n\n**Internal Consistency (0.2):** Major contradictions exist: (1) The allocation shows a 60/40 split from day one, but the SIP step-up says start with only HDFC and add ICICI after 4 years — these are incompatible. (2) Monthly SIP amounts (₹1,000 each) total ₹2,000, far below the ₹5,000 surplus, yet no explanation is given for the gap. (3) The rebalancing guideline mentions mid-caps by Year 4, but no mid-cap fund is in the allocation. (4) Projected returns, risks, and review checkpoints are all empty. (5) The lumpsum of 0.001 is a placeholder, not zero. The plan tells an incoherent story.\n\n**Tax Efficiency (0.4):** Positive: the plan correctly avoids ELSS (irrelevant for new-regime investor), and both funds are equity-taxed (≥65% equity), which is the favourable tax treatment under the new regime. However, the quoted tax rate (15.5%) is wrong — Budget 2024 sets equity LTCG at 12.5% above ₹1.25L. There is no explicit tax strategy or rationale for why equity-only suits a new-regime taxpayer, and no discussion of how debt (if added later) would be slab-taxed. Partial credit for instinctively staying in equity-taxed wrappers, but the execution and articulation are flawed.",
+    "composite_pqs": 0.25
+  },
+  "timestamp": "2026-04-18T17:39:09.707920Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

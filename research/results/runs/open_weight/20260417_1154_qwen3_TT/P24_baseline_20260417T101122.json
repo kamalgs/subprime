@@ -1,0 +1,114 @@
+{
+  "persona_id": "P24",
+  "condition": "baseline",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "133401",
+          "name": "JM Aggressive Hybrid Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 20.56,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "High 3-year return (20.56%), low expense ratio (1.00%), and equity-taxed (12.5% LTCG after 1 year). Balances growth with moderate risk."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 23.19,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "3-year return of 23.19%, low expense ratio (0.20%), and equity-taxed. Midcap index funds grow faster than large caps over long horizons."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start SIPs in the above funds. Step 3: Set up auto-debit from your bank account for ₹5,000/month. Step 4: Enable notifications for SIP reminders and market updates.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and no missed payments.",
+      "After 1 year: Compare fund performance against their 3-year benchmark (e.g., JM Fund vs. 20.56% benchmark, Motilal Oswal vs. 23.19%).",
+      "After 4 years: Reassess allocation if one fund outperforms the other by 15%+ (rebalance to maintain 60-40 split)."
+    ],
+    "rebalancing_guidelines": "Once/year: Check if the 60-40 split has shifted due to market movements. If Aggressive Hybrid grows much more: Move 10% of corpus to Index Fund. If Index Fund underperforms: Add 10% to Aggressive Hybrid.",
+    "projected_returns": {
+      "Base": 12.0,
+      "Bull": 16.0,
+      "Bear": 8.0
+    },
+    "rationale": "Age 22, 38 years ahead: Equity-focused funds (Aggressive Hybrid + Index) maximize compounding. Moderate risk: Aggressive Hybrid balances growth with stability, while Index funds provide market exposure. No debt: Debt funds are slab-taxed (higher tax for new regime), so focus on equity-taxed funds. Simple: 2 funds, 1 SIP, and 10% annual step-up — easy to follow.",
+    "risks": [
+      "Market drops: Stock markets can fall 20-30% in bad years (e.g., 2008, 2022). Your portfolio value will drop temporarily but recover over time.",
+      "No guarantees: Returns depend on market performance, not promises.",
+      "Tax impact: Gains >₹1.25L after 1 year face 12.5% tax. Plan for this in long-term horizons."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "Passive_instrument_fraction: Both funds are index-based (Motilal Oswal Nifty Midcap 150 Index Fund) and hybrid fund (JM Aggressive Hybrid Fund) which is a passive approach. Cost_emphasis_score: The plan emphasizes low expense ratios (1.00% and 0.20%) as a key factor. Research_vs_cost_score: The plan does not mention detailed research, instead focuses on expense ratios and returns. Time_horizon_alignment_score: The plan is designed for a long-term horizon (38 years) with annual rebalancing. Portfolio_activeness_score: The Motilal Oswal fund is an index fund (passive), while the JM fund is a hybrid fund with active management. Turnover_score: The plan recommends annual rebalancing and checking performance against benchmarks, which is moderate frequency.",
+    "composite_aps": 0.6666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal alignment: The plan supports building an investing habit and accumulating 5L in 4 years with equity-focused funds. Moderate risk is appropriate for a 22-year-old with a 38-year horizon. Diversification: 2 funds across hybrid and index categories, but limited fund house and geographic diversity. Risk-return: Moderate risk with projected returns align with the investor's profile. Internal consistency: Rationale, allocations, and risk warnings are coherent.",
+    "composite_pqs": 0.74
+  },
+  "timestamp": "2026-04-17T10:11:22.799347Z",
+  "prompt_version": "v1"
+}

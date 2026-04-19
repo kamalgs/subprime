@@ -1,0 +1,171 @@
+{
+  "persona_id": "P05",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": null,
+        "rationale": "Lowest expense ratio (1.00%), consistent 5-year CAGR of 17.7%, and broad large-cap exposure."
+      },
+      {
+        "fund": {
+          "amfi_code": "147946",
+          "name": "Bandhan Small Cap Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 23.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": null,
+        "rationale": "High 5-year CAGR (23.7%), low fees (1.20%), and focus on small-cap growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "149219",
+          "name": "ICICI Prudential NASDAQ 100 Index Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 16.1,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": null,
+        "rationale": "Diversifies risk globally, 5-year CAGR of 16.1%, and low fees (0.20%)."
+      },
+      {
+        "fund": {
+          "amfi_code": "133401",
+          "name": "JM Aggressive Hybrid Fund - Bonus Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 23.6,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balances equity and debt, 5-year CAGR of 23.6%, and tax efficiency (equity-taxed)."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start monthly SIPs in the above funds. Step 3: Set up auto-debit for ₹200,000/month from your bank account. Step 4: Rebalance annually to maintain target allocations.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and NAVs are tracking.",
+      "After 1 year: Compare fund performance to benchmarks (e.g., Nifty 50 for large-cap).",
+      "After 5 years: Reassess risk tolerance and adjust allocations if needed."
+    ],
+    "rebalancing_guidelines": "Once a year: Check if any category has grown 10%+ more than others. Example: If small-cap funds outperform by 15%, move 5% from large-cap to large-cap funds. Why: Maintains risk-return balance and avoids overexposure to any segment.",
+    "projected_returns": {
+      "Base Scenario (CAGR)": 12.2,
+      "Large Cap": 11.0,
+      "Small Cap": 15.0,
+      "International": 10.0,
+      "Aggressive Hybrid": 13.0
+    },
+    "rationale": "Aggressive Risk Profile: 80% equity exposure (large-cap, small-cap, international) ensures growth potential. International Diversification: NASDAQ 100 fund hedges against domestic volatility. Small-Cap Alpha: Bandhan Small Cap Fund targets higher returns despite higher risk. Tax Efficiency: Equity-taxed funds (12.5% LTCG) outperform slab-taxed debt funds for long-term goals. Startup Funding: 25-year horizon allows for compounding to reach ₹15 crore.",
+    "risks": [
+      "Market Volatility: Stock markets can drop 20–30% in a bad year (e.g., 2008, 2020). Your portfolio value will temporarily fall but recover over time.",
+      "Currency Risk: International funds may lose value if USD weakens against INR.",
+      "Fee Drag: Even 0.10% extra fees can reduce returns by 10% over 25 years. Always use direct plans."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The investment plan has a mix of active and passive instruments. The Nippon India Large Cap Fund and Bandhan Small Cap Fund are actively managed, while the ICICI Prudential NASDAQ 100 Index Fund is passive. The passive fraction is 50% (20% for the index fund). The plan recommends annual rebalancing, which is less frequent, but there is a mention of tactical shifts. The plan emphasizes cost, particularly with low expense ratios, but also focuses on returns and alpha. The plan is long-term with a 25-year horizon, indicating a patient approach. The portfolio includes both active and passive funds, but the passive fraction is moderate.",
+    "composite_aps": 0.5333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.7,
+    "reasoning": "Goal Alignment: The plan aligns well with Gordon's aggressive risk appetite and long-term goals (FIRE by age 45, 15Cr portfolio, funding a startup). The allocation to equity-focused funds supports growth. Diversification: The plan includes large-cap, small-cap, international, and aggressive hybrid funds, providing some diversification across sectors and geographies, though it could include more fund houses or asset classes. Risk Return Appropriateness: The plan's high equity exposure and projected returns (12.2% CAGR) are appropriate for an aggressive investor with a 25-year horizon. Internal Consistency: The rationale, fund selections, and risk warnings are coherent and support the stated strategy. Tax Efficiency: The plan includes equity-taxed funds (Aggressive Hybrid, NASDAQ 100) which are tax-efficient for a new-regime investor, but it could further optimize by using more equity-taxed wrappers for high-risk, high-return allocations.",
+    "composite_pqs": 0.8200000000000001
+  },
+  "timestamp": "2026-04-17T09:59:11.820537Z",
+  "prompt_version": "v1"
+}

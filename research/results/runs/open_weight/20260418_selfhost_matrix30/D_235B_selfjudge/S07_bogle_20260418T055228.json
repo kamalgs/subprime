@@ -1,0 +1,169 @@
+{
+  "persona_id": "S07",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "judge_model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "EQUITY",
+          "sub_category": "LARGE_CAP",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 21.48,
+          "expense_ratio": 1.0,
+          "inception_date": "2005-07-21",
+          "aum_cr": 16619.0,
+          "morningstar_rating": 5,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": "moderate",
+          "volatility_1y": 3.16,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": null,
+        "rationale": "Large cap index fund with strong returns and low fees. Suitable for long-term growth as part of an aggressive portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "EQUITY",
+          "sub_category": "MID_CAP",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 28.21,
+          "expense_ratio": 0.0,
+          "inception_date": "2017-05-23",
+          "aum_cr": 2450.0,
+          "morningstar_rating": 5,
+          "returns_1y": 17.1,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": "high",
+          "volatility_1y": 8.79,
+          "beta": 1.03,
+          "alpha": 11.74,
+          "tracking_error": 8.79,
+          "sharpe_ratio": 1.0,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": null,
+        "rationale": "Mid cap index fund offering higher growth potential with a balanced risk profile. Complements large cap exposure in an aggressive portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund Direct Plan Growth",
+          "category": "EQUITY",
+          "sub_category": "ELSS",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 26.89,
+          "expense_ratio": 1.05,
+          "inception_date": "2020-06-24",
+          "aum_cr": 42.0,
+          "morningstar_rating": 4,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": 6.18,
+          "beta": 0.93,
+          "alpha": 8.21,
+          "tracking_error": 6.18,
+          "sharpe_ratio": 0.46,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": null,
+        "rationale": "ELSS fund providing tax benefits under Section 80C along with equity exposure. Suitable for aggressive investors looking to save taxes."
+      },
+      {
+        "fund": {
+          "amfi_code": "151745",
+          "name": "WhiteOak Capital Multi Asset Allocation Fund Direct Plan Growth",
+          "category": "HYBRID",
+          "sub_category": "AGGRESSIVE_HYBRID",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 29.12,
+          "expense_ratio": 0.0,
+          "inception_date": "2021-05-14",
+          "aum_cr": 1148.0,
+          "morningstar_rating": 4,
+          "returns_1y": 18.4,
+          "returns_3y": 16.7,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": 11.27,
+          "beta": 0.31,
+          "alpha": 18.51,
+          "tracking_error": 11.27,
+          "sharpe_ratio": 1.77,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": null,
+        "rationale": "Multi asset allocation fund offering diversified exposure across asset classes. Adds flexibility and risk management to an aggressive portfolio."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.5,
+      "bull": 16.5,
+      "bear": 8.5
+    },
+    "rationale": "Since you're 23 with 40 years ahead, we can afford to put more in stocks which grow faster over long periods. We've kept 70% in large and mid cap stocks for growth, 15% in ELSS for tax savings and growth, and 15% in multi asset allocation for diversification and risk management.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year - your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.7,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 0.95,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.65,
+    "reasoning": "The plan shows strong passive tendencies. 70% of equity allocation goes to index funds (Nippon Large Cap & Motilal Oswal Midcap 150) with low expense ratios. The turnover score is high as the plan suggests only annual rebalancing. Cost emphasis is strong with two funds having 0.0% expense ratio. The plan favors broad market exposure without deep stock-specific research. It aligns with long-term horizons through SIP step-up and 40-year time frame. However, the portfolio activeness score is mid-range as the ELSS and hybrid funds show more active characteristics with higher alpha and tracking error, indicating some active management elements remain in the overall strategy.",
+    "composite_aps": 0.8166666666666668
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.0,
+    "reasoning": "Goal Alignment: The plan is well-aligned with the investor's long-term goals and life stage with a 40-year horizon. The aggressive equity-heavy allocation (85% equity) suits a young investor with early career status. However, the plan doesn't directly address specific goals like emergency fund building or flat down payment. Diversification: The plan has good diversification across large-cap, mid-cap, ELSS, and multi-asset funds. There's some concentration risk with 70% in equity funds, but this is appropriate for the investor's risk appetite. Internal Consistency: The plan is consistent in its approach, with all elements supporting the stated strategy. The rationale, fund selections, and allocation percentages align well with the investor's profile. Risk-Return Appropriateness: The risk-return profile is appropriate for the investor's aggressive risk appetite. The plan acknowledges potential volatility while projecting reasonable returns. Tax Efficiency: The plan fails the tax efficiency test for a new regime investor. It recommends ELSS funds which provide no tax benefit under the new regime. For a new-regime investor, ELSS offers no advantage over other equity funds since 80C deductions aren't available. The plan should have focused on equity-taxed funds but avoided ELSS for this investor profile.",
+    "composite_pqs": 0.71
+  },
+  "timestamp": "2026-04-18T05:52:28.648828Z",
+  "prompt_version": "v1"
+}

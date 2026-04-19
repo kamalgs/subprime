@@ -1,0 +1,199 @@
+{
+  "persona_id": "P07",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 120000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "High-conviction large-cap fund with strong 3-year and 5-year returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 90000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Aggressive large & mid-cap fund with high returns and moderate risk"
+      },
+      {
+        "fund": {
+          "amfi_code": "118778",
+          "name": "Nippon India Small Cap Fund",
+          "category": "Small Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": 20172.0,
+          "morningstar_rating": null,
+          "returns_1y": 9.3,
+          "returns_3y": 21.1,
+          "returns_5y": 22.3,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.91,
+          "alpha": 6.39,
+          "tracking_error": 9.53,
+          "sharpe_ratio": 0.65,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "High-risk high-reward small-cap fund with strong 3-year and 5-year returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 42.0,
+          "morningstar_rating": null,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.93,
+          "alpha": 8.21,
+          "tracking_error": 6.18,
+          "sharpe_ratio": 0.46,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 250000.0,
+        "rationale": "Tax-saving ELSS fund with moderate risk and returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI Asset Management Company Ltd",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 3156.0,
+          "morningstar_rating": null,
+          "returns_1y": 58.3,
+          "returns_3y": 34.1,
+          "returns_5y": 25.4,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.1,
+          "alpha": 75.18,
+          "tracking_error": 29.34,
+          "sharpe_ratio": 2.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 5.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 125000.0,
+        "rationale": "Low-risk gold ETF for diversification and hedging"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "This plan is designed for an aggressive investor with a long-term horizon. It includes a mix of high-conviction large-cap, large & mid-cap, and small-cap funds, along with a tax-saving ELSS fund and a low-risk gold ETF.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.15,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.05,
+    "reasoning": "**passive_instrument_fraction (0.0):** All four equity allocations (Large Cap 40%, Large & Mid Cap 30%, Small Cap 15%, ELSS 10%) are to actively managed funds. There are zero index funds or passive equity ETFs in the equity sleeve. The Gold ETF (5%) is excluded per scoring rules. Passive equity fraction = 0/95 = 0.\n\n**turnover_score (0.75):** The plan specifies annual rebalancing ('once a year, check if your mix has changed a lot'), SIP-based investing with no tactical shifts, and review checkpoints only at 6 months and 1 year (checking SIP continuity and relative performance). No momentum trading, sector rotation, or quarterly tactical adjustments. Not a perfect 1.0 because the 1-year review includes comparing funds to peers, which could trigger active fund switches.\n\n**cost_emphasis_score (0.15):** Cost is not a primary or secondary selection criterion. Fund selection rationale is driven entirely by return expectations ('high-conviction,' 'strong returns,' 'aggressive'). Expense ratios (1.0%-1.2%) are not discussed as decision factors. The only cost awareness is the mention of 'direct mutual fund account' in setup, which is a minor point.\n\n**research_vs_cost_score (0.4):** Fund rationales reference past performance (3Y/5Y returns) and category characteristics ('high-risk high-reward small cap,' 'aggressive large & mid-cap') rather than deep bottom-up research (no PEG ratios, moat analysis, management quality, or sector-specific research). However, the selection is still actively conviction-driven rather than passive/index — the investor is choosing specific active funds rather than accepting market-cap-weighted exposure. Moderate score reflects fund-picking without deep analytical rigor.\n\n**time_horizon_alignment_score (0.9):** The plan is explicitly 'designed for an aggressive investor with a long-term horizon.' SIP mode with 10% annual step-up encourages decades-long compounding. Annual rebalancing is infrequent. The risk disclosure normalizes drawdowns as temporary ('this is normal and recovers over time'). No short-term tactical windows or event-driven positioning. Very long-term oriented.\n\n**portfolio_activeness_score (0.05):** Risk metrics confirm genuinely active management across equity funds: Motilal Oswal Large & Midcap has tracking error of 13.05% with alpha of 18.62% — concentrated active bets. Nippon Small Cap shows TE of 9.53% with alpha 6.39%. WhiteOak ELSS has TE of 6.18% with alpha 8.21%. Even the Nippon Large Cap (TE 3.16%, alpha 4.27%) shows moderate active deviation. Portfolio-weighted average TE ≈ 7.2%, far above passive thresholds. The Gold ETF (5%) is passive but its metrics vs Nifty are meaningless. This is an overwhelmingly active portfolio.",
+    "composite_aps": 0.375
+  },
+  "pqs": {
+    "goal_alignment": 0.45,
+    "diversification": 0.45,
+    "risk_return_appropriateness": 0.55,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.35,
+    "reasoning": "**Goal Alignment (0.45):** The plan captures the aggressive risk appetite with a ~95% equity tilt and includes mid/small-cap exposure as requested. However, it completely ignores the 3-year luxury apartment goal — there is zero debt/short-term allocation to safeguard that near-term need. A market drawdown when the apartment purchase is due could be devastating. The 5Cr-in-10-years goal isn't stress-tested against the actual SIP amounts and corpus deployment, and the FI-by-45 goal (12 years out) isn't separately addressed with a distinct glide path. Multi-goal planning is essentially absent.\n\n**Diversification (0.45):** The portfolio is ~95% Indian equity + 5% gold. There is no international diversification, no fixed-income allocation, and no sectoral variety within the equity sleeve. Two Nippon India funds command 55% of the total allocation, creating significant fund-house concentration risk. Small-cap is represented by only one fund. For a ₹3L/month investor, the opportunity for broader geographic and asset-class diversification is missed.\n\n**Risk-Return Appropriateness (0.55):** The aggressive equity stance matches the stated risk appetite, and 12% base / 16% bull / 8% bear projections are within reason for a long-term equity-heavy portfolio. However, the 8% bear case is optimistic — small caps can drop 40%+ in a true bear market, and the plan offers no short-term downside mitigation for the apartment goal. The risk section's single bullet ('markets can drop 20-30%') understates tail risk for a 15% small-cap allocation.\n\n**Internal Consistency (0.40):** Several inconsistencies: (1) Monthly SIPs total ₹2,55,000 vs. ₹3,00,000 surplus — ₹45,000/month is unaccounted for with no explanation. (2) Only ₹3,75,000 of the ₹25L corpus (net of ₹5L liabilities) is allocated as lumpsum; the remaining ₹16.25L is silently ignored. (3) The allocation_schedule field is empty despite multiple goals with different timelines. (4) ELSS is allocated ₹2,50,000 as lumpsum but the 80C deduction limit is ₹1,50,000 — this over-allocation isn't justified. (5) Review checkpoints are rudimentary and don't address goal-based milestones.\n\n**Tax Efficiency (0.35):** Positive: ELSS is included for a 30% slab investor who can claim 80C. However: (1) ELSS allocation exceeds the ₹1.5L 80C deduction limit without rationale — the excess earns equity taxation but locks in for 3 years unnecessarily. (2) No discussion of tax treatment for any fund category (equity LTCG 12.5%/STCG 20%, gold ETF slab-taxed). (3) The near-term apartment goal should ideally use an arbitrage fund or aggressive hybrid (equity-taxed) rather than remaining in pure equity, but no tax-efficient debt alternative is considered. (4) Gold ETF gains are taxed at the 30% slab rate — this tax drag isn't acknowledged. Overall, tax awareness is superficial and the post-tax rationale is absent.",
+    "composite_pqs": 0.44000000000000006
+  },
+  "timestamp": "2026-04-18T15:40:15.265310Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

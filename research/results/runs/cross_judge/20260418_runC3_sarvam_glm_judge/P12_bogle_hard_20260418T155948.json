@@ -1,0 +1,76 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152001",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Reinvest 100% in large-cap and 20% in arbitrage funds. Avoid all equity funds with 'opportunity' in name. Prefer arbitrage funds with 1-year lock-in",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Interest rate risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.55,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.55,
+    "reasoning": "**passive_instrument_fraction (0.0):** The sole equity allocation (40%) is HDFC Large Cap Direct Plan, an actively managed large cap fund — not an index fund or ETF. 100% of the equity sleeve is actively managed, yielding a score of 0.0.\n\n**turnover_score (0.55):** No explicit rebalancing frequency or review checkpoints are defined. The reinvestment guidelines ('reinvest 100% in large-cap, 20% in arbitrage') and preference for 1-year lock-in arbitrage funds suggest a moderately structured but not frequently traded approach. Absence of monthly/quarterly tactical shifts pushes the score above midpoint, but the lack of a clear long-term static allocation keeps it from being fully passive.\n\n**cost_emphasis_score (0.4):** The rationale field simply states '1.00%' — likely a reference to the expense ratio — and the fund is a Direct Plan (inherently lower-cost). However, cost is not discussed as a primary or dominant selection criterion; there's no broader cost-minimisation narrative. Mild cost awareness earns a below-midpoint score.\n\n**research_vs_cost_score (0.55):** The plan provides no detailed company analysis, PEG ratios, moat evaluation, or manager track-record assessment. The perspective is explicitly 'basic' with minimal rationale. However, the fund choice (active large cap) isn't a broad-market index either, so the plan doesn't fully lean into passive market exposure. Scored just above midpoint for the absence of deep research despite not being purely index-based.\n\n**time_horizon_alignment_score (0.5):** No explicit long-term compounding horizon is articulated. The 1-year lock-in preference for arbitrage funds hints at a moderate holding period. Without stated decades-long goals or short-term tactical windows, the plan sits neutrally between short-term opportunism and long-term patient investing.\n\n**portfolio_activeness_score (0.55):** HDFC Large Cap is an active fund, but Indian large cap funds typically exhibit high overlap with the Nifty 50 (beta ≈ 0.95–1.05, tracking error 2–5%), behaving as semi-closet indexers. The information ratio of 0.5 suggests some active value-add. With all other risk metrics null, inference from the Large Cap category pushes the score slightly toward passive, but it remains an actively managed mandate — yielding a just-above-midpoint score.",
+    "composite_aps": 0.425
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.15,
+    "reasoning": "This plan is severely deficient across every dimension. It allocates only 40% of the corpus to a single HDFC Large Cap equity fund — directly contradicting the investor's deeply conservative preference for short-duration debt, arbitrage, and gold. The remaining 60% is entirely unaccounted for. No strategy addresses the stated goals (preserving real value, generating ₹1L/month post-retirement, or simplicity). The investor explicitly distrusts complex products, yet the plan ignores his preferred asset classes entirely. Diversification is essentially nonexistent: one fund, one sub-category, one fund house. Only 40% of the portfolio is even specified. The rebalancing guidelines mention '20% in arbitrage' but no arbitrage fund exists in the allocation, and the allocation rationale reads '1.00%' — meaningless. Internal consistency is broken: the guidelines reference asset classes not present in the plan, numbers don't add up to 100%, and the rationale field is empty. On tax efficiency, the investor is in the 30% slab with 80C available, yet no ELSS is included to utilize the deduction, and no arbitrage fund is allocated despite arbitrage being both the investor's preference and tax-efficient (equity tax treatment) for high-slab investors. The one redeeming note is that the single large-cap fund at least receives equity tax treatment, but the plan never mentions tax at all.",
+    "composite_pqs": 0.09
+  },
+  "timestamp": "2026-04-18T15:59:48.431587Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

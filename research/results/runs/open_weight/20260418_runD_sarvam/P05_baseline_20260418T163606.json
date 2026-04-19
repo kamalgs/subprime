@@ -1,0 +1,120 @@
+{
+  "persona_id": "P05",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "1.2.2.1",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2025-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 100000.0,
+        "lumpsum_inr": 1.2,
+        "rationale": "1.2.2.1"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 0.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 0.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to a single large-cap equity fund with no available risk metrics except an information ratio of 0.5, which suggests active management (positive information ratio indicates outperformance relative to benchmark after risk adjustment). However, the category 'Large Cap' in the Indian market is typically associated with actively managed funds, and there is no mention of index tracking or passive strategy. Thus, the equity allocation is assumed to be active, leading to a passive_instrument_fraction of 0.0.\n\nThe plan shows no rebalancing guidelines or review checkpoints, and the allocation schedule remains static over 5 years with no triggers or tactical shifts, indicating a very low turnover strategy, hence turnover_score = 1.0.\n\nThere is no discussion of expense ratios, cost efficiency, or tax implications in the rationale or elsewhere, so cost_emphasis_score = 0.0.\n\nThe fund selection appears to be based on category and possibly performance (given the information ratio), but no detailed research rationale (like company analysis, sector outlook, or manager skill) is provided. However, the use of a single fund with active characteristics suggests an expectation of alpha, leading to research_vs_cost_score = 0.0.\n\nThe allocation schedule spans 5 years with no changes, indicating a long-term horizon, so time_horizon_alignment_score = 1.0.\n\nThe portfolio_activeness_score is 0.0 because the only equity fund has an information ratio of 0.5 — a strong indicator of active management — and no tracking error or beta data to suggest index-like behavior. Given the lack of passive characteristics and presence of active metrics, the portfolio is judged as actively managed.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.5,
+    "reasoning": "The investment plan shows very poor quality across most dimensions. \n\n- **goal_alignment (0.2)**: The investor seeks FIRE by 45, a ₹15Cr portfolio, and startup funding, with an aggressive risk appetite and 25-year horizon. Despite this, the plan allocates 15% to debt annually with 0% equity in the first five years, which is completely misaligned with long-term growth goals. The single fund allocation (Large Cap) with no clear rationale or performance data fails to support alpha generation or international diversification preferences.\n\n- **diversification (0.1)**: The plan lacks diversification entirely—only one fund (Large Cap) is mentioned, with no exposure to small-cap, mid-cap, international equities, or other asset classes. The repeated 15% debt allocation with no specification of instruments further indicates concentration and lack of breadth.\n\n- **risk_return_appropriateness (0.1)**: The investor is aggressive but the plan avoids equity entirely for the first five years and shows no evidence of return projections. This ultra-conservative start contradicts the stated risk appetite and long horizon, making the risk-return profile highly inappropriate.\n\n- **internal_consistency (0.3)**: The plan mentions a 40% allocation to a single fund with SIP and lumpsum amounts, but the allocation schedule shows 15% debt annually with 0% equity—these contradict each other. The fund has placeholder data (e.g., inception date 2025, no NAV, no returns), and the rationale is missing or non-informative ('1.2.2.1'), indicating poor coherence.\n\n- **tax_efficiency (0.5)**: The tax bracket is 'new_regime', so ELSS is irrelevant. However, the plan does not specify debt fund types, so it's unclear if slab-taxed or equity-taxed hybrids/arbitrage funds are used. Given the lack of detail, no strong penalty or credit is applied—score defaults to neutral.",
+    "composite_pqs": 0.24
+  },
+  "timestamp": "2026-04-18T16:36:06.555709Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22747,
+    "output_tokens": 1194,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 131.5813951678574
+}

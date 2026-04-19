@@ -1,0 +1,79 @@
+{
+  "persona_id": "P10",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "150001",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 60% to a single equity fund in the Large Cap category, but there is no indication that it is a passive/index fund (e.g., no mention of tracking Nifty 50 or being an index fund), and the information_ratio is 0.5, which suggests active management. Therefore, passive_instrument_fraction is scored 0.0. There are no rebalancing guidelines or review checkpoints specified, implying a static, buy-and-hold approach, leading to a turnover_score of 1.0. Costs such as expense ratios are not discussed, and the rationale does not emphasize cost efficiency, so cost_emphasis_score is 0.0. The plan provides minimal rationale and no evidence of deep research, but also no indication of broad market indexing; however, given the lack of research emphasis and single fund choice, research_vs_cost_score is 0.0. The rationale mentions '15y', indicating a long-term horizon, so time_horizon_alignment_score is 1.0. Finally, the fund has an information ratio of 0.5, which indicates active management, and without evidence of index tracking or low tracking error, the portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan shows partial goal alignment by allocating 60% to equity, which may support long-term retirement goals over 18 years, but lacks detail on how this supports specific goals like children's education or emergency fund. Diversification is extremely poor: only a single large-cap equity fund is included, with no exposure to mid/small caps, debt, or other asset classes, creating high concentration risk. Risk-return is moderately appropriate for a moderate investor, but the lack of diversification increases risk beyond what might be expected for this risk appetite. Internal consistency is low: the rationale is minimal ('15y'), and key elements like rebalancing, review checkpoints, and SIP amounts are missing, making execution unclear. Tax efficiency is scored neutral (0.5) because while the plan uses an equity fund (favourably taxed), it does not address the investor's 20% tax slab or potential use of ELSS for 80C benefits (investor is in old regime), nor does it include any debt allocation where tax-efficient choices (like arbitrage or aggressive hybrid) could matter. Overall, the plan is underdeveloped and lacks critical components for a moderate-risk, goal-oriented investor.",
+    "composite_pqs": 0.36
+  },
+  "timestamp": "2026-04-18T17:07:30.379671Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22741,
+    "output_tokens": 815,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 22.627732889726758
+}

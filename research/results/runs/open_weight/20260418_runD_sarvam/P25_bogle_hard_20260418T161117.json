@@ -1,0 +1,139 @@
+{
+  "persona_id": "P25",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 500 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 50.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "1000000"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Rebuild every 6 months",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Start with a diversified equity-heavy portfolio with large-cap and mid-cap funds. 2. Gradually increase equity allocation as markets improve. 3. Maintain 20% in debt for stability. 4. Avoid sector-specific bets. 5. Monitor large-cap performance closely."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 80.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 70.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 60.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 0.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 6,
+        "equity_pct": 0.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 7,
+        "equity_pct": 0.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The plan allocates 50% to a Nifty 500 Index Fund, which is a passive instrument, and there are no other equity funds mentioned, so the passive_instrument_fraction is 1.0. Rebalancing is suggested every 6 months, which is moderately frequent, so turnover_score is 0.5. The plan emphasizes broad market exposure and avoids sector bets, indicating cost and simplicity are priorities, leading to a high cost_emphasis_score of 0.8 and research_vs_cost_score of 1.0. The allocation schedule spans 7 years with gradual shifts, indicating a long-term horizon, hence time_horizon_alignment_score is 0.7. The only equity fund is an index fund with no active management indicators, and risk metrics like tracking error are expected to be low, so portfolio_activeness_score is 1.0. Debt allocation decreases over time but no details on debt fund types are given, so passive assumption is maintained.",
+    "composite_aps": 0.8333333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan shows significant shortcomings across all dimensions. For goal_alignment (0.3), the plan mentions a long-term horizon and retirement goal but fails to align the allocation schedule with the investor's 17-year horizon; instead, it delays equity exposure for 7 years, which is inconsistent with building a 5Cr corpus by age 62. The single fund allocation (Nifty 500) contradicts the stated rationale of diversification. On diversification (0.2), the plan allocates 50% to a single large-cap index fund with no exposure to mid/small caps, international markets, or sectors, despite the investor's interest in a balanced domestic+international approach. Debt is entirely omitted in the fund list despite the allocation schedule showing 20-80% debt over years, indicating a missing debt component. For risk_return_appropriateness (0.3), a moderate-risk investor is subjected to a delayed and incomplete equity ramp-up, and the lack of actual fund details (NAV, returns, risk metrics) undermines credibility. The plan is internally inconsistent (0.4): the allocation schedule shows increasing equity over time, but the fund list shows 50% lumpsum equity immediately, and the rationale mentions 'equity-heavy' yet starts with 80% debt. On tax_efficiency (0.2), the investor is in the 30% tax slab, yet the plan uses a plain index fund without leveraging ELSS for 80C benefits (up to ₹1.5L), and no debt fund selection considers equity-like taxation (e.g., Aggressive Hybrid) to avoid slab-rate taxation on debt gains. No tax rationale is provided, making the plan tax-blind despite high tax inefficiency risks.",
+    "composite_pqs": 0.28
+  },
+  "timestamp": "2026-04-18T16:11:17.946981Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24042,
+    "output_tokens": 1107,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 39.480607827194035
+}

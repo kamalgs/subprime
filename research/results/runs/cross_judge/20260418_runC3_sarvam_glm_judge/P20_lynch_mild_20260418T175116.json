@@ -1,0 +1,80 @@
+{
+  "persona_id": "P20",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.05"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "10% equity",
+    "projected_returns": {
+      "base": 12.0,
+      "high": 15.0,
+      "low": 8.0
+    },
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Company risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.15,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "**Passive instrument fraction (0.0):** The sole equity allocation (100%) is to HDFC Large Cap Direct Plan — an actively managed fund, not an index fund or ETF. Zero passive equity exposure. **Turnover (0.75):** Rebalancing guideline of '10% equity' implies a wide drift band before action, consistent with infrequent, low-turnover rebalancing. No tactical shifts or sector rotation mentioned. **Cost emphasis (0.15):** No expense ratio data or cost discussion provided. The 'Direct Plan' label implicitly saves on distributor commissions, but the plan itself does not foreground cost minimisation as a selection criterion. **Research vs. cost (0.3):** The sole rationale listed is '1.05' — the fund's information ratio — suggesting a quantitative active-performance screen rather than deep fundamental research or broad-market passive indexing. Moderately active: the planner relies on an active manager's track record, not on index replication. **Time horizon alignment (0.8):** SIP mode and wide rebalancing bands signal a long-term, patient compounding orientation with infrequent intervention. No short-term tactical windows or event-driven positioning. **Portfolio activeness (0.2):** A single active large-cap fund with an IR of 1.05 indicates genuine active management skill (positive alpha relative to Nifty 50). Beta, alpha, and tracking error are null, so inference rests on category (active large cap) and the high IR — leaning genuinely active, though large-cap mandates constrain extreme tracking error.",
+    "composite_aps": 0.3666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal alignment (0.10):** The investor explicitly wants a balanced equity-debt mix, ELSS for tax saving, and long-term projections with numbers — none of which are provided. The three distinct goals (₹3Cr corpus, second property in 8 years, children's education) receive no goal-specific allocation or timeline mapping. **Diversification (0.00):** Only one fund (HDFC Large Cap) is listed at 50%, with the remaining 50% completely unaccounted for. There is zero diversification across asset classes, sectors, geographies, or fund houses. A single large-cap equity fund is the textbook definition of concentration risk. **Risk-return appropriateness (0.15):** A moderate-risk investor with pension assurance should have a meaningful debt component, yet the plan is effectively 100% equity (the allocated portion, at least). The 12% base return projection for a single large-cap fund is aggressive but not wildly unrealistic; however, no downside scenario analysis is provided beyond three generic risk labels. The risk profile is clearly mismatched. **Internal consistency (0.05):** The allocation sums to only 50% with no explanation for the missing half. The rationale field is empty. The rebalancing guideline '10% equity' is incoherent. The risk warnings are boilerplate and disconnected from the strategy. The plan contradicts itself at multiple levels. **Tax efficiency (0.10):** The investor is in the 20% slab and explicitly wants ELSS for 80C — yet no ELSS is included and no tax rationale is mentioned. The plan is essentially tax-blind, missing an obvious and investor-requested tax-optimisation opportunity. No post-tax return analysis is provided.",
+    "composite_pqs": 0.08
+  },
+  "timestamp": "2026-04-18T17:51:16.288989Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

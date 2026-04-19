@@ -1,0 +1,114 @@
+{
+  "persona_id": "P24",
+  "condition": "baseline",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "133401",
+          "name": "JM Aggressive Hybrid Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 20.56,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "High 3-year return (20.56%), low expense ratio (1.00%), and equity-taxed (12.5% LTCG after 1 year). Balances growth with moderate risk."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 23.19,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "3-year return of 23.19%, low expense ratio (0.20%), and equity-taxed. Midcap index funds grow faster than large caps over long horizons."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start SIPs in the above funds. Step 3: Set up auto-debit from your bank account for ₹5,000/month. Step 4: Enable notifications for SIP reminders and market updates.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and no missed payments.",
+      "After 1 year: Compare fund performance against their 3-year benchmark (e.g., JM Fund vs. 20.56% benchmark, Motilal Oswal vs. 23.19%).",
+      "After 4 years: Reassess allocation if one fund outperforms the other by 15%+ (rebalance to maintain 60-40 split)."
+    ],
+    "rebalancing_guidelines": "Once/year: Check if the 60-40 split has shifted due to market movements. If Aggressive Hybrid grows much more: Move 10% of corpus to Index Fund. If Index Fund underperforms: Add 10% to Aggressive Hybrid.",
+    "projected_returns": {
+      "Base": 12.0,
+      "Bull": 16.0,
+      "Bear": 8.0
+    },
+    "rationale": "Age 22, 38 years ahead: Equity-focused funds (Aggressive Hybrid + Index) maximize compounding. Moderate risk: Aggressive Hybrid balances growth with stability, while Index funds provide market exposure. No debt: Debt funds are slab-taxed (higher tax for new regime), so focus on equity-taxed funds. Simple: 2 funds, 1 SIP, and 10% annual step-up — easy to follow.",
+    "risks": [
+      "Market drops: Stock markets can fall 20-30% in bad years (e.g., 2008, 2022). Your portfolio value will drop temporarily but recover over time.",
+      "No guarantees: Returns depend on market performance, not promises.",
+      "Tax impact: Gains >₹1.25L after 1 year face 12.5% tax. Plan for this in long-term horizons."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.7,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "The investment plan is primarily focused on equity-taxed funds with a mix of passive and active instruments. The passive_instrument_fraction is 0.7 because the Motilal Oswal Nifty Midcap 150 Index Fund is a passive index fund, while the JM Aggressive Hybrid Fund is actively managed. The turnover_score is 0.6 as the plan recommends annual rebalancing and a 10% annual step-up in SIP, indicating some active management. The cost_emphasis_score is 0.8 as the plan highlights low expense ratios as a key factor in fund selection. The research_vs_cost_score is 0.3 because the plan does not emphasize in-depth research on individual stocks or funds, instead focusing on returns and expense ratios. The time_horizon_alignment_score is 0.9 as the plan is designed for a long-term investment horizon with a 38-year time frame. The portfolio_activeness_score is 0.5 as the plan includes both passive and active instruments, with the passive index fund having a low tracking error and the active fund having a higher expense ratio.",
+    "composite_aps": 0.6333333333333332
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan aligns well with Remy's financial goals, life stage, and investment horizon. It focuses on equity growth, which is appropriate for a young investor with a long time horizon. The plan includes two equity-focused funds, which is suitable for a moderate risk appetite. The diversification is moderate, as it includes both an aggressive hybrid and an index fund, but could be improved with more asset classes. The plan is internally consistent, with the rationale, fund selections, and risk warnings aligning with the stated strategy. The plan is tax-efficient for a new regime investor, as it recommends equity-taxed funds, which are taxed at 12.5% LTCG, which is more favorable than slab-taxed debt funds.",
+    "composite_pqs": 0.8600000000000001
+  },
+  "timestamp": "2026-04-17T10:11:22.799347Z",
+  "prompt_version": "v1"
+}

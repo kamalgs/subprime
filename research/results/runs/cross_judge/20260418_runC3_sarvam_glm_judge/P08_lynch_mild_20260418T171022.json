@@ -1,0 +1,72 @@
+{
+  "persona_id": "P08",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152041",
+          "name": "152041",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.25% on gains over 1.25L after 3 years"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.7,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "This is an extremely sparse plan with a single allocation (40% to a Large Cap equity fund via SIP). **passive_instrument_fraction = 0.0**: The sole equity holding is a Large Cap fund with no indication it is an index fund or ETF; its information ratio of 1.0 is high and inconsistent with a passive mandate, suggesting active management. **turnover_score = 0.7**: No rebalancing guidelines, no review checkpoints, and SIP-only mode imply a near buy-and-hold approach, though the lack of explicit rebalancing policy could also reflect plan incompleteness. **cost_emphasis_score = 0.0**: Costs are never discussed; expense ratio data is missing (0.0 placeholder), and no fee/tax-efficiency reasoning appears beyond a brief LTCG tax reference in the fund rationale. **research_vs_cost_score = 0.7**: No deep security or sector analysis is present; the plan has a 'basic' perspective with no fundamental research, making it closer to the no-research/broad-market end of the spectrum, though it's also not explicitly passive. **time_horizon_alignment_score = 0.6**: SIP mode and the '3 years' holding reference suggest a medium-to-long-term orientation, but 3 years is modest—not the decades-long compounding horizon of a fully passive philosophy. **portfolio_activeness_score = 0.2**: The information ratio of 1.0 signals genuine active alpha generation, but the Large Cap category inherently carries some index-like characteristics (betas near 1). With no beta/tracking-error data and only one fund, the portfolio leans active but not at the extreme end. Overall composite APS ≈ 0.37—this plan sits in the moderately active zone, hampered by its incompleteness and lack of cost discipline or passive instrument usage.",
+    "composite_aps": 0.3666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.02,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.05,
+    "reasoning": "This plan is essentially a placeholder, not a viable investment plan. **Goal alignment (0.05):** Only 40% of the portfolio is allocated, with no connection to any of the three stated goals (retiring at 55 with ₹8Cr, daughter's foreign education in 10 years, maximising real returns). No goal-wise bucketing, no corpus projection, no timeline mapping. An aggressive 38-year-old with a 20-year horizon should have significant mid/small-cap and international equity exposure — a single Large Cap fund is misaligned. **Diversification (0.02):** One fund in one category (Large Cap Equity) from one (unnamed) fund house. No debt, no mid/small cap, no international, no gold, no hybrid — zero meaningful diversification. The remaining 60% of the portfolio is completely unaccounted for. **Risk-return appropriateness (0.05):** The plan is far too conservative for an aggressive investor — a single Large Cap fund at 40% allocation doesn't match 'aggressive' risk appetite or the goal of maximising real returns above inflation. No projected returns, no downside scenarios, no risk warnings listed. **Internal consistency (0.05):** Only 40% is allocated with no explanation of the missing 60%. The fund has no identifying data (no name, no fund house, no returns, no AUM, no risk metrics) — it's essentially an empty record. No rebalancing guidelines, no review checkpoints, no setup phase. There is no coherent strategy to be inconsistent about. **Tax efficiency (0.05):** The rationale '1.25% on gains over 1.25L after 3 years' is factually wrong on two counts: LTCG rate is 12.5% (not 1.25%), and the equity holding period for LTCG is >1 year (not 3 years). No mention of 80C/ELSS for a 30% slab investor who could benefit. No consideration of arbitrage funds or Aggressive Hybrid as equity-taxed wrappers for the fixed-income portion. No tax discussion at all beyond the incorrect one-liner.",
+    "composite_pqs": 0.044000000000000004
+  },
+  "timestamp": "2026-04-18T17:10:22.178865Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

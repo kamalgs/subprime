@@ -1,0 +1,161 @@
+{
+  "persona_id": "P13",
+  "condition": "baseline",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "122639",
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 31500.0,
+        "lumpsum_inr": null,
+        "rationale": "This one’s the backbone. It flexibly picks large/mid caps without forcing you to rebalance boxes every day. Overseas bellwethers (like Infosys ETFs in the US) give real world diversification. AUM of ~₹88k Cr makes it stable. Even in a downturn, its value tilt helps. Tax-wise, gains are equity-taxed (12.5% after 1 year), so at your 30% slab, post-tax returns stay solid."
+      },
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "Another great flexi-cap. Longer track record (31 years) and huge AUM (₹32k Cr) mean consistency. It sits comfortably in the 65% equity zone, so gains are equity-taxed. Good as a complement to Parag Parikh to ride market cycles without constant tinkering."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": null,
+        "rationale": "Mid caps deliver higher returns over long cycles but come with more bumps. This index fund keeps fees very low (0.20% yearly) and tracks the top 150 mid caps. Because it’s index-like, its behavior is predictable: when mid caps rally, you rally too. Tax-treatment is equity-taxed (12.5% LTCG after 1 year)."
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Every 6–12 months, just like a quarterly staff meeting, check your portfolio: (a) Did one category grow too big by accident? (b) Are your SIPs still running smoothly? (c) Did any fund underperform its benchmark by more than 5% over a 2-year period? If yes, trim and shift to underweight buckets. Keep the mix as decided.",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Stock markets can drop 20–30% in a bad year and stay there for 18–24 months before recovering. That’s normal for equity; don’t flinch and stop your SIPs.",
+      "Mid caps are more volatile than large caps; expect bigger ups and downs.",
+      "Gold and debt parts are for safety but may not beat inflation strongly in all years.",
+      "Past performance isn’t a guarantee of future returns."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 8.0,
+      "description": "Increase SIPs by 8% every year to match expected salary/inflation growth. A small habit that compounds well."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 90.0,
+        "debt_pct": 5.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 80.0,
+        "debt_pct": 15.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 20,
+        "equity_pct": 70.0,
+        "debt_pct": 25.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.35,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.65,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "The plan allocates 55% (65%) to active flexi-cap funds (Parag Parikh & HDFC) vs 15% to an index fund, resulting in a passive equity fraction of 0.35.\n\nTurnover is passive-leaning (0.85): The strategy is build-and-hold via SIPs with broad-based funds, and while there is a rule to trim heavily underperforming funds if they lag their benchmark by >5% over 2 years, this is a long-term passive incident test rather than frequent tactical trading.\n\nCost emphasis is moderate (0.65): It explicitly mentions the low 0.20% fee for the index fund and highlights tax efficiency as a selling point, indicating cost is a conscious filter, though not the sole selection driver.\n\nResearch vs Cost is balanced (0.60): The plan recommends established, high-AUM flexi-cap funds (Passive proxy for fund selection quality) and broader market exposure, rather than advocating for deep stock-picking research by the investor.\n\nTime horizon is very high (0.90): The plan structures for 10-20 years, includes mandatory SIP step-ups, and explicitly advises patience against stopping investments during market downturns.\n\nPortfolio activeness is a blend (0.50): The portfolio is split between active managers (who have the flexibility to deviate, though Parag Parikh is known for low tracking error) and a true index fund. The allocation mix sits right in the middle of the spectrum.",
+    "composite_aps": 0.6416666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.85,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan shows excellent alignment with the investor's 22-year horizon and moderate risk appetite, providing a structured glide path from 90% to 70% equity. It also optimizes tax efficiency for a 30% slab investor by choosing equity-taxed wrappers (Flexi Cap/Index) for the entire portfolio, including the debt portion, which is a smart move for this specific tax bracket. However, the plan loses points on diversity and risk appropriateness because it lacks any direct bond/debt fund allocation beyond the concept in the allocation schedule; 80% of the assets are equities, which might be aggressive for a 'moderate' investor nearing a critical debt liability. The plan is internally consistent but has some gaps in specificity regarding the actual Debt and Gold fund selection, which are mentioned in the schedule but not allocated to in the fund list.",
+    "composite_pqs": 0.8100000000000002
+  },
+  "timestamp": "2026-04-18T01:09:32.173422Z",
+  "prompt_version": "v1"
+}

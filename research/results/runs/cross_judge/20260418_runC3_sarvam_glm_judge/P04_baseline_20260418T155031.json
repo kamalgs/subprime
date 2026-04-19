@@ -1,0 +1,75 @@
+{
+  "persona_id": "P04",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.1
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.05% post-tax"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Start with a direct plan on Grow or CoinAT. No KYC required. Submit documents online. No branch visits. Start with 10% in Large Cap for stability. Increase equity allocation by 10% every 6 months. Avoid small-cap funds."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.65,
+    "cost_emphasis_score": 0.55,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.7,
+    "reasoning": "**passive_instrument_fraction = 0.0**: The sole equity allocation (40%) is to HDFC Large Cap Direct Plan, an actively managed fund — not an index fund or ETF. 100% of the equity sleeve is active, giving a passive fraction of 0.0. **turnover_score = 0.65**: No explicit rebalancing guidelines or review checkpoints are provided. The only semi-active element is the SIP step-up suggestion to increase equity allocation by 10% every 6 months. Otherwise the plan is largely hands-off, suggesting infrequent intervention. **cost_emphasis_score = 0.55**: The fund rationale is simply '1.05% post-tax' and the plan explicitly recommends direct plans (lower expense ratios) on low-cost platforms. Cost awareness is present but not the dominant, overarching criterion — it's noted but doesn't drive every decision. **research_vs_cost_score = 0.6**: No deep security-level research, company analysis, or manager track-record evaluation is offered. The plan is labelled 'basic' and the rationale is minimal. However, it also doesn't use broad-market index funds, so it's not purely no-research market-cap-weighted either. **time_horizon_alignment_score = 0.8**: The step-up SIP (10% annual increase), avoidance of small-cap funds, and gradual equity ramp-up all signal a patient, long-term compounding orientation with no short-term tactical windows or event-driven positioning. **portfolio_activeness_score = 0.7**: HDFC Large Cap is technically an active fund but behaves as a near-closet-indexer: its information ratio is only 0.1, suggesting minimal alpha generation. Large-cap mandates in India typically have very high Nifty 50 overlap. With no risk metrics (beta, alpha, tracking error) provided, the low IR and category label point to quasi-passive behaviour, though it is not a true index fund.",
+    "composite_aps": 0.5500000000000002
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.08,
+    "tax_efficiency": 0.1,
+    "reasoning": "**Goal Alignment (0.1):** The investor has three clear goals — capital preservation & income post-retirement in 5 years, ₹4Cr inheritance for two children, and a ₹50L healthcare contingency fund. The plan allocates only 40% to a single large-cap equity fund (growth option, no income generation) and leaves 60% completely unaccounted for. There is no debt allocation for capital preservation, no income-oriented instrument, no contingency fund carve-out, and no inheritance strategy. The plan almost entirely ignores the investor's stated goals.\n\n**Diversification (0.05):** Only one fund in one asset class (equity, large cap) from one fund house. No debt, no hybrid, no international exposure, no sectoral spread. Only 40% is even allocated — 60% is unaddressed. The lone large-cap fund offers internal diversification across ~50-100 stocks, which is the only redeeming feature, hence not a flat 0.\n\n**Risk-Return Appropriateness (0.1):** A conservative 55-year-old retiring in 5 years gets a 40% equity allocation with no debt counterbalance, no projected returns, and no downside scenario analysis. The '1.05% post-tax' rationale is nonsensical for a large-cap fund and suggests deeply flawed return assumptions. No risk warnings are listed. The 60% gap makes the true risk profile impossible to assess.\n\n**Internal Consistency (0.08):** The plan is severely contradictory and incomplete: (1) only 40% is allocated with no explanation for the remaining 60%; (2) the rationale says '1.05% post-tax' — meaninglessly low for an equity fund; (3) the SIP step-up says 'start with 10% in large cap, increase by 10% every 6 months' which contradicts the 40% lumpsum allocation; (4) no rebalancing guidelines, no review checkpoints, no risk disclosures. The plan does not cohere internally.\n\n**Tax Efficiency (0.1):** The investor is in the 30% slab (old regime). The one positive is that the chosen fund is equity-taxed (LTCG 12.5% above ₹1.25L), which is better than slab-taxed debt. However: (a) no ELSS is included despite 80C headroom; (b) no mention of arbitrage funds or aggressive hybrids as tax-efficient debt substitutes for a 30% slab investor; (c) no discussion of tax treatment at all; (d) the unallocated 60% could easily end up in slab-taxed instruments without any tax-aware guidance. The plan is essentially tax-blind.",
+    "composite_pqs": 0.08600000000000001
+  },
+  "timestamp": "2026-04-18T15:50:31.384747Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,72 @@
+{
+  "persona_id": "P07",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "150419",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.2
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "This is a very sparse plan with a single large-cap equity fund at 40% allocation and a 15-year SIP rationale. **Passive instrument fraction (0.2):** The fund is sub-categorized as 'large_cap' — not an index fund or ETF — and its information ratio of 1.2 suggests genuine active management skill, so the equity sleeve is predominantly active. A small allowance is given because some large-cap funds can be closet indexers. **Turnover (0.8):** No rebalancing guidelines, no review checkpoints, and a 15-year SIP horizon all point to a near buy-and-hold approach. **Cost emphasis (0.0):** Expense ratio is missing/zero (likely a data gap) and costs are never mentioned; no cost awareness at all. **Research vs cost (0.4):** The plan is bare-bones with no deep security-level research, but nor is it explicitly index-based — it's a single fund pick with no articulated analytical framework, landing in a middle-low zone. **Time horizon (0.9):** The explicit '15y' rationale and SIP mode strongly signal long-term patient compounding. **Portfolio activeness (0.3):** The IR of 1.2 indicates active conviction and consistent outperformance; combined with the large-cap active fund category, the portfolio reflects genuine active management rather than passive/index exposure.",
+    "composite_aps": 0.4333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.05,
+    "reasoning": "This is essentially a non-plan — a near-empty template with only one fund (a large-cap equity fund at 40% allocation) and 60% of the portfolio completely unaccounted for. None of the investor's three goals are addressed: no short-term debt allocation for the 3-year luxury apartment goal, no growth-oriented mid/small-cap exposure for the ₹5Cr/10-year target, and no FI-by-45 roadmap. The investor explicitly wants mid-cap and small-cap exposure but receives only large-cap. The sole rationale of '15y' doesn't match the 20-year horizon or any specific goal. Fund metadata is almost entirely null/empty, no SIP amounts are specified, no review checkpoints, no rebalancing guidelines, no projected returns, and no risk disclosures exist. Tax efficiency is completely ignored — no mention of equity tax treatment, no ELSS for a 30% slab investor who could use 80C, and no consideration of tax-efficient wrappers. The plan fails on every dimension.",
+    "composite_pqs": 0.05
+  },
+  "timestamp": "2026-04-18T16:37:48.282678Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

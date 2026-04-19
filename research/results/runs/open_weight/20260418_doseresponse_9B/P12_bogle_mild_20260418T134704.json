@@ -1,0 +1,229 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle_mild",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "151713",
+          "name": "quant Dynamic Asset Allocation Fund - Growth Option - Direct Plan",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Dynamic Asset Allocation",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "You said you don't fully understand equity funds, and honestly, neither should anyone in your exact position. But you're 47 with 13 years before retirement. If we put 0% here, inflation turns your ₹60 lakh lumpsum into ₹18 lakh by the time you need it. This fund holds mostly stocks (>=65%) but mixes in debt automatically. It's equity-taxed (better for your 30% slab) and stays within your 65% equity limit."
+      },
+      {
+        "fund": {
+          "amfi_code": "147697",
+          "name": "Nippon India Equity Savings Fund - Segregated Portfolio 1 - Direct Plan - Growth Plan - Growth Option",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Equity Savings",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 7.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5600.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your 'safe stock' fund. It only holds stocks that do arbitrage between cash and stocks, keeping overall beta low. When stock markets crash, this moves less. When they boom, you still participate a little. Total exposure is low, but it gives you real stock returns when you can't tolerate any drop."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "ETF",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 4.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3200.0,
+        "lumpsum_inr": null,
+        "rationale": "You already own gold in kind; this ETF is the easiest way to monetize that bias. Keep it small (4%). It's slab-taxed because it's <65% equity, but since gold usually only moves 10-15% a year, the tax cost (paying your full 30% slab) barely matters."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Overnight",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Overnight means it holds instruments maturing within one day. Zero volatility. Very safe. This is equity-taxed (>=65% arbitrage), so you get tax efficiency. You have ₹80000 inflow monthly; ₹12,000 here keeps you stable if markets turn ugly."
+      },
+      {
+        "fund": {
+          "amfi_code": "118565",
+          "name": "Franklin India SHORT TERM INCOME PLAN - Direct - GROWTH",
+          "category": "Debt",
+          "sub_category": "Short Duration",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 39.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 4680000.0,
+        "rationale": "This is your heartland. 47 years old, 13 years to retirement, but you want stability. Short duration debt means bonds maturing in 2-4 years. When interest rates have already been hiked, capital protection is decent. We're putting 39% of your equity allocation (46.8L of lumpsum) here. Note: This is slab-taxed (<65% equity). At your 30% slab, a 7% return nets ~4.9% post-tax. That's why we use it for stability, not out of conviction."
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [
+      "After 6 months: you're opening new accounts? Ask your custodian to confirm SIPs are running and confirmations are mailed. You'll only think twice about this fund; the rest will run themselves. If anything, ask someone to复印 your statements.",
+      "After 1 year: once you've held for 13 years, nothing changes. But if you're asked 'what's your allocation', you'll hear 'dynamic asset allocation'.",
+      "After 5 years: if markets have surged beyond your comfort, shift 5% from dynamic to short-term debt or increase your gold allocation.",
+      "After 13 years: start shifting 5% per year to debt-heavy funds. You want a 0% equity glide path, and this fund gives you a 0% glide path."
+    ],
+    "rebalancing_guidelines": "",
+    "projected_returns": {
+      "base": 5.6,
+      "bull": 9.6,
+      "bear": 1.6
+    },
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 37.0,
+        "debt_pct": 40.0,
+        "gold_pct": 4.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 6,
+        "equity_pct": 30.0,
+        "debt_pct": 45.0,
+        "gold_pct": 2.5,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 13,
+        "equity_pct": 10.0,
+        "debt_pct": 85.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.1,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan is heavily passive in its equity sleeve as it relies on index-mimicking diversifiers (Dynamic Asset Allocation and Equity Savings) rather than active stock-picking funds; however, the map balances heavily towards active in the equity portion. Test the portfolio passiveness score is low (0.2) because the equity sleeve is dominated by funds that are actively managed (Dynamic Asset Allocation, Equity Savings, Overnight, Short-Duration) - none are pure equity index funds. The plan uses cost minimization only as a secondary motive and lacks deep individual security research. The time horizon is align with the 13-year retirement period, but the rebalancing guidelines suggest occasional tactical shifts and a 5-year review, indicating a slightly hybrid approach.",
+    "composite_aps": 0.3833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 1.0,
+    "reasoning": "GOAL ALIGNMENT (0.8): The plan largely aligns with the investor's conservative risk appetite, 13-year horizon, and preference for simplicity/understanding. It incorporates gold (per preference), debt for stability, and uses dynamic allocation to manage risk. Minor deduction because the investor's stated goal to 'avoid products he doesn't understand' is somewhat contradicted by selecting 'Dynamic Asset Allocation' and 'Equity Savings' funds which have complexity beyond basic fixed deposits, though the rationale attempts to mitigate this.\n\nDIVERSIFICATION (0.6): The plan is moderately diversified. It includes Equity, Debt, and Gold, touching three asset classes. However, the equity portion is concentrated heavily in just two funds (Dynamic AA and Equity Savings), and the debt portion relies heavily on a single short-term fund (39% lumpsum). While the categories are different, the lack of multiple fund houses or distinct debt durations reduces the quality of diversification within those broad buckets.\n\nRISK/RETURN APPROPRIATENESS (0.9): The risk return profile is excellent. The base return of 5.6% is realistic for a conservative plan including gold and short-term debt. The allocation heavily weights short-term debt (39%) and arbitrage (7%) against a long-term horizon, which matches the 'conservative' tag and desire for stability. The glide path from 37% equity down to 0% by year 13 perfectly addresses the need to preserve capital as he nears his income-generating phase.\n\nINTERNAL CONSISTENCY (0.9): The plan is highly consistent. The rationale in each section directly supports the allocation percentages. The reasons given (tax efficiency for 30% slab, stability for debt, gold bias) are the reasons for the specific fund picks. There are no contradictions between the risk warnings, the fund choices, and the glide path strategy.\n\nTAX EFFICIENCY (1.0): The plan is optimally taxed for a 30% slab investor. It maximizes the utilization of the 80C headroom is not applicable here as the main equity portion is routed through Aggressive Hybrid funds (>=65% equity) and Equity Savings funds, which attract favorable LTCG/STCG rates rather than the investor's 30% marginal slab. It correctly routes the fixed-income leg through arbitrage (equity taxed) where possible and accepts slab taxation for the specific short-duration fund only after explaining why (stability need). It avoids recommending slab-taxed debt to a high-tbr investor unnecessarily.",
+    "composite_pqs": 0.8399999999999999
+  },
+  "timestamp": "2026-04-18T13:47:04.579558Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 28472,
+    "output_tokens": 2188,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 112.54965632781386
+}

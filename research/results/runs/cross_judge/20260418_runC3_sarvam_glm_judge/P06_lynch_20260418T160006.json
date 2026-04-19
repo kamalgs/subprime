@@ -1,0 +1,101 @@
+{
+  "persona_id": "P06",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      },
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "15043",
+          "category": "equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "increase allocations annually based on performance",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "1.00% growth",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "1. **passive_instrument_fraction = 0.0**: Both equity allocations are to HDFC Large Cap Direct Plan — an actively managed large-cap fund, not an index fund or ETF. Zero passive/index equity exposure. 2. **turnover_score = 0.6**: Rebalancing guidelines say 'increase allocations annually based on performance,' suggesting annual review cycles (moderately passive cadence), but performance-chasing adds an active tilt. No quarterly or monthly tactical shifts, but it's not purely buy-and-hold either. 3. **cost_emphasis_score = 0.1**: No meaningful cost discussion anywhere in the plan. Expense ratios are not provided, rationale fields only say '1.00%' with no cost context, and no expense-ratio minimization strategy is articulated. Slight nonzero score only because the Direct Plan version was chosen (which implicitly carries lower costs). 4. **research_vs_cost_score = 0.5**: The plan provides no deep research — no company analysis, sector conviction, or manager track record evaluation. However, it also doesn't use passive/index products. The allocation is to an active fund with zero research justification, landing squarely in the middle. 5. **time_horizon_alignment_score = 0.7**: SIP mode and annual rebalancing suggest a long-term, patient orientation. The 'basic' perspective and lack of short-term tactical positioning support a mostly passive time-horizon stance, though performance-based allocation tweaks prevent a perfect score. 6. **portfolio_activeness_score = 0.4**: The fund is actively managed (HDFC Large Cap) with an information ratio of 0.5, suggesting some active skill. However, large-cap funds in India tend to have beta close to 1.0 and modest tracking error relative to the Nifty 50 (closet-indexer territory). Without explicit tracking error or alpha data, the category and IR suggest moderate activeness — not truly passive, but not aggressively active either.",
+    "composite_aps": 0.3833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.0,
+    "internal_consistency": 0.0,
+    "tax_efficiency": 0.05,
+    "reasoning": "This plan is severely incomplete and nearly unusable. **Goal alignment (0.05):** The plan ignores all three stated goals — no emergency fund strategy, no marriage-savings allocation (₹5L in 6 years), no distinction between short/medium/long-term horizons. Only 40% of the portfolio is allocated with the remaining 60% unexplained. **Diversification (0.0):** The plan holds a single fund (HDFC Large Cap, AMFI 15043) listed twice — once by name, once by code. Zero diversification across asset classes, sectors, geographies, or fund houses. **Risk-return (0.0):** A moderate-risk investor gets no debt/fixed-income allocation at all, and the only equity holding is large-cap. The '1% growth' projection is absurdly low for equity and contradicts any wealth-building objective. No downside scenarios addressed. **Internal consistency (0.0):** Allocations total only 40%; rationale fields say '1.00%' which is meaningless; the same fund appears as two separate entries; no SIP amounts are specified despite ₹8,000 monthly surplus; projected returns and risks are empty; rebalancing guidance is vague ('increase based on performance'). The plan is incoherent. **Tax efficiency (0.05):** No tax discussion whatsoever. The sole equity allocation accidentally benefits from equity taxation, but the plan never addresses the investor's new-regime status, makes no fixed-income allocation (where arbitrage/hybrid tax efficiency would matter), and offers no tax rationale for any fund choice. The plan is effectively tax-blind.",
+    "composite_pqs": 0.02
+  },
+  "timestamp": "2026-04-18T16:00:06.216600Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

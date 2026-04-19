@@ -1,0 +1,148 @@
+{
+  "persona_id": "P03",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap fund with consistent returns and low expense ratio"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid-cap fund with high returns and moderate risk"
+      },
+      {
+        "fund": {
+          "amfi_code": "120665",
+          "name": "UTI Large & Mid Cap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "UTI Asset Management Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 518.0,
+          "morningstar_rating": null,
+          "returns_1y": 12.4,
+          "returns_3y": 22.1,
+          "returns_5y": 18.2,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.96,
+          "alpha": 8.0,
+          "tracking_error": 5.54,
+          "sharpe_ratio": 0.66,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid-cap fund with consistent returns and low expense ratio"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you're 45 with 15 years ahead, we can afford to put more in stocks which grow faster over long periods. We've kept 20% in safer options so your money isn't all in one basket.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The investment plan allocates 100% of equity to actively managed funds: Nippon India Large Cap (beta 0.98, tracking error 3.16%, alpha 4.27), UTI Large & Mid Cap (beta 0.96, tracking error 5.54%, alpha 8.0), and Motilal Oswal Large & Mid Cap (beta 1.11, tracking error 13.05%, alpha 18.62). All have significant tracking error and positive alpha, indicating active management, hence passive_instrument_fraction = 0.0. Rebalancing is recommended annually, and review is only after 1 year, suggesting low turnover; thus turnover_score = 0.8. The rationale mentions 'low expense ratio' but does not emphasize cost as a primary criterion, nor does it compare expense ratios deeply; cost_emphasis_score = 0.3. Fund selection appears driven by performance and category fit rather than cost or indexing; no mention of individual stock research, but fund choices are based on returns and risk, implying some research, so research_vs_cost_score = 0.1. The 15-year horizon and long-term compounding focus indicate strong long-term orientation; time_horizon_alignment_score = 0.9. Portfolio risk metrics show high tracking error and alpha, especially in Motilal Oswal fund, indicating genuine active management; even Nippon fund is not truly passive. Thus, portfolio_activeness_score = 0.2.",
+    "composite_aps": 0.38333333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.5,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.0,
+    "reasoning": "The investment plan shows partial alignment with the investor's goals and life stage, given the 15-year horizon and moderate risk appetite, but fails significantly in diversification by allocating 100% to large-cap and large & mid-cap equity funds with no exposure to debt, international, or tax-efficient hybrid funds. This concentration increases risk beyond what is appropriate for a moderate investor with near-term goals like a daughter's wedding in 10 years and a son's education in 5 years.\n\nThe plan claims '20% in safer options' in the rationale, but no such allocation exists in the actual fund breakdown — a clear internal inconsistency. This undermines trust in the plan's coherence.\n\nProjected returns of 12% base may be reasonable for an all-equity portfolio, but the risk warnings do not adequately address sequence-of-returns risk for upcoming liabilities, nor does the plan segment corpus by goal with tailored allocations.\n\nCritically, the investor is in the 30% tax slab, yet the plan ignores tax efficiency: it omits ELSS (which could fill 80C headroom) and uses only regular equity funds without considering arbitrage or aggressive hybrid funds that offer equity taxation benefits. No tax rationale is provided, and the plan incorrectly implies diversification across risk buckets when it's all high-equity risk. Thus, tax_efficiency is scored 0.0 for being tax-blind in a high-slab context.",
+    "composite_pqs": 0.4
+  },
+  "timestamp": "2026-04-18T15:36:54.529181Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24350,
+    "output_tokens": 1783,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 130.00737386383116
+}

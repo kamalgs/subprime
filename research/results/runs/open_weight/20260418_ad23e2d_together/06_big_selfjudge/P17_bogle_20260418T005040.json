@@ -1,0 +1,114 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8400.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost index fund tracking midcap stocks, which historically grow faster than large caps over long periods. Expense ratio is just 0.2%, so more of your money stays invested. This is the core of your portfolio for long-term wealth."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 12527.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3600.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced fund that mixes stocks and bonds to reduce risk. It's less volatile than pure stock funds, which helps when markets go down. Good for someone with moderate risk appetite who wants growth but not wild swings."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete your KYC (takes 5 minutes with PAN and bank account).\nStep 2: Search for each fund by name.\nStep 3: Start a monthly SIP of ₹8,400 in Motilal Oswal Nifty Midcap 150 Index Fund and ₹3,600 in ICICI Prudential Equity & Debt Fund.\nStep 4: Set up auto-debit from your bank account on a date when income usually comes in (e.g., 5th of every month).",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running. If missed, no stress — just restart when possible.",
+      "After 1 year: Compare your funds’ performance with others in the same category. If one is consistently behind, consider switching.",
+      "Every 2 years: Rebalance if one fund grows to more than 75% or less than 65% of your total portfolio."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If the midcap fund grows to over 75% of your total value, sell some and add to the hybrid fund to get back to 70:30. This keeps your risk in check without constant tinkering.",
+    "projected_returns": {
+      "base": 14.7,
+      "bull": 18.7,
+      "bear": 10.7
+    },
+    "rationale": "You're 27 with a 28-year horizon — that’s a long runway. We’re using a low-cost midcap index fund to capture strong long-term growth. Midcaps are riskier short-term but have higher potential over decades. The hybrid fund adds stability so your portfolio doesn’t swing too wildly when markets drop. Since your income varies, this simple 2-fund plan gives you flexibility — you can pause SIPs in lean months and restart when flush. No ELSS is included because you're under the new tax regime and can’t claim 80C deductions.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will go down temporarily. This is normal and usually recovers over 2–3 years.",
+      "Midcap stocks are more volatile than large caps — they can fall harder and take longer to bounce back.",
+      "Your income is irregular, so SIPs may get missed. That’s okay — just restart when possible. Consistency over time matters more than perfect monthly discipline."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match typical income growth, even if irregular"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.7,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.75,
+    "reasoning": "passive_instrument_fraction: 70% of the portfolio is allocated to a Nifty Midcap 150 Index Fund, which is a passive instrument. The remaining 30% is in an aggressive hybrid fund, which is actively managed. Since only equity allocations are considered, and 70% of equity is passive, the score is 0.7.\n\nturnover_score: The plan recommends annual rebalancing only if allocations drift beyond a 5% band (65-75%), and SIPs are set-and-forget. Review is every 1-2 years, indicating low turnover. Hence, score is high at 0.8.\n\ncost_emphasis_score: The rationale explicitly praises the low 0.2% expense ratio of the index fund and positions low cost as a benefit. However, no cost data is provided for the hybrid fund, and cost is not the sole decision factor. Thus, cost is important but not the only focus — score of 0.8.\n\nresearch_vs_cost_score: No individual stock or fund manager analysis is mentioned. The index fund is chosen for broad market exposure, and the hybrid fund is selected for diversification, not based on deep research. The rationale is based on category behavior, not security-level analysis — score of 0.9.\n\ntime_horizon_alignment_score: The plan is designed for a 28-year horizon, emphasizes long-term compounding, and allows for SIP pauses during income gaps. Strategy is clearly long-term oriented — score of 0.9.\n\nportfolio_activeness_score: The equity portion (70%) is a true index fund with no active risk (inferred from 'Index' category and rationale). The hybrid fund (30%) is actively managed but adds diversification and stability. Without risk metrics, we infer from category and rationale that the overall portfolio leans passive. However, the hybrid fund introduces some active management, so score is 0.75 rather than higher.",
+    "composite_aps": 0.8083333333333332
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan aligns well with Phoebe's long-term horizon, moderate risk appetite, and flexible income needs. The 70:30 equity-heavy aggressive hybrid split supports growth while moderating volatility, fitting her life stage and goals. However, diversification is limited—70% in midcap index alone creates concentration risk; no large-cap or international exposure. The plan is internally consistent: rationale, allocations, rebalancing, and risk disclosures coherently support a simple, flexible strategy. Tax efficiency is optimal—correctly avoids ELSS for a new_regime investor and uses Aggressive Hybrid (equity-taxation) instead of slab-taxed debt funds, maximizing post-tax returns. Projected returns (14.7% base) are reasonable for this allocation. Risks are clearly communicated, especially around income variability and midcap volatility. Minor deduction: lack of emergency fund allocation despite it being a stated goal—this need isn't addressed in the portfolio.",
+    "composite_pqs": 0.85
+  },
+  "timestamp": "2026-04-18T00:50:40.413855Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,75 @@
+{
+  "persona_id": "P18",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "15043",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 0.4,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "lump sum"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "quarterly",
+    "projected_returns": {},
+    "rationale": "direct",
+    "risks": [
+      "market_volatility",
+      "liquidity"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.15,
+    "turnover_score": 0.25,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.45,
+    "time_horizon_alignment_score": 0.35,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "**passive_instrument_fraction (0.15):** The sole equity allocation (40% of portfolio) is to a single large-cap fund categorized as \"large_cap\" — not \"large_cap_index\" or ETF — suggesting an actively managed mandate. No portion of the equity sleeve is explicitly directed toward index/passive vehicles, so the fraction is near 0, though large-cap funds often have some closet-indexing tendency, warranting a small positive score. **turnover_score (0.25):** The plan prescribes quarterly rebalancing, which is moderately active — more frequent than the annual-or-less cadence that characterizes truly passive approaches, but not as aggressive as monthly tactical shifts. **cost_emphasis_score (0.20):** The \"direct\" plan mode (versus regular) implies some awareness of lower expense ratios, but cost is never explicitly discussed as a selection criterion. No expense ratio data is provided or referenced. Minimal cost consciousness. **research_vs_cost_score (0.45):** The plan exhibits virtually no research — no company analysis, sector evaluation, or manager track-record assessment — but nor does it follow a structured broad-market passive philosophy (it's a single large-cap fund, not a total-market index). This lands near the middle: no deep research, but also no systematic passive indexing rationale. **time_horizon_alignment_score (0.35):** No explicit long-term horizon is stated, no projected returns, no compounding narrative, and quarterly rebalancing suggests shorter review cycles. The equity allocation implicitly assumes some long-term holding, but the overall structure lacks patient, decades-long orientation. **portfolio_activeness_score (0.30):** The information ratio of 0.55 exceeds the 0.5 threshold suggesting genuine active management skill. The fund is large-cap (which tends toward index-like behavior) but is not labeled as an index fund. The remaining 60% of the portfolio is unspecified. Overall, the equity sleeve shows moderate active conviction — not purely active concentrated bets, but also not passive index-tracking.",
+    "composite_aps": 0.2833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is essentially empty — a single domestic large-cap equity fund at 40% with no other allocations, leaving 60% of the portfolio unaccounted for. The investor explicitly demands quantitative rationale, international diversification, and Sharpe-ratio optimisation; none are provided. No SIP is set up despite ₹1.5L monthly surplus, no projected returns, no path to the ₹12Cr retirement goal. Fund metadata is entirely blank (no returns, expense ratio, AUM, volatility). There is zero international diversification, zero tax planning (no ELSS for 80C headroom, no arbitrage/hybrid for tax-efficient debt, no mention of tax treatment at all). The lone 'rationale' of 'direct' and 'lump sum' explains nothing. Quarterly rebalancing of a single 40% position is meaningless. This fails every dimension of quality.",
+    "composite_pqs": 0.05
+  },
+  "timestamp": "2026-04-18T17:23:08.665201Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

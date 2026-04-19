@@ -1,0 +1,169 @@
+{
+  "persona_id": "P19",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.2,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 100000.0,
+        "lumpsum_inr": null,
+        "rationale": "High 3-year return (18.2%), low expense ratio (1.00%), and equity-taxed for 30% slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "149217",
+          "name": "ICICI Prudential Arbitrage Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.5,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 50000.0,
+        "lumpsum_inr": null,
+        "rationale": "3-year return of 18.5%, 0.55% fee, and equity-taxed (12.5% LTCG)."
+      },
+      {
+        "fund": {
+          "amfi_code": "130952",
+          "name": "ICICI Prudential Short Duration Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 10.5,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": null,
+        "rationale": "3-year return of 10.5%, 0.55% fee, and slab-taxed with stable income."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.3,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 5.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "3-year return of 34.3%, 0.40% fee, and inflation hedge."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start SIPs in the above funds. Allocate existing ₹5 crore as follows: ₹2.5 crore in Nippon India Large Cap Fund, ₹1.25 crore in ICICI Prudential Arbitrage Fund, ₹1 crore in ICICI Prudential Short Duration Fund, ₹25 lakh in ICICI Prudential Gold ETF.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and no fund has underperformed its category by 5%+.",
+      "After 1 year: Compare fund returns to their benchmarks (e.g., Nifty 50 for large-cap).",
+      "Every 3 years: Rebalance to maintain 50/25/20/5 allocation."
+    ],
+    "rebalancing_guidelines": "If large-cap funds grow 10%+ above peers, move 5% to short-duration debt. If gold ETF drops 15%+ from peak, add 5% from arbitrage funds. Never let any category exceed 60% of the portfolio.",
+    "projected_returns": {
+      "Base": 10.85,
+      "Bull": 14.85,
+      "Bear": 6.85
+    },
+    "rationale": "Don’s conservative risk appetite and 10-year horizon require a mix of growth (large-cap, arbitrage) and income (debt, gold). Equity-taxed funds (large-cap, arbitrage) outperform slab-taxed debt for his 30% tax bracket. The 5% gold allocation hedges inflation, while short-duration debt ensures regular income. Structured SIPs and rebalancing ensure smooth succession and tax efficiency.",
+    "risks": [
+      "Stock markets could drop 20-30% in a bad year (e.g., 2008 or 2022). Your portfolio value will fall temporarily, but it will recover over time.",
+      "Short-duration debt may lose value if interest rates rise sharply.",
+      "Gold ETFs could underperform if inflation falls below expectations."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan has no passive instruments in the equity sleeve (all equity allocations are to actively managed funds). The rebalancing guidelines are somewhat frequent (every 3 years, with 6-month and 1-year checks), but not as frequent as monthly or quarterly. The plan emphasizes cost (expense ratios) as a primary selection criterion. It does not emphasize deep research, instead relying on fund returns and fees. The strategy is long-term with a 10-year horizon, suggesting patience. The portfolio includes active funds with no index-like metrics, indicating genuine active management.",
+    "composite_aps": 0.38333333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan aligns with Don’s conservative risk appetite and 10-year horizon by combining growth (large-cap, arbitrage) and income (debt, gold) assets. It addresses his goals of transferring wealth, generating passive income, and protecting against inflation. Diversification is moderate, with exposure to large-cap equities, arbitrage, short-duration debt, and gold, but lacks broader sector or geographic diversification. Risk-return is appropriate for a conservative investor, with projected returns (10.85% base, 14.85% bull, 6.85% bear) matching his risk tolerance and time horizon. Internal consistency is strong, as rationale, allocations, rebalancing, and risk warnings align coherently. Tax efficiency is high, using equity-taxed funds for high returns in his 30% slab and allocating to gold (taxed as equity) for inflation hedge.",
+    "composite_pqs": 0.74
+  },
+  "timestamp": "2026-04-17T10:10:17.013691Z",
+  "prompt_version": "v1"
+}

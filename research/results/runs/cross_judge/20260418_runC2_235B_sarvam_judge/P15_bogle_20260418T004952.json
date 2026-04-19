@@ -1,0 +1,163 @@
+{
+  "persona_id": "P15",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 25000.0,
+        "lumpsum_inr": 3500000.0,
+        "rationale": "Balanced exposure to stocks and bonds with moderate risk; equity taxation benefits for 30% slab investor; consistent long-term performance."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 10577.451299999999,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 6.279485763002324,
+          "returns_5y": 67.25002048586663,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 1500000.0,
+        "rationale": "Ultra-safe, highly liquid fund for near-term goal (daughter's wedding in 4 years); but note: slab-taxed, so not ideal for 30% slab; used here for capital protection."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.27551457892899,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "both",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": 1000000.0,
+        "rationale": "Gold acts as a hedge against market and currency risk; helps diversify portfolio; historically strong returns; slab-taxed but justified for diversification."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera.\nStep 2: Complete KYC if not already done.\nStep 3: Set up monthly SIPs: ₹25,000 in ICICI Prudential Equity & Debt Fund, ₹15,000 in ICICI Prudential Overnight Fund, ₹10,000 in ICICI Prudential Gold ETF.\nStep 4: Transfer lump sum amounts: ₹35L to Equity & Debt, ₹15L to Overnight, ₹10L to Gold ETF.\nStep 5: Enable auto-debit for SIPs on the 5th of every month.",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running and if lumpsum investments were allocated correctly.",
+      "After 1 year: Review fund performance vs category average. If any fund underperforms for 2 consecutive years, consider switching.",
+      "Before daughter's wedding (Year 4): Shift ₹25L from Overnight Fund to bank FD to lock in capital."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If due to market movements, your allocation deviates by more than 5% (e.g., equity portion goes above 65% or below 55%), shift money between funds to restore 60:25:15 ratio.",
+    "projected_returns": {
+      "base": 10.8,
+      "bull": 14.8,
+      "bear": 6.8
+    },
+    "rationale": "At 48, with a 12-year horizon and conservative risk appetite, this plan balances growth and stability. The 60% in Aggressive Hybrid provides equity-like returns with lower volatility. The 25% in Overnight Fund safeguards funds for your daughter's wedding in 4 years. Gold adds diversification. Your ₹80L corpus and ₹75K/month surplus allow structured growth towards retirement and wealth transfer goals. Tax efficiency is partially compromised by slab-taxed debt and gold, but safety takes priority for your near-term goal.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your Aggressive Hybrid fund will fall too, but recovers over time.",
+      "Overnight and liquid funds give low returns after tax for 30% slab — ₹5.5% pre-tax becomes ~3.85% post-tax.",
+      "Gold prices can stay flat or fall for years — don't expect consistent returns.",
+      "Inflation may erode the value of debt holdings if returns don't keep up."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match business income growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 4,
+        "equity_pct": 50.0,
+        "debt_pct": 35.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Daughter's wedding in Year 4 — shift ₹25L from debt to FD for safety"
+      },
+      {
+        "year": 10,
+        "equity_pct": 40.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching retirement — reduce equity risk and increase stable income sources"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.7,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "1. **passive_instrument_fraction (0.0):** The equity allocation (60%) is entirely in an Aggressive Hybrid fund, which is actively managed. No passive equity instruments like index funds or ETFs are used.\n2. **turnover_score (0.3):** The plan specifies annual rebalancing and tactical shifts (e.g., shifting from Overnight Fund to FD in Year 4). However, the primary strategy is long-term SIPs with moderate adjustments, not frequent trading.\n3. **cost_emphasis_score (0.2):** Costs are not emphasized; the plan prioritizes safety and tax efficiency for near-term goals over minimizing expense ratios (e.g., slab-taxed debt/gold despite higher costs).\n4. **research_vs_cost_score (0.7):** The plan relies on active fund management (Aggressive Hybrid) with no mention of stock-specific research, favoring broad market exposure indirectly through the hybrid fund.\n5. **time_horizon_alignment_score (0.8):** The strategy aligns with a 12-year horizon, emphasizing long-term compounding and structured SIPs with infrequent major adjustments.\n6. **portfolio_activeness_score (0.1):** The equity portion (Aggressive Hybrid) likely exhibits active behavior (high tracking error, alpha), while debt/gold allocations are passive but minimal. Overall, the portfolio is dominated by active equity exposure.",
+    "composite_aps": 0.35000000000000003
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.4,
+    "reasoning": "1. **goal_alignment (0.6):** The plan partially aligns with goals. Aggressive Hybrid (60%) suits long-term retirement but may be too volatile for conservative appetite. Overnight Fund (25%) addresses near-term wedding but uses slab-taxed debt, conflicting with tax efficiency. Gold (15%) adds diversification but lacks clear goal linkage. No mention of retirement income products.\n2. **diversification (0.7):** Adequate across asset classes (equity, debt, gold) and fund houses (ICICI only). However, debt allocation is concentrated in overnight funds, and gold is a single ETF.\n3. **risk_return_appropriateness (0.5):** Aggressive Hybrid (60%) conflicts with conservative risk appetite. Overnight Fund's slab taxation reduces post-tax returns (3.85% vs 5.5% pre-tax), unsuitable for 30% slab. Gold volatility and inflation risk not fully addressed.\n4. **internal_consistency (0.7):** Rationale mentions tax efficiency but uses slab-taxed debt/gold. Rebalancing guidelines and allocation schedule are logical but tax compromises persist.\n5. **tax_efficiency (0.4):** Major flaw: Overnight Fund (slab-taxed) for 30% slab investor. Gold also slab-taxed. No ELSS for 80C (applicable for 30% slab). Aggressive Hybrid is tax-efficient but overused for conservative profile.",
+    "composite_pqs": 0.58
+  },
+  "timestamp": "2026-04-18T00:49:52.199371Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

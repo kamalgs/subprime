@@ -1,0 +1,179 @@
+{
+  "persona_id": "P11",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Conservative investor with a need for capital preservation and some income. Aggressive hybrid funds offer a balance of equity and debt."
+      },
+      {
+        "fund": {
+          "amfi_code": "119843",
+          "name": "SBI MULTI ASSET ALLOCATION FUND",
+          "category": "Multi Asset Allocation",
+          "sub_category": "",
+          "fund_house": "SBI",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "To diversify the portfolio and reduce risk, a multi-asset allocation fund is added."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "A small allocation to gold to hedge against inflation and market volatility."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund",
+          "category": "Debt",
+          "sub_category": "Overnight",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 300000.0,
+        "rationale": "To provide liquidity and preserve capital, a small allocation to an overnight debt fund."
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 9.5,
+      "bull": 13.5,
+      "bear": 5.5
+    },
+    "rationale": "Given the investor's conservative risk appetite and need for capital preservation, a balanced portfolio with a mix of aggressive hybrid, multi-asset allocation, gold, and debt funds is recommended. This portfolio aims to provide a balance of growth and income while minimizing risk.",
+    "risks": [
+      "Market risks associated with equity investments",
+      "Credit risks associated with debt investments",
+      "Liquidity risks associated with certain debt investments"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan consists entirely of actively managed funds: ICICI Prudential Equity & Debt (Aggressive Hybrid), SBI Multi Asset Allocation, UTI Gold ETF, and ICICI Prudential Overnight Fund. Although the Gold ETF is inherently passive, it constitutes only 10% of the total portfolio and is not an equity index instrument, so it does not contribute to passive equity scoring. Therefore, the equity portion (embedded in hybrid and multi-asset funds) is actively managed, leading to a passive_instrument_fraction score of 0.0.\n\nThe turnover_score is 1.0 because rebalancing is recommended only once a year, and review checkpoints are at 6 months and 1 year, indicating a long-term, low-turnover strategy.\n\ncost_emphasis_score is 0.0 because there is no mention of expense ratios, fees, or cost efficiency in fund selection—despite expense ratio data being available, it is not used as a criterion.\n\nresearch_vs_cost_score is 0.0 because the rationale focuses on broad risk-based allocation rather than deep research, but it does not advocate for index-based market exposure; instead, it selects actively managed hybrid and multi-asset funds without reference to indexing or market-cap weighting.\n\ntime_horizon_alignment_score is 1.0 as the plan supports long-term SIPs with annual reviews and a 10% annual step-up, aligning with long-term wealth accumulation.\n\nportfolio_activeness_score is 0.0 because all selected funds are actively managed categories (hybrid, multi-asset, overnight) with no evidence of passive indexing in equity exposure. Risk metrics are missing, but category labels and rationales suggest active management. Even though UTI Gold ETF is passive, gold and debt allocations are excluded from equity passiveness scoring, and the core equity exposure remains actively managed.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan aligns well with Marge's conservative risk appetite, life stage, and goals of capital preservation, education funding, and modest growth. The 60% allocation to Aggressive Hybrid (ICICI Prudential Equity & Debt) is appropriate for a conservative investor with a 16-year horizon, offering equity exposure with debt cushion. The 20% in Multi-Asset Allocation (SBI) enhances diversification across asset classes, including equity, debt, and alternatives. A 10% gold allocation via ETF is prudent for inflation hedging and volatility reduction. However, the 10% in ICICI Overnight Fund (debt) is a critical flaw from a tax perspective: Marge is in the 20% tax slab, and overnight funds are taxed at her marginal rate (20%), whereas arbitrage funds or conservative hybrid funds (with ≥65% equity) would offer similar stability but with more favorable equity taxation (STCG 20%, LTCG 12.5% above ₹1.25L). The plan ignores this tax inefficiency, making it suboptimal. Additionally, while ELSS could have been considered for 80C benefits (she's in old regime), it's not mandatory, so omission is acceptable. Still, the use of a slab-taxed debt fund when equity-taxed alternatives exist with comparable risk drags tax_efficiency down. Diversification is good across asset classes and fund houses. The rationale, allocations, and rebalancing guidelines are coherent and consistent. Projected returns (9.5% base) are realistic for this allocation. Overall, the plan is solid but misses a key tax optimization opportunity, especially critical for a high-tax-bracket investor.",
+    "composite_pqs": 0.75
+  },
+  "timestamp": "2026-04-18T15:42:57.645218Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24840,
+    "output_tokens": 2090,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 89.30016821157187
+}

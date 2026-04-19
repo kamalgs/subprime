@@ -1,0 +1,79 @@
+{
+  "persona_id": "P03",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap fund (HDFC Large Cap - Direct Plan), which is not a passive/index fund, resulting in a passive_instrument_fraction score of 0.0. There are no rebalancing guidelines or review checkpoints specified, implying a static, long-term structure, hence a turnover_score of 1.0. The plan does not mention cost considerations like expense ratios or tax efficiency, so cost_emphasis_score is 0.0. The rationale 'direct' suggests a preference for direct plans, possibly due to lower costs, but there's no explicit emphasis on cost over research; however, no deep research rationale is provided either, but the use of an actively managed fund with a positive information ratio (0.6) suggests active management intent, leading to a research_vs_cost_score of 0.0. The lack of active trading signals and no rebalancing implies a long-term horizon, scoring 1.0 on time_horizon_alignment. Finally, the fund has an information ratio of 0.6, indicating active management intent, and no risk metrics suggest index-like behavior; thus, the portfolio_activeness_score is 0.0 as the portfolio reflects active conviction.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows minimal alignment with the investor's goals: it allocates 40% to a single large-cap fund with no clear mapping to the multi-horizon goals (5, 10, and 15 years), and ignores the need for stability and growth balance. Diversification is extremely poor—only one fund, one asset class (equity), and one category (large-cap), with no exposure to mid/small caps, debt, international, or hybrid funds, increasing concentration risk. Risk-return is inappropriate for a moderate investor: a single large-cap fund without any downside protection or asset allocation glide path does not match the stated moderate risk appetite, especially with near-term goals like a daughter's wedding in 10 years and son's education in 5 years. Internal consistency is weak: the rationale is just 'direct', with no explanation linking fund choice to goals, risk, or horizon; no rebalancing, review, or SIP step-up guidance undermines coherence. Tax efficiency is very poor: the investor is in the 30% slab, yet the plan uses a regular large-cap fund (likely higher expense) without leveraging tax-efficient structures like ELSS for 80C benefits (which could save ~30% tax on up to ₹1.5L/year). No mention of tax treatment, and no use of arbitrage or aggressive hybrid funds for debt-like exposure under equity taxation, which would be critical for tax optimization at this slab. Overall, the plan is incomplete, underdeveloped, and fails on all key dimensions of quality.",
+    "composite_pqs": 0.26
+  },
+  "timestamp": "2026-04-18T15:49:48.394445Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22154,
+    "output_tokens": 855,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 33.08200204744935
+}

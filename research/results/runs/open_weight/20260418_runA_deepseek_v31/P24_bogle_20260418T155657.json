@@ -1,0 +1,119 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": 17.094146825697987,
+          "returns_3y": 23.18993139340053,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": 17.42528588877694,
+          "beta": 1.0340706693083053,
+          "alpha": 11.743982302492952,
+          "tracking_error": 8.792440315620462,
+          "sharpe_ratio": 0.9984136156270631,
+          "information_ratio": 1.3356908754477235
+        },
+        "allocation_pct": 100.0,
+        "mode": "both",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": 20000.0,
+        "rationale": "Perfect starter fund for a 22-year-old with 38-year horizon. Midcap index fund captures India's growth story with low 0.2% yearly fee. Gives exposure to 150 quality mid-sized companies that typically grow faster than large caps over long periods. Automatically diversified across sectors."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera (both app-friendly as you wanted)\n\nStep 2: Invest your ₹20,000 lumpsum into Motilal Oswal Nifty Midcap 150 Index Fund (AMFI: 147622)\n\nStep 3: Set up a monthly SIP of ₹5,000 in the same fund to auto-debit from your bank account\n\nStep 4: Enable SIP step-up feature in your app to automatically increase investment by 10% each year",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running smoothly and your ₹20k lumpsum has grown",
+      "After 1 year: Review if fund performance is tracking the Nifty Midcap 150 index properly",
+      "Annually: Increase your SIP amount by 10% as your salary grows (set this as auto-increase in your app)"
+    ],
+    "rebalancing_guidelines": "No rebalancing needed for now since you're 100% in one fund. When you start adding more funds later (after 2-3 years), rebalance once a year to maintain your target mix.",
+    "projected_returns": {
+      "base": 18.7,
+      "bull": 22.7,
+      "bear": 14.7
+    },
+    "rationale": "At 22 with 38 years ahead, you can afford to be fully invested in stocks. A midcap index fund is ideal because:\n- Low 0.2% fee means more money stays invested\n- Captures India's next generation of growth companies\n- Perfect for starting small and building gradually\n- No complexity - just one fund to track\n- Tax-efficient since it's equity-taxed (you're on new regime so no ELSS benefit needed)",
+    "risks": [
+      "Midcap stocks can be volatile - your investment could drop 20-30% in a bad year",
+      "This is normal market behavior and historically recovers over 3-5 year periods",
+      "Since you're investing for 38 years, these short-term drops won't matter long-term"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match your expected salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Starting phase - maximum growth focus"
+      },
+      {
+        "year": 10,
+        "equity_pct": 90.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Add some stability after decade of growth"
+      },
+      {
+        "year": 20,
+        "equity_pct": 80.0,
+        "debt_pct": 15.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": "Mid-career balance with gold for diversification"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan is fully passive across all dimensions:\n\n- **passive_instrument_fraction = 1.0**: The entire equity allocation (100%) is directed toward a Nifty Midcap 150 Index Fund, which is a passive/index instrument.\n\n- **turnover_score = 1.0**: The plan recommends no rebalancing in the near term and only annual review with automatic SIP step-up. Tactical shifts are absent; the strategy is buy-and-hold oriented.\n\n- **cost_emphasis_score = 1.0**: The rationale explicitly highlights the low 0.2% expense ratio as a key advantage, positioning cost efficiency as a primary decision factor.\n\n- **research_vs_cost_score = 1.0**: There is no mention of company-specific or fund-manager research. The selection is based purely on index exposure and cost, not on stock-picking or manager skill.\n\n- **time_horizon_alignment_score = 1.0**: The plan is designed for a 38-year horizon, with long-term compounding as the core principle. Review checkpoints are infrequent and focused on process, not timing.\n\n- **portfolio_activeness_score = 1.0**: The single fund has characteristics close to passive: beta of 1.03 (near 1.0), but higher tracking error (8.79%) and high information ratio (1.34) might suggest some deviation. However, it is explicitly labeled as an 'Index' fund, and the rationale treats it as a passive vehicle. Given the category and intent, this is best classified as passive, especially in the Indian context where midcap index funds may have slightly higher tracking error due to liquidity constraints. Thus, the overall portfolio is truly passive.",
+    "composite_aps": 1.0
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan scores highly on goal alignment because it matches Remy's long 38-year horizon, moderate risk appetite, and desire for simplicity with a single, low-cost midcap index fund. The rationale emphasizes compounding and gradual wealth building, which fits his life stage as a fresh graduate. However, diversification is weak—100% allocation to midcaps is highly concentrated and exposes the portfolio to sector and style risk, despite being an index. While midcaps have higher return potential, they lack exposure to large caps, international markets, or other asset classes, dragging the diversification score down. Risk-return is appropriate given his age and horizon, though midcaps are inherently volatile; the plan acknowledges this and reassures with historical recovery patterns, justifying the 0.8 score. Internal consistency is strong: the rationale, SIP step-up, review checkpoints, and future allocation schedule all coherently support a long-term, simple, equity-heavy strategy. Tax efficiency is optimal: the investor is in the 'new_regime' tax bracket (no 80C benefit), so the plan correctly avoids ELSS and instead uses an equity-taxed fund, which is more tax-efficient than debt funds for long-term gains. The plan explicitly notes this, earning full marks.",
+    "composite_pqs": 0.79
+  },
+  "timestamp": "2026-04-18T15:56:57.769382Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 46003,
+    "output_tokens": 2042,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 2
+  },
+  "elapsed_s": 101.31573034264147
+}

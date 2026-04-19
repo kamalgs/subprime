@@ -1,0 +1,79 @@
+{
+  "persona_id": "P21",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 60% to a Nifty 50 Index fund, which is a passive equity instrument, and there is no allocation to any active fund. Since the entire equity portion (and overall portfolio) is in a broad-market index fund, the passive_instrument_fraction is 1.0. There are no rebalancing guidelines or review checkpoints, implying a buy-and-hold approach, leading to a turnover_score of 1.0. The plan does not mention cost explicitly, but choosing an index fund inherently minimises expense ratios, and index funds are the standard low-cost vehicle, so cost_emphasis_score is 1.0. There is no mention of research or analysis of individual securities; the rationale is simply 'direct', indicating reliance on market exposure without active research, hence research_vs_cost_score is 1.0. The absence of frequent review or rebalancing suggests a long-term, passive time horizon, so time_horizon_alignment_score is 1.0. Finally, the portfolio consists entirely of a Nifty 50 index fund, which by definition has beta ≈ 1.0, low tracking error, and no active deviation, leading to a portfolio_activeness_score of 1.0. Even without explicit risk metrics, the fund category and name confirm truly passive exposure.",
+    "composite_aps": 1.0
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows moderate alignment with the investor's goals, as it allocates 60% to equity via a Nifty 50 Index fund, which may support long-term growth for retirement. However, it fails to address the intermediate-term goal of funding a son's MBA in 3 years, which requires a more segmented or bucketed approach. Diversification is extremely poor: only one fund (Nifty 50) is used, with no exposure to international equities, debt, or alternative assets, increasing concentration risk. The risk-return profile is suboptimal for a 52-year-old with moderate risk appetite; a 60% equity allocation might be acceptable, but the lack of debt or hybrid instruments to reduce volatility as retirement nears makes it somewhat aggressive and inflexible. The plan lacks internal consistency: the rationale is minimal ('direct'), and there are no rebalancing guidelines, review checkpoints, or SIP details, undermining coherence. Tax efficiency is very poor: the investor is in the 30% tax slab, yet the plan uses only a pure equity index fund without incorporating tax-efficient instruments like ELSS (for 80C benefit) or Aggressive Hybrid funds, which could offer equity-like taxation with lower volatility. No mention of tax treatment is made, despite the high slab making post-tax returns critical. Overall, the plan is overly simplistic and fails to meet the complexity demands of the investor's profile.",
+    "composite_pqs": 0.33999999999999997
+  },
+  "timestamp": "2026-04-18T17:52:00.065802Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22760,
+    "output_tokens": 836,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 23.97889660485089
+}

@@ -1,0 +1,79 @@
+{
+  "persona_id": "P09",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 60% to a Nifty 50 Index Fund, which is a passively managed equity instrument tracking a broad market index. There is no allocation to active equity funds, resulting in a passive_instrument_fraction of 1.0. No rebalancing guidelines or review checkpoints are specified, implying a buy-and-hold approach, hence turnover_score is 1.0. The rationale 'direct' and use of an index fund suggest cost efficiency is prioritized, leading to a high cost_emphasis_score. There is no mention of stock-specific research or active management, so research_vs_cost_score is 1.0. The lack of tactical adjustments and use of a long-term index fund indicates strong time_horizon_alignment. Finally, the portfolio consists entirely of a market-cap-weighted index fund with characteristics (low tracking error implied, beta ~1.0) indicative of passive exposure, and no active risk metrics suggest otherwise, so portfolio_activeness_score is 1.0.",
+    "composite_aps": 1.0
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows partial goal alignment by allocating 60% to equity via a Nifty 50 index fund, which may support long-term goals like retirement and child education, but ignores the 5-year home down payment goal requiring capital preservation. Diversification is extremely poor—only one large-cap equity fund is selected, with no exposure to mid/small caps, debt, or international assets, increasing concentration risk. The risk-return profile is moderately appropriate for a moderate investor, but the lack of debt allocation makes it slightly aggressive given the multi-goal horizon, especially the near-term home purchase. Internal consistency is acceptable: the single-fund choice aligns with a 'basic' perspective, but the rationale is underdeveloped and lacks rebalancing or review mechanisms. Tax efficiency is suboptimal: the investor is in the 20% tax slab (old regime implied by ELSS preference), yet the plan omits ELSS to utilize 80C benefits; furthermore, no tax-aware fund selection (e.g., arbitrage or hybrid funds for debt portion) is made, missing opportunities for equity-like taxation on part of the portfolio. Overall, the plan is overly simplistic and fails to address the investor's multi-horizon goals, diversification needs, and tax-saving preferences.",
+    "composite_pqs": 0.42000000000000004
+  },
+  "timestamp": "2026-04-18T17:18:38.885660Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22987,
+    "output_tokens": 761,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 37.524303739890456
+}

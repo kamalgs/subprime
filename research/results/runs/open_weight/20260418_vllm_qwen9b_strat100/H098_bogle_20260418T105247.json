@@ -1,0 +1,231 @@
+{
+  "persona_id": "H098",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5600.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold provides a safety net against inflation and market crashes. Over 11 years, it typically grows at 9-10%. Since you're new-regime (no 80C), gold is slab-taxed, so at 5.6k/month over a decade, taxes ~10% of returns. But it's a small 10% slice, so impact is limited."
+      },
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16800.0,
+        "lumpsum_inr": null,
+        "rationale": "Flexi cap funds move between large, mid, and small companies. They've returned ~19% over 30 years. With a 10% yearly fee, you lose some speed, but this simplifies things. You're in new-regime, so gains are taxed at 12.5% if held >1 year. Good for the bulk of your equity."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 11200.0,
+        "lumpsum_inr": null,
+        "rationale": "Midcap funds beat the market long-term but are louder than large caps. Expect ~23% returns? With this index fund's 0.20% fee (vs 1-1.5% for actively managed funds), you keep more. New-regime means 12.5% LTCG tax after 1 year. This is only 20% of your portfolio, so a bad year hurts less."
+      },
+      {
+        "fund": {
+          "amfi_code": "147623",
+          "name": "Motilal Oswal Nifty Smallcap 250 Index Fund- Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5600.0,
+        "lumpsum_inr": null,
+        "rationale": "Small caps are loud: ~20% returns? But volatile—they can drop 40% in a bad year. New-regime investors get 12.5% LTCG after 1 year. It's only 10% of your plan, so the noise is managed."
+      },
+      {
+        "fund": {
+          "amfi_code": "119843",
+          "name": "SBI MULTI ASSET ALLOCATION FUND - DIRECT PLAN - GROWTH",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 1104000.0,
+        "rationale": "This is for your stability. It mixes debt (~50%) with some equity. Returns 15-18% long-term? New-regime means slab-taxed, so ~12% post-tax. Put this in suddenly (lumpsum) because you have a crore in home loan to clear soon—you don't want debt volatility. It acts as your anchor."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin (it's free). Step 2: Set up a monthly SIP of ₹16,800 in HDFC Flexi Cap, ₹11,200 in Motilal Midcap Index, ₹5,600 in Motilal Smallcap Index, and ₹5,600 in UTI Gold. Step 3: Do a one-time lumpsum of ₹11,04,000 into SBI Multi Asset. Step 4: Link your salary account to auto-debit SIPs. Weekly, check that funds are debited automatically.",
+    "review_checkpoints": [
+      "After 3 months: Ensure SIPs are auto-running; cancel any not debited. Check your 6-year children's education fund (if you have separate savings) for ₹50L goal. Not linked to these SIPs. This plan targets ₹50L in 40 years (retirement), not 6.",
+      "After 1 year: Check if any fund oscillator wildly. If your portfolio drops >20%, stay calm—this is normal for index funds. Rebalancing is done once a year if drift >5%.",
+      "Every 5 years: Reassess your multi-asset fund. If returns fall below 10%, switch to another index fund. Otherwise, keep going."
+    ],
+    "rebalancing_guidelines": "Once a year (say, on your birthday), check if your asset mix has drifted >5% (e.g., gold grew to 15% instead of 10%). If so, sell a bit of the grown asset and buy the ones that shrank. Don't do this quarterly—it's tempting but unnecessary. Stick to your 40-year horizon.",
+    "projected_returns": {
+      "base": 10.8,
+      "bull": 14.8,
+      "bear": 6.8
+    },
+    "rationale": "You're 47, aiming to retire by 50—but wait, that's only 3 years?! Yet you also have children's education in 6 years and a home loan of ₹1Cr to clear in 6 years. This plan has a flaw: You can't build a ₹10Cr retirement corpus in 3 years. This plan assumes you *want* to retire at 50, but the math doesn't add up. The SBI Multi Asset fund (30% of your portfolio) will grow steadily and clear your home loan’s volatility risk. The index funds (mid/small/gold) add growth. But you need to do more than this SIP—start a separate emergency fund, and aggressively pay off the home loan. If you keep working, you can retire later (say, 55-60) and this plan becomes realistic.",
+    "risks": [
+      "Volatility: Index funds can drop 20-30% in a bad year. Your corpus will temporarily shrink, but recover over 5-7 years.",
+      "Inflation: ₹10Cr in 30 years buys less than today. Inflation averages 6-7%, so your corpus needs to grow higher to maintain purchasing power.",
+      "Liquidity: Multi-asset funds can’t be redeemed instantly in a crisis, but you have enough income to cover emergencies. Otherwise, an RBI liquidity buffer—like gold and cash—is needed."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Start with 60% equity (flexi + mid + small cap)."
+      },
+      {
+        "year": 1,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Drift to 10.8% CAGR. Adjust multi-asset if needed."
+      },
+      {
+        "year": 2,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Check if home loan is being cleared. Shift more to multi-asset."
+      },
+      {
+        "year": 3,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Reassess retirement goals. If retiring at 50, need a separate wealth-build strategy."
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.9,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.95,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.4,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan exhibits strong passive characteristics in its equity sleeve (90% in Index funds, 0% in active equity) and emphasizes low costs (favoring fees over alpha). It avoids deep security research. However, the plan has a highly contradictory time horizon: the user states retiring in 3 years (highly short-term/risk-averse duration for debt) while simultaneously targeting a 40-year growth horizon, creating a misalignment score of 0.4. The portfolio activeness is low (0.2) due to the heavy reliance on index funds and the nature of the multi-asset allocation, despite the active multi-asset wrapper.",
+    "composite_aps": 0.5750000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.37,
+    "diversification": 0.55,
+    "risk_return_appropriateness": 0.33,
+    "internal_consistency": 0.42,
+    "tax_efficiency": 0.48,
+    "reasoning": "The plan has poor goal alignment (0.37) because it ignores the critical 3-year retirement horizon (age 47 to 50), suggesting a long-term wealth-building strategy that is mathematically impossible. It fails to address the ₹1Cr home loan due in 6 years with a dedicated short-term debt allocation, despite acknowledging these flaws in the rationale. Diversification (0.55) is moderate; while it covers large/mid/small caps and gold, the heavy allocation (60%) to high-volatility mid and small-cap index funds combined with a 10% gold portion is not well-suited for a 'conservative' investor. The risk-return appropriateness (0.33) is poor because the plan exposes a self-declared conservative investor to extreme volatility (small caps can drop 40%) for a timeline that is too short to recover or meet long-term goals. Internal consistency (0.42) is weak; the plan admits the goal is flawed yet proceeds without a concrete correction strategy for the near-term liabilities, and the allocation schedule remains static at 60% equity even as the investor approaches a retirement goal in 3 years. Tax efficiency (0.48) is neutral; it correctly identifies the new-regime status and applies equity LTCG treatment to equity funds, but it fails to route the 30% debt/multi-asset allocation into tax-efficient wrappers (since there is no 80C headroom to utilize anyway, but using aggressive hybrid for volatility/return smearing might have been a better discussion point than a standard multi-asset).",
+    "composite_pqs": 0.43
+  },
+  "timestamp": "2026-04-18T10:52:47.463449Z",
+  "prompt_version": "v1"
+}

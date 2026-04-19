@@ -1,0 +1,192 @@
+{
+  "persona_id": "P17",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Multi Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 9422.0,
+          "morningstar_rating": null,
+          "returns_1y": 13.3,
+          "returns_3y": 21.3,
+          "returns_5y": 21.3,
+          "risk_grade": "moderate",
+          "volatility_1y": 13.6,
+          "beta": 0.94,
+          "alpha": 7.24,
+          "tracking_error": 6.44,
+          "sharpe_ratio": 0.78,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund has a good balance of large, mid, and small-cap stocks. It's managed by a skilled team that has shown consistent returns over the past few years. It's a good choice for a moderate risk profile."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0,
+          "morningstar_rating": null,
+          "returns_1y": 17.1,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": "moderate",
+          "volatility_1y": 11.8,
+          "beta": 1.03,
+          "alpha": 11.74,
+          "tracking_error": 8.79,
+          "sharpe_ratio": 1.0,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks the Nifty Midcap 150 Index, which is a good representation of mid-cap stocks. It's a low-cost option that provides exposure to a diversified basket of mid-cap stocks."
+      },
+      {
+        "fund": {
+          "amfi_code": "147623",
+          "name": "Motilal Oswal Nifty Smallcap 250 Index Fund- Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 739.0,
+          "morningstar_rating": null,
+          "returns_1y": 10.0,
+          "returns_3y": 20.7,
+          "returns_5y": 16.9,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.7,
+          "beta": 1.0,
+          "alpha": 3.6,
+          "tracking_error": 11.72,
+          "sharpe_ratio": 0.47,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks the Nifty Smallcap 250 Index, which is a good representation of small-cap stocks. It's a low-cost option that provides exposure to a diversified basket of small-cap stocks."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start your monthly SIPs in these funds. Step 3: Top up your investments when you have extra money.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. If not, contact your platform to resolve the issue.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds. If so, consider switching to a better-performing fund.",
+      "After 5 years: review your portfolio and consider rebalancing if needed."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 11.7,
+      "bull": 15.7,
+      "bear": 8.7
+    },
+    "rationale": "Phoebe is a freelance UX designer with a moderate risk appetite and a long investment horizon. She prefers a simple portfolio with 2-3 funds. The selected funds offer a good balance of growth and stability, with a focus on mid and small-cap stocks. This plan allows for flexibility and simplicity, while still providing the potential for long-term growth.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "The funds are not guaranteed to outperform the market, and past performance is not indicative of future results.",
+      "There is a risk of losing money if the market performs poorly."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 80.0,
+        "debt_pct": 10.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Rebalancing after 5 years"
+      },
+      {
+        "year": 10,
+        "equity_pct": 70.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Rebalancing after 10 years"
+      },
+      {
+        "year": 15,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Rebalancing after 15 years"
+      },
+      {
+        "year": 20,
+        "equity_pct": 50.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Rebalancing after 20 years"
+      },
+      {
+        "year": 25,
+        "equity_pct": 40.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Rebalancing after 25 years"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.8,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.6,
+    "reasoning": "The investment plan primarily allocates to index funds (Motilal Oswal Nifty Midcap 150 Index Fund and Motilal Oswal Nifty Smallcap 250 Index Fund), which are passive instruments, with a small portion in a multi-cap fund (Nippon India Multi Cap Fund), which is actively managed. This results in a passive_instrument_fraction score of 0.8. The plan recommends annual rebalancing and minimal tactical shifts, leading to a turnover_score of 0.7. It emphasizes cost efficiency by selecting low-cost index funds, resulting in a cost_emphasis_score of 0.7. The plan does not emphasize deep research and instead relies on index funds, giving a research_vs_cost_score of 0.3. The strategy is aligned with a long-term horizon, resulting in a time_horizon_alignment_score of 0.9. The portfolio includes both active and passive instruments, leading to a portfolio_activeness_score of 0.6.",
+    "composite_aps": 0.6666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "The investment plan aligns well with Phoebe's moderate risk appetite and long investment horizon. The allocation of 50% to a multi-cap fund, 25% to mid-cap, and 25% to small-cap provides a balanced mix that matches her moderate risk profile and long-term goals. However, it doesn't explicitly address her need for an emergency fund of 3 months' income, which could be better managed with a separate liquid fund or cash reserve. The plan offers moderate diversification across mid and small-cap stocks, but it lacks exposure to other asset classes like debt or gold, which could help manage risk. The risk-return profile is appropriate for a moderate risk investor, with projected returns that are realistic and downside scenarios adequately addressed. The plan is internally consistent, with the rationale, fund selections, and risk warnings aligning well. However, the tax efficiency is neutral as the plan doesn't explicitly address the tax implications for a new regime investor, which could have been optimized by considering tax-efficient fund choices.",
+    "composite_pqs": 0.76
+  },
+  "timestamp": "2026-04-17T09:51:34.449890Z",
+  "prompt_version": "v1"
+}

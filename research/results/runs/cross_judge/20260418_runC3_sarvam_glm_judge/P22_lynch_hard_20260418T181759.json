@@ -1,0 +1,75 @@
+{
+  "persona_id": "P22",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "150419",
+          "category": "Equity",
+          "sub_category": "Large & Mid",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "1990-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.5%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Set up a lump sum investment in 2 years (when ashore). After 2 years, start monthly SIPs in 10% equity and 90% debt."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "1) passive_instrument_fraction=0.0: The entire equity allocation (60%) goes to a single actively managed Large & Mid Cap fund — no index funds or ETFs are used. 2) turnover_score=0.7: No rebalancing guidelines, no review checkpoints, and no tactical shifts are mentioned; the plan implicitly follows a buy-and-hold approach with a step-up SIP, though the absence of explicit guidelines could also reflect an incomplete plan. 3) cost_emphasis_score=0.0: Costs (expense ratios, transaction fees, tax efficiency) are never mentioned; expense_ratio is listed as 0.0 (missing data). 4) research_vs_cost_score=0.5: There is no deep fundamental research or sector analysis, but neither is there broad-market passive investing — the single active fund is picked without documented justification (rationale is just '1.5%'), making this a middling score between research-driven active selection and passive broad-market exposure. 5) time_horizon_alignment_score=0.8: The 10% annual SIP step-up and the 2-year delayed start suggest a decades-long compounding mindset with infrequent intervention. 6) portfolio_activeness_score=0.2: The sole equity holding is an actively managed Large & Mid Cap fund with an information ratio of 0.55 (moderate active conviction). Beta, alpha, and tracking error are all null, but the category itself implies active stock-picking with meaningful deviations from the index. Combined with the implied heavy debt allocation (90% per the SIP step-up description), this is a predominantly active portfolio.",
+    "composite_aps": 0.3666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal alignment (0.1):** The investor has three distinct goals (₹8Cr retirement, land/house, daughter's education abroad) with different time horizons, yet the plan makes no attempt to map allocations to specific goals. The single Large & Mid cap fund bears no relation to any stated goal. The investor prefers index + small-cap satellite but receives neither. **Diversification (0.0):** The entire portfolio is a single fund in a single sub-category. There is zero diversification across asset classes, sectors, geographies, or fund houses — the worst possible outcome. **Risk-return (0.15):** The 60% equity allocation is too conservative for an 'aggressive' investor with a 20-year horizon and no liabilities. More critically, the SIP step-up description says '10% equity and 90% debt' after 2 years — wildly inappropriate for this profile. No projected returns, no downside scenarios. The only slight credit is that some equity exposure exists. **Internal consistency (0.05):** The plan is self-contradictory: the allocation shows 60% equity but the step-up note prescribes 10% equity/90% debt. The rationale field says '1.5%' which is meaningless. No rebalancing guidelines, no review checkpoints, no risks listed. The plan is essentially incoherent. **Tax efficiency (0.0):** The plan is completely tax-blind — no mention of tax treatment anywhere. While ELSS omission is acceptable for a new-regime investor, the plan fails to leverage equity-taxation benefits of hybrid/arbitrage funds for any fixed-income allocation, doesn't discuss LTCG/STCG implications, and provides no post-tax rationale for any recommendation.",
+    "composite_pqs": 0.06
+  },
+  "timestamp": "2026-04-18T18:17:59.301238Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,79 @@
+{
+  "persona_id": "P17",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "150419",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an equity fund categorized as 'Large Cap' with an information ratio of 0.5, which suggests active management (as high information ratio indicates consistent outperformance relative to benchmark). However, no other risk metrics (beta, tracking error, alpha) are available, and the rationale is simply 'direct', offering no insight into passive indexing. Since the fund is not explicitly labeled as an index fund or ETF, and given the presence of a moderate information ratio, it is assumed to be actively managed. Thus, passive_instrument_fraction is 0.0.\n\nThere are no rebalancing guidelines or review checkpoints specified, implying a static, long-term structure, so turnover_score is 1.0.\n\nNo mention of cost, expense ratios, or tax efficiency appears in the rationale or plan, so cost_emphasis_score is 0.0.\n\nThe plan does not discuss any research or analysis, but the use of a single large-cap fund without reference to market-cap weighting or index replication suggests a potentially active approach; however, due to lack of detail, we default to active bias — research_vs_cost_score is 0.0.\n\nThe absence of frequent review or rebalancing implies a long-term horizon, so time_horizon_alignment_score is 1.0.\n\nFor portfolio_activeness_score: the sole equity fund has an information ratio of 0.5, which indicates active management intent. Without evidence of index tracking (e.g., low tracking error, beta ~1), and given the category is not 'Index Fund', the portfolio is scored as fully active (0.0). Debt, gold, and hybrid allocations are absent, so no passive drag from those categories. Final score: 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows minimal alignment with the investor's goals: only a single large-cap equity fund is recommended at 40% allocation, which does not address the emergency fund, 5-year horizon goal, or long-term wealth building with appropriate segmentation. Diversification is extremely poor — only one fund, one asset class (equity), and one category (large cap), ignoring global exposure, mid/small caps, and debt entirely, which is unsuitable for a moderate-risk investor with varied goals. Risk-return is mismatched: a 40% equity allocation may be acceptable for moderate risk, but without any debt or hybrid components to balance volatility, and no explanation of how this suits variable income or emergency needs. Internal consistency is low: the rationale is missing or 'direct', no rebalancing, review, or SIP details, and the structure lacks coherence for a 28-year horizon. Tax efficiency is scored neutral (0.6) because the investor is under the new tax regime (no 80C benefit), and the plan avoids slab-taxed debt funds — but it also doesn't leverage arbitrage or hybrid funds for potential tax efficiency in fixed-income portions; however, since no debt is recommended at all, there's no active tax misstep. Overall, the plan is underdeveloped and lacks critical components for this investor's profile.",
+    "composite_pqs": 0.34
+  },
+  "timestamp": "2026-04-18T17:46:19.555109Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22968,
+    "output_tokens": 929,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 37.2470535710454
+}

@@ -1,0 +1,75 @@
+{
+  "persona_id": "P01",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.85
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "lump sum"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Start immediately with a lumpsum of ₹1.5 lakh monthly (increase to ₹5 lakh after 1 year if performance is strong). Allocate 60% to equity and 40% to debt for stability. Increase equity allocation to 70% after 5 years."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.55,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.75,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "This plan allocates 100% of its equity sleeve to a single Nifty 50 Index Fund — a textbook passive instrument — yielding passive_instrument_fraction=1.0. There are no rebalancing guidelines or review checkpoints; the only interventions are a conditional step-up after 1 year ('if performance is strong') and an equity allocation shift from 60% to 70% after 5 years, which is very infrequent → turnover_score=0.85. Cost is not explicitly discussed as a criterion, though the choice of a Direct Plan and an index fund inherently keeps costs low → cost_emphasis_score=0.55. No individual security, sector, or manager research is referenced; the rationale is simply broad Nifty 50 exposure → research_vs_cost_score=1.0. The SIP step-up and 5-year allocation horizon suggest long-term compounding, but the 1-year performance-conditional increase introduces mild short-term opportunism → time_horizon_alignment_score=0.75. The sole fund is a pure Nifty 50 index tracker with no active management characteristics → portfolio_activeness_score=1.0. Composite APS ≈ 0.86, placing this plan firmly on the passive end of the spectrum.",
+    "composite_aps": 0.8583333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.3,
+    "reasoning": "This plan is severely deficient across nearly every dimension. **Goal alignment (0.15):** The investor's two explicit goals — retiring with ₹10Cr and building a 6-month emergency fund — are completely unaddressed. There is no emergency fund allocation, no projected path to ₹10Cr, and no recognition of the investor's interest in tech/pharma sectors. A single Nifty 50 large-cap index fund doesn't match an aggressive 25-year-old's profile or sector preferences. **Diversification (0.05):** Only one fund (Nifty 50 Index) is allocated — no mid/small cap, no international, no sector funds, no debt, no gold. This is essentially zero diversification. **Risk-return appropriateness (0.15):** An aggressive investor with a 30-year horizon is placed in a 'low' risk-grade large-cap index at only 60% equity. This is far too conservative for the stated appetite. No projected returns, no downside scenarios, and the step-up description suggests ₹1.5L/month — triple the actual surplus — making it entirely unrealistic. **Internal consistency (0.05):** The plan is riddled with contradictions: the allocation sums to only 60% with nothing for the remaining 40%; the mode is 'lumpsum' but both lumpsum and SIP amounts are zero; the step-up description references a 60/40 equity/debt split but no debt fund is listed; it mentions ₹1.5L/month versus a ₹50K surplus; rationale fields are empty; and critical sections (rebalancing, review checkpoints, risks, projected returns) are blank. **Tax efficiency (0.30):** The one bright spot is incidental: Nifty 50 Index qualifies for equity taxation (≥65% equity), which is favourable for a new-regime investor, and ELSS is correctly omitted (no 80C under new regime). However, there is zero explicit tax discussion — no mention of why equity-tax treatment matters, no tax rationale for fund selection, and the missing debt allocation means the important question of whether to use equity-taxed wrappers (arbitrage, aggressive hybrid) for fixed-income needs is entirely unaddressed. Partial credit because the default outcome is tax-beneficial, but it's not by design.",
+    "composite_pqs": 0.13999999999999999
+  },
+  "timestamp": "2026-04-18T15:51:29.540187Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

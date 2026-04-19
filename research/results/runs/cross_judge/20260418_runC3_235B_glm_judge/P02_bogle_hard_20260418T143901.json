@@ -1,0 +1,170 @@
+{
+  "persona_id": "P02",
+  "condition": "bogle_hard",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": 17.094146825697987,
+          "returns_3y": 23.18993139340053,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": 17.42528588877694,
+          "beta": 1.0340706693083053,
+          "alpha": 11.743982302492952,
+          "tracking_error": 8.792440315620462,
+          "sharpe_ratio": 0.9984136156270631,
+          "information_ratio": 1.3356908754477235
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 48000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks the Nifty Midcap 150 index, giving you exposure to 150 strong mid-sized Indian companies. It has a very low yearly fee (0.2%) and has delivered strong long-term returns. Since you're in the 30% tax slab, index funds are more tax-efficient than active funds or debt funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "148726",
+          "name": "Nippon India Nifty Midcap 150 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2021-02-04",
+          "aum_cr": 1605.9588,
+          "morningstar_rating": null,
+          "returns_1y": 16.854934742695036,
+          "returns_3y": 22.925426200301068,
+          "returns_5y": 18.441899049830024,
+          "risk_grade": null,
+          "volatility_1y": 17.38344962262796,
+          "beta": 1.0312449962753552,
+          "alpha": 11.499663253476596,
+          "tracking_error": 8.777712113778792,
+          "sharpe_ratio": 0.9847726985303968,
+          "information_ratio": 1.3100980192122078
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is another low-cost Nifty Midcap 150 index fund from a different fund house. We're using it to diversify across two fund companies. It has similar performance and cost to the Motilal Oswal fund, making it a reliable core holding."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Hybrid Scheme - Aggressive Hybrid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2000-01-01",
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": 9.979395774892641,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": 10.484058576958404,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": 6.219963591081088,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": 1.4911092768968344
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund automatically balances stocks and bonds (about 65-75% in stocks), which helps reduce risk. It's taxed like equity funds, making it more tax-efficient than debt funds for you (30% slab). It adds stability to your portfolio without sacrificing tax efficiency."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU (no brokerage, lowest fees).\nStep 2: Start three SIPs immediately:\n- ₹48,000/month in Motilal Oswal Nifty Midcap 150 Index Fund\n- ₹24,000/month in Nippon India Nifty Midcap 150 Index Fund\n- ₹8,000/month in ICICI Prudential Equity & Debt Fund\nStep 3: Set up auto-debit from your savings account.\nStep 4: Park your ₹15 lakh existing corpus in an arbitrage fund (like ICICI Prudential Equity Savings Fund) for now — we'll deploy it gradually over 12 months via STP to avoid timing risk.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are running and amounts are deducted.",
+      "After 1 year: Check if both index funds are tracking their benchmark closely (difference <1%).",
+      "After 3 years: Review if any fund has consistently underperformed its peer group."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If any category (midcap index or hybrid) moves more than 5% away from its target (60%, 30%, 10%), shift money to bring it back. For example, if midcap grows to 70%, sell 10% and add to hybrid.",
+    "projected_returns": {
+      "base": 16.7,
+      "bull": 20.7,
+      "bear": 12.7
+    },
+    "rationale": "At 35, with a 20-year horizon, you can afford to stay mostly in stocks. Midcap index funds have historically delivered strong long-term growth. We're using two low-cost index funds to spread risk across fund houses. The 10% in an equity-taxed hybrid fund adds stability without hurting post-tax returns. This mix supports your goals: house in 5 years (hybrid portion), child's education in 15 years, and retirement in 20 years. Since you're in the 30% tax slab, we avoid slab-taxed debt funds and use equity-taxed options for better after-tax returns.",
+    "risks": [
+      "Midcap stocks can drop 30-40% in a bad year — your portfolio will fall temporarily but recover over time.",
+      "Index funds don't pick 'winners' — they own all midcaps, including underperformers.",
+      "If markets stay flat for years, returns may be lower than expected, delaying your ₹5Cr retirement goal."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 90.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start of plan"
+      },
+      {
+        "year": 5,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "House goal nears, shift to safer assets"
+      },
+      {
+        "year": 15,
+        "equity_pct": 60.0,
+        "debt_pct": 35.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": "Child's education goal, lock in gains"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.9,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.85,
+    "reasoning": "passive_instrument_fraction=0.90: 90% of the portfolio (60% + 30%) is in two Nifty Midcap 150 index funds — clearly passive. Only the 10% aggressive hybrid allocation is actively managed. Of the equity sleeve, ~93% is passive. turnover_score=0.85: Annual rebalancing with a 5% drift threshold; SIP-only approach with no tactical shifts; review checkpoints are confirmatory (SIPs running, tracking quality) rather than action triggers. The 12-month STP for lumpsum is the only semi-active element. cost_emphasis_score=0.80: Low expense ratios (0.2%) and tax efficiency (avoiding slab-taxed debt funds in favor of equity-taxed options) are prominent in fund rationale, but midcap growth potential and diversification across fund houses also play a role — cost is a major but not exclusive driver. research_vs_cost_score=0.90: No stock-picking, sector analysis, or manager track-record evaluation. Fund selection is based on index tracking, low cost, and tax treatment. The two index funds track the same benchmark from different AMCs — no security-level research at all. time_horizon_alignment_score=0.90: 20-year horizon with explicit long-term compounding mindset; patient view of drawdowns ('portfolio will fall temporarily but recover'); gradual de-risking via allocation schedule at years 5, 15, 20. The 10% annual SIP step-up reinforces long-term discipline. portfolio_activeness_score=0.85: The two index funds (90% of portfolio) are genuinely passive — the high tracking error (~8.8%) and alpha (~11.5%) vs Nifty 50 are artifacts of comparing a midcap index to a large-cap benchmark, not indicators of active management. Beta ~1.03 vs Nifty 50 confirms index-like behavior within the midcap segment. The 10% hybrid fund (ICICI Pru Equity & Debt) is actively managed with a lower beta of 0.66, but it's a small slice and serves a stabilizing role rather than expressing active conviction. Overall, this is a strongly passive plan.",
+    "composite_aps": 0.8666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.25,
+    "diversification": 0.15,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.45,
+    "reasoning": "**Goal Alignment (0.25):** The plan names all three goals in its rationale but the allocations fail to serve them. A 5-year house goal needs capital preservation and meaningful accumulation; 90% midcap + 10% hybrid is far too aggressive for a near-term goal, and the 10% hybrid allocation (₹8K/month) is woefully insufficient to fund a house down-payment. The 15-year education and 20-year retirement goals could tolerate equity risk, but no goal-specific mapping or tracking is provided despite the investor explicitly maintaining a goal-tracking spreadsheet. The ₹30L liability is never addressed at all.\n\n**Diversification (0.15):** This is the plan's biggest flaw. Both equity funds track the identical Nifty Midcap 150 index — 90% of the portfolio sits in one index from two fund houses. That is fund-house diversification, not asset/style/geographic diversification. There is zero large-cap exposure, zero international exposure, zero gold, and zero dedicated debt. The investor's stated preference to \"avoid sectoral concentration\" is directly contradicted by an all-midcap portfolio. Even the 10% hybrid fund is still ~65-75% equity, meaning effective equity exposure is ~96%.\n\n**Risk-Return Appropriateness (0.20):** The investor self-identifies as **moderate** risk appetite. A 90% midcap index allocation is aggressively positioned — midcap indices carry ~17-18% annualised volatility with drawdowns of 30-40%, which is not moderate. The base projected return of 16.7% is wildly optimistic over 20 years; more realistic equity expectations are 10-12%. The \"bear\" case of 12.7% is barely below the base, not a true bear scenario. There is no meaningful downside cushion for a moderate investor.\n\n**Internal Consistency (0.40):** The plan has structural elements (rationale, allocation schedule, rebalancing) but they contradict each other. The rationale says the hybrid portion supports the house goal, but 10% is too small for that. The rebalancing guideline refers to static 60/30/10 targets while the allocation schedule progressively changes them — which governs? The existing corpus is parked in an arbitrage fund for STP, but the STP destination is unspecified. The stated moderate risk appetite conflicts with the aggressive allocations. On the positive side, the SIP set-up steps and 10% annual step-up are coherent.\n\n**Tax Efficiency (0.45):** Partially tax-aware: the plan correctly avoids slab-taxed debt funds, uses equity-taxed wrappers (midcap index + aggressive hybrid), parks the corpus in an arbitrage fund (equity-taxed), and explicitly references the 30% slab. However, it completely omits ELSS for 80C — a 30%-slab old-regime investor is missing ~₹46K in annual tax savings (₹1.5L × 30%). The plan also doesn't spell out the concrete tax-rate comparison (12.5% LTCG vs 30% slab). The arbitrage fund choice is sound but the STP tax implications aren't discussed. Moderate awareness but a significant 80C gap.",
+    "composite_pqs": 0.29
+  },
+  "timestamp": "2026-04-18T14:39:01.733763Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

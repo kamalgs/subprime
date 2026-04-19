@@ -1,0 +1,72 @@
+{
+  "persona_id": "P17",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "150419",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.65
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "15% post-tax after 1 year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.15,
+    "turnover_score": 0.4,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.35,
+    "time_horizon_alignment_score": 0.2,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "This is a minimal, single-fund plan with an actively managed large-cap equity allocation (40%). Passive instrument fraction is low (0.15): the sole equity pick has no index/ETF label and an information ratio of 0.65, suggesting active management rather than a passive index fund. Turnover score is moderate (0.4): SIP mode and absence of rebalancing guidelines or review checkpoints lean passive in execution, but the plan is too sparse to confirm a disciplined buy-and-hold approach. Cost emphasis is 0.0: no mention of expense ratios, transaction costs, or tax efficiency anywhere in the plan. Research vs cost score is 0.35: there is no deep fundamental research or sector analysis evident, but neither is there broad-market index selection — just a single fund pick with a return target. Time horizon alignment is low (0.2): the explicit rationale of '15% post-tax after 1 year' signals a short-term, return-chasing orientation inconsistent with patient long-term compounding. Portfolio activeness is 0.2: the information ratio of 0.65 (>0.5) indicates genuine active management conviction, and the single concentrated large-cap allocation with no index tracking evidence confirms an active posture.",
+    "composite_aps": 0.21666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.4,
+    "reasoning": "This plan is severely deficient across nearly every dimension. **Goal alignment (0.15):** The plan ignores all three stated goals — no emergency fund allocation, no medium-term (5-year) marriage/travel fund (which requires some stability), and only a single large-cap equity fund for the long-term wealth goal. The freelancer income-variability concern is completely unaddressed. **Diversification (0.05):** A single large-cap equity fund represents extreme concentration — no other asset classes, geographies, sectors, or fund houses. The investor explicitly asked for a 2–3 fund portfolio and got only one. **Risk-return appropriateness (0.15):** The rationale claims '15% post-tax after 1 year,' which is wildly unrealistic for a large-cap fund. A moderate-risk investor with a 5-year medium-term goal should not be 100% equity. No downside scenarios or risk warnings are provided. **Internal consistency (0.1):** The 40% allocation contradicts the ₹12,000 SIP, which equals the full monthly surplus — where does the remaining 60% go? The plan has no rationale, no rebalancing guidelines, no review checkpoints, and no projected returns. It is essentially an empty shell. **Tax efficiency (0.4):** The sole fund is equity-taxed, which is not harmful for a new-regime investor (no 80C anyway), but the plan provides zero tax discussion — no mention of the favourable equity LTCG/STCG treatment, no consideration of arbitrage or hybrid alternatives, and no post-tax rationale. Not actively damaging but entirely tax-blind.",
+    "composite_pqs": 0.16999999999999998
+  },
+  "timestamp": "2026-04-18T17:43:32.604821Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

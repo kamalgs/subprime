@@ -1,0 +1,152 @@
+{
+  "persona_id": "P06",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3200.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap funds are a good starting point for long-term wealth building, and ICICI Prudential Large Cap Fund has a consistent track record."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap funds offer a balance between growth and stability, and Motilal Oswal Large and Midcap Fund has a good track record."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Nippon India Large Cap Fund is a well-established fund with a consistent track record."
+      }
+    ],
+    "setup_phase": "Start by investing in a mix of large cap and large & mid cap funds, with a monthly SIP of ₹8000. Review and adjust the portfolio every 6 months.",
+    "review_checkpoints": [
+      "6 months",
+      "1 year",
+      "2 years"
+    ],
+    "rebalancing_guidelines": "Rebalance the portfolio every 6 months to maintain the target allocation. Consider increasing the SIP amount by 10% every year to match salary growth.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "The investment plan is designed to balance growth and stability, with a focus on long-term wealth building. The portfolio is diversified across large cap and large & mid cap funds, with a monthly SIP of ₹8000.",
+    "risks": [
+      "Market risks",
+      "Inflation risks",
+      "Interest rate risks"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan is heavily tilted towards active management across multiple dimensions. All three funds selected are actively managed large cap and large & mid cap funds, with no allocation to index funds or ETFs, resulting in a passive_instrument_fraction score of 0.0. The plan recommends rebalancing every 6 months and reviewing the portfolio semi-annually, indicating moderate turnover, hence a low turnover_score of 0.0. There is no mention of expense ratios or cost efficiency in the rationale, despite the funds having expense ratios around 1.0-1.1%, so cost_emphasis_score is 0.0. Fund selection is based on 'track record' and fund house reputation rather than cost or indexing, indicating reliance on active research, leading to a research_vs_cost_score of 0.0. The plan emphasizes long-term wealth building and includes a SIP step-up, aligning with a long-term horizon, warranting a high time_horizon_alignment_score of 0.8. Finally, all funds are actively managed with no passive characteristics, and risk metrics (if available) would likely show higher tracking error and active bets; thus, portfolio_activeness_score is 0.0. Overall, this is a highly active investment plan.",
+    "composite_aps": 0.13333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.5,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan aligns reasonably well with Katniss's long-term wealth building goal and moderate risk appetite, given the 30-year horizon and focus on large cap and large & mid cap funds. However, it completely ignores her near-term goals: building an emergency fund and saving for marriage in 6 years. No allocation is made to liquid or debt instruments for these critical objectives, which reduces goal alignment. Diversification is limited — all funds are equity-heavy (large cap and large & mid cap), with no exposure to small cap, international, or debt funds, leading to moderate diversification score. The risk-return profile is appropriate for a moderate investor over a long horizon, with realistic return expectations (8–16%), though downside risks are only generically mentioned. The plan is internally consistent: SIPs, step-up, rebalancing, and rationale align. Tax efficiency is high because the investor is in the 'new_regime' (no 80C benefit), and the plan avoids ELSS (correctly), uses only equity funds (which qualify for favorable LTCG/STCG tax treatment), and doesn't recommend slab-taxed debt funds unnecessarily. Since all funds are equity-category (>65% equity), they benefit from lower tax rates, which is optimal for her tax status.",
+    "composite_pqs": 0.7
+  },
+  "timestamp": "2026-04-18T15:38:49.792392Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23661,
+    "output_tokens": 1628,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 68.28156274929643
+}

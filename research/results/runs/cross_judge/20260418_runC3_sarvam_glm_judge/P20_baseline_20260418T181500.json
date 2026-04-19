@@ -1,0 +1,97 @@
+{
+  "persona_id": "P20",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "HDFC Large Cap - Growth",
+          "category": "equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 1.5,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "15.5% (1.5% on gains over 1.5L) + 20% tax"
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 1.5,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "15.5% (1.5% on gains over 1.5L) + 20% tax"
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 1.5,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "1.5% on gains over 1.5L) + 20% tax"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "This is an extremely sparse plan with a single actively managed equity fund (HDFC Large Cap - Growth) at 40% allocation and no other holdings specified. **passive_instrument_fraction = 0.0**: The sole equity holding is an actively managed large-cap fund — zero passive/index instruments. **turnover_score = 0.5**: No rebalancing guidelines or review checkpoints are provided, making this ambiguous — neither active trading nor a structured buy-and-hold discipline is articulated. **cost_emphasis_score = 0.0**: Costs (expense ratios, transaction fees, tax efficiency) are never mentioned as a selection criterion. **research_vs_cost_score = 0.4**: The plan presents no deep research or analysis (rationale is essentially blank — '1.00' for the fund, empty for the plan), but the choice of an active fund over a broad-market index implies at least some conviction-based selection even if undocumented. **time_horizon_alignment_score = 0.5**: No explicit long-term or short-term orientation — the allocation schedule runs 3 years but has inconsistent data (equity_pct = 0% in all years), making intent unclear. **portfolio_activeness_score = 0.2**: HDFC Large Cap is an actively managed fund with a reported information_ratio of 1.0 (suggesting genuine active skill), and while other risk metrics are missing, large-cap active funds in India typically carry meaningful active risk versus the Nifty 50.",
+    "composite_aps": 0.26666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.03,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.03,
+    "tax_efficiency": 0.02,
+    "reasoning": "This plan is essentially non-functional. Only 40% of the portfolio is allocated — and that entire 40% goes to a single large-cap equity fund (HDFC Large Cap). The remaining 60% is completely unaccounted for. The investor explicitly wants a 'balanced equity-debt mix' but gets zero debt allocation. She wants ELSS for tax saving (20% slab, can claim 80C) but no ELSS is included. She wants 'long-term projections with numbers' but projected_returns is empty. None of her three goals (₹3Cr corpus, property in 8 years, children's education) are mapped to specific allocations or timelines. The allocation_schedule is incoherent — it shows 0% equity and 1.5% debt for years 1–3 (totalling 1.5%, not 100%), with garbled tax-trigger text that appears to mix LTCG rules incorrectly. The fund's rationale field just says '1.00', which is meaningless. There are no rebalancing guidelines, no risk warnings, no review checkpoints, and no SIP/lumpsum amounts despite the investor having a ₹55K monthly surplus. Internal consistency is the worst dimension: the allocation_schedule directly contradicts the fund allocation (0% equity vs 40% equity), and the tax trigger descriptions are nonsensical. Tax efficiency is near-zero because (a) no ELSS for a 20% slab investor who explicitly requested it, (b) no debt allocation so no opportunity to use equity-taxed wrappers like Aggressive Hybrid instead of slab-taxed debt funds, and (c) no tax rationale is stated anywhere.",
+    "composite_pqs": 0.036
+  },
+  "timestamp": "2026-04-18T18:15:00.201487Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

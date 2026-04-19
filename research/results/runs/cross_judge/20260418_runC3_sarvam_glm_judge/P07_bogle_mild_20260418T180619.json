@@ -1,0 +1,76 @@
+{
+  "persona_id": "P07",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1.00% (30% tax on gains over ₹1.25L in 1 year)",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risks",
+      "Liquidity risk",
+      "Volatility risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.35,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.55,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "This is a minimal, single-fund plan allocating 40% to HDFC Large Cap Direct Plan - Growth (an actively managed equity fund) with the remaining 60% of the portfolio unspecified. **passive_instrument_fraction = 0.0**: The entire equity sleeve is in one active large-cap fund — no index funds or ETFs. **turnover_score = 0.3**: The '1.00%' rebalancing threshold, if interpreted as a tight drift band, implies frequent rebalancing; no explicit buy-and-hold guidance is provided. **cost_emphasis_score = 0.35**: Use of a Direct Plan (lower expense ratio) and mention of tax implications show some cost awareness, but cost is never stated as a primary selection criterion. **research_vs_cost_score = 0.5**: The plan provides virtually no research (no sector analysis, moat evaluation, or fundamentals) yet also doesn't adopt a broad-market index approach — it sits in an ambiguous middle. **time_horizon_alignment_score = 0.55**: Growth option and absence of short-term tactical signals suggest a longer orientation, but no explicit time horizon or compounding philosophy is articulated. **portfolio_activeness_score = 0.4**: HDFC Large Cap is an actively managed fund with an IR of 0.5 (at the boundary of meaningful active management), but Indian large-cap funds typically hug the Nifty 50 closely (closet-indexing tendency). With null beta/alpha/tracking error, the category suggests moderate activeness — genuinely active mandate but likely significant index overlap.",
+    "composite_aps": 0.35000000000000003
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.15,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal Alignment (0.1):** The investor explicitly wants aggressive growth with mid/small-cap exposure, has a ₹5Cr/10yr goal, a 3-year apartment purchase goal, and FI by 45. The plan allocates only 40% to a single Large Cap fund — no mid/small-cap, no debt for the near-term apartment goal, and no path to ₹5Cr. **Diversification (0.0):** A single large-cap fund from one fund house is zero diversification — no asset-class, sector, geographic, or fund-house spread, and only 40% of capital is even allocated. **Risk-Return (0.1):** An aggressive investor is placed in a conservative large-cap-only portfolio; no projections, no downside analysis, and the 3-year apartment goal is served with volatile equity instead of near-cash instruments. **Internal Consistency (0.05):** The plan is riddled with errors — only 40% is allocated (60% unexplained), lumpsum is ₹0.5 (meaningless), rationale says '1.00%' with no explanation, monthly SIP is null despite ₹3L surplus, rebalancing guidelines discuss tax instead of rebalancing, and fund metadata is largely null/zero. This reads like a placeholder, not a coherent plan. **Tax Efficiency (0.15):** The sole large-cap fund does qualify for equity taxation, but there is no conscious tax optimization — no ELSS to use 80C headroom (critical for a 30% slab old-regime investor), no arbitrage fund for the apartment goal, no tax-loss harvesting discussion, and no mention of the post-tax rationale for any allocation.",
+    "composite_pqs": 0.08
+  },
+  "timestamp": "2026-04-18T18:06:19.999402Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

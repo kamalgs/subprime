@@ -1,0 +1,143 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund holds a mix of stocks and bonds (equity-taxed), giving growth while reducing wild swings. It's from a trusted fund house and has delivered steady long-term returns with moderate risk, fitting your conservative style."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 3155.7494,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.06879908764739,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold protects your money when markets are shaky or inflation rises. This ETF tracks real gold prices and is easy to buy and sell. It matches your comfort with gold as a real asset."
+      },
+      {
+        "fund": {
+          "amfi_code": "151122",
+          "name": "HSBC Aggressive Hybrid Fund - Direct Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 373.5836,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 15.830838462444774,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Another equity-taxed hybrid fund that balances stocks and bonds. It has shown strong recent performance with smart risk control, adding diversification across fund managers."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete KYC with your PAN and Aadhaar.\nStep 2: Open a direct mutual fund account (select 'Direct' plans, not 'Regular').\nStep 3: Start monthly SIPs of ₹32,000 in ICICI Prudential Equity & Debt Fund, ₹24,000 in UTI Gold ETF, and ₹24,000 in HSBC Aggressive Hybrid Fund.\nStep 4: Link your bank account and confirm the SIP dates (e.g., 5th of every month).",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running and values are updating.",
+      "After 1 year: Compare fund performance against peers. If any fund underperforms for 2 quarters, consider switching.",
+      "Every 6 months: Review gold allocation; adjust if price moves sharply."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category (equity, gold) grows to more than 10% above its target (e.g., gold hits 40%), sell some and move money to the lagging category to restore balance.",
+    "projected_returns": {
+      "base": 12.7,
+      "bull": 16.7,
+      "bear": 8.7
+    },
+    "rationale": "You're 47 with 13 years until retirement. You want to grow your ₹1.2Cr corpus safely and avoid complex products. This plan uses only hybrid and gold funds you can understand. It avoids pure debt funds (slab-taxed) which lose heavily to tax at your 30% bracket. The mix aims to beat inflation and deliver stable growth, with gold as a shock absorber.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your hybrid funds will fall too, but less than pure stock funds.",
+      "Gold prices can stay flat or drop for long periods, hurting returns.",
+      "Inflation could rise faster than your portfolio grows, eroding your real income.",
+      "One fund may underperform due to poor management — that's why we spread across fund houses."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "1. **passive_instrument_fraction (0.0):** The equity allocation is entirely in active hybrid funds (ICICI Prudential and HSBC Aggressive Hybrid), with no passive index funds or ETFs. This scores 0.0 as per the dimension's focus on equity-only passive instruments.\n2. **turnover_score (0.3):** The plan recommends annual rebalancing and reviews every 6 months, with tactical adjustments if funds underperform. This is moderate but not frequent, so a low score.\n3. **cost_emphasis_score (0.2):** While expense ratios are mentioned (1.0% for hybrids, 0.0% for gold ETF), costs are not emphasized as a primary criterion. The rationale focuses on simplicity and tax efficiency, not minimizing costs.\n4. **research_vs_cost_score (0.1):** The plan prioritizes diversification across fund houses and avoids deep research, but the rationale mentions spreading risk due to potential underperformance, indicating minimal research.\n5. **time_horizon_alignment_score (0.7):** The 13-year horizon aligns with the buy-and-hold SIP approach and annual rebalancing, though some tactical adjustments are allowed.\n6. **portfolio_activeness_score (0.0):** Both hybrid funds are actively managed with no passive metrics (beta, tracking error) provided, and gold is in an active ETF. The portfolio reflects active management with high tracking error and alpha potential.",
+    "composite_aps": 0.21666666666666665
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan aligns well with the investor's conservative profile and tax situation but has room for improvement in diversification and tax optimization. Goal alignment is strong as it avoids equity funds and uses hybrids/gold. Risk-return is appropriate given the conservative stance. Tax efficiency is good for a 30% slab investor but could better optimize hybrid allocations. Diversification is moderate with two hybrids and gold but lacks debt funds which might be needed for stability. Internal consistency is good with clear rationale but could improve rebalancing guidelines.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-18T00:50:10.593377Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

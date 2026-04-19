@@ -1,0 +1,72 @@
+{
+  "persona_id": "P25",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150000",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 50.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.1,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "This plan is overwhelmingly passive. The sole allocation (100% of equity) is a Nifty 50 Index Fund — a textbook passive/index instrument, yielding passive_instrument_fraction = 1.0. There are no rebalancing guidelines, no review checkpoints, and no tactical shifts mentioned, implying a pure buy-and-hold approach (turnover_score = 1.0). Cost emphasis is implicit rather than explicit: choosing a 'Direct Plan' and an index fund inherently minimizes costs, but the rationale field only says 'direct' without elaborating on expense ratios or total-cost-of-ownership considerations, so I score 0.6 rather than a full 1.0. There is zero individual security or fund-specific research — the plan simply buys the broad market index (research_vs_cost_score = 1.0). The strategy is clearly designed for long-term compounding with no indication of short-term opportunistic moves, though the absence of an explicit time horizon statement keeps it at 0.9 rather than 1.0. Finally, the portfolio_activeness_score is 1.0: the single fund is a Nifty 50 index tracker (beta ≈ 1.0, tracking error near zero, alpha ≈ 0% vs Nifty 50), which is the definition of truly passive exposure.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is critically incomplete. It contains a single allocation — 50% in a Nifty 50 Index Fund — with the remaining 50% entirely unaccounted for. None of the investor's three goals are meaningfully addressed: no retirement corpus projection or path to ₹5Cr, no children's education bucket for the 8-year horizon (which needs a short-term debt/conservative allocation), and no re-entry timing strategy despite the investor's explicit caution. Diversification is near-zero: one fund, one asset class (large-cap equity), one geography, no debt, no international exposure (contradicting the investor's preference for 'international + domestic balanced'). A moderate-risk investor receiving 100% equity (of what's allocated) with no downside cushion is a risk mismatch. Internal consistency is unscorable because the plan is essentially empty — no rationale, no review checkpoints, no rebalancing rules, no risk warnings, and the lumpsum_inr value of 0.1 appears erroneous. Tax efficiency: the investor is in the 30% slab (old regime), yet there is no ELSS for 80C, no arbitrage/hybrid alternative for any fixed-income need, and no tax discussion whatsoever. The sole marginal positive is that the one fund chosen (Nifty 50) is equity-taxed, but that is incidental rather than intentional.",
+    "composite_pqs": 0.1
+  },
+  "timestamp": "2026-04-18T16:15:54.309642Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

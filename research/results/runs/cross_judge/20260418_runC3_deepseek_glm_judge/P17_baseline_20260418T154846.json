@@ -1,0 +1,116 @@
+{
+  "persona_id": "P17",
+  "condition": "baseline",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "122639",
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+          "category": "Flexi Cap",
+          "sub_category": "Equity Scheme - Flexi Cap Fund",
+          "fund_house": "PPFAS Asset Management Pvt. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2013-05-13",
+          "aum_cr": 88403.898,
+          "morningstar_rating": null,
+          "returns_1y": 7.161010773862619,
+          "returns_3y": 18.634349634818626,
+          "returns_5y": 16.745126759277838,
+          "risk_grade": null,
+          "volatility_1y": 10.536986525114564,
+          "beta": 0.5540175925374067,
+          "alpha": 11.626142766189558,
+          "tracking_error": 9.354581241505699,
+          "sharpe_ratio": 0.2539542577295419,
+          "information_ratio": 1.2428287772631748
+        },
+        "allocation_pct": 70.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "Flexible fund that invests across market caps and internationally, perfect for your variable income lifestyle. Lower volatility than pure equity funds but good growth potential."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "Equity Scheme - Large Cap Fund",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2007-06-12",
+          "aum_cr": 16618.7596,
+          "morningstar_rating": null,
+          "returns_1y": 11.56079015354068,
+          "returns_3y": 18.186156748187955,
+          "returns_5y": 17.660092596665432,
+          "risk_grade": null,
+          "volatility_1y": 14.626408752694257,
+          "beta": 0.981230532975554,
+          "alpha": 4.269555981160543,
+          "tracking_error": 3.1609097238593944,
+          "sharpe_ratio": 0.6342380541211268,
+          "information_ratio": 1.3507364506277382
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "Stable large-cap fund for steady growth with lower risk. Good foundation for your portfolio that won't swing wildly with market ups and downs."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU (free platforms)\nStep 2: Invest your ₹1 lakh existing money as a lumpsum across both funds (70% in Parag Parikh Flexi Cap, 30% in Nippon India Large Cap)\nStep 3: Set up flexible SIPs - start with what you can afford monthly (even ₹2,000-5,000), and top up whenever you have surplus cash\nStep 4: Keep 3 months' emergency fund separate in a savings account",
+    "review_checkpoints": [
+      "Every 6 months: Check if your SIPs are running and top up if you had extra income",
+      "After 1 year: See if any fund has fallen behind its category average by more than 5%",
+      "Before major expenses (wedding/travel): Review your portfolio 3 months in advance"
+    ],
+    "rebalancing_guidelines": "Once a year, check if your 70/30 mix has drifted. If one fund has grown much more than planned, move some money to the other to get back to your target allocation. No need to rebalance more than once a year.",
+    "projected_returns": {
+      "base": 12.5,
+      "bull": 16.5,
+      "bear": 8.5
+    },
+    "rationale": "Since you're 27 with 28 years ahead and moderate risk appetite, this simple 2-fund portfolio gives you growth while keeping things manageable. The flexi cap fund handles market timing for you, while the large cap provides stability. Your freelance income pattern means you can invest flexibly - small SIPs when money is tight, bigger top-ups when projects go well.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year - your portfolio value will temporarily go down",
+      "As a freelancer, your income may be irregular, making consistent investing challenging",
+      "Both funds are equity-focused, so they'll move with stock market ups and downs"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Try to increase your monthly investment by 10% each year as your freelance income grows"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "This is a simple 2-fund, all-equity, all-active portfolio with a long-term buy-and-hold discipline, but no passive instruments whatsoever. **passive_instrument_fraction = 0.0**: Both funds (Parag Parikh Flexi Cap and Nippon India Large Cap) are actively managed; zero allocation to index funds or ETFs. **turnover_score = 0.8**: Rebalancing is explicitly annual ('No need to rebalance more than once a year'), and semi-annual checkpoints are just SIP top-ups — no tactical shifts. **cost_emphasis_score = 0.3**: Direct plans and free platforms (Groww/Kuvera/MFU) show cost awareness, but expense ratios (1.0% each) aren't flagged as a selection criterion, and cost minimization isn't a stated priority. **research_vs_cost_score = 0.4**: Fund selection is based on category-fit rationale (flexi for flexibility, large cap for stability) rather than deep security-level research or passive indexing — it sits between detailed research and passive broad-market exposure. **time_horizon_alignment_score = 0.9**: 28-year horizon, SIP step-up of 10%/year, patient compounding mindset, and explicit acceptance of temporary drawdowns. **portfolio_activeness_score = 0.1**: The 70%-weighted Parag Parikh Flexi Cap has beta 0.55, alpha 11.6%, tracking error 9.35%, and IR 1.24 — genuinely active with significant deviation from the Nifty 50. The 30%-weighted Nippon Large Cap (beta 0.98, tracking error 3.16%) is moderately active. The portfolio-weighted activeness is overwhelmingly active.",
+    "composite_aps": 0.4166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.65,
+    "diversification": 0.5,
+    "risk_return_appropriateness": 0.55,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.7,
+    "reasoning": "**Goal Alignment (0.65):** The plan aligns well with the long-term wealth goal and the freelance-flexibility preference (2-fund simplicity, flexible SIPs, top-up model). However, it fails to meaningfully address the 5-year marriage/travel goal — 100% equity with no separate bucketing or timeline-based de-risking is too aggressive for a medium-term goal. The emergency fund is correctly kept outside the portfolio.\n\n**Diversification (0.50):** Two equity funds from two different fund houses provides some diversification, and the PPFAS Flexi Cap adds multi-cap and international exposure. However, 100% equity with zero debt, gold, or any fixed-income component is thin diversification — especially for a moderate-risk investor. Geographic and sector diversification relies entirely on one fund's mandate. Only two funds limits breadth considerably.\n\n**Risk-Return Appropriateness (0.55):** A moderate-risk investor typically warrants 60–75% equity, not 100%. The plan is effectively aggressive in allocation while claiming moderate risk. The 5-year goal being funded entirely by volatile equity funds is a mismatch. The bear case projection of 8.5% is unrealistically optimistic — equity can and does deliver negative returns over shorter periods. The PPFAS fund's lower beta (0.55) helps somewhat, but doesn't offset the structural over-equity issue.\n\n**Internal Consistency (0.60):** The narrative around simplicity, flexibility, and growth is internally coherent. The 70/30 split, step-up SIP, rebalancing rule, and review cadence all hang together. The main contradiction is stating moderate risk appetite while delivering an aggressive 100% equity portfolio. Also, the bear-case projection (8.5%) contradicts the risk warning about 20–30% drops.\n\n**Tax Efficiency (0.70):** For a new-regime investor, the allocation is inherently tax-efficient — both funds are ≥65% equity, qualifying for favourable LTCG/STCG rates, and no ELSS is pushed (correct, since 80C is unavailable under new regime). No slab-taxed debt instruments are used. However, the plan makes zero explicit mention of tax treatment or rationale, so the efficiency is accidental rather than by design. A brief tax note would have strengthened this significantly.",
+    "composite_pqs": 0.6
+  },
+  "timestamp": "2026-04-18T15:48:46.405497Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

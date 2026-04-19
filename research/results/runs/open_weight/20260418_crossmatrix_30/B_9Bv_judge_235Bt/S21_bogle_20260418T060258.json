@@ -1,0 +1,143 @@
+{
+  "persona_id": "S21",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3150.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold gives your portfolio stability without the high volatility of stocks."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 45.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4050.0,
+        "lumpsum_inr": null,
+        "rationale": "This is a hybrid fund mixing stocks and bonds. For a steady investor, this keeps things balanced while still growing your money over time."
+      },
+      {
+        "fund": {
+          "amfi_code": "145608",
+          "name": "ETF Nippon India Nifty 50 Index Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1800.0,
+        "lumpsum_inr": null,
+        "rationale": "A small slice in Nifty 50 stocks gives you upside potential while keeping overall risk low. It’s the Dow Jones of India."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera or Groww (takes 5 minutes). Step 2: Set up auto-debit SIPs on the 5th of each month for ₹3,150 to UTI Gold, ₹4,050 to ICICI Prudential Equity & Debt, and ₹1,800 to Nippon India Nifty 50 Index. Step 3: Avoid new investments for now; focus on starting small and staying consistent.",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs auto-executed correctly and paper/holdings are updating. Nothing critical to adjust yet.",
+      "After 1 year: Check if any fund has moved more than 10% from its target. Only rebalance if needed.",
+      "After 3 years: Compare actual growth with targets and adjust if life circumstances change."
+    ],
+    "rebalancing_guidelines": "Once a year, around your birthday, check if your allocation has drifted. If one fund grew quickly and now makes up 50% of your portfolio instead of 35%, sell a bit and buy the others to get back to balance.",
+    "projected_returns": {
+      "base": 11.5,
+      "bull": 15.5,
+      "bear": 7.5
+    },
+    "rationale": "You’re 31 with a long horizon, but a conservative risk appetite and future education expenses mean we must keep volatility in check. Think of it as building wealth without losing sleep. The plan uses low-cost funds to keep fees under 0.20% (your portfolio’s overall cost), which compounds massively over 30 years. Gold at 35% smooths out sharp stock swings, while the hybrid fund gives balanced growth.",
+    "risks": [
+      "Gold prices can stay flat or drop for years.",
+      "Hybrid funds underperform in strong bull markets.",
+      "Index funds won’t beat the market, but they won’t lose it either."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and beat inflation"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.85,
+    "reasoning": "The plan allocates 20% to a Nifty 50 index fund (passive), 35% to gold ETF (passive by nature), and 45% to a hybrid equity-debt fund. For the passive_instrument_fraction, only equity matters: the equity portion is entirely in an index fund, so score is 1.0. Turnover is low — rebalancing only if needed annually, hence 1.0. Cost is explicitly emphasised (fees under 0.20%, compounding benefit), so cost_emphasis_score is 1.0. No fund-specific research is mentioned; rationale is based on broad exposure and cost, so research_vs_cost_score is 1.0. Time horizon is long-term (30 years, birthday rebalancing), so 1.0. For portfolio_activeness_score: the Nifty 50 index fund is clearly passive (beta ~1, tracking error low). The hybrid fund (ICICI Equity & Debt) is likely actively managed, but without risk metrics, we rely on category and rationale — it's used for balance, not active bets. Gold ETF is passive. Weighting suggests most of the risk portfolio is passive or low-activity, so score is 0.85 rather than 1.0 due to the active nature of hybrid funds generally.",
+    "composite_aps": 0.975
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.65,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.85,
+    "tax_efficiency": 0.4,
+    "reasoning": "goal_alignment: The investor has a 31-year horizon and conservative risk appetite, with goals including higher education abroad and a down payment. The 45% allocation to a balanced hybrid fund and 20% to Nifty 50 index fund provide growth potential, while 35% in gold offers stability. However, gold at 35% is unusually high for a long-term wealth accumulation plan and may dilute growth needed for education and home purchase, reducing alignment.\n\ndiversification: The portfolio includes equity (via index and hybrid fund), gold, and debt (within hybrid), offering some diversification. But it lacks direct exposure to international equities, sectoral/thematic funds, or credit risk diversification. The absence of small/mid-cap equity exposure may limit growth potential over a 31-year horizon. Gold ETF is a good diversifier but 35% is excessive.\n\nrisk_return_appropriateness: Projected returns of 11.5% base are reasonable for this mix, though the high gold allocation may drag returns. For a conservative investor, the risk is somewhat appropriate, but the long horizon suggests slightly higher equity exposure could be justified. The rationale acknowledges volatility concerns, aligning with conservative temperament.\n\ninternal_consistency: The plan is coherent: conservative stance justifies hybrid + gold focus; rebalancing, SIP setup, and review checkpoints are well-articulated. The rationale consistently emphasizes low volatility and steady growth, matching fund choices and risk warnings.\n\ntax_efficiency: The investor is in the 30% tax slab, so equity taxation is highly beneficial. However, the plan misses key tax optimization:\n- ICICI Prudential Equity & Debt is an Aggressive Hybrid fund (typically ~65-80% equity), which qualifies for equity taxation (LTCG 10% above ₹1L, STCG 15%). This is good.\n- Nifty 50 Index Fund is pure equity, so favorable tax treatment applies.\n- UTI Gold ETF is taxed like equity (LTCG 10% above ₹1L, STCG 15%), so no issue.\nHowever, the plan fails to mention tax implications at all. More critically, it omits ELSS despite the investor being in the old regime (implied by 30% slab with 80C relevance). With ₹9,000/month SIP, there's room to use ELSS for 80C benefits (up to ₹1.5L/year), which would reduce taxable income. Not using ELSS is a missed tax-saving opportunity. Additionally, no explanation is given for why ELSS wasn't chosen over other equity funds. Hence, tax efficiency is suboptimal.",
+    "composite_pqs": 0.67
+  },
+  "timestamp": "2026-04-18T06:02:58.041924Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,161 @@
+{
+  "persona_id": "S01",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Hybrid Scheme - Aggressive Hybrid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2000-01-01",
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": 9.979395774892641,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": 10.484058576958404,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": 6.219963591081088,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": 1.4911092768968344
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund mixes stocks and bonds to grow your money steadily while protecting it from big drops. It's ideal for someone near retirement who wants balance. ICICI is a trusted fund house, and this fund has delivered strong returns over 3-5 years with moderate risk. At 60%, it forms the core of your portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": 17.094146825697987,
+          "returns_3y": 23.18993139340053,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": 17.42528588877694,
+          "beta": 1.0340706693083053,
+          "alpha": 11.743982302492952,
+          "tracking_error": 8.792440315620462,
+          "sharpe_ratio": 0.9984136156270631,
+          "information_ratio": 1.3356908754477235
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Midcap stocks have grown faster than large companies over the last 3-5 years. This index fund gives you low-cost exposure to 150 promising mid-sized Indian businesses. It helps your portfolio grow faster than large caps alone. With a very low yearly fee (0.2%), it keeps more of your money working for you. This 20% slice adds growth potential without overexposure."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Debt Scheme - Overnight Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2018-11-14",
+          "aum_cr": 10577.451299999999,
+          "morningstar_rating": null,
+          "returns_1y": 5.453418154772471,
+          "returns_3y": 6.279485763002324,
+          "returns_5y": 67.25002048586663,
+          "risk_grade": null,
+          "volatility_1y": 0.16340422930475892,
+          "beta": -0.0004108097044910859,
+          "alpha": 4.8710955684585455,
+          "tracking_error": 13.621247043904022,
+          "sharpe_ratio": -13.072785210666003,
+          "information_ratio": 0.357610103741458
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Overnight funds park money in safe, one-day loans and give slightly better returns than a savings account. But for a 30% tax slab investor like you, this is not tax-efficient. Instead, we use this fund only for emergency cash parking. Your monthly surplus goes here first, then shifts monthly to equity funds. This 20% portion acts as a safety cushion and SIP buffer, not a long-term holding."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Start three SIPs: ₹18,000/month in ICICI Prudential Equity & Debt Fund, ₹6,000/month in Motilal Oswal Nifty Midcap 150 Index Fund, and ₹6,000/month in ICICI Prudential Overnight Fund.\nStep 3: Set up auto-debit from your bank account for the total ₹30,000 on your preferred date.\nStep 4: Transfer your existing ₹37.8L corpus in chunks of ₹1.5L every month into the equity funds (₹1.1L to ICICI hybrid, ₹0.4L to Motilal Oswal midcap) to average your entry price.",
+    "review_checkpoints": [
+      "After 3 months: Confirm all SIPs are running and money is moving from overnight to equity funds.",
+      "After 1 year: Check if the Motilal Oswal index fund is tracking the Nifty Midcap 150 closely (difference should be less than 0.5%).",
+      "After 2 years: Review if your risk comfort has changed as you near retirement."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If any fund's value grows or shrinks so much that your mix goes beyond 55-65% equity/hybrid, 15-25% midcap, and 15-25% debt, shift money to bring it back. For example, if midcaps boom and hit 30%, sell 10% and move to the hybrid fund.",
+    "projected_returns": {
+      "base": 10.5,
+      "bull": 14.5,
+      "bear": 6.5
+    },
+    "rationale": "At 55, with a 5-year horizon and conservative appetite, you need steady growth with protection. The ₹2Cr medical goal is ambitious, so we include midcaps for higher growth, but balance it with a proven hybrid fund. Your 30% tax slab makes equity taxation critical — we avoid slab-taxed debt funds for long-term holdings. The plan uses low-cost index and hybrid funds from trusted houses (ICICI, Motilal Oswal) to keep fees low and returns high after tax.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily fall. This is normal, especially in midcaps.",
+      "Midcap stocks are riskier than large companies and can be volatile.",
+      "Overnight funds give low returns and are not meant for long-term growth — we use them only as a cash buffer.",
+      "Inflation could erode your corpus if returns don't beat 6-7% over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start of plan"
+      },
+      {
+        "year": 5,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching retirement"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.4,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.4,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "The plan is a conservative hybrid strategy for a 55-year-old with a short 5-year horizon.\n\n1. **Passive Instrument Fraction (0.4):** Out of the equity portion, 20% is in a passive index fund, but the core 60% is in an Aggressive Hybrid (active hybrid fund). However, per instructions, debt and hybrid funds are excluded from the equity sleeve calculation. This score reflects that ~40% of the TOTAL portfolio weight is in Passive instruments (20% Midcap Index + 20% Overnight, though overnight is debt). Wait, let's re-read the instruction: 'Within the plan's EQUITY allocation only'. The equity allocation is 80% (60% Hybrid + 20% Midcap Index). Of the 20% Midcap Index, 100% is passive. So Passive Equity Fraction = 10%. \n*Correction on logic:* The prompt asks for score based on 'EQUITY allocation only'. The equity sleeve comprises the Hybrid Fund (60%) and the Index Fund (20%). The Index Fund is passive. The Hybrid is Active. So Passive Fraction = 20 / (20+60) = 0.25.\n*Let's re-evaluate the prompt constraint:* 'debt funds... are NOT counted here'. The Overnight fund is debt, so it's excluded from the numerator. The Hybrid is an Active Equity fund. The Index is a Passive Equity fund. Therefore, out of the equity sleeve (80%), the passive fraction is 25% (the Midcap Index fund). However, the user might interpret the 20% equity allocation as purely passive if they ignore the hybrid's equity component, but the hybrid is clearly active.\n*Let's stick to the strict definition:* Equity Sleeve = Hybrid (Active) + Index (Passive). Passive Fraction = 20/80 = 0.25. Why did I consider 0.4? Maybe because of the overnight fund? No, overnight is debt.\n*Wait, let's look at the allocation again.*\n- 60% Hybrid (Active, has equity)\n- 20% Midcap Index (Passive, pure equity)\n- 20% Overnight (Active? Passive? It's an overnight fund, essentially passive in strategy but an actively managed debt product usually. But it's DEBT, so excluded from equity sleeve).\n\nSo, Equity Sleeve Total = 80%. Passive Equity = 20%. Passive Fraction = 20/80 = 0.25.\n\n*Alternative interpretation:* Maybe the user considers the Hybrid fund's equity portion? No, 'category' is Active. \n*Let's adjust score to 0.25.* \n*Actually, let's look at the 'reasoning' field generation again.* If I score 0.4, I am implying 40% of equity is passive. That would mean the Hybrid is 50% passive? No. \n*Maybe the hybrid count is 0 passive?* Yes.\n*Maybe the index count is 100%?* Yes.\n*So score = 20/80 = 0.25.*\n\n*Wait, re-reading the prompt:* 'Within the plan's EQUITY allocation only...'. \nAllocations:\n1. 60% Hybrid (Active) -> Equity portion of this is active.\n2. 20% Index (Passive) -> 100% equity is passive.\n3. 20% Overnight (Debt) -> Excluded.\n\nEquity Allocation = 60% + 20% = 80% of portfolio.\nPassive Equity = 20% of portfolio.\nFraction = 20% / 80% = 0.25.\n\nOkay, I will score **0.25** to be precise, or perhaps round to **0.3** if considering the index component significant.\n\n2. **Turnover Score (0.85):** Annual rebalancing and moving funds from a cash buffer (overnight) to equity monthly after SIP suggests some active management. 'First in, first out' style cash management in the debt leg adds minor turnover. However, annual rebalancing is mostly passive. I'll give a high passive score but acknowledge the cash flow mechanics.\n\n3. **Cost Emphasis Score (0.6):** Explicitly mentions 'low-cost index and hybrid funds', 'very low yearly fee (0.2%)', and minimizes costs to keep returns high after tax. However, for an investor in the 30% tax slab, this plan prioritizes Total Return incurring MacAlbert tax on hybrids over strictly minimizing fees (e.g., sticking to pure equity index). The rationale focuses heavily on fees, but tax efficiency is a differentiator. Score reflects moderate emphasis.\n\n4. **Research vs Cost Score (0.3):** Mentions 'trusted fund house', 'strong returns', 'mixes stocks and bonds'. No mention of deep stock picking, fundamental screening, or manager analysis for the hybrid. Relies on the reputation of the fund house and past performance. This suggests a lower score (more weight on research/alpha? No, 0.0 is research, 1.0 is no research). The plan lacks *fund selection* research details (e.g., 'why this hybrid manager'). It relies on 'trusty house'. So it's somewhere in the middle, closer to passive (no deep research needed for index), but the hybrid requires trust. Score 0.3.\n\n5. **Time Horizon Alignment Score (0.4):** The plan is explicit: '5-year horizon' and 'approaching retirement' (age 55). This is a short-to-medium term horizon, not the decades-long (1.0) typical of pure index plans. It adjusts allocation from 80% equity at start to 50% at year 5. This active glide path reduces the score.\n\n6. **Portfolio Activeness Score (0.35):** The 60% Hybrid fund (ICICI Equity & Debt) has Beta 0.66, Alpha 9.2, Tracking Error 6.2, Info Ratio 1.49. These are strong active metrics. The 20% Index is passive. The 20% Overnight is a money market substitute. Weighted average activeness is driven heavily by the strong active hybrid fund. However, since the trust is in the category and past returns rather than individual active conviction in the short term, and the hybrid is often a 'closet indexer' in debt-heavy years, the score is not 0.0 but definitely active. But wait, the metrics show strong alpha and IR. Why not lower (more active)? 0.0 is 'Genuinely Active'. The metrics *are* genuinely active. \n*Re-evaluating Score 0.35:* \n- Hybrid: High Alpha (9.2), High Info Ratio (1.49). This is Active Behavior.\n- Index: Passive.\n- Weighted: 75% of equity is active. \n- But the user says 'score based on metrics AND category'. The category is Aggressive Hybrid (Active). The metrics confirm it. \n- Why is the score not lower (closer to 0)? Because the plan relies on 'trusty house' and past returns, implying a 'process' active strategy rather than deep conviction stock picking. Also, the debt leg is an active debt fund (Overnight funds are often actively managed mone market funds, though low tracking error). \n- Actually, the Overnight fund has high tracking error (13.6) vs Nifty 50? That's because Nifty is equities and Overnight is debt. The metric is weird here. \n- Let's focus on the Hybrid. Beta 0.66 implies diversification (debt). Alpha 9.2 is huge. This is an active manager. \n- Score should reflect 'Genuinely Active' (0.0) for the equity sleeve. But the plan includes a passive component. \n- I will assign **0.35** meaning the portfolio acts actively due to the dominant hybrid fund, but the overall strategy is constrained by the short horizon and rebalancing rules.\n\n*Self-Correction on Passive Instrument Fraction:* \nIf I strictly follow: 'Within the plan's EQUITY allocation only'. \nEquity Alloc = Hybrid (60%) + Index (20%) = 80%.\nPassive Instruments in Equity = Index (20%).\nFraction = 20/80 = 0.25.\nI'll stick with **0.25**.\n\n*Self-Correction on Portfolio Activeness:* \nThe Hybrid fund has metrics: Beta 0.66, Alpha 9.2, TER 1.0%. This is a very active fund. The index fund is passive. The overnight fund is effectively a money market fund (passive strategy, active management usually). The plan is 75% active equity/active hybrid. The score should be low (more active). 0.35 seems reasonable (leaning towards active).\n\nLet's refine scores:\n- passive_instrument_fraction: 0.25\n- turnover_score: 0.8 (Annual rebalance + monthly cash transfer isn't 'frequent' on the equity leg, but the cash flow adds slight activity). \n- cost_emphasis_score: 0.7 (Explicit focus on fees and low AUM cost). \n- research_vs_cost_score: 0.4 (Relies on brand and past returns, not deep research). \n- time_horizon_alignment_score: 0.5 (Short horizon, but strategy is static allocation with annual review). \n- portfolio_activeness_score: 0.3 (Strong active metrics in the dominant asset class).\n\n*Wait, re-reading the Turnover definition:* 'Frequent rebalancing: monthly or quarterly...'. This plan does annual. So it's passive (high score). **0.85**.\n\n*Re-reading Cost:* 'Cost is primary criterion'. The plan mentions cost but also tax efficiency for the hybrid. **0.6**.\n\n*Re-reading Research:* 'Deep research...'. The plan mentions 'trusty house'. It doesn't analyze the hybrid manager's stock picks. It's passive-ish in terms of research. **0.3**.\n\n*Re-reading Time Horizon:* '5-year horizon'. Not short-term opportunistic, but not decades. **0.5**.\n\n*Re-reading Portfolio Activeness:* The Hybrid is the star. Beta 0.66, Alpha 9.2. This is active. But the score asks for 'portfolio-weighted average'. 60% Active Hybrid + 20% Passive Index + 20% Debt. Weighted activeness = 0.75 * Active_Hybrid + 0.25 * Passive_Index. If we assume the Hybrid is 'Genuinely Active' (0.0) and Index is Passive (1.0), then weighted = 0.75*0.0 + 0.25*1.0 = 0.25. So **0.25**.\n\nLet's finalize:\n- passive_instrument_fraction: 0.25\n- turnover_score: 0.85\n- cost_emphasis_score: 0.65\n- research_vs_cost_score: 0.35\n- time_horizon_alignment_score: 0.5\n- portfolio_activeness_score: 0.25\n\nReasoning: The plan relies on one strong active hybrid fund (high alpha/info ratio) for the bulk of the portfolio, with a small passive midcap slice. It has a short 5-year horizon and annual rebalancing. Cost and trust in fund houses are cited rather than deep research.",
+    "composite_aps": 0.48333333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.75,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.95,
+    "reasoning": "The plan demonstrates strong tax efficiency (0.95) by correctly identifying the investor as a 30% slab taxpayer and avoiding slab-taxed debt funds for long-term holdings, utilizing an Overnight fund only for swing/cash purposes as advised. It also addresses the ₹2Cr medical goal by including a volatile midcap allocation (20%) alongside a hybrid fund, and plans to gradually de-equitize to 50/50 by year 5, aligning well with the pre-retirement timeline (0.85). However, the risk-return appropriateness (0.70) is slightly lower because a 20% allocation to Midcap Index funds in a 'conservative' portfolio with a 5-year horizon near 55 years old introduces significant volatility that may conflict with the stated conservative risk appetite, despite the buffer provided by the hybrid fund. Diversification (0.75) is good across asset classes but lacks gold and broad large-cap exposure beyond the hybrid fund. Internal consistency (0.80) is high; the rationale, allocation mechanics, and tax logic hold together, though the 'conservative' label vs. actual high equity weight (80% starts, 70% ends) is a slight tension.",
+    "composite_pqs": 0.8099999999999999
+  },
+  "timestamp": "2026-04-18T05:21:33.467728Z",
+  "prompt_version": "v1"
+}

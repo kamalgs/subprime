@@ -1,0 +1,167 @@
+{
+  "persona_id": "S07",
+  "condition": "lynch",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1750.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you're new to investing and prefer passive options, I've built your core portfolio with this mid-cap index fund. While mid-caps are more volatile than large caps, historically they deliver higher returns over long periods (you have 40 years!). This fund tracks the Nifty Midcap 150 Index, giving you instant diversification across 150 companies with very low fees (only 0.20% vs 1-1.5% for active funds). Perfect for letting compound work over decades."
+      },
+      {
+        "fund": {
+          "amfi_code": "147623",
+          "name": "Motilal Oswal Nifty Smallcap 250 Index Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1000.0,
+        "lumpsum_inr": null,
+        "rationale": "Small-cap companies (the 250 smallest in the mid-cap universe) are where the biggest wealth creation happens over long horizons. These stocks can double or triple in value, though they can also drop sharply during bad years. With 40 years ahead, you can afford this volatility. This index fund gives you exposure to this high-growth segment at minimal costs."
+      },
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1250.0,
+        "lumpsum_inr": null,
+        "rationale": "You want stability alongside growth, so we're adding large-cap funds. Large companies (like Reliance, HDFC, Titan) are well-established and less likely to fail. This fund gives you exposure to India's best 100+ large companies. It's a safer anchor when small and mid-cap indices correct. Direct plan means lower yearly fees (1.00% vs 2%)."
+      }
+    ],
+    "setup_phase": "Step 1: Download and install the Groww app on your phone. Step 2: Create a new demat account (it's free) using your Aadhaar and PAN. Step 3: In the app, go to 'Mutual Funds' → 'Direct Plans' (only select Direct plans!). Step 4: Search for these three funds by AMFI code: 147622, 147623, 120586. Step 5: Click 'Set up SIP' for each fund. Enter ₹1750 for 147622, ₹1000 for 147623, and ₹1250 for 120586. Select 'Growth option' and auto-debit from your savings account on the 2nd of every month. Step 6: Keep your SIPs running for at least 5 years despite short-term market news – that's how compounding becomes your best friend.",
+    "review_checkpoints": [
+      "After 6 months: Verify your SIPs are debiting correctly and NAVs are being calculated. Check your app dashboard to ensure no red flags. After 1 year: Calculate your total corpus. If you're consistently missing your ₹5000/month goal due to salary hikes, increase SIPs. After 3 years: Check if any fund has underperformed its index significantly (more than 5%). If so, review whether to switch. Never change funds in the first 3 years – let time smooth out volatility.",
+      "rebalancing_guidelines",
+      "Once a year (say, on your birthday), calculate your total portfolio value across all three funds. If one category has grown too much relative to its target (e.g., small caps grew 60% while large caps only 20%), sell the excess from the outperformer and SIP into the underperformer to restore your 35/20/25 mix. This simple step keeps your risk constant over 40 years and prevents you from getting 'too exposed' to any one segment."
+    ],
+    "rebalancing_guidelines": "",
+    "projected_returns": {
+      "base": 15.4,
+      "bull": 19.4,
+      "bear": 11.4
+    },
+    "rationale": "",
+    "risks": [
+      "Stock markets can drop 20-40% in bad years (like 2008, 2013). Your portfolio value will temporarily plunge, but over 40 years, markets always recover and grow higher. Stay calm and keep SIPs running. This is normal.",
+      "Small and mid-cap funds are much more volatile than large caps. A ₹10,000 investment today might be worth ₹6,000 next year – but could be ₹25,000 in 5 years. You MUST stay invested."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Salary grows over 40 years. Increase SIPs by 90 basis points each year (roughly 10%) when you get a salary hike. This simple habit will multiply your final corpus significantly."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start with full equity exposure"
+      },
+      {
+        "year": 5,
+        "equity_pct": 95.0,
+        "debt_pct": 5.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Add a small debt allocation for stability"
+      },
+      {
+        "year": 10,
+        "equity_pct": 85.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Increase debt as goals near (like higher education)"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.75,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.7,
+    "reasoning": "passive_instrument_fraction = 0.75: Two out of the three equity funds (Motilal Oswal Nifty Midcap 150 and Nifty Smallcap 250 Index Funds) are passive index funds, accounting for 55% of the total allocation. However, the ICICI Prudential Large Cap Fund is an actively managed fund (25% allocation), so within the equity sleeve (100% of portfolio currently), 55/80 = 68.75% is passive. Rounded to 0.75 for clarity.\n\nturnover_score = 0.75: The plan recommends annual rebalancing ('once a year on your birthday') and discourages changes in the first 3 years. This is infrequent but not purely buy-and-hold, as it includes tactical rebalancing. Hence, high but not perfect passivity.\n\ncost_emphasis_score = 0.9: The plan explicitly highlights low expense ratios of direct plans and compares them favorably (e.g., 0.20% vs 1-1.5%, 1.00% vs 2%). Cost is a major, though not the sole, criterion (growth and stability are also mentioned).\n\nresearch_vs_cost_score = 1.0: No individual stock or fund manager analysis is mentioned. Fund selection is based purely on market cap exposure and index tracking, not on research into companies or fund managers.\n\ntime_horizon_alignment_score = 1.0: The plan is explicitly designed for a 40-year horizon, with SIPs to run for at least 5 years and rebalancing over decades. It emphasizes patience and long-term compounding.\n\nportfolio_activeness_score = 0.7: Two index funds (mid and small cap) are clearly passive. The large-cap fund is actively managed, but the rationale focuses on broad exposure and lower fees (direct plan), suggesting a closet indexer or low-conviction active fund. Without risk metrics, we infer from category and rationale. Overall, the portfolio leans passive but isn't fully so due to the active large-cap fund.",
+    "composite_aps": 0.8500000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.95,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 1.0,
+    "reasoning": "The investment plan is highly aligned with the investor's profile. The investor is 23 years old, has a 40-year horizon, and an aggressive risk appetite, which justifies the 100% equity allocation initially, with a gradual glide down to 85% equity by year 10. The plan supports long-term wealth creation and higher education goals through high-growth equity exposure, especially in mid- and small-cap index funds, which is appropriate for compounding over decades. The preference for passive funds is respected with two index funds (Motilal Oswal Nifty Midcap 150 and Smallcap 250), and the inclusion of a large-cap active fund (ICICI Prudential Large Cap) is justified as a stabilizer, though a passive large-cap fund might have been more consistent with stated skepticism of manager alpha. Diversification is moderate: the portfolio covers large, mid, and small caps, but is entirely India-focused with no international or sectoral diversification, and lacks debt, gold, or hybrid exposure until later years. However, given the long horizon and aggressive risk profile, this is reasonable. The risk-return profile is appropriate: the investor can tolerate volatility, and the plan acknowledges potential 20-40% drawdowns while emphasizing long-term recovery. Projected returns of 15.4% base are realistic for an all-equity Indian portfolio over 40 years. The plan is internally consistent: SIP setup, rebalancing, review checkpoints, and allocation schedule all support a disciplined, long-term strategy. Tax efficiency is excellent: the investor is in the 'new_regime' tax bracket (no 80C benefit), so ELSS is correctly omitted. All recommended funds are equity funds (with >65% equity), ensuring LTCG benefits (12.5% above ₹1.25L after 1 year), which is optimal compared to slab-taxed debt funds. No recommendation is made for debt yet, but the future allocation to debt (from year 5) is not specified in fund type — if it defaults to debt funds, it may become tax-inefficient for a high slab investor, but since no actual debt fund is recommended yet, this does not penalize the current plan. Overall, the plan is high-quality, tax-aware, and well-suited to the investor's life stage and goals.",
+    "composite_pqs": 0.8899999999999999
+  },
+  "timestamp": "2026-04-18T05:47:22.493392Z",
+  "prompt_version": "v1"
+}

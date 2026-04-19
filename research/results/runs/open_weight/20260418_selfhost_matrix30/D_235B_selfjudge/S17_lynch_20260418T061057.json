@@ -1,0 +1,171 @@
+{
+  "persona_id": "S17",
+  "condition": "lynch",
+  "model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "judge_model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "EQUITY",
+          "sub_category": "LARGE_CAP",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1800.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund has consistently delivered strong returns over 3 and 5 years with a reasonable expense ratio. As a large-cap fund, it provides exposure to established companies with lower volatility compared to mid and small-cap funds, making it suitable for a conservative investor."
+      },
+      {
+        "fund": {
+          "amfi_code": "118419",
+          "name": "Bandhan Large & Mid Cap Fund - Direct Plan - Growth",
+          "category": "EQUITY",
+          "sub_category": "LARGE_AND_MID_CAP",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 2889.0,
+          "morningstar_rating": null,
+          "returns_1y": 12.9,
+          "returns_3y": 24.1,
+          "returns_5y": 19.6,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.88,
+          "alpha": 10.11,
+          "tracking_error": 7.34,
+          "sharpe_ratio": 0.72,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 600.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund offers exposure to both large and mid-cap companies, providing diversification benefits. It has delivered strong 3-year returns with a relatively low beta, indicating lower market sensitivity, which aligns well with a conservative risk profile."
+      },
+      {
+        "fund": {
+          "amfi_code": "150159",
+          "name": "BARODA BNP PARIBAS ELSS Tax Saver Fund - Direct Plan - Growth Option",
+          "category": "EQUITY",
+          "sub_category": "ELSS",
+          "fund_house": "Baroda BNP Paribas Asset Management India Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 43.0,
+          "morningstar_rating": null,
+          "returns_1y": 14.0,
+          "returns_3y": 19.7,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.89,
+          "alpha": 12.49,
+          "tracking_error": 6.63,
+          "sharpe_ratio": 0.79,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 300.0,
+        "lumpsum_inr": null,
+        "rationale": "This ELSS fund offers tax benefits under Section 80C and has delivered solid 3-year returns. While ELSS funds have a 3-year lock-in, they offer equity exposure with potential for higher returns than traditional tax-saving instruments, making it a good addition for tax efficiency."
+      },
+      {
+        "fund": {
+          "amfi_code": "151045",
+          "name": "HSBC Credit Risk Fund - Direct Growth",
+          "category": "DEBT",
+          "sub_category": "CREDIT_RISK_FUND",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 106.0,
+          "morningstar_rating": null,
+          "returns_1y": 18.2,
+          "returns_3y": 11.8,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.11,
+          "alpha": 23.2,
+          "tracking_error": 17.88,
+          "sharpe_ratio": 1.3,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 300.0,
+        "lumpsum_inr": null,
+        "rationale": "This credit risk fund has delivered strong 1-year returns and has a relatively low beta, indicating lower market sensitivity. As a debt fund, it provides stability to the portfolio while offering better returns than traditional fixed deposits."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Complete KYC and link your bank account. Step 3: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running",
+      "After 1 year: see if any fund has fallen behind compared to similar funds",
+      "Annually: review your overall portfolio growth"
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.7,
+      "bull": 16.7,
+      "bear": 8.7
+    },
+    "rationale": "Since you're 22 with 38 years ahead, we can afford to put more in stocks which grow faster over long periods. This plan balances growth and stability with a mix of large-cap, large & mid-cap, tax-saving equity, and debt funds. The ELSS component provides tax benefits while the credit risk fund adds diversification.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year - your portfolio value will temporarily go down",
+      "Debt funds can have credit risks where the companies they invest in may default on payments"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "passive_instrument_fraction: All equity funds are actively managed (large-cap, large & mid-cap, ELSS) with no index funds or ETFs mentioned. turnover_score: Review checkpoints suggest annual reviews with potential adjustments if performance lags, indicating moderate turnover. cost_emphasis_score: Expense ratios are mentioned but are not the primary selection criterion; performance is emphasized more. research_vs_cost_score: Fund selection appears to be based on performance metrics and fund characteristics rather than market-cap weighted indices. time_horizon_alignment_score: The plan is designed for a 38-year investment horizon with annual rebalancing, indicating strong long-term orientation. portfolio_activeness_score: All equity funds show signs of active management with high alpha, tracking error, and information ratio; the debt fund is a credit risk fund indicating active management.",
+    "composite_aps": 0.30833333333333335
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.75,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.85,
+    "tax_efficiency": 0.0,
+    "reasoning": "Goal Alignment: The plan recognizes the investor's long-term horizon (38 years) and includes a mix of equity and debt funds appropriate for wealth creation. However, it doesn't specifically address the goal of accumulating a down payment for a flat in Mumbai or building an emergency fund, which would require more conservative or liquid investments.\n\nDiversification: The plan has good diversification across different equity categories (large-cap, large & mid-cap, ELSS), but the overall diversification is somewhat limited with only four funds. There's no international exposure and limited sectoral diversification.\n\nRisk-Return Appropriateness: While the plan acknowledges the conservative risk appetite, it allocates 90% to equities (including ELSS) which may be too aggressive for a conservative investor, especially with a 10% allocation to the riskier credit risk fund. The projected returns of 12.7% base case may be optimistic for a conservative portfolio.\n\nInternal Consistency: The rationale consistently explains the fund selections and risk factors. The plan consistently emphasizes long-term growth while acknowledging market volatility, though there's some inconsistency in labeling a portfolio with 90% equity exposure as appropriate for a \"conservative\" investor.\n\nTax Efficiency: The plan scores poorly on tax efficiency because it recommends an ELSS fund to an investor in the 'new_regime' tax bracket who cannot claim 80C deductions. It also recommends a credit risk fund (debt) for a new regime investor when equity-taxed options like Aggressive Hybrid would deliver similar risk at more favorable tax rates. The plan completely ignores the investor's tax bracket in making recommendations.",
+    "composite_pqs": 0.62
+  },
+  "timestamp": "2026-04-18T06:10:57.982398Z",
+  "prompt_version": "v1"
+}

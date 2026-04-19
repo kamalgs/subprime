@@ -1,0 +1,159 @@
+{
+  "persona_id": "S01",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16618.7596,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 17.660092596665432,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Large cap stocks are less volatile and provide stability. This fund has consistently delivered strong long-term returns with a solid track record across market cycles, making it suitable for a conservative investor nearing retirement."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "This hybrid fund invests in both stocks and bonds, offering a balanced mix. It reduces overall risk while still participating in equity growth, which is ideal for preserving wealth with moderate growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a hedge during market downturns and inflation. Allocating 20% to gold helps protect your corpus when stock markets fall, adding stability to the overall plan."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Start SIPs of ₹12,000 in Nippon India Large Cap Fund, ₹12,000 in ICICI Prudential Equity & Debt Fund, and ₹6,000 in ICICI Prudential Gold ETF.\nStep 4: Link your bank account and confirm the first SIP deduction.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Review fund performance against category averages. If any fund underperforms for 2+ years, consider switching."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category (stocks, hybrid, gold) is more than 5% away from your target (40%, 40%, 20%), move money to bring it back. For example, if gold grows to 28%, sell some and add to the others.",
+    "projected_returns": {
+      "base": 17.8,
+      "bull": 21.8,
+      "bear": 13.8
+    },
+    "rationale": "At 55, you're close to retirement and want to protect your money while beating inflation. This plan avoids small caps and aggressive bets. It uses large caps for steady growth, hybrid funds for balance, and gold as a safety net. With ₹30,000/month SIP and ₹37.8L existing corpus, you're building a stable portfolio to help reach your ₹2Cr medical goal in 5 years.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily fall. This is normal and usually recovers.",
+      "Gold prices can stay flat for long periods and may not grow every year.",
+      "Inflation could rise faster than your returns, reducing your purchasing power."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and inflation"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 40.0,
+        "debt_pct": 40.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Start of plan"
+      },
+      {
+        "year": 5,
+        "equity_pct": 30.0,
+        "debt_pct": 60.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching retirement"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "passive_instrument_fraction: 0.0 — The equity allocation (40% via Nippon India Large Cap Fund) is directed entirely toward an actively managed large-cap fund, not an index or passive fund. The hybrid fund (40%) also likely holds actively managed equity and debt components. Thus, the equity sleeve has 0% passive exposure.\n\nturnover_score: 0.8 — Rebalancing is recommended annually or when allocations deviate by more than 5%, and review checkpoints are at 6 months and 1 year. This implies low to moderate turnover, leaning toward passive. No frequent tactical shifts are suggested, supporting a mostly buy-and-hold approach.\n\ncost_emphasis_score: 0.0 — There is no mention of expense ratios, transaction costs, or tax efficiency in the rationale or setup. Fund selection appears driven by performance and stability, not cost minimisation.\n\nresearch_vs_cost_score: 0.0 — The rationale emphasizes fund track record, performance across cycles, and risk reduction, indicating a belief in active management and manager skill rather than broad market exposure without research.\n\ntime_horizon_alignment_score: 0.8 — The plan is designed for a 5-year horizon with a shift toward conservatism near retirement. While not ultra-long-term, it emphasizes stability and compounding, with infrequent intervention, indicating strong long-term orientation.\n\nportfolio_activeness_score: 0.0 — Both equity and hybrid funds are actively managed (no index funds used). The rationales cite performance track records and manager skill. Risk metrics are missing, but category and rationale confirm active positioning. Gold ETF is passive, but that does not offset the active equity and hybrid exposure. Overall, the portfolio reflects active management conviction.",
+    "composite_aps": 0.26666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows strong goal alignment by focusing on stability and inflation protection for a pre-retiree with a 5-year horizon, using large cap and hybrid funds appropriately. Diversification is decent across equity, hybrid, and gold, though lacks international exposure and sectoral variety. Risk-return is mostly appropriate for a conservative investor, though 40% equity via large cap and aggressive hybrid may stretch conservatism; projected returns (17.8% base) are optimistic but justified by historical fund performance. The plan is internally consistent with clear rationale, rebalancing rules, and a glide path toward lower equity near retirement. However, tax efficiency is poor: the investor is in the 30% slab, yet 40% of the portfolio is in a pure large cap fund (equity-taxed) while the aggressive hybrid (also equity-taxed) is used appropriately, but no use is made of ELSS to claim 80C deductions despite eligibility under the old regime. The 20% gold allocation via ETF is tax-efficient (LTCG 20% with indexation), but overall tax optimisation is incomplete. No mention of tax implications of rebalancing or exits, and ELSS omission is a missed opportunity for tax savings.",
+    "composite_pqs": 0.71
+  },
+  "timestamp": "2026-04-18T07:05:14.672533Z",
+  "prompt_version": "v1"
+}

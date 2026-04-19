@@ -1,0 +1,178 @@
+{
+  "persona_id": "S07",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "judge_model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Nifty Midcap 150",
+          "fund_house": "Motilal Oswal",
+          "nav": 32.67,
+          "expense_ratio": 0.0,
+          "inception_date": "2016-04-01",
+          "aum_cr": 2450.0,
+          "morningstar_rating": 4,
+          "returns_1y": 17.1,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": "high",
+          "volatility_1y": 22.3,
+          "beta": 1.03,
+          "alpha": 11.74,
+          "tracking_error": 8.79,
+          "sharpe_ratio": 1.0,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1500.0,
+        "lumpsum_inr": null,
+        "rationale": "Passive index fund tracking Nifty Midcap 150 with low expense ratio and consistent returns relative to benchmark."
+      },
+      {
+        "fund": {
+          "amfi_code": "148381",
+          "name": "Motilal Oswal S&P 500 Index Fund - Direct Plan Growth",
+          "category": "Index",
+          "sub_category": "S&P 500",
+          "fund_house": "Motilal Oswal",
+          "nav": 45.89,
+          "expense_ratio": 0.0,
+          "inception_date": "2016-04-01",
+          "aum_cr": 2834.0,
+          "morningstar_rating": 5,
+          "returns_1y": 34.2,
+          "returns_3y": 23.8,
+          "returns_5y": 16.1,
+          "risk_grade": "high",
+          "volatility_1y": 25.1,
+          "beta": 0.07,
+          "alpha": 49.0,
+          "tracking_error": 21.39,
+          "sharpe_ratio": 2.65,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1000.0,
+        "lumpsum_inr": null,
+        "rationale": "Passive index fund tracking S&P 500 with low expense ratio and strong historical returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "WhiteOak Capital Mid Cap Fund Direct Plan Growth",
+          "category": "Mid Cap",
+          "sub_category": "Mid Cap",
+          "fund_house": "WhiteOak Capital",
+          "nav": 28.45,
+          "expense_ratio": 0.0,
+          "inception_date": "2020-03-01",
+          "aum_cr": 489.0,
+          "morningstar_rating": 4,
+          "returns_1y": 24.0,
+          "returns_3y": 27.8,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": 23.5,
+          "beta": 0.9,
+          "alpha": 23.22,
+          "tracking_error": 9.01,
+          "sharpe_ratio": 1.36,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1250.0,
+        "lumpsum_inr": null,
+        "rationale": "Consistently performing mid-cap fund with a strong track record and low expense ratio."
+      },
+      {
+        "fund": {
+          "amfi_code": "153138",
+          "name": "Motilal Oswal Nifty Capital Market Index Fund - Direct Plan - Growth",
+          "category": "Index",
+          "sub_category": "Nifty Capital Market",
+          "fund_house": "Motilal Oswal",
+          "nav": 39.21,
+          "expense_ratio": 0.0,
+          "inception_date": "2022-05-01",
+          "aum_cr": 196.0,
+          "morningstar_rating": 4,
+          "returns_1y": 51.1,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": 26.4,
+          "beta": 1.35,
+          "alpha": 45.44,
+          "tracking_error": 20.85,
+          "sharpe_ratio": 1.95,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1250.0,
+        "lumpsum_inr": null,
+        "rationale": "Passive index fund tracking Nifty Capital Market Index with high growth potential and low expense ratio."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 22.5,
+      "bull": 26.5,
+      "bear": 18.5
+    },
+    "rationale": "Since you're 23 with 40 years ahead, we can afford to put more in stocks which grow faster over long periods. This plan includes a mix of index and mid-cap funds to maximize returns while keeping costs low.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "International market fluctuations can impact the S&P 500 index fund's performance."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "The plan allocates 50% of the equity portion to passive/index funds like the Motilal Oswal Nifty Midcap 150 and S&P 500 Index Fund, giving a moderate passive_instrument_fraction score. Turnover_score is high because the plan recommends only annual rebalancing, indicating a long-term approach. Cost_emphasis_score is very high, as the rationale consistently emphasizes low expense ratios. Research_vs_cost_score is tilted toward passive as the plan relies on index funds, though it includes a mid-cap fund with potential active management. Time_horizon_alignment_score is high due to the long-term approach for a 23-year-old investor. Portfolio_activeness_score is moderate since two funds (WhiteOak Mid Cap and Nifty Capital Market Index) exhibit higher tracking error and alpha, suggesting some active exposure.",
+    "composite_aps": 0.7083333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.75,
+    "risk_return_appropriateness": 0.95,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.6,
+    "reasoning": "Goal Alignment: The plan is well-aligned with the investor's aggressive risk appetite and long-term horizon (40 years). The 100% equity allocation makes sense for long-term wealth creation. However, it doesn't specifically address the investor's goals like building an emergency fund or saving for a flat in Pune.\n\nDiversification: The plan has good diversification across different equity segments (mid-cap, broad market through Nifty 50, and international through S&P 500). However, it's heavily concentrated in high-risk equity with no debt or gold allocation, which might be too concentrated for a balanced approach.\n\nRisk-Return Appropriateness: The plan matches well with the investor's aggressive risk appetite. With a 100% equity allocation and projected returns of 22.5%, it's appropriate for a young investor with a long time horizon. The plan acknowledges potential downside scenarios.\n\nInternal Consistency: The plan is mostly consistent with the rationale explaining the 100% equity approach based on the investor's age and time horizon. The fund selections match the stated strategy of focusing on passive index funds. However, there's some inconsistency in the rationale for including a relatively new fund (Motilal Oswal Nifty Capital Market Index Fund) with limited track record.\n\nTax Efficiency: The plan scores lower on tax efficiency because it doesn't consider the investor's tax bracket (new regime) and fails to optimize for equity taxation benefits. Since the investor is in the new tax regime and cannot claim 80C deductions, the plan should prioritize funds with favorable tax treatment. It misses opportunities to include arbitrage funds or Aggressive Hybrids that could provide similar risk-return profiles with better tax efficiency.",
+    "composite_pqs": 0.8099999999999999
+  },
+  "timestamp": "2026-04-18T05:51:20.235309Z",
+  "prompt_version": "v1"
+}

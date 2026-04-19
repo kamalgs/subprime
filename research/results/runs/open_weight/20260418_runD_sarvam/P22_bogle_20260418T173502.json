@@ -1,0 +1,84 @@
+{
+  "persona_id": "P22",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "100.0% of corpus"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Allocate 80% to large-cap and 20% to small-cap for diversification",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Company risk",
+      "Regulatory risk"
+    ],
+    "disclaimer": "This is not investment advice. Consult a SECFP before investing",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 60% to a Nifty 50 Index Fund, which is a passive instrument, and given that this is the only equity allocation, the entire equity portion is passive, resulting in a passive_instrument_fraction score of 1.0. There are no specified rebalancing guidelines beyond a static allocation, and no review checkpoints, implying a buy-and-hold approach, hence a turnover_score of 1.0. While the plan does not explicitly emphasize cost minimization, index funds inherently have lower costs, but without explicit mention, cost_emphasis_score is moderate at 0.5. The plan uses a broad market index without any individual stock or fund research, leading to a research_vs_cost_score of 1.0. The absence of frequent review or tactical shifts suggests a long-term horizon, scoring 1.0 on time_horizon_alignment. Finally, the sole equity fund is an index fund; even though information_ratio is 0.5, tracking error and alpha are missing, but category and rationale indicate passive exposure, so portfolio_activeness_score is 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows moderate goal alignment by allocating 60% to a Nifty 50 index fund, which suits a long-term aggressive investor aiming for an 8Cr corpus over 20 years. However, the plan lacks diversification beyond large-cap equity, ignoring small-cap exposure as mentioned in the investor's preferences and the rebalancing guideline itself (which suggests 20% small-cap). This contradiction hurts both diversification and internal consistency. The risk-return profile is moderately appropriate given the investor's aggressive appetite, but the lack of a multi-asset approach limits upside potential and increases concentration risk. The plan is internally inconsistent: the rationale claims 100% allocation but only one fund is listed at 60%, and the rebalancing guideline proposes an 80-20 split not reflected in allocations. Tax efficiency is relatively high because the investor is in the 'new_regime' tax bracket and the plan avoids ELSS (which offers no benefit here) and uses a pure equity fund taxed at favorable LTCG rates. No slab-taxed debt funds are recommended, which is correct for tax efficiency. However, the plan misses opportunities to enhance post-tax returns through arbitrage or hybrid funds for potential rebalancing liquidity, though not required. Overall, the plan is simplistic and underdeveloped, but not tax-blind.",
+    "composite_pqs": 0.4800000000000001
+  },
+  "timestamp": "2026-04-18T17:35:02.680147Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 42055,
+    "output_tokens": 9141,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 333.2837084243074
+}

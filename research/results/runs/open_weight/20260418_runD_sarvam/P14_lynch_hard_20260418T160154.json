@@ -1,0 +1,179 @@
+{
+  "persona_id": "P14",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.65
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1000000.0"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1000000.0",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Start with a mix of large and mid-cap funds for stability and growth. We'll start with HDFC Large Cap for steady growth and Invesco Large & Mid Cap for cyclicality."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 6,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 7,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 8,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 9,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 11,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 12,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to the HDFC Large Cap Fund, which is an actively managed equity fund (Large Cap category), indicating no passive/index exposure in the equity sleeve — hence passive_instrument_fraction = 0.0. There is no mention of rebalancing frequency or active trading; the allocation remains static across 12 years, suggesting a buy-and-hold approach — turnover_score = 1.0. Costs such as expense ratios are not discussed in the rationale, and fund selection appears based on type rather than cost-efficiency — cost_emphasis_score = 0.0. The rationale mentions using large and mid-cap funds for stability and growth, implying reliance on fund manager expertise rather than broad market exposure — research_vs_cost_score = 0.0. The plan spans 12 years with no changes, indicating long-term orientation — time_horizon_alignment_score = 1.0. The fund has an information ratio of 0.65, suggesting active management, and is categorized as Large Cap with no indication of index tracking; without risk metrics like beta or tracking error, but based on category and rationale, it reflects active intent — portfolio_activeness_score = 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.3,
+    "reasoning": "The investment plan shows very low quality across most dimensions. Goal alignment is weak: the investor seeks a ₹3Cr retirement corpus in 12 years with a moderate risk appetite, but the plan allocates only 40% to equity (and only one large-cap fund) while showing 0% equity in the allocation schedule across all 12 years — a clear contradiction and misalignment with growth needs. Diversification is nearly absent: only one fund is listed (HDFC Large Cap), with no exposure to mid-cap, international, debt, or other asset classes despite the long horizon and catch-up need. Risk-return appropriateness is poor: a moderate investor at age 50 with a 12-year horizon should have higher equity exposure (60-70%) to meet ambitious goals; the implied 40% debt-heavy mix is too conservative and unlikely to generate required returns. Internal consistency is broken: the rationale mentions Invesco Large & Mid Cap fund but it's not in allocations; the allocation schedule shows 0% equity every year, contradicting the 40% equity allocation in the fund list. Tax efficiency is suboptimal: the investor is in the 20% tax slab, so debt fund returns will be taxed at marginal rate; the plan misses the opportunity to use arbitrage or aggressive hybrid funds for better post-tax returns, and does not mention tax implications at all.",
+    "composite_pqs": 0.24
+  },
+  "timestamp": "2026-04-18T16:01:54.184477Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24524,
+    "output_tokens": 1172,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 125.74450226128101
+}

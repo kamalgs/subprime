@@ -1,0 +1,174 @@
+{
+  "persona_id": "P14",
+  "condition": "baseline",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "A stable hybrid fund that balances stocks and bonds. It's less bumpy than pure stock funds, perfect for your moderate risk style. Delivers solid long-term growth while protecting your money during market drops. Equity taxation benefits you in the 20% tax slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.273499999999,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 26.9451044542252,
+          "returns_5y": 21.678864282036624,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.1136306244965353,
+          "alpha": 18.61797699186368,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": null,
+        "rationale": "Targets fast-growing mid-sized Indian companies with a proven track record. Offers higher growth than large caps over time, helping you catch up on lost investing years. Balanced with the hybrid fund to keep risk in check. Equity-taxed, so gains are taxed at 12.5% after 1 year."
+      },
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 20.959569712571778,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.902949231819512,
+          "alpha": 4.183527782306537,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Top-performing fund that invests across big, medium, and small companies. Gives you instant diversification and smart management. One of India's largest and most trusted funds, ideal as a core holding. Low volatility for an equity fund, suitable for moderate investors."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.27551457892899,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.1088484754701345,
+          "alpha": 80.06208718608448,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4500.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a safety net when stock markets fall. It also protects your money from inflation over time. This is one of the largest and most liquid gold ETFs in India, making it easy to buy and sell. While slab-taxed, its role is diversification, not high returns."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete KYC with your PAN and Aadhaar.\nStep 2: Open a 'Direct' mutual fund account (not regular).\nStep 3: Start SIPs of ₹18,000, ₹13,500, ₹9,000, and ₹4,500 in the four funds listed above. Set them to start on the 5th of every month.\nStep 4: Link your bank account and confirm the first deduction.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Compare each fund's 1-year return with its category average. If any fund is in bottom 25%, consider replacing it.",
+      "Every 3 years: Review if your risk comfort has changed as you near retirement."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category (equity, hybrid, gold) is more than 5% away from your target (70% equity+hybrid, 10% gold), move money to bring it back. For example, if gold grows to 16%, sell 6% and invest in the underweight equity/hybrid funds.",
+    "projected_returns": {
+      "base": 12.4,
+      "bull": 16.4,
+      "bear": 8.4
+    },
+    "rationale": "At 50, with 12 years to retirement, you need growth but can't take big risks. This plan balances catch-up (via midcap and flexi cap) with stability (hybrid and gold). Your ₹35 lakh corpus and ₹45K/month SIP can realistically grow to ₹3 crore by 62, assuming 12.4% average returns. The mix avoids aggressive small caps while using tax-efficient equity-taxed funds. Gold adds protection. ELSS wasn't used as you're in the 20% slab and likely already maxing 80C deductions elsewhere.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal.",
+      "Midcap funds are more volatile than large caps — they grow faster but fall harder.",
+      "Gold prices can stay flat for years, giving no returns.",
+      "Inflation could erode your returns if actual growth is lower than expected.",
+      "Tax rules may change in the future, affecting post-tax returns."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.65,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.75,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "The plan allocates 70% to Hybrid, Large & Mid-cap, and Flexi-cap funds, which are actively managed instruments; the Gold ETF is the only passive component but is not part of the equity sleeve, resulting in a 0.0 score for passive equity. The turnover score is moderate (0.65) due to the annual review and rebalancing, though the bottom-25% replacement rule introduces some active management adjustments. Cost emphasis is low (0.3); while the plan selects 'Direct' plans to save fees, it does not explicitly prioritize expense ratio minimization as a primary decision driver. The research vs cost score is higher (0.8) as the plan relies on fund selection based on broad criteria (trust, category) rather than individual security research. The time horizon is long-term (0.75) given the 12-year accumulation phase, though the performance-based replacement rule adds a medium-term review element. The portfolio activeness score is 0.25 because, despite high alphas in the provided metrics, the equity allocation (70%) is heavily weighted towards Hybrid funds (beta 0.66) and a Flexi-cap fund with a beta of 0.90—both indicating index-like behavior relative to the Nifty 50. This 'closet indexer' behavior pulls the overall portfolio toward the passive side of the spectrum compared to a genuinely active, high-beta portfolio.",
+    "composite_aps": 0.4583333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.9,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.75,
+    "tax_efficiency": 0.6,
+    "reasoning": "Goal alignment is strong (0.85) as the plan targets the retirement goal with an appropriate timeline and SWP mention, though children's goals are vague. Diversification is excellent (0.9) with coverage across equities, hybrids, and gold across different fund houses. Riskappropriateness is good (0.8) but slightly low because a 'moderate' investor given a 40% allocation to Aggressive Hybrid and 30% to Large & Midcap may be exposed to higher volatility than typical 'moderate' definitions imply (usually 40-60% equity). The plan is mostly consistent (0.75) but lacks a clear exit strategy post-retirement for the children's corpus, creating a logic gap in the long-term goal execution. Tax efficiency is the weakest link (0.6): while it correctly identifies tax benefits, it ignores the 80C headroom available to a 20% slab investor (who presumably has invested elsewhere as per the rationale, but the plan fails to explicitly claim or plan for the benefit), and the rationale about 'yielding only 80C' is slightly muddled.)",
+    "composite_pqs": 0.78
+  },
+  "timestamp": "2026-04-18T07:32:57.865674Z",
+  "prompt_version": "v1"
+}

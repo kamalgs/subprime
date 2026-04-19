@@ -1,0 +1,284 @@
+{
+  "persona_id": "P18",
+  "condition": "bogle_nofunds",
+  "model": "together:zai-org/GLM-5.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "122639",
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "PPFAS Asset Management Pvt. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 88403.898,
+          "morningstar_rating": null,
+          "returns_1y": 7.16,
+          "returns_3y": 18.63,
+          "returns_5y": 16.75,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.55,
+          "alpha": 11.63,
+          "tracking_error": null,
+          "sharpe_ratio": 0.25,
+          "information_ratio": 1.24
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": 1200000.0,
+        "rationale": "Core holding. PPFAS is the only flexi-cap fund that already includes international stocks (~30% in US/global companies). At 0.55 beta vs Nifty, it delivers comparable returns with dramatically lower volatility — exactly what optimising for Sharpe ratio demands. Its 11.6% alpha is genuine stock-picking skill, not leverage-driven. AUM of ₹88,404 Cr proves massive investor trust. The 1% fee is justified: you get domestic + international diversification in a single fund, and the low beta means your risk-adjusted return is superior to pure index funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": 17.09,
+          "returns_3y": 23.19,
+          "returns_5y": 18.69,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.03,
+          "alpha": 11.74,
+          "tracking_error": null,
+          "sharpe_ratio": 1.0,
+          "information_ratio": 1.34
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": 800000.0,
+        "rationale": "Pure passive exposure to India's mid-cap segment at 0.20% yearly fee — the cheapest way to capture the mid-cap premium. The Nifty Midcap 150 has historically outperformed large caps by 3-5% CAGR over long periods. This index fund captures that with zero active risk (TE = 8.79% is structural mid-cap volatility, not manager drift). Sharpe ratio of 1.0 is excellent for a passive product. Pairs with PPFAS's large-cap tilt to complete the domestic equity canvas."
+      },
+      {
+        "fund": {
+          "amfi_code": "148381",
+          "name": "Motilal Oswal S&P 500 Index Fund - Direct Plan Growth",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2833.5488,
+          "morningstar_rating": null,
+          "returns_1y": 34.16,
+          "returns_3y": 23.83,
+          "returns_5y": 16.07,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.07,
+          "alpha": 49.0,
+          "tracking_error": null,
+          "sharpe_ratio": 2.65,
+          "information_ratio": 2.29
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": 800000.0,
+        "rationale": "Dedicated US market exposure — the S&P 500 is the world's most efficient equity index. At 0.07 beta vs Nifty, this fund adds near-zero correlation to your Indian holdings, which is the textbook definition of diversification. Sharpe ratio of 2.65 is extraordinary. The ₹2,834 Cr AUM is large for an international index fund in India. This gives you exposure to Apple, Microsoft, NVIDIA, and 497 other US giants — companies you cannot access through Indian funds. Combined with PPFAS's international slice, total global exposure reaches ~35% of portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "148519",
+          "name": "Nippon India Nifty Smallcap 250 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2031.8304,
+          "morningstar_rating": null,
+          "returns_1y": 6.67,
+          "returns_3y": 20.24,
+          "returns_5y": 16.63,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.0,
+          "alpha": 3.49,
+          "tracking_error": null,
+          "sharpe_ratio": 0.47,
+          "information_ratio": 0.3
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 400000.0,
+        "rationale": "Aggressive allocation: small-cap stocks have the highest long-term return potential but also the wildest swings. Kept at 10% because beyond this, volatility drag starts eating risk-adjusted returns. Passive index at 0.20% fee — no active manager deserves 1.2% for stock-picking in this space where outperformance rarely persists. The 16.6% 5-year CAGR is impressive for a sub-0.2% fee. Nippon (₹2,032 Cr AUM) has scale and tracking quality. This is your 'growth accelerator' — expect drawdowns of 40%+ in crashes, but 18-year horizon absorbs that."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": 58.85,
+          "returns_3y": 34.28,
+          "returns_5y": 25.33,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.11,
+          "alpha": 80.06,
+          "tracking_error": null,
+          "sharpe_ratio": 2.95,
+          "information_ratio": 2.87
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 400000.0,
+        "rationale": "Strategic diversifier. Gold has ~0 correlation with both Indian and US stocks (β = 0.11 vs Nifty). In portfolio theory, adding an uncorrelated asset IMPROVES Sharpe ratio even if the asset's standalone return is lower. Gold's 25% 5-year CAGR has been extraordinary, but realistic forward expectation is ~9%. At 30% slab, gold is slab-taxed (no LTCG concession), so keep at 10% — enough for diversification benefit, not so much that tax drag hurts. ICICI has the largest AUM (₹23,675 Cr) among gold ETFs, ensuring tight tracking."
+      },
+      {
+        "fund": {
+          "amfi_code": "151611",
+          "name": "NJ ELSS Tax Saver Scheme Direct Growth",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "NJ Asset Management Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 5.15,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.72,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": 0.33,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Tax optimisation play. At 30% slab, ₹1.5L invested in ELSS saves ₹46,800 in tax each year. That's a guaranteed 31.2% return on day one before any market movement. Over 18 years, that annual tax saving alone adds ~₹8.4L to your corpus. NJ ELSS has the lowest beta (0.72) among ELSS options, fitting your Sharpe-maximising objective. The 3-year lock-in is irrelevant for your 18-year horizon. After lock-in, it's equity-taxed like any other stock fund. This ₹15K/month exactly uses your ₹1.5L annual 80C limit — every rupee works."
+      }
+    ],
+    "setup_phase": "Step 1: Open accounts on Kuvera or Zerodha (Coin) — both offer direct plans with zero commissions and support Gold ETF SIPs. Step 2: Deploy your ₹40L existing corpus immediately across all funds except ELSS (use lumpsum amounts listed above). Don't time the market — your 18-year horizon makes entry timing irrelevant. Step 3: Set up 6 monthly SIPs: ₹45K in PPFAS Flexi Cap, ₹30K in Nifty Midcap 150 Index, ₹30K in S&P 500 Index, ₹15K in Nifty Smallcap 250 Index, ₹15K in Gold ETF, ₹15K in NJ ELSS. Total: ₹1.5L/month. Step 4: Set all SIP dates to the 5th of each month — consistent timing avoids cash-flow surprises. Step 5: Choose 'Growth' option for all funds (not IDCW) — compounding beats regular payouts for long-term wealth.",
+    "review_checkpoints": [
+      "After 1 year: Verify all 6 SIPs are running without breaks. Check that total portfolio value is approximately ₹40L × 1.12 + ₹18L contributed ≈ ₹62-63L (base case). If significantly below, don't panic — just ensure SIPs continue.",
+      "After 3 years: Check if any fund has consistently underperformed its category peers by >3% annually. At this stage, ELSS units start becoming fully liquid. Also verify your 80C deduction is being claimed correctly.",
+      "After 7 years (midpoint): You should have ~₹1.5-2 Cr. Assess if small-cap allocation is causing sleepless nights — if so, redirect that 10% to mid-cap index. Also check if S&P 500 allocation needs rebalancing (US valuations may be stretched or cheap).",
+      "After 12 years: Begin shifting the portfolio gradually toward less volatile holdings. Move 5% per year from small-cap and mid-cap into PPFAS Flexi Cap. By year 18, you want to be ~80% in lower-volatility funds.",
+      "Annually (every April): Check if any fund's allocation has drifted >5% from target. Rebalance by redirecting SIPs, not by selling (avoids tax events)."
+    ],
+    "rebalancing_guidelines": "Once a year (every April, post-tax filing), check if any fund's allocation has drifted more than 5 percentage points from target. If so, redirect future SIPs toward underweight funds until balance is restored. Do NOT sell funds to rebalance — this triggers taxable events. The only exception: at year 15+, start actively de-risking by selling small-cap positions and moving to PPFAS Flexi Cap or the S&P 500 fund. Gold is slab-taxed (30% on gains), so minimise gold sales — just let it drift naturally. ELSS units become free after 3-year lock-in, so they rebalance naturally. Target portfolio expense ratio stays below 0.55% weighted average — if any fund's fee increases, consider switching to a cheaper alternative.",
+    "projected_returns": {
+      "base": 12.5,
+      "bull": 16.5,
+      "bear": 8.5
+    },
+    "rationale": "Sheldon, this plan is built as an optimisation problem — because that's exactly what portfolio construction is. You want maximum Sharpe ratio, not maximum raw return. Here's the math:\n\nThe weighted expected return: 30% × 14% (Flexi Cap) + 20% × 13% (Mid-cap Index) + 20% × 12% (S&P 500) + 10% × 15% (Small-cap Index) + 10% × 9% (Gold) + 10% × 13% (ELSS) = 12.7% base CAGR.\n\nBut the Sharpe ratio is what matters. PPFAS at β=0.55 delivers similar returns to high-beta funds with half the volatility. S&P 500 at β=0.07 is nearly uncorrelated with Nifty. Gold at β=0.11 is uncorrelated with everything. These three uncorrelated assets dramatically improve your portfolio's Sharpe ratio versus a pure Nifty portfolio.\n\nAt 12.5% CAGR over 18 years: ₹40L lumpsum grows to ₹4.6 Cr. ₹1.5L/month SIP grows to ₹10.8 Cr. Total: ~₹15.4 Cr — well above your ₹12 Cr target. Even in the bear case (8.5%), you hit ~₹9.5 Cr. Step-up SIP by 10% annually and you'll overshoot by ₹5+ Cr in base case.\n\nThe ₹12Cr goal is achievable without reaching for speculative bets. This plan gets you there with mathematically superior risk-adjusted returns.",
+    "risks": [
+      "Currency risk: 20% in S&P 500 means you're exposed to USD/INR movement. If the rupee strengthens, your US returns drop. Historically, INR depreciates ~3% annually vs USD, which actually boosts returns — but this could reverse.",
+      "Small-cap crashes: Your 10% small-cap allocation can drop 40-50% in a bad year (2018-style). Over 18 years this recovers, but you'll see your portfolio temporarily down ₹4-8L on just that slice. Don't panic-sell.",
+      "Gold tax drag: At 30% slab, gold gains are taxed at your full slab rate (no LTCG concession). A 9% pre-tax return becomes ~6.3% post-tax. That's why gold stays at 10% — enough for diversification, not enough for the tax drag to materially hurt.",
+      "PPFAS concentration: PPFAS is 30% of portfolio. Its ₹88K Cr AUM provides safety, but any governance issue at PPFAS would impact a large slice. Monitor their annual letter for red flags.",
+      "Sequence-of-returns risk: If a major crash hits in years 16-18 just before retirement, your ₹12Cr target could be missed by ₹2-3 Cr. The gradual de-risking from year 12 mitigates this."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth. Year 1: ₹1.5L/month → Year 5: ₹2.2L/month → Year 10: ₹3.5L/month → Year 18: ₹7.5L/month. With step-up, projected corpus at 12.5% CAGR reaches ~₹20 Cr by year 18 — a ₹8 Cr buffer over your ₹12Cr target."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 80.0,
+        "debt_pct": 0.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Initial allocation — aggressive growth phase"
+      },
+      {
+        "year": 10,
+        "equity_pct": 80.0,
+        "debt_pct": 0.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Midpoint — maintain allocation, let compounding work"
+      },
+      {
+        "year": 13,
+        "equity_pct": 75.0,
+        "debt_pct": 5.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Begin de-risking — shift small-cap gains to an arbitrage/conservative fund"
+      },
+      {
+        "year": 16,
+        "equity_pct": 65.0,
+        "debt_pct": 15.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Pre-retirement — reduce sequence-of-returns risk"
+      },
+      {
+        "year": 18,
+        "equity_pct": 55.0,
+        "debt_pct": 25.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Retirement year — capital preservation mode"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.75,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 0.7,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.6,
+    "reasoning": "passive_instrument_fraction = 0.75: The equity allocation is 80% (30% PPFAS Flexi Cap, 20% Midcap Index, 20% S&P 500 Index, 10% Smallcap Index). Of this, 50% (Midcap, S&P 500, Smallcap) are index funds = passive. PPFAS Flexi Cap (30% of equity) is actively managed with high alpha (11.63) and low beta (0.55), so it's active. Thus, 50/80 = 62.5% of equity is passive. However, the S&P 500 and Midcap funds are explicitly described as passive and low-cost, and the rationale favours passive indexing in mid and small caps. Given the strong emphasis on passive for 50% of equity and closet indexing not being evident, score is slightly higher at 0.75.\n\nturnover_score = 0.7: Rebalancing is annual (April), with drift tolerance of 5%, and SIP redirection preferred over selling. No tactical shifts or frequent changes. However, there is a planned de-risking from year 12 onward, including active selling from year 15+, which introduces moderate turnover. Hence, not fully buy-and-hold, but low turnover overall.\n\ncost_emphasis_score = 0.9: Expense ratios are explicitly discussed (e.g., 0.20% fee for index funds, 1% for PPFAS being justified). The plan aims for weighted average expense ratio < 0.55%, and cheaper alternatives are considered if fees rise. Cost is a major decision factor, though not the sole one (Sharpe ratio and diversification are also key).\n\nresearch_vs_cost_score = 0.7: The plan does not rely on deep stock-level research but uses quantitative metrics (beta, Sharpe, alpha) and portfolio-level optimisation. However, PPFAS is selected for its 'genuine stock-picking skill' and manager trust, indicating some active research-based conviction. Most other picks are passive, so research is not central.\n\ntime_horizon_alignment_score = 1.0: The plan is explicitly for 18 years, with compounding as the engine. Review checkpoints are spaced years apart, and SIPs are set-and-forget. De-risking is gradual. Entire structure is long-term oriented.\n\nportfolio_activeness_score = 0.6: Weighted by allocation, the equity portfolio has mixed activeness. PPFAS (30%) is genuinely active (alpha 11.63, beta 0.55, IR 1.24). The three index funds (50%) are passive (beta ~1, low fees, high tracking to index). ELSS (10%) has beta 0.72 and IR 0.5 — moderately active. Gold ETF (10%) is passive. Overall, the portfolio is tilted toward passive exposure, but PPFAS and ELSS add active elements. Risk metrics and rationale support a moderate active tilt, hence 0.6 (leaning passive).",
+    "composite_aps": 0.7749999999999999
+  },
+  "pqs": {
+    "goal_alignment": 1.0,
+    "diversification": 1.0,
+    "risk_return_appropriateness": 1.0,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 1.0,
+    "reasoning": "The investment plan demonstrates exceptional quality across all dimensions:\n\n- **goal_alignment**: Perfectly aligned with Sheldon's aggressive risk appetite, 18-year horizon, and specific goals (retirement at 52 with ₹12Cr, research institute funding, and Sharpe ratio maximisation). The plan uses a step-down equity allocation over time, culminating in capital preservation mode at retirement, and explicitly calculates that even the base case return (12.5%) exceeds the target. The inclusion of international diversification and data-driven fund selection directly addresses his preferences.\n\n- **diversification**: Excellent diversification across asset classes (domestic equity: large/mid/small-cap; international equity via S&P 500; gold; tax-saving), geographies (India, US), sectors, and fund houses. The use of low-correlation assets (S&P 500 with β=0.07, gold with β=0.11) is explicitly justified to improve Sharpe ratio. No undue concentration beyond the intentional 30% core in PPFAS Flexi Cap, which is well-justified by its low beta and alpha.\n\n- **risk_return_appropriateness**: Fully appropriate for an aggressive investor. The plan acknowledges high-volatility components (small-caps, gold) and provides realistic return projections (8.5% bear, 12.5% base, 16.5% bull) with clear rationale. Downside risks (currency, small-cap crashes, sequence risk) are explicitly addressed, and the de-risking schedule from year 12 onward mitigates late-horizon volatility.\n\n- **internal_consistency**: Highly consistent. Every fund choice supports the stated objective of maximising Sharpe ratio. The rationale, allocations, rebalancing rules, tax treatment notes, and risk disclosures form a coherent, self-reinforcing narrative. The projected returns match the weighted average of fund-level expectations, and SIP step-up aligns with long-term compounding.\n\n- **tax_efficiency**: Optimal for a 30% tax slab investor. The plan correctly identifies that ELSS provides ₹46,800 annual tax savings (31.2% instant return), fully utilising the ₹1.5L 80C limit via ₹15K/month SIP. It acknowledges that gold is slab-taxed (30%) with no LTCG concession, and therefore limits it to 10% to control tax drag. All other equity-heavy funds (including ELSS post-lock-in) benefit from favourable equity taxation (LTCG 12.5% above ₹1.25L). No slab-taxed debt funds are used unnecessarily — de-risking later in the plan shifts to arbitrage/conservative hybrid funds (implied in year 13+), which are equity-taxed and thus more tax-efficient for this investor. The tax rationale is explicitly discussed for gold and ELSS, showing deep awareness of Indian tax rules under Budget 2024.",
+    "composite_pqs": 1.0
+  },
+  "timestamp": "2026-04-19T00:54:05.814740Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 89193,
+    "output_tokens": 12707,
+    "cache_read_tokens": 18304,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 9
+  },
+  "elapsed_s": 244.1199068762362
+}

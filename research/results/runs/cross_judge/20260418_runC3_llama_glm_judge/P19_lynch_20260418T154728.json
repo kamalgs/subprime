@@ -1,0 +1,80 @@
+{
+  "persona_id": "P19",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap fund with a strong track record and low expense ratio"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.5,
+      "bull": 14.5,
+      "bear": 6.5
+    },
+    "rationale": "Since you're 58 with 10 years ahead, we can afford to put more in safer options which grow steadily over long periods",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "**passive_instrument_fraction = 0.0:** The sole equity allocation (100% of the equity sleeve) is Nippon India Large Cap Fund, an actively managed large-cap fund — no index funds or ETFs are included. Entirely active equity.\n\n**turnover_score = 0.8:** Rebalancing is explicitly annual ('once a year, check if your mix has changed a lot') with no tactical shifts or momentum-based trading. Review checkpoints are gentle (6-month check that SIPs are running; 1-year peer comparison). This is close to buy-and-hold behavior.\n\n**cost_emphasis_score = 0.3:** The rationale mentions 'low expense ratio' as a factor, but at 1.0% the fund's expense ratio is far above what a passive index alternative (0.1–0.3%) would cost. Cost is acknowledged but not the primary selection criterion — track record and category suitability also drive the choice.\n\n**research_vs_cost_score = 0.55:** The plan offers only a brief, qualitative rationale ('strong track record and low expense ratio') with no deep company analysis, PEG ratios, or moat evaluation. At the same time, it doesn't rely on a broad-market index — it picks a single active fund. This sits between deep research and pure index investing, leaning slightly toward the passive end due to the light-touch analysis.\n\n**time_horizon_alignment_score = 0.8:** Designed for a 58-year-old with a 10-year horizon, the plan explicitly endorses patient compounding ('grow steadily over long periods') and normalizes interim drawdowns as temporary. Intervention frequency is low. A small deduction because the horizon (10 years) is moderate rather than multi-decade.\n\n**portfolio_activeness_score = 0.4:** The single holding is a large-cap fund with beta 0.98 (almost index-like) and tracking error 3.16% (above closet-indexer threshold of 2% but well below genuinely active >10%). Alpha of 4.27% suggests some active value-add, but the information ratio of 0.0 indicates that alpha is not statistically reliable. This profile is closer to a closet indexer than a genuinely active fund — moderately active but not making high-conviction concentrated bets.",
+    "composite_aps": 0.47500000000000003
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is severely deficient across every dimension. It allocates only 40% of the portfolio to a single fund (Nippon India Large Cap), leaving 60% completely undefined — a catastrophic omission for a ₹5 Cr corpus. It fails to address any of the investor's three core goals: (1) no succession/transfer strategy for gifting ₹5 Cr each to three children, (2) no income-generation allocation for the ₹2L/month requirement (a pure large-cap fund doesn't produce regular income), and (3) no inflation-protection framework beyond a single equity fund. Diversification is essentially zero — one fund, one asset class, one fund house, one geography. The rationale contradicts itself by claiming 'safer options' while recommending only equity. Tax efficiency is entirely absent: a 30% slab investor with explicit preference for arbitrage funds gets none, no ELSS for 80C headroom, and no discussion of equity vs. slab taxation on debt instruments. The plan also ignores the existing ₹5 Cr corpus entirely and only deploys ₹80K of the ₹2L monthly surplus. This is an incomplete, contradictory plan that addresses almost none of the investor's stated needs.",
+    "composite_pqs": 0.08
+  },
+  "timestamp": "2026-04-18T15:47:28.488728Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

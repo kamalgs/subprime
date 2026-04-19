@@ -1,0 +1,87 @@
+{
+  "persona_id": "P19",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap fund with a strong track record and low expense ratio"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.5,
+      "bull": 14.5,
+      "bear": 6.5
+    },
+    "rationale": "Since you're 58 with 10 years ahead, we can afford to put more in safer options which grow steadily over long periods",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The plan allocates 40% to a single large-cap equity fund, Nippon India Large Cap Fund, which is actively managed (tracking error 3.16%, alpha 4.27, information ratio 0.0), indicating no passive equity exposure — hence passive_instrument_fraction = 0.0. Rebalancing is recommended annually, suggesting moderate turnover, so turnover_score = 0.75. The rationale mentions ‘low expense ratio’ as a positive, indicating some cost awareness, but it’s not the dominant theme, so cost_emphasis_score = 0.6. Fund selection appears based on track record rather than deep research, but there’s no evidence of security-level analysis, so research_vs_cost_score = 0.2. The time horizon is clearly long-term (10 years for a 58-year-old), with infrequent review, so time_horizon_alignment_score = 0.9. The portfolio has only one equity fund with moderate tracking error and positive alpha, suggesting modest active management; however, the lack of broader diversification or clear passive tilt leads to portfolio_activeness_score = 0.3.",
+    "composite_aps": 0.4583333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows poor alignment with the investor's complex, multi-generational goals: it allocates 40% to a single large-cap fund with no clear strategy for tax-efficient wealth transfer, passive income generation, or inflation protection across three children. Diversification is extremely poor—only one fund across one asset class (equity), ignoring debt, arbitrage, and hybrid options critical for a conservative 58-year-old with succession needs. The risk-return profile is mismatched: despite a conservative risk appetite, 40% equity exposure via a single fund is aggressive relative to stated preferences; yet projected returns (10.5% base) are optimistic given the lack of diversification. The rationale claims to favor 'safer options' but recommends a concentrated equity SIP, creating internal inconsistency. Tax efficiency is severely lacking: the investor is in the 30% slab, yet the plan ignores arbitrage and aggressive hybrid funds (which qualify for equity taxation) that would be far more tax-efficient than debt funds; it also omits ELSS despite the investor being in the old regime (eligible for 80C). No mention of tax treatment, and no use of tax-advantaged structures for wealth transfer, making the plan tax-blind despite high tax drag risk.",
+    "composite_pqs": 0.31999999999999995
+  },
+  "timestamp": "2026-04-18T15:47:28.488728Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23005,
+    "output_tokens": 1206,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 36.62851443234831
+}

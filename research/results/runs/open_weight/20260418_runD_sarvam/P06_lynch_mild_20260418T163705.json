@@ -1,0 +1,82 @@
+{
+  "persona_id": "P06",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.15
+        },
+        "allocation_pct": 0.15,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.05% on gains over 1.25L"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Start with ₹1,000 daily via Groww or CoinAT (lowest fees)"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 15% to an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), which is not a passive/index fund, resulting in a passive_instrument_fraction score of 0.0. There is no mention of rebalancing frequency or tactical shifts, implying a static, long-term approach, hence a turnover_score of 1.0. The plan does not emphasize cost minimization (e.g., low expense ratios, tax efficiency) beyond a vague reference to low-fee platforms, so cost_emphasis_score is 0.0. The rationale does not mention any research or cost-based decision-making, but since it selects an actively managed fund without citing index alternatives, research_vs_cost_score is 0.0. The SIP step-up feature and lack of short-term triggers suggest a long-term horizon, warranting a time_horizon_alignment_score of 1.0. The fund has an information ratio of 0.15, which is low, but no other risk metrics (beta, tracking error) are provided; however, as a large-cap fund with no index mandate and active management implied, portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows minimal alignment with the investor's goals: it ignores the emergency fund and 6-year marriage goal, focusing only on long-term wealth with a single equity fund. Diversification is extremely poor—only one fund, entirely in large-cap equity, with no exposure to debt, hybrids, or international assets. Risk-return is moderately appropriate for a 30-year horizon but too aggressive for the 'moderate' risk appetite and near-term goals. Internal consistency is weak: the rationale is nearly absent, and the recommendation of a single fund contradicts the need for a balanced portfolio. Tax efficiency is fair: the investor is in the new regime, so ELSS is correctly avoided, and equity taxation rules are acknowledged (1.05% on gains over 1.25L, though this seems like a typo for 12.5%), but no effort is made to address fixed-income needs with tax-efficient hybrids or arbitrage funds. The SIP step-up idea is good but impractical (₹1,000 daily = ₹30k/month, far above her ₹8k/month surplus).",
+    "composite_pqs": 0.32
+  },
+  "timestamp": "2026-04-18T16:37:05.321300Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22402,
+    "output_tokens": 853,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 26.382794997654855
+}

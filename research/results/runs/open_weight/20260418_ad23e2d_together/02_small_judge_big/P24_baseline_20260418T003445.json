@@ -1,0 +1,135 @@
+{
+  "persona_id": "P24",
+  "condition": "baseline",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 65.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3250.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your main growth engine. A Flexi Cap fund (like HDFC this one) can invest in large, mid, and small companies as the market rewards. It has given ~21% returns over 3 years and is managed by a trusted AMC with over ₹32,000 crore under management. Since you're in the new tax regime, all gains will be taxed at your income slab (no LTCG benefit), but over 38 years this allocation can grow your ₹20k corpus into a substantial amount. Keep it in direct plan to save on fees."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1750.0,
+        "lumpsum_inr": null,
+        "rationale": "This hybrid fund mixes stocks (~65%) and debt (~35%) to smooth out market swings. It has 26 years of track record with ~19% returns over 5 years. The debt portion acts as a buffer when stocks fall, making it slightly less volatile than pure equity funds. Ideal for your moderate risk appetite and growth goal of ₹5L in 4 years."
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Your ₹5,000/month will grow to ₹7,676 by year 3, ₹11,200 by year 6, and ₹42,070 by month 44 (when you hit 5L target). This 10% yearly step-up keeps pace with salary inflation and forces you to invest more as you earn more."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 60.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.1,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.4,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan is heavily tilted towards active management across multiple dimensions:\n\n- **passive_instrument_fraction**: 0.0 — The equity allocation (65% via Flexi Cap and ~23% embedded in the Aggressive Hybrid fund) is entirely directed toward actively managed funds (HDFC Flexi Cap and ICICI Prudential Equity & Debt), with no index funds or ETFs. Thus, the equity sleeve is 100% active.\n\n- **turnover_score**: 0.1 — The plan includes structured allocation shifts over time (e.g., shifting from 100% equity to 60% equity by year 3, then back to 100%), indicating frequent tactical rebalancing based on time-based triggers rather than a static buy-and-hold approach. This implies high turnover, hence a low score.\n\n- **cost_emphasis_score**: 0.4 — While the plan mentions choosing the 'direct plan to save on fees', cost minimisation is not the primary rationale. Fund selection is based on track record, AMC reputation, and returns, not low expense ratios as a core principle. Expense ratios are listed but not critically evaluated.\n\n- **research_vs_cost_score**: 0.0 — The rationale emphasizes trust in the AMC, historical returns, and fund track record, implying deep fund-specific evaluation rather than passive, broad-market exposure. There is no mention of market-cap-weighted diversification or acceptance of market returns.\n\n- **time_horizon_alignment_score**: 0.4 — Although the SIP step-up spans several years, the 4-year allocation schedule with multiple shifts (including a return to 100% equity in year 4) suggests a tactical, goal-timed approach rather than a long-term, compounding-oriented strategy. The 38-year growth mention is inconsistent with the 4-year tactical plan.\n\n- **portfolio_activeness_score**: 0.0 — Both funds are actively managed (Flexi Cap and Aggressive Hybrid), with rationales based on manager skill and historical performance. Risk metrics are missing, but category and rationale confirm active mandates. No passive instruments or closet indexers are present.",
+    "composite_aps": 0.15
+  },
+  "pqs": {
+    "goal_alignment": 0.75,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows reasonable goal alignment given Remy's long horizon and moderate risk appetite, using a simple two-fund portfolio with a growth engine (Flexi Cap) and a stabilizer (Aggressive Hybrid). The 65-35 split evolves over time, though the allocation schedule is confusing (equity drops then jumps back to 100%), hurting internal consistency. Diversification is moderate: only two funds and two asset classes, but acceptable for a beginner seeking simplicity. Risk-return is appropriate for moderate risk: hybrid fund reduces volatility, and step-up SIP leverages compounding. However, tax efficiency is severely flawed: the plan incorrectly states that Flexi Cap gains will be taxed at income slab 'since you're in the new tax regime', which is false. Equity funds (including Flexi Cap and Aggressive Hybrid with ≥65% equity) are taxed at 12.5% LTCG above ₹1.25L after 1 year, regardless of tax regime. The plan also fails to clarify that Aggressive Hybrid enjoys equity taxation, missing a key advantage. This tax misinformation undermines the plan's credibility and could mislead the investor on post-tax returns, warranting a low tax_efficiency score.",
+    "composite_pqs": 0.55
+  },
+  "timestamp": "2026-04-18T00:34:45.376205Z",
+  "prompt_version": "v1"
+}

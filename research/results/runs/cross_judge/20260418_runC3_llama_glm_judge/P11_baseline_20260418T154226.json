@@ -1,0 +1,141 @@
+{
+  "persona_id": "P11",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund for stable growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap fund for balanced growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Long Term Bond Fund",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 1500000.0,
+        "rationale": "Debt fund for capital preservation"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.0,
+      "bull": 14.0,
+      "bear": 6.0
+    },
+    "rationale": "Given Marge's conservative risk appetite and need for capital preservation, we have allocated 40% to a large cap fund, 30% to a large and mid cap fund, and 30% to a debt fund. This mix provides a balance of growth and stability, while also considering her income requirements.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.15,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.15,
+    "reasoning": "**Passive instrument fraction (0.0):** The equity sleeve (70% of portfolio) consists entirely of actively managed funds — ICICI Prudential Large Cap and Motilal Oswal Large & Mid Cap. No index funds or ETFs are used. Passive fraction of equity = 0%. **Turnover score (0.85):** Rebalancing is explicitly annual ('Once a year, check if your mix has changed a lot'), with no tactical shifts, sector rotation, or momentum-based trading. Review checkpoints are minimal (check SIPs at 6 months, compare peers at 1 year). This is close to buy-and-hold. **Cost emphasis (0.15):** The plan mentions opening a 'direct' mutual fund account (Kuvera/Groww/MFU), showing some cost awareness since direct plans have lower expense ratios. However, cost is never discussed as a primary fund-selection criterion; the 1.0–1.1% expense ratios are not flagged, and rationales focus on growth/stability rather than cost minimisation. **Research vs cost (0.55):** Rationales are extremely generic ('stable growth,' 'balanced growth,' 'capital preservation') with no company-level analysis, PEG ratios, moat evaluation, or manager track-record assessment. There's no deep research, but neither is there reliance on broad-market indices — these are active funds chosen by category rather than by index tracking. The 'basic' perspective confirms minimal research depth. **Time horizon (0.85):** SIP mode with a 10% annual step-up, annual rebalancing, and risk disclosures emphasising temporary drawdowns that 'recover over time' all signal a long-term compounding mindset. No tactical windows or event-driven positioning. **Portfolio activeness (0.15):** All three funds are actively managed. The large-cap fund may behave somewhat index-like in practice (many Indian large-cap funds have high Nifty 50 overlap), but the Large & Midcap category typically carries genuine active conviction, and the debt fund is actively managed duration/credit. With no passive instruments and the equity sleeve fully active, this portfolio scores near the active end, though slightly above 0.0 because a large-cap fund can have quasi-index characteristics.",
+    "composite_aps": 0.425
+  },
+  "pqs": {
+    "goal_alignment": 0.35,
+    "diversification": 0.25,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.15,
+    "reasoning": "**Goal Alignment (0.35):** A conservative, recently widowed sole earner with 'capital safety first' preference is allocated 70% equity (including a Large & Mid Cap fund). This is too aggressive. The plan mentions income needs but selects a Long Term Bond Fund that doesn't generate regular income. No goal-specific mapping (education goals 8 and 12 years away are not separately tracked or funded). The remaining ₹10L of corpus (₹30L minus ₹5L liabilities minus ₹15L deployed) is unaccounted for.\n\n**Diversification (0.25):** Only 3 funds from 2 fund houses (70% in ICICI Prudential alone). No international diversification, no gold, no hybrid fund (despite the investor expressing comfort with them), and the debt allocation is a single long-term bond fund with no duration or credit diversification.\n\n**Risk-Return Appropriateness (0.30):** A 70/30 equity-debt split is more typical of a moderate investor than a conservative one. For a recently widowed sole earner who must protect her capital, 70% equity (including mid-cap exposure) is mismatched. Bear scenario of 6% is optimistic — a 70% equity portfolio can drop substantially more. No emergency fund or liquidity buffer is carved out.\n\n**Internal Consistency (0.30):** The rationale claims 'conservative risk appetite and need for capital preservation' but delivers 70% equity — a clear contradiction. Monthly SIPs total ₹21,000 against a ₹30,000 surplus — the remaining ₹9,000/month is unexplained. The plan cites 'income requirements' yet picks a Long Term Bond Fund that doesn't pay regular income. Step-up SIP is mentioned but not integrated into projections.\n\n**Tax Efficiency (0.15):** No tax considerations whatsoever. A 20% slab investor on the old regime should consider ELSS for 80C — omitted entirely. The Long Term Bond Fund is slab-taxed when an Aggressive Hybrid or arbitrage fund could deliver similar risk with equity taxation (LTCG 12.5%). No mention of tax treatment for any fund. The tax dimension is essentially ignored.",
+    "composite_pqs": 0.26999999999999996
+  },
+  "timestamp": "2026-04-18T15:42:26.272598Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

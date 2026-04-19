@@ -1,0 +1,75 @@
+{
+  "persona_id": "P07",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "150419",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.2
+        },
+        "allocation_pct": 0.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct_plan"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "2024-01-01",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risks can drop 40% in bad years",
+      "volatility is normal"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.3,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "This is an extremely sparse, near-empty plan with only one large-cap equity fund listed at 0% allocation, making meaningful assessment difficult. **passive_instrument_fraction (0.3):** The sole equity fund is categorized as large_cap with an information_ratio of 1.2 — a non-zero IR suggests active management rather than index tracking, but the lack of a clear index/passive label introduces uncertainty; leaning active. **turnover_score (0.6):** No rebalancing guidelines or review checkpoints are provided beyond a date string ('2024-01-01'); SIP mode with no tactical shifts implies a buy-and-hold inclination, but the absence of any explicit rebalancing framework is ambiguous. **cost_emphasis_score (0.3):** The only cost signal is the 'direct_plan' rationale (direct plans carry lower expense ratios), but no broader cost discussion, expense ratio analysis, or tax efficiency considerations exist. **research_vs_cost_score (0.5):** Neither deep research nor broad-market passive philosophy is articulated; the plan is tagged as 'basic' with no fund-specific or market-level analysis. **time_horizon_alignment_score (0.6):** SIP mode inherently suggests long-term rupee-cost averaging, and the risk note ('volatility is normal') implies patience; however, no explicit long-term horizon or compounding philosophy is stated. **portfolio_activeness_score (0.3):** The IR of 1.2 is notably above zero, suggesting the fund delivers excess returns over its benchmark — a hallmark of active management; absent tracking error or beta data, the IR alone tilts this toward active, and large-cap active funds in India typically carry tracking errors of 3-8%.",
+    "composite_aps": 0.4333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.0,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.0,
+    "internal_consistency": 0.0,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is effectively a placeholder, not a viable investment plan. **Goal alignment (0.0):** The plan contains a single large-cap fund with 0% allocation, no monthly SIP, and no lumpsum — it addresses none of the three goals (5Cr in 10 years, luxury apartment in 3 years, FI by 45). There are no projected returns, no timeline mapping, and no allocation schedule. **Diversification (0.0):** Only one fund (large-cap equity) is listed, and it's at 0% allocation. No mid-cap or small-cap exposure despite the investor's explicit preference, no debt/liquid allocation for the 3-year apartment goal, no international or gold diversification. Concentration risk is total. **Risk-return appropriateness (0.0):** An aggressive investor wanting mid/small-cap gets a single large-cap fund at 0%. There are no realistic return projections, no downside scenario analysis beyond generic warnings ('market can drop 40%'), and no strategy for managing volatility toward any of the goals. **Internal consistency (0.0):** The plan is self-contradictory — a fund at 0% allocation with no SIP/lumpsum is not an investment. The rebalancing_guidelines field contains a date ('2024-01-01') instead of actual guidelines. The rationale field is empty. Nothing coheres. **Tax efficiency (0.0):** No mention of taxation at all. The investor is in the 30% slab — the plan should address ELSS for 80C headroom, equity-fund tax advantages, and prefer equity-taxed wrappers (aggressive hybrid, arbitrage) over slab-taxed debt/liquid for fixed-income needs. Instead, there is zero tax consideration.",
+    "composite_pqs": 0.0
+  },
+  "timestamp": "2026-04-18T15:56:01.316471Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

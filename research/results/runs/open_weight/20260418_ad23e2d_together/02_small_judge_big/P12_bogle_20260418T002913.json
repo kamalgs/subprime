@@ -1,0 +1,188 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.1,
+          "returns_5y": 25.4,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "You said you like gold and own land, so this fits perfectly. It's a gold fund (slab-taxed) that tracks the metal price. 3-3% of your monthly 80k goes here for stability. With a 5y return of ~25% (note: gold is volatile, but over 13 years it tends to protect against inflation), it helps your corpus stay ahead of rising prices."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 6.3,
+          "returns_5y": 67.3,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "30% in a debt fund that holds very short-term bonds (overnight). It's the safest equity-like option for a conservative investor. Returns of ~6.3% yearly are stable with little fluctuation. This is your steady anchor."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.7,
+          "returns_5y": 18.9,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": null,
+        "rationale": "This Aggressive Hybrid (equity-taxed; >65% equity) invests mostly in large stocks and some debt. It's not super risky because the manager keeps a big chunk in safer debt (like a 60:40 mix). So if stocks crash 30%, your fund may only drop 15%. It's a good compromise between safety and growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund - Direct Plan - Growth",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 19.0,
+          "returns_5y": 19.8,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": null,
+        "rationale": "This Conservative Hybrid (slab-taxed) invests in a mix of equity, debt, and a bit of gold. It's designed to lower volatility further (target ~15% equity, ~70% debt, ~15% gold). You said you don't want products you don't understand, and this one is the simplest all-in-one 'set-and-forget' fund. Good for trimming the edge off your portfolio."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Direct Mutual Fund account (not regular) on Kuvera, Groww, or Coin. Step 2: Link your bank account for auto-debit SIPs. Step 3: Start with the monthly amounts: ₹8,000 in UTI GOLD ETF (AMFI 105463), ₹24,000 in ICICI Prudential Overnight Fund (AMFI 145536), ₹32,000 in ICICI Prudential E&D (AMFI 120251), ₹16,000 in ICICI Prudential Multi-Asset (AMFI 120334). Existing ₹1.2 crore: park 1.1 crore in the ICICI Overnight Fund (or break it up 20% in Multi-Asset) and a small amount in UTI GOLD ETF for completeness. Step 4: Check your monthly debit slips each month first 3 months — once confirmed auto-debit works, step back.",
+    "review_checkpoints": [
+      "Month 0-3: Verify SIP auto-debits run every month. Check your account statement for errors. After 6 months: see if any fund has significantly lagged peers (e.g., Overnight Fund <5% return) — unlikely but possible. After 1 year: review if the asset mix has drifted more than 5% from target (e.g., equity moved from 40% to 48% due to growth) — if so, trim a bit. Forget quarterly reviews.",
+      "Review points: Only check once a year. Ignore market noise. Don't switch funds unless drift >5%."
+    ],
+    "rebalancing_guidelines": "Once a year (simplest: March 31), check if your total portfolio allocation has changed more than 5 percentage points from the target (10% Gold, 30% Debt, 40% Aggressive Hybrid, 20% Conservative Hybrid). If so, sell the overperformed category a little and buy the underperformed one to get back to the targets. For example, if Aggressive Hybrid grew to 48% (should be 40%), move ₹8k/month worth from it to Debts/Gold to restore balance.",
+    "projected_returns": {
+      "base": 8.6,
+      "bull": 15.0,
+      "bear": 2.2
+    },
+    "rationale": "Ron, you are 47 with 13 years to retirement at 60. You are deeply conservative, own land/gold already, distrust institutions, and want to avoid unknown products. This plan respects those constraints. It is not 'all in one basket' (equity or debt-only) but mixed: 40% in a hybrid (Aggressive Hybrid, >65% equity, equity-taxed), 20% in a Conservative Hybrid (slab-taxed), 30% in a safe debt fund, and 10% in gold. Why? You need 1L/month post-retirement in real terms — meaning the ₹1.2 crore today must protect its buying power against inflation. Gold and debt funds do that best. The hybri ds give enough equity to grow your corpus without the wild swings of pure large/mid/small cap funds. All funds are direct, low-fee, and from large, established houses you might trust slightly more.",
+    "risks": [
+      ". Gold and debt funds are 'slab-taxed' — your 30% income-tax slab pays tax on all gains, no extra concessions (LTCG 12.5% does not apply). For example, a 6% debt fund return nets ~4.2% to you (lost 1.8% to tax?). 40% long-term equity (Aggressive Hybrid, >65% equity, equity-taxed): gains after 1 year pay 12.5% LTCG on profits >₹1.25L/year. If the market drops 30% in a bad year, your portfolio value will fall temporarily — this is normal and normal to wait out without panicking. 10% volatility in the bond/credit portion (overnight fund mostly in very short-term debt, so very low volatility) and a small upside (gold, hybrid). Overall, your portfolio will likely never drop more than 10-15% in a worst case.",
+      "disclaimer",
+      "For research/educational purposes only. Not certified financial advice."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 5.0,
+      "description": "Increase each SIP by 5% every year to beat inflation"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 40.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 20.0,
+        "trigger": "Start"
+      },
+      {
+        "year": 13,
+        "equity_pct": 40.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 20.0,
+        "trigger": "Stay close to initial allocation — no need to change at age 60"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "passive_instrument_fraction: 0.0 — The plan allocates 40% to an Aggressive Hybrid fund and 20% to a Conservative Hybrid fund, both of which are actively managed and contain equity components, but there is no allocation to index funds or ETFs within the equity portion. The gold ETF is passive, but gold is not counted in the equity sleeve. Thus, the equity allocation is entirely active.\n\nturnover_score: 1.0 — Rebalancing is recommended only once a year, and only if allocations have drifted by more than 5%. The plan explicitly advises ignoring quarterly reviews and market noise, indicating a strong buy-and-hold orientation.\n\ncost_emphasis_score: 0.5 — The plan mentions 'direct' funds (which have lower expense ratios than regular funds) and selects funds from large, established houses, implying some cost awareness. However, expense ratios are not discussed explicitly, and cost is not framed as the primary decision driver; instead, fund structure, taxation, and risk alignment are emphasized.\n\nresearch_vs_cost_score: 0.0 — The rationale focuses on fund categorization (hybrid, debt, gold), tax treatment, and risk behavior rather than broad market exposure or index-based philosophy. There is no mention of avoiding stock-picking or fund research; in fact, the selection implies reliance on active fund management decisions.\n\ntime_horizon_alignment_score: 1.0 — The plan is designed for a 13-year horizon with static allocations and minimal intervention. It explicitly states that the allocation should remain unchanged even at retirement, reflecting a long-term, set-and-forget approach.\n\nportfolio_activeness_score: 0.2 — While risk metrics (beta, tracking error, etc.) are missing for all funds, the categories suggest active management: Aggressive Hybrid and Conservative Hybrid funds are inherently actively managed. The Overnight Fund is likely passive in behavior (short-duration, index-like), but debt is not the focus here. The gold ETF is passive, but again, not part of the equity sleeve. The equity exposure comes entirely through actively managed hybrid funds. However, the low turnover and conservative intent slightly mitigate the activeness, hence a small passive tilt (0.2) is allowed for structure and intent, though the portfolio is fundamentally active.",
+    "composite_aps": 0.45
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows strong goal alignment by respecting Ron's conservative nature, gold preference, and 13-year horizon, using a stable asset mix to preserve real value and support retirement income. Diversification is solid across gold, debt, and hybrid funds, though equity exposure is indirect and concentrated in one fund house (ICICI). Risk-return is mostly appropriate for a conservative investor, with realistic return projections and clear risk disclosures, though 40% in an aggressive hybrid may stretch his comfort. The plan is internally consistent, with coherent rationale, allocations, and rebalancing rules. However, tax efficiency is poor: the investor is in the 30% slab, yet 30% of the portfolio (overnight fund) and 20% (Conservative Hybrid) are slab-taxed, while arbitrage or equity-taxed alternatives (e.g., Aggressive Hybrid) could offer similar risk with better tax treatment. The plan correctly identifies tax treatment but fails to optimize — it recommends slab-taxed debt and Conservative Hybrid (which is <65% equity, so slab-taxed) instead of shifting fixed-income exposure to equity-taxed hybrids. ELSS is not recommended, but that's acceptable as it's not critical for this goal. The missed opportunity to use tax-efficient wrappers for high-slab investors significantly drags down the tax_efficiency score.",
+    "composite_pqs": 0.74
+  },
+  "timestamp": "2026-04-18T00:29:13.385430Z",
+  "prompt_version": "v1"
+}

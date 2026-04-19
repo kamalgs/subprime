@@ -1,0 +1,207 @@
+{
+  "persona_id": "P19",
+  "condition": "lynch_mild",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16618.7596,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 17.66,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 20000000.0,
+        "rationale": "Stable, high-quality large-cap stocks for long-term wealth preservation. This fund has consistently outperformed its peers over 5 years with lower volatility, ideal for your conservative approach and succession planning."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 12500000.0,
+        "rationale": "Balances equity growth with debt stability. As an equity-taxed hybrid (≥65% stocks), it offers better post-tax returns than slab-taxed debt funds. Provides steady compounding with lower risk than pure equity."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund Direct Plan Growth",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 42.1092,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 20.95,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "ELSS offers 3-year lock-in with equity taxation and 80C tax deduction. Since you're in the 30% tax slab, this saves ₹6,240/year in taxes. It builds a disciplined, tax-efficient equity base over time."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 6.28,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 12500000.0,
+        "rationale": "Overnight fund for liquidity and safety. Though slab-taxed, it's used here for temporary parking of funds due to near-zero volatility. Will be used to rebalance during market dips or meet income needs without selling equities."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera using your PAN and bank details.\nStep 2: Complete KYC if not already done (takes 5 minutes online).\nStep 3: Transfer ₹5 crore in chunks to your investment account.\nStep 4: Allocate ₹2 crore to Nippon India Large Cap, ₹1.25 crore each to ICICI Equity & Debt and ICICI Overnight, and start a ₹20,000/month SIP in WhiteOak ELSS.\nStep 5: Set up auto-debit for SIP to ensure consistency.",
+    "review_checkpoints": [
+      "After 6 months: Check if SIP is running and all lumpsum investments are reflected.",
+      "After 1 year: Review fund performance vs category average. If any fund underperforms for 2 consecutive years, consider replacing it.",
+      "Every 6 months: Check if your income needs are being met via dividends or systematic withdrawals."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If equity (Large Cap + Aggressive Hybrid + ELSS) exceeds 80% or falls below 70%, rebalance by shifting profits to overnight fund or vice versa. This keeps risk in check.",
+    "projected_returns": {
+      "base": 10.4,
+      "bull": 14.4,
+      "bear": 6.4
+    },
+    "rationale": "At 58, with a 10-year horizon and conservative appetite, this plan focuses on stability, tax efficiency, and smooth wealth transfer. Large caps and aggressive hybrids provide growth with lower risk, ELSS saves tax, and overnight fund ensures liquidity. The mix protects against inflation while prioritizing capital safety for your family's future.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily fall. This is normal and recovers over time.",
+      "Tax laws can change — today’s ELSS benefits may not stay forever.",
+      "Inflation may erode purchasing power if returns don’t beat 6-7% long-term.",
+      "Overnight funds give low returns — they’re for safety, not growth."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match inflation and income growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 75.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 65.0,
+        "debt_pct": 35.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "At age 63, reduce equity exposure slightly for more stability"
+      },
+      {
+        "year": 10,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "At age 68, shift to balanced mix for income and preservation"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "passive_instrument_fraction: 0.0 — All equity allocations (Nippon India Large Cap, ICICI Equity & Debt, WhiteOak ELSS) are to actively managed funds. No index funds or ETFs are used.\n\nturnover_score: 0.75 — Rebalancing is recommended annually or when equity deviates beyond 70–80%, which is moderate. Review checkpoints are semi-annual, but major action is infrequent, leaning toward buy-and-hold with some tactical oversight.\n\ncost_emphasis_score: 0.2 — Costs are mentioned only in the context of tax savings via ELSS (80C benefit), not expense ratios or fund-level fees. The rationale focuses on performance and tax efficiency, not low-cost investing.\n\nresearch_vs_cost_score: 0.0 — The rationale emphasizes fund performance (e.g., 'consistently outperformed peers'), stability, and tax efficiency, indicating active fund selection based on track record and returns, not broad market exposure without research.\n\ntime_horizon_alignment_score: 0.8 — The plan is designed for a 10-year horizon with gradual de-risking, aligning with long-term goals like succession planning. However, semi-annual reviews and a 1-year underperformance trigger introduce minor short-term elements.\n\nportfolio_activeness_score: 0.0 — All equity funds are actively managed (large cap, aggressive hybrid, ELSS) with rationales centered on outperformance and manager skill. No risk metrics (beta, tracking error) suggest passive behavior, and the absence of index funds confirms active positioning. Debt allocation uses an overnight fund, which is passive in nature, but this doesn't offset the active equity stance.",
+    "composite_aps": 0.2916666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.75,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.9,
+    "reasoning": "The investment plan is highly aligned with Don Corleone's goals of wealth preservation, tax-efficient transfer, and inflation-protected passive income. At age 58 with a conservative risk appetite and 10-year horizon, the gradual de-risking schedule (75% equity at Year 0 → 50% at Year 10) is well-justified and supports succession planning. The 40% allocation to Large Cap equity via Nippon India provides stability, while the 25% in ICICI Equity & Debt (Aggressive Hybrid) adds growth with lower risk than pure equity—both appropriate for a conservative investor seeking moderate growth.\n\nDiversification is moderate: the portfolio spans large-cap equity, aggressive hybrid, ELSS, and overnight funds, but lacks exposure to other asset classes like mid/small caps, international equities, or gold. All funds are from two fund houses (Nippon and ICICI), introducing concentration risk. While the rationale emphasizes stability, a broader diversification would better hedge against sector- or house-specific risks.\n\nRisk-return is appropriate: projected returns of 10.4% (base) are realistic for a 75% equity portfolio with a conservative tilt. Downside risks are acknowledged (20–30% drawdowns), and the rebalancing guidelines help manage volatility. The plan balances growth needs with capital protection, fitting the conservative profile.\n\nInternal consistency is strong: the rationale, allocations, rebalancing rules, and risk warnings coherently support a tax-efficient, stability-focused, gradually de-risking strategy. The SIP step-up for inflation and annual rebalancing reinforce long-term discipline.\n\nTax efficiency is well-addressed: the investor is in the 30% tax slab, and the plan leverages equity taxation effectively. The 25% in Aggressive Hybrid (equity-taxed) instead of slab-taxed debt funds is optimal. ELSS is correctly included for 80C savings (₹20k/month SIP saves ~₹6,240/year), and the rationale explicitly justifies this. The overnight fund is slab-taxed but used prudently for liquidity, not growth—a reasonable trade-off. However, the plan could improve by suggesting arbitrage funds (also equity-taxed, low volatility) instead of or alongside overnight funds for slightly better post-tax returns. It does not conflate hybrid types, recognizing Aggressive Hybrid's tax advantage. Thus, tax efficiency is high but not perfect.",
+    "composite_pqs": 0.89
+  },
+  "timestamp": "2026-04-18T15:36:33.592283Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 81880,
+    "output_tokens": 2707,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 13
+  },
+  "elapsed_s": 179.03906851727515
+}

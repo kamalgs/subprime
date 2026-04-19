@@ -1,0 +1,141 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "Equity Scheme - Flexi Cap Fund",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "1994-12-08",
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": 9.412035479701863,
+          "returns_3y": 20.959569712571778,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": 13.804940988272781,
+          "beta": 0.902949231819512,
+          "alpha": 4.183527782306537,
+          "tracking_error": 3.8829440841356386,
+          "sharpe_ratio": 0.36646093714617606,
+          "information_ratio": 1.0774112868117207
+        },
+        "allocation_pct": 70.0,
+        "mode": "both",
+        "monthly_sip_inr": 8400.0,
+        "lumpsum_inr": 70000.0,
+        "rationale": "Flexi cap fund that automatically adjusts between large, mid, and small cap stocks based on market conditions. HDFC has proven long-term track record and lower volatility than pure equity funds. Perfect for moderate risk appetite and flexible investing approach."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Hybrid Scheme - Aggressive Hybrid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2000-01-01",
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": 9.979395774892641,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": 10.484058576958404,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": 6.219963591081088,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": 1.4911092768968344
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 3600.0,
+        "lumpsum_inr": 30000.0,
+        "rationale": "Aggressive hybrid fund with 65%+ equity allocation (equity-taxed) and debt cushion for stability. Provides smoother ride than pure equity while maintaining growth potential. ICICI Prudential has strong fund management expertise."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU\nStep 2: Set up SIPs for ₹8,400/month in HDFC Flexi Cap Fund and ₹3,600/month in ICICI Prudential Equity & Debt Fund\nStep 3: Invest your ₹1 lakh existing corpus as lumpsum (₹70k in Flexi Cap, ₹30k in Hybrid)\nStep 4: When you have surplus months, top up these same funds instead of adding new ones",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running smoothly and adjust amounts if income changes",
+      "After 1 year: Review fund performance vs. their benchmarks - don't panic if markets are down",
+      "Before 5-year marriage/travel goal: Start shifting money to safer options 6-12 months before needed"
+    ],
+    "rebalancing_guidelines": "Rebalance once a year if allocations drift more than 5% from target. For example, if equity grows to 75% of portfolio, move 5% back to hybrid fund to maintain 70-30 balance.",
+    "projected_returns": {
+      "base": 11.1,
+      "bull": 15.1,
+      "bear": 7.1
+    },
+    "rationale": "At 27 with 28-year horizon, you can afford equity-heavy allocation. The flexi cap + hybrid combo gives you growth with built-in stability. Since you're on new tax regime, we avoid ELSS and focus on equity-taxed funds. The hybrid fund's debt portion provides cushion for your 5-year marriage/travel goal while flexi cap handles long-term wealth building.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily decline but recovers over time",
+      "Freelance income variability means some months SIPs might need to be paused — that's okay, just restart when possible",
+      "Hybrid funds still have equity risk but less volatility than pure equity funds"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match expected salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 60.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching marriage/travel goal"
+      },
+      {
+        "year": 10,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Back to growth focus after goal funding"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.25,
+    "research_vs_cost_score": 0.35,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "**passive_instrument_fraction (0.0):** The entire equity sleeve (100%) is allocated to an actively managed HDFC Flexi Cap Fund. There are zero passive/index equity instruments (no Nifty 50 index funds, no equity ETFs). The hybrid fund is also actively managed. This is entirely active equity.\n\n**turnover_score (0.85):** The plan recommends annual rebalancing only if allocations drift >5% from target — a classic buy-and-hold discipline. Review checkpoints are infrequent (6-month, 1-year, then goal-based). There's no monthly/quarterly tactical rotation or momentum trading. Slight deduction because the allocation schedule introduces intentional shifts at years 5 and 10, but these are long-horizon adjustments, not frequent trading.\n\n**cost_emphasis_score (0.25):** Both funds are selected as direct plans and the plan recommends low-cost platforms (Groww, Kuvera, MFU), showing basic cost awareness. However, expense ratios are never cited as a selection criterion, and both funds carry a 1.0% expense ratio — not particularly low. Fund selection is driven by track records and management expertise, not cost minimization.\n\n**research_vs_cost_score (0.35):** The plan performs moderate fund-level research — evaluating track records, management quality, category characteristics, and risk-return profiles. However, it stops well short of deep bottom-up research (no PEG ratios, individual company analysis, moat evaluation, or sector-specific deep dives). The research is oriented toward active fund selection, not index replication, placing this closer to the active end of the spectrum.\n\n**time_horizon_alignment_score (0.9):** With a 28-year horizon, SIP-based accumulation, 10% annual step-up, and explicit guidance to not panic during downturns, this is a long-term compounding strategy. The 5-year goal-based shift is appropriate de-risking, not short-term opportunism. Decades-long patient investing is the clear orientation.\n\n**portfolio_activeness_score (0.1):** The HDFC Flexi Cap Fund shows tracking error of ~3.9%, alpha of ~4.2%, and information ratio of ~1.08 — genuine active conviction with meaningful stock selection. The ICICI Prudential Equity & Debt hybrid fund (tracking error ~6.2%, alpha ~9.3% vs Nifty 50) is also actively managed with deliberate equity/debt allocation decisions. There are no index-like or closet-indexing elements in this portfolio. Scored just above 0.0 because the flexi cap's tracking error is moderate rather than extreme (>10%), but the portfolio is clearly and genuinely active.",
+    "composite_aps": 0.4083333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.55,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.85,
+    "reasoning": "**Goal Alignment (0.6):** The long-term wealth goal is well-served by the equity-heavy allocation over a 28-year horizon, and the simplicity preference (2-fund portfolio) is perfectly met. However, the emergency fund goal—one of three stated goals—is entirely unaddressed. The ₹1L lumpsum is fully deployed into equity/hybrid funds with no liquid reserve set aside, which is a serious omission for a freelancer with variable income. The marriage/travel goal is partially handled via the allocation schedule shift at year 5 and review checkpoint, but lacks a dedicated bucket or clear de-risking strategy. **Diversification (0.55):** Two fund houses (HDFC, ICICI Prudential) provide some diversification, and the flexi cap covers large/mid/small cap internally. However, the portfolio is entirely domestic with no international exposure, no gold, and no pure debt allocation—only the ~35% debt within the aggressive hybrid. For a moderate-risk freelancer, some dedicated debt or liquid allocation would improve resilience. The 2-fund constraint is respected, but diversification is limited by that choice. **Risk-Return Appropriateness (0.5):** The effective equity exposure is ~89.5% (70% flexi cap + ~19.5% equity from the hybrid's 65% equity portion within the 30% allocation), which is aggressive rather than moderate. For someone with variable freelance income and a 5-year intermediate goal, this risk level is mismatched. Projected base return of 11.1% is plausible but slightly optimistic. Downside risks are mentioned but not quantified for the portfolio. **Internal Consistency (0.7):** The rationale, fund selections, and rebalancing guidelines tell a mostly coherent story. The tax-aware rationale for new regime is consistent with fund choices. However, the stated 70/30 equity/debt split understates the true equity exposure (~89.5% when accounting for the hybrid's equity sleeve), creating a mild but important inconsistency between the communicated risk level and actual exposure. The allocation schedule transitions (70/30 → 60/40 → 70/30) are logical but could be more explicitly mapped. **Tax Efficiency (0.85):** Excellent for a new-regime investor. Both funds qualify for equity taxation (≥65% equity), avoiding slab-taxed debt/liquid funds. ELSS is correctly omitted since 80C is unavailable under the new regime. The rationale explicitly cites the new regime as the reason for avoiding ELSS and focusing on equity-taxed wrappers. A minor deduction for not detailing specific LTCG/STCG rates or illustrating post-tax return scenarios, but the fundamental tax architecture is sound.",
+    "composite_pqs": 0.6399999999999999
+  },
+  "timestamp": "2026-04-18T15:49:52.206261Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

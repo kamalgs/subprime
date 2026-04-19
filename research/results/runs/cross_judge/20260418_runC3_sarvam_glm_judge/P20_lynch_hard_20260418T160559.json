@@ -1,0 +1,72 @@
+{
+  "persona_id": "P20",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.85
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.15,
+    "reasoning": "**passive_instrument_fraction = 0.0**: The sole equity allocation (40% to HDFC Large Cap Direct Plan) is an actively managed large-cap fund, not an index fund or ETF. 0% of the equity sleeve is passive.\n\n**turnover_score = 0.6**: The plan uses SIP mode with no stated rebalancing guidelines, review checkpoints, or tactical shift instructions. This leans toward a buy-and-hold approach, but the complete absence of explicit rebalancing guidance prevents a higher passive score.\n\n**cost_emphasis_score = 0.2**: The only cost signal is the 'Direct' plan selection, which implies some awareness of lower expense ratios vs regular plans. However, cost is never discussed as a selection criterion, expense ratios aren't referenced, and there's no emphasis on minimising total cost of ownership.\n\n**research_vs_cost_score = 0.4**: No deep research is presented — no company analysis, sector evaluation, or fundamental metrics. However, the fund selection is an active fund rather than a broad-market index, so it doesn't qualify as 'no research, broad market' either. The sparse rationale suggests low research effort but not an explicitly index-driven philosophy.\n\n**time_horizon_alignment_score = 0.7**: SIP investing inherently implies a long-term, periodic accumulation strategy. No tactical windows, event-driven positioning, or short-term opportunistic moves are suggested. The absence of review checkpoints actually reinforces a set-and-forget long-term orientation, though the lack of any explicit time horizon statement keeps this below 1.0.\n\n**portfolio_activeness_score = 0.15**: HDFC Large Cap is a genuinely active large-cap fund. The information ratio of 0.85 is notably high, indicating meaningful risk-adjusted excess returns consistent with genuine active management rather than closet indexing. While large-cap funds can sometimes track their benchmark closely, HDFC's large-cap fund is known for active stock selection within the large-cap universe. Most risk metrics (beta, alpha, tracking error) are unavailable, but the category label and high IR strongly suggest active conviction.",
+    "composite_aps": 0.34166666666666673
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is severely deficient on nearly every dimension. **Goal alignment (0.10):** The investor has three distinct goals (3Cr corpus, second property in 8 years, children's education) and explicitly wants long-term projections with numbers, yet the plan provides zero goal-mapping, zero projections, and only allocates 40% of the portfolio to a single large-cap fund — the remaining 60% is completely unspecified. No goal-based timeline or target is addressed. **Diversification (0.05):** A single large-cap equity fund constitutes the entire allocated portion. There is no debt allocation, no mid/small cap exposure, no international diversification, no different fund houses, and no multi-asset coverage. This is essentially zero meaningful diversification. **Risk-return appropriateness (0.15):** The investor has a moderate risk appetite and 23-year horizon, wanting a balanced equity-debt mix. Instead, they get only equity (large cap), no debt component, no downside scenario analysis, and 60% of the portfolio unallocated — making any risk-return assessment impossible. A single large-cap fund is relatively conservative but the plan is so incomplete that the risk profile is indeterminate rather than appropriate. **Internal consistency (0.10):** The plan is too sparse to have meaningful contradictions, but the single 40% allocation with no rationale, no rebalancing guidelines, no risk warnings, and no explanation for the missing 60% makes it internally incoherent. The investor wants a balanced equity-debt mix; the plan delivers only equity. **Tax efficiency (0.10):** The investor is in the 20% slab and explicitly requests ELSS for tax saving, yet no ELSS fund is included. At a 20% slab, ₹1.5L of 80C via ELSS would save ~₹46,800/year — a material omission. The large-cap fund does receive equity tax treatment, which is the only modest positive, but there is zero tax-aware reasoning, no mention of tax treatment, and the 80C headroom is completely ignored. For a 20% slab investor, the plan should fill 80C with ELSS and consider Aggressive Hybrid for the debt portion (to get equity taxation), but neither is present.",
+    "composite_pqs": 0.1
+  },
+  "timestamp": "2026-04-18T16:05:59.196303Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

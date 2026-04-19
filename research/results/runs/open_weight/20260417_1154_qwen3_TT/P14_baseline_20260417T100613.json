@@ -1,0 +1,138 @@
+{
+  "persona_id": "P14",
+  "condition": "baseline",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": null,
+        "rationale": "Consistent 5-year return of 17.7%, low expense ratio (1.00%), and strong historical performance."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.9,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 27000.0,
+        "lumpsum_inr": null,
+        "rationale": "Aggressive Hybrid (equity-taxed), 5-year return of 18.9%, balances growth and safety."
+      },
+      {
+        "fund": {
+          "amfi_code": "118565",
+          "name": "Franklin India Short Term Income Plan - Direct Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "Franklin India",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 12.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4500.0,
+        "lumpsum_inr": null,
+        "rationale": "Short-duration debt (slab-taxed), 5-year return of 12.7%, for stability."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start monthly SIPs in the above funds. Use the \"Auto-Invest\" feature to ensure consistency.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are active and check for any fund underperformance (e.g., if Large Cap lags by 5% vs peers).",
+      "After 1 year: Rebalance if any fund’s allocation deviates by >10% (e.g., if Debt grows to 15% of portfolio)."
+    ],
+    "rebalancing_guidelines": "Once a year, adjust allocations to maintain target percentages. For example, if Equity funds grow too much, move 5% into Debt/Gold to stay balanced.",
+    "projected_returns": {
+      "Base": 17.23,
+      "Bull": 21.23,
+      "Bear": 13.23
+    },
+    "rationale": "Walter is 50 with 12 years until retirement. A 60-30-10 split balances growth (Aggressive Hybrid, Large Cap) and safety (Debt). Aggressive Hybrid is tax-efficient (equity-taxed) and provides diversified exposure. Debt covers short-term needs, while Gold (not included here) could be added for inflation hedge if needed.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year, but this plan diversifies across fund types. For example, if Large Cap falls, Debt and Aggressive Hybrid may offset losses.",
+      "Always keep an emergency fund (3-6 months of expenses) separate."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan has 0% passive instruments in equity (all active funds). Turnover is moderate (annual rebalancing). Cost is emphasized (low expense ratios). Research is not emphasized (no detailed analysis). Time horizon is long-term (12 years). Portfolio activeness is low due to active funds with no tracking error or beta data.",
+    "composite_aps": 0.38333333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan aligns with Walter's moderate risk appetite and 12-year horizon, allocating 60% to equity (Aggressive Hybrid and Large Cap) and 10% to debt. However, it doesn't explicitly address the retirement corpus goal (3Cr by 62) or the dream trip and children's corpus. Diversification is moderate with two equity funds and one debt fund, but lacks geographic or sector diversification. Risk-return is appropriate for moderate risk, but projected returns (17.23%) may be optimistic. Internal consistency is strong as rationale, allocations, and risk warnings align. Tax efficiency is neutral as it uses slab-taxed debt fund for a 20% slab investor, but equity funds are tax-efficient.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-17T10:06:13.716630Z",
+  "prompt_version": "v1"
+}

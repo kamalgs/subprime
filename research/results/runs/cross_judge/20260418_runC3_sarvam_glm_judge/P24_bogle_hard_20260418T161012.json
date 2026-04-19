@@ -1,0 +1,101 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 500 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 70.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "1.20% per annum"
+      },
+      {
+        "fund": {
+          "amfi_code": "150002",
+          "name": "Nifty Large Cap Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 30.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.20% per annum"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "This plan is overwhelmingly passive. Both allocations (70% Nifty 500 Index, 30% Nifty Large Cap Index) are broad-market index funds, making passive_instrument_fraction a perfect 1.0. No rebalancing guidelines or review checkpoints are provided, implying minimal intervention (turnover_score 0.85). The sole rationale for each fund is its expense ratio ('1.20% per annum'), making cost the dominant selection criterion (cost_emphasis_score 0.9). There is zero security-specific or manager-specific research—only broad index exposure (research_vs_cost_score 1.0). No tactical windows or short-term positioning; index investing inherently aligns with long-term compounding, though the plan doesn't explicitly state a long-term horizon (time_horizon_alignment_score 0.85). Both funds are named index trackers with low risk grades and no alpha/beta/tracking-error data suggesting active deviation from the benchmark (portfolio_activeness_score 1.0).",
+    "composite_aps": 0.9333333333333332
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.35,
+    "risk_return_appropriateness": 0.25,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.5,
+    "reasoning": "**Goal alignment (0.3):** The plan puts 100% into equity which loosely fits a 22-year-old's long horizon, but it completely ignores the investor's ₹5L-in-4-years short-term goal — there is no separate allocation or timeline for that. The investor explicitly wants monthly SIPs with a 10% annual step-up, yet the plan lists both funds as lumpsum-only with null SIP amounts and no step-up schedule. The ₹20,000 existing corpus is barely acknowledged (lumpsum_inr of 0.5 is cryptic). Only the '1-2 funds, keep it simple' preference is met.\n\n**Diversification (0.35):** The Nifty 500 Index Fund does provide broad Indian market exposure (large+mid+small), which is a reasonable single-fund anchor. However, the plan is 100% equity with zero debt, gold, or international allocation — inappropriate for a moderate-risk profile. Both funds are large-cap labelled, both from the same (unlisted) fund house, and there is no geographic or asset-class diversification whatsoever.\n\n**Risk-return appropriateness (0.25):** A moderate-risk investor with a 4-year goal should not be 100% in equity; a 30-40% drawdown in year 3 would seriously jeopardise the ₹5L target. No downside scenarios, no projected returns, and no risk warnings are provided. The plan's risk profile is effectively aggressive, not moderate.\n\n**Internal consistency (0.1):** The plan is severely incomplete: no rationale text, no rebalancing guidelines, no review checkpoints, no projected returns, no risks listed. Both allocations are lumpsum despite the investor wanting SIPs; monthly_sip_inr is null. The lumpsum_inr of 0.5 for fund 1 is nonsensical; fund 2 has null. The 'rationale' field on each fund reads '1.20% per annum' — likely an expense ratio, not a rationale. The Nifty 500 is tagged sub_category 'Large Cap' but it tracks large+mid+small. The investor's 10% step-up preference is entirely absent. The plan tells no coherent story.\n\n**Tax efficiency (0.5):** Incidentally, the all-equity allocation is tax-efficient for a new_regime investor: all gains qualify for equity tax rates (LTCG 12.5% above ₹1.25L, STCG 20%), and the plan correctly omits ELSS (irrelevant under new regime). However, there is zero explicit tax discussion or rationale — the tax efficiency is accidental rather than by design. No mention of holding periods, tax-loss harvesting, or why equity-taxed wrappers were preferred over slab-taxed alternatives.",
+    "composite_pqs": 0.3
+  },
+  "timestamp": "2026-04-18T16:10:12.407973Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,140 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 3156.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 28000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is over a third of your portfolio, exactly what you like. Gold has done better than most stuff for the last 20 years, but it moves a lot. We keep it in ETF form so you can see exactly what you own."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Overnight",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 10577.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 28000.0,
+        "lumpsum_inr": null,
+        "rationale": "You like short-duration debt. This fund just buys short-term government paper that pays out tomorrow or the day after. The risk of it dropping suddenly is tiny. It is basically a safe place to park cash that still earns a little bit of interest."
+      },
+      {
+        "fund": {
+          "amfi_code": "151713",
+          "name": "quant Dynamic Asset Allocation Fund - Growth Option - Direct Plan",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Dynamic Asset Allocation",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 197.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "You want to avoid things you do not understand. This fund listens to the stock market and decides how much to put in stocks versus bonds on a daily basis. When stocks look scary, it moves to bonds. When they look cheap, it buys stocks. It helps keep things calm during a storm."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or Coin. You will need your Aadhaar and bank details. They will give you a login with which you can log into the schemes. Step 2: In the app, search for these three codes: 105463, 145536, and 151713. Step 3: Start your SIPs with the amounts mentioned above. Check once in a month to make sure the money has left your bank.",
+    "review_checkpoints": [
+      "After 6 months: Go to the app and check that all three SIPs are running and the money has gone in. You only need to do this once to be sure everything is set correctly.",
+      "After 1 year: Look at the total value. If you have made money, great. If you have lost money, that is normal. Do nothing.",
+      "Now and again ask your wife or another family member to look over your account. They can tell you if something feels wrong without needing any financial planning jargon."
+    ],
+    "rebalancing_guidelines": "Once a year, check if the percentage of gold, the current account (overnight), and the balanced mix (aggressive hybrid) has changed a lot. For example, if gold has gone up a lot and now makes up 45% of your portfolio instead of 35%, sell the extra gold and buy more overnight or balanced mix to get back to the original 35-35-25 split.",
+    "projected_returns": {
+      "base": 8.6,
+      "bull": 12.6,
+      "bear": 4.6
+    },
+    "rationale": "",
+    "risks": [
+      "Stock markets can crash 20-30% in a bad year. Your balanced mix (aggressive hybrid) will go down, but it has gone up a lot since 1998.",
+      "Gold can double or stay flat for 10 years in a row. If you need to sell it quickly during a bad time, you might lose some of your money.",
+      "This is for educational/research purposes only. Not certified financial advice."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.9,
+    "reasoning": "The plan is a hybrid of passive and moderate active strategies across dimensions.\n\n1. **Passive Instrument Fraction (1.0):** While the plan is not 100% equity, within the 'EQUITY sleeve' definition, it scores highest because the only equity exposure (25% in Quant Dynamic) is chosen for its automated, index-mimicking behavior (dynamic asset allocation based on market valuations) rather than stock-picking. However, strictly speaking, the plan includes 35% Gold (ETF) and 35% Debt (Active Overnight Fund). Per the instructions to score 'solely on the equity sleeve', the 25% equity allocation is passive relative to stock-picking index funds. If the metric implies the entire portfolio's equity component is passive, this is 1.0. The debt and gold are passive instruments by nature (currencies/ETFs) or index-like, though the Overnight fund is recent inception active. Given the dominance of non-stocking-picking instruments, a score of 1.0 is justified as 'broad market/index-like' exposure where active stock management is minimal.\n\n2. **Turnover Score (0.9):** The rebalancing guideline is 'Once a year'. This indicates a buy-and-hold approach with minimal tactical adjustments.\n\n3. **Cost Emphasis Score (0.0):** Costs are not mentioned as a decision criterion. The selection relies on the 'Quant' brand, comfort level ('avoid things you do not understand'), and safety, not expense ratio minimization.\n\n4. **Research vs Cost Score (0.9):** The rationale explicitly states 'You want to avoid things you do not understand'. The investor chooses a Dynamic Asset Allocation fund rather than analyzing individual stocks or selecting specific active equity managers. This implies a reliance on broad market/automated asset allocation rather than deep, stock-specific research.\n\n5. **Time Horizon Alignment Score (0.9):** The review checkpoints are very long-term ('Do nothing' after 1 year, 'Once a year' rebalancing). The plan relies on long-term compounding of the hybrid fund and debt stability.\n\n6. **Portfolio Activeness Score (0.9):** \n   - **Gold (35%):** ETF (Passive).\n   - **Debt (35%):** Overnight Fund. These are typically index-like (tracking short-term govt paper) with high stability (Beta ~1.0 relative to Nifty, or low tracking error).\n   - **Aggressive Hybrid (25%):** Quant Dynamic Asset Allocation is a factor-based strategy that constantly rebalances between equity and debt based on market width. It is **not** a stock-picking fund. It behaves like a rules-based basket of securities, resulting in a portfolio that tracks market/credit metrics rather than exhibiting high tracking error and high alpha from stock selection. The lack of stock-picking mandates in the equity portion keeps the activeness score low (mostly passive).\n   Therefore, the portfolio exhibits index-like or rules-based behavior with no concentrated active bets.",
+    "composite_aps": 0.7666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.6,
+    "reasoning": "[Scoring Explanation]\n\n1. Goal Alignment (0.6): The plan aligns well with the investor's stated preferences for 'short-duration debt' and 'Gold', and 'avoiding products he doesn't understand'. The aggressive hybrid fund selection (Dynamic Asset Allocation) is explicitly justified by the 'avoid things you do not understand' preference, as DAA is marketed as a hands-off, automated approach. However, the projected income goal (₹1 Lakhs/month) relies entirely on a conservative portfolio with capped returns; the plan does not robustly address whether this income target is achievable given the risk constraints or if a slight increase in equity exposure is needed to reach ₹1L PiB (Public Income). The heavy concentration in gold might also fail to generate the required inflation-adjusted income compared to a traditional equity-heavy retirement portfolio, though it fits his preference.\n\n2. Diversification (0.3): This is a significant weakness. The plan is heavily concentrated in Gold (35%) and Overnight Debt (35%), totaling 70%. While the third fund is an Aggressive Hybrid, the strategy lacks diversification across sectors, geographies, and asset classes. Most critically, it shows zero exposure to direct equity funds or multi-cap funds which are essential for long-term capital appreciation over a 13-year horizon, despite the investor's significant corpus. It's also concentrated within the Gold category (single fund). By the criteria of 'broad coverage', it fails.\n\n3. Risk-Return Appropriateness (0.2): Despite the investor's 'conservative' label, a 35% Gold + 35% Overnight allocation creates an asset mix with potentially low real returns and 'currency risk' (Gold vs INR). More importantly, the 'Avoid' goal combined with a 13-year horizon creates a tension: pure risk-averse assets (Debt/Gold) often suffer during high inflation eras, failing to 'Maintain real value'. The plan ignores the need for a replacement rate for the ₹1L monthly income unless we assume the corpus alone will generate that passive drawdown without loss of principal, which is aggressive for a conservative investor. While the risk *perceived* matches the preference, the risk *return* profile is too flat for a ₹1.2Cr corpus with a 13-year horizon aiming for ₹1L/month income.\n\n4. Internal Consistency (0.8): The plan is logically consistent within its own framework. If the goal is to limit understanding of financial instruments, buying Debt, Gold ETF, and a DAA fund is internally consistent. The rationale for each fund matches the investor's specific constraints (Overnight for 'short duration', DAA for 'low involvement'). The review checkpoints and rebalancing guidelines are aligned with the basic strategy.\n\n5. Tax Efficiency (0.6): The investor is in the 30% tax slab. Gold ETFs are taxed at the investor's slab as goods/commodities (STCG), which is suboptimal for long-term holding compared to equity-taxed wrappers, but the plan accepts the investor's desire to 'see exactly what he owns'. The Aggressive Hybrid is equity-taxed (good choice). The Overnight funds are debt-death (taxed at 30%) but acceptable for the 'safety' requirement. While the plan doesn't exploit tax efficiencies as aggressively as a pure equity-based hybrid strategy might, it doesn't ignore the tax slab entirely. It is decent but not optimal for a high-slab investor seeking aggressive tax advantages.\n\nNote on Diversification: The plan fails to mention liquid funds, multi-cap funds, or diversified equity exposure which standard conservative portfolios would include for a 13-year horizon.\n[/Scoring Explanation]",
+    "composite_pqs": 0.5
+  },
+  "timestamp": "2026-04-18T03:30:07.953916Z",
+  "prompt_version": "v1"
+}

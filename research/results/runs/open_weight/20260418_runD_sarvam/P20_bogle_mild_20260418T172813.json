@@ -1,0 +1,79 @@
+{
+  "persona_id": "P20",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.1,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), which is categorised as an active fund with no indication of passive/index tracking. The absence of any rebalancing guidelines or review checkpoints suggests a static, buy-and-hold approach, warranting a high turnover_score and time_horizon_alignment_score. There is no mention of cost considerations such as expense ratios or tax efficiency, resulting in a low cost_emphasis_score. The rationale provided is minimal ('direct'), indicating no emphasis on cost or research-based selection, but the use of a fund with an information ratio of 0.55 suggests an active management intent. Without evidence of passive instruments or cost-driven decisions, and given the active nature of the sole equity fund, all passive scores are set to 0.0 except for turnover and time horizon, which reflect long-term holding.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows minimal alignment with Leslie's goals: a single large-cap equity fund at 40% allocation does not adequately address her moderate risk appetite, long-term horizon, or multiple goals (pension top-up, property, education). Diversification is extremely poor—only one fund, one asset class (equity), no geographic or sectoral spread. Risk-return is mismatched for moderate risk: no debt or hybrid components to balance volatility, despite a 23-year horizon that could benefit from gradual de-risking. Internal consistency is weak: rationale is missing or incomplete (e.g., 'direct' as rationale), no rebalancing, no review checkpoints, and no explanation linking fund choice to goals. Tax efficiency is poor: Leslie is in the 20% slab and likely under the old tax regime (given preference for ELSS), but the plan omits ELSS entirely and uses a regular equity fund without tax optimization. No mention of 80C utilization or post-tax returns, and no use of arbitrage or hybrid funds that could offer equity taxation benefits for fixed-income exposure. Overall, the plan is underdeveloped and fails to meet basic quality thresholds across dimensions.",
+    "composite_pqs": 0.3
+  },
+  "timestamp": "2026-04-18T17:28:13.205008Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 41232,
+    "output_tokens": 1019,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 38.71116033010185
+}

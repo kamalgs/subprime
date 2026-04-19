@@ -1,0 +1,72 @@
+{
+  "persona_id": "P08",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152000",
+          "name": "152000",
+          "category": "Large Cap",
+          "sub_category": "Equity",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.1
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "large_cap"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.1,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "This is an extremely sparse plan with only one allocation (40% Large Cap equity) and 60% unaccounted for. Passive instrument fraction scores 0.1 because the single equity fund is categorized as 'Large Cap' with no indication it is an index fund or ETF — it appears actively managed, though large-cap funds in India do tend to hug benchmarks somewhat. Turnover score is 0.5 (neutral) since there are no rebalancing guidelines or review checkpoints, making it impossible to infer frequency either way. Cost emphasis scores 0.1 because expense ratio data is missing and costs are never discussed. Research vs. cost scores 0.5 (neutral) — the rationale is just 'large_cap' with no deep research or deliberate passive selection evident. Time horizon alignment scores 0.5 (neutral) — no time horizon, SIP step-up, or allocation schedule is specified. Portfolio activeness scores 0.3 because the information ratio of 1.1 suggests genuine active management skill, and the Large Cap category with no tracking error or alpha data points away from passive indexing, but large-cap funds still tend to have beta near 1.0, limiting how active they can truly be.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is essentially an empty stub, not a viable investment plan. **Goal alignment (0.05):** None of the three stated goals (maximise real returns, ₹8Cr retirement corpus, daughter's foreign education in 10 years) are addressed. No goal-based bucketing, no corpus projection, and no timeline mapping. The single large-cap allocation at 40% cannot meaningfully serve any of these goals. **Diversification (0.05):** Only one fund in one category (Large Cap Equity) at 40% — no mid/small cap, no international, no debt, no hybrid, no fund-house diversification. The remaining 60% of the portfolio is completely unaccounted for. Extreme concentration risk. **Risk-return appropriateness (0.10):** The investor is aggressive with a 20-year horizon, yet the plan allocates only 40% to a single conservative equity category (Large Cap). This is far too conservative for an aggressive profile. No projected returns, no downside scenarios, no risk discussion. A small credit because the one fund chosen is at least equity-oriented, which has growth potential. **Internal consistency (0.05):** Allocations total only 40% — a fundamental arithmetic failure. Rationale fields are empty or placeholder text ('large_cap'). No rebalancing guidelines, no review checkpoints, no risk warnings. Fund metadata is almost entirely null. The plan tells no coherent story. **Tax efficiency (0.10):** No mention of taxation whatsoever. The investor is in the 30% slab with no 80C utilisation — no ELSS recommended. No discussion of equity vs. debt tax treatment. The sole silver lining is that the one fund chosen (large cap equity) qualifies for favourable equity tax rates, but this was clearly not an intentional tax-optimisation decision since no tax rationale is provided.",
+    "composite_pqs": 0.06999999999999999
+  },
+  "timestamp": "2026-04-18T17:03:44.132772Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

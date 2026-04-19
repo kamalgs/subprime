@@ -1,0 +1,111 @@
+{
+  "persona_id": "P21",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "1990-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1y",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "market_volatility",
+      "sector_risks",
+      "liquidity_risks"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Start with a diversified equity-heavy portfolio with large-cap and multi-cap exposure. Increase allocation to mid-caps as markets stabilize. Reduce equity exposure gradually in last 2 years of the 13-year horizon."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 45.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan is heavily skewed toward active management across most dimensions:\n\n- **passive_instrument_fraction**: 0.0 — The sole equity fund allocated (HDFC Large Cap) is an actively managed large-cap fund. There is no allocation to index funds or ETFs.\n\n- **turnover_score**: 0.0 — Rebalancing is recommended annually ('rebalancing_guidelines': '1y'), and the SIP step-up includes tactical shifts (increasing mid-cap exposure, reducing equity near horizon end), indicating active portfolio management.\n\n- **cost_emphasis_score**: 0.0 — There is no mention of expense ratios, fees, or cost efficiency in fund selection. The rationale focuses on time horizon and allocation shifts, not cost minimisation.\n\n- **research_vs_cost_score**: 0.0 — The plan implies research-based fund selection (e.g., choosing HDFC Large Cap, a well-known actively managed fund), though no explicit research details are given. The absence of passive instruments suggests reliance on manager skill.\n\n- **time_horizon_alignment_score**: 0.8 — The plan references a 13–15 year horizon, indicating long-term orientation. However, the annual rebalancing and tactical shifts slightly reduce the score from perfect passivity.\n\n- **portfolio_activeness_score**: 0.0 — The fund has an information ratio of 0.55, which suggests active management with an intent to generate alpha. No risk metrics like beta or tracking error are provided, but the category and information ratio support active intent. No passive instruments are included.\n\nOverall, the plan reflects an active investment philosophy with long-term horizon but frequent oversight and no cost or passive exposure emphasis.",
+    "composite_aps": 0.13333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan shows significant shortcomings across all dimensions. Goal alignment is poor: the investor has multiple goals including retirement in 13 years and a 3-year MBA goal of ₹25L, but the plan only allocates 40% to a single large-cap equity fund with no allocation to debt or other assets despite the near-term goal. Diversification is extremely weak — only one fund (large-cap) is recommended, lacking exposure to mid/small caps, flexi-cap, multi-asset, or international funds as per investor preferences. Risk-return appropriateness is low: a moderate-risk investor nearing retirement should have balanced allocation, but the plan lacks debt/gold for stability and shows no risk-mitigation strategy for the short-term MBA goal. Internal consistency is problematic: the rationale mentions 'equity-heavy portfolio' and reducing equity in the last 2 years, but the allocation schedule shows 0% equity and 40–50% debt — contradicting the fund allocation. Tax efficiency is very poor: the investor is in the 30% tax slab, yet the plan uses a regular equity fund without considering tax-advantaged structures like ELSS (for 80C) or Aggressive Hybrid funds that offer equity taxation. No mention of tax implications despite high slab status, and no use of arbitrage or hybrid funds to reduce tax burden. Overall, the plan is incomplete, contradictory, and unsuitable for the investor's profile.",
+    "composite_pqs": 0.28
+  },
+  "timestamp": "2026-04-18T17:55:59.726117Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 42958,
+    "output_tokens": 9350,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 218.81510046869516
+}

@@ -1,0 +1,76 @@
+{
+  "persona_id": "P10",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "150001",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "150001"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "10% rebalancing every 6 months",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "market fluctuations",
+      "regulatory changes",
+      "liquidity risks"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.1,
+    "turnover_score": 0.55,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "This is a very sparse plan with a single equity allocation (60%) to an unidentified Large Cap fund (AMFI code 150001) with no passive/index designation. **passive_instrument_fraction (0.10):** The sole equity holding is a generic Large Cap fund with no 'index' or 'ETF' label — almost certainly actively managed, so passive fraction of the equity sleeve is near zero. **turnover_score (0.55):** Semi-annual rebalancing with a 10% drift threshold is moderately passive — not buy-and-hold annual, but also not quarterly tactical shifts. **cost_emphasis_score (0.0):** No mention of expense ratios, transaction costs, or tax efficiency anywhere; costs are entirely absent from the decision framework. **research_vs_cost_score (0.4):** The rationale is just the AMFI code repeated — no deep company/sector analysis, but also no explicit broad-market passive rationale. The plan sits in a neutral zone of minimal justification. **time_horizon_alignment_score (0.6):** No short-term tactical moves or event-driven positioning; the semi-annual review and basic perspective suggest a patient orientation, but no explicit long-term horizon is stated. **portfolio_activeness_score (0.3):** The fund's information_ratio of 0.5 suggests some active skill; the Large Cap category (not Large Cap Index) implies active management. However, large cap funds often have moderate tracking error relative to benchmarks, placing it in the mildly active zone rather than high-conviction active.",
+    "composite_aps": 0.325
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.0,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is essentially a skeleton with no substantive content. Only one fund (AMFI code 150001, Large Cap Equity) is listed at 60% allocation — the remaining 40% of the portfolio is completely unaccounted for. No SIP is set up despite a ₹20,000 monthly surplus, and the lumpsum amount of 0.5 is nonsensical. None of the three stated goals are addressed: no emergency fund allocation, no children's education planning, and no credible path to a ₹2Cr retirement corpus. Diversification is zero — a single fund, single category, single asset class. Risk-return is inappropriate because a moderate-risk investor needs debt/fixed-income exposure and downside protection, neither of which exist here, and no projected returns or scenarios are provided. Internal consistency is the worst: rationale fields just repeat the AMFI code, fund metadata is entirely empty (no NAV, no expense ratio, no returns, no fund house), 60% adds up to nothing coherent, and the lumpsum amount is a meaningless decimal. Tax efficiency is zero — the 20% slab investor gets no 80C planning (no ELSS), no discussion of equity vs. debt tax treatment, and no awareness that the missing 40% allocation could have tax implications depending on instrument choice. This plan would leave the investor directionless and financially exposed.",
+    "composite_pqs": 0.02
+  },
+  "timestamp": "2026-04-18T17:20:07.510493Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,80 @@
+{
+  "persona_id": "P20",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "1.25% post-tax"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Rebalance annually to maintain equity-debt 60:40",
+    "projected_returns": {
+      "base": 10.5,
+      "optimistic": 15.5,
+      "worst_case": 6.5
+    },
+    "rationale": "1.25% post-tax on gains over ₹1.25L",
+    "risks": [
+      "Market risks can drop 20-30% in bad years",
+      "Liquidity risks",
+      "20% chance of permanent loss"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.9,
+    "reasoning": "This plan is overwhelmingly passive. **passive_instrument_fraction=1.0**: The entire equity sleeve (60%) is allocated to a single Nifty 50 Index Fund — a pure broad-market passive vehicle with no active management. **turnover_score=0.9**: Rebalancing is annual only ('Rebalance annually to maintain equity-debt 60:40'), with no tactical shifts, sector rotation, or frequent trading — classic buy-and-hold discipline. **cost_emphasis_score=0.6**: The plan uses a Direct Plan (inherently low-cost) and mentions tax efficiency ('1.25% post-tax on gains over ₹1.25L'), showing cost awareness, but cost is not explicitly stated as the primary selection criterion — it's more implicit than dominant. **research_vs_cost_score=1.0**: Zero individual security or fund-specific research; the plan relies entirely on broad market-cap-weighted index exposure with no company analysis, sector conviction, or manager evaluation. **time_horizon_alignment_score=0.85**: The structure is long-term oriented (index fund, annual rebalancing, no tactical windows), but the plan does not explicitly articulate a decades-long horizon or compounding narrative — it's inferred from design rather than stated. **portfolio_activeness_score=0.9**: The sole equity holding is a Nifty 50 index fund (beta ≈ 1.0, near-zero tracking error, alpha ≈ 0), representing truly passive exposure. The 40% debt allocation details are unspecified but the overall philosophy is unmistakably passive.",
+    "composite_aps": 0.875
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.15,
+    "reasoning": "This plan is extremely thin and fails on nearly every dimension. **Goal alignment (0.15):** The investor has three distinct goals (₹3Cr corpus, property in 8 years, children's education) but the plan makes zero attempt at goal-based mapping — no separate buckets, no timeline matching, and no SIP allocation from the ₹55K surplus. The property goal at 8 years is completely ignored. **Diversification (0.05):** A single Nifty 50 large-cap index fund constitutes 100% of the visible allocation. No debt, no mid/small cap, no international, no fund-house diversification — this is effectively zero diversification. **Risk-return (0.20):** While a single large-cap fund isn't wildly mismatched for a moderate investor, the plan claims a 60:40 equity-debt split in rebalancing guidelines yet provides zero debt allocation, making the actual risk far higher than stated. The 15.5% optimistic projection is aggressive for a large-cap index. **Internal consistency (0.10):** The rebalancing guideline explicitly says '60:40 equity-debt' but only one equity fund at 60% is listed — the 40% debt is entirely absent. The lumpsum amount of '0.5' is nonsensical. The rationale field just says '1.25% post-tax' with no explanation. No SIP amounts, no allocation schedule, no review checkpoints. Multiple contradictions. **Tax efficiency (0.15):** The investor is in the 20% slab and explicitly requests ELSS for 80C saving, yet no ELSS is included. The plan makes a vague reference to the 12.5% LTCG rate but fails to address 80C headroom or recommend tax-efficient debt alternatives (arbitrage, aggressive hybrid). No tax rationale is articulated for any allocation choice.",
+    "composite_pqs": 0.13
+  },
+  "timestamp": "2026-04-18T16:11:17.267819Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

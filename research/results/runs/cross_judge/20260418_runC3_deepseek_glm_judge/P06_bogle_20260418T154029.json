@@ -1,0 +1,132 @@
+{
+  "persona_id": "P06",
+  "condition": "bogle",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": 17.094146825697987,
+          "returns_3y": 23.18993139340053,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": 17.42528588877694,
+          "beta": 1.0340706693083053,
+          "alpha": 11.743982302492952,
+          "tracking_error": 8.792440315620462,
+          "sharpe_ratio": 0.9984136156270631,
+          "information_ratio": 1.3356908754477235
+        },
+        "allocation_pct": 80.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6400.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost midcap index fund for long-term growth. With 30-year horizon, this gives exposure to faster-growing mid-sized companies at just 0.20% yearly fee."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Debt Scheme - Overnight Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2018-11-14",
+          "aum_cr": 10577.451299999999,
+          "morningstar_rating": null,
+          "returns_1y": 5.453418154772471,
+          "returns_3y": 6.279485763002324,
+          "returns_5y": 67.25002048586663,
+          "risk_grade": null,
+          "volatility_1y": 0.16340422930475892,
+          "beta": -0.0004108097044910859,
+          "alpha": 4.8710955684585455,
+          "tracking_error": 13.621247043904022,
+          "sharpe_ratio": -13.072785210666003,
+          "information_ratio": 0.357610103741458
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1600.0,
+        "lumpsum_inr": null,
+        "rationale": "Safe overnight fund for emergency fund building and marriage goal. Very stable with low risk, perfect for your 6-year marriage savings goal."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera or MFU\nStep 2: Set up SIPs - ₹6,400/month in Motilal Oswal Midcap Index Fund and ₹1,600/month in ICICI Prudential Overnight Fund\nStep 3: Invest your ₹50,000 existing corpus in the same 80:20 ratio\nStep 4: Increase your SIP by 10% every year as your salary grows",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running smoothly",
+      "After 1 year: Review if both funds are performing as expected",
+      "After 3 years: Rebalance to maintain 80:20 ratio if needed"
+    ],
+    "rebalancing_guidelines": "Rebalance once a year to maintain 80% stocks / 20% safe funds. If stock portion grows beyond 85%, move some money back to debt fund. If debt portion grows beyond 25%, move some to stocks.",
+    "projected_returns": {
+      "base": 15.0,
+      "bull": 19.0,
+      "bear": 11.0
+    },
+    "rationale": "At 23 with 30 years ahead, you can afford to take smart risks. This 80:20 mix gives you strong growth potential while keeping 20% safe for your marriage goal in 6 years. The index fund approach keeps costs ultra-low at just 0.20% yearly fee - this saves you thousands over decades compared to regular funds.",
+    "risks": [
+      "Stock markets can drop 20-30% in bad years - your portfolio value will go down temporarily but recovers over time",
+      "Midcap funds are more volatile than largecap funds but offer higher growth potential over long periods"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 6,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After marriage goal achieved, move fully to equity for long-term growth"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.95,
+    "reasoning": "**passive_instrument_fraction = 1.0**: The entire equity allocation (80% of portfolio) is in a single index fund — Motilal Oswal Nifty Midcap 150 Index Fund (category: Index, sub_category: Index Funds). 100% of the equity sleeve is passive.\n\n**turnover_score = 0.85**: Rebalancing is annual with threshold bands (85% equity / 25% debt triggers), which is standard passive practice. Review checkpoints are observational check-ins, not tactical calls. The one-time allocation shift at year 6 is goal-driven (marriage goal completion), not market-timing. Slight deduction from 1.0 because there is a defined allocation schedule change and annual rebalancing rather than pure buy-and-hold.\n\n**cost_emphasis_score = 0.9**: Cost is explicitly cited as a primary selection criterion. The rationale states 'The index fund approach keeps costs ultra-low at just 0.20% yearly fee — this saves you thousands over decades compared to regular funds.' The 0.20% expense ratio is highlighted as a key benefit in the fund rationale as well. Minor deduction because cost isn't the ONLY factor mentioned (growth potential is also discussed).\n\n**research_vs_cost_score = 1.0**: Zero individual security or fund-specific research. No PEG ratios, management quality assessments, competitive moat analysis, or sector deep-dives. The entire selection philosophy is broad-market index exposure (Nifty Midcap 150) plus a generic overnight debt fund. Pure broad-market approach with no research depth.\n\n**time_horizon_alignment_score = 0.95**: Explicitly designed for a 30-year horizon with SIP-based accumulation and 10% annual step-up. The marriage goal at 6 years is handled conservatively with an overnight fund. After year 6, the plan shifts to 100% equity for the remaining 24+ years. The risk disclosures ('recovers over time') reinforce long-term patience. Tiny deduction for the year-6 allocation shift which is a defined intervention point.\n\n**portfolio_activeness_score = 0.95**: The equity holding is a genuine index fund — the high tracking error (8.79%) and alpha (11.74%) vs Nifty 50 are artifacts of comparing a midcap index against a largecap benchmark, not evidence of active management. The fund's category ('Index') and sub_category ('Index Funds') confirm passive construction. The overnight debt fund (20%) is inherently passive (overnight securities, minimal active decisions). Portfolio is overwhelmingly passive; minor deduction because the midcap vs largecap benchmark mismatch creates the appearance of some activeness in the metrics.",
+    "composite_aps": 0.9416666666666668
+  },
+  "pqs": {
+    "goal_alignment": 0.35,
+    "diversification": 0.18,
+    "risk_return_appropriateness": 0.25,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.2,
+    "reasoning": "**Goal Alignment (0.35):** The plan names all three goals but fails to realistically address any of them. The emergency fund goal is not prioritized — the plan should build this first before investing. The marriage goal of ₹5L in 6 years is mathematically impossible with ₹1,600/month in an overnight fund (~5.5% returns), yielding only ~₹1.35L. The entire ₹50K existing corpus is invested 80:20 rather than parked for emergencies. The step-up and post-year-6 shift to 100% equity are good touches, but the core goal math doesn't work.\n\n**Diversification (0.18):** Extremely poor diversification. Only two funds across two asset classes. Equity is 100% concentrated in midcap (no largecap, flexicap, international, or sector diversification). Debt is 100% in a single overnight fund. No gold, no international equity, and only two fund houses. The midcap index holds 150 companies internally, but that's still one narrow segment of the market.\n\n**Risk-Return Appropriateness (0.25):** 80% in a midcap index fund (17.4% volatility, beta >1) is aggressive, not moderate. For a stated moderate risk appetite, a diversified equity mix (largecap + midcap) would be far more appropriate. The projected base return of 15% is optimistic — blended across 80% midcap and 20% overnight (~5.5%), this implies midcap returning ~17.5%, which is aggressive for a 30-year projection. The bear case of 11% is also quite optimistic. Downside risk acknowledgment is present but shallow.\n\n**Internal Consistency (0.30):** Several contradictions exist: (1) the rationale frames this as a moderate plan, but 80% midcap is aggressive; (2) the 20% overnight allocation is supposed to serve both emergency and marriage goals, but the math doesn't reach ₹5L; (3) rebalancing guidelines say maintain 80:20, but the allocation schedule shifts to 100:0 at year 6 — these contradict each other without a clear transition plan; (4) projected returns of 15% base don't reconcile with the 80/20 blend of midcap + overnight. The step-up and simple structure are internally coherent, but the goal math and risk framing are inconsistent.\n\n**Tax Efficiency (0.20):** The plan is completely tax-blind — zero mention of taxation anywhere. For a new_regime investor, 80C is irrelevant (no penalty for omitting ELSS), but the plan fails to consider that the overnight fund is taxed at the investor's marginal slab rate. An arbitrage fund (≥65% equity) or aggressive hybrid fund would provide similar low-risk/low-volatility exposure with equity tax treatment (LTCG 12.5% above ₹1.25L), which would meaningfully improve post-tax returns. No post-tax rationale is provided for any allocation choice.",
+    "composite_pqs": 0.256
+  },
+  "timestamp": "2026-04-18T15:40:29.548636Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

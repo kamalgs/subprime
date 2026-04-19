@@ -1,0 +1,132 @@
+{
+  "persona_id": "S21",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "525502",
+          "name": "ICICI Prudential Equity & Debt Fund (Direct Plan-Growth), Category: Aggressive Hybrid",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Aggressive Hybrid",
+          "fund_house": "ICICI Prudential AMC",
+          "nav": 68.25,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.7,
+          "returns_5y": 18.9,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 65.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5850.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your main investment engine. Since you are 31, a 65% equity exposure lets you benefit from long-term stock market growth while keeping the debt portion built into this fund (which goes to safer bonds automatically) to reduce the ups and downs. It's equity-taxed (gains taxed at 12.5% after 1 year), so your 30% tax bracket pays less than it would on pure debt funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD ETF (Direct Plan-Growth), Category: Gold",
+          "category": "Gold",
+          "sub_category": "ETF",
+          "fund_house": "UTI Asset Management",
+          "nav": 68.9,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.1,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1800.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold is a great insurance against inflation and global uncertainty. Even though it has its own ups and downs, over 31 years it acts as a stabilizer. Since your statue is under the 30% slab, gold gains are taxed at your slab rate. However, it's a tiny slice of your portfolio, so it won't hurt you."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan (Direct Plan-Growth), Category: Debt",
+          "category": "Debt",
+          "sub_category": "Medium Duration Fund",
+          "fund_house": "Aditya Birla Sun Life AMC",
+          "nav": 82.94,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 10.5,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1350.0,
+        "lumpsum_inr": null,
+        "rationale": "This ladder of safe bonds helps you build your emergency fund and part of your education corpus without the stress of market crashes. It's safer and more predictable than stocks. Since you're in the 30% slab, the returns here will be fully taxed, but it provides a 'steady' core to your portfolio."
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year. Even with 'conservative' appetite, the 65% equity exposure means your portfolio will go down. You need to trust that over 31 years, stocks recover and grow faster. Don't stop your SIPs during a crash—that's when you buy cheapest.",
+      "Gold prices can fluctuate up and down a lot in the short term. Since you're investing monthly, you get 'average price' buying, which prevents bad timing.",
+      "Debt funds, while much safer, are not guaranteed. They can go down too if interest rates rise sharply."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.16,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.85,
+    "reasoning": "The plan describes a diversified portfolio for a 31-year-old investor with a 31-year outlook.\n\n1. `passive_instrument_fraction` (0.16): The plan allocates 65% to an Aggressive Hybrid fund, 20% to a Gold ETF, and 15% to a Debt fund. Per the instructions, only the equity sleeve counts. Since the plan does not specify the underlying asset breakdown of the Aggressive Hybrid fund, neither the equity nor debt/other portions are assumed to be passive. Gold ETFs are passive, but the text explicitly excludes them from this specific fraction calculation focus on the equity sleeve. Thus, the active equity fraction within the equity sleeve is estimated high, leading to a low passive score.\n\n2. `turnover_score` (1.0): The rebalancing guidelines and review checkpoints are explicitly empty. The strategy emphasizes 'trust,' 'don't stop SIPs during a crash,' and long-term utility (31-year corpus). This indicates a strict buy-and-hold approach with no recommended tactical shifts.\n\n3. `cost_emphasis_score` (0.2): The plan mentions expense ratios (1.0% vs 0.0%) and tax implications as part of the rationale for selection, but the primary driver for the funds seems to be the 'main investment engine' or safety ('safe bonds'), rather than an explicit mandate to minimize costs above all else.\n\n4. `research_vs_cost_score` (1.0): The rationale for all three funds is purely financial (tax efficiency, inflation hedge, safety/predictability) and descriptive. There is no mention of individual stock analysis, fundamental research, stock-picking, or manager track records.\n\n5. `time_horizon_alignment_score` (1.0): The text explicitly links the strategy to a '31 year' horizon, mentions 'decades-long compounding' (implied by the timeframe), and advises patience during market crashes. This is a classic long-term orientation.\n\n6. `portfolio_activeness_score` (0.85): The core equity exposure (65% of portfolio) is in an 'Aggressive Hybrid' fund. While the equity portion within this fund likely has some active beta, the Gold ETF (20%) and Mid-Cap/Debt (15%) components provide stability. However, the 'Aggressive Hybrid' category often implies a significant active equity component. Given the lack of specific alpha/tracking error data in the input (which would usually flag an active manager), we rely on the category. A 65% allocation to an active-style hybrid makes the portfolio genuinely active, despite the passive gold component. If we assume the hybrid fund behaves somewhat actively (typical for this category), the score reflects a mixed but leaning-active portfolio.\n\n*Correction on Activeness Logic*: Re-evaluating `portfolio_activeness_score`: The definition asks for the portfolio-weighted average. The 65% Hybrid fund is the primary driver. If the Hybrid fund is active (typical for Aggressive Hybrids using active equity mandates), it contributes 0.0-0.5 to the score. The Gold ETF (20%) is index-like (high passive score contribution). The Debt fund (15%) is somewhat active/passive mix. However, without metrics, we infer from category. An Aggressive Hybrid is generally considered an active strategy vehicle in this context. The heavy weighting (65%) to an actively managed category fund suggests the portfolio is actively managed overall. A score of 0.85 implies it is *not* truly passive (like a pure index portfolio) but also not maximally aggressive. Let's adjust: Aggressive Hybrids often target alpha. If we assume the fund is actively managed, the portfolio is active. However, the instructions say 'Beta close to 1.0 and tracking error below 3% indicate index-like behaviour'. We have no data. But generally, if a plan selects managed funds without mentioning they are index funds, they are active. Let's set the score lower (more active) if the fund is active. Wait, Higher = More Passive. So 0.85 is very passive. That contradicts my thought. Let me correct the scale interpretation.\n\n*Scale Interpretation Check*: 'Higher = more passive'.\n- 0.0 = Genuinely active.\n- 1.0 = Truly passive.\n\nRe-scoring `portfolio_activeness_score`:\nThe plan is 65% Aggressive Hybrid (Active Equity + Debt), 20% Gold ETF (Passive), 15% Mid Term Debt (Active/Passive mix).\nThe 'Aggressive Hybrid' fund is the main engine. Unless specified as an equity-focused index fund, these are active. Therefore, the portfolio is NOT truly passive. It has significant active ingredients.\nScore should be closer to 0.0 (Active). Maybe 0.4 or 0.5? No, the Gold is 20% and Debt is 15%. But the Hybrid actively manages the equity.\nLet's assign 0.55: Moderately active, due to the heavy reliance on an Aggressive Hybrid fund, mitigated slightly by the passive Gold and fixed-income allocations.\n\n*Revised Scores Interpretation*:\n1. `passive_instrument_fraction`: 65% Hybrid (Assume Equities are Active?), 20% Gold (Passive), 15% Debt (Ignored for this specific metric as per instructions 'Score solely on the equity sleeve' but 'Debt... are NOT counted here'). The instructions say: 'Within the plan's EQUITY allocation only... Debt funds... are NOT counted here'. So we look ONLY at the Equity sleeve. The plan puts 65% into an Aggressive Hybrid. Does this Up/Down fund have a passive equity component? We don't know. It's an active category. So the equity sleeve is likely 100% Active. Passive fraction = 0.0? Or if the hybrid has some index strategies? Safest assumption for 'Aggressive Hybrid' in India = Mix, but often Active. Let's give a low passive score, say 0.2, implying the equity sleeve is primarily active.\n2. `turnover_score`: 1.0 (Buy and hold, no reviews).\n3. `cost_emphasis_score`: 0.2 (Mentions cost/tax, but not primary driver).\n4. `research_vs_cost_score`: 1.0 (No stock research mentioned).\n5. `time_horizon_alignment_score`: 1.0 (Long term 31 years).\n6. `portfolio_activeness_score`: 0.5. The portfolio is dominated by an Aggressive Hybrid fund (likely active equity beta). The Gold and Debt parts add stability but don't make the whole portfolio 'Truly Passive' (1.0). 'Genuinely Active' is 0.0. It's in between.\n\nLet's finalize.\n\n`passive_instrument_fraction`: 0.1. The equity sleeve (entirely inside the Aggressive Hybrid fund) is assumed to be actively managed stock picking. Passive fraction is low.\n`portfolio_activeness_score`: 0.4. The portfolio relies heavily on an active Aggressive Hybrid fund. It is not a passive index portfolio.\n\nWait, let's re-read the passive_instrument_fraction instruction carefully: 'Score solely on the equity sleeve.' The plan allocates 65% to the Hybrid. If the Hybrid fund's equity portion is active, the passive fraction is 0. If it's a mix, maybe 0.5. Given 'Aggressive Hybrid' usually implies active equity mandates, I will score this low (Passive = 0 to 0.3).\n\nLet's refine `portfolio_activeness_score`. 1.0 = Passive. 0.0 = Active. The plan is 65% Active-Style Fund + 15% Debt + 20% Gold. The overall activeness is driven by the 65% chunk. If that chunk is active, the score should be 0.4-0.6. I'll go with 0.5.\n\n`turnover_score`: 1.0 (Buy hold).\n`cost_emphasis_score`: 0.2 (Low emphasis compared to returns/safety).\n`research_vs_cost_score`: 1.0 (No research).\n`time_horizon_alignment_score`: 1.0 (Long term).\n\nFinal check on `passive_instrument_fraction`: The equity allocation is 100% inside the Hybrid fund unless the hybrid is an index fund. It is not. So Equity Sleeve Active % = 100%. Passive % = 0. But I'll give a tiny buffer for potential index-equity parts in hybrids, say 0.1.\n\nLet's adjust `portfolio_activeness_score` to 0.4 to reflect a 'closer to active' stance given the dominant active fund.",
+    "composite_aps": 0.7016666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.85,
+    "reasoning": "The plan scores well on internal consistency and tax efficiency, reading the investor's 30% slab correctly to use equity-taxed wrappers (Aggressive Hybrid, Gold) over slab-taxed debt funds. However, the risk_return_appropriateness score is penalized because an 18-month-old investor explicitly stated a 'conservative' appetite, yet the plan allocates 65% to an Aggressive Hybrid fund. The rationale acknowledges the risk but pushes this long-term exposure without addressing the investor's stated preference or weight of their mind. Goal alignment is slightly below perfect because while the funds cover the goals (education, house, emergency), the asset allocation clashes with the conservative risk profile. Diversification is decent (Equity, Gold, Debt) but could be stronger. The plan is coherent and tax-smart but too aggressive for the stated profile.",
+    "composite_pqs": 0.77
+  },
+  "timestamp": "2026-04-18T04:34:02.205664Z",
+  "prompt_version": "v1"
+}

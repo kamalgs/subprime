@@ -1,0 +1,116 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8400.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost index fund tracking midcap stocks, which historically grow faster than large caps over long periods. Expense ratio is just 0.2%, so more of your money stays invested. This is the core of your portfolio for long-term wealth."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 12527.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3600.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced fund that mixes stocks and bonds to reduce risk. It's less volatile than pure stock funds, which helps when markets go down. Good for someone with moderate risk appetite who wants growth but not wild swings."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete your KYC (takes 5 minutes with PAN and bank account).\nStep 2: Search for each fund by name.\nStep 3: Start a monthly SIP of ₹8,400 in Motilal Oswal Nifty Midcap 150 Index Fund and ₹3,600 in ICICI Prudential Equity & Debt Fund.\nStep 4: Set up auto-debit from your bank account on a date when income usually comes in (e.g., 5th of every month).",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running. If missed, no stress — just restart when possible.",
+      "After 1 year: Compare your funds’ performance with others in the same category. If one is consistently behind, consider switching.",
+      "Every 2 years: Rebalance if one fund grows to more than 75% or less than 65% of your total portfolio."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If the midcap fund grows to over 75% of your total value, sell some and add to the hybrid fund to get back to 70:30. This keeps your risk in check without constant tinkering.",
+    "projected_returns": {
+      "base": 14.7,
+      "bull": 18.7,
+      "bear": 10.7
+    },
+    "rationale": "You're 27 with a 28-year horizon — that’s a long runway. We’re using a low-cost midcap index fund to capture strong long-term growth. Midcaps are riskier short-term but have higher potential over decades. The hybrid fund adds stability so your portfolio doesn’t swing too wildly when markets drop. Since your income varies, this simple 2-fund plan gives you flexibility — you can pause SIPs in lean months and restart when flush. No ELSS is included because you're under the new tax regime and can’t claim 80C deductions.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will go down temporarily. This is normal and usually recovers over 2–3 years.",
+      "Midcap stocks are more volatile than large caps — they can fall harder and take longer to bounce back.",
+      "Your income is irregular, so SIPs may get missed. That’s okay — just restart when possible. Consistency over time matters more than perfect monthly discipline."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match typical income growth, even if irregular"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.7,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.7,
+    "reasoning": "The investment plan has a high allocation to a low-cost index fund, which suggests a passive approach. The plan also emphasizes minimizing costs and has a long-term orientation, which are characteristics of a passive investment strategy. However, the inclusion of an actively managed hybrid fund and the potential for rebalancing every two years introduce some active elements to the plan.",
+    "composite_aps": 0.8000000000000002
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.85,
+    "tax_efficiency": 0.8,
+    "reasoning": "The investment plan aligns well with the investor's goals, risk appetite, and life stage. The allocation to a low-cost midcap index fund and an aggressive hybrid fund provides a good balance between growth and stability. The plan also considers the investor's irregular income and provides flexibility to pause SIPs in lean months. However, the plan could be improved by considering other asset classes, such as debt or international funds, to further diversify the portfolio. Additionally, the plan's tax efficiency is good, but not perfect, as it does not consider the potential tax implications of the investor's new tax regime.",
+    "composite_pqs": 0.8099999999999999
+  },
+  "timestamp": "2026-04-18T00:50:40.413855Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

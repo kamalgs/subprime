@@ -1,0 +1,79 @@
+{
+  "persona_id": "P15",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15234",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "100% in 1 year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1. Allocate 100% to Large Cap funds due to long-term growth potential. 2. For risk-averse investors, prefer funds with lower volatility and proven track records. 3. Avoid sector-specific funds. 4. Focus on low-cost passive funds with proven historical performance.",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan allocates 60% to a single large-cap equity fund (HDFC Large Cap Direct), which is an actively managed fund (implied by 'information_ratio': 0.5, suggesting active management). Thus, passive_instrument_fraction is 0.0 as no index funds or ETFs are used.\n\nturnover_score is 1.0 because no rebalancing frequency is specified, and the rationale implies a long-term hold ('100% in 1 year' likely meaning full allocation at start), indicating a buy-and-hold approach.\n\ncost_emphasis_score is 0.5: while the plan mentions 'low-cost passive funds', it does not prioritise cost as the main criterion — it's mentioned but not acted upon (since the chosen fund isn't passive). Hence, partial credit.\n\nresearch_vs_cost_score is 0.0 because the rationale focuses on track records and volatility, implying manager/fund-specific research rather than broad market exposure.\n\ntime_horizon_alignment_score is 1.0 as the strategy suggests long-term holding with no frequent review or tactical shifts.\n\nportfolio_activeness_score is 0.0 because the sole equity fund has an information ratio of 0.5 (indicating active management), and the fund is categorised as Large Cap (typically actively managed). Despite the mention of 'passive funds' in rationale, the actual allocation is to an active fund, so the portfolio reflects active intent.",
+    "composite_aps": 0.4166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan assigns 60% to a single large-cap equity fund with no diversification across asset classes, sectors, or geographies, which is inappropriate for a conservative investor with a 12-year horizon and near-term goals like a daughter's wedding in 4 years. The complete lack of debt or hybrid allocations contradicts the investor's stated preference for 'conservative hybrid and short-duration debt' and her conservative risk appetite. The rationale mentions 'risk-averse investors' but recommends 60% equity with no downside protection, creating internal inconsistency. Tax efficiency is poor: the investor is in the 30% slab, yet the plan uses a regular large-cap fund (likely higher expense ratio) instead of tax-efficient arbitrage or aggressive hybrid funds for fixed-income needs, and no ELSS is included despite the old-regime tax bracket (though equity allocation is too high overall). The plan ignores the 25L wedding goal in 4 years, which requires capital preservation, not 60% equity exposure. Overall, the plan fails on all dimensions due to extreme concentration, mismatched risk, and lack of alignment with goals or preferences.",
+    "composite_pqs": 0.2
+  },
+  "timestamp": "2026-04-18T17:18:41.671760Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22873,
+    "output_tokens": 908,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 22.91995948832482
+}

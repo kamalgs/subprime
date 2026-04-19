@@ -1,0 +1,143 @@
+{
+  "persona_id": "H048",
+  "condition": "lynch",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Mid and Small Cap Fund - Direct Plan - Growth",
+          "category": "Mid & Small Cap Hybrid",
+          "sub_category": "Aggressive Hybrid (Dynamic Allocation)",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10350.0,
+        "lumpsum_inr": null,
+        "rationale": "We've blended mid and small caps here because you want more growth than a typical conservative plan offers, but without full equity risk. This fund has a long track record of balancing growth stocks with safety."
+      },
+      {
+        "fund": {
+          "amfi_code": "140088",
+          "name": "Nippon India ETF Gold BeES",
+          "category": "Gold ETF",
+          "sub_category": "Gold",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10350.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you specifically want gold as a hedge, this direct ETF is a perfect fit. It tracks gold prices directly, giving you protection when the economy is shaky without the high fees of regular gold funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "130950",
+          "name": "ICICI Prudential Banking and PSU Debt Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Banking and PSU",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 41400.0,
+        "lumpsum_inr": null,
+        "rationale": "This is the backbone of your portfolio. As a 49-year-old with a conservative mindset, you need steady growth here. Banking and PSU debt funds have historically offered better returns than simple savings accounts, and the tax treatment is favorable (equity-taxed) unlike regular debt funds."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on an app like Groww, Kuvera, or Coin. Since you are investing for 11 years, the 'Direct Plan' is crucial to keep fees low. Step 2: Set up monthly auto-debits for SIPs in three funds immediately. Step 3: Use your existing ₹6.6 lakh lump sum to buy more of the ICICI Prudential Banking and PSU Debt Fund (60% of ₹6.6L = approx ₹4L) and the remaining in Gold ETF and the balanced growth fund to start with a diversified base. Step 4: Ensure at least 10% of your monthly SIP is automatically parked in the debt fund for easy liquidity if your home loan situation changes.",
+    "review_checkpoints": [
+      "Every 6 months: Check that your SIPs are executing correctly and the monthly auto-debit isn't failing.",
+      "Year 1, 5, and 10: Rebalance your portfolio. If your debt portion grows too big (e.g., from risky upswings in small caps), move some to gold or growth funds to stay on track for your 5Cr goal.",
+      "Once a year: Compare your returns to the category average. If the Motilal Oswal Mid & Small Cap fund has lagged significantly for two consecutive years, consider swapping it for another Mid & Small Cap fund."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has drifted too much from 15% growth, 15% gold, 60% debt. If markets do well and your small-cap holding grows to 25%, sell some of it and buy more gold or debt funds to get back to your 15/15/60 split. This simple 'sell high, buy low' math helps you smooth out the ride without needing to time the market.",
+    "projected_returns": {
+      "base": 9.6,
+      "bull": 13.6,
+      "bear": 5.6
+    },
+    "rationale": "At 49 with an 11-year horizon, you need a plan that balances your conservative nature with the reality of your aggressive goals (Home loan: ₹1Cr, Retirement: ₹5Cr). Purely conservative plans often yield only 6-7%, which might fall short of the ₹5Cr target given inflation. Conversely, 100% equity or small-cap funds are too volatile for your comfort zone. This plan uses a 60% debt core for safety while letting the remaining 30% capture growth. The gold allocation acts as a shock absorber during tough times. This mix allows you to possibly achieve your ₹5Cr goal while sleeping soundly at night.",
+    "risks": [
+      "Market volatility: Even with 60% in debt, the remaining 30% in small-cap/mid-cap funds can drop 20-30% in a bad year. Your total portfolio value will temporarily go down, but historically, these corrections recover over 2-3 years.",
+      "Goal shortfall: Inflation might reduce the real value of the ₹5Cr needed at retirement. If the market performs poorly (bear scenario of 5.6% return), you might need to work part-time or adjust the target.",
+      "Interest rate risk: If central bank rates go up significantly, the value of your debt fund holdings (the 60% bulk) might dip temporarily before recovering."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match expected salary growth and beat inflation."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.95,
+    "cost_emphasis_score": 0.85,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.15,
+    "reasoning": "The portfolio is constructed as 60% Debt, 30% Equity, and 10% Gold.\n\n1. **Passive Instrument Fraction (0.0):** The prompt specifies that 'passive_instrument_fraction' assesses the equity sleeve only. The single equity allocation is the Motilal Oswal Mid and Small Cap Fund (15% of total), which is explicitly an actively managed mutual fund. There are no broad-market index funds or passive equity ETFs in the equity portion. Thus, the equity sleeve is 0% passive.\n\n2. **Turnover Score (0.95 - High Passivity):** The plan recommends a 'set and forget' approach with rebalancing only once a year (annually). While it suggests a swap if a fund lags for two years, this is opportunistic correction rather than a frequent tactical strategy. The annual review strongly aligns with passive, buy-and-hold behavior.\n\n3. **Cost Emphasis Score (0.85):** The 'setup phase' explicitly recommends using the 'Direct Plan' route to minimize fees, and the SIP step-up strategy is designed to account for inflation beats, showing a strong focus on the total cost of ownership and efficiency over time.\n\n4. **Research vs Cost Score (0.9):** The plans relies entirely on fund allocation strategies (core satellite with a 60/30/10 split) rather than individual stock selection or describing specific financial metrics (PEG, moats) of companies. The rationale focuses on the fund's category performance and track record rather than deep fundamental research.\n\n5. **Time Horizon Alignment Score (0.9):** The plan is built for an 11-year horizon (conservative age of 49 targeting retirement or major wealth goals). It utilizes SIPs to combat inflation and specifies a long-term review cycle. It is explicitly designed for decades-long compounding rather than short-term speculation.\n\n6. **Portfolio Activeness Score (0.15 - Low/Passive):** This score reflects the risk metrics provided (Beta, Tracking Error, etc.). The portfolio contains:\n   - **Debt Fund (60%):** Banking & PSU funds are typically passive/index-like in terms of portfolio turnover (low tracking error <2% vs Nifty 50 is not the right comparison, but they are generally low-volatility, predictable instruments compared to active aggressive credit funds). However, the strategy is 'buy and hold' for 11 years.\n   - **Equity Fund (15%):** Since no Beta/Tracking Error metrics are provided in the input JSON (all are null), we must infer from the category and wallet logic. A generic 'Mid & Small Cap Fund' in a weighted portfolio context without specific alpha claims usually behaves closer to a passive index bet for the scoring algorithm unless specific high-alpha metrics are given. Furthermore, the lack of risk metrics implies a lack of active 'conviction' quantification.\n   - **Gold ETF (15%):** This is inherently passive as it tracks spot gold prices directly.\n   \n   Therefore, based on the absence of active driver metrics (Alpha/High Tracking Error) and the heavy weighting of passive-like Gold and Debt instruments, the portfolio acts more like a passive index portfolio.",
+    "composite_aps": 0.6249999999999999
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.5,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan scores poorly on risk-appropriateness and goal alignment because of a critical fundamental mismatch: a 'conservative' risk-appetite investor is allocated 15% to a 'Mid & Small Cap' hybrid fund, which carries aggressive volatility (potential 20-30% drawdowns) explicitly described in the risk section. For a conservative investor targeting home loan pay-off and retirement, a 15% allocation to small caps is typically too aggressive for long-term comfort, especially given the 11-year horizon where they should be closer to the 'conservative' risk profile in asset allocation than their stated 'aggressive goals' would suggest. The diversification is adequate but lacks regional diversification (all funds appear to be domestic) and does not include an emergency liquid fund or PPF despite the 'new_regime' tax bracket making PPF attractive for its liquidity and lock-in free nature in a growing corpus. The tax efficiency is excellent (9/10) because it correctly identifies the investor as 'new_regime' (no 80C needed), selects an equity-taxed debt fund (Banking & PSU) for favorable LTCG treatment, and includes the requested Gold ETF. Internal consistency is low because the rationale claims this is for a 'conservative' investor while simultaneously recommending 15% small caps (highly contrarian to conservative mandates) without acknowledging the behavioral risk of this comfort-breaking allocation.",
+    "composite_pqs": 0.4600000000000001
+  },
+  "timestamp": "2026-04-18T09:53:37.772220Z",
+  "prompt_version": "v1"
+}

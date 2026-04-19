@@ -1,0 +1,181 @@
+{
+  "persona_id": "P23",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 11.56,
+          "returns_3y": 18.18,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 200000.0,
+        "rationale": "Top-performing large-cap fund with 11.56% 1-year return, 1.00% low fee, and 18.18% 3-year return."
+      },
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 13.26,
+          "returns_3y": 21.28,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 200000.0,
+        "rationale": "Balanced mix of large, mid, and small-cap stocks with 13.26% 1-year return, 1.05% fee, and 21.28% 3-year return."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 5.45,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 200000.0,
+        "rationale": "Low-risk, 0.55% fee, and 5.45% 1-year return. Avoids liquid funds (slab-taxed) by using overnight fund (equity-taxed)."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI Gold ETF",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "UTI",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 58.32,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 200000.0,
+        "rationale": "Simple, transparent gold exposure with 58.32% 1-year return, 0.40% fee."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start SIPs of ₹18,000/month in the above funds. Step 3: Allocate the existing ₹2,00,000 corpus via lumpsum into the same funds.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and NAVs are tracking.",
+      "After 1 year: Check if any fund underperforms its category (e.g., large-cap funds vs. Nifty 50).",
+      "After 5 years: Rebalance if allocations drift beyond ±5%."
+    ],
+    "rebalancing_guidelines": "Once a year: Adjust allocations if equity portion exceeds 75% or debt drops below 15%. Why: Maintains risk balance as markets fluctuate.",
+    "projected_returns": {
+      "Base (CAGR)": 10.35,
+      "Bull (CAGR)": 14.35,
+      "Bear (CAGR)": 6.35
+    },
+    "rationale": "Age & Horizon: At 29, you can afford equity-heavy growth for long-term goals (financial independence, creative venture). Risk Profile: Moderate risk = 70% equity (large-cap + multi-cap) for growth, 20% debt (overnight fund) for stability, 10% gold for diversification. Tax Efficiency: Equity-taxed funds (large-cap, multi-cap) save 12.5% LTCG tax vs. slab-taxed debt/gold. Simplicity: Only 3 funds (2 equity, 1 debt, 1 gold) with low fees (avg. 0.85%).",
+    "risks": [
+      "Market Volatility: Stock markets can drop 20–30% in bad years (e.g., 2008, 2020). Your portfolio value will fall temporarily but recover over time.",
+      "Debt Risk: Overnight fund is low-risk, but inflation could erode returns.",
+      "Gold Volatility: Gold ETFs are less volatile than stocks but still subject to market swings."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 70.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan has no passive instruments in the equity portion (all funds are actively managed). Rebalancing is annual, which is moderate, and cost is emphasized with low expense ratios. Research is not emphasized, as funds are selected based on returns and fees. The time horizon is long-term, and the portfolio has low tracking error and beta, indicating passive-like behavior, but the funds are actively managed.",
+    "composite_aps": 0.38333333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.75,
+    "diversification": 0.5,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan aligns with Jo's moderate risk appetite and 26-year horizon by allocating 70% to equity. However, it lacks diversification across fund houses and sectors, with all funds from Nippon India and UTI. The risk-return profile is appropriate for a moderate investor, with projected returns matching the horizon. The plan is internally consistent, with rationale supporting allocations. Tax efficiency is good, using equity-taxed funds for debt and gold, but could include more tax-optimized options.",
+    "composite_pqs": 0.6699999999999999
+  },
+  "timestamp": "2026-04-17T10:12:09.386806Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,79 @@
+{
+  "persona_id": "P25",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150000",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 50.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.1,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 100% of its equity portion to the 'Nifty 50 Index Fund', which is a passive index fund, resulting in a passive_instrument_fraction score of 1.0. There are no rebalancing guidelines or review checkpoints specified, implying a buy-and-hold approach, hence a turnover_score of 1.0. While the plan does not explicitly emphasize cost minimization, index funds inherently have low expense ratios; however, without explicit discussion of cost, the cost_emphasis_score is moderate at 0.5. The strategy relies entirely on broad market exposure without any individual stock or fund research, leading to a research_vs_cost_score of 1.0. The absence of active management, tactical shifts, or frequent reviews indicates a long-term, passive time horizon, scoring 1.0 on time_horizon_alignment. Finally, the portfolio consists solely of a Nifty 50 index fund, which by definition has beta ~1.0, low tracking error, and minimal active risk; despite missing risk metrics, the fund category and rationale ('direct') support a fully passive classification, resulting in a portfolio_activeness_score of 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows minimal alignment with the investor's moderate risk appetite and long-term goals (17-year horizon, retirement corpus target). Allocating 50% to a single large-cap index fund lacks diversification across asset classes, geographies, and sectors, resulting in a very low diversification score. The plan ignores fixed-income needs for children's school fees (next 8 years), increasing risk-return mismatch. Internal consistency is partial due to incomplete rationale, review checkpoints, and rebalancing guidelines. Tax efficiency is poor: the investor is in the 30% tax slab, yet the plan uses only a standard equity fund without leveraging tax-efficient structures like ELSS (for 80C benefit) or arbitrage/Aggressive Hybrid funds for debt allocation. No mention of tax treatment, and no ELSS inclusion despite eligibility under the old regime, leading to a significant missed opportunity for tax optimization.",
+    "composite_pqs": 0.3
+  },
+  "timestamp": "2026-04-18T16:15:54.309642Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 80234,
+    "output_tokens": 9365,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 0
+  },
+  "elapsed_s": 337.37495680432767
+}

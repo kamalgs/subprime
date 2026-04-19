@@ -1,0 +1,82 @@
+{
+  "persona_id": "P13",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.001,
+        "lumpsum_inr": null,
+        "rationale": "Low cost with proven large-cap dominance, ideal for long-term growth in bull markets"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Open a direct plan with any regular platform (e.g., Grow, Coin, etc.). 2. Select HDFC Large Cap (1.5% expense ratio, 10.6% post-tax returns). 3. Enable SIP with auto-debit from bank account. 4. Review annually for rebalancing."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to HDFC Large Cap - Direct Plan, which is an actively managed equity fund (evidenced by the information ratio of 0.6, indicating active management with performance evaluation against a benchmark). Thus, passive_instrument_fraction is 0.0 as no index or passive funds are used in the equity allocation.\n\nRebalancing is suggested annually, implying minimal turnover, so turnover_score is 1.0. However, the rationale emphasizes 'proven large-cap dominance' and expected returns rather than cost minimization, though it does mention 'low cost' — this gives a moderate cost_emphasis_score of 0.5.\n\nThe plan shows no evidence of deep individual stock research but selects a single large-cap fund based on performance expectations, leaning toward active management without explicit research details; hence, research_vs_cost_score is 0.0.\n\nThe strategy implies a long-term horizon with annual reviews and SIP continuation, supporting a time_horizon_alignment_score of 1.0.\n\nFinally, portfolio_activeness_score is 0.0 because the sole equity fund has an information ratio of 0.6 — a sign of genuine active management — and no passive instruments are included. No risk metrics like beta or tracking error are provided, but the presence of a non-zero information ratio confirms active intent.",
+    "composite_aps": 0.4166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows partial goal alignment by focusing on long-term growth suitable for retirement and children's education, but fails to address the 1Cr emergency buffer or varying time horizons (12 vs 15 years). Diversification is extremely poor—only one large-cap fund with 40% allocation and no exposure to mid/small caps, international, debt, or hybrid funds, creating high concentration risk. Risk-return is mismatched for a moderate investor: a single equity fund at 40% without any balancing fixed-income component increases volatility beyond moderate tolerance. Internal consistency is weak: SIP step-up instructions mention 10.6% post-tax returns and 1.5% expense ratio not present in fund data, creating contradictions. Tax efficiency is poor: the investor is in the 30% slab, yet the plan uses a regular large-cap fund (implied by 1.5% expense ratio) instead of a direct plan with equity taxation advantages; no use of arbitrage or aggressive hybrid funds for better post-tax efficiency, and no ELSS for 80C benefits despite being in the old regime.",
+    "composite_pqs": 0.33999999999999997
+  },
+  "timestamp": "2026-04-18T17:30:39.865885Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 60288,
+    "output_tokens": 9372,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 0
+  },
+  "elapsed_s": 293.4585124729201
+}

@@ -1,0 +1,123 @@
+{
+  "persona_id": "P24",
+  "condition": "lynch",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "Equity Scheme - Flexi Cap Fund",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "1994-12-08",
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": 9.412035479701863,
+          "returns_3y": 20.959569712571778,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": 13.804940988272781,
+          "beta": 0.902949231819512,
+          "alpha": 4.183527782306537,
+          "tracking_error": 3.8829440841356386,
+          "sharpe_ratio": 0.36646093714617606,
+          "information_ratio": 1.0774112868117207
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "Proven flexi-cap fund with 20+ years track record, consistently beating market returns. Gives you exposure to large, mid, and small caps in one fund. Perfect starter fund with moderate risk profile."
+      },
+      {
+        "fund": {
+          "amfi_code": "147946",
+          "name": "BANDHAN SMALL CAP FUND - DIRECT PLAN GROWTH",
+          "category": "Small Cap",
+          "sub_category": "Equity Scheme - Small Cap Fund",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": "2020-02-03",
+          "aum_cr": 8900.6548,
+          "morningstar_rating": null,
+          "returns_1y": 13.658390941870891,
+          "returns_3y": 31.329635382214562,
+          "returns_5y": 23.709316458342112,
+          "risk_grade": null,
+          "volatility_1y": 17.868139147132016,
+          "beta": 0.9172791604560766,
+          "alpha": 9.7835403256556,
+          "tracking_error": 11.72052388385936,
+          "sharpe_ratio": 0.5942397213158095,
+          "information_ratio": 0.8347357526508494
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "High-performing small cap fund with excellent 23.7% 5-year returns. At 22, you have time to ride out small cap volatility. This will boost your long-term growth potential significantly."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete KYC\nStep 2: Transfer your ₹20,000 existing corpus to your account\nStep 3: Start monthly SIP of ₹3,000 in HDFC Flexi Cap Fund (AMFI: 118955) and ₹2,000 in Bandhan Small Cap Fund (AMFI: 147946)\nStep 4: Set up auto-debit from your bank account for hassle-free investing\n\nYour total monthly investment: ₹5,000 (100% equity, perfect for your age and 38-year horizon)",
+    "review_checkpoints": [
+      "After 3 months: Check if SIPs are running smoothly",
+      "After 1 year: Review fund performance vs benchmarks",
+      "After 2 years: Consider adding a mid-cap fund for more diversification"
+    ],
+    "rebalancing_guidelines": "Rebalance annually by checking your portfolio mix. If small caps grow faster than flexi-cap (likely), move some money from small cap to flexi-cap to maintain 60/40 ratio. Don't panic during market dips - small caps can be volatile but recover strongly.",
+    "projected_returns": {
+      "base": 12.8,
+      "bull": 16.8,
+      "bear": 8.8
+    },
+    "rationale": "At 22 with 38 years ahead, you can afford to be aggressive. This 100% equity plan focuses on growth while keeping it simple with just 2 funds. The flexi-cap gives you broad market exposure while the small cap turbocharges returns. Since you're on new tax regime, we skipped ELSS (no 80C benefit). Your 10% annual SIP increase will compound beautifully over decades.",
+    "risks": [
+      "Stock markets can drop 20-30% in bad years - your portfolio value will temporarily decline",
+      "Small cap funds are more volatile and can fall harder than large caps during market downturns",
+      "This is normal - stay invested through market cycles for best results"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan is fully active across all dimensions:\n\n- **passive_instrument_fraction**: 0.0 — Both funds are actively managed equity funds (HDFC Flexi Cap and Bandhan Small Cap), with no allocation to index funds or ETFs. The entire 100% equity allocation is active.\n\n- **turnover_score**: 0.75 — Rebalancing is recommended annually ('rebalance annually'), which is moderate. However, the plan includes tactical review checkpoints (e.g., 'add a mid-cap fund after 2 years') and performance monitoring, suggesting some active management. No frequent trading is prescribed, so it's not fully active, hence a score closer to neutral-passive but leaning active.\n\n- **cost_emphasis_score**: 0.0 — There is no mention of expense ratios, fees, or cost efficiency in the rationale. Fund selection is based on performance and track record, not cost minimisation.\n\n- **research_vs_cost_score**: 0.0 — The rationale emphasizes performance, track record, and growth potential (e.g., 'consistently beating market returns', 'high-performing'), indicating a research-driven, active selection process. No mention of market-cap weighting or broad market exposure without analysis.\n\n- **time_horizon_alignment_score**: 1.0 — The plan is explicitly long-term, with a 38-year horizon, SIP step-up, and advice to 'stay invested through market cycles'. This reflects strong alignment with long-term compounding.\n\n- **portfolio_activeness_score**: 0.0 — Both funds show signs of active management: HDFC Flexi Cap has alpha of 4.18 and tracking error of 3.88%, while Bandhan Small Cap has high alpha (9.78) and very high tracking error (11.72%), indicating significant active bets. The portfolio is clearly constructed with active conviction, not passive indexing.",
+    "composite_aps": 0.2916666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan scores highly on goal alignment because it matches Remy's long 38-year horizon, moderate risk appetite, and desire to build a habit with a simple, equity-heavy portfolio. The 60/40 flexi-cap and small-cap split supports growth while acknowledging his life stage. Diversification is moderate: while both funds are equity, the mix of flexi-cap (broad market) and small-cap adds some diversification, but lacks exposure to mid-caps, international equities, or debt—hence not full score. Risk-return is appropriate: the plan acknowledges volatility, especially in small caps, and sets realistic expectations with bear/base/bull case returns. Internal consistency is strong: the rationale, SIP step-up, rebalancing, and risk warnings all align coherently. Tax efficiency is perfect: the investor is in the 'new_regime' (no 80C benefit), and the plan correctly avoids ELSS and opts for pure equity funds taxed at favorable LTCG rates, with no slab-rate taxation exposure. No tax-inefficient debt funds are used, and the rationale explicitly justifies skipping ELSS—demonstrating tax-awareness.",
+    "composite_pqs": 0.85
+  },
+  "timestamp": "2026-04-18T15:56:40.315112Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 73504,
+    "output_tokens": 2004,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 5
+  },
+  "elapsed_s": 91.12320315279067
+}

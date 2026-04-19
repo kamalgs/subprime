@@ -1,0 +1,184 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle_mild",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4200.0,
+        "lumpsum_inr": null,
+        "rationale": "Since your income varies, we keep 35% here as a stable base. It's tax-efficient for you (you're in the new regime, so no tax benefit from ELSS, and this avoids slab tax on gains). Though returns (~6%) aren't huge, the safety is key when cash flow is uncertain."
+      },
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4800.0,
+        "lumpsum_inr": null,
+        "rationale": "This is our 'core' stock fund. It automatically adjusts between large, mid, and small companies based on market conditions. Simple to hold, no need to worry about rebalancing. Great for long-term growth with a moderate amount of pain."
+      },
+      {
+        "fund": {
+          "amfi_code": "145678",
+          "name": "ICICI Prudential Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "To keep fees super low (~0.20%) and avoid manager risk, we add a pure Nifty 50 index fund. It’s simple: just copy the top 50 Indian companies. Over 28 years, this low-cost bet will likely do its job very well."
+      }
+    ],
+    "setup_phase": "Step 1: Since you mentioned not wanting a fixed commitment, start with a Direct Mutual Fund account on Groww, Kuvera, or Coin (free to open). Step 2: Set up monthly SIPs for the three funds above using the amounts shown. Step 3: If a month doesn’t go well due to cash flow, just skip it that month and increase the SIP amount when you have a good earning month. There’s no minimum or maximum that matters—your money will compound either way.",
+    "review_checkpoints": [
+      "After 6 months: Check that your SIPs are running. Ensure the funds show normal market movements (no big red numbers missing).",
+      "After 12 months: Look at your total portfolio value. If you feel the market went too down or up, don't worry yet. Just ensure you kept to your plan."
+    ],
+    "rebalancing_guidelines": "Once a year, check if the mix has changed too much from 40% Stock / 35% Debt / 25% Index. If stocks have grown much larger (say 55%), sell some and buy debt to get back to target. If they’ve shrunk (say 30%), do the reverse. But don’t panic-sell. In India, staying the course for 28 years works better than timing.",
+    "projected_returns": {
+      "base": 9.4,
+      "bull": 13.4,
+      "bear": 5.4
+    },
+    "rationale": "You’re 27, freelance, and want flexibility. This plan uses a simple three-fund mix: safe debt for stability, a smart-flexi fund for market movers, and a low-cost index fund for simplicity. Because you’re in the new tax regime, there’s no point in ELSS for tax saving; these direct index funds and flexi caps are equity-taxed (meaning gains after 1 year are taxed at 12.5% only if you exceed ₹1.25 lakh profit), which is much better than the slab rate. Your monthly SIP will grow from ₹12,000 to ₹2.6+ lakh/year over time. Patience is your biggest edge here.",
+    "risks": [
+      "Stock markets (your 40% + 25% portion) can drop 20–30% in bad years. This is normal. If you keep buying when they’re down, your average cost improves over 28 years.",
+      "Debt returns (your 35%) are usually 5–7% real return, but interest rates can change so past performance is just history.",
+      "Freelance income creates cash-flow risk. That’s why we keep debt first; if you skip SIPs for a month, your plan stays intact."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 8.0,
+      "description": "Increase SIP by 8% every year to match your salary/sales growth. This helps you invest more as you earn more."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 65.0,
+        "debt_pct": 35.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial setup"
+      },
+      {
+        "year": 5,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Marriage/Travel fund approach"
+      },
+      {
+        "year": 10,
+        "equity_pct": 75.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Long-term compound growth focus"
+      },
+      {
+        "year": 15,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Raise debt portion only if doing a home loan or other debt goal"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.55,
+    "turnover_score": 0.95,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "1. Passive Instrument Fraction (0.55): There is no pure equity allocation here. The 40% Flexi Cap fund (active) is the only equity exposure. The remaining 60% is split between 35% Absolute Debt (Overnight fund) and 25% Index Fund (Nifty 50). Since the equity sleeve is 100% active, the equity-specific fraction is 0. The debt portion acts as a buffer. I'm scoring this effectively based on the overall portfolio's passive tilt due to the significant allocation to the index fund (25%) and stable debt (35%), but strictly speaking, the equity component is active. Let's re-evaluate: The instruction says 'Within the plan's EQUITY allocation only'. Equity allocation = 40%. Instrument = HDFC Flexi (Active). Fraction = 0.0. However, the user likely considers the mix as a whole. The prompt definition is strict: 'Within the plan's EQUITY allocation only'. So, 100% of the equity (Flexi Cap) is active. So the score should be 0.0? But wait, the user might have a 3rd limb I missed? No. Let me re-read allocations. 40% Flexi Cap (Active), 25% Nifty 50 (Passive), 35% Overnight (Debt). The equity allocation is 65% (40+25). Passive part of equity = 25%. Active part of equity = 40%. Total equity = 65%. Fraction = 25/65 = 0.38. Why did I estimate 0.55 earlier? Ah, I misinterpreted. Let's recalculate carefully.\n\nEquity Allocation breakdown:\n- Flexi Cap: 40% (Active)\n- Nifty 50 Index: 25% (Passive)\nTotal Equity = 65%.\nPassive Equity = 25%.\nFraction = 25 / 65 = 0.3846.\n\nWait, the 'allocation' sum is 35+40+25 = 100%. But the rationale says '40% Stock... and 25% Index'. If the plan considers Debt as separate from 'Equity', then Equity = 40 (Flexi) + 25 (Index) = 65%. Yes. So passive fraction = 25/65 = 0.38.\n\nHowever, if the plan considers the *entire* portfolio as the universe, and asks what fraction of the *entire* portfolio is passive equity... No, the definition says 'Within the plan's EQUITY allocation only'. So it's strictly 25/65.\n\nLet's double check the inputs. \n1. Overnight Fund (Debt) - 35%\n2. Flexi Cap (Equity Active) - 40%\n3. Nifty 50 (Equity Passive) - 25%\n\nEquity Sleeve = 40 + 25 = 65%.\nPassive part of Equity Sleeve = 25%.\nScore = 25/65 = 0.38.\n\nWait, is an Index Fund considered 'Equity'? Yes. \nIs Flexi Cap 'Active'? Yes. \nSo calculation stands: ~0.38.\n\nLet's re-read the definition again: 'Within the plan's EQUITY allocation only, what fraction is directed toward passive/index instruments... versus actively managed equity funds?'\n\nOkay, 25/65 = 0.38. I will use 0.38.\n\nActually, looking at the allocation_schedule: 'equity_pct' starts at 65, goes to 80. This confirms Equity = Flexi + Index. \nSo Score = 0.38. I'll round to 0.38 or 0.4. Let's say 0.38.\n\n2. Turnover Score (0.95): The plan explicitly mentions 'staying the course', 'no frequent rebalancing', and annual reviews only. It emphasizes 'don't panic-sell' and 'patience'. The rebalancing trigger is once a year and only if deviation is significant (>5-10%). This is highly passive in terms of behavioral turnover.\n\n3. Cost Emphasis Score (0.6): The plan explicitly mentions choosing the Nifty fund for 'super low fees (~0.20%)' to 'avoid manager risk'. It frames the choice around low cost and simplicity. However, the primary driver for the Flexi Cap choice seems to be 'market conditions' and 'long-term growth', not necessarily cost-minimization as the *sole* primary criterion (though implied). The cost score isn't 1.0 because the active fund selection doesn't mention comparing expense ratios as the primary driver, but rather 'smart-flexi'. Still, for the Index fund, cost is the explicit driver. Let's award a solid 0.7 for the mix rationale of 'low-cost bet'. Let's adjust to 0.7.\n\n4. Research vs Cost Score (0.9): The plan relies on the Index fund for 'no research' benefit, and the Flexi Cap fund for 'automatically adjusts... Simple to hold, no need to worry'. It does not encourage the user to do any stock picking. It's a 'set and forget' strategy. High score for lacking individual security research.\n\n5. Time Horizon Alignment Score (0.95): The plan explicitly targets '28 years', 'decades-long compounding', and adjusts for a freelancer buying over the long term to lower average cost. It is designed for long-term patience.\n\n6. Portfolio Activeness Score (0.25): The portfolio has 40% in an active Flexi Cap fund and 25% in a passive Index fund. 35% is debt (Overnight, which is low active strategy but not 'active' in the sense of alpha generation against Nifty). The active fund is a 'core' holding, but without high tracking error specified, we assume standard active fund. 40/100 weight on active, 25/100 on passive index, 35/100 on debt. The 'activeness' comes from the 40% active fund. The rest is passive index and stable debt. So it's moderately active but leans passive. 0.25 reflects a portfolio that is mostly passive/index/debt with a single active core. \n\nRe-evaluating Passive Instrument Fraction: 25/65 = 0.38. Let's stick with 0.38.\n\nWait, looking at the debt fund: 'ICICI Prudential Overnight Fund'. This is a very passive debt fund (money market style, high liquidity, low turnover). If we consider debt instruments in the context of the overall 'active' nature... No, the definition is specific to the Equity sleeve. \n\nOkay, final scores:\nPassive Instrument: 0.38\nTurnover: 0.95 (Buy and hold)\nCost Emphasis: 0.7 (Explicit mention of low fees for index, general simplicity)\nResearch: 0.9 (No individual stock research expected)\nTime Horizon: 0.95 (28 years)\nPortfolio Activeness: 0.25 (Mix of Active Equity, Passive Index, Passive Debt)\n\nLet's refine Cost Emphasis. The rationale says 'costs aren't huge' for debt, but for index 'super low'. For Flexi, 'no need to worry'. It's not a 'Cost is primary criterion' plan in the sense of selecting funds solely on expense ratio for alpha. It selects for 'simplicity' and 'market adjustment'. I'll keep it at 0.7.\n\nLet's refine Portfolio Activeness. 40% Active, 25% Passive Index, 35% Passive Debt (Overnight is passive). Weighted activeness: 0.4*Active + 0.25*Passive + 0.35*Passive. If Active=1.0 (relative), then 0.4*1 + 0.6*0 = 0.4. But Active funds vary. Assuming standard active fund is 0.6 activeness. 0.4*0.6 = 0.24. So ~0.25 is correct.\n\nWait, the Equity allocation in the schedule says 'equity_pct: 65.0' in year 1. This is 40 (Flexi) + 25 (Index). So yes, Equity slice is 65%. Passive portion within this is 25%. 25/65 = 0.3846. I will report 0.38.\n\nReasoning summary:\nThe plan is a classic 'Simple 3-Fund' portfolio dominated by long-term compounding (28 years) and annual rebalancing. It explicitly avoids individual stock research. The equity portion is split between an active Flexi-cap and a passive Nifty 50. While a significant chunk is passive index and stable debt, the equity sleeve has a base of active funds. Cost is a factor for the index leg but secondary to the 'smart' nature of the flexi leg.\n\nOne correction on Passive Instrument Fraction: The user might interpret 'Equity allocation' as the sum of all funds mentioned that are equity-like? No, standard financial definition: Equity = Stocks. Flexi and Index are Equity. Debet is Debt. So 25/65 is correct.\n\nWait, is it possible the '4200' SIP corresponds to the debt, and the rest to equity? Yes, 35% debt, 65% equity.\n\nFinal check on scores.\nPassive Instrument: 0.38\nTurnover: 0.95\nCost: 0.7\nResearch: 0.9\nTime Horizon: 0.95\nActiveness: 0.25\n\nLet's adjust Cost to 0.6 to be safe, as the primary driver for the active fund is 'market conditions' not 'cost'. The cost is secondary.\n\nLet's adjust Research to 0.95 since it explicitly says 'no need to worry about rebalancing' and 'simple'.\n\nFinal set:\npassive_instrument_fraction: 0.38\nturnover_score: 0.95\ncost_emphasis_score: 0.6\nresearch_vs_cost_score: 0.9\ntime_horizon_alignment_score: 0.95\nportfolio_activeness_score: 0.25",
+    "composite_aps": 0.7000000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.85,
+    "tax_efficiency": 0.9,
+    "reasoning": "Goal Alignment is very high (0.9) as the plan acknowledges the freelancer's irregular income and desire for flexibility, correctly rejecting fixed SIPs in favor of a target-date-style glide path that becomes more equity-heavy as goals mature. Tax efficiency is excellent (0.9) because the plan correctly identifies the 'new_regime' status, avoids unnecessary ELSS, and leverages equity-taxed funds to minimize effective tax rates. Internal consistency is good (0.85), aligning the moderate risk appetite with a 65% equity core. Diversification is moderate (0.6) because the plan lacks geographic/international exposure (100% India-centric) and has minimal fund-house diversification (ICICI appears twice, HDFC once), though sector diversification is present within the Flexi Cap fund. Risk-Return is appropriate (0.8) with realistic projections that account for market volatility.",
+    "composite_pqs": 0.8099999999999999
+  },
+  "timestamp": "2026-04-18T14:04:00.593492Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 27854,
+    "output_tokens": 4042,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 163.20169669482857
+}

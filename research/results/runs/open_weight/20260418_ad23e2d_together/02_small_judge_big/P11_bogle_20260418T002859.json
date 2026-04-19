@@ -1,0 +1,176 @@
+{
+  "persona_id": "P11",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119843",
+          "name": "SBI Multi Asset Allocation Fund - Direct Plan - Growth",
+          "category": "Conservative Hybrid",
+          "sub_category": "Multi Asset Allocation",
+          "fund_house": "SBI Funds Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": 3,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 55.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund mixes equity, debt, and gold (approx 60% equity). It's tax-efficient like equity funds even in your 20% slab because it qualifies as equity (>65% equity). Historically, this mix has delivered around 18% CAGR with much lower volatility than pure equity. It's a great 'sleep well at night' option for someone who wants growth but fears big drops."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "Gold",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": 4,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4500.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold is your insurance against inflation and bad times. It doesn't crash when stocks fall and tends to rise when metals are expensive. It's tax-efficient (12.5% LTCG after 1 year). It won't make you rich but will protect your wealth."
+      },
+      {
+        "fund": {
+          "amfi_code": "120665",
+          "name": "UTI Large & Mid Cap Fund - Direct Plan - Growth Option",
+          "category": "Large & Mid Cap",
+          "sub_category": "Large & Mid Cap",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": 4,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you need money in 8 years (age 52), we can't risk your entire portfolio in volatile small-cap stocks. This fund invests in big and established mid-sized companies that are harder to fail. It's less risky than small-cap but grows faster than bank deposits. Historically, it's delivered 20-22% CAGR."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on any app like Groww, Kuvera, or Coin. It takes 5 minutes and costs nothing.\nStep 2: Set up automatic monthly SIPs for Jan 1st (or your preferred date) in the three funds above. Link your bank account.\nStep 3: For the Rs 30 lakh inherited corpus, wait 6 months. Then break it into 3 tranches: Rs 1 lakh monthly for 30 months. Invest each tranche lump-sum into the same funds above (55% Multi Asset, 15% Gold, 30% Large&Mid).\nStep 4: Once the corpus is fully invested, your total monthly SIP (Rs 30,000 from salary + Rs 0 from corpus investment = Rs 30,000) will keep building up.",
+    "review_checkpoints": [
+      "After 1 year: Ensure all 3 SIPs are running and you haven't missed any payments. Check if any fund underperformed its benchmark badly.\nAfter 5 years: Pause auto-debit, withdraw 10% of your saved corpus, keep the rest invested. This helps you mentally and gives flexibility if your salary drops.\nEvery year: See if your mix has drifted. If Multi Asset became 60% of your total holdings (up from 55%), sell a bit to bring it back.",
+      "rebalancing_guidelines",
+      "Rebalance once a year, ideally around April or your birth month.\n- If your Multi Asset fund has grown too big (>60% of total), sell the extra to buy more Gold or Large&Mid.\n- If tax changes the fund's category (rare), re-evaluate.\n- Never rebalance during a market crash (e.g., if Nifty falls 20%). That's when you *buy*, not sell.",
+      "projected_returns",
+      "Your 16-year horizon is well-suited for skewed toward intermediate-sub-category multi asset allocations with lower volatility.\n\nbase: 80% equity exposure: 0.7(18) + 0.3(9) = 15.3% CAGR. Over 16 years, Rs 30k/month. becomes ~Rs 1.38 crore. With 12.5% LTCG tax (approx 7.8% average yearly), net ~Rs 1.27 crore.\n\nbull: base + 4% = 19.3% CAGR. Net ~Rs 1.6 crore.\n\nbear: base - 4% = 11.3% CAGR. Net ~Rs 85 lakh.",
+      "rationale",
+      "You're a school teacher — steady income — but you've lost your spouse. You rightly care more about protecting what you have than chasing impossible returns. This is why we keep 55% in Multi Asset (balanced, tax-efficient), 30% in Large&Mid (safer stocks), and 15% in Gold. Never chases 15%+ returns blindly. If your child's school fee bill comes due in 8 years, you need money that's actually there. This portfolio aims to deliver steady, modest growth while tax-efficiently preserving your inherited wealth.",
+      "risks",
+      "- Equity markets can drop 20-30% in a bad year, and gold can stay flat. Your total portfolio might fall 10-15% temporarily. Don't panic; just stay invested.\n- Multi Asset funds can underperform in specific market conditions.\n- If inflation stays high (10%+), your buying power may reduce.\n- Since you're in the 20% slab, your post-tax returns will be slightly better than if you were in 30%, but the difference isn't huge.",
+      "disclaimer",
+      "For research/educational purposes only. Not certified financial advice."
+    ],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 12.0,
+      "description": "Increase SIP by 12% every year to match inflation and salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 85.0,
+        "debt_pct": 0.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Initial setup"
+      },
+      {
+        "year": 5,
+        "equity_pct": 85.0,
+        "debt_pct": 0.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Mid-horizon check"
+      },
+      {
+        "year": 10,
+        "equity_pct": 85.0,
+        "debt_pct": 0.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Pre-maturity shift"
+      },
+      {
+        "year": 16,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Goal attainment - pre-withdrawal"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan allocates 55% to a multi-asset fund (60% equity portion implies ~33% of total portfolio in equity), 30% to a Large & Mid Cap fund, and 15% to Gold ETF. All equity allocations are to actively managed funds (SBI Multi Asset and UTI Large & Mid Cap), with no index funds or ETFs in the equity sleeve, resulting in a passive_instrument_fraction of 0.0.\n\nRebalancing is recommended annually, only if allocations drift significantly, and explicitly avoided during market crashes, indicating low turnover (turnover_score = 0.8). Costs and expense ratios are not discussed anywhere, despite being a key differentiator in passive investing; fund selection appears based on category and historical returns, not cost-efficiency (cost_emphasis_score = 0.2).\n\nThe rationale focuses on fund categories, tax efficiency, and broad risk profiles rather than deep research into individual holdings, but still implies trust in active management based on past CAGR claims — suggesting moderate reliance on active research (research_vs_cost_score = 0.1).\n\nThe investment horizon is clearly long-term (16 years), with a structured drawdown plan at year 5 and final shift to debt at year 16, reflecting strong long-term orientation (time_horizon_alignment_score = 0.9).\n\nRisk metrics are missing for all funds, but based on category and rationale (e.g., 'historically delivered 18-22% CAGR', 'mix of equity, debt, gold'), the portfolio appears to rely on actively managed, higher-tracking-error strategies. The Multi Asset fund likely behaves like a tactical asset allocator, and the Large & Mid Cap fund is actively managed. Gold ETF is passive but not equity. Overall portfolio activeness is low, hence portfolio_activeness_score = 0.2.",
+    "composite_aps": 0.3666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.85,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan shows strong goal alignment by prioritizing capital preservation and modest growth, matching Marge's conservative risk appetite and life stage. The 55% allocation to a multi-asset fund (treated as equity for tax) combined with 30% in Large & Mid Cap and 15% in Gold aligns with her need for stability, inflation protection, and long-term growth for children's education and corpus preservation. Diversification is good across equity, gold, and hybrid-like exposure via the multi-asset fund, though debt is underrepresented—however, this is partially justified by the tax-efficient nature of the multi-asset fund. Risk-return is mostly appropriate, though the projected 18-22% CAGR is optimistic and not fully backed by historical data; the plan acknowledges volatility but could better temper return expectations. Internal consistency is high: rationale, allocations, rebalancing, and risk warnings cohere well, though the allocation schedule shows a late shift to debt (year 16), which could be phased earlier for a conservative investor. Tax efficiency is excellent: the plan correctly identifies the equity tax treatment of the multi-asset fund (>65% equity) for a 20% slab investor, avoids slab-taxed debt funds, uses gold ETFs efficiently, and omits ELSS (which would be redundant since no 80C benefit is mentioned and tax focus is on LTCG efficiency). No tax errors; explicit rationale given. Overall, a well-structured, tax-smart plan with minor over-optimism in returns.",
+    "composite_pqs": 0.8400000000000001
+  },
+  "timestamp": "2026-04-18T00:28:59.886852Z",
+  "prompt_version": "v1"
+}

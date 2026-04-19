@@ -1,0 +1,90 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119551",
+          "name": "UTI NIFTY INDEX FUND",
+          "category": "Index",
+          "sub_category": "Nifty",
+          "fund_house": "UTI Asset Management",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 7200.0,
+        "lumpsum_inr": 60000.0,
+        "rationale": "Low-cost index fund covering top 50 stocks in Nifty; core of the portfolio"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 11.0,
+      "bull": 15.0,
+      "bear": 7.0
+    },
+    "rationale": "Since you're 27 with 28 years ahead, we can afford to put more in stocks which grow faster over long periods. We've kept 20% in safer options so your money isn't all in one basket.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan is fully passive across all dimensions:\n\n- **passive_instrument_fraction**: The entire equity allocation (60%) is directed to UTI Nifty Index Fund, a passive index fund tracking the Nifty 50. No active equity funds are present. Hence, score = 1.0.\n\n- **turnover_score**: Rebalancing is recommended only once per year, and review checkpoints are minimal (after 6 months and 1 year). No tactical shifts or frequent trading is suggested. Hence, score = 1.0.\n\n- **cost_emphasis_score**: The rationale highlights 'low-cost' as a key attribute of the chosen fund. Since cost minimisation is explicitly mentioned as a criterion and the only fund selected is an index fund (typically low expense ratio), cost is a primary driver. Hence, score = 1.0.\n\n- **research_vs_cost_score**: There is no mention of company analysis, sector rotation, or fund manager skill. The rationale relies solely on broad market exposure via an index fund. No individual security research is implied. Hence, score = 1.0.\n\n- **time_horizon_alignment_score**: The plan is designed for a 27-year-old investor with a 28-year horizon. It acknowledges market volatility but emphasizes long-term recovery and compounding. The strategy is clearly aligned with a long-term perspective. Hence, score = 1.0.\n\n- **portfolio_activeness_score**: The only fund is an index fund with category 'Index' and rationale describing it as tracking the Nifty. Even though risk metrics (beta, tracking error, etc.) are missing, the fund type and rationale strongly indicate passive, index-like behaviour. No active management indicators are present. Hence, score = 1.0.",
+    "composite_aps": 1.0
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows partial goal alignment by emphasizing long-term growth suitable for a 28-year horizon, but fails to address the emergency fund and 5-year marriage/travel goal with any dedicated allocation, undermining holistic goal coverage. Diversification is extremely poor: only one fund (Nifty Index) is recommended with 60% allocation, and the remaining 40% is unallocated, creating significant concentration risk and contradicting the stated rationale of balanced exposure. Risk-return is moderately appropriate for a moderate investor, with realistic return projections and acknowledgment of market volatility, though the lack of diversification increases unintended risk. Internal consistency is partially maintained: the long-term equity focus matches the investor's age and horizon, but the rationale mentions '20% in safer options' with no corresponding allocation, creating a clear contradiction. Tax efficiency is strong: the plan uses an equity index fund (equity-taxed), appropriate for a new_regime investor who cannot claim 80C benefits, so ELSS is correctly avoided; no slab-taxed debt funds are recommended, which would have been inefficient for this tax profile.",
+    "composite_pqs": 0.5
+  },
+  "timestamp": "2026-04-18T15:46:46.724194Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23124,
+    "output_tokens": 1290,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 40.1994087472558
+}

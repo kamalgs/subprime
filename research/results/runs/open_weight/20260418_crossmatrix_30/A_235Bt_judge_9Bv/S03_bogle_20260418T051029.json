@@ -1,0 +1,170 @@
+{
+  "persona_id": "S03",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9800.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks the Nifty Midcap 150 index, giving you exposure to 150 growing Indian companies outside the biggest names. It has a very low yearly fee (0.2%) and has delivered strong long-term returns. At 70%, this is your main growth engine for building wealth over 30+ years."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2800.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund mixes stocks and bonds (around 65-80% stocks), making it less bumpy than pure stock funds. It's equity-taxed (better for your 30% tax slab) and helps balance risk. It adds stability while still growing well over time."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1400.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a safety net when stock markets fall. It also protects against inflation. This ETF directly tracks gold prices with low fees. 10% allocation helps reduce overall portfolio risk."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete your KYC (PAN, Aadhaar, bank account).\nStep 2: Search for each fund by name.\nStep 3: Choose 'Direct Plan' and 'Growth' option.\nStep 4: Start SIPs of ₹9,800, ₹2,800, and ₹1,400 respectively. Set SIP date to your salary day.\nStep 5: Invest your existing ₹1.6L corpus in the same 70:20:10 ratio via lumpsum.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Compare each fund's 1-year return with its category average. If any fund is consistently underperforming, consider switching.",
+      "Every 3 years: Review if your risk level still matches your comfort."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio value. If any category is more than 5% away from your target (e.g., equity goes from 70% to 76%), sell some of the overgrown part and buy the underweight part to get back to 70:20:10.",
+    "projected_returns": {
+      "base": 17.5,
+      "bull": 21.5,
+      "bear": 13.5
+    },
+    "rationale": "At 30, with 33 years to go, you can afford to take smart risks for higher growth. Your 30% tax slab makes equity-taxed funds (like these) more valuable after tax. The plan uses low-cost index and hybrid funds to grow your wealth steadily. The ₹1.6L existing corpus is invested upfront. While you want income in 5 years, this long-term plan focuses on growth first. Later, we can shift some profits to income funds.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal.",
+      "Midcap stocks are more volatile than large companies — they can grow faster but also fall harder.",
+      "Gold prices can stay flat for years and don't pay interest.",
+      "Inflation can eat into returns if actual growth is lower than expected.",
+      "Your ₹21L liability could grow if not managed, affecting future savings."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 70.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Start of investment"
+      },
+      {
+        "year": 15,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching mid-life, reduce equity risk slightly"
+      },
+      {
+        "year": 25,
+        "equity_pct": 50.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Closer to retirement, shift more to stable options"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.85,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.95,
+    "reasoning": "The plan is heavily weighted towards passive instruments (70% in an Index Fund, 10% in a Gold ETF, and 20% in a hybrid fund that typically follows index-like equity exposure for the debt portion or uses a diversified top-down strategy rather than individual security picking). The equity sleeve (80% total exposure to equity-linked instruments) is dominated by an explicit index fund. Turnover is low to moderate (annual rebalancing with a 5% band, plus a one-time check at 1 year), fitting a long-term buy-and-hold style. Cost emphasis is high (explicitly mentions low fees, low expense ratios). Research is non-existent in the plan (relies on index/market exposure, no individual stock analysis). Time horizon is very long (30+ years, unguided SIPs with step-ups). Portfolio activeness is low because the main equity vehicle is a pure index fund, the gold is an ETF, and the hybrid fund is a standard balanced approach without concentrated active bets.",
+    "composite_aps": 0.9416666666666668
+  },
+  "pqs": {
+    "goal_alignment": 0.65,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.85,
+    "reasoning": "1. **Goal Alignment (0.65):** The plan addresses the long-term retirement goal well (70% equity), but fails to address the 'income in 5 years' preference. The equity-heavy 70% allocation exposes the investor to significant sequence-of-returns risk if they need to start withdrawing by age 35 during a potential market dip. The 15-year glide path is too slow to protect capital needed for near-term income generation.\n\n2. **Diversification (0.7):** The portfolio has broad asset class coverage (Midcaps, Large/Mid Mix, Gold). However, it lacks deep diversification. The 70% allocation is fully concentrated in *one* index fund (Nifty Midcap 150), exposing the portfolio to single-stock and single-sector risks without benefitting from large-cap stability. Missing a Dedicated Debt/Gold Bond or Multi-Asset fund to manage the fixed income portion adds concentration risk.\n\n3. **Risk-Return Appropriateness (0.6):** The investor is 30 with a 'moderate' risk appetite. Allocating 70% to volatile Midcap index funds is typically considered 'Aggressive' rather than moderate. With a 5-year income horizon, this high volatility is a mismatch. The plan acknowledges the risk but does not sufficiently de-risk the asset mix for a moderate investor with a near-term liability (education abroad/income need).\n\n4. **Internal Consistency (0.8):** The plan is mostly consistent. The rationale, fund choices, and allocation schedule tell a coherent story. The slight deduction is due to the discrepancy between the stated 'moderate' preference and the 'aggressive' 70% midcap allocation, and the lack of a concrete mechanism to satisfy the 5-year income goal which the long-term glide path contradicts.\n\n5. **Tax Efficiency (0.85):** Excellent for a 30% slab investor. The plan correctly utilizes equity-taxed instruments: Aggressive Hybrid Fund (taxed as equity for LTCG), Midcap Index (equity taxed), and Gold ETF (equity taxed). It avoids slab-taxed debt funds which would be inefficient given the investor's high tax bracket. It effectively manages the tax drag on the debt component of the portfolio.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-18T05:10:29.205452Z",
+  "prompt_version": "v1"
+}

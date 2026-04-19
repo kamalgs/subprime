@@ -1,0 +1,147 @@
+{
+  "persona_id": "P15",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119018",
+          "name": "HDFC Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 3000000.0,
+        "rationale": "Stable large-cap fund with a long history of consistent returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "150404",
+          "name": "Bandhan Conservative Hybrid Fund",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 2250000.0,
+        "rationale": "Conservative hybrid fund with a stable mix of debt and equity"
+      },
+      {
+        "fund": {
+          "amfi_code": "151130",
+          "name": "HSBC Short Duration Fund",
+          "category": "Short Duration",
+          "sub_category": "",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 2250000.0,
+        "rationale": "Short-duration debt fund for liquidity and low risk"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Invest the lump sum amounts in the recommended funds.",
+    "review_checkpoints": [
+      "After 6 months: check if the funds are performing as expected",
+      "After 1 year: review the portfolio and rebalance if necessary"
+    ],
+    "rebalancing_guidelines": "Rebalance the portfolio every 6 months to maintain the target allocation",
+    "projected_returns": {
+      "base": 8.0,
+      "bull": 12.0,
+      "bear": 4.0
+    },
+    "rationale": "The investment plan is designed to provide stable and predictable returns, with a focus on conservative hybrid and short-duration debt funds. The large-cap fund provides a stable core to the portfolio, while the conservative hybrid fund adds a mix of debt and equity. The short-duration debt fund provides liquidity and low risk.",
+    "risks": [
+      "Market risk: the value of the investments may fluctuate",
+      "Credit risk: the risk of default by the issuers of the debt securities"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan consists entirely of actively managed funds: HDFC Large Cap Fund (large-cap active), Bandhan Conservative Hybrid Fund (hybrid active), and HSBC Short Duration Fund (debt active). There is no allocation to index funds or ETFs, so passive_instrument_fraction is 0.0. The rebalancing is recommended every 6 months, which indicates moderate turnover, but combined with active fund choices, turnover_score is low (0.0). Costs (expense ratios) are not discussed in the rationale, so cost_emphasis_score is 0.0. The rationale focuses on fund stability and category roles, not cost or indexing, and implies research-based selection, so research_vs_cost_score is 0.0. The time horizon appears medium to long-term (1-year review, projected returns), but not strictly buy-and-hold, so time_horizon_alignment_score is 0.5. The portfolio uses only actively managed funds with no passive instruments, and risk metrics are missing, but category and rationale confirm active management, so portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.08333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan aligns reasonably well with Scarlett's conservative risk appetite and 12-year horizon, particularly supporting her near-term daughter's wedding goal (4 years) and retirement at 60. The 40% allocation to a large-cap fund provides equity exposure for inflation-beating returns, while 60% in conservative hybrid and short-duration debt matches her preference for stability. However, diversification is limited: only three funds, single fund houses, no international or mid/small-cap exposure, increasing concentration risk.\n\nThe risk-return profile is mostly appropriate: projected 8% base return is realistic for this allocation, and downside (4%) is acknowledged. The rationale, allocations, and rebalancing guidelines are internally consistent—lump sum focus matches her irregular income, and the conservative tilt supports her risk profile.\n\nTax efficiency is severely lacking. The investor is in the 30% tax slab, yet 60% of the portfolio is in slab-taxed instruments: Bandhan Conservative Hybrid (typically <65% equity) and HSBC Short Duration Fund (debt) will be taxed at 30%. Better alternatives exist: Aggressive Hybrid funds (e.g., with ≥75% equity) or arbitrage funds would qualify for equity taxation (STCG 20%, LTCG 12.5% above ₹1.25L), significantly improving post-tax returns. No mention of ELSS despite her being in the old regime (30% slab) with likely 80C headroom—missing a key tax-saving and wealth-building opportunity. The plan fails to address tax implications, making it tax-blind despite high stakes.",
+    "composite_pqs": 0.6499999999999999
+  },
+  "timestamp": "2026-04-18T15:45:57.434671Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24182,
+    "output_tokens": 1643,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 103.28464816417545
+}

@@ -1,0 +1,188 @@
+{
+  "persona_id": "P10",
+  "condition": "bogle_nofunds",
+  "model": "together:zai-org/GLM-5.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.31,
+          "morningstar_rating": null,
+          "returns_1y": 9.98,
+          "returns_3y": 18.66,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": 264000.0,
+        "rationale": "Your core fund. It holds ~65% stocks and ~35% bonds in one package - self-balancing. When stocks rise it participates; when they fall, bonds cushion the blow. Equity-taxed (lower tax on gains), run by ICICI Prudential, Rs.12,527 Cr AUM over 26 years. One fund, simple."
+      },
+      {
+        "fund": {
+          "amfi_code": "151078",
+          "name": "HSBC ELSS Tax Saver Fund - Direct Growth",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 445.67,
+          "morningstar_rating": null,
+          "returns_1y": 11.19,
+          "returns_3y": 19.4,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": 110000.0,
+        "rationale": "Saves real tax money. At your 20% slab, every Rs.1 invested saves 20 paise under Section 80C. Rs.60K/year invested = ~Rs.12,000 tax saved. 3-year lock-in per SIP, but with 18 years to retirement, early units unlock well before you need them. Equity-taxed on gains."
+      },
+      {
+        "fund": {
+          "amfi_code": "140088",
+          "name": "Nippon India ETF Gold BeES",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 53346.31,
+          "morningstar_rating": null,
+          "returns_1y": 58.39,
+          "returns_3y": 33.78,
+          "returns_5y": 25.03,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold is your safety net - it tends to rise when stocks fall and protects against inflation. India's largest gold ETF (Rs.53,346 Cr AUM), very liquid. You need a demat account for this ETF. If that's too complex, use any Gold Savings Fund instead."
+      }
+    ],
+    "setup_phase": "Step 1 - Emergency fund first. Set aside Rs.2 lakh from your existing Rs.10 lakh corpus into a savings account or FD. This is your 6-month cushion. Do not invest this.\n\nStep 2 - Deal with the Rs.8 lakh liability. If it's a personal loan or credit card (>10% interest), pay it off before investing more. If it's a home loan (~8%), invest alongside since your returns should exceed the loan cost.\n\nStep 3 - Open accounts. Download Kuvera or Groww (free, direct plans, no commission). For the Gold ETF, you'll need a demat account - both apps help you open one via Zerodha/CDSL.\n\nStep 4 - Start SIPs. Set up three monthly SIPs: Rs.12,000 in ICICI Equity and Debt, Rs.5,000 in HSBC ELSS, Rs.3,000 in Gold BeES.\n\nStep 5 - Deploy the lumpsum. After emergency fund and liability handling, invest the remaining corpus into the first two funds in a 60:25 ratio. Spread over 6 monthly installments via STP so you don't buy at a market peak.",
+    "review_checkpoints": [
+      "After 6 months: Check all three SIPs are running without failed transactions. Ensure demat account is active for Gold ETF.",
+      "After 1 year: Did any fund's 1-year return fall way behind its category peers (more than 5% gap)? If not, do nothing. Verify your 80C deduction came through in your ITR.",
+      "After 5 years (age 47): Review total corpus. You should have roughly Rs.18-20 lakh. Check if the overall mix has drifted more than 5% from your target.",
+      "After 12 years (age 54): Start reducing risk. Begin shifting money from ELSS and Equity and Debt into shorter-duration debt or arbitrage funds. Target 30-40% in safer options by age 57.",
+      "After 17 years (age 59): Move most of the portfolio to stable options. At age 60, no more than 30% in stocks."
+    ],
+    "rebalancing_guidelines": "Once a year (every January), check if your allocation has drifted more than 5% from target. If stocks did well and equity-heavy funds now make up 70% instead of 60%, sell some and buy gold or shift to the hybrid fund's debt side. Never rebalance more than once a year - frequent adjustments hurt returns through taxes and costs.\n\nStarting at age 52 (10 years in), gradually move money from stocks to safer options. Each year, shift about 3-4% from the ELSS and hybrid fund into short-term debt or arbitrage funds. By age 58, aim for roughly 60% in safe options and 40% in stocks. By age 60, flip to 70% safe / 30% stocks.",
+    "projected_returns": {
+      "base": 12.2,
+      "bull": 16.2,
+      "bear": 8.2
+    },
+    "rationale": "Forrest, you're 42 with 18 years to retirement, moderate risk appetite, and a preference for simple and steady. This 3-fund plan gives you: (1) A hybrid fund that auto-balances stocks and bonds - you never have to think about it, (2) An ELSS fund that saves you Rs.12,000/year in taxes at your 20% slab, and (3) Gold as insurance against market crashes and inflation. The 60% hybrid + 25% ELSS means 85% is equity-taxed (lower tax on gains). You can explain this to your wife in one sentence: 'One fund grows my money steadily, one saves tax, one is gold for safety.'",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year. Your portfolio value will temporarily go down. This is normal and recovers over time - don't panic and stop SIPs during a crash.",
+      "Gold doesn't always go up. After years like 2024 (58% return), gold can go sideways or down for long stretches. Hold it for insurance, not quick gains.",
+      "The ELSS fund locks each SIP for 3 years. You cannot withdraw that money until the lock-in ends. Plan accordingly.",
+      "If your Rs.8 lakh liability has a high interest rate (>10%), not paying it off first could cost you more than your investments earn."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth. This small step dramatically boosts your final corpus - a Rs.20,000/month SIP with 10% annual step-up creates roughly 40% more wealth than a flat SIP over 18 years."
+    },
+    "allocation_schedule": [
+      {
+        "year": 2025,
+        "equity_pct": 85.0,
+        "debt_pct": 0.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Starting allocation - aggressive phase"
+      },
+      {
+        "year": 2035,
+        "equity_pct": 60.0,
+        "debt_pct": 25.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Age 52 - begin derisking"
+      },
+      {
+        "year": 2040,
+        "equity_pct": 40.0,
+        "debt_pct": 45.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Age 57 - mostly safe"
+      },
+      {
+        "year": 2043,
+        "equity_pct": 30.0,
+        "debt_pct": 55.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Age 60 - retirement allocation"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan uses no passive/index equity instruments; both equity allocations (ICICI Equity & Debt and HSBC ELSS) are actively managed hybrid and ELSS funds, resulting in a passive_instrument_fraction of 0.0. Turnover is low, with rebalancing only once a year and gradual derisking over time, hence a high turnover_score of 0.8. Cost is mentioned only in the context of tax savings (80C), not expense ratios or fees, so cost_emphasis_score is low (0.3). The plan emphasizes fund-specific rationale (tax efficiency, hybrid structure) rather than broad market exposure, indicating no preference for cost or indexing over research, leading to a research_vs_cost_score of 0.0. The time horizon is clearly long-term (18 years to retirement), with structured checkpoints and glide path, so time_horizon_alignment_score is 0.9. Portfolio activeness is moderate: while risk metrics are missing, the funds are actively managed categories (Aggressive Hybrid, ELSS), but not high-conviction active strategies; however, lack of passive equity and active management tilt leads to a portfolio_activeness_score of 0.2.",
+    "composite_aps": 0.3666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.95,
+    "reasoning": "The investment plan is of high quality across all dimensions:\n\n- **goal_alignment (0.95):** The plan directly addresses Forrest's retirement goal (2Cr by 60), children's education, and emergency fund. The 18-year horizon is respected with a glide path reducing equity exposure over time. The setup phase prioritizes emergency fund and liability management, aligning with his life stage and financial priorities. Only minor deduction for not explicitly linking children's education funding to a separate allocation.\n\n- **diversification (0.85):** The portfolio is well-diversified across equity (via hybrid and ELSS), gold, and implied debt (within hybrid). However, it lacks explicit exposure to international equities or broader fixed income beyond the hybrid fund's internal debt. Gold provides inflation and crisis hedge. The 60:25:15 split is reasonable, but true diversification across sectors/geographies is indirect via fund choices.\n\n- **risk_return_appropriateness (0.9):** Matches moderate risk appetite with a core hybrid fund and gradual de-risking. Projected returns (12.2% base) are realistic for an 85% effective equity exposure initially. Risks are clearly explained (market drops, gold volatility, lock-ins). SIP step-up enhances corpus without increasing risk.\n\n- **internal_consistency (0.95):** The rationale, allocations, glide path, rebalancing, and review checkpoints are fully aligned. The plan explains tax savings, setup steps, and behavioral guidance cohesively. No contradictions between strategy and execution.\n\n- **tax_efficiency (0.95):** Excellent tax-aware design. Recognizes investor is in 20% slab and uses ELSS to claim 80C benefit (Rs.60k/year saves Rs.12k). 85% of portfolio (hybrid + ELSS) is equity-taxed, avoiding slab taxation on gains. Aggressive Hybrid fund correctly used for lower tax on debt portion. Gold ETF taxed as capital asset, appropriate. Only minor deduction for not explicitly contrasting with slab-taxed debt funds, but rationale implies awareness.",
+    "composite_pqs": 0.9199999999999999
+  },
+  "timestamp": "2026-04-18T19:58:28.449649Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 84881,
+    "output_tokens": 11828,
+    "cache_read_tokens": 36800,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 4
+  },
+  "elapsed_s": 424.3919813921675
+}

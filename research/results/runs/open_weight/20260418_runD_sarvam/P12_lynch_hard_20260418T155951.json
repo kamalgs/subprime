@@ -1,0 +1,108 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152476",
+          "name": "HDFC Large & Medium Value Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large & Medium",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.05
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15.0% post-1 year"
+      },
+      {
+        "fund": {
+          "amfi_code": "152476",
+          "name": "HDFC Large & Medium Value Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large & Medium",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.05
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15.0% post-1 year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 70% of the portfolio (40% + 30%) to an actively managed equity fund, HDFC Large & Medium Value Fund, which falls under the 'Large & Medium' equity category and has a low information ratio of 0.05, suggesting minimal active outperformance. However, the lack of risk metrics (beta, tracking error, alpha) limits precise quantification, but the fund's category and name imply active stock-picking with a value tilt, indicating active management. Thus, passive_instrument_fraction is 0.0 as no index or passive funds are used.\n\nThere are no rebalancing guidelines or review checkpoints specified, implying a static, set-and-forget approach, which suggests low turnover. Hence, turnover_score is 1.0.\n\nThere is no mention of expense ratios, cost efficiency, or tax considerations in the rationale or setup, so cost_emphasis_score is 0.0.\n\nThe rationale provided ('15.0% post-1 year') appears incomplete or placeholder-like, but no discussion of research methodology, company analysis, or manager skill is evident. However, the use of an actively managed fund without cost focus implies reliance on manager research, so research_vs_cost_score is 0.0.\n\nThe absence of frequent review or rebalancing implies a long-term holding period, supporting a time_horizon_alignment_score of 1.0.\n\nThe portfolio_activeness_score is 0.0 because the entire equity allocation is to a single actively managed fund (even with low information ratio), and there is no indication of passive or index-like exposure. The repeated allocation to the same active fund reinforces active intent, despite weak performance metrics.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.1,
+    "reasoning": "The investment plan shows very poor alignment with Ron Swanson's conservative risk appetite and preference for understandable, low-volatility instruments. Allocating 70% to a single equity fund (HDFC Large & Medium Value Fund) — and that too duplicated in two entries — contradicts his deep conservatism and explicit avoidance of complex or aggressive equity products. This misalignment is further exacerbated by the lack of diversification: only one fund across a single asset class (equity), with no exposure to debt, arbitrage, or gold as per his preferences. The plan lacks any rationale for the 70% equity allocation, offers no rebalancing guidelines, and fails to address risk beyond a generic disclaimer. Critically, the investor is in the 30% tax slab, yet the plan recommends a pure equity fund without considering tax-efficient alternatives for fixed-income needs, and omits ELSS despite the investor being in the old regime (implied by 30% slab with 80C relevance). However, equity funds do provide equity taxation benefits (LTCG up to 12.5% after ₹1.25L), which is marginally favorable, but this is outweighed by the absence of tax-aware debt allocation. The plan is internally inconsistent: it recommends aggressive equity exposure while the investor seeks capital preservation and monthly income. Overall, the plan ignores the investor's life stage, goals, and stated preferences, resulting in low scores across all dimensions.",
+    "composite_pqs": 0.18
+  },
+  "timestamp": "2026-04-18T15:59:51.435356Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23468,
+    "output_tokens": 1340,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 69.04386750794947
+}

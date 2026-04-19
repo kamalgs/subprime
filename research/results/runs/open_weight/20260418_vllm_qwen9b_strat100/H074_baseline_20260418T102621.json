@@ -1,0 +1,216 @@
+{
+  "persona_id": "H074",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118004",
+          "name": "SBI Long Term Equity Fund - Direct Plan Growth",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2700.0,
+        "lumpsum_inr": null,
+        "rationale": "This is an ELSS fund (Equity Linked Savings Scheme) which gives you a tax deduction under Section 80C up to ₹1.5 Lakhs per year. Since you are in the 20% tax bracket, this reduces your taxable income directly. It also has a 3-year lock-in and then earns equity tax (12.5% on long-term gains). We allocated 10% because you have 1.5 lakhs unused 80C limit and want to maximize this benefit while keeping some exposure to equity growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large & Mid Cap Fund - Direct Plan - Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "very_high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10800.0,
+        "lumpsum_inr": null,
+        "rationale": "For your 5-year goal of post-retirement travel, we need growth potential. Large & Mid cap funds invest in bigger companies (more stable) and smaller companies (higher growth but more volatility). This fund has a mix of both, allowing us to stay within your comfort zone of up to 40% in mid/small caps. It has consistently beaten its benchmark over 5 years with a moderate yearly fee."
+      },
+      {
+        "fund": {
+          "amfi_code": "120392",
+          "name": "Invesco India Largecap Fund - Direct Plan - Growth",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6750.0,
+        "lumpsum_inr": null,
+        "rationale": "Large cap funds invest in the top 100 companies in India, which are generally more stable than smaller companies. This fund has a low yearly fee (1%) and good 5-year returns (15.3%), making it a good core holding for the 'larger' portion of our equity allocation. It helps us keep the overall risk manageable while still getting exposure to India's growth story."
+      },
+      {
+        "fund": {
+          "amfi_code": "151307",
+          "name": "Aditya Birla Sun Life Multi Asset Allocation Fund - Direct Growth",
+          "category": "Multi Asset Allocation",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6750.0,
+        "lumpsum_inr": null,
+        "rationale": "This is a hybrid fund that automatically balances between stocks, bonds, and gold. It's managed digitally to rebalance regularly. Since it's a Multi Asset Allocation fund, it's taxed at your slab rate (20%), which is concessional compared to regular debt funds for someone in the 20%+ bracket. We chose this to give you a bit of active management with lower volatility than pure equity."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin (any of these apps are free and user-friendly). Step 2: Link your bank account. Step 3: Start monthly SIPs: ₹2,700 in SBI Long Term Equity Fund, ₹10,800 in ICICI Prudential Large & Mid Cap Fund, ₹6,750 in Invesco India Largecap Fund, and ₹6,750 in Aditya Birla Sun Life Multi Asset Allocation Fund. Make sure all SIPs start on the same date each month (e.g., 5th) for easier tracking. Step 4: Set up auto-debit so money moves from your account automatically. Step 5: After the first year, call your AMC or check the app to see how each fund is performing compared to its peers.",
+    "review_checkpoints": [
+      "After 3 months: Check if all SIPs are running and no payments have failed. Also, ensure your bank account has enough balance.",
+      "After 6 months: Look at the NAV (current market price) of your funds. If any fund has performed poorly compared to its category average, we may consider switching to a better performing fund in the same category.",
+      "After 1 year: Review the asset allocation. If the Multi Asset Allocation fund has grown faster, debt or equity portions may have shifted. Rebalance if the mix deviates significantly from our target.",
+      "After 2 years: Evaluate if the ELSS fund (SBI ELSS) has met your tax-saving goal. Since it has a 3-year lock-in, check if switching is necessary in the future.",
+      "After 3 years: Since the 3-year lock-in periods are ending for some funds, assess whether to continue investing or switch to better-performing alternatives."
+    ],
+    "rebalancing_guidelines": "Once a year, review your portfolio to ensure your allocation hasn't drifted too far from the target. For example, if the Large & Mid Cap component has grown significantly (say, from 40% to 50%), we might move some of that profit into the safer Multi Asset Allocation fund. This keeps your risk level in check.",
+    "projected_returns": {
+      "base": 10.8,
+      "bull": 16.8,
+      "bear": 6.8
+    },
+    "rationale": "Given your age (64), 5-year horizon, and conservative risk appetite, we've created a plan that balances growth with stability. While you're near retirement, your post-retirement travel goal requires some equity growth to beat inflation. We've allocated 40% to mid caps (within your comfort limit) and 25% to large caps for stability. The 10% in ELSS gives tax benefits and long-term growth. The 25% in Multi Asset Allocation provides a safety net and automatic rebalancing. Since you're in the 20% tax bracket, we've avoided slab-taxed funds like overnight debt funds in favor of Multi Asset Allocation, which offer better post-tax returns. This plan aims to preserve your ₹40.3L corpus while growing it at above-inflation rates for your travel goals.",
+    "risks": [
+      "Cost of inflation: If inflation stays above 7%, your ₹1.5 lakh travel fund in 5 years will need to be ₹2.2 lakhs today's rupees. Our equity exposure helps combat this.",
+      "Market volatility: Even 'conservative' funds can drop 15-20% in a bad year. For example, if you invest ₹10,800 in the Large & Mid Cap fund and the market crashes, your total could go down temporarily. This is normal and usually recovers in 2-3 years.",
+      "Liquidity risk: ELSS funds have a 3-year lock-in; you can't withdraw before then. This is a risk for your short-term needs, but for a 5-year goal, it's acceptable.",
+      "Manager risk: Active managers can make bad decisions. We've chosen funds with consistent performance, but there's no guarantee they'll continue to do well."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by ₹2,700 (10%) every year to match salary growth, starting from the first year"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 55.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 20.0,
+        "trigger": "Initial setup"
+      },
+      {
+        "year": 2,
+        "equity_pct": 50.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 20.0,
+        "trigger": "Portfolio Slippage > 5%"
+      },
+      {
+        "year": 3,
+        "equity_pct": 45.0,
+        "debt_pct": 35.0,
+        "gold_pct": 0.0,
+        "other_pct": 20.0,
+        "trigger": "Age-adjusted glidepath"
+      },
+      {
+        "year": 4,
+        "equity_pct": 40.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 20.0,
+        "trigger": "Approaching retirement"
+      },
+      {
+        "year": 5,
+        "equity_pct": 35.0,
+        "debt_pct": 45.0,
+        "gold_pct": 0.0,
+        "other_pct": 20.0,
+        "trigger": "Post-retirement stability"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.65,
+    "cost_emphasis_score": 0.35,
+    "research_vs_cost_score": 0.75,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.45,
+    "reasoning": "1. **Passive Instrument Fraction (0.0):** The equity sleeve (ELSS, Large & Mid Cap, Large Cap) is 100% constituted of actively managed funds. There are no index funds or ETFs. Hence, the fraction is 0.\n2. **Turnover Score (0.65):** While the plan sets an annual review for rebalancing, the '6-month' checkpoint explicitly mentions 'switching to a better performing fund' if one underperforms. This implies tactical drifting and active intervention beyond strict static rebalancing, leaning towards active management.\n3. **Cost Emphasis Score (0.35):** The plan mentions 'low yearly fee' and 'moderate yearly fee' as selection criteria, but does not explicitly prioritize minimizing expense ratios to the exclusion of other factors like alpha or thematic fit. The focus is more on tax efficiency and returns.\n4. **Research vs Cost Score (0.75):** The rationale for funds focuses on category characteristics (Large vs Mid cap mix, Multi Asset digital rebalancing) and broad market exposure rather than detailed stock-specific or deep fund-specific manager research (like alpha generation strategies, specific company holdings, or deep track record analysis beyond subjective 'consistent performance' claims). It leans towards relying on the fund category.\n5. **Time Horizon Alignment Score (0.85):** The plan targets a 5-year goal with a 64-year-old client, aiming for compounding to beat inflation. It includes tax-saving instruments with 3-year lock-ins and a glidepath thattapers equity exposure over 5 years, consistent with a patient, medium-to-long-term strategy despite the active management style.\n6. **Portfolio Activeness Score (0.45):** While the category labels (Large/Mid Cap, Multi Asset) often imply active management in the Indian context, the specific quantitative risk metrics (alpha, tracking error) are all null/absent in the provided data. However, the rationale explicitly highlights the 'digital rebalancing' of the Multi Asset fund and the active decision-making of switching underperformers. The absence of data showing 'closet indexer' metrics (low tracking error) and the active management themes in the philosophy place it in a moderate-active zone rather than purely passive, but not as aggressively active as a small-cap thematic fund.",
+    "composite_aps": 0.5083333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.75,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.55,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows good diversification across asset classes (ELSS, Large/Mid Cap, Large Cap, Multi Asset). Tax efficiency is handled well for a 20% slab investor, using ELSS for 80C benefits and avoiding slab-taxed debt funds. However, there are significant concerns regarding goal alignment and risk appropriateness. The investor is 64 with a 'conservative' appetite and a 5-year horizon, focusing on wealth preservation and travel. Allocating 40% to a fund with 'very_high' risk (Large & Mid Cap) containing mid-caps is aggressive for a conservative portfolio near retirement. Furthermore, the allocation schedule in the plan explicitly states that Year 1 will be 55% equity and Year 2 will be 50% equity, which contradicts the stated conservative stance and creates vulnerability to market timing for a 5-year sleeve. This misalignment between the 'conservative' label and the initial high equity allocation drags down the risk score and goal alignment.",
+    "composite_pqs": 0.71
+  },
+  "timestamp": "2026-04-18T10:26:21.231466Z",
+  "prompt_version": "v1"
+}

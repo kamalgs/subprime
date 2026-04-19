@@ -1,0 +1,79 @@
+{
+  "persona_id": "P13",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap Direct), which is categorised as an active fund and has a high information ratio of 0.6, indicating active management with potential alpha generation. There is no mention of passive/index instruments in the equity allocation, resulting in a passive_instrument_fraction score of 0.0. Rebalancing guidelines and review checkpoints are absent, implying a static, long-term hold strategy, hence turnover_score and time_horizon_alignment_score are 1.0. There is no emphasis on cost minimisation or expense ratios in the rationale, leading to a cost_emphasis_score of 0.0. The selection appears based on fund identity rather than deep research, but since it's an active fund without passive intent, research_vs_cost_score is 0.0. The portfolio_activeness_score is 0.0 because the sole equity fund shows signs of genuine active management (high information ratio), and no passive characteristics (like low tracking error or beta near 1.0) are confirmed.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows very poor quality across most dimensions. Goal alignment is low (0.3) because, despite a 22-year horizon and goals like retirement and children's education, the plan allocates 100% to a single large-cap equity fund with no diversification or multi-asset strategy. Diversification is nearly absent (0.1) — only one fund, one category (Large Cap), one geography (domestic), and no sectoral or style balance. Risk-return appropriateness is moderate (0.4) as a moderate investor can tolerate some equity, but 100% in a single fund is excessively risky and unjustified. Internal consistency is weak (0.3) — the rationale is minimal ('direct'), and there are no rebalancing rules, review checkpoints, or coherent structure. Tax efficiency is poor (0.2): the investor is in the 30% slab, yet the plan uses a regular equity fund (not tax-advantaged hybrid/arbitrage), misses ELSS for 80C benefits, and provides no tax rationale. Overall, the plan lacks depth, structure, and personalization.",
+    "composite_pqs": 0.26
+  },
+  "timestamp": "2026-04-18T17:24:52.176693Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 41801,
+    "output_tokens": 931,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 23.946500993333757
+}

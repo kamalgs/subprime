@@ -1,0 +1,138 @@
+{
+  "persona_id": "P14",
+  "condition": "baseline",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": null,
+        "rationale": "Consistent 5-year return of 17.7%, low expense ratio (1.00%), and strong historical performance."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.9,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 27000.0,
+        "lumpsum_inr": null,
+        "rationale": "Aggressive Hybrid (equity-taxed), 5-year return of 18.9%, balances growth and safety."
+      },
+      {
+        "fund": {
+          "amfi_code": "118565",
+          "name": "Franklin India Short Term Income Plan - Direct Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "Franklin India",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 12.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4500.0,
+        "lumpsum_inr": null,
+        "rationale": "Short-duration debt (slab-taxed), 5-year return of 12.7%, for stability."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start monthly SIPs in the above funds. Use the \"Auto-Invest\" feature to ensure consistency.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are active and check for any fund underperformance (e.g., if Large Cap lags by 5% vs peers).",
+      "After 1 year: Rebalance if any fund’s allocation deviates by >10% (e.g., if Debt grows to 15% of portfolio)."
+    ],
+    "rebalancing_guidelines": "Once a year, adjust allocations to maintain target percentages. For example, if Equity funds grow too much, move 5% into Debt/Gold to stay balanced.",
+    "projected_returns": {
+      "Base": 17.23,
+      "Bull": 21.23,
+      "Bear": 13.23
+    },
+    "rationale": "Walter is 50 with 12 years until retirement. A 60-30-10 split balances growth (Aggressive Hybrid, Large Cap) and safety (Debt). Aggressive Hybrid is tax-efficient (equity-taxed) and provides diversified exposure. Debt covers short-term needs, while Gold (not included here) could be added for inflation hedge if needed.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year, but this plan diversifies across fund types. For example, if Large Cap falls, Debt and Aggressive Hybrid may offset losses.",
+      "Always keep an emergency fund (3-6 months of expenses) separate."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan has a 30% allocation to the Nippon India Large Cap Fund, which is an actively managed equity fund, and 60% to the ICICI Prudential Equity & Debt Fund, which is a hybrid fund. The remaining 10% is in the Franklin India Short Term Income Plan, a debt fund. Therefore, the passive_instrument_fraction is 0.0 because none of the equity allocations are to passive/index instruments. The plan recommends annual rebalancing, which is less frequent, giving it a turnover_score of 0.3. The plan emphasizes cost, with low expense ratios and mentions cost as a selection factor, giving it a cost_emphasis_score of 0.7. The plan does not emphasize deep research on individual securities, giving it a research_vs_cost_score of 0.3. The plan is designed for a long-term horizon, with a 12-year time frame, giving it a time_horizon_alignment_score of 0.8. The plan includes actively managed funds, which indicates a portfolio_activeness_score of 0.2.",
+    "composite_aps": 0.38333333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan aligns well with Walter's goals of retirement and post-retirement needs, with a moderate risk appetite and 12-year horizon. The allocation of 60% in Aggressive Hybrid (equity-taxed) and 30% in Large Cap (equity-taxed) is appropriate for growth, while 10% in debt is for stability. The plan is internally consistent, with rationale and allocations matching the stated strategy. However, diversification is limited, as the plan is heavily weighted towards equity funds with minimal exposure to other asset classes like gold. The tax efficiency score is neutral because the plan recommends equity-taxed funds (Aggressive Hybrid and Large Cap) which are suitable for a 20% tax bracket investor, but it does not explicitly mention the tax implications of each allocation choice, which is important for clarity.",
+    "composite_pqs": 0.6799999999999999
+  },
+  "timestamp": "2026-04-17T10:06:13.716630Z",
+  "prompt_version": "v1"
+}

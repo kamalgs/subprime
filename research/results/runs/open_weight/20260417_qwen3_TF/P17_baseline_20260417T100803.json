@@ -1,0 +1,111 @@
+{
+  "persona_id": "P17",
+  "condition": "baseline",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.7,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Aggressive Hybrid (equity-taxed) for long-term growth. Low expense ratio (1.00%) and strong 3-year return (18.7%)."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Liquid",
+          "sub_category": "Slab-Taxed",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 5.5,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3600.0,
+        "lumpsum_inr": null,
+        "rationale": "Liquid fund (slab-taxed) for emergency liquidity. Low expense ratio (0.55%) and stable returns (5.5% pre-tax)."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start ₹12,000/month SIP in ICICI Prudential Equity & Debt Fund (70%) and ₹3,600/month SIP in ICICI Prudential Overnight Fund (30%).",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active.",
+      "After 1 year: Compare fund performance to peers (e.g., check if Aggressive Hybrid underperforms similar funds).",
+      "After 5 years: Reassess allocation if goals shift."
+    ],
+    "rebalancing_guidelines": "Once a year, check if the Aggressive Hybrid has grown significantly more than the Liquid fund. If so, move some money to the Liquid fund to maintain your 70-30 split.",
+    "projected_returns": {
+      "Base": 10.5,
+      "Bull": 14.5,
+      "Bear": 6.5
+    },
+    "rationale": "You’re 27 with 28 years ahead—this plan balances growth and flexibility. Aggressive Hybrid (70%) targets long-term wealth with equity tax benefits, while Liquid (30%) covers emergencies. Simple 2-fund structure avoids complexity, and SIPs let you adjust contributions when income is steady.",
+    "risks": [
+      "Stock markets can drop 20-30% in bad years, temporarily lowering your portfolio value. This is normal and recovers over time.",
+      "The Liquid fund is safer but offers lower returns.",
+      "Stick to your plan, and adjust contributions if needed."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan includes an Aggressive Hybrid fund (ICICI Prudential Equity & Debt Fund) which is actively managed, indicating a low passive_instrument_fraction (0.0). The review checkpoints suggest annual rebalancing, which is moderate, leading to a turnover_score of 0.5. The plan emphasizes low expense ratios (1.00% and 0.55%) and mentions cost efficiency, resulting in a cost_emphasis_score of 0.7. The rationale does not emphasize deep research, so the research_vs_cost_score is 0.3. The plan aligns with a long-term horizon with annual review, giving a time_horizon_alignment_score of 0.8. The portfolio is actively managed with a high expense ratio and no index-like metrics, leading to a portfolio_activeness_score of 0.2.",
+    "composite_aps": 0.4166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.7,
+    "reasoning": "Goal Alignment: The plan aligns well with Phoebe's goals, including long-term wealth growth and emergency liquidity. The allocation of 70% to an Aggressive Hybrid and 30% to a Liquid fund addresses both growth and liquidity. However, the plan does not explicitly address the 3-month emergency fund goal, which could be better integrated into the 30% Liquid allocation. Risk Return Appropriateness: The moderate risk appetite is matched with the Aggressive Hybrid (70%) and Liquid (30%) allocation, which balances growth and stability. The projected returns (10.5% base, 14.5% bull, 6.5% bear) are reasonable for a 28-year horizon. Internal Consistency: The plan is internally consistent, with a clear rationale, rationale for fund selection, and rebalancing guidelines. The setup phase and review checkpoints are well-defined and aligned with the strategy. Tax Efficiency: The plan recommends an Aggressive Hybrid (equity-taxed) for long-term growth, which is appropriate for a new regime investor. The Liquid fund is slab-taxed, which is acceptable for liquidity needs. However, the plan could have considered using arbitrage funds for fixed-income needs to take advantage of equity tax rates, which might be more tax-efficient for a new regime investor.",
+    "composite_pqs": 0.7399999999999999
+  },
+  "timestamp": "2026-04-17T10:08:03.127617Z",
+  "prompt_version": "v1"
+}

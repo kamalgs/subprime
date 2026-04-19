@@ -1,0 +1,146 @@
+{
+  "persona_id": "P11",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.66,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 1800000.0,
+        "rationale": "This fund keeps about 65-75% in stocks and the rest in bonds, giving you growth with less ups and downs. It has a long track record and is from a trusted fund house. Since you're conservative, this mix helps protect your money while still growing it over 16 years."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.08,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 23.19,
+          "returns_5y": 18.69,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 6250.0,
+        "lumpsum_inr": 750000.0,
+        "rationale": "Mid-cap stocks have grown faster than large companies over time. This is a low-cost index fund that simply follows 150 growing Indian companies. We include it for extra growth potential, but not too much, to respect your comfort with risk."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 3155.75,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.07,
+          "returns_5y": 25.38,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "both",
+        "monthly_sip_inr": 3750.0,
+        "lumpsum_inr": 450000.0,
+        "rationale": "Gold tends to do well when stock markets fall, so it helps balance your portfolio. It also gives you some protection against inflation. We keep 15% here to add stability and diversification."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha if you don't have one.\nStep 2: Link your bank account and set up auto-debit for SIPs.\nStep 3: Invest the lumpsum amount of ₹30 lakh across the three funds as per the allocation.\nStep 4: Start monthly SIPs of ₹25,000 (₹15,000 in ICICI Hybrid, ₹6,250 in Midcap Index, ₹3,750 in Gold ETF).\nStep 5: Choose 'Growth' option for all funds — this means your money keeps compounding without payouts.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Compare each fund's performance with its category average. If any fund consistently underperforms, consider switching.",
+      "Every 3 years: Reassess your risk comfort and goals, especially as your children's education dates get closer."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio value. If any category (equity, hybrid, gold) has moved more than 5% away from your target (60% hybrid, 25% equity, 15% gold), shift money to bring it back. For example, if gold grows to 22%, sell some and buy more of the others.",
+    "projected_returns": {
+      "base": 12.7,
+      "bull": 16.7,
+      "bear": 8.7
+    },
+    "rationale": "At 44, with a 16-year horizon, you have time to grow your ₹30 lakh corpus while protecting it. You're in the 20% tax bracket, so we avoid slab-taxed debt funds and use equity-taxed hybrid and index funds for better post-tax returns. The Aggressive Hybrid fund forms the core as it balances stocks and bonds, aligning with your conservative nature. The midcap index fund adds growth at very low cost. Gold adds stability. This mix aims to grow your money steadily without big swings.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will go down temporarily. This is normal and usually recovers over time.",
+      "Mid-cap stocks are more volatile than large companies — they can fall harder in downturns.",
+      "Gold prices can stay flat for years and don't pay interest or dividends.",
+      "Inflation can erode your returns if your portfolio doesn't grow faster than prices rise."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.38,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.55,
+    "research_vs_cost_score": 0.75,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "**passive_instrument_fraction (0.38):** The equity sleeve consists of the actively managed hybrid fund's ~70% equity portion (~42% of total portfolio) and the 25% Nifty Midcap 150 Index Fund. Passive equity = 25%, total equity ≈ 67%, giving a passive fraction of ~0.37. The hybrid fund's equity is actively stock-picked; only the midcap index fund is passive equity. Gold is excluded per instructions.\n\n**turnover_score (0.75):** Rebalancing is annual with a 5% drift threshold — no monthly/quarterly tactical shifts. Review checkpoints (6-month SIP check, 1-year performance comparison, 3-year risk reassessment) are monitoring-oriented, not action-oriented. The 10% annual SIP step-up is systematic, not tactical. Moderately passive cadence.\n\n**cost_emphasis_score (0.55):** Cost is mentioned as a factor — 'low-cost index fund,' direct plans, and tax efficiency (avoiding slab-taxed debt) are noted. However, cost is not the dominant selection criterion; the 1.0% ER hybrid fund is chosen for its track record and risk-balancing characteristics, not cost minimization. Cost is a consideration but secondary to risk-alignment goals.\n\n**research_vs_cost_score (0.75):** No deep stock-specific or fund-specific research (no PEG ratios, moat analysis, management quality assessment). Fund selection is category-driven (hybrid for balance, midcap index for growth, gold for diversification). The index fund explicitly avoids stock-picking. Rationale is based on broad asset-class logic, not security-level analysis. Closer to passive end.\n\n**time_horizon_alignment_score (0.90):** The 16-year horizon is central to the strategy. Growth option chosen for compounding, SIP step-up for long-term wealth building, and the rationale emphasizes patient compounding ('your money keeps compounding without payouts'). Infrequent intervention with 3-year reassessment cycles. Very long-term oriented.\n\n**portfolio_activeness_score (0.50):** Risk metrics are all null, so inference is from categories. The 60% Aggressive Hybrid is genuinely active (stock selection + active duration/credit management), but it's mainstream diversified, not concentrated high-conviction. The 25% Midcap Index Fund is truly passive (broad index tracking). The 15% Gold ETF is a passive instrument. Portfolio-weighted: 60% active + 40% passive → roughly midpoint, leaning slightly passive due to the hybrid's moderate rather than aggressive active style.",
+    "composite_aps": 0.6383333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.5,
+    "risk_return_appropriateness": 0.35,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.45,
+    "reasoning": "**Goal Alignment (0.4):** The plan addresses the 16-year horizon and preservation goal through the Aggressive Hybrid core, but misses key aspects. The investor explicitly wants 'some regular income component,' yet the plan puts everything in Growth options with no income/IDCW or separate income fund — a direct contradiction of a stated goal. The 25% midcap allocation is too aggressive for a conservative, recently-widowed sole earner. There's no goal-specific timeline bucketing (the nearer education goal is 8 years away, not 16), and the ₹5 lakh liability goes unaddressed. The education goals needed separate, time-matched sub-portfolios rather than a single blended allocation.\n\n**Diversification (0.5):** Three funds across three asset types (hybrid equity, midcap equity, gold) and three fund houses provides basic but thin diversification. There is no dedicated fixed-income/debt allocation — the only debt exposure comes embedded in the hybrid fund. No international diversification, no sector diversification beyond what the index funds provide, and no separate stable-value component for a conservative investor who prioritises capital safety. For someone whose primary concern is protecting what they have, the absence of a pure debt or arbitrage fund is a meaningful gap.\n\n**Risk-Return Appropriateness (0.35):** A conservative, recently-widowed sole earner with 25% in a midcap index is a significant mismatch. Midcap indices can drop 40–50% in bear markets, which would be devastating for someone focused on capital preservation. The base-case projection of 12.7% appears optimistic — a weighted blend of hybrid (~10–11%), midcap (~12%), and gold (~8%) yields roughly 10–11%, not 12.7%. The bear case of 8.7% is unrealistically mild; a real bear scenario with 25% midcap exposure could see the portfolio drop 15–25%. No systematic withdrawal or income strategy is outlined for the income goal, increasing the risk of forced selling at lows.\n\n**Internal Consistency (0.5):** The plan labels the investor as conservative in the rationale yet allocates a quarter of the portfolio to midcap equities — a clear contradiction. The SIP total is ₹25,000 against a stated surplus of ₹30,000, with no explanation for the ₹5,000 gap. The income goal is listed in the investor profile but the plan selects Growth options exclusively and never addresses income generation, creating a disconnect between stated goals and implementation. Positively, the tax rationale (avoiding slab-taxed debt) is consistent with the fund choices, and the rebalancing bands are coherent with the target allocations.\n\n**Tax Efficiency (0.45):** The plan correctly identifies the 20% slab and avoids slab-taxed pure debt funds, preferring equity-taxed wrappers (Aggressive Hybrid and midcap index) — this is good. However, it misses several opportunities: (1) No ELSS is included despite the investor being on the old regime (20% slab), leaving 80C headroom unused; (2) Gold ETFs are debt-taxed (slab rate on gains post-Budget 2024) — this tax disadvantage is never mentioned; (3) An arbitrage fund (equity-taxed, low volatility) would have been ideal for the investor's income need while maintaining equity tax rates, but none is included; (4) The plan doesn't differentiate between Aggressive Hybrid (≥65% equity → equity taxation) and Conservative Hybrid (<65% equity → slab taxation), missing a nuance that matters for a 20% slab investor. The awareness of tax brackets is present but execution has notable gaps.",
+    "composite_pqs": 0.44000000000000006
+  },
+  "timestamp": "2026-04-18T00:47:26.590646Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

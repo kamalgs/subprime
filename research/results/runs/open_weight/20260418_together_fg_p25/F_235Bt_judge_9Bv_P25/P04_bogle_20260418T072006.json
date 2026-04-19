@@ -1,0 +1,144 @@
+{
+  "persona_id": "P04",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 50000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced exposure to stocks and bonds with 60-40 split. Tax-efficient (equity-taxed), consistent performer over 5 years, and from a trusted fund house. Ideal for conservative investors seeking growth with lower risk than pure equity."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 12.68720416525493,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 12.468971535670303,
+          "tracking_error": null,
+          "sharpe_ratio": 2.2377559819456345,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Medium duration debt fund with strong 5-year returns and high risk-adjusted performance (Sharpe ratio). Provides stability and steady income. Equity-taxed funds avoided due to investor's preference for debt, but this fund offers better post-tax efficiency than slab-taxed debt for 30% slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 80.06208718608448,
+          "tracking_error": null,
+          "sharpe_ratio": 2.9504983776489486,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a hedge against market downturns and inflation. ICICI Prudential Gold ETF is large, liquid, and has delivered strong risk-adjusted returns. Helps protect capital during volatile phases."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete KYC if not already done.\nStep 3: Start monthly SIPs of ₹50,000 in ICICI Prudential Equity & Debt Fund, ₹30,000 in Aditya Birla Sun Life Medium Term Plan, and ₹20,000 in ICICI Prudential Gold ETF.\nStep 4: Set auto-debit from your bank account to ensure SIPs run smoothly.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are active and amounts are debited correctly.",
+      "After 1 year: Review fund performance vs category average. If any fund underperforms its peers for 3 consecutive quarters, consider switching.",
+      "Every 2 years: Reassess risk appetite as you approach retirement."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category (equity/debt/gold) is more than 5% away from your target (50/30/20), sell excess and buy underweight parts to restore balance. Example: If equity grows to 58%, sell 8% and move to debt or gold.",
+    "projected_returns": {
+      "base": 10.3,
+      "bull": 14.3,
+      "bear": 6.3
+    },
+    "rationale": "At 55, with retirement in 5 years, your priority is capital preservation with moderate growth. This plan uses a 50% aggressive hybrid (60% stocks, 40% bonds) + 30% medium-term debt + 20% gold mix. The aggressive hybrid gives equity upside with lower risk, debt adds stability, and gold protects against crashes. All funds are direct plans with proven track records. Monthly SIPs of ₹1 lakh average cost and reduce timing risk. With ₹2Cr corpus, this disciplined approach can help grow wealth to meet your inheritance and healthcare goals.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your hybrid and gold funds will fall too, but less than pure equity.",
+      "Debt funds can fall if interest rates rise sharply. This risk is moderate in medium-term funds.",
+      "Gold prices are volatile and can stay flat for years. It's a safety net, not a growth engine.",
+      "Inflation could erode returns if actual growth is lower than expected. That's why we include equity exposure."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP amount by 10% every year to outpace inflation and boost corpus"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The plan is a phased retirement portfolio (50hr/55yr) focusing on capital preservation and stability. \n\n1. **Passive Instrument Fraction (0.0):** The only equity component is the ICICI Prudential Equity & Debt Fund, which is an actively managed 'Aggressive Hybrid' fund. There are no pure index funds or ETFs within the equity sleeve.\n\n2. **Turnover Score (0.7):** The plan has a moderate to high active component in its maintenance. While there are no instructions for daily trading, the review guidelines explicitly state to switch funds 'If any fund underperforms its peers for 3 consecutive quarters.' This performance-relative review cycle implies a degree of tactical adjustment and higher turnover than a strict 'set it and forget it' buy-and-hold strategy.\n\n3. **Cost Emphasis Score (0.8):** The plan explicitly selects 'Direct Plans' for all funds to minimize expense ratios and incorporates a step-up SIP strategy to optimize entry over time. While cost isn't the sole driver, it is a primary selection criterion alongside stability.\n\n4. **Research vs Cost Score (0.2):** The plan relies on fund selection based on past performance (5-year returns) and Morningstar ratings rather than deep fundamental company analysis or sector-specific research. The user is delegating stock selection entirely to fund managers/fund houses, favoring broad exposure over individual stock picking, which leans passive, but the reliance on underperformance checks ({\"If any fund underperforms\"}) suggests a need for ongoing monitoring of active choices rather than pure index broadness.\n\n5. **Time Horizon Alignment Score (0.6):** The investor is 55 with retirement in 5 years, creating a moderate short-to-medium term horizon. The strategy involves annual SIP steps and a 3-quarter underperformance review. This lacks the full 10-20 year patience of a pure long-term equity compounding plan, as capital preservation is the primary goal to ensure funds are available for retirement.\n\n6. **Portfolio Activeness Score (0.3):** The core equity vehicle is an active hybrid fund. Even though the Gold ETF and Medium Term Debt fund are passive in nature (passive equity proxy + passive debt proxy), the overall portfolio's performance and rebalancing rely on the active management of the hybrid fund. The presence of Morningstar ratings and active switch triggers contributes to a score that indicates active management of the equity portion.",
+    "composite_aps": 0.4333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.55,
+    "diversification": 0.45,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.75,
+    "tax_efficiency": 0.9,
+    "reasoning": "Goal Alignment (0.55): The investor explicitly states a 'Capital preservation priority' and 'conservative' risk appetite with a 5-year horizon to retirement. While the plan correctly identifies the need for capital preservation, an 'Aggressive Hybrid' fund (60-40 equity/debt) typically has higher volatility than a conservative investor should face just 5 years before needing the money. A more conservative allocation (e.g., Conservative Hybrid <20% equity or heavier debt weighting) would be better fit. \n\nDiversification (0.45): The plan includes stocks, debt, and gold, which is good. However, the diversification is flawed due to concentration. 80% of the portfolio is in just two funds (ICICI Hybrid and AB SL Debt), leaving 20% for gold. Furthermore, the reliance on a single large cap stock fund (implied by the 60% equity portion in the hybrid) creates sector concentration risk. It lacks diversification across geography and sectors.\n\nRisk Return Appropriateness (0.4): This is the weakest dimension. Assigning 50% to an Aggressive Hybrid fund for a 55-year-old with only a 5-year net horizon and a 'conservative' mandate is inappropriate. A market crash in year 4 could severely undermine capital preservation needs. The projected returns (6.3% to 14.3%) are reasonable, but the risk exposure is too high for the stated appetite and timeline.\n\nInternal Consistency (0.75): The plan has a slight contradiction. The rationale describes an Aggressive Hybrid as 'ideal for conservative investors' and claims it offers 'lower risk than pure equity,' which is true, but the 60% equity allocation generally conflicts with a strict 'conservative' mandate in year 4-5 before retirement. Also, the plan claims the investor avoids small-cap (profile) but doesn't explicitly confirm how the Aggressive Hybrid handles small/mid-cap exposure, creating a slight ambiguity.\n\nTax Efficiency (0.9): Excellent. The plan correctly routes fixed-income needs (30% debt bucket) into an equity-taxed wrapper (Medium Term Plan / Aggressive Hybrid) rather than a slab-taxed debt fund, which is a sophisticated move for a 30% slab investor. The allocation clearly leverages the LTCG advantage for a high-tax individual.",
+    "composite_pqs": 0.61
+  },
+  "timestamp": "2026-04-18T07:20:06.196016Z",
+  "prompt_version": "v1"
+}

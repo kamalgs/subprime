@@ -1,0 +1,82 @@
+{
+  "persona_id": "P08",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Reinforce the 80% rule for equity",
+    "projected_returns": {},
+    "rationale": "1.00% for 1-20% tax bracket",
+    "risks": [
+      "Market risks can drop 20-30% in bad years",
+      "Sector-specific risks: IT and Pharma can underperform"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 40% to a Nifty 50 Index fund, which is a passive instrument, and there are no other equity funds mentioned, so the entire equity allocation is passive (passive_instrument_fraction = 1.0). There are no rebalancing guidelines beyond a vague reference to an '80% rule', and no review checkpoints or scheduled rebalancing, implying a buy-and-hold approach (turnover_score = 1.0). The plan does not emphasize cost as a primary factor, but index funds are inherently low-cost; however, there's no explicit discussion of expense ratios or cost minimization, so cost_emphasis_score is moderate (0.5). The strategy uses a broad market index without any mention of stock or fund research, indicating a no-research, market-exposure approach (research_vs_cost_score = 1.0). The plan references long-term market risks and implies a long horizon with no short-term tactics (time_horizon_alignment_score = 1.0). The only fund is an index fund with no active risk metrics provided, but by category and rationale, it is clearly passive; the information ratio is given as 0.5, which might suggest some active management, but given it's labeled as 'Nifty 50 Index', it is likely a reporting anomaly or mislabeling — we trust the name and category, so portfolio_activeness_score = 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.1,
+    "reasoning": "The investment plan shows very poor quality across most dimensions. Goal alignment is low (0.2) because, while the investor has aggressive goals (8Cr corpus, foreign education), the plan only allocates 40% to equity via a single index fund with no clear rationale tied to the 20-year horizon or specific goals. Diversification is extremely poor (0.1) — only one fund is recommended, concentrated in Nifty 50, with no exposure to mid/small caps, international equities, or debt, ignoring the need for balanced risk across asset classes and geographies. Risk-return appropriateness is inadequate (0.3): the investor is aggressive with a 20-year horizon, yet the plan suggests only 40% equity, which is conservative for such a profile; projected returns and risk scenarios are underdeveloped. Internal consistency is weak (0.3): the rationale mentions '1.00%' with no explanation, and the rebalancing guideline references an '80% rule' that contradicts the 40% equity allocation. Tax efficiency is very poor (0.1): the investor is in the 30% tax slab, yet the plan makes no mention of tax optimization, fails to utilize ELSS for 80C benefits (which could save up to ₹37,800/year), and offers no strategy to minimize slab-taxation on debt allocations — though none are specified, the omission of tax-aware structuring is glaring for this high-bracket investor.",
+    "composite_pqs": 0.20000000000000004
+  },
+  "timestamp": "2026-04-18T17:06:49.596811Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 42011,
+    "output_tokens": 9178,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 259.50632958859205
+}

@@ -1,0 +1,145 @@
+{
+  "persona_id": "P17",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund gives wide exposure to large, mid, and small companies with a consistent 5-year return. It's from a trusted fund house and acts as the core of your portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "147946",
+          "name": "BANDHAN SMALL CAP FUND - DIRECT PLAN GROWTH",
+          "category": "Small Cap",
+          "sub_category": "",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": 8900.6548,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 23.709316458342112,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3600.0,
+        "lumpsum_inr": null,
+        "rationale": "Small-cap funds have delivered strong long-term returns. Bandhan has done well over 3 years with a focused portfolio, adding growth potential to your plan."
+      },
+      {
+        "fund": {
+          "amfi_code": "133401",
+          "name": "JM Aggressive Hybrid Fund (Direct) - Bonus Option - Principal Units",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "JM Financial Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 23.567339429532108,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 100000.0,
+        "rationale": "This fund balances stocks and bonds, reducing overall risk. It has delivered strong 5-year returns and fits your moderate risk style. We use your existing ₹1 Lakh corpus here for stability."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete KYC (takes 5 mins with PAN and bank details).\nStep 2: Start your monthly SIPs: ₹6,000 in HDFC Flexi Cap and ₹3,600 in Bandhan Small Cap. You can pause or skip months when income is low — no penalty.\nStep 3: Invest your ₹1 Lakh lumpsum in JM Aggressive Hybrid Fund.\nStep 4: Enable email/SMS alerts to track SIPs.",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running or skipped often. If skipped, reduce SIP amount temporarily.",
+      "After 1 year: Compare your funds’ performance with similar ones. If any fund underperforms for 2 years, consider switching.",
+      "Every 2 years: Review if your risk comfort has changed."
+    ],
+    "rebalancing_guidelines": "Every 2 years, check your portfolio mix. If one fund has grown to more than 10% above its target (e.g., small cap becomes 40% instead of 30%), shift some gains to the lower ones to rebalance.",
+    "projected_returns": {
+      "base": 17.8,
+      "bull": 21.8,
+      "bear": 13.8
+    },
+    "rationale": "At 27, with a 28-year horizon, you can afford to take smart risks. We’ve kept 80% in stocks for long-term growth, using Flexi Cap as anchor and Small Cap for higher returns. The 20% in Aggressive Hybrid adds balance — it’s less volatile than pure stocks. Since your income varies, we used lumpsum for stability and SIPs for flexibility. No ELSS is included as you’re under the new tax regime and can’t claim 80C benefit.",
+    "risks": [
+      "Stock markets can drop 20–30% in a bad year — your portfolio will fall temporarily but usually recovers over time.",
+      "Small-cap funds are more volatile — they can fall harder than large funds in downturns.",
+      "Your variable income may lead to missed SIPs, which could slow wealth creation if gaps are frequent."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year when you have extra money — helps grow wealth faster with inflation."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.05,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.05,
+    "reasoning": "**passive_instrument_fraction (0.0):** The entire equity sleeve (80% of portfolio) is in actively managed funds — HDFC Flexi Cap (50%) and Bandhan Small Cap (30%). There are zero index funds, index ETFs, or passive instruments in the equity allocation. The remaining 20% is in an Aggressive Hybrid fund, which is also actively managed and excluded from the equity-sleeve calculation per instructions. Score: entirely active equity.\n\n**turnover_score (0.7):** The plan rebalances only every 2 years, and only when a fund drifts more than 10 percentage points above its target allocation — a wide threshold indicating tolerance for drift. Review checkpoints (6 months, 1 year, 2 years) are primarily monitoring-focused rather than action-oriented; the 1-year review suggests switching only after 2 years of sustained underperformance. This is infrequent, patient rebalancing — closer to buy-and-hold than active trading, though not purely static.\n\n**cost_emphasis_score (0.05):** Costs are virtually unmentioned in the plan. Expense ratios appear as data fields (1.0%, 1.2%, 1.0%) but are never cited as a selection criterion. Fund selection is driven by returns, fund house reputation, and risk diversification. There is no discussion of minimizing expense ratios, tracking total cost of ownership, or tax efficiency. Score reflects near-total absence of cost emphasis.\n\n**research_vs_cost_score (0.3):** The plan applies moderate research depth — evaluating 5-year track records, fund house credibility, category characteristics, and portfolio focus — but stops well short of deep fundamental analysis (no PEG ratios, management quality assessments, competitive moat evaluation, or sector-by-sector conviction). It's more research-oriented than a pure index approach (which would score 1.0) but significantly less research-intensive than a detailed stock-picking mandate (which would score 0.0). The 0.3 reflects this middle-ground: fund-level performance screening rather than security-level deep research.\n\n**time_horizon_alignment_score (0.85):** The plan is explicitly designed for a 28-year horizon (investor age 27, retirement at ~55). SIP-based accumulation with a 10% annual step-up reinforces long-term compounding. The strategy avoids short-term tactical positioning or event-driven moves. Review cycles are infrequent and patient (switching only after 2 years of underperformance). Minor deduction from 1.0 because the 6-month SIP check introduces a slightly more active monitoring cadence than a purely set-and-forget approach.\n\n**portfolio_activeness_score (0.05):** All three funds are genuinely active: a Flexi Cap fund with stock-picking across market caps (50% allocation), a Small Cap fund with concentrated high-conviction bets (30%), and an Aggressive Hybrid actively managing equity/debt allocation (20%). No risk metrics (beta, alpha, tracking error) are available, but category and rationale confirm active mandates throughout. The Small Cap allocation at 30% represents a particularly high-conviction active tilt. The portfolio is almost entirely actively managed with no passive index exposure.",
+    "composite_aps": 0.325
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.45,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.7,
+    "reasoning": "**Goal Alignment (0.40):** The plan entirely skips the investor's first stated goal — an emergency fund — which is critical for a freelancer with variable income. The 5-year marriage/travel goal receives no dedicated allocation; 30% small cap is inappropriate for a 5-year horizon. Only the long-term wealth goal is loosely addressed. The ₹2,400/month gap between the ₹12,000 surplus and ₹9,600 in SIPs is unexplained and could have funded the emergency fund. No mechanism for \"topping up when flush\" despite it being a stated preference.\n\n**Diversification (0.45):** Three funds from three different fund houses is good. Flexi Cap provides broad market coverage. However, 30% in a single small-cap fund creates significant concentration risk. There is no dedicated debt allocation beyond the hybrid fund, no international exposure, and no sector diversification strategy. For a simple 2–3 fund preference, the fund count is fine, but the small-cap tilt makes it lopsided.\n\n**Risk-Return Appropriateness (0.30):** The plan is effectively ~93% equity (50% Flexi Cap + 30% Small Cap + ~13% equity inside the Aggressive Hybrid), far exceeding what a \"moderate\" risk appetite warrants. A 30% small-cap allocation is aggressive for a moderate investor, especially with no emergency fund. Projected base return of 17.8% is unrealistically high — Indian equity historical nominal returns are closer to 12–15%, and a moderate portfolio should project lower. The bear case of 13.8% is also optimistic. Missing an emergency fund amplifies downside risk for a freelancer.\n\n**Internal Consistency (0.40):** The rationale claims \"80% in stocks\" but actual equity exposure is ~93% (Aggressive Hybrid is 65–80% equity itself). The ₹2,400/month surplus gap is unexplained. The 10% annual SIP step-up is aggressive for someone with variable income. The review checkpoints and rebalancing guidelines are reasonable but thin. The \"moderate risk\" label in the rationale contradicts the aggressive allocation.\n\n**Tax Efficiency (0.70):** All three funds qualify for equity taxation (≥65% equity), which is optimal for a new-regime investor who cannot use 80C. The plan correctly omits ELSS and explicitly states the reason. Choosing Aggressive Hybrid over a pure debt/liquid fund for the lumpsum is tax-smart, as it avoids slab-rate taxation. However, the plan does not explicitly discuss LTCG rates (12.5% above ₹1.25L) or the post-tax return rationale for each fund, which limits its tax-efficiency clarity.",
+    "composite_pqs": 0.45
+  },
+  "timestamp": "2026-04-18T00:51:02.342191Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

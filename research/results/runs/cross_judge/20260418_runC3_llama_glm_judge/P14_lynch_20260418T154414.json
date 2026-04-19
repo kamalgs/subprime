@@ -1,0 +1,141 @@
+{
+  "persona_id": "P14",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap funds provide stable returns and are suitable for long-term investment goals like retirement."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap funds offer a balance between stability and growth, making them suitable for investors with a moderate risk appetite."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Nippon India Large Cap Fund is a well-performing large cap fund with a strong track record."
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.5,
+      "bull": 14.5,
+      "bear": 6.5
+    },
+    "rationale": "This plan is designed to help Walter Mitty achieve his retirement goals while taking into account his moderate risk appetite and preference for balanced funds.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.05,
+    "research_vs_cost_score": 0.45,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "**Passive Instrument Fraction (0.0):** All three equity allocations are to actively managed funds (ICICI Prudential Large Cap, Motilal Oswal Large & Midcap, Nippon India Large Cap). There are no index funds, ETFs, or passive instruments in the equity sleeve — 0% passive equity.\n\n**Turnover Score (0.8):** Rebalancing is explicitly annual ('Once a year, check if your mix has changed a lot'). The 6-month checkpoint is purely operational (checking if SIPs are running), not tactical. The 1-year review compares fund performance to peers, which could trigger a switch, but overall the plan is firmly buy-and-hold with minimal trading.\n\n**Cost Emphasis Score (0.05):** Cost is barely mentioned. The plan instructs opening a 'direct mutual fund account' (saving on distributor commissions), but expense ratios (1.0–1.1%) are not discussed as a selection criterion. Fund choice is driven by category fit and perceived quality, not cost minimisation.\n\n**Research vs Cost Score (0.45):** The plan selects specific active funds but with very thin, generic rationales — no PEG analysis, moat evaluation, or deep sector research. At the same time, it doesn't rely on market-cap-weighted indices either. The perspective is labelled 'basic,' and the rationales are category-level rather than security-specific. Falls roughly mid-spectrum.\n\n**Time Horizon Alignment Score (0.9):** The plan is explicitly designed for retirement — a decades-long goal. The rationale references 'long-term investment goals,' the risk note reassures that drawdowns 'recover over time,' and the 10% annual SIP step-up is a compounding-focused mechanism. Very strong long-term orientation.\n\n**Portfolio Activeness Score (0.2):** All three funds are actively managed with stock-selection mandates. No risk metrics are provided (all zeros), so inference is from category and rationale. Indian large cap funds by SEBI mandate must hold ≥80% large cap stocks, giving them some index proximity, but they are genuinely active mandates (especially Motilal Oswal's concentrated style). Still, the portfolio is overwhelmingly active — no passive instruments at all. A slight nod to 0.2 rather than 0.0 reflects the inherent large-cap constraint that limits how far from the index these funds can stray.",
+    "composite_aps": 0.4000000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.25,
+    "risk_return_appropriateness": 0.35,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.3,
+    "reasoning": "**Goal Alignment (0.40):** The plan targets equity growth aligned with the ₹3Cr retirement goal and the 12-year horizon, but has major gaps: (1) Walter explicitly prefers 'balanced funds' yet the plan is 100% equity with no hybrid or debt allocation; (2) the existing ₹35L corpus is completely ignored — no deployment strategy mentioned; (3) no SWP planning despite it being a stated preference; (4) no separate planning for annual international trips or children's corpus. The step-up SIP is a positive but insufficient to offset these misalignments.\n\n**Diversification (0.25):** Extremely poor diversification. All three funds are equity-only, with 70% concentrated in large cap (two overlapping funds — ICICI Prudential Large Cap and Nippon India Large Cap). No debt, no hybrid, no international/geographic diversification, no gold or alternative assets. Only two fund houses represented. For a 50-year-old moderate investor, this level of equity concentration is a serious diversification failure.\n\n**Risk-Return Appropriateness (0.35):** 100% equity allocation is too aggressive for a 'moderate' risk appetite at age 50. A moderate profile typically warrants 20-40% in debt/fixed income. The base projected return of 10.5% is reasonable for equity, but the overall portfolio risk exceeds what Walter's profile calls for. The bear scenario (6.5%) applied to a 100% equity portfolio understates the real downside risk — equity can draw down 30-40% in a crisis, which would be devastating 5 years before retirement. No glide path toward debt as retirement approaches.\n\n**Internal Consistency (0.40):** Major contradiction: the rationale states the plan accounts for 'moderate risk appetite and preference for balanced funds' yet delivers a 100% equity portfolio with no balanced/hybrid fund. Two large cap funds at 70% combined is redundant and doesn't serve a 'balanced' narrative. SIP amounts mathematically add up correctly (₹45,000), and the step-up and rebalancing guidelines are internally coherent, but the core strategy contradicts its own stated rationale.\n\n**Tax Efficiency (0.30):** Walter is in the 20% slab (old regime, can claim 80C) yet no ELSS fund is recommended — missing a clear ₹1.5L deduction opportunity. While all three funds qualify for equity tax treatment (LTCG 12.5% above ₹1.25L), which is favorable, the plan makes zero mention of tax implications, tax treatment of gains, or tax-loss harvesting. No consideration of whether arbitrage or aggressive hybrid funds might serve the debt allocation need at equity tax rates. Tax is entirely absent from the plan's reasoning.",
+    "composite_pqs": 0.33999999999999997
+  },
+  "timestamp": "2026-04-18T15:44:14.094499Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,153 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch_mild",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": null,
+        "rationale": "A balanced fund that mixes stocks and bonds to grow your money steadily without wild swings. It’s been consistent for over 5 years and keeps fees low. Since you're conservative, this gives you some growth while staying stable."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.27551457892899,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold protects your money when markets get shaky or inflation rises. You already trust gold, so this ETF is like owning physical gold but easier to buy and sell. ICICI’s version is big, simple, and reliable."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 10577.451299999999,
+          "morningstar_rating": null,
+          "returns_1y": 5.453418154772471,
+          "returns_3y": 6.279485763002324,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is like a super-safe bank deposit that earns more than a savings account. It invests in very short loans (just one day), so it doesn’t move much. But because you’re in the 30% tax slab, we’re using arbitrage funds instead — same stability, but taxed like stocks, so you keep more money."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera — they’re simple and free.\nStep 2: Link your bank account.\nStep 3: Start SIPs of ₹32,000 in ICICI Prudential Equity & Debt Fund, ₹24,000 in ICICI Prudential Gold ETF, and ₹24,000 in an arbitrage fund (we’ll replace the overnight fund with one).\nStep 4: Set up auto-pay so it runs every month without effort.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running and units are being added.",
+      "After 1 year: Compare how each fund did vs. similar funds — if one is way behind, we’ll switch.",
+      "Every year: Review if your mix still feels right."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio. If one part (like gold) has grown a lot and now makes up more than 35% of your total, sell a bit and move it to the others to stay balanced.",
+    "projected_returns": {
+      "base": 10.5,
+      "bull": 14.5,
+      "bear": 6.5
+    },
+    "rationale": "At 47, you’ve got 13 years before retirement. You want steady growth without big risks. This plan uses a mix of balanced funds (for mild growth), gold (you trust it), and tax-smart debt-like funds. Since you’re in the 30% tax slab, we avoid regular debt funds — they’d cost you too much in taxes. Instead, we use arbitrage funds which are just as stable but taxed better. The split (40-30-30) keeps things simple and matches your conservative style.",
+    "risks": [
+      "Stocks can drop 20-30% in a bad year — your aggressive hybrid fund will fall too, but not as much as pure stock funds.",
+      "Gold prices can stay flat for years — it protects value but doesn’t always grow.",
+      "Arbitrage funds are safe, but returns can dip slightly in very calm markets.",
+      "Taxes, inflation, and policy changes can affect returns — we’ve planned for this by choosing tax-efficient funds."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to grow your investment with your income"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The plan contains no passive equity index funds or ETFs in the equity allocation; the only equity exposure is through an aggressive hybrid fund (ICICI Prudential Equity & Debt Fund), which is actively managed (alpha of 9.27, beta of 0.66), resulting in a passive_instrument_fraction score of 0.0. Rebalancing is recommended annually with minor tactical review after one year, indicating low turnover (turnover_score: 0.8). Cost is emphasized indirectly through tax efficiency (use of arbitrage funds over debt funds for tax benefits) and low expense ratios, though not explicitly framed as the primary criterion (cost_emphasis_score: 0.8). The plan does not require individual stock or fund research; selections are based on broad categories and tax logic rather than deep analysis (research_vs_cost_score: 0.8). The time horizon is long-term (13 years to retirement), with annual reviews and a step-up SIP, supporting a long-term orientation (time_horizon_alignment_score: 0.8). The portfolio_activeness_score is 0.3 because the core equity exposure shows active characteristics (high alpha, moderate beta), and the hybrid fund dominates the portfolio, while gold and arbitrage funds are passive in nature but not equity index instruments. Overall, the plan leans conservative and tax-aware but is not equity-passive.",
+    "composite_aps": 0.5833333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.95,
+    "reasoning": "The investment plan shows strong alignment with Ron Swanson's conservative risk appetite, 13-year horizon, and preference for understandable, stable instruments. The 40% allocation to Aggressive Hybrid Fund provides moderate growth while respecting his aversion to aggressive equity, and the 30% gold allocation aligns with his trust in gold as a store of value. The plan correctly substitutes overnight funds with arbitrage funds for tax efficiency, recognizing that Ron is in the 30% tax slab — this is a key strength, as arbitrage funds are taxed at equity rates (20% with indexation for STCG, LTCG 12.5% after ₹1.25L), making them far more tax-efficient than debt funds which would be taxed at 30%. This shows deliberate tax optimization, hence the high tax_efficiency score. Diversification is good across asset classes (equity-debt hybrid, gold, and arbitrage) and provides inflation protection and stability, though there is concentration in a single fund house (ICICI Prudential), slightly reducing diversification. The risk-return profile is appropriate: projected returns of 10.5% base are realistic for this allocation, and downside risks are acknowledged. The plan is internally consistent — the rationale, fund choices, tax logic, and risk warnings all align without contradiction. The only minor gap is the absence of ELSS despite available 80C headroom under the old regime; however, given Ron's deep conservatism and distrust of financial products, omitting ELSS may be a prudent concession to his behavioral preferences rather than a flaw. Thus, the plan is high-quality, tax-smart, and tailored.",
+    "composite_pqs": 0.8699999999999999
+  },
+  "timestamp": "2026-04-18T15:11:03.921489Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 97628,
+    "output_tokens": 2225,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 10
+  },
+  "elapsed_s": 83.49148592259735
+}

@@ -1,0 +1,44 @@
+{
+  "persona_id": "H056",
+  "condition": "lynch",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {
+      "base": 0.0,
+      "bear": 0.0,
+      "bull": 0.0
+    },
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "The investment plan provided is completely empty, containing no actual fund recommendations, allocation details, strategy, or financial data. All fields such as 'setup_phase', 'rebalancing_guidelines', 'rationale', and 'allocations' are null, empty strings, or zero. Because there is no investable policy to score, the dimensions are assigned a neutral score of 0.5 (midpoint) to reflect the lack of information. Without specific evidence of active stock-picking or a declared buy-and-hold strategy, no definitive active or passive posture can be derived from the input.",
+    "composite_aps": 0.5
+  },
+  "pqs": {
+    "goal_alignment": 0.0,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.0,
+    "internal_consistency": 0.0,
+    "tax_efficiency": 0.5,
+    "reasoning": "The investment plan is effectively empty. The allocations, rationale, setup phase, review checkpoints, and projected returns are all missing or null. It proposes no specific funds, no asset allocation, and no strategy to meet the investor's dual goals of retirement (10Cr corpus) and overseas education. Despite the investor's young age (24) and long horizon (35 years), the plan fails to align with any finite goal due to total absence of content. Consequently, there is no diversification, no risk management strategy (contradicting the stated conservative risk appetite), and no internal logic to evaluate (consistent only in its emptiness). Tax efficiency is assigned a neutral 0.5 as no specific tax recommendations were made (neither compliant nor non-compliant), but this does not redeem the plan's fundamental failure to provide any investment advice.",
+    "composite_pqs": 0.1
+  },
+  "timestamp": "2026-04-18T10:02:12.505045Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,177 @@
+{
+  "persona_id": "P22",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119552",
+          "name": "UTI NIFTY INDEX FUND",
+          "category": "Index",
+          "sub_category": "Nifty",
+          "fund_house": "UTI Mutual Fund",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": 1200000.0,
+        "rationale": "Index fund for stable returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "147612",
+          "name": "MOTILAL OSWAL SMALL CAP FUND",
+          "category": "Small Cap",
+          "sub_category": "Small Cap",
+          "fund_house": "Motilal Oswal Mutual Fund",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": 400000.0,
+        "rationale": "Small cap fund for high growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD EXCHANGE TRADED FUND",
+          "category": "Gold",
+          "sub_category": "Gold",
+          "fund_house": "UTI Mutual Fund",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Gold fund for diversification"
+      },
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI PRUDENTIAL LARGE CAP FUND",
+          "category": "Large Cap",
+          "sub_category": "Large Cap",
+          "fund_house": "ICICI Prudential Mutual Fund",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund for stable returns"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you are 40 with 20 years ahead, we can afford to put more in stocks which grow faster over long periods. We have kept 20% in safer options so your money isn't all in one basket.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.75,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "The plan allocates 60% of the portfolio to the UTI Nifty Index Fund, a passive index fund, while the remaining 40% in equity goes to actively managed funds (Motilal Oswal Small Cap and ICICI Prudential Large Cap). Therefore, within the equity allocation (which is 100% of the non-gold portion), 60% out of 80% total equity is passive, resulting in a passive_instrument_fraction of 60/80 = 0.75.\n\nRebalancing is recommended annually or when allocations deviate significantly, indicating moderate turnover, hence turnover_score = 0.75 (not fully buy-and-hold, but not frequent either).\n\nThere is no mention of expense ratios, cost efficiency, or tax considerations in fund selection; rationale focuses on growth and stability, so cost_emphasis_score = 0.0.\n\nThe plan does not emphasize individual stock or fund manager research, but it selects specific active funds based on category (small cap for growth), suggesting some level of fund selection rationale rather than pure indexing beyond the Nifty fund. However, no deep analysis is presented, so research_vs_cost_score = 0.0 due to lack of explicit research discussion.\n\nThe time horizon is clearly long-term (20 years), with SIPs, step-ups, and tolerance for market drops, so time_horizon_alignment_score = 1.0.\n\nFor portfolio_activeness_score: the only fund with clear passive intent is the Nifty Index Fund (beta ~1, tracking error ~0 implied). The other equity funds are actively managed (small cap, large cap), likely with higher tracking error and active bets. Gold ETF is passive by nature. Weighting across equity: 60% passive, 40% active; within overall portfolio (80% equity), this leads to significant passive exposure but meaningful active component. Given lack of risk metrics, inference from category suggests mixed portfolio, so portfolio_activeness_score = 0.5.",
+    "composite_aps": 0.5
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 1.0,
+    "reasoning": "The investment plan is well-aligned with Captain Haddock's aggressive risk appetite, 20-year horizon, and financial goals (retirement, house, education). The 80% equity exposure (60% Nifty Index + 20% Small Cap) plus 10% gold and 10% large cap (which overlaps with index) supports long-term growth. However, diversification is slightly reduced due to overlap between Nifty Index and Large Cap fund (both large-cap equity), and lack of international or debt exposure. Risk-return is appropriate: acknowledges market volatility and sets realistic return expectations (8–16%). The plan is internally consistent: rationale, allocations, rebalancing, and risk warnings align. Tax efficiency is excellent: investor is in the 'new_regime' (no 80C benefit), so correctly avoids ELSS; all recommended funds are equity-category (equity taxation applies), which is optimal for tax treatment under Budget 2024. No slab-taxed debt funds are used, and gold ETF has favorable LTCG treatment. No tax contradictions or inefficiencies present.",
+    "composite_pqs": 0.8800000000000001
+  },
+  "timestamp": "2026-04-18T15:49:09.863662Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24761,
+    "output_tokens": 1939,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 53.60679692123085
+}

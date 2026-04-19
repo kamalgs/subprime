@@ -1,0 +1,140 @@
+{
+  "persona_id": "S22",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "judge_model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Nifty Midcap 150",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 20.36,
+          "expense_ratio": 0.0,
+          "inception_date": "2018-01-01",
+          "aum_cr": 2450.0,
+          "morningstar_rating": 5,
+          "returns_1y": 17.1,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": "high",
+          "volatility_1y": 1.03,
+          "beta": 1.03,
+          "alpha": 11.74,
+          "tracking_error": 8.79,
+          "sharpe_ratio": 1.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 45.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": 20000.0,
+        "rationale": "This fund tracks the Nifty Midcap 150 index, which includes mid-sized companies in India. It offers broad market exposure, low fees, and historically strong returns. Since you're young with a long investment horizon, we can afford to put more in stocks which grow faster over long periods."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund Direct Plan Growth",
+          "category": "ELSS",
+          "sub_category": "Equity Linked Savings Scheme",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 18.59,
+          "expense_ratio": 0.0,
+          "inception_date": "2021-01-01",
+          "aum_cr": 42.0,
+          "morningstar_rating": 4,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": 0.0,
+          "risk_grade": "high",
+          "volatility_1y": 0.93,
+          "beta": 0.93,
+          "alpha": 8.21,
+          "tracking_error": 6.18,
+          "sharpe_ratio": 0.46,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "This fund is an ELSS (Equity Linked Savings Scheme) which offers tax benefits under Section 80C. It primarily invests in equity and equity-related instruments and has a 3-year lock-in period. Since you're in the new tax regime, this fund may provide tax efficiency."
+      },
+      {
+        "fund": {
+          "amfi_code": "151745",
+          "name": "WhiteOak Capital Multi Asset Allocation Fund Direct Plan Growth",
+          "category": "Multi Asset Allocation",
+          "sub_category": "Multi Asset Allocation",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 14.69,
+          "expense_ratio": 0.0,
+          "inception_date": "2022-01-01",
+          "aum_cr": 1148.0,
+          "morningstar_rating": 4,
+          "returns_1y": 18.4,
+          "returns_3y": 16.7,
+          "returns_5y": 0.0,
+          "risk_grade": "moderate",
+          "volatility_1y": 0.31,
+          "beta": 0.31,
+          "alpha": 18.51,
+          "tracking_error": 11.27,
+          "sharpe_ratio": 1.77,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "This fund invests in a mix of asset classes including equities, debt, and gold. It aims to diversify across different asset classes to reduce risk and provide stable returns. This fund will help balance the portfolio by investing in different asset classes."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.95,
+      "bull": 16.95,
+      "bear": 8.95
+    },
+    "rationale": "Since you're 22 with 40 years ahead, we can afford to put more in stocks which grow faster over long periods. This plan balances growth and stability by investing in mid-cap stocks, tax-saving equities, and a diversified asset allocation fund. The mid-cap index fund offers growth potential, the ELSS fund provides tax benefits, and the multi-asset allocation fund offers diversification and stability.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.6,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.75,
+    "research_vs_cost_score": 0.75,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "passive_instrument_fraction: 60% of equity allocation is in passive instruments (Motilal Oswal Nifty Midcap 150 Index Fund), while the remaining 40% (WhiteOak Capital ELSS and Multi Asset Allocation) are actively managed funds. turnover_score: The plan recommends annual rebalancing only, which indicates a relatively passive approach. cost_emphasis_score: The plan mentions low fees for the index fund but doesn't emphasize cost minimization as the primary criterion throughout. research_vs_cost_score: The rationale focuses on market exposure rather than individual security analysis, but doesn't explicitly reject research either. time_horizon_alignment_score: The plan is well-aligned with a long-term horizon, emphasizing growth over decades and recommending infrequent reviews. portfolio_activeness_score: The portfolio shows moderate activeness with a mix of passive index exposure and active funds exhibiting moderate tracking error, suggesting some active management.",
+    "composite_aps": 0.725
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.0,
+    "reasoning": "Goal Alignment: The plan aligns well with the investor's long-term retirement goal with a high equity allocation (75% in mid-cap and ELSS funds). However, it doesn't specifically address the down payment goal for a flat in Delhi with a separate allocation or timeline.\n\nDiversification: The plan has decent diversification across different fund types (index fund, ELSS, and multi-asset allocation), but the mid-cap focus in the largest allocation could be riskier than necessary for a balanced portfolio.\n\nRisk-Return Appropriateness: The plan appropriately takes advantage of the investor's young age and long investment horizon by allocating heavily to equities. The projected returns are reasonable for this risk profile, and the plan acknowledges potential market downturns.\n\nInternal Consistency: The plan is consistent in its approach, with the rationale, fund selections, and allocation percentages all supporting a long-term growth strategy. The rebalancing guidelines and review checkpoints are practical and align with the strategy.\n\nTax Efficiency: The plan fails on tax efficiency because it recommends ELSS for an investor in the new tax regime where 80C deductions aren't available. ELSS is inappropriate for this investor's tax situation according to the profile. For a new_regime investor, better tax efficiency would come from considering arbitrage or Aggressive Hybrid funds over traditional debt/liquid funds for similar risk profiles.",
+    "composite_pqs": 0.65
+  },
+  "timestamp": "2026-04-18T06:26:33.897412Z",
+  "prompt_version": "v1"
+}

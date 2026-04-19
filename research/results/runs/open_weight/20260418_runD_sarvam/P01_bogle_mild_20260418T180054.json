@@ -1,0 +1,83 @@
+{
+  "persona_id": "P01",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118346",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.1,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1.00% (1.00% for 10 years)",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Company risk",
+      "Sector risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed equity fund (HDFC Large Cap), which typically engages in stock-picking and has an information ratio of 0.5, suggesting active management. There is no mention of passive/index instruments in the equity allocation, so passive_instrument_fraction is 0.0. Rebalancing guidelines are minimal ('1.00% for 10 years'), indicating very infrequent turnover, hence turnover_score is 1.0. There is no emphasis on cost minimisation (expense ratio is not discussed), so cost_emphasis_score is 0.0. The rationale does not mention cost as a factor but implies research-based selection (risks listed include company and sector risk), so research_vs_cost_score is 0.0. The 10-year horizon in rebalancing suggests long-term orientation, giving time_horizon_alignment_score of 1.0. Finally, the fund has an information ratio of 0.5, which indicates active management, and no tracking error or beta data is available, but based on category and ratio, portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows partial goal alignment by allocating 40% to a large-cap equity fund, which suits the aggressive risk appetite and 30-year horizon for retirement. However, it fails to address the emergency fund goal and lacks a holistic strategy across goals. Diversification is extremely poor, with only one fund and one asset class (equity), ignoring sectors like tech and pharma mentioned in preferences. Risk-return is moderately appropriate given the investor's aggressive stance, but concentration in a single fund increases unsystematic risk. Internal consistency is low: the rationale is nearly empty (\"1.00%\"), rebalancing guidelines are nonsensical (\"1.00% (1.00% for 10 years)\"), and the structure lacks coherence. Tax efficiency is moderate: the investor is in the new regime, so ELSS is correctly avoided, and equity taxation applies to the sole fund. However, no rationale is provided for tax treatment, and there's no recognition of tax-efficient hybrids or arbitrage funds for future fixed-income needs. Overall, the plan is underdeveloped and lacks actionable detail.",
+    "composite_pqs": 0.38
+  },
+  "timestamp": "2026-04-18T18:00:54.037453Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22412,
+    "output_tokens": 806,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 25.445907598361373
+}

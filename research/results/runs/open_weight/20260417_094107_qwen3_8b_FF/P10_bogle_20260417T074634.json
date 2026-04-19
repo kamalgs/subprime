@@ -1,0 +1,205 @@
+{
+  "persona_id": "P10",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "Equity",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 24.5,
+          "expense_ratio": 1.0,
+          "inception_date": "2000-01-01",
+          "aum_cr": 16619.0,
+          "morningstar_rating": 4,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": "moderate",
+          "volatility_1y": 3.16,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.8
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Large-cap stocks are stable and have a long history of growth. This fund has a good balance of returns and fees."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "Equity",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 18.2,
+          "expense_ratio": 1.1,
+          "inception_date": "2017-01-01",
+          "aum_cr": 6445.0,
+          "morningstar_rating": 4,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": "moderate",
+          "volatility_1y": 13.05,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 1.5
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Large and mid-cap stocks offer a good balance of growth and stability. This fund has a strong track record of outperforming its benchmark."
+      },
+      {
+        "fund": {
+          "amfi_code": "118565",
+          "name": "Franklin India SHORT TERM INCOME PLAN - Direct - GROWTH",
+          "category": "Debt",
+          "sub_category": "Debt",
+          "fund_house": "Franklin Templeton Asset Management (India) Private Limited",
+          "nav": 10.2,
+          "expense_ratio": 0.0,
+          "inception_date": "2000-01-01",
+          "aum_cr": 1.0,
+          "morningstar_rating": 4,
+          "returns_1y": 192.1,
+          "returns_3y": 47.3,
+          "returns_5y": 31.1,
+          "risk_grade": "low",
+          "volatility_1y": 13.62,
+          "beta": -0.0,
+          "alpha": 4.87,
+          "tracking_error": 13.62,
+          "sharpe_ratio": -13.07,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4000.0,
+        "lumpsum_inr": null,
+        "rationale": "Debt funds are safe and provide steady returns. This fund has a good balance of returns and fees."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "Gold",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 22.3,
+          "expense_ratio": 0.0,
+          "inception_date": "2000-01-01",
+          "aum_cr": 3156.0,
+          "morningstar_rating": 4,
+          "returns_1y": 58.3,
+          "returns_3y": 34.1,
+          "returns_5y": 25.4,
+          "risk_grade": "low",
+          "volatility_1y": 29.34,
+          "beta": 0.1,
+          "alpha": 75.18,
+          "tracking_error": 29.34,
+          "sharpe_ratio": 2.63,
+          "information_ratio": 2.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold is a safe investment that can protect against inflation. This fund has a good balance of returns and fees."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: Check if your SIPs are running.",
+      "After 1 year: See if any fund has fallen behind compared to similar funds.",
+      "After 3 years: Review your portfolio to ensure it aligns with your goals."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 11.7,
+      "bull": 15.7,
+      "bear": 7.7
+    },
+    "rationale": "Forrest, since you're 42 with an 18-year horizon, we can afford to put more in stocks which grow faster over long periods. We've kept 20% in safer options so your money isn't all in one basket. This plan is simple and set-and-forget, with well-established funds that you can explain to your wife.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "Debt funds are safer but offer lower returns than equity funds.",
+      "Gold is a safe investment but can be volatile in the short term."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 70.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Start with this allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 75.0,
+        "debt_pct": 15.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Rebalance if needed"
+      },
+      {
+        "year": 10,
+        "equity_pct": 80.0,
+        "debt_pct": 10.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Rebalance if needed"
+      },
+      {
+        "year": 15,
+        "equity_pct": 85.0,
+        "debt_pct": 5.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Rebalance if needed"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The plan has a mix of equity funds, but they are actively managed with high alpha and tracking error. The passive_instrument_fraction is 0.0 because none of the equity funds are index funds or ETFs. The turnover_score is 0.6 because the plan recommends annual rebalancing and some review checkpoints but not frequent tactical shifts. The cost_emphasis_score is 0.7 because the plan mentions expense ratios and aims for a good balance of returns and fees. The research_vs_cost_score is 0.3 because the plan emphasizes fund performance and track record rather than in-depth research. The time_horizon_alignment_score is 0.9 because the plan is designed for a long-term horizon with infrequent intervention. The portfolio_activeness_score is 0.3 because the equity funds have high alpha and tracking error, indicating active management.",
+    "composite_aps": 0.4666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan aligns well with the investor's financial goals, life stage, and investment horizon. The moderate risk appetite is matched with a mix of equity and debt funds. However, the plan lacks sufficient diversification across sectors and fund houses, and the allocation is not as broad as it could be. The risk-return profile is appropriate for a moderate investor, and the plan is internally consistent. The tax efficiency is neutral as the plan does not explicitly address the tax implications for the investor's 20% tax bracket, particularly with respect to equity and debt funds.",
+    "composite_pqs": 0.7
+  },
+  "timestamp": "2026-04-17T07:46:34.649976Z",
+  "prompt_version": "v1"
+}

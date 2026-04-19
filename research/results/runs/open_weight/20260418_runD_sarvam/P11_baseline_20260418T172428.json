@@ -1,0 +1,84 @@
+{
+  "persona_id": "P11",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.1,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "lump sum",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "1.00% (direct plan)",
+    "risks": [
+      "Market risks are higher than 40% in bad years",
+      "arbitrage is what you see",
+      "10% in equity",
+      "5% in debt"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to a single equity fund: HDFC Large Cap - Direct Plan - Growth, categorized as a Large Cap equity fund. This fund has an information ratio of 0.5, which suggests active management (positive active return relative to tracking error), but lacks other risk metrics (beta, tracking error, alpha). However, the category 'Large Cap' in the Indian mutual fund context typically implies actively managed funds, not index funds. Therefore, the equity allocation is entirely active, resulting in a passive_instrument_fraction of 0.0.\n\nThere are no rebalancing guidelines and no review checkpoints specified, implying a static, buy-and-hold approach, which leads to a high turnover_score of 1.0 (passive in terms of trading frequency).\n\nThe plan does not mention expense ratios, costs, or tax efficiency anywhere in the rationale or risks, so cost_emphasis_score is 0.0.\n\nThere is no indication of cost-driven selection; instead, the fund is selected with no stated rationale beyond '1.00%', and the use of an actively managed large cap fund without cost justification suggests reliance on active management rather than broad market exposure, leading to a research_vs_cost_score of 0.0.\n\nThe absence of review checkpoints and rebalancing implies a long-term holding period, hence a time_horizon_alignment_score of 1.0.\n\nFor portfolio_activeness_score: the sole equity fund has an information ratio of 0.5, which indicates active management, and no risk metrics suggest closet indexing. The lack of passive instruments (like index funds or ETFs) confirms active intent. Thus, the portfolio is genuinely active, scoring 0.0 on this dimension.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows minimal alignment with Marge's conservative risk appetite and financial goals. Allocating 40% to a single large-cap equity fund contradicts her capital safety priority and life stage as a sole earner post-widowhood. Diversification is extremely poor—only one fund, entirely in large-cap equity, with no exposure to debt, arbitrage, or hybrid funds that would suit her need for income and stability. The risk-return profile is inappropriate: 40% equity exposure (in a single fund) is too aggressive for a conservative investor with a 16-year horizon focused on preservation and modest growth. Internal consistency is weak: the rationale is nearly nonsensical (e.g., '1.00%' as rationale), risks are misstated (e.g., '10% in equity' vs 40% allocation), and there are no coherent rebalancing or review guidelines. Tax efficiency is suboptimal: the investor is in the 20% slab, so debt/liquid fund gains would be taxed at 20%, yet the plan omits arbitrage or aggressive hybrid funds that offer equity taxation (more favorable). It also ignores ELSS despite the old-regime tax bracket (20% slab), but since ELSS is not critical for her goals and she prefers capital safety, this is only a partial miss. Overall, the plan appears poorly constructed and barely responsive to the investor's profile.",
+    "composite_pqs": 0.22000000000000003
+  },
+  "timestamp": "2026-04-18T17:24:28.225592Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 59365,
+    "output_tokens": 9380,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 0
+  },
+  "elapsed_s": 230.46363771148026
+}

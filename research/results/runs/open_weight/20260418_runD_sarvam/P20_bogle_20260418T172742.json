@@ -1,0 +1,87 @@
+{
+  "persona_id": "P20",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "1990-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.65
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.05,
+        "lumpsum_inr": null,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Rebalance annually to maintain equity-debt ratio",
+    "projected_returns": {
+      "base": 10.5,
+      "optimistic": 15.5,
+      "pessimistic": 18.5
+    },
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "liquidity risk",
+      "counterparty risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 60% to the Nifty 50 Index fund, which is a passive equity instrument, and there are no other equity funds mentioned, so the passive_instrument_fraction is 1.0. The rebalancing_guidelines suggest annual rebalancing, indicating low turnover, hence turnover_score is 1.0. There is no explicit emphasis on cost minimisation beyond the use of an index fund, but cost is not discussed as a primary criterion, so cost_emphasis_score is 0.5. The plan uses a broad market index without any indication of individual security research, leading to a research_vs_cost_score of 1.0. The rationale mentions a 15-year horizon ('15y'), indicating strong long-term orientation, so time_horizon_alignment_score is 1.0. The portfolio consists solely of a Nifty 50 Index fund, which by definition has beta ≈ 1.0, low tracking error, and minimal active management; despite the information_ratio being listed as 0.65 (which may be anomalous for an index fund), the fund's nature and category confirm it as passive, so portfolio_activeness_score is 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows minimal alignment with Leslie's goals: a 60% allocation to Nifty 50 Index is a start, but the lack of diversification across sectors, geographies, or asset classes (no debt, no international, no mid/small cap) creates high concentration risk (diversification = 0.1). The plan ignores Leslie's moderate risk appetite by being heavily equity-weighted with no risk-mitigating assets despite a 23-year horizon that allows for balanced growth — and projected returns are inconsistent (pessimistic return higher than base case), undermining credibility. Only one fund is selected, making the plan internally weak and contradictory (e.g., claims to support long-term projections but provides no meaningful breakdown). Tax efficiency is suboptimal: Leslie is in the 20% slab and would benefit from ELSS for 80C savings, but the plan does not specify ELSS or justify why a regular index fund is preferred; no mention of tax treatment of gains. The plan lacks SIP structure (monthly SIP is 50 paise?), rebalancing is generic, and rationale fields are underdeveloped. Overall, the plan is incomplete and poorly tailored.",
+    "composite_pqs": 0.26
+  },
+  "timestamp": "2026-04-18T17:27:42.655480Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22897,
+    "output_tokens": 866,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 25.26149416156113
+}

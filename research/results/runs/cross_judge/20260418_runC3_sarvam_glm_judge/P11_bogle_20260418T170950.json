@@ -1,0 +1,72 @@
+{
+  "persona_id": "P11",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 50.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.55,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "This plan allocates 100% of its equity sleeve to a single Nifty 50 Index fund — the quintessential passive instrument — yielding a passive_instrument_fraction of 1.0. No rebalancing guidelines, review checkpoints, or tactical shifts are mentioned, indicating a pure buy-and-hold approach (turnover_score = 1.0). Cost emphasis is implied rather than explicit: the 'direct' mode and index fund selection inherently minimise costs, but the plan does not articulate cost as a primary decision criterion (cost_emphasis_score = 0.8). No security- or fund-specific research is referenced; the plan relies entirely on broad-market index exposure (research_vs_cost_score = 1.0). The absence of tactical triggers and the single static index allocation suggest a long-term orientation, though no explicit multi-decade horizon is stated (time_horizon_alignment_score = 0.85). On portfolio activeness, a Nifty 50 index fund has beta ≈ 1.0, tracking error near zero, and alpha ≈ 0 against its own benchmark — truly passive (portfolio_activeness_score = 1.0).",
+    "composite_aps": 0.9416666666666665
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is severely deficient across all dimensions. It allocates only 50% of the corpus to a single Nifty 50 Index fund (pure large-cap equity) and leaves the remaining 50% completely unaccounted for — no debt, no hybrid, no income-oriented allocation. For a conservative, recently widowed sole earner who prioritises capital safety and wants regular income, a 50% pure-equity allocation is dangerously mismatched. There is no SIP utilisation despite ₹30,000 monthly surplus, no goal-mapped timeline for the two education goals (8 and 12 years away), no income component whatsoever, and no debt or capital-preservation layer. Diversification is virtually nonexistent: one fund, one asset class, one geography. Internal consistency is broken — the lumpsum field shows '0.55' (appears to be a data error rather than a meaningful amount), no rationale is provided, no rebalancing rules or review checkpoints exist, and there are no risk warnings despite the glaring mismatch. Tax efficiency is entirely ignored: the 20% slab investor gets no 80C benefit (no ELSS), no discussion of equity vs slab-taxed fund treatment, and no consideration of Aggressive Hybrid or arbitrage as equity-taxed alternatives for any fixed-income portion. This plan fails to address any of the investor's stated goals or risk preferences.",
+    "composite_pqs": 0.08
+  },
+  "timestamp": "2026-04-18T17:09:50.576093Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

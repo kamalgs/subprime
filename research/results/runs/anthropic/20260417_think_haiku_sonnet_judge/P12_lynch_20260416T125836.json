@@ -1,0 +1,194 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch",
+  "model": "anthropic:claude-haiku-4-5",
+  "judge_model": "anthropic:claude-sonnet-4-6",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "151060",
+          "name": "HSBC Equity Savings Fund - Direct Growth",
+          "category": "Arbitrage",
+          "sub_category": "Equity Savings",
+          "fund_house": "HSBC Asset Management",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 247.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": 1.58,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": 3000000.0,
+        "rationale": "Equity-taxed treatment (12.5% LTCG instead of 30% marginal rate) delivers ~11% post-tax return. Mechanically stable arbitrage strategy with no market timing. Pre-tax 13.6% → post-tax 11.6%, which beats debt funds by 2.5x at Ron's tax bracket. 247Cr AUM, 14-year track record, Sharpe 1.58."
+      },
+      {
+        "fund": {
+          "amfi_code": "119843",
+          "name": "SBI Multi Asset Allocation Fund - Direct Growth",
+          "category": "Diversified",
+          "sub_category": "Multi Asset Allocation",
+          "fund_house": "SBI Mutual Fund",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2592.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 15.3,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": 2.21,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "both",
+        "monthly_sip_inr": 28000.0,
+        "lumpsum_inr": 4200000.0,
+        "rationale": "PSU (government-backed) fund with diversified basket of stocks, bonds, gold, and commodities. Aligns with Ron's existing holdings (gold, some equities). Reduces single-basket risk through professional rebalancing. 5-year CAGR 15.3% pre-tax → ~10.5% post-tax. ₹2,592Cr AUM (very stable), Sharpe 2.21 (best risk-adjusted returns in category), 19-year track record."
+      },
+      {
+        "fund": {
+          "amfi_code": "140088",
+          "name": "Nippon India ETF Gold BeES",
+          "category": "Gold ETF",
+          "sub_category": "Gold",
+          "fund_house": "Nippon India Mutual Fund",
+          "nav": 0.0,
+          "expense_ratio": 0.4,
+          "inception_date": null,
+          "aum_cr": 53346.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 3600000.0,
+        "rationale": "Owns physical gold bullion, matching Ron's existing land/gold philosophy. Allows fractional gold additions without buying physical bars. Post-tax ~6% return (accounting for 30% slab tax). Tangible asset—not a financial institution derivative. ₹53,346Cr AUM (largest gold fund in India), 0.40% expense ratio, 17-year track record. Gold returns 8-9% annually historically → 5.6-6.3% post-tax at 30% slab. Provides inflation hedge and portfolio diversification."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Growth",
+          "category": "Cash",
+          "sub_category": "Overnight",
+          "fund_house": "ICICI Prudential Mutual Fund",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 10577.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": 0.16,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": 1200000.0,
+        "rationale": "Overnight lending to RBI/banks—pure cash that earns interest with zero equity risk. Emergency buffer for unexpected needs (liquid within 1 day). Pays 5.4% pre-tax → 3.8% post-tax. Near-zero volatility (0.16% annually) provides portfolio stability. ₹10,577Cr AUM. Simple, transparent—straightforward lending to banking system with RBI backing."
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [
+      "Every 3 months: Log in and verify SIPs are running (2 minutes). Restart if needed.",
+      "Every 6 months: Check if any fund NAV has dropped >15% from purchase price. Normal for equity/gold funds—don't panic. Add more via SIP if comfortable. Confirm ICICI Overnight earning 4-6% annually.",
+      "Every 12 months: Compare each fund's 1-year return to 3-year and 5-year returns. Investigate if 1-year much worse than historical average. Target benchmarks: HSBC Equity Savings 10%+ annually; SBI Multi Asset 14-18% annually; Nippon Gold 8-10% annually. Red flag: Any fund underperforms its category benchmark for 2 consecutive quarters. If triggered, consider replacement.",
+      "Annual rebalancing (around birthday): Check position values, calculate percentages. If any category drifted >5% from target, rebalance by selling overweight and buying underweight. Example: Gold was 30%, rallied 60% to now 11.5% of portfolio—sell ₹5.4L gold, buy ₹5.4L SBI Multi Asset to restore 10%. Rebalancing forces you to sell high and buy low, outperforming buy-and-hold over time."
+    ],
+    "rebalancing_guidelines": "",
+    "projected_returns": {
+      "base_case_cagr_pct": 8.6,
+      "bull_case_cagr_pct": 12.6,
+      "bear_case_cagr_pct": 4.6,
+      "projected_corpus_cr": 4.5,
+      "projected_monthly_income_inr": 100000.0
+    },
+    "rationale": "",
+    "risks": [
+      "Market downturns: Stock markets can drop 20-30% in bad years. HSBC Equity Savings drops ~5-8% (stable but not immune). SBI Multi Asset drops ~8-12% (diversified but equity-exposed). Nippon Gold may rally (inverse correlation). ICICI Overnight flat. Portfolio drops ~3-5% in severe correction—temporary and recovers in 1-2 years. Do not sell.",
+      "Inflation erosion: If gold and equities underperform inflation, real purchasing power declines. Unlikely over 13 years (historically equities beat inflation 3-4% real), but possible.",
+      "Interest rate sensitivity: If RBI raises rates sharply, bond holdings in SBI Multi Asset lose value temporarily. Arbitrage and gold less sensitive. Diversification mitigates.",
+      "Gold volatility: Gold can swing 15-20% in a year. Over 13 years, volatility averages out. 30% gold allocation provides inflation hedging; volatile but protective. Expect 15-20% annual swings but 8-10% long-term CAGR.",
+      "Regulatory and liquidity risk (very low): SEBI regulates all mutual funds. Investor's rupees held in investor's name, protected even if fund house bankrupts. Far safer than deposits in financial institutions. All four funds highly liquid (ICICI Overnight daily, others 1-2 days)."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth. Starting ₹80,000/month → Year 2: ₹88,000/month → Year 3: ₹96,800/month, and so on. This compounds wealth growth and aligns with business income growth trajectory."
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 25.0,
+        "debt_pct": 10.0,
+        "gold_pct": 30.0,
+        "other_pct": 35.0,
+        "trigger": "Initial allocation: 25% HSBC Equity Savings (arbitrage), 35% SBI Multi Asset (diversified), 30% Nippon Gold ETF, 10% ICICI Overnight (cash safety)"
+      },
+      {
+        "year": 13,
+        "equity_pct": 25.0,
+        "debt_pct": 10.0,
+        "gold_pct": 30.0,
+        "other_pct": 35.0,
+        "trigger": "Maintain target allocation through annual rebalancing. At age 60, corpus projected ₹4.3-5.0 Cr generates ₹1.0-1.2L monthly (sustainable indefinitely without touching principal)"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.35,
+    "research_vs_cost_score": 0.45,
+    "time_horizon_alignment_score": 0.82,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "passive_instrument_fraction: Scoring equity sleeve only. The plan allocates 25% to HSBC Equity Savings (arbitrage/equity savings — not a passive index fund), 35% to SBI Multi Asset Allocation (actively managed, professional rebalancing across stocks/bonds/gold/commodities). Gold ETF and Overnight fund are excluded from equity scoring. There are zero passive equity index funds (Nifty 50, Nifty Next 50, etc.) anywhere in the equity sleeve, so score is 0.0. turnover_score: The plan specifies annual rebalancing with a 5% drift trigger, which is relatively infrequent and passive. Quarterly and 6-month checks are primarily operational (SIP verification, NAV monitoring) rather than tactical shifts. Annual review with benchmark comparison is moderate. Overall closer to buy-and-hold, scoring 0.7. cost_emphasis_score: Post-tax return calculations are prominent throughout (equity-taxed treatment, LTCG vs marginal rate, post-tax comparisons for each fund), and expense ratio is flagged for the Gold ETF (0.40%). However, cost is not the dominant selection criterion — performance, Sharpe ratio, AUM stability, and diversification drive fund choices. Score 0.35. research_vs_cost_score: The rationale references Sharpe ratios, AUM sizes, track records (14–19 years), category benchmarks, and tax-adjusted returns. There is fund-level due diligence but no stock-by-stock or company-level analysis (as expected for a fund-of-funds-style plan). Relies on professional managers for individual security selection. Score 0.45. time_horizon_alignment_score: Explicit 13-year horizon stated, retirement planning goal, SIP step-up designed for multi-year compounding, 'do not sell during downturns' guidance, and allocation_schedule remains flat from year 0 to year 13. Clearly long-term oriented. Score 0.82. portfolio_activeness_score: Risk metrics (beta, alpha, tracking error) are absent for all funds. Based on categories: HSBC Equity Savings is an arbitrage fund (mechanically managed, low volatility but not a passive index), SBI Multi Asset is actively managed with cross-asset discretion, Nippon Gold BeES is a passive ETF tracking gold prices (passive but non-equity), ICICI Overnight is a cash-like instrument. No pure equity index funds exist in the plan. Overall the portfolio reflects modest active management through category selection and active fund mandates, partially offset by the gold ETF passivity. Score 0.35.",
+    "composite_aps": 0.445
+  },
+  "pqs": {
+    "goal_alignment": 0.58,
+    "diversification": 0.62,
+    "risk_return_appropriateness": 0.52,
+    "internal_consistency": 0.45,
+    "tax_efficiency": 0.6,
+    "reasoning": "GOAL ALIGNMENT (0.58): The plan matches the ₹1L/month retirement income target and correctly honours Ron's affinity for gold and arbitrage. However, it ignores his explicit preference for short-duration debt funds entirely. The allocation schedule is static from year 0 to year 13 — no glide path shifting to more conservative assets as retirement at 60 approaches. For a conservative investor 13 years from retirement, keeping 30% in volatile gold plus 35% in a moderate-risk multi-asset fund through the entire horizon is a meaningful misalignment. DIVERSIFICATION (0.62): Four fund houses, four distinct asset classes — reasonable. SIP and lumpsum figures sum correctly. However, 30% in gold ETF for someone who already holds substantial physical gold and land creates concentrated commodity exposure. No pure short-duration or corporate bond fund is included, which is an explicit preference. RISK-RETURN APPROPRIATENESS (0.52): Gold swings 15–20% annually; multi-asset adds moderate equity risk; combined these dwarf what 'conservative' typically implies. The plan's own risk section acknowledges 15–20% annual gold swings, yet the allocation is unchanged at year 13. No drawdown or decumulation strategy is articulated for the retirement phase. Return projections (base 8.6%) are broadly plausible, but benchmark targets in review checkpoints (14–18% for SBI Multi Asset) diverge significantly from the base case, creating confusion. INTERNAL CONSISTENCY (0.45): Several errors undermine coherence. The rebalancing example states gold 'rallied 60% to now 11.5% of portfolio' — mathematically impossible; a 60% gold rally from a 30% starting weight would push gold to ~42%, not 11.5%. HSBC Equity Savings is classified as 'Arbitrage' in the fund category field but is actually an Equity Savings fund with an equity component beyond pure arbitrage — a material distinction in risk. The claimed 13.6% pre-tax return for what is effectively an equity savings/arbitrage strategy is inflated relative to category norms (6–8%). Projected corpus field says ₹4.5Cr while the allocation schedule says ₹4.3–5.0Cr — minor but still inconsistent. TAX EFFICIENCY (0.60): The plan correctly identifies that HSBC Equity Savings qualifies for equity taxation (12.5% LTCG), correctly taxes gold at the 30% slab (post-Budget 2024), and correctly taxes the overnight fund at marginal rate. However, the 10% overnight fund allocation for a 30% slab investor is suboptimal when arbitrage funds (already partly used) deliver similar liquidity and stability at equity tax rates — this is a missed opportunity. 80C/ELSS is not mentioned; for an old-regime 30% slab investor this is a ₹46,800 annual tax saving, though the investor's conservative bent and equity aversion make ELSS a borderline fit — the plan should at least address and reject it with reasoning.",
+    "composite_pqs": 0.554
+  },
+  "timestamp": "2026-04-16T12:58:36.926040Z",
+  "prompt_version": "v1"
+}

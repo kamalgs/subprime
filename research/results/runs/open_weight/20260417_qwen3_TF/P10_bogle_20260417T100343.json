@@ -1,0 +1,169 @@
+{
+  "persona_id": "P10",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 11.5,
+          "returns_3y": 18.2,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 14000.0,
+        "lumpsum_inr": null,
+        "rationale": "Top-performing large-cap fund with 1.0% fee, 11.5% 1-year return, and 18.2% 3-year return. Low cost, stable growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty 50 Index Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 17.1,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 14000.0,
+        "lumpsum_inr": null,
+        "rationale": "Tracks Nifty 50, 0.2% fee, 17.1% 1-year return. Simple, passive, and tax-efficient."
+      },
+      {
+        "fund": {
+          "amfi_code": "133401",
+          "name": "JM Aggressive Hybrid Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 11.4,
+          "returns_3y": 20.6,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Equity-taxed hybrid with 1.0% fee, 11.4% 1-year return, and 20.6% 3-year return. Combines stocks and bonds for steady growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 5.5,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-risk overnight fund with 0.55% fee, 5.5% 1-year return. Slab-taxed but better than liquid funds for short-term safety."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start SIPs in the above funds. Step 3: Link your bank account for automatic monthly deductions. Step 4: Set up alerts for market updates (optional).",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are running and check for any delays.",
+      "After 1 year: Compare fund performance to benchmarks (e.g., Nifty 50 for index fund).",
+      "After 5 years: Rebalance portfolio if any fund outperforms or underperforms by 10%."
+    ],
+    "rebalancing_guidelines": "Once a year: Check if equity allocation has drifted beyond 70%. Example: If debt now makes up 25%, move ₹10,000 from debt to equity. Why: Maintains risk profile and avoids overexposure to any category.",
+    "projected_returns": {
+      "Base (CAGR)": 12.3,
+      "Bull (CAGR)": 16.3,
+      "Bear (CAGR)": 8.3
+    },
+    "rationale": "Since you’re 42 with 18 years until retirement, this plan balances growth and stability: Equity funds (70%) grow faster over long horizons, even after 20% tax. Aggressive hybrid (20%) adds flexibility without high risk. Debt (10%) safeguards short-term needs. Simple, low-cost funds avoid complexity.",
+    "risks": [
+      "Market drops: Stocks can fall 20-30% in bad years, but your portfolio will recover over time.",
+      "Debt risk: Overnight funds are safe but offer low returns.",
+      "Tax impact: Slab-taxed debt funds lose 20% of returns for you."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.6,
+    "reasoning": "The investment plan has a mix of passive and active instruments. The Nifty 50 Index Fund (70%) is a passive instrument, while the Large Cap Fund (70%) and Aggressive Hybrid Fund (20%) are active. The plan emphasizes cost efficiency with low expense ratios and tax efficiency. It suggests annual rebalancing and minimal tactical adjustments, indicating a long-term orientation. However, it does not emphasize deep research, relying more on fund performance and cost rather than detailed analysis. The portfolio activeness score is moderate due to the mix of passive and active funds.",
+    "composite_aps": 0.6
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.5,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan aligns with the investor's moderate risk appetite and 18-year investment horizon, targeting retirement and other financial goals. However, the allocation of 70% in equity funds may be slightly aggressive for a moderate risk profile. The plan provides some diversification across large-cap, index, and hybrid funds, but lacks diversification across sectors and geographies. The risk-return profile is appropriate given the long horizon, and the plan addresses downside scenarios. The plan is internally consistent, with rationale and risk warnings aligning with the strategy. Tax efficiency is moderate, as the plan includes slab-taxed debt funds, which are not optimal for a 20% tax bracket investor. Equity-taxed funds like Aggressive Hybrid and index funds are used, which are better suited for the investor's tax bracket.",
+    "composite_pqs": 0.6799999999999999
+  },
+  "timestamp": "2026-04-17T10:03:43.473735Z",
+  "prompt_version": "v1"
+}

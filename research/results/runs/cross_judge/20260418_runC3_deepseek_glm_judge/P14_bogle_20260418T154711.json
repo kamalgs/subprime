@@ -1,0 +1,171 @@
+{
+  "persona_id": "P14",
+  "condition": "bogle",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.66,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 27000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is an equity-taxed aggressive hybrid fund with 65%+ equity allocation, giving you good growth potential while maintaining some debt cushion. With your 20% tax bracket, this fund's equity taxation advantage makes it more tax-efficient than pure debt funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 23.19,
+          "returns_5y": 18.69,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Midcap index fund for additional growth potential with lower fees (0.20% expense ratio). This gives you exposure to India's growing mid-sized companies while keeping costs minimal."
+      },
+      {
+        "fund": {
+          "amfi_code": "151122",
+          "name": "HSBC Aggressive Hybrid Fund - Direct Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 15.83,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "both",
+        "monthly_sip_inr": 6750.0,
+        "lumpsum_inr": null,
+        "rationale": "Another aggressive hybrid fund from a different fund house for diversification. This has shown strong recent performance (16.8% 1-year return) and maintains equity-taxed status."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 5.45,
+          "returns_3y": 6.28,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 5.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 175000.0,
+        "rationale": "Small allocation to overnight fund for emergency liquidity and stability. This will be slab-taxed at your 20% rate, but provides stability for your overall portfolio."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU\nStep 2: Invest your existing ₹35 lakh corpus as lumpsum across these funds (60% ICICI Aggressive Hybrid, 20% Midcap Index, 15% HSBC Aggressive Hybrid, 5% Overnight Fund)\nStep 3: Set up monthly SIPs totaling ₹45,000 with the same allocation percentages\nStep 4: Enable SWP (Systematic Withdrawal Plan) option on your hybrid funds for future retirement income",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly",
+      "After 1 year: Review performance against benchmarks and ensure allocation percentages are maintained",
+      "Annually: Assess if you need to rebalance based on market movements"
+    ],
+    "rebalancing_guidelines": "Rebalance once a year if any fund allocation drifts more than 5% from target. For example, if equity-heavy funds grow faster, move some gains to the overnight fund to maintain your 60:40 equity-debt balance.",
+    "projected_returns": {
+      "base": 14.7,
+      "bull": 18.7,
+      "bear": 10.7
+    },
+    "rationale": "At 50 with 12 years to retirement, you need growth but with stability. This 60% equity / 40% debt mix balances your need to catch up on savings while protecting what you've built. All hybrid funds are equity-taxed, which benefits your 20% tax bracket. The midcap index adds growth potential with minimal fees, while the overnight fund provides emergency access.",
+    "risks": [
+      "Stock markets can drop 20-30% in bad years — your portfolio value will temporarily decline",
+      "Midcap funds are more volatile than large caps but offer higher growth potential over long periods",
+      "Debt funds carry interest rate risk — bond prices fall when rates rise"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.3,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.7,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "**passive_instrument_fraction (0.30):** The only passive/index equity instrument is the Motilal Oswal Nifty Midcap 150 Index Fund at 20% of the portfolio. The two aggressive hybrid funds (75% combined) contain actively managed equity (~65% of each fund = ~49% of total portfolio as active equity). Total equity ≈ 69% of portfolio, passive equity = 20%, giving a passive fraction of ~29%. The remaining ~5% overnight fund is excluded from the equity sleeve calculation.\n\n**turnover_score (0.80):** The plan recommends annual rebalancing only if allocation drifts >5% from target, with SIP-based accumulation and no tactical shifts or sector rotation. The review checkpoints (6-month check, 1-year review, annual assessment) are monitoring-oriented, not action-oriented. This is a largely buy-and-hold approach.\n\n**cost_emphasis_score (0.40):** Cost is mentioned as a benefit for the midcap index fund ('lower fees, 0.20% expense ratio'), and direct plans are used throughout. However, the two hybrid funds carry 1.0% expense ratios without cost being flagged as a concern, and the primary rationales are growth potential, tax efficiency, and diversification — not cost minimization. Cost is a secondary consideration, not the dominant criterion.\n\n**research_vs_cost_score (0.70):** There is no deep company/sector analysis, no PEG ratios, moat evaluation, or manager track-record assessment. Fund selection is category-based (aggressive hybrid, midcap index, overnight) with brief performance references. The index fund explicitly avoids research. Some minimal fund-level evaluation exists (past returns, tax treatment), but the plan largely relies on broad category exposure rather than security-specific research.\n\n**time_horizon_alignment_score (0.85):** The strategy is designed for a 12-year horizon to retirement with SIP-based compounding, annual rebalancing, and an eventual SWP for retirement income. There are no short-term tactical windows or event-driven positions. The approach is firmly long-term and patient.\n\n**portfolio_activeness_score (0.25):** 75% of the portfolio sits in actively managed aggressive hybrid funds where fund managers make active equity/debt allocation and stock-picking decisions. Only 20% is in a passive midcap index fund, and 5% is in an overnight fund. Risk metrics are unavailable but category labels clearly indicate dominant active management. The portfolio-weighted activeness is high.",
+    "composite_aps": 0.55
+  },
+  "pqs": {
+    "goal_alignment": 0.5,
+    "diversification": 0.45,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.35,
+    "tax_efficiency": 0.55,
+    "reasoning": "**Goal Alignment (0.50):** The plan matches the investor's preference for balanced/hybrid funds and mentions SWP for post-retirement income, which aligns well. However, the ₹3Cr retirement goal is unlikely achievable at realistic returns (~11% blended) — projections of 14.7% base are unrealistically high for a hybrid-heavy portfolio. No step-up SIP is suggested despite the investor's stated desire to 'catch up,' which is a significant missed opportunity. The secondary goals (annual international trips, children's corpus) are not specifically addressed or budgeted for.\n\n**Diversification (0.45):** 65% of the portfolio is concentrated in a single fund house (ICICI Prudential — 60% aggressive hybrid + 5% overnight), which is a serious concentration risk. Only 4 funds across 3 categories. No pure large-cap, flexi-cap, or international equity exposure. The 75% combined allocation to aggressive hybrid funds, while from two different houses, still represents category concentration. No gold or alternative asset diversification.\n\n**Risk-Return Appropriateness (0.50):** Actual equity exposure is ~69% (hybrids are ~65% equity internally + 20% midcap), which is higher than the stated 60% and arguably aggressive for a 50-year-old moderate-risk investor. The 20% midcap allocation adds significant volatility — midcaps can drop 40-50% in bear markets. Projected base return of 14.7% and bear case of 10.7% are both too optimistic for this portfolio composition. Risks listed are generic and not quantified against the investor's specific goals.\n\n**Internal Consistency (0.35):** Multiple contradictions: (1) The rationale claims a '60% equity / 40% debt mix' but actual equity exposure is ~69%; (2) Rebalancing guidelines reference maintaining '60:40 equity-debt balance' which doesn't match the portfolio; (3) SIP allocations total only ₹42,750/month — ₹2,250/month of the ₹45,000 surplus is unaccounted for since the overnight fund is lumpsum-only; (4) The 14.7% base return is inconsistent with a hybrid-heavy portfolio's realistic expected returns. These inconsistencies undermine the plan's credibility.\n\n**Tax Efficiency (0.55):** The plan correctly leverages equity-taxed aggressive hybrid funds for the bulk of the allocation and explicitly explains the tax rationale for the 20% slab investor. However, it misses 80C optimization — no ELSS fund is included for an old-regime 20% slab investor who could save ~₹30K/year in taxes. The 5% overnight fund allocation is slab-taxed, which the plan acknowledges but doesn't mitigate (an arbitrage fund would provide similar liquidity with equity tax treatment). Tax treatment of individual fund types could have been stated more explicitly.",
+    "composite_pqs": 0.4699999999999999
+  },
+  "timestamp": "2026-04-18T15:47:11.150430Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

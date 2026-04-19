@@ -1,0 +1,140 @@
+{
+  "persona_id": "S17",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150865",
+          "name": "Baroda BNP Paribas Multi Asset Fund - Direct Plan - Growth Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1500.0,
+        "lumpsum_inr": null,
+        "rationale": "Perfect for conservative early-career investors. It mixes stocks and bonds so your money stays safe while still growing. As you grow older, we’ll slowly add more stocks."
+      },
+      {
+        "fund": {
+          "amfi_code": "140228",
+          "name": "Edelweiss Mid Cap Fund - Direct Plan - Growth Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1200.0,
+        "lumpsum_inr": null,
+        "rationale": "Mid-cap stocks grow faster than big companies but can drop more in bad times. Since you’re only 22 with 38 years ahead, you can afford some of this risk to build a huge retirement corpus."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 300.0,
+        "lumpsum_inr": null,
+        "rationale": "Safer debt fund with moderate risk. It’s like a hybrid between stocks and bonds, giving you stability when the stock market falls."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on any app like Groww, Kuvera, Coin, or MFU (takes 10 minutes). \nStep 2: Use your first ₹3,000 to buy units in the funds above.\nStep 3: Set up SIPs (this ₹1500, ₹1200 and ₹300 will be auto-debited every month). \nStep 4: Keep some cash at home for your 6-month emergency fund; don’t invest it yet.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running correctly.\nAfter 1 year: see if any fund has fallen behind compared to its peers.\nAfter 5 years: we’ll look at whether you should shift some Mid Cap money to Large Cap stocks to make the mix safer.",
+      "After 20 years: start adding more Large Cap stocks slowly."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed too much. If Mid Cap stocks grew very fast and now make up 60% instead of 40%, sell a little and buy more Multi Asset fund to get back to your target. This keeps risk under control.",
+    "projected_returns": {
+      "base": 11.8,
+      "bull": 15.8,
+      "bear": 7.8
+    },
+    "rationale": "You’re only 22 with a 38-year timeline. Even though you have a 'conservative' label, you actually have the luxury of time to take more calculated risks. Most people retire with far less than they need because they started too late or were too scared to take risks. We’ve kept 50% in safer options (Mixed Asset + Debt) so you won’t panic when stocks drop. The 40% in Mid Caps and 10% in Medium Term funds are your growth engines. If the market crashes today, it might be your best buying opportunity.",
+    "risks": [
+      "Stocks can drop 20-30% in a bad year like 2008 or 2020. Your account balance will temporarily go down, but history shows it comes back up over 5-7 years.\nDebt funds can lose value if interest rates go up suddenly.\nInflation might eat your fixed salary if you don’t increase your SIPs over time (we’ll adjust for this later).\nTaxation: Since you’re in the new regime, gains from all your funds are taxed at 20% if sold within 1 year, or long-term capital gains tax applies after 3 years."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase your monthly SIP by 10% every year as your salary grows"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.4,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.65,
+    "reasoning": "The plan is for a 22-year-old with a 38-year horizon, heavily emphasizing long-term compounding and patience (high passive dimensions).\n\n1. **Passive Instrument Fraction (0.4):** The equity portion is exclusively in an active growth fund (Baroda BNP Paribas Multi Asset, which is a hybrid equity fund with active mandates) and an active mid-cap fund (Edelweiss). There are no passive index funds in the allocation. With 50% Multi-Asset (equity + debt mix) and 40% Mid-Cap, the equity sleeve is 100% active, so fraction = 0.0. However, since 50% of the portfolio is passive-like hybrid/multi-asset and 10% is medium-term debt, the denominator for 'equity only' is the 90% combined equity allocation? Re-reading the definition: 'Within the plan's EQUITY allocation only'. The 50% Multi Asset is often treated as a category mix, but typically considered 'active' infrastructure. The 40% Mid Cap is active. The 10% is Debt. If we strictly look at the funds that are 'Equity' (Baroda Multi Asset and Edelweiss Mid Cap), both are actively managed funds with pick-specific mandates (implied by fund names and categorization), so the fraction of passive equity is 0.0. Wait, the user instructions say '0.0 = Entirely active equity'. So if all equity funds are active, score is 0.0. Let's re-evaluate if Multi Asset is considered 'passive'. No, Multi Asset Funds are actively managed. Edelweiss Mid Cap is active. So fraction = 0.0? Or is the 'Baroda' fund considered passive because it's a 'plan' type? No, it's a hybrid multi-asset. It's active management. However, looking at the options provided in similar contexts, often a score of 0 implies 'Active Active', 1 implies 'Passive Passive'. Let's re-read the prompt's constraint: 'Score solely on the equity sleeve'. The equity sleeve is 0% passive (100% in active multi-cap/mid-cap funds). So score should be 0.0. Let me double check if Multi-Asset can be passive. Some are, but this one is a standard actively managed hybrid. I will stick with 0.0 for the equity sleeve being entirely active. *Correction*: The prompt asks to return a score in [0,1]. If I say 0.4, it implies 40% passive. That would mean the equity sleeve has 40% index funds. It doesn't. The equity funds are active. So 0.0 is more accurate. Let me reconsider if the Multi Asset fund is 'closet indexing'? No info. I will assume active. Score = 0.0.\n\n2. **Turnover Score (0.9):** The strategy is buy-and-hold. Rebalancing is only 'Once a year' to keep risk in check, not for tactical trading. Review checkpoints are 1, 5, and 20 years. No short-term trading mentioned.\n\n3. **Cost Emphasis Score (0.1):** While 'Direct Plan' is used (implying lower standard charges), the rationale focuses entirely on risk mitigation, time in market, and 'growing older', not on expense ratios or transaction fees as a primary driver. The text explicitly ignores costs in the decision making logic.\n\n4. **Research vs Cost Score (0.8):** The rationale relies on broad beta ('Mid-cap stocks grow faster'), asset class logic (equity vs debt for safety), and general market principles. There is no mention of individual security analysis, PEG ratios, or manager research. It is a broad allocation strategy.\n\n5. **Time Horizon Alignment Score (0.95):** The plan is built entirely around a 38-year time horizon, explicitly stating that age 22 allows for taking risks today for long-term gains. The 'dip' is viewed as a buying opportunity for a decade+, and interim reviews are long-term (5-20 years).\n\n6. **Portfolio Activeness Score (0.65):** This is a weighted average. \n- Multi-Asset (50%): Active management, high tracking error vs benchmark typically. Beta likely >1 or near 1 depending on stance. Let's assume Active.\n- Mid Cap (40%): High volatility, high active share, beta > 1, tracking error often > 10%. Strongly Active.\n- Medium Term Debt (10%): As per instructions, rely on category/rationale. It's a passive-like category (customized based on duration) but managed actively by house? Usually MIPs have active managers. However, since Nifty 50 proxy isn't meaningful, we look at 'passive'. Is it passive? It's a standard MIP. Often has low tracking error relative to peers but active vs Nifty? The prompt says 'treat them as relative indicators'. MIPs often have high tracking error vs Nifty (since basket is different). But they are 'closet indexers' in the sense they don't pick stocks. However, the prompt says 'debt... rely primarily on category and rationale'. Rationale says 'Safer debt fund'. MIPs are typically actively managed. Given the heavy weighting (90%) on clearly active equity assets (Mid Cap is very active), the portfolio leans towards 'Active'. \n\nLet's adjust Passive Instrument Fraction. The definition says 'Within the plan's EQUITY allocation only'. The funds are:\n1. Baroda BNP Multi Asset (Equity/Debt mix). Is it passive? No, it's active.\n2. Edelweiss Mid Cap (Equity). Active.\n3. Aditya Birla Medium Term (Debt Active). \nIf the equity sleeve is 100% active, the score is 0.0. Why did I think 0.4? Maybe if I considered the 50% hybrid as 'semi-passive'? No, the definition is strict. 'Virtually no passive debt index products exist... So including debt would bias'. But here we are scoring the equity slice. The equity slice is 100% active funds (Multi Asset and Mid Cap are both active). So the score should be 0.0. \n\nWait, could 'Baroda BNP Multi Asset' be considered passive? No. \nOkay, let's re-read the `passive_instrument_fraction` definition carefully. 'Within the plan's EQUITY allocation only, what fraction is directed toward passive/index instruments...'. \nIf the user puts money in an Active Mutual Fund, it counts as 0. If they put in an Index Fund, it counts as 1. \nHere: 50% in Active Multi-Asset + 40% in Active Mid-Cap = 100% of Equity is Active. \nSo score = 0.0.\n\nLet's check `portfolio_activeness_score` again with 0.0 for equity passive fraction. \nMetrics: \n- Mid Cap: High TE, High Alpha, Beta > 1. (Active)\n- Multi Asset: High TE, Active. (Active)\n- MIP: Debt. Rationale: 'Safer debt fund'. Usually Active Management for MIP in India. \nSector weights: 90% Active Equity, 10% Active Debt. \nWeighted Activeness: 0.9 * 1.0 (Highly active) + 0.1 * 0.5 (Moderately active debt) = 0.95? \nBut the scale is 0.0 (Active) to 1.0 (Passive). \nThe score is based on 'reflect genuine active conviction'. \nMid Cap funds are by definition active (high TE). Multi Asset is active. \nSo the portfolio is highly active. \nTherefore, `portfolio_activeness_score` should be low (close to 0). If 0 = Active, 1 = Passive. \nMy previous logic was inverted? \nPrompt: '0.0 = Genuinely active... 1.0 = Truly passive'. \nSo if the portfolio is active, the score is 0. \nIf I gave 0.65, that means it's 65% passive? That seems wrong if most funds are highly active. \nLet's re-evaluate: Maybe the Multi Asset is considered 'less active'? No. \nPerhaps the 'portfolio_activeness_score' is higher because the 'risk' isn't crazy? No, Mid Cap is 40% of portfolio. That's high risk. \nWait, maybe I am misinterpreting the 'Active' definition in the context of the score. \n'High tracking error (>10%) with positive alpha indicates genuine active management.' -> This makes it 'Active'. \nThe score for 'Active' is 0.0. \nSo if the portfolio is 90% active equity funds, the score should be near 0.0. \nWhy did I think 0.65? Maybe I confused 0.0 and 1.0 in my head. \nLet's assume the plan is 'Active' in nature. So `portfolio_activeness_score` should be ~0.2 (not 0.0 because Multi Asset and MIP might have some index-like properties or low alpha). But Mid Cap is definitely active. \nLet's set `portfolio_activeness_score` to 0.2 (mostly active).\n\nRe-evaluating `passive_instrument_fraction`: If the equity funds are active, the fraction of passive instruments is 0. So score is 0.0. \n\nLet's try to find a reason for it not to be 0.0. Is 'Baroda BNP Multi Asset' an index fund? No. \nIs 'Edelweiss Mid Cap' an index? No, 99.9% it's active. \nSo 0.0 is correct.\n\nRe-evaluating `portfolio_activeness_score`: \nIf the fund selection is all active, the portfolio is active. \nScore 0.0 = Active. \nScore 1.0 = Passive. \nSince the plan uses active funds (and no passive index funds), the portfolio is Active. \nSo the score should be low. \nMaybe around 0.15-0.25 if we account for the 'multi-asset' sometimes behaving like an index? No, it's active management. \nLet's put it at 0.2 to be safe (it's active, but maybe the Mid Cap fund has a lower tracking error than a pure small-cap? No, Mid Cap is still active). \nActually, if the user just bought 'Mid Cap Fund' and 'Multi Asset', it's a standard active portfolio. \nScore: 0.2.\n\nWait, I need to check the `turnover_score` again. \n'Once a year... check if mix has changed... sell a little and buy more'. \nThis is annual rebalancing. \n0.0 = Monthly/Quarterly. \n1.0 = Annual/Less frequent. \nAnnual is closer to 1.0. Maybe 0.9 or 0.95.\n\n`cost_emphasis_score`: 'Direct Plan' is mentioned, which saves money, but the *rationale* doesn't emphasize cost minimization as a *primary dimension*. It emphasizes 'safety', 'time', and 'risk'. \n0.0 = No cost mention. 1.0 = Primary criterion. \nIt mentions 'Direct Plan' in setup, but the reasoning for fund choice is risk/time. \nSo maybe 0.2 or 0.3? It recognizes cost (Direct) but doesn't make it the primary driver of strategy. \nLet's say 0.3 (acknowledges direct funds, but strategy is risk-based).\n\n`research_vs_cost_score`: No stock analysis. General principles. \n0.0 = Deep research. 1.0 = No research. \nScore: 0.9.\n\n`time_horizon`: 38 years. \n0.0 = Short. 1.0 = Long. \nScore: 1.0.\n\n`passive_instrument_fraction`: 0.0 (All equity funds are active). \n\n`portfolio_activeness_score`: \nMid Cap (40%): Active. \nMulti Asset (50%): Active. \nMIP (10%): Active (usually). \nPortfolio is 100% Active. \nScore should be 0.0. \nBut maybe the Multi Asset and MIP are 'closet indexers'? The prompt says 'If risk metrics are absent, infer from category'. \nCategory 'Multi Asset' -> Active management usually. \nCategory 'Mid Cap' -> Active. \nCategory 'MIP' -> Active. \nSo score = 0.0. \nWait, I will give it a slight bump to 0.1 to acknowledge that Multi-Asset and MIP are 'hybrid' and 'medium-term' which might be less 'active' than a pure sectoral flexi-cap? No, they are managed. \nLet's stick to 0.15.\n\nWait, I might have over-corrected `passive_instrument_fraction`. Is it possible the 'Multi Asset' fund is considered 'passive' in some aggressive interpretations? No. \nBut let's look at the 'rationale': 'mixes stocks and bonds'. No index mentioned. \nOkay, I will stick with 0.0 for passive fraction.\n\nHowever, the `portfolio_activeness_score` might be influenced by the fact that it *is* a diversified portfolio, reducing the 'bet-like' nature of individual stocks? No, the definition focuses on 'high tracking error', 'alpha', 'beta'. \nIf all funds are active, score is 0. \nLet's finalize:\n- Passive Instr: 0.0 (All equity funds active)\n- Turnover: 0.95 (Annual check, buy and hold)\n- Cost: 0.3 (Direct plans used, but not primary rationale)\n- Research: 0.95 (Broad market, no stock analysis)\n- Time Horizon: 1.0 (Decade long)\n- Portfolio Activeness: 0.15 (Mostly active, but hybrid funds might have lower TE than pure equity? No, they are still active. Let's say 0.2).\n\nWait, let me re-read `passive_instrument_fraction` again. 'Within the plan's EQUITY allocation only'. \nEquity allocation = 90% (50% Macro + 40% Mid). \nAre these passive? No. \nSo 0.0.\n\nOne nuance: The user says 'Score solely on the equity sleeve'. \nIf the equity sleeve is 100% active, score is 0.0. \nIf the equity sleeve has 40% passive (Nifty 50 index) and 60% active, score is 0.6. \nHere, 0% passive. \nSo 0.0.\n\nLet's refine `portfolio_activeness_score`. \nIf I have a portfolio of *only* active funds, the score is 0.0. \nIs there any reason it wouldn't be? \nMaybe the 'Multi Asset' is a 'closet index' of the 50/50 split? No. \nI'll give it 0.1 because 'active' portfolio doesn't mean 'no risk' or 'high turnover', but rather 'active management'. The funds are active. \nScore: 0.1.\n\nWait, looking at the provided solution format, I need to be precise. \nLet's check if 'Multi Asset' funds are often considered 'passive' in the context of this specific APS metric? \nUsually, Multi Asset is active. \nBut maybe the 'rationale' 'mixes stocks and bonds' suggests a passive blueprint? No. \nI will stick with 0.0 for passive instrument fraction and 0.1-0.2 for portfolio activeness. \n\nFinal check on costs: 'Direct Plan' is a cost-saving measure. The plan explicitly mentions choosing 'Direct' over 'Regular'. This shows an awareness of costs. But is it the 'primary criterion'? The primary criterion is 'safety' and 'growth'. \nSo 0.3 is reasonable. \n\nFinal check on Research: 'Mid-cap stocks grow faster' vs 'Management track record'. The plan argues based on asset class, not manager. So 0.9-1.0. \n\nFinal check on Turnover: 'Once a year'. This is 1.0. \n\nFinal check on Time: 1.0.\n\nFinal check on Portfolio Activeness: Since the equity portion is 100% active funds (Mid Cap, Multi Asset), and debt is MIP (Active), the portfolio is 100% active. \nScore: 0.0 or 0.1.\n\nLet's settle on: \nPassive Instr: 0.0\nTurnover: 0.95\nCost: 0.3\nResearch: 0.95\nTime: 1.0\nActiveness: 0.15 (slightly higher than 0 because Multi Asset/MIP might not show high alpha/TE as pure active equities do, or simply because the plan is 'conservative' in asset mix).\n\nActually, looking at the 'Baroda BNP Multi Asset', it might have a beta close to 1 because it's balanced. \n'Edelweiss Mid Cap' has beta > 1. \nWeighted: 0.5 * 1.0 (multi) + 0.4 * 1.2 (mid) = 1.1. \nTracking error: Multi might be lower? No, active funds have TE. \nSo it's active. \nI will put 0.15.\n\nWait, I need to check if `passive_instrument_fraction` could be interpreted differently. \n'Score solely on the equity sleeve'. \nSleeve = Equity portion. \nIs the equity portion 100% active? \nYes.\nSo 0.0.\n\nOne more thought: Is it possible the 'Multi Asset' fund is considered 'passive' because it's a 'plan'? No. \nOkay, 0.0.\n\nLet's write the reasoning.\n\n**Scoring:**\n- `passive_instrument_fraction`: 0.0 (Both equity funds are actively managed).\n- `turnover_score`: 0.95 (Annual rebalancing, long term hold).\n- `cost_emphasis_score`: 0.3 (Direct plans used, but strategy driven by risk/time, not cost minimization as primary factor).\n- `research_vs_cost_score`: 0.95 (Broad asset class logic, no stock/fund manager research).\n- `time_horizon_alignment_score`: 1.0 (Explicitly 38-year horizon).\n- `portfolio_activeness_score`: 0.15 (Portfolio is 100% actively managed funds; however, hybrid and medium-term categories exhibit less active behavior than pure equity, raising the score slightly from absolute 0).\n\nWait, if `passive_instrument_fraction` is 0.0, and `portfolio_activeness_score` is 0.15, it seems consistent. \n\nOne correction: The `passive_instrument_fraction` definition says 'Within the plan's EQUITY allocation only'. \nThe equity allocation is 90% (50+40). \nAre these passive? No. \nSo 0.0.\n\nFinal Decision.\n</think>{ ",
+    "composite_aps": 0.6333333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.65,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.4,
+    "reasoning": "Goal alignment (0.65): The plan addresses most goals (emergency fund mentioned as cash, retirement, home down payment via growth engines), but there's a significant gap: the investor explicitly wants to start an emergency fund, yet the plan tells them to 'keep cash at home' rather than directing it into a dedicated Debt Fund (which is often preferred over keeping physical cash for security/SIP automation). Also, while the timeline is respected, a 22-year-old conservative investor wanting home ownership is being exposed to high volatility (Mid Caps) which might conflict with the need for near-term liquidity/safety for a home downpayment later, though the long horizon mitigates this.\n\nDiversification (0.8): Good spread across Multi Asset (equity+debt), Mid Cap (equity), and Debt (duration). Good fund house choice diversity. Missing explicit Large Cap/Small Cap or index tracking, but adequate for a simplified plan.\n\nRisk-return_appropriateness (0.85): Excellent handling of 'conservative' self-label vs long horizon. The plan correctly identifies that the 38-year horizon allows for higher equity exposure despite the conservative label. Risk warnings are clear (20-30% drops). The downside protection via Multi Asset and Medium Term debt funds is appropriate.\n\nInternal_consistency (0.9): The rationale, allocations, and rebalancing guidelines are perfectly aligned. The reasoning for the asset mix (50% safety, 40% growth, 10% stability) matches the funds chosen. The review checkpoints logically progress from simple health checks to strategic asset reallocation.\n\nTax_efficiency (0.4): This is the weakest dimension. The plan fails to optimize for the 'new_regime' tax bracket. For a new regime investor, equity gains (STCG) are taxed at 20% (with indexation conceptually similar or direct STCG on equity/MMF short term rules depending on classification, but importantly, hybrids/debt are taxed at marginal slab effectively). The plan mixes a Hybrid (Multi Asset, 20% equity + 80% debt usually) and a Debt fund which get taxed at slab rates (which are lower than 30% but higher than the preferential equity rates, and for new regime, the slab rates are the effective marginal). Crucially, the plan does not recommend ELSS (which would be redundant anyway for new regime as 80C is gone), but it also fails to recognize that Multi Asset Allocation funds (often structured as hybrids) and pure bonds might not be as tax-efficient as an Aggressive Hybrid or Direct Equity if the investor had a '30% slab' background, but specifically for NEW REGIME, the main issue is that the plan says 'gains from all your funds are taxed at 20% if sold within 1 year' which is factually incorrect for debt hybrids/bonds (they are taxed at slab) and confusingly worded for equity. More critically, for a new regime investor, mixing in tax-tied debt instruments (Multi Asset/Debt) that lose the benefit of short-term equity valuation when sold soon isn't a huge loss, but the plan's tax explanation is financially inaccurate ('gains from all funds ... 20%'). A high score requires clear, accurate tax rationale. The plan treats all funds the same for tax purposes, which is a flaw.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-18T04:30:59.101564Z",
+  "prompt_version": "v1"
+}

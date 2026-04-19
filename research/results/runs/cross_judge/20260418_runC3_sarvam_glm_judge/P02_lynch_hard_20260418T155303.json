@@ -1,0 +1,72 @@
+{
+  "persona_id": "P02",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "1.05% post-tax returns after 10 years"
+      }
+    ],
+    "setup_phase": "Step 1: Open Direct Plan in HDFC Large Cap Direct Plan - Growth",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "This is not investment advice. Consult a SEBI or financial advisor before investing.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "This is a minimal, single-fund plan: 100% of equity goes to HDFC Large Cap Direct Plan — an actively managed large cap fund, not an index fund or ETF, so passive_instrument_fraction = 0.0. There are no review checkpoints and no rebalancing guidelines, effectively implying a buy-and-hold posture (turnover_score = 0.85). The plan uses a Direct Plan (lower cost than regular), showing some cost awareness, but cost is never discussed as a selection criterion — only a thin return projection is given (cost_emphasis_score = 0.2). The rationale ('1.05% post-tax returns after 10 years') is superficial with no deep research, yet the fund choice isn't an index either; it's an active pick with minimal analytical backing, landing at research_vs_cost_score = 0.5. The 10-year horizon reference suggests a patient, long-term orientation (time_horizon_alignment_score = 0.8). On portfolio activeness, the single holding is an active large cap fund with information_ratio = 1.05 (genuine active management signal), and no tracking error/beta data suggest closet indexing — treated as an active mandate (portfolio_activeness_score = 0.2).",
+    "composite_aps": 0.42500000000000004
+  },
+  "pqs": {
+    "goal_alignment": 0.08,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.08,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is extremely deficient across every dimension. **Goal alignment (0.08):** The investor has three distinct goals with different timelines (5yr house, 15yr education, 20yr retirement), yet the plan allocates only 40% to a single large-cap fund with no goal-based mapping, no timeline differentiation, and no plan for the remaining 60% of investible surplus. The 5-year house goal is completely ignored — it needs low-risk, shorter-horizon instruments. **Diversification (0.05):** A single fund in a single category (Large Cap) from a single fund house constitutes near-zero diversification. No mid/small cap, no international equity, no debt, no gold, no hybrid — all essential for a moderate-risk investor. The investor also explicitly prefers avoiding sectoral concentration, which is entirely unaddressed. **Risk-return (0.08):** The rationale cites '1.05% post-tax returns after 10 years,' which is nonsensical for an equity fund and suggests either a data error or wild inaccuracy. No downside scenarios, no projected returns, and no recognition that the 5-year house goal requires a fundamentally different risk posture. **Internal consistency (0.05):** Multiple contradictions: (1) Investor prefers SIP, but mode is 'lumpsum'; (2) lumpsum_inr is 0.5 (50 paise?), which is clearly wrong; (3) 40% allocation leaves 60% unaccounted for; (4) the 1.05% return claim contradicts any reasonable equity expectation; (5) no rebalancing guidelines, no review checkpoints, no risks listed — the plan is essentially an empty shell. **Tax efficiency (0.1):** The one equity fund does qualify for equity taxation, but there is zero discussion of tax strategy. No ELSS to utilise the 80C deduction (critical for a 30% slab investor), no preference for Aggressive Hybrid or arbitrage over slab-taxed debt for fixed-income needs, and no mention of the LTCG/STCG regime. The tax-bracket field is completely ignored in the allocation rationale.",
+    "composite_pqs": 0.072
+  },
+  "timestamp": "2026-04-18T15:53:03.361077Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

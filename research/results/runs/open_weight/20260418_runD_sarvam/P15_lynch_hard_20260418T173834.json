@@ -1,0 +1,79 @@
+{
+  "persona_id": "P15",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to a single equity fund: HDFC Large Cap Direct Plan, categorized as a Large Cap equity fund. The fund has an information ratio of 0.55, which suggests active management, but lacks other risk metrics (beta, alpha, tracking error), so activeness is inferred from category and rationale. The rationale is simply 'direct', which implies a preference for direct plans (lower cost) but does not emphasize cost as a primary criterion, nor does it mention expense ratios or tax efficiency, resulting in a low cost_emphasis_score. The fund is actively managed (not an index fund), so passive_instrument_fraction is 0.0. There are no rebalancing guidelines or review checkpoints specified, implying a static, long-term hold strategy, leading to high turnover_score and time_horizon_alignment_score. No research rationale is provided (e.g., stock selection, moat analysis), but the use of an actively managed fund without cost justification suggests reliance on active management rather than passive principles. Hence, research_vs_cost_score is low. Finally, the portfolio_activeness_score is 0.0 because the sole equity fund is actively managed (Large Cap fund with non-zero information ratio), and there is no indication of passive or index-like behavior.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows minimal alignment with the investor's goals: a 40% allocation to a single large-cap equity fund does not suit a conservative investor with near-term goals like a daughter's wedding in 4 years or stable retirement income. Diversification is extremely poor—only one fund, entirely in large-cap equity, with no exposure to debt, hybrids, or international assets. Risk-return is inappropriate: a conservative investor should not have 40% in equities, especially concentrated in one fund; downside risk is unaddressed. Internal consistency is weak: rationale is just 'direct', with no explanation linking fund choice to goals, risk, or tax. Tax efficiency is suboptimal: investor is in 30% slab, yet no use of ELSS for 80C benefit (assuming old regime, which 30% slab typically uses), and no allocation to arbitrage or aggressive hybrid funds that offer equity taxation with lower volatility—critical for tax-efficient fixed-income exposure. No rebalancing, review, or SIP structure provided, further weakening coherence.",
+    "composite_pqs": 0.26
+  },
+  "timestamp": "2026-04-18T17:38:34.499987Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23000,
+    "output_tokens": 768,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 23.948541675694287
+}

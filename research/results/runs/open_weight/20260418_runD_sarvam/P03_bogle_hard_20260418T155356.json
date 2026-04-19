@@ -1,0 +1,79 @@
+{
+  "persona_id": "P03",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 60% to a Nifty 50 Index Fund, which is a passive equity instrument, and there are no other funds mentioned. Since the entire equity allocation (and total portfolio) is in an index fund, passive_instrument_fraction is 1.0. There are no rebalancing guidelines or review checkpoints specified, implying a buy-and-hold approach, so turnover_score is 1.0. Cost emphasis is not explicitly discussed, but index funds are low-cost by nature; however, without explicit mention of cost as a criterion, cost_emphasis_score is moderate at 0.5. The plan uses a broad market index without any stock or fund research, so research_vs_cost_score is 1.0. The rationale mentions '15y', indicating a long-term horizon, so time_horizon_alignment_score is 1.0. The portfolio consists entirely of a Nifty 50 index fund, which is inherently passive; even though some risk metrics are missing, the fund category and structure imply minimal tracking error and market-like returns, leading to a portfolio_activeness_score of 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan shows very poor quality across most dimensions. Goal alignment is low (0.3) because although the investor has a 15-year horizon and moderate risk appetite, the plan allocates 60% to a single large-cap equity fund with no consideration for the multi-goal structure (e.g., 5-year and 10-year goals needing stability). Diversification is extremely poor (0.1) — only one fund, one asset class (equity), and one category (large cap) are used, ignoring sectors, geographies, and hybrid/debt options. Risk-return appropriateness is inadequate (0.3) as a 60% equity allocation in a single index fund may be acceptable for moderate risk, but the lack of downside protection or debt allocation for near-term goals makes it unsuitable. Internal consistency is weak (0.4) — the rationale is nearly empty ('15y'), and there are no rebalancing guidelines, review checkpoints, or risk disclosures to support coherence. Tax efficiency is very low (0.2): the investor is in the 30% tax slab, yet the plan uses a plain equity index fund without leveraging ELSS for 80C benefits (investor likely has headroom), and ignores tax-efficient hybrids or arbitrage funds for debt allocation. No tax treatment is discussed despite clear opportunities for optimization.",
+    "composite_pqs": 0.26
+  },
+  "timestamp": "2026-04-18T15:53:56.780041Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23041,
+    "output_tokens": 2772,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 123.39121596328914
+}

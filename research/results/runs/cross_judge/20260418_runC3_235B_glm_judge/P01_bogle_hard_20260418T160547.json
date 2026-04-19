@@ -1,0 +1,116 @@
+{
+  "persona_id": "P01",
+  "condition": "bogle_hard",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": 17.094146825697987,
+          "returns_3y": 23.18993139340053,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": 17.42528588877694,
+          "beta": 1.0340706693083053,
+          "alpha": 11.743982302492952,
+          "tracking_error": 8.792440315620462,
+          "sharpe_ratio": 0.9984136156270631,
+          "information_ratio": 1.3356908754477235
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost, broad midcap index fund with strong 3-year performance and minimal fees. Ideal for long-term growth with lower cost than active funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "147623",
+          "name": "Motilal Oswal Nifty Smallcap 250 Index Fund- Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 738.8815,
+          "morningstar_rating": null,
+          "returns_1y": 10.035527860336169,
+          "returns_3y": 20.72469335567213,
+          "returns_5y": 16.89498141729384,
+          "risk_grade": null,
+          "volatility_1y": 18.67451411714654,
+          "beta": 0.9989044365967398,
+          "alpha": 3.6015025516822763,
+          "tracking_error": 11.717806053218514,
+          "sharpe_ratio": 0.4725607646396625,
+          "information_ratio": 0.30735297506422343
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost smallcap index fund for higher growth potential over 30 years. Matches investor's aggressive appetite with disciplined exposure."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera.\nStep 2: Complete your KYC if not already done.\nStep 3: Start monthly SIPs of ₹30,000 in Motilal Oswal Nifty Midcap 150 Index Fund and ₹20,000 in Motilal Oswal Nifty Smallcap 250 Index Fund.\nStep 4: Link your bank account and confirm the SIP dates (e.g., 5th of every month).",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are running without fail.",
+      "After 1 year: Compare fund returns with their benchmark indices (Nifty Midcap 150 and Nifty Smallcap 250). If underperforming by over 1%, consider switching.",
+      "Every 3 years: Review your risk appetite as you approach 35, 40, etc."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If one fund grows to more than 10% above its target (e.g., midcap goes from 60% to 70%), sell some and buy the other to restore balance.",
+    "projected_returns": {
+      "base": 17.97,
+      "bull": 21.97,
+      "bear": 13.97
+    },
+    "rationale": "At 25, with a 30-year horizon and aggressive risk appetite, you can fully focus on equity for wealth creation. Mid and small caps have historically delivered higher returns over decades. These two low-cost index funds give you broad exposure without paying high fees. Since you're in the new tax regime, ELSS benefits don't apply, so we skip tax-saving funds. Your ₹50,000/month SIP can grow into ₹10 crore by 55 with consistent investing.",
+    "risks": [
+      "Mid and small cap stocks can drop 30-50% in bad years — your portfolio will fall sharply but recover over time.",
+      "Index funds track the market — you won't beat it, but you'll match it at low cost.",
+      "Inflation or job loss could force early withdrawal, hurting long-term growth."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.95,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "1. passive_instrument_fraction = 1.0: 100% of the equity allocation is in two explicitly labeled index funds (Nifty Midcap 150 and Nifty Smallcap 250). No active equity funds whatsoever.\n2. turnover_score = 0.8: Rebalancing is annual with a 10% drift threshold — quite passive. However, the 1-year review checkpoint suggests 'consider switching' if the fund underperforms its benchmark by over 1%, which is a somewhat active trigger for an index fund where 1% tracking difference is not unusual. Overall still firmly buy-and-hold.\n3. cost_emphasis_score = 0.95: Cost minimization is the dominant theme — both fund rationales highlight 'low-cost' and 'minimal fees,' and the overarching rationale explicitly states 'you won't beat it, but you'll match it at low cost.' Expense ratio is clearly the primary selection criterion. Not a perfect 1.0 only because the plan also references historical returns as a supporting factor.\n4. research_vs_cost_score = 1.0: Zero individual security or fund-specific deep research. No company analysis, PEG ratios, management quality, or competitive moat evaluation. The entire thesis is broad market-cap-weighted index exposure.\n5. time_horizon_alignment_score = 1.0: Explicitly designed for a 30-year compounding horizon with a 25-year-old investor. The SIP step-up (10% annual increase) reinforces long-term discipline. No short-term tactical windows or event-driven positioning.\n6. portfolio_activeness_score = 1.0: Both funds are true index funds (category: Index) tracking broad market-cap-weighted indices. The high tracking errors (8.79%, 11.72%) and positive alphas vs. Nifty 50 are artifacts of comparing midcap/smallcap indices against a large-cap benchmark — not indicators of active management. The category labels and rationales confirm genuine passive exposure.",
+    "composite_aps": 0.9583333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.55,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.45,
+    "internal_consistency": 0.65,
+    "tax_efficiency": 0.7,
+    "reasoning": "**Goal Alignment (0.55):** The aggressive 100% mid+small-cap equity tilt matches the investor's 30-year horizon and risk appetite, and the SIP step-up is a good touch. However, the plan entirely ignores the stated emergency-fund goal — neither the existing ₹2L corpus nor any allocation is directed toward it. The investor's stated interest in tech/pharma sectors is also completely unaddressed. These are two significant goal-alignment gaps.\n\n**Diversification (0.30):** Severe concentration issues. Both funds come from the same fund house (Motilal Oswal), both are Indian-only equity, and both sit exclusively in mid+small cap with zero large-cap, debt, gold, or international exposure. While each individual index holds many stocks, the plan fails on fund-house diversification, geographic diversification, and asset-class diversification — major red flags even for an aggressive investor.\n\n**Risk-Return Appropriateness (0.45):** The aggressive allocation itself matches the stated risk appetite, and downside risks (30–50% drawdowns) are explicitly flagged. However, the projected base-case return of ~18% CAGR over 30 years is wildly unrealistic — even optimistic long-run equity projections top out at 14–15%. The bear case of ~14% is also unreasonably high. These inflated projections could set false expectations for the ₹10Cr target and mislead the investor about realistic outcomes.\n\n**Internal Consistency (0.65):** The story is mostly coherent — rationale, allocations, and risk warnings all point to a pure mid+small-cap equity strategy, and the numbers (₹30K + ₹20K = ₹50K, 60% + 40% = 100%) add up. The plan correctly identifies that ELSS is irrelevant under the new regime. However, the existing ₹2L corpus is never addressed or allocated, and the unrealistic return projections undermine the credibility of the ₹10Cr projection, creating a mild inconsistency between the stated goal and the math used to support it.\n\n**Tax Efficiency (0.70):** For a new-regime investor, the plan makes the right call by skipping ELSS (no 80C benefit available) and keeping 100% in equity-taxed instruments (LTCG 12.5% above ₹1.25L, STCG 20%), which is preferable to slab-taxed debt/liquid funds. No slab-taxed wrappers are used where equity-taxed alternatives would be better. However, the plan doesn't explicitly state the equity taxation rules or walk through the post-tax rationale, and there's no discussion of tax-efficient withdrawal sequencing for the retirement goal. Solid decisions but thin on tax commentary.",
+    "composite_pqs": 0.53
+  },
+  "timestamp": "2026-04-18T16:05:47.492785Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,177 @@
+{
+  "persona_id": "P10",
+  "condition": "bogle",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16618.76,
+          "morningstar_rating": null,
+          "returns_1y": 11.56,
+          "returns_3y": 18.19,
+          "returns_5y": 17.66,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Established large-cap fund with consistent performance and large AUM for stability"
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.31,
+          "morningstar_rating": null,
+          "returns_1y": 9.98,
+          "returns_3y": 18.66,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced fund with equity and debt mix for moderate risk profile, equity-taxed for better post-tax returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "142153",
+          "name": "Sundaram Long Term Tax Advantage Fund Series III Direct Plan - Growth",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "Sundaram Asset Management Company Ltd",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 1.63,
+          "morningstar_rating": null,
+          "returns_1y": 16.25,
+          "returns_3y": 19.02,
+          "returns_5y": 21.84,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "ELSS fund for tax savings under Section 80C with 3-year lock-in and equity taxation benefits"
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Invest your existing ₹10 lakh corpus as lumpsum across these funds (₹6 lakh in Nippon Large Cap, ₹3 lakh in ICICI Hybrid, ₹1 lakh in Sundaram ELSS). Step 3: Set up monthly SIPs of ₹12,000 in Nippon Large Cap, ₹6,000 in ICICI Hybrid, and ₹2,000 in Sundaram ELSS.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly",
+      "After 1 year: Review fund performance against similar category funds",
+      "After 3 years: Assess if ELSS fund needs renewal or change"
+    ],
+    "rebalancing_guidelines": "Once a year, check if your portfolio mix has drifted more than 5% from target. If large cap exceeds 65%, move some money to hybrid fund. If hybrid exceeds 35%, rebalance back to 30%.",
+    "projected_returns": {
+      "base": 11.8,
+      "bull": 15.8,
+      "bear": 7.8
+    },
+    "rationale": "At 42 with 18 years to retirement, you need a moderate-risk portfolio that can grow your ₹10 lakh corpus to ₹2 crore. This 60% large cap + 30% hybrid + 10% ELSS mix gives you stability from large companies, some debt cushion from the hybrid fund, and tax savings. The funds are from established AMCs with proven track records, matching your preference for simplicity and stability.",
+    "risks": [
+      "Stock markets can drop 20-30% in bad years - your portfolio value will temporarily decline but recover over time",
+      "Hybrid funds still have equity exposure so they can also fluctuate",
+      "ELSS has 3-year lock-in - you cannot withdraw this money for 3 years"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase your total SIP amount by 10% each year to match potential salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 5,
+        "equity_pct": 55.0,
+        "debt_pct": 35.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Reduce equity exposure as retirement approaches"
+      },
+      {
+        "year": 10,
+        "equity_pct": 50.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Further reduce risk 8 years from retirement"
+      },
+      {
+        "year": 15,
+        "equity_pct": 40.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Conservative allocation 3 years from retirement"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan is heavily tilted toward active management across multiple dimensions:\n\n- **passive_instrument_fraction**: 0.0 — All equity allocations (60% Large Cap, 10% ELSS) are to actively managed funds (Nippon India Large Cap, Sundaram ELSS). There is no allocation to index funds or ETFs. The hybrid fund (ICICI Equity & Debt) is also actively managed. Thus, the equity sleeve is 100% active.\n\n- **turnover_score**: 0.75 — Rebalancing is recommended only once a year and only if allocations drift by more than 5%. There are no tactical shifts or frequent trading recommendations. Review checkpoints are at 6 months, 1 year, and 3 years, suggesting low turnover. However, the plan includes a dynamic glide path (reducing equity over time), which introduces some active timing, slightly lowering the score from a perfect 1.0.\n\n- **cost_emphasis_score**: 0.0 — There is no mention of expense ratios, transaction costs, or tax efficiency as decision criteria. Fund selection is based on performance, AUM, and AMC reputation, not cost minimisation.\n\n- **research_vs_cost_score**: 0.0 — The rationale focuses on fund track records, AMC reputation, and performance — indicative of active manager selection based on qualitative research — rather than broad market exposure without security selection.\n\n- **time_horizon_alignment_score**: 0.8 — The plan is designed for an 18-year horizon to retirement, with long-term compounding in mind. However, the scheduled allocation changes at 5, 10, and 15 years introduce a degree of time-based tactical adjustment, slightly reducing the score from a full 1.0.\n\n- **portfolio_activeness_score**: 0.0 — All funds are actively managed with no passive/index funds in the portfolio. The rationales cite performance and manager track record, and despite missing risk metrics (beta, tracking error, etc.), the fund categories and descriptions suggest active stock picking. The glide path further indicates active risk management over time, reinforcing active intent.",
+    "composite_aps": 0.25833333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.95,
+    "reasoning": "The investment plan is well-aligned with Forrest Gump's moderate risk appetite, 18-year horizon, and goal of building a ₹2 crore retirement corpus. The 60% equity (large cap) + 30% aggressive hybrid + 10% ELSS allocation is appropriate for moderate risk, with a clear glide path to de-risk over time. The rationale, fund selection, and rebalancing rules are internally consistent. Diversification is good but could be improved with exposure to mid/small caps or international equities. Tax efficiency is strong: the investor is in the 20% tax slab, and the plan uses equity-taxed instruments (Aggressive Hybrid, ELSS) effectively. ELSS is correctly included to utilize 80C benefits under the old regime (implied by tax_bracket = '20_percent_slab'). The hybrid fund is explicitly noted for its equity taxation advantage, showing tax-awareness. The plan accounts for SIP step-up and includes clear review and rebalancing guidelines, enhancing goal alignment and consistency.",
+    "composite_pqs": 0.9099999999999999
+  },
+  "timestamp": "2026-04-18T15:43:22.066398Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 78105,
+    "output_tokens": 2095,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 6
+  },
+  "elapsed_s": 67.37105130869895
+}

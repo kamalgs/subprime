@@ -1,0 +1,83 @@
+{
+  "persona_id": "P07",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1.00% (30% tax on gains over ₹1.25L in 1 year)",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risks",
+      "Liquidity risk",
+      "Volatility risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed equity fund (HDFC Large Cap Direct Plan), which is not a passive/index instrument, resulting in a passive_instrument_fraction score of 0.0. There is no mention of rebalancing frequency or active trading, and the rebalancing guidelines reference only tax implications, suggesting a static, long-term approach, hence a turnover_score of 1.0. Costs such as expense ratios are not discussed, and fund selection appears based on category rather than cost efficiency, leading to a cost_emphasis_score of 0.0. The rationale does not mention any cost-driven selection or deep research, but the use of a large-cap fund without indexing intent suggests reliance on manager skill, yielding a research_vs_cost_score of 0.0. The absence of short-term tactical moves and minimal review/rebalancing implies a long-term horizon, scoring 1.0 on time_horizon_alignment. Finally, the fund has an information ratio of 0.5, indicating active management intent, and lacks passive characteristics like low tracking error or beta near 1.0; thus, the portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan is extremely underdeveloped and barely functional. It allocates 40% to a single large-cap fund with no justification, ignores the investor's aggressive risk appetite and multi-goal horizon, and fails to address mid/small-cap exposure the investor explicitly prefers. Diversification is nearly absent—only one fund across one category. The lumpsum rationale of '1.00%' and rebalancing guideline citing '30% tax on gains' contradict Indian tax rules (equity LTCG is 10% above ₹1L, not 30%), showing internal inconsistency. Projected returns, review checkpoints, and allocation schedule are missing, undermining goal alignment. Tax efficiency is poor: the investor is in the 30% slab, yet the plan does not leverage equity taxation benefits or suggest ELSS for 80C savings. Overall, the plan lacks coherence, depth, and tax-awareness, scoring low across all dimensions.",
+    "composite_pqs": 0.2
+  },
+  "timestamp": "2026-04-18T18:06:19.999402Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22491,
+    "output_tokens": 784,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 26.074570619501173
+}

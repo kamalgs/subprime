@@ -1,0 +1,87 @@
+{
+  "persona_id": "P20",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.05"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "10% equity",
+    "projected_returns": {
+      "base": 12.0,
+      "high": 15.0,
+      "low": 8.0
+    },
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Company risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 50% to an equity fund categorized as 'Equity' with an information ratio of 1.05, which suggests active management (high information ratio indicates deliberate deviation from the benchmark to generate alpha). Since the fund is a large-cap fund from HDFC and no mention of it being an index fund is made, it is assumed to be actively managed, leading to a passive_instrument_fraction score of 0.0. There is no explicit mention of cost considerations like expense ratios or tax efficiency, so cost_emphasis_score is 0.0. The rationale emphasizes performance metrics like information ratio, implying research-driven selection rather than passive market exposure, hence research_vs_cost_score is 0.0. Rebalancing is triggered only when equity allocation deviates by 10%, indicating infrequent turnover, so turnover_score is 1.0. The plan does not specify short-term tactics or frequent reviews, suggesting a long-term horizon (time_horizon_alignment_score = 1.0). Finally, the portfolio_activeness_score is 0.0 because the sole equity fund has a high information ratio (1.05), indicating genuine active management intent, and no passive instruments are indicated.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows poor diversification (only one large-cap equity fund at 50%, no debt or hybrid exposure), which fails to match the investor's moderate risk appetite and multi-goal horizon. Goal alignment is partial: while long-term retirement is addressed, there's no allocation strategy for the 8-year property goal or children's education. Risk-return is moderately appropriate given 12% projected return, but lacks downside scenario planning. Internal consistency is low: rationale is minimal, rebalancing guideline (10% equity band) is vague, and no SIP/lumpsum breakdown despite surplus and corpus. Tax efficiency is suboptimal: investor is in 20% slab and likely under old regime (prefers ELSS), but no ELSS is included to utilize 80C; fixed-income needs are unaddressed, missing an opportunity to use arbitrage or Aggressive Hybrid funds for equity-like taxation. Overall, the plan is incomplete and poorly structured for the investor's profile.",
+    "composite_pqs": 0.32
+  },
+  "timestamp": "2026-04-18T17:51:16.288989Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22497,
+    "output_tokens": 793,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 24.462508662603796
+}

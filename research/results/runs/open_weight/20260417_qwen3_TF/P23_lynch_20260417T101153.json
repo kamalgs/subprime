@@ -1,0 +1,189 @@
+{
+  "persona_id": "P23",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large & Mid Cap Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 26.9,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "Equity growth with balanced risk. High 3-year return (26.9%), low expense ratio (1.1%), diversified across large/mid-cap stocks"
+      },
+      {
+        "fund": {
+          "amfi_code": "133401",
+          "name": "JM Aggressive Hybrid Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "JM",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 23.6,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "Hybrid mix for stability. 23.6% 5-year return, 1.0% fee, blends equities and debt for moderate risk"
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 5.5,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "Liquidity for emergencies. Slab-taxed but low risk (0.55% fee), 5.5% 1-year return"
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI Gold ETF",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "UTI",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 58.3,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 5.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "Inflation hedge. 58.3% 1-year return, 0.4% fee, simple gold exposure"
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start SIPs of ₹18,000/month in the above funds. Step 3: Allocate the ₹200,000 existing corpus to the same funds in the stated percentages.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and check for any fund underperformance.",
+      "After 1 year: Compare fund returns to their category benchmarks (e.g., Large & Mid Cap vs Nifty 50).",
+      "After 5 years: Rebalance if any fund’s allocation deviates by >10% from target."
+    ],
+    "rebalancing_guidelines": "Once a year, adjust allocations if: Any fund’s weight exceeds its target by 10% (e.g., if Large & Mid Cap grows too much, move 5% to debt). Market volatility causes a 20%+ drop in any fund’s value.",
+    "projected_returns": {
+      "base": 11.25,
+      "bull": 15.25,
+      "bear": 7.25
+    },
+    "rationale": "Age & Goals: At 29, you have 26 years to grow wealth. Equities (50% + 30%) will outpace inflation and fund your creative venture in 8 years. Moderate Risk: Aggressive Hybrid (30%) balances growth with stability. Debt (15%) covers emergencies without sacrificing long-term returns. Tax Efficiency: All equity funds are equity-taxed (12.5% LTCG), avoiding slab tax on gains. Gold ETF is slab-taxed but provides inflation protection. Simplicity: 4 funds from 3 AMCs (Motilal Oswal, JM, ICICI, UTI) ensure transparency and avoid complexity.",
+    "risks": [
+      "Market Volatility: Stock markets can drop 20–30% in bad years (e.g., 2022). Your portfolio value will fall temporarily but recover over time.",
+      "Debt Risk: Overnight funds are low-risk, but inflation could erode returns.",
+      "Gold Volatility: Gold prices can swing widely; avoid over-reliance for long-term growth."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 80.0,
+        "debt_pct": 15.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 70.0,
+        "debt_pct": 25.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": "Rebalance if deviation >10%"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "The plan has a passive_instrument_fraction of 0.0 because the equity allocation (50% + 30%) is entirely active, with no index funds or ETFs. The turnover_score is 0.3 as the plan recommends annual rebalancing and some tactical adjustments, but not frequent. The cost_emphasis_score is 0.6 as the plan highlights low expense ratios as a key criterion. The research_vs_cost_score is 0.2 because the plan focuses more on returns and expense ratios than on detailed research. The time_horizon_alignment_score is 0.8 because the plan is designed for long-term growth with infrequent intervention. The portfolio_activeness_score is 0.1 as the equity portion is dominated by actively managed funds, and the risk metrics are not indicative of passive exposure.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.7,
+    "reasoning": "Goal Alignment: The plan aligns with Jo's goals of financial independence in 15 years, emergency fund, and creative venture in 8 years. The 50% equity allocation and 30% hybrid provide growth, while 15% debt and 5% gold offer stability and inflation hedge. The moderate risk profile matches her appetite. Diversification: The plan includes equity (large/mid-cap), hybrid, debt (overnight), and gold, which covers different asset classes and fund houses. However, it is concentrated in equity (80%) and lacks diversification within equity. Risk-Return Appropriateness: The plan has a moderate risk profile with projected returns of 11.25% base, 15.25% bull, and 7.25% bear. It is appropriate for her moderate risk appetite and long-term horizon. Internal Consistency: The rationale, fund selections, allocations, and risk warnings are consistent. The plan explains the rationale for each allocation and addresses risks. Tax Efficiency: Jo is in the new regime, so 80C is irrelevant. The plan uses equity-taxed funds (Aggressive Hybrid, equity funds) and slab-taxed debt (overnight) and gold. The plan mentions the tax treatment, which is appropriate for her situation.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-17T10:11:53.770234Z",
+  "prompt_version": "v1"
+}

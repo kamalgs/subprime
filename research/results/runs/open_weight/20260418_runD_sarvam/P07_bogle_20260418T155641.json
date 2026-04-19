@@ -1,0 +1,83 @@
+{
+  "persona_id": "P07",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 0.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.0,
+        "rationale": "100000.0"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "rebalance every year",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "market risks",
+      "volatility",
+      "liquidity risks"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 100% of equity to the 'Nifty 50 Index' fund, which is a passive instrument, resulting in a passive_instrument_fraction score of 1.0. Rebalancing is recommended annually, indicating low turnover, hence a turnover_score of 1.0. While the plan does not explicitly emphasize cost minimization, index funds are inherently low-cost, leading to a moderate cost_emphasis_score of 0.5. There is no mention of individual stock or fund research, and the use of a broad market index supports a research_vs_cost_score of 1.0. The annual rebalancing and lack of tactical shifts suggest a long-term orientation, justifying a time_horizon_alignment_score of 1.0. Finally, the portfolio consists entirely of a market-cap-weighted index fund, which exhibits passive characteristics (beta ~1, low tracking error implied); thus, the portfolio_activeness_score is 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.0,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.0,
+    "internal_consistency": 0.0,
+    "tax_efficiency": 0.0,
+    "reasoning": "The investment plan is fundamentally flawed and lacks any meaningful content to support quality assessment. The only allocation listed has 0% allocation, null values for key metrics, and the rationale field incorrectly contains a number (100000.0) instead of text. There is no alignment with the investor's goals (e.g., 5Cr in 10 years, apartment in 3 years), no diversification strategy, no coherent risk-return framework, internal contradictions (numeric rationale), and no tax optimization considerations despite the investor being in the 30% tax slab where equity taxation advantages are significant. The plan fails on all quality dimensions.",
+    "composite_pqs": 0.0
+  },
+  "timestamp": "2026-04-18T15:56:41.601287Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22776,
+    "output_tokens": 686,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 45.99170729611069
+}

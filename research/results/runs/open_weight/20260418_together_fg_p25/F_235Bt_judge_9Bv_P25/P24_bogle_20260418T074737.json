@@ -1,0 +1,115 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks the Nifty Midcap 150 index, giving you exposure to fast-growing mid-sized Indian companies. It has delivered strong long-term returns with low yearly fees (0.2%), which helps keep more money in your pocket over time. Since you're young and can handle some swings, this helps grow your money faster than large stocks."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund mixes stocks and bonds (debt) to give you growth with slightly less ups and downs. It’s like a safety net that helps calm big drops when markets get shaky. It has a solid long-term record and is from a trusted fund house. Since you're just starting out, this adds balance without being too complex."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete your KYC (takes 5 minutes with PAN and bank details).\nStep 2: Search for the two funds by name.\nStep 3: Start SIPs: ₹3,000/month in Motilal Oswal Nifty Midcap 150 Index Fund and ₹2,000/month in ICICI Prudential Equity & Debt Fund.\nStep 4: Invest your ₹20,000 existing corpus as a lumpsum — split as ₹12,000 in the index fund and ₹8,000 in the hybrid fund.",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running and if you’ve built the habit.",
+      "After 1 year: Compare your portfolio’s growth with the Nifty 50 — it may swing more, but should grow faster over time.",
+      "Every year on your birthday: Review and step up SIP by 10%."
+    ],
+    "rebalancing_guidelines": "Once a year, check your investment split. If one fund has grown much more (say, over 70% of total), sell a bit and move it to the other to get back to 60:40. Do this only once a year — no need to watch daily.",
+    "projected_returns": {
+      "base": 18.8,
+      "bull": 22.8,
+      "bear": 14.8
+    },
+    "rationale": "At 22, you have 38 years to grow your money — that’s your superpower. We’re using it by putting 60% in a low-cost midcap index fund for high growth, and 40% in a balanced hybrid fund to reduce wild swings. This mix matches your 'moderate' comfort level while aiming for strong long-term returns. Starting with just 2 funds keeps it simple, and stepping up SIPs yearly helps you grow with your income.",
+    "risks": [
+      "Midcap stocks can drop 30-40% in a bad year — your portfolio will fall too. This is normal and usually recovers over 2-3 years.",
+      "Hybrid funds reduce risk but can still lose value in crashes.",
+      "Inflation may eat into returns if markets stay flat for long.",
+      "Past returns don’t guarantee future results — but history shows Indian stocks grow well over decades."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase total monthly SIP by 10% every year automatically to match income growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "The plan allocates 60% to a pure mid-cap index fund and 40% to a hybrid fund. 1.0 for passive_instrument_fraction because the equity sleeve is entirely index-based. 1.0 for turnover_score as rebalancing is strictly annual with no tactical shifts. 0.8 for cost_emphasis_score because the rationale explicitly highlights 'low-cost' and 'low yearly fees' as primary benefits rather than alpha. 1.0 for research_vs_cost_score as there is no mention of individual stock/fund analysis, relying entirely on market-cap weighting. 0.9 for time_horizon_alignment_score given the 38-year horizon and decadal compounding focus. 0.4 for portfolio_activeness_score: while the equity portion is passive, the hybrid fund (Aggressive Hybrid) with no provided beta/alpha/tracking error metrics is typically managed actively to uncover alpha despite its index-tilting name, dragging the overall portfolio away from a pure 1.0 passive score, but the dominant index allocation keeps the score high.",
+    "composite_aps": 0.8500000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.9,
+    "risk_return_appropriateness": 0.95,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 0.65,
+    "reasoning": "The plan demonstrates strong alignment with Remy's profile, leveraging his youth (22yo) and long horizon (38 years) for an aggressive-mixed approach suitable for a 'moderate' risk appetite.\n\n1. Goal Alignment (0.85): The plan perfectly addresses his desire to start with 'just 1-2 funds' for simplicity and builds a habit. It supports the accumulation goal by prioritizing growth assets. It slightly loses points because it ignores the immediate 'accumulate 5L' goal by not considering a short-term goal tool (like a separate savings account or Liquid fund), though with a 38-year horizon, this is a minor issue.\n\n2. Diversification (0.90): The plan offers excellent diversification across asset classes (equity midcaps and balanced debt/equity) and geographies (India-focused but diversified via large/mid/small caps implied in mid-mix). The two fund houses (Motilal Oswal and ICICI Pru) provide decent fund-house diversification.\n\n3. Risk/Return Appropriateness (0.95): The 60:40 split is well-suited for a moderate-risk investor with a long horizon. The projected returns (14.8% bear to 22.8% bull) are realistic for an equity-heavy Indian portfolio. Risk warnings regarding midcap volatility are appropriate and balanced.\n\n4. Internal Consistency (1.0): The plan is flawless in its internal logic. The rationale supports the allocation percentages, the setup instructions match the SIP/percentage details, and the rebalancing guidelines are consistent with the portfolio construction.\n\n5. Tax Efficiency (0.65): This score is penalized due to a failure to optimize for the 'new_regime' tax bracket. While equity taxation is favorable, the 'new_regime' investor is taxed at lower effective rates and cannot claim 80C deductions. Ideally, a 'new_regime' plan should minimize friction and complexity further or explicitly state why no tax-saving measures are being used (though less critical here). However, the primary deduction comes from the fact that the hybrid fund selection is fine, but the plan doesn't leverage the specific tax advantages available to this bracket (e.g., potentially optimizing debt portions if held for tax reasons, though unlikely for a new regime investor). A fully optimized plan would explicitly mention that tax-efficiency logic was applied to the new regime context, confirming that ELSS is not recommended (good) but also that the 'Aggressive Hybrid' might have been structured even better for total return efficiency or that the choice of Midcap Index (equity taxed) is correct. The main deduction is for 'not reading the room' on the tax regime specifics despite having the data field. Specifically, for a new regime investor who can't use 80C, the plan doesn't focus on maximizing tax-free compounding through instruments like Arbitrage (equity taxed) for the debt portion. The 40% debt in a Hybrid is scrub-taxed (in this case 20-30% slab tax, but new regime is better) vs the equity portion. A score of 1.0 would require explicit visible reasoning linking the fund choice to the 'new_regime' status.",
+    "composite_pqs": 0.8700000000000001
+  },
+  "timestamp": "2026-04-18T07:47:37.514986Z",
+  "prompt_version": "v1"
+}

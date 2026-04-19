@@ -1,0 +1,247 @@
+{
+  "persona_id": "P16",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "Hybrid",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "ICICI Prudential",
+          "nav": 10.5,
+          "expense_ratio": 1.0,
+          "inception_date": "2007-04-05",
+          "aum_cr": 12000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 18.7,
+          "returns_3y": 15.2,
+          "returns_5y": 13.8,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.3,
+          "beta": 1.1,
+          "alpha": 0.85,
+          "tracking_error": 2.1,
+          "sharpe_ratio": 1.3,
+          "information_ratio": 1.8
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "High 3-year return (18.7%) with low fees (1.00%), balances equity and debt for income."
+      },
+      {
+        "fund": {
+          "amfi_code": "151122",
+          "name": "HSBC Aggressive Hybrid Fund",
+          "category": "Hybrid",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "HSBC",
+          "nav": 15.2,
+          "expense_ratio": 1.25,
+          "inception_date": "2010-08-12",
+          "aum_cr": 8500000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 16.8,
+          "returns_3y": 14.5,
+          "returns_5y": 12.9,
+          "risk_grade": "high",
+          "volatility_1y": 15.6,
+          "beta": 1.2,
+          "alpha": 0.78,
+          "tracking_error": 2.3,
+          "sharpe_ratio": 1.2,
+          "information_ratio": 1.7
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Strong 1-year return (16.8%) and tax efficiency (12.5% LTCG)."
+      },
+      {
+        "fund": {
+          "amfi_code": "120821",
+          "name": "Quant Multi Asset Allocation Fund",
+          "category": "Hybrid",
+          "sub_category": "Slab-Taxed",
+          "fund_house": "Quant",
+          "nav": 18.9,
+          "expense_ratio": 1.5,
+          "inception_date": "2012-03-15",
+          "aum_cr": 10000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 27.0,
+          "returns_3y": 18.4,
+          "returns_5y": 15.6,
+          "risk_grade": "moderate",
+          "volatility_1y": 10.8,
+          "beta": 0.95,
+          "alpha": 0.65,
+          "tracking_error": 1.9,
+          "sharpe_ratio": 1.4,
+          "information_ratio": 1.6
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "High 1-year return (27.0%) and tax efficiency (30% slab)."
+      },
+      {
+        "fund": {
+          "amfi_code": "119843",
+          "name": "SBI Multi Asset Allocation Fund",
+          "category": "Hybrid",
+          "sub_category": "Slab-Taxed",
+          "fund_house": "SBI",
+          "nav": 14.7,
+          "expense_ratio": 1.3,
+          "inception_date": "2015-09-22",
+          "aum_cr": 9500000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 20.0,
+          "returns_3y": 16.2,
+          "returns_5y": 14.1,
+          "risk_grade": "moderate",
+          "volatility_1y": 11.2,
+          "beta": 0.98,
+          "alpha": 0.62,
+          "tracking_error": 1.8,
+          "sharpe_ratio": 1.3,
+          "information_ratio": 1.5
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced risk/return with 20.0% 1-year return."
+      },
+      {
+        "fund": {
+          "amfi_code": "138363",
+          "name": "PGIM India Ultra Short Term Fund",
+          "category": "Debt",
+          "sub_category": "Slab-Taxed",
+          "fund_house": "PGIM India",
+          "nav": 10.2,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-02-14",
+          "aum_cr": 6000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 11.5,
+          "returns_3y": 9.8,
+          "returns_5y": 8.5,
+          "risk_grade": "low",
+          "volatility_1y": 2.1,
+          "beta": 0.8,
+          "alpha": 0.5,
+          "tracking_error": 1.2,
+          "sharpe_ratio": 1.1,
+          "information_ratio": 1.3
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-risk, 11.5% 1-year return with 0.55% fees."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "Nippon India",
+          "nav": 11.4,
+          "expense_ratio": 1.0,
+          "inception_date": "2003-06-18",
+          "aum_cr": 15000000000.0,
+          "morningstar_rating": 5,
+          "returns_1y": 18.2,
+          "returns_3y": 16.8,
+          "returns_5y": 14.5,
+          "risk_grade": "moderate",
+          "volatility_1y": 13.5,
+          "beta": 1.05,
+          "alpha": 0.9,
+          "tracking_error": 2.0,
+          "sharpe_ratio": 1.2,
+          "information_ratio": 1.9
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 60000.0,
+        "rationale": "18.2% 3-year return, low fees (1.00%), diversified large-cap exposure."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start SIPs of ₹60,000/month in the above funds. Step 3: Set up systematic withdrawal plan (SWP) from the Aggressive Hybrid and Conservative Hybrid funds to generate ₹1.5L/month. Step 4: Allocate 10% of corpus to Nippon India Large Cap Fund for grandchildren’s education.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are active and SWP is set.",
+      "After 1 year: Check if any fund underperforms its category (e.g., Aggressive Hybrid vs. Conservative Hybrid).",
+      "After 3 years: Rebalance if equity allocation exceeds 10% (for education fund)."
+    ],
+    "rebalancing_guidelines": "Once a year: Adjust allocations if any category grows more than 10% (e.g., move from Debt to Equity if market rises). Reason: Maintain risk balance and tax efficiency (e.g., reduce Aggressive Hybrid if equity gains exceed 1.25L).",
+    "projected_returns": {
+      "base": 11.48,
+      "bull": 13.48,
+      "bear": 9.48
+    },
+    "rationale": "Conservative risk appetite: Aggressive Hybrid (40%) balances growth and income, while Conservative Hybrid (30%) ensures stability. Systematic income: SWP from Aggressive Hybrid (15.75% after-tax) and Conservative Hybrid (10.5% after-tax) meets ₹1.5L/month. Estate planning: Equity allocation (10%) grows tax-efficiently (12.5% LTCG), and debt funds provide liquidity. Grandchildren’s education: Large Cap fund (10%) leverages long-term growth (18.2% 3-year return).",
+    "risks": [
+      "Market drops: Stock markets can fall 20-30% in a bad year, but your portfolio will recover over time.",
+      "Debt fund volatility: Short-term debt funds may lose value if interest rates rise.",
+      "SWP sustainability: Ensure corpus grows faster than inflation to maintain ₹1.5L/month."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 10.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 70.0,
+        "trigger": "Review after 1 year"
+      },
+      {
+        "year": 3,
+        "equity_pct": 10.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 70.0,
+        "trigger": "Rebalance if equity allocation exceeds 10%"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The plan uses a mix of hybrid and debt funds, none of which are index funds or ETFs, resulting in a 0.0 score for passive_instrument_fraction. Turnover is moderate with annual rebalancing, giving a 0.3 score. Cost emphasis is moderate, with expense ratios mentioned but not as primary selection criteria, leading to 0.6. Research is not emphasized; funds are chosen based on returns and tax efficiency, hence 0.3. Time horizon is long-term with annual rebalancing, scoring 0.7. Portfolio activeness is moderate due to mixed beta and tracking error, resulting in 0.3.",
+    "composite_aps": 0.36666666666666664
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan partially aligns with the investor's conservative risk appetite and long-term goals, allocating 40% to Aggressive Hybrid and 30% to Conservative Hybrid. However, the high equity exposure (40% + 30% = 70%) may not be suitable for a conservative investor. Diversification is limited to 4 hybrid funds and one equity fund, with no exposure to debt or other asset classes beyond the mentioned funds. The risk-return profile is somewhat appropriate, but the high equity allocation could be too aggressive. The plan is internally consistent, with clear rationale for each fund choice and rebalancing guidelines. Tax efficiency is poor, as the 30% slab investor is recommended slab-taxed debt funds and hybrids instead of equity-taxed options that would offer better tax efficiency.",
+    "composite_pqs": 0.64
+  },
+  "timestamp": "2026-04-17T10:10:29.832867Z",
+  "prompt_version": "v1"
+}

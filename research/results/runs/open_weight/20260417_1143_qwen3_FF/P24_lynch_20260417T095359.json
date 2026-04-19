@@ -1,0 +1,183 @@
+{
+  "persona_id": "P24",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Multi Cap",
+          "sub_category": "Equity",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 23.45,
+          "expense_ratio": 1.05,
+          "inception_date": "2001-04-01",
+          "aum_cr": 9422.0,
+          "morningstar_rating": 4,
+          "returns_1y": 13.3,
+          "returns_3y": 21.3,
+          "returns_5y": 21.3,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.4,
+          "beta": 0.94,
+          "alpha": 7.24,
+          "tracking_error": 6.44,
+          "sharpe_ratio": 0.78,
+          "information_ratio": 0.8
+        },
+        "allocation_pct": 65.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3250.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund has a balanced approach to large, mid, and small-cap stocks, making it suitable for a moderate risk appetite. Its strong historical returns and moderate risk profile align well with your investment goals."
+      },
+      {
+        "fund": {
+          "amfi_code": "120357",
+          "name": "Invesco India Large & Mid Cap Fund - Direct Plan - Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "Equity",
+          "fund_house": "Invesco Asset Management (India) Private Limited",
+          "nav": 22.15,
+          "expense_ratio": 1.1,
+          "inception_date": "2008-04-01",
+          "aum_cr": 2130.0,
+          "morningstar_rating": 4,
+          "returns_1y": 15.6,
+          "returns_3y": 24.7,
+          "returns_5y": 18.2,
+          "risk_grade": "moderate",
+          "volatility_1y": 11.8,
+          "beta": 1.14,
+          "alpha": 9.11,
+          "tracking_error": 9.24,
+          "sharpe_ratio": 0.85,
+          "information_ratio": 0.9
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1250.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund focuses on large and mid-cap stocks, which provide a good balance between growth and stability. It is well-suited for a moderate risk profile and aligns with your long-term investment horizon."
+      },
+      {
+        "fund": {
+          "amfi_code": "119018",
+          "name": "HDFC Large Cap Fund - Growth Option - Direct Plan",
+          "category": "Large Cap",
+          "sub_category": "Equity",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 21.35,
+          "expense_ratio": 1.0,
+          "inception_date": "2001-04-01",
+          "aum_cr": 10491.0,
+          "morningstar_rating": 4,
+          "returns_1y": 7.6,
+          "returns_3y": 14.2,
+          "returns_5y": 14.5,
+          "risk_grade": "moderate",
+          "volatility_1y": 10.2,
+          "beta": 0.97,
+          "alpha": -0.03,
+          "tracking_error": 3.18,
+          "sharpe_ratio": 0.1,
+          "information_ratio": 0.2
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund focuses on large-cap stocks, which are generally more stable and less volatile. It provides a good foundation for your investment portfolio and is suitable for a moderate risk profile."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start your monthly SIPs in these funds. Step 3: Set up a SIP step-up schedule to increase your monthly investment by 10% each year to match your salary growth.",
+    "review_checkpoints": [
+      "After 6 months: Check if your SIPs are running smoothly and adjust if needed.",
+      "After 1 year: Review the performance of each fund and ensure they are aligned with your goals.",
+      "After 4 years: Check if you have accumulated at least ₹5L as a foundation for your future goals."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed significantly. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 11.7,
+      "bull": 15.7,
+      "bear": 7.7
+    },
+    "rationale": "Given your age, moderate risk appetite, and long investment horizon, a diversified portfolio with a mix of large-cap, mid-cap, and multi-cap funds is appropriate. This plan provides a good balance between growth and stability, and it is designed to help you build a solid foundation for your future financial goals.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "There is a risk of not achieving the projected returns due to market conditions and other factors."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 2,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Continue with current allocation"
+      },
+      {
+        "year": 3,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Continue with current allocation"
+      },
+      {
+        "year": 4,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Continue with current allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Continue with current allocation"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The investment plan primarily allocates to actively managed equity funds, with no passive instruments in the equity sleeve. The plan recommends annual rebalancing and a long-term time horizon, which aligns with passive principles. However, the plan emphasizes performance and historical returns over cost, indicating a focus on active management. The funds have high tracking error and alpha, suggesting active management, which lowers the passive score.",
+    "composite_aps": 0.3
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.7,
+    "reasoning": "The investment plan aligns well with Remy's financial goals, life stage, and investment horizon. It focuses on equity-based funds with a moderate risk profile, suitable for a young investor with a long-term horizon. The plan provides a diversified mix of large-cap, mid-cap, and multi-cap funds, which is appropriate for a moderate risk appetite. The plan is internally consistent, with clear rationale and steps for implementation. However, the plan does not account for tax efficiency optimally for Remy's new regime tax bracket. While the plan uses equity funds that are taxed at the investor's marginal rate, it could have considered using equity-taxed wrappers like Aggressive Hybrid or arbitrage funds to optimize post-tax returns for a new regime investor.",
+    "composite_pqs": 0.8400000000000001
+  },
+  "timestamp": "2026-04-17T09:53:59.472745Z",
+  "prompt_version": "v1"
+}

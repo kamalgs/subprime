@@ -1,0 +1,137 @@
+{
+  "persona_id": "P02",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "1.05% post-tax after 1 year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Rebalance every 6 months. Check allocations if any fund's AUM drops below 25% of original. Increase exposure to large caps if market volatility rises. Prefer direct plans with lower fees. Avoid sectoral concentration by keeping no more than 30% in any single sector. Prefer large caps for stability. Use 15% trigger for rebalancing if any fund's AUM drops below 15% of original. For example, if your large cap allocation drops from 50% to 45%, buy more large caps and sell others proportionally. Avoid panic selling. Keep 60% in fixed income for liquidity. Use 40% in debt for stability. Keep equity exposure at least 60%.",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 15,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 20,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.4,
+    "cost_emphasis_score": 0.55,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.75,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "1) passive_instrument_fraction=0.0: The sole equity allocation (40%) is to HDFC Large Cap Direct Plan, an actively managed large-cap fund — no index funds or ETFs in the equity sleeve. 2) turnover_score=0.4: Semi-annual rebalancing is prescribed, with tactical adjustments ('increase large caps if volatility rises') and a 15% trigger — more active than annual rebalancing but less than quarterly. 3) cost_emphasis_score=0.55: The plan mentions preferring direct plans for lower fees and the fund rationale references a 1.05% post-tax return, showing cost awareness, but cost is not the dominant selection criterion — it's one factor among several. 4) research_vs_cost_score=0.6: No deep security-level research (no PEG, moat, management analysis) is provided; the rationale is minimal. However, the fund is active rather than index-based, so it's not purely 'no research, broad market' either — leaning passive in orientation but not fully index-driven. 5) time_horizon_alignment_score=0.75: The allocation schedule spans 20 years, with 'avoid panic selling' guidance, indicating a patient, long-term orientation. Some tactical clauses slightly reduce this score. 6) portfolio_activeness_score=0.5: HDFC Large Cap active funds in India typically run beta close to 1.0 with moderate tracking error (2–5%), making them semi-passive ('closet indexers'). The information ratio of 1.05 suggests some active skill, but the large-cap category inherently limits deviation from the benchmark. Without specific beta/TE data, category inference places this mid-spectrum.",
+    "composite_aps": 0.4666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.0,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is severely deficient across all dimensions.\n\n**Goal Alignment (0.05):** The investor has three distinct goals (5yr house, 15yr education, 20yr retirement ₹5Cr) but the plan maps none of them. Only ₹10,000 of the ₹80,000 monthly surplus (12.5%) is deployed, leaving 87.5% unallocated. There is no house-down-payment strategy, no education corpus plan, and no path to ₹5Cr. The plan ignores her life stage and goal-specific timelines entirely.\n\n**Diversification (0.05):** A single large-cap fund from a single fund house constitutes 100% concentration. Despite the investor explicitly avoiding sectoral concentration, the plan offers no diversification across asset classes, sectors, geographies, or fund houses. No debt, gold, mid/small cap, international, or hybrid exposure — just one fund.\n\n**Risk-Return Appropriateness (0.10):** For a moderate-risk, 20-year-horizon investor, the allocation is impossible to evaluate because the plan contradicts itself (allocation says 40% equity; schedule says 0% equity/40% debt). If the schedule is taken literally, 0% equity for 20 years is wildly inappropriate. No projected returns or downside scenarios are provided. The SIP amount is far too small to meet any stated goal.\n\n**Internal Consistency (0.00):** The plan is riddled with contradictions: (1) 40% equity allocation vs. 0% equity in the allocation schedule; (2) rebalancing guidelines simultaneously say 'keep 60% fixed income,' 'use 40% in debt,' AND 'keep equity at least 60%' — impossible; (3) only ₹10K SIP vs. ₹80K surplus; (4) the fund rationale '1.05% post-tax after 1 year' appears to confuse information_ratio (1.05) with a return figure; (5) 60% of the portfolio is completely unaccounted for. No element of the plan is coherent with any other.\n\n**Tax Efficiency (0.10):** For a 30% slab investor, the plan misses every tax-optimisation opportunity: no ELSS for 80C headroom, no arbitrage/aggressive hybrid funds to convert slab-taxed debt into equity-taxed instruments, and no mention of tax treatment at all. The allocation schedule pushes 40% into debt, which would be taxed at the 30% slab with no concession — the worst possible outcome for this investor. The only slight positive is that the sole equity fund receives equity taxation.",
+    "composite_pqs": 0.06000000000000001
+  },
+  "timestamp": "2026-04-18T17:00:59.670820Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

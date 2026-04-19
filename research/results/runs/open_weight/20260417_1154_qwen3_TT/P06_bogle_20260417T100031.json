@@ -1,0 +1,201 @@
+{
+  "persona_id": "P06",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty 50 Index Fund",
+          "category": "Equity",
+          "sub_category": "Index",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 12.34,
+          "returns_3y": 12.34,
+          "returns_5y": 12.34,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.34,
+          "beta": 1.0,
+          "alpha": 0.2,
+          "tracking_error": 0.5,
+          "sharpe_ratio": 1.2,
+          "information_ratio": 0.8
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Lowest-cost large-cap index fund (0.20% fee), ideal for long-term growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "147623",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund",
+          "category": "Equity",
+          "sub_category": "Index",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 12.34,
+          "returns_3y": 12.34,
+          "returns_5y": 12.34,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.34,
+          "beta": 1.0,
+          "alpha": 0.2,
+          "tracking_error": 0.5,
+          "sharpe_ratio": 1.2,
+          "information_ratio": 0.8
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Diversifies into mid-cap stocks (0.20% fee), balances risk/reward."
+      },
+      {
+        "fund": {
+          "amfi_code": "150346",
+          "name": "WhiteOak Capital Arbitrage Fund",
+          "category": "Equity",
+          "sub_category": "Arbitrage",
+          "fund_house": "WhiteOak Capital",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 6.0,
+          "returns_3y": 6.0,
+          "returns_5y": 6.0,
+          "risk_grade": "low",
+          "volatility_1y": 6.0,
+          "beta": 0.5,
+          "alpha": 0.1,
+          "tracking_error": 0.3,
+          "sharpe_ratio": 0.8,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Tax-efficient (12.5% LTCG), provides liquidity similar to debt funds (6% pre-tax return)."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund",
+          "category": "Debt",
+          "sub_category": "Money Market",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 5.5,
+          "returns_3y": 5.5,
+          "returns_5y": 5.5,
+          "risk_grade": "low",
+          "volatility_1y": 5.5,
+          "beta": 0.2,
+          "alpha": 0.05,
+          "tracking_error": 0.25,
+          "sharpe_ratio": 0.6,
+          "information_ratio": 0.4
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Short-term safety (5.5% pre-tax return), slab-taxed but better than cash."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI Gold ETF",
+          "category": "Gold",
+          "sub_category": "ETF",
+          "fund_house": "UTI",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 9.0,
+          "returns_3y": 9.0,
+          "returns_5y": 9.0,
+          "risk_grade": "moderate",
+          "volatility_1y": 9.0,
+          "beta": 1.2,
+          "alpha": 0.3,
+          "tracking_error": 0.6,
+          "sharpe_ratio": 1.0,
+          "information_ratio": 0.7
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost (0.40% fee), hedges inflation, small allocation to avoid volatility."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on platforms like Groww, Kuvera, or MFU (no broker fees). Step 2: Start SIPs in the above funds: ₹8,000/month in Motilal Oswal Nifty 50 (40%), ₹8,000/month in Motilal Oswal Nifty Midcap (20%), ₹8,000/month in WhiteOak Arbitrage (20%), ₹8,000/month in ICICI Overnight (10%), ₹8,000/month in UTI Gold ETF (10%). Tip: Use the 'Auto-invest' feature to increase SIPs by 10% annually.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are active and no fund has paused.",
+      "After 1 year: Check if any fund underperforms its category (e.g., Nifty 50 vs. Nifty Midcap).",
+      "After 5 years: Rebalance allocation if it drifts by >5% (e.g., if equity drops to 55%)."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your allocation has shifted. If equity fell to 55%, move ₹5,000/month from debt/gold to index funds. If equity rose to 65%, move ₹5,000/month from index funds to debt/gold. No quarterly reviews—inaction beats frequent trading.",
+    "projected_returns": {
+      "Base (typical)": 9.8,
+      "Bull (optimistic)": 13.8,
+      "Bear (pessimistic)": 5.8
+    },
+    "rationale": "Your age (23) and 30-year horizon mean you can afford equity risk. Index funds (Motilal Oswal Nifty 50, Nifty Midcap) are simple, low-cost, and historically outperform most active funds. Arbitrage fund (WhiteOak) gives liquidity without sacrificing tax efficiency. Debt (ICICI Overnight) covers short-term needs, while gold (UTI ETF) hedges inflation. No complex strategies—just 5 funds, 1 SIP, and 1 annual rebalance.",
+    "risks": [
+      "Market drops: Stock markets can fall 20–30% in bad years (e.g., 2008, 2020). Your portfolio value will drop, but it will recover over time.",
+      "Debt risk: Overnight funds are slab-taxed (30% tax on gains), so 5.5% pre-tax becomes ~3.85% post-tax.",
+      "Gold volatility: Gold prices can swing wildly, but your 10% allocation limits impact."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The plan is heavily weighted toward passive instruments (Nifty 50, Nifty Midcap, Gold ETF) with no active equity funds. It emphasizes low-cost index funds, has a long-term horizon with annual rebalancing, and prioritizes cost minimization. The rationale and review checkpoints show no deep research, only market exposure without individual security analysis.",
+    "composite_aps": 0.8333333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal alignment: The plan addresses emergency fund (via liquidity), marriage goal (via long-term equity growth), and wealth building (via index funds and arbitrage). However, the 3-month emergency fund isn't explicitly addressed in the allocation. Diversification: The plan includes equity (large-cap, mid-cap, arbitrage), debt (overnight), and gold. However, it's concentrated in Motilal Oswal and lacks exposure to other fund houses. Risk-return: The moderate risk appetite is matched with a mix of moderate-risk funds and some low-risk debt. Internal consistency: The rationale, fund selections, and risk warnings align well, with clear explanations for each allocation.",
+    "composite_pqs": 0.74
+  },
+  "timestamp": "2026-04-17T10:00:31.704758Z",
+  "prompt_version": "v1"
+}

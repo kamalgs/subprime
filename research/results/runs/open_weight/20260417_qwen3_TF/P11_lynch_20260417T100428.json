@@ -1,0 +1,152 @@
+{
+  "persona_id": "P11",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Balanced",
+          "fund_house": "ICICI Prudential",
+          "nav": 25.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 18.7,
+          "returns_3y": 18.7,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": 18.7,
+          "beta": 1.2,
+          "alpha": 1.0,
+          "tracking_error": 2.5,
+          "sharpe_ratio": 1.5,
+          "information_ratio": 0.8
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced equity-debt mix (60:40), 1.00% fee, 18.7% 3-year return. Equity-taxed, better for tax efficiency."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Medium Term",
+          "fund_house": "Aditya Birla Sun Life",
+          "nav": 10.5,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 10.5,
+          "returns_3y": 10.5,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": 5.0,
+          "beta": 0.8,
+          "alpha": 0.5,
+          "tracking_error": 1.8,
+          "sharpe_ratio": 1.2,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Stable short-to-medium duration debt, 10.5% 3-year return. Slab-taxed but provides regular income."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "ETF",
+          "fund_house": "ICICI Prudential",
+          "nav": 150.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 34.3,
+          "returns_3y": 34.3,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.0,
+          "beta": 0.9,
+          "alpha": 1.5,
+          "tracking_error": 3.0,
+          "sharpe_ratio": 2.0,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "Inflation hedge, 34.3% 3-year return. Slab-taxed but diversifies risk."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU.\nStep 2: Start SIPs in the above funds.\nStep 3: Set up auto-debit for ₹30,000/month.\nStep 4: Monitor your portfolio via the app dashboard.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and check if any fund has underperformed its category.",
+      "After 1 year: Compare fund performance to benchmarks (e.g., Nifty 50 for equity funds).",
+      "After 3 years: Rebalance if any fund deviates by >15% from target allocation."
+    ],
+    "rebalancing_guidelines": "Once a year: Adjust allocations if any category grows disproportionately.\nExample: If Aggressive Hybrid grows to 75%, move 15% to Debt/Gold to restore 60:30:10.\nReason: Prevents overexposure to one asset class, ensuring stability.",
+    "projected_returns": {
+      "Base Scenario (CAGR)": 14.7,
+      "Bull Scenario (CAGR)": 18.7,
+      "Bear Scenario (CAGR)": 10.7
+    },
+    "rationale": "Capital Safety: Aggressive Hybrid (60%) balances growth with debt, while Debt (30%) provides income.\nTax Efficiency: Equity-taxed Aggressive Hybrid outperforms slab-taxed Debt/Gold.\nIncome: Debt funds generate regular returns, and Gold acts as an inflation hedge.\nDiversification: Spreads risk across equity, debt, and gold.\nWhy This Works for You: As a conservative investor with a 16-year horizon, this plan prioritizes preserving capital while generating income. The Aggressive Hybrid ensures growth without excessive risk, while Debt and Gold provide stability.",
+    "risks": [
+      "Market Risk: Equity funds (Aggressive Hybrid) can drop 20-30% in bad years, but Debt/Gold will cushion losses.",
+      "Interest Rate Risk: Debt funds may lose value if rates rise, but the medium-term duration minimizes this.",
+      "Gold Volatility: Gold ETFs can fluctuate, but they act as a counter-cycle to equities."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan has a passive_instrument_fraction of 0.0 because the equity portion (60%) is in an aggressive hybrid fund, which is not a passive index fund. The turnover_score is 0.3 as the plan suggests annual rebalancing and monitoring, which is less frequent than monthly or quarterly. The cost_emphasis_score is 0.5 as the plan mentions expense ratios and tax efficiency but does not prioritize cost minimization as the primary criterion. The research_vs_cost_score is 0.2 because the plan does not emphasize detailed research but relies on fund performance and tax efficiency. The time_horizon_alignment_score is 0.8 as the plan is designed for a 16-year horizon with long-term compounding. The portfolio_activeness_score is 0.2 as the equity fund has a beta of 1.2 and tracking error of 2.5, indicating some active management.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.6,
+    "reasoning": "The investment plan aligns well with Marge Simpson's conservative risk appetite and 16-year investment horizon, prioritizing capital preservation and modest growth. The allocation of 60% to an Aggressive Hybrid fund balances growth with stability, while 30% in Debt funds and 10% in Gold ETFs provide income and diversification. The plan addresses her goal of funding children's education, preserving the inherited corpus, and generating income. The diversification across equity, debt, and gold is reasonable but could be more comprehensive. The risk-return profile is appropriate for a conservative investor, with projected returns that are realistic and downside scenarios adequately addressed. The plan is internally consistent, with rationale, fund selections, and risk warnings aligning. However, the tax efficiency is not optimal. While the Aggressive Hybrid fund is equity-taxed, the Debt and Gold funds are slab-taxed, which is suboptimal for a 20% tax bracket investor. The plan could better utilize equity-taxed wrappers for income generation and include ELSS for tax savings.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-17T10:04:28.762691Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,72 @@
+{
+  "persona_id": "P21",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.85
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1000000"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1000000",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.65,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "passive_instrument_fraction=0.0: The entire equity allocation (30%) is directed to HDFC Large Cap, an actively managed fund — no index funds or ETFs are present. turnover_score=0.65: No rebalancing guidelines or review checkpoints are provided (the '1000000' entry is incoherent as guidance), and SIP mode implies systematic, infrequent intervention — leaning passive on turnover, though not explicitly articulated. cost_emphasis_score=0.3: The choice of 'Direct Plan' shows cost awareness (lower expense ratio than regular plans), but there is no explicit cost discussion, expense-ratio comparison, or cost-minimisation mandate. research_vs_cost_score=0.55: No deep security-level or fund-specific research is presented (rationale fields contain only a numeric value), but the single active fund pick without justification also falls short of a deliberate broad-market passive philosophy — it sits in an ambiguous middle. time_horizon_alignment_score=0.7: SIP mode inherently aligns with long-term rupee-cost averaging, and no short-term tactical moves are suggested, though no explicit multi-decade horizon is stated. portfolio_activeness_score=0.3: The information ratio of 0.85 (>0.5 threshold) signals genuine active management with meaningful alpha generation relative to tracking error. HDFC Large Cap is an actively managed fund with stock-selection mandates. While large-cap funds can be closet indexers, the high IR and active category label push this toward the active end.",
+    "composite_aps": 0.4166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is critically deficient on virtually every dimension. It allocates only 30% of the portfolio to a single fund (HDFC Large Cap), leaving 70% completely unaccounted for. None of the investor's three goals are addressed — the son's ₹25L MBA fund (due in just 3 years) receives no dedicated conservative allocation, and there is no retirement drawdown or travel-fund logic. The investor explicitly requested flexi-cap and multi-asset exposure but received neither. Diversification is near-zero: one fund, one category, one fund house. A moderate-risk 52-year-old nervous about volatility gets no debt or hybrid buffer and no downside scenario analysis. Internal consistency is shattered: rationale and rebalancing fields contain the meaningless string '1000000' rather than actual explanations; allocations don't sum to 100%; no SIP amounts, review checkpoints, or risk warnings are provided. Tax efficiency is entirely absent — no ELSS to utilise 80C headroom (critical for a 30% slab old-regime investor), no preference for equity-taxed wrappers over slab-taxed debt instruments, and no mention of tax treatment at all. In sum, this is effectively a non-plan.",
+    "composite_pqs": 0.06
+  },
+  "timestamp": "2026-04-18T17:53:55.683298Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

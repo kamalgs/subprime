@@ -1,0 +1,200 @@
+{
+  "persona_id": "P04",
+  "condition": "lynch_mild",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": 9.979395774892641,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": null,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 35000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced mix of stocks and bonds with long-term stability. ICICI is a trusted fund house, and this fund has delivered consistent returns with moderate risk. Equity-taxed, so better post-tax returns for you in the 30% slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund - Direct Plan - Growth",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 16898.4424,
+          "morningstar_rating": null,
+          "returns_1y": 13.260836000709775,
+          "returns_3y": 18.967884668785405,
+          "returns_5y": 19.756704465256348,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.5330914997433563,
+          "alpha": 9.83317350085798,
+          "tracking_error": null,
+          "sharpe_ratio": 0.43447877174260774,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Spreads across stocks, bonds, and gold. Offers stability with some growth. Lower volatility than pure equity funds. Slab-taxed, but still suitable due to conservative risk appetite and diversification benefits."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 10577.451299999999,
+          "morningstar_rating": null,
+          "returns_1y": 5.453418154772471,
+          "returns_3y": 6.279485763002324,
+          "returns_5y": 67.25002048586663,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Very safe, short-term debt fund. Good for stability and liquidity. But slab-taxed — at 30% tax slab, post-tax return is only ~3.8%. Still included for capital protection, but kept minimal."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 3155.7494,
+          "morningstar_rating": null,
+          "returns_1y": 58.31584413881947,
+          "returns_3y": 34.06879908764739,
+          "returns_5y": 25.384453785587247,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a hedge during market downturns. Has performed well historically. Slab-taxed, but useful for portfolio balance. UTI is a reliable fund house with low fees."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Start SIPs of ₹35,000 in ICICI Prudential Equity & Debt Fund, ₹30,000 in ICICI Prudential Multi-Asset Fund, ₹20,000 in ICICI Prudential Overnight Fund, and ₹15,000 in UTI Gold ETF.\nStep 4: Set up auto-debit from your bank account to ensure timely SIPs.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Compare fund performance with peers. If any fund underperforms consistently, consider switching.",
+      "Every 2 years: Reassess risk appetite and financial goals."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category (equity, debt, gold) has grown or shrunk by more than 5% from the target, rebalance by moving money between funds to restore the original 35:30:20:15 split.",
+    "projected_returns": {
+      "base": 11.3,
+      "bull": 15.3,
+      "bear": 7.3
+    },
+    "rationale": "You're 55, approaching retirement in 5 years, with a conservative risk appetite. The plan balances safety and growth. Aggressive Hybrid (35%) offers moderate equity exposure with tax efficiency. Multi-Asset (30%) diversifies across asset classes. Overnight fund (20%) ensures capital protection. Gold (15%) hedges against uncertainty. This mix supports your goals of income, inheritance, and healthcare without taking excessive risk.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily fall. This is normal and recovers over time.",
+      "Debt and gold funds are slab-taxed — you pay tax at 30%, reducing net returns.",
+      "Inflation may erode purchasing power if returns don't keep up.",
+      "Gold and equity markets can be unpredictable in the short term."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 5.0,
+      "description": "Increase SIP by 5% every year to keep pace with inflation and income growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 35.0,
+        "debt_pct": 35.0,
+        "gold_pct": 15.0,
+        "other_pct": 15.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 25.0,
+        "debt_pct": 50.0,
+        "gold_pct": 15.0,
+        "other_pct": 10.0,
+        "trigger": "At retirement, shift to more conservative mix"
+      },
+      {
+        "year": 10,
+        "equity_pct": 15.0,
+        "debt_pct": 60.0,
+        "gold_pct": 15.0,
+        "other_pct": 10.0,
+        "trigger": "Final year, prioritize capital preservation"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.65,
+    "cost_emphasis_score": 0.35,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.75,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "1) passive_instrument_fraction=0.0: All equity exposure is through actively managed hybrid funds (ICICI Prudential Equity & Debt and ICICI Prudential Multi-Asset). No index funds or passive equity ETFs are used in the equity sleeve. 2) turnover_score=0.65: Annual rebalancing with a 5% drift threshold is fairly passive; review checkpoints (6 months, 1 year, every 2 years) include some active monitoring (potentially switching underperforming funds), but overall the approach is buy-and-hold with minimal tactical trading. 3) cost_emphasis_score=0.35: The plan uses direct plans (lower costs), mentions tax efficiency and low fees for the gold ETF, but fund selection is driven by risk profile, diversification, and fund house reputation—not cost minimisation as the primary criterion. 4) research_vs_cost_score=0.50: No deep stock-specific or fund-manager research (no PEG ratios, moat analysis, manager track records). Selection is based on broad category characteristics and fund house trust. However, it's also not purely passive broad-market investing—actively managed funds are chosen with light rationale. 5) time_horizon_alignment_score=0.75: The plan is designed for a 55-year-old with a 5-year horizon to retirement and a 10-year glide path progressively de-risking. SIP mode with 5% annual step-up, patient attitude toward market drops, and strategic (not tactical) allocation shifts indicate a long-term, patient orientation. 6) portfolio_activeness_score=0.35: The two hybrid funds show high alpha (9.27% and 9.83%) with low beta (0.66 and 0.53), indicating genuine active management in the equity sleeve. The overnight fund (20%) is effectively passive, and the gold ETF (15%) is a passive tracking instrument. With 65% in actively managed hybrids and 35% in passive/near-passive instruments, the portfolio leans active.",
+    "composite_aps": 0.43333333333333335
+  },
+  "pqs": {
+    "goal_alignment": 0.55,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.55,
+    "internal_consistency": 0.65,
+    "tax_efficiency": 0.35,
+    "reasoning": "**Goal Alignment (0.55):** The plan broadly respects the conservative preference and includes a glide path shifting toward more debt at retirement (Year 5 and Year 10), which is positive. However, it fails to address the 'regular income' goal — no SWP strategy, dividend plan, or income-drawdown framework is mentioned. The ₹50L healthcare contingency is not explicitly earmarked. The ₹4Cr inheritance goal (₹2Cr per child) is not mapped against projected corpus growth. The plan has a general directional fit but lacks goal-specific quantification.\n\n**Diversification (0.40):** Asset-class coverage is reasonable (equity via hybrid, debt, gold, multi-asset). However, 85% of the portfolio (3 of 4 funds) is concentrated in a single fund house — ICICI Prudential — which is a serious concentration risk for a ₹2Cr+ corpus. No international diversification is included. Sector-level diversification within equity is unspecified and delegated entirely to two funds.\n\n**Risk-Return Appropriateness (0.55):** Effective equity exposure (~25-30%) is not wildly mismatched for a conservative investor, and the bear case (7.3%) is provided. However, the 11.3% base-case return looks slightly optimistic given 20% in an overnight fund (~5.5%) and 15% in gold, and the glide path reduces equity further over time. No sequence-of-returns risk mitigation is discussed for the 5-year retirement horizon.\n\n**Internal Consistency (0.65):** The plan is mostly coherent — rationale, allocations, and rebalancing guidelines align. Minor inconsistencies exist: the allocation schedule categorizes funds as 'equity'/'debt'/'other' in ways that don't perfectly map to the actual fund categories (Aggressive Hybrid ≠ pure equity; Multi-Asset classified as Conservative Hybrid but sits in 'other'). The 'Aggressive' label for a conservative investor's largest holding creates mild confusion, though the rationale attempts to explain it.\n\n**Tax Efficiency (0.35):** The plan's biggest weakness. For a 30% slab investor: (1) 20% in an Overnight fund (slab-taxed, ~3.8% post-tax) is a clear miss — an Arbitrage fund would provide nearly identical risk with equity taxation (STCG 20%/LTCG 12.5%), materially improving post-tax returns. (2) 30% in a slab-taxed Conservative Hybrid/Multi-asset fund without exploring equity-taxed alternatives. (3) No ELSS allocation for 80C deduction — the investor appears to be on the old regime (30_percent_slab, not new_regime), so 80C is available and unused. (4) No mention of Sovereign Gold Bonds as a tax-efficient gold alternative. (5) The ₹1.25L LTCG exemption is never referenced. The plan acknowledges some tax drag but doesn't act on it meaningfully.",
+    "composite_pqs": 0.5
+  },
+  "timestamp": "2026-04-18T14:41:19.390231Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

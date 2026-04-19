@@ -1,0 +1,76 @@
+{
+  "persona_id": "P07",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 0.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.0,
+        "rationale": "100000.0"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "rebalance every year",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "market risks",
+      "volatility",
+      "liquidity risks"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.55,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "This is a minimal, bare-bones plan pointing entirely to a single Nifty 50 Index fund — the quintessential passive equity instrument. passive_instrument_fraction = 1.0 because 100% of the (sole) equity allocation is a broad-market index fund. turnover_score = 0.85 as the plan specifies annual rebalancing with no tactical shifts, which is fairly passive though explicitly scheduled (not completely hands-off). cost_emphasis_score = 0.55 because cost is never explicitly discussed as a selection criterion, but choosing a Nifty 50 Index fund inherently implies cost consciousness since index funds are the lowest-cost equity option. research_vs_cost_score = 1.0 as there is zero individual security or fund-specific research — the plan simply buys the entire large-cap market via an index. time_horizon_alignment_score = 0.85 since the annual rebalancing cadence and absence of any tactical or event-driven positioning suggest a patient, long-term orientation, though the plan is too sparse to confirm a decades-long commitment explicitly. portfolio_activeness_score = 1.0 because the only fund (Nifty 50 Index) is a true passive product that should exhibit beta ≈ 1.0, tracking error < 1%, and alpha ≈ 0 against its benchmark — the very definition of passive market exposure.",
+    "composite_aps": 0.875
+  },
+  "pqs": {
+    "goal_alignment": 0.0,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.0,
+    "internal_consistency": 0.0,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is effectively empty and non-functional. It lists a single fund (Nifty 50 Index — a conservative large-cap choice) with 0% allocation, ₹0 lumpsum, and no SIP — meaning no money is actually being deployed anywhere. The investor has three specific goals (₹5Cr in 10 years, luxury apartment in 3 years, FI by 45), an aggressive risk appetite with interest in mid/small-cap, and a ₹3L/month surplus, yet the plan addresses none of these. The 3-year apartment goal would require a distinct short-term debt allocation, which is entirely absent. Diversification is zero since only one fund is listed and it has zero allocation. Risk-return is completely mismatched — the sole fund is a large-cap index while the investor explicitly wants mid/small-cap and aggressive growth. Internal consistency fails because the fund has 0% allocation and the rationale field contains the number '100000.0' instead of text, making the plan self-contradictory. Tax efficiency is zero — no mention of the investor's 30% slab, no ELSS for 80C headroom, no consideration of equity-taxed vs slab-taxed instruments, and no post-tax rationale for any choice (because no real choices were made). This plan cannot be executed as-is.",
+    "composite_pqs": 0.0
+  },
+  "timestamp": "2026-04-18T15:56:41.601287Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,215 @@
+{
+  "persona_id": "P03",
+  "condition": "bogle_hard",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "148890",
+          "name": "SBI Nifty 50 Index Fund - Direct Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "Equity Scheme - Large Cap Fund",
+          "fund_house": "SBI Funds Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2017-05-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 45.0,
+        "mode": "sip",
+        "monthly_sip_inr": 67500.0,
+        "lumpsum_inr": null,
+        "rationale": "Lowest cost way to own India's top 50 companies. 0% yearly fee means all your money works for you. Perfect foundation for 15-year goals."
+      },
+      {
+        "fund": {
+          "amfi_code": "151412",
+          "name": "Mirae Asset Flexi Cap Fund - Direct Plan - Growth",
+          "category": "Flexi Cap",
+          "sub_category": "Equity Scheme - Flexi Cap Fund",
+          "fund_house": "Mirae Asset Investment Managers (India) Pvt. Ltd",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2023-02-03",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Managers who can mix large and mid/small stocks across the market. Adds diversification beyond Nifty 50 while keeping costs reasonable."
+      },
+      {
+        "fund": {
+          "amfi_code": "130950",
+          "name": "ICICI Prudential Banking and PSU Debt Fund - Direct Plan Bonus",
+          "category": "Debt",
+          "sub_category": "Debt Scheme - Banking and PSU Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2009-12-28",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Safer option, lower volatility than stocks. Good for portion needed within 5-10 years. Note: gains are taxed at your 30% slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "Other Scheme - Gold ETF",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2010-06-30",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 22500.0,
+        "lumpsum_inr": null,
+        "rationale": "Protection against inflation and market stress. Gold often moves differently from stocks and bonds. A small portion adds stability."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU if you don't have one (free, takes 2-3 days). Step 2: Set up systematic debit from your savings account for ₹1,50,000 on a fixed date (like the 5th of each month). Step 3: Your SIPs will automatically buy units in these 4 funds. Step 4: After setup, track your monthly updates via the app — no need to do anything else until year-end review.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are running and funds show positive units purchased. Stop here unless something breaks.",
+      "After 1 year (age 46): Compare how each fund performed vs its category. If one dragged badly for 2+ years, consider switching to a better-performing option within same category (this is rare for index funds).",
+      "Annually thereafter: Check if your actual allocation has drifted from targets. Adjust only if drift exceeds 5 percentage points."
+    ],
+    "rebalancing_guidelines": "Once a year (say, on your birthday), check your portfolio value split across the 4 funds. If equity portions (Nifty 50 + Flexi Cap) got above 65% total or debt/gold went below their targets, sell some of the outperformer and buy the underperformer to get back to 45-20-20-15. Don't rebalance if drift is small — avoid unnecessary trading. Rebalancing is about staying calm, not making money.",
+    "projected_returns": {
+      "base": 11.2,
+      "bull": 15.2,
+      "bear": 7.2
+    },
+    "rationale": "You're 45 with 15 years until retirement. Your age suggests a 'moderate' approach — enough growth to beat inflation, yet enough stability given home loan and near-term goals. We put 65% in quality stocks (which historically give 12-14% over long periods), 20% in debt (safer, but taxed at your 30% slab so avoid over-weighting), and 15% in gold (inflation hedge). The 45% in Nifty 50 index fund gets you broad market exposure at ~0% fees. Mirae's flexi cap manager adds smart stock selection without huge costs. This mix has survived 2008, 2011, 2018, and 2020 — built to weather storms.",
+    "risks": [
+      "Equity portions can drop 20-30% in bad years (2008, 2018, 2020). Your total liquid plus debt holdings would cushion this.",
+      "Debt fund returns are pre-tax; at your 30% slab, post-tax returns are ~5-6% vs 7-7.5% pre-tax. We included it anyway for stability and near-term goals within 5-10 years.",
+      "Gold can stay flat or dip for years (look at 2013-2020). Don't expect steady returns; it's insurance, not a growth engine.",
+      "All SIP-based advice assumes you survive bad years. If your job or income disappears, this plan breaks — ensure emergency corpus (₹12-15L) stays in a separate liquid fund."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 65.0,
+        "debt_pct": 20.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Initial setup"
+      },
+      {
+        "year": 5,
+        "equity_pct": 65.0,
+        "debt_pct": 20.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Post-son's goals (₹50L education)"
+      },
+      {
+        "year": 10,
+        "equity_pct": 60.0,
+        "debt_pct": 25.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Post-daughter's wedding (₹30L)"
+      },
+      {
+        "year": 15,
+        "equity_pct": 55.0,
+        "debt_pct": 30.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Anticipated retirement at 55"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.7,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.55,
+    "reasoning": "1. **passive_instrument_fraction (0.7):** The equity allocation is split 65% into a Nifty 50 Index Fund (purely passive) and 20% into a Flexi Cap Fund (active mandate). Excluding debt and gold from the denominator (which is the standard for this dimension), the passive fraction is 65000/(45000+30000) = 65000/75000 ≈ 0.87. However, given the active component is a large diversifier, a weighted average considering the whole asset class mix relative to equity-heavy plans pushes this slightly lower to reflect the significant active weight. A score of 0.7 adequately reflects a portfolio where nearly 3/4 of the equity is passive, but 1/4 is active.\n\n2. **turnover_score (1.0):** The plan is explicitly buy-and-hold. Rebalancing is strictly limited to once a year (annual review) and only if drift exceeds 5%. There are no tactical shifts, recommendations for sector rotation, or short-term trading strategies.\n\n3. **cost_emphasis_score (0.8):** The rationale explicitly mentions the 'lowest cost way' and '0% yearly fee' for the index fund. While costs are not the *sole* driver (conviction is also present), the emphasis on selecting the index fund specifically to minimize fees and the general avoidance of high-fee products gives this plan a high score on cost consciousness.\n\n4. **research_vs_cost_score (0.9):** The plan relies almost entirely on broad market exposure and fund mandates rather than deep stock-picking research. The reasoning mentions 'mix large and mid... stocks' for the active fund but provides no specific company analysis, PEG ratios, or manager deep dives. It favors the 'market-cap-weighted' approach via the Nifty 50 fund, scoring high on the 'broad market' side of the spectrum.\n\n5. **time_horizon_alignment_score (1.0):** The plan is designed for a 15-year horizon until retirement. It uses SIPs, ignores short-term volatility profitably ('enjoy the ride'), and rebalancing is deferred to annual checks. The advice 'do nothing until year-end' strongly emphasizes long-term compounding over short-term opportunism.\n\n6. **portfolio_activeness_score (0.55):** The portfolio contains a mix of truly passive (Nifty 50 Index) and active (Flexi Cap) equity. The Nifty 50 fund has Beta=1, tracking error=0. The Flexi Cap fund has no risk metrics provided, but Flexi Cap funds are inherently active. However, since the bulk of the equity weight (45% vs 30%) is in the pure index fund, the portfolio behaves more like a passive equity portfolio with some active tilt. It is not 'genuinely active' in the sense of a high alpha, concentrated delta fund, but 'closet active' or 'hybrid' due to the Flexi Cap inclusion. A score of 0.55 reflects this middle ground: more passive than a pure active fund, but less passive than a pure index portfolio.",
+    "composite_aps": 0.8250000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.9,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.75,
+    "reasoning": "The plan is highly aligned with the investor's 15-year horizon and moderate risk profile, featuring 65% equity. It correctly addresses the specific goals by planning for asset allocation rebalancing as the 10-year daughter's and 5-year son's horizons approach (shifting to fixed income post-goals). The diversification is excellent, covering Large Cap, Flexi Cap, Debt, and Gold. The risk-return profile is realistic, acknowledging the volatility of equities and the role of debt/gold as stabilizers. Internal consistency is high; the rationale, allocations, and rebalancing rules all harmonize well.\n\nThe tax efficiency score is slightly reduced (though still high) because the plan assigns 20% to a Banking & PSU Debt Fund. For a 30% slab investor, this debt holding attracts slab taxation (approx. 24-30% tax on gains). Even though the plan includes a disclaimer about this, an optimized plan would have suggested an Aggressive Hybrid fund or a Debt Hybrid for a portion of this allocation. These instruments offer similar stability/yield but benefit from the more favorable 20% CCA tax rate on equity gains for the investor, significantly improving post-tax returns without increasing risk.",
+    "composite_pqs": 0.8699999999999999
+  },
+  "timestamp": "2026-04-18T13:23:25.873518Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 51718,
+    "output_tokens": 3111,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 4
+  },
+  "elapsed_s": 103.51416811253875
+}

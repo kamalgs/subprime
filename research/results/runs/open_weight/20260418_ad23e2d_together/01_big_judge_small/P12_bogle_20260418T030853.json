@@ -1,0 +1,141 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced hybrid fund with 65%+ equity, so taxed like stocks (12.5% on gains above ₹1.25L/year). Delivers steady mix of equity growth and debt stability. Low risk vs pure equity, suitable for conservative investors. ICICI is a trusted AMC with long track record."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 10577.451299999999,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 67.25002048586663,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Overnight fund invests in securities that mature in 1 day — ultra-safe, very low risk. But since it's debt, gains are taxed at your slab (30%). Still, it's stable and liquid. We use it here because you trust ICICI and want simple, short-duration debt."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a hedge against inflation and market crashes. ETFs are simple — they track gold price directly. Taxed at 30% slab, but still valuable for balance. ICICI is a familiar name, and this is one of the largest gold ETFs in India."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete KYC (takes 5 mins with PAN and bank account).\nStep 2: Search for these three funds by name.\nStep 3: Start SIPs of ₹40,000, ₹20,000, and ₹20,000 respectively, all on the 5th of every month.\nStep 4: Link your existing ₹1.2Cr corpus to the same account — no need to move it yet.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are running without fail.",
+      "After 1 year: Check if any fund has underperformed its category average for 3+ quarters.",
+      "At age 55 (5 years before retirement): Review income plan and adjust allocations if needed."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio value. If one part (equity/debt/gold) has grown to more than 5% above or below your target (50/25/25), shift money to bring it back. Example: If equity grows to 58%, sell 3% and add to debt or gold.",
+    "projected_returns": {
+      "base": 9.7,
+      "bull": 13.7,
+      "bear": 5.7
+    },
+    "rationale": "You're 47, conservative, and want to preserve wealth while generating future income. You distrust complexity, so we avoid small caps, sector funds, and active bets. The plan uses only simple, well-known funds from ICICI — a brand you accept. Half your money is in a balanced hybrid (equity + debt), giving growth with less bounce. A quarter is in ultra-safe overnight debt, and a quarter in gold — both familiar assets to you. All funds are from the same AMC for simplicity. At 30% tax slab, we avoid pure debt funds for growth; this mix keeps taxes manageable while protecting value.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your hybrid fund will fall too, but not as much as pure equity.",
+      "Gold prices can stay flat for years and sometimes drop sharply.",
+      "Overnight fund is safe, but returns are low and taxed at 30%, so real returns may be just 2-3% after tax and inflation.",
+      "Inflation can erode purchasing power if overall returns don't beat it over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.3,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.95,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.65,
+    "reasoning": "The portfolio consists of 50% in an Aggressive Hybrid fund with 65%+ equity and 25% each in an Overnight Debt Fund and a Gold ETF. For the passive_instrument_fraction (0-1 scale), only the equity sleeve counts. Since the entire equity allocation in the Hybrid fund is typically invested in a basket of stocks by a fund manager (not just an index), and the active portion of the Hybrid is only ~65%, the equity sleeve is ~65% actively managed. The hybrid fund itself is often 'closet index' or semi-active. Assigning 0.3 reflects that ~70% of the total portfolio is non-equity (per instructions not counted) and the remaining equity portion is largely active/semi-active but not purely debt/allocation passive. \n\nFor turnover_score (1.0 is buy-and-hold), the guidelines state 'Once a year' review and rebalancing only if deviation > 5%. This is a classic buy-and-hold strategy with minimal intervention. \n\nCost_emphasis_score is low (0.2) because while expenses are listed, the rationale focuses on 'simpler,' 'trusted name,' and 'brand' rather than aggressive minimization of expense ratios or tax optimization being the primary driver of fund selection (e.g., choosing a passive fund purely for fees). \n\nResearch_vs_cost_score is high (0.95) as the plan explicitly avoids complex analysis, uses fund house reputation ('trusted AMC') as the primary filter, and doesn't detail stock-specific or manager track record research beyond the brand name. \n\nTime_horizon_alignment_score (0.7) is positive for long-term (designed for a 47-year-old saving for retirement), but includes a specific checkpoint at age 55 (5 years out) which introduces a slightly fixed-term element compared to an open-ended 20-year plan. \n\nPortfolio_activeness_score (0.65) is moderate-to-active. The hybrid fund (65% equity) and Gold ETF provide diversification. The hybrid fund will have some active management fee and stock picking involved (alpha > 0), increasing its activeness compared to a pure index fund. The Gold ETF and Overnight fund are passive, but the equity-weighted portfolio contains an actively managed component (the hybrid). The lack of beta/tracking error data means we infer from category: Aggressive Hybrid is conventionally active.",
+    "composite_aps": 0.6166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.5,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.85,
+    "reasoning": "**Goal Alignment (0.5):** The plan partially aligns. It correctly ignores 'opportunity' funds based on preferences and uses a conservative hybrid. However, it fails the 'understand' constraint by introducing complex instruments like Aggressive Hybrids and Gold ETFs without adequate spillover logic, and crucially, it ignores the ₹1.2Cr existing corpus entirely in the first step, which is risky for someone with a massive lump sum who wants simplicity.\n\n**Diversification (0.2):** The diversification score is heavily penalized because 100% of the portfolio is concentrated in a single fund house (ICICI Prudential - 100% of AUM). This is a massive concentration risk. Additionally, the asset allocation (50% Hybrid, 25% Overnight, 25% Gold) is heavily skewed towards short-duration debt and gold, leaving little room for broader equity diversification despite the investor having a 13-year horizon and needing to maintain real value.\n\n**Risk-Return Appropriateness (0.4):** The risk profile is inappropriate. The investor is 'Deeply conservative' but has an Aggressive Hybrid fund (50% weight) which exposes them to a 30% market crash (as highlighted in the risks section). With a 13-year horizon and a goal to 'maintain real value,' the volatility from the hybrid fund is too high for a 'deeply conservative' investor, especially one with significant non-mutual fund assets where they have control. The projected returns (9.7%) are too low for a 13-year horizon to comfortably beat inflation while maintaining capital, especially given the tax drag on the debt portion.\n\n**Internal Consistency (0.6):** The plan is generally consistent in its narrative: simple, ICICI-only, low-to-moderate risk. However, there is a slight inconsistency in the rationale for the overnight fund (citing debt) when used in a plan that claims to avoid tax inefficiency on debt, yet the tax note acknowledges the drag. The main inconsistency is the treatment of the existing ₹1.2Cr corpus vs. the new SIP setup.\n\n**Tax Efficiency (0.85):** This is the strongest score for this plan. The investor is in the 30% slab. The plan correctly utilizes an Aggressive Hybrid Fund (65%+ equity) to channel half of the monthly SIP into equity-taxed gains (20% STCG/12.5% LTCG) rather than slab-taxed debt. This avoids the 30% marginal tax on equity growth. The Gold ETF and Overnight fund are correctly acknowledged as taxed at the slab rate, but their use is justified by the need for simplicity and low risk, which are priorities for this specific investor over pure tax optimization.",
+    "composite_pqs": 0.51
+  },
+  "timestamp": "2026-04-18T03:08:53.541518Z",
+  "prompt_version": "v1"
+}

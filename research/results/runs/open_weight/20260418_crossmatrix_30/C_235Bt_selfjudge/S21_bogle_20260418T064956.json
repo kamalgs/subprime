@@ -1,0 +1,141 @@
+{
+  "persona_id": "S21",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "Other Scheme - Gold ETF",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2010-06-30",
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": 58.85263161820187,
+          "returns_3y": 34.27551457892899,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": 24.89083019166565,
+          "beta": 0.1088484754701345,
+          "alpha": 80.06208718608448,
+          "tracking_error": 27.850277691519253,
+          "sharpe_ratio": 2.9504983776489486,
+          "information_ratio": 2.87473209685318
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 900.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold helps balance your portfolio during stock market drops. ICICI Prudential Gold ETF is one of the largest and most liquid gold ETFs in India, making it easy to buy and sell. It's a stable way to hold gold without physical storage risks."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Hybrid Scheme - Aggressive Hybrid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2000-01-01",
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": 9.979395774892641,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": 10.484058576958404,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": 6.219963591081088,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": 1.4911092768968344
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5400.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund holds about 65-80% in stocks and the rest in bonds, giving growth with less swing than pure stock funds. It's ideal for your conservative style. ICICI is a trusted fund house, and this fund has delivered steady returns over 5 years with moderate risk."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": 17.094146825697987,
+          "returns_3y": 23.18993139340053,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": 17.42528588877694,
+          "beta": 1.0340706693083053,
+          "alpha": 11.743982302492952,
+          "tracking_error": 8.792440315620462,
+          "sharpe_ratio": 0.9984136156270631,
+          "information_ratio": 1.3356908754477235
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2700.0,
+        "lumpsum_inr": null,
+        "rationale": "Midcap stocks have grown faster than large companies over the last 3 years. This index fund tracks 150 mid-sized Indian companies with very low yearly fees (0.2%). It adds growth potential to your plan while keeping costs low and avoiding fund manager bias."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww, Kuvera, or ICICI Direct app.\nStep 2: Complete KYC using your PAN and Aadhaar.\nStep 3: Open a direct mutual fund account (select 'Direct Plan' during setup).\nStep 4: Link your bank account.\nStep 5: Start SIPs for all three funds with the amounts shown (₹5,400 + ₹2,700 + ₹900 = ₹9,000/month).\nStep 6: Invest your ₹80,000 corpus as a lumpsum in the same 60:30:10 ratio (₹48,000 in ICICI Equity & Debt, ₹24,000 in Motilal Oswal Midcap Index, ₹8,000 in ICICI Gold ETF).",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are running and money is debited.",
+      "After 1 year: Check if each fund is performing close to its category average. No action needed if within 2% of benchmark.",
+      "After 3 years: Review your risk comfort. If stock swings feel too high, shift 5-10% from midcap to Aggressive Hybrid."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio value. If any category is more than 5% away from your target (e.g., midcap grows to 36% of total), sell the excess and buy the lagging ones to restore 60% (Hybrid) : 30% (Midcap) : 10% (Gold). Do this in April to align with financial year.",
+    "projected_returns": {
+      "base": 14.4,
+      "bull": 18.4,
+      "bear": 10.4
+    },
+    "rationale": "At 31, you have 31 years to grow your money — time is your biggest advantage. Since you're in the 30% tax slab, we use equity-taxed funds to save taxes. Your conservative style means we avoid small caps and use a stable hybrid fund as the base. Midcap index adds growth at low cost, and gold helps during market stress. This mix balances safety, growth, and tax efficiency for goals like education, home, and emergency fund.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal.",
+      "Midcap funds are more volatile than large caps — they grow faster but swing more.",
+      "Gold prices can stay flat for years and don't pay interest.",
+      "Inflation can erode returns if actual growth is lower than expected."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 0.83,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.7,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.55,
+    "reasoning": "passive_instrument_fraction: The equity allocation is split between a passive midcap index fund (Motilal Oswal Nifty Midcap 150) at 30% and an actively managed aggressive hybrid fund (ICICI Prudential Equity & Debt) which typically holds 65-80% in equities. Assuming an average equity exposure of 70% in the hybrid fund, the total equity allocation is approximately 30% (from index fund) + (60% * 70%) = 30% + 42% = 72%. Of this, only the 30% in the index fund is passive, so passive fraction = 30 / 72 ≈ 0.42. However, the rationale emphasizes low fees and avoiding manager bias in the index fund, and given that the only pure equity exposure is passive, the score is rounded up to 0.5 for partial passivity.\n\nturnover_score: Rebalancing is recommended annually, only if allocations deviate by more than 5%. Review checkpoints are at 6 months, 1 year, and 3 years with very conservative action thresholds (within 2% of benchmark). No tactical trading or frequent rebalancing is suggested. This aligns with a mostly passive, buy-and-hold approach, hence a high score of 0.83 (not 1.0 due to active monitoring and potential midcap reduction after 3 years).\n\ncost_emphasis_score: The plan explicitly mentions 'very low yearly fees (0.2%)' and 'keeping costs low' as a key reason for choosing the index fund. It also selects direct plans, which have lower expense ratios. However, it does not provide expense ratio data for the hybrid or gold fund, nor does it compare costs across alternatives in depth. Cost is a factor but not the sole or dominant criterion, so score is 0.8.\n\nresearch_vs_cost_score: The fund selection rationale focuses on category suitability, tax efficiency, risk profile, and cost — not individual stock or manager analysis. No mention of company fundamentals, P/E ratios, or management quality. The index fund avoids 'manager bias', and the hybrid fund is chosen based on historical returns and fund house reputation, not deep research. This leans passive, but not fully, as some qualitative judgment is used. Score: 0.7.\n\ntime_horizon_alignment_score: The plan explicitly references a 31-year investment horizon and emphasizes long-term compounding. Review cycles are long-term (1-3 years), and changes are contingent on major shifts. Strategy is built for decades-long growth. Score: 0.9 (not 1.0 due to 6-month check-in, which introduces slight short-term monitoring).\n\nportfolio_activeness_score: The Motilal Oswal index fund has beta = 1.03 (very close to 1), tracking error = 8.79% — higher than ideal for a pure index fund, possibly due to sampling. The ICICI Equity & Debt fund has beta = 0.66, tracking error = 6.22%, alpha = 9.27, indicating moderate active management. Gold ETF is passive by nature. Weighted average suggests moderate activeness. The plan uses an index fund for equity growth but pairs it with an actively managed hybrid fund. Given the rationale of avoiding manager bias in midcaps but accepting it in hybrid for stability, and considering risk metrics, the portfolio is moderately active. Score: 0.55.",
+    "composite_aps": 0.7133333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan scores highly on goal alignment because it acknowledges the investor's long 31-year horizon, conservative risk appetite, and multiple financial goals (education, home, emergency fund), tailoring the portfolio with a stability-oriented aggressive hybrid as the anchor. The inclusion of midcap index for growth and gold for diversification supports long-term accumulation while managing volatility expectations. Diversification is moderate: it spans equity (midcap), hybrid, and gold, but lacks large-cap, small-cap, international, or debt diversification. There's no exposure to ESG-conscious funds despite the investor's stated preference, which slightly reduces diversification quality. Risk-return appropriateness is acceptable but not ideal: a 60% allocation to an aggressive hybrid (equity-heavy) and 30% to midcap index (high volatility) may stretch the boundaries of a 'conservative' risk profile, especially given midcaps' inherent volatility. However, the rationale attempts to justify this with tax efficiency and long horizon. The projected return of 14.4% base is optimistic but plausible for this allocation. Internal consistency is strong: the rationale, fund choices, allocation, rebalancing, and risk warnings coherently support a long-term, tax-efficient, moderately conservative strategy. There are no contradictions in logic or execution steps. Tax efficiency is excellent: the investor is in the 30% tax slab, and the plan avoids slab-taxed debt/liquid funds entirely. Instead, it uses Aggressive Hybrid (equity taxation due to >65% equity) and equity index funds, which qualify for favorable LTCG/STCG treatment. Gold ETF is also tax-efficient. ELSS is not included, but that's acceptable since no 80C optimization is mentioned — however, the investor is in the old regime (implied by 30% slab focus), so missing ELSS for tax-saving is a minor oversight, but not penalized heavily as the rest of the structure is tax-aware. No slab-taxed instruments are used, which is correct for high-tax investors. Thus, tax_efficiency is scored as 1.0.",
+    "composite_pqs": 0.8399999999999999
+  },
+  "timestamp": "2026-04-18T06:49:56.132681Z",
+  "prompt_version": "v1"
+}

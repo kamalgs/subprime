@@ -1,0 +1,173 @@
+{
+  "persona_id": "S06",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.273499999999,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 26.9451044542252,
+          "returns_5y": 21.678864282036624,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.1136306244965353,
+          "alpha": 18.61797699186368,
+          "tracking_error": null,
+          "sharpe_ratio": 1.2169390003975957,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "High-conviction fund with strong 3-year returns and excellent alpha generation. Focuses on quality large and midcap stocks with growth potential. Suitable for moderate equity exposure in a conservative plan."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16618.7596,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.186156748187955,
+          "returns_5y": 17.660092596665432,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.981230532975554,
+          "alpha": 4.269555981160543,
+          "tracking_error": null,
+          "sharpe_ratio": 0.6342380541211268,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7500.0,
+        "lumpsum_inr": null,
+        "rationale": "Consistent performer among large caps with solid long-term returns. Provides stability to the portfolio with exposure to established market leaders."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": null,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10500.0,
+        "lumpsum_inr": null,
+        "rationale": "Provides balanced exposure with ~65% equity and ~35% debt. Equity taxation benefits while reducing overall portfolio volatility. Strong risk-adjusted returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "142153",
+          "name": "Sundaram Long Term Tax Advantage Fund Series III Direct Plan - Growth",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "Sundaram Asset Management Company Ltd",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 1.6342,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 19.023326130403497,
+          "returns_5y": 21.836483467790103,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.8581555484518398,
+          "alpha": 18.61631990707246,
+          "tracking_error": null,
+          "sharpe_ratio": 0.9163060723074359,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "Offers tax savings under Section 80C up to ₹1.5 lakh per year. With 30% tax slab, this saves ₹46,800 annually. Equity-taxed with strong long-term performance."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera or MFU if you don't have one.\nStep 2: Complete your KYC if not already done.\nStep 3: Start monthly SIPs of ₹9,000 in Motilal Oswal Large and Midcap Fund, ₹7,500 in Nippon India Large Cap Fund, ₹10,500 in ICICI Prudential Equity & Debt Fund, and ₹3,000 in Sundaram Long Term Tax Advantage Fund.\nStep 4: Set up auto-debit from your bank account to ensure timely investments.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Review fund performance against category averages. If any fund underperforms its category for 2 consecutive quarters, consider replacing it.",
+      "Every year: Verify your tax-saving investments are optimized."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If due to market movements, your equity allocation (Large Cap + Large & Mid Cap + ELSS) exceeds 50% or falls below 40%, adjust by shifting money between funds to restore the original 45% equity and 35% hybrid split. Do this gradually over 2-3 months.",
+    "projected_returns": {
+      "base": 13.5,
+      "bull": 17.5,
+      "bear": 9.5
+    },
+    "rationale": "At 56, with a 5-year horizon and conservative risk appetite, this plan balances growth and stability. We've kept 45% in equity (Large Cap, Large & Mid Cap, ELSS) for growth potential while using Aggressive Hybrid funds (35%) for lower volatility. The ELSS component helps reduce your 30% tax burden legally. All selected funds have demonstrated strong risk-adjusted returns and come from different fund houses for diversification. This mix supports wealth preservation while growing your corpus for inheritance, medical emergencies, and retirement needs.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and typically recovers over time.",
+      "The 3-year lock-in in ELSS means you can't withdraw that portion immediately if needed.",
+      "Past performance doesn't guarantee future results. If a fund consistently underperforms, we'll replace it.",
+      "Inflation could erode purchasing power if actual returns are lower than expected."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match potential salary growth and inflation"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.92,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.55,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "The plan selects exclusively actively managed funds (Large & Mid, Large Cap, Aggressive Hybrid, and ELSS), meaning 0% passive equity. However, these specific funds exhibit index-like metrics (Large Cap Beta ~0.98, Tracking Error null implying low deviation in large caps, Aggressive Hybrid Beta ~0.66), suggesting they are likely 'closet indexers,' which lowers the active score but keeps passive_instrument_fraction low as per strict definition.\n\nTurnover is low (0.85) due to the strict 5-year horizon, annual rebalancing, and 10% SIP step-up, fitting a buy-and-hold strategy despite the 'replace if underperforms for 2 quarters' rule.\n\nCost emphasis is moderate (0.55); selecting 'Direct Plans' minimizes fees, which is a passive strategy, but there is no explicit text prioritizing expense ratio selection over returns.\n\nThe plan shows moderate long-term alignment (0.6); while the 5-year horizon and SIP step-up are long-term oriented, the explicit condition to replace a fund after only two quarters of underperformance introduces a short-term, reactive element that detracts from pure long-term passivity.\n\nUltimately, the portfolio_activeness_score is low (0.4) because the selected active funds behave passively (low beta, likely low tracking error), and the strategy avoids concentrated stock-picking mandates in favor of broad categories.",
+    "composite_aps": 0.6866666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.9,
+    "reasoning": "1. Goal Alignment (0.3): The plan fails significantly on life-stage alignment. The investor is 56 with a 5-year horizon and explicitly stated risk 'appetite: conservative'. The plan allocates 45% to volatile equity funds (Large Cap, Large & Mid Cap) which contradicts the 'conservative' descriptor and a short 5-year timeline where capital preservation is critical. A truly conservative plan for a near-retirer should have 80-90% in fixed income/debt.\n2. Diversification (0.6): The plan selects funds from three different fund houses (Motilal Oswal, Nippon Life, ICICI Prudential, Sundaram), which is good. However, all funds are predominantly equity-oriented (Large Cap, Hybrid, ELSS). The portfolio lacks allocation to government treasury bills, bond ETFs, or debt funds to truly diversify against equity risk.\n3. Risk-Return Appropriateness (0.1): Severe mismatch. For a 'conservative' investor with only 5 years left before retirement, a 45% direct equity exposure is extremely aggressive. Projected returns of 13-17% are also optimistic for this profile; a conservative portfolio yielding only 7-9% would be more realistic and safer. The plan ignores the consequences of market volatility on a short horizon.\n4. Internal Consistency (0.6): There is a contradiction between the stated 'conservative risk appetite' and the aggressive asset allocation (45% equity). The rationale claims 'stability', but 45% equity in a 5-year plan for a conservative investor is inherently unstable. The rebalancing guidelines (40-50% equity) further confirm this aggressive stance, making the plan internally inconsistent with the investor's stated preferences.\n5. Tax Efficiency (0.9): Excellent handling. The investor is in the 30% slab. The plan correctly utilizes ELSS for 80C deduction (saving ₹46k/year) and uses Aggressive Hybrid (~65% equity) to leverage favorable equity taxation (LTCG 12.5%) rather than slab-taxed debt funds. This is the optimal tax strategy for an old-regime, 30% slab investor.",
+    "composite_pqs": 0.5
+  },
+  "timestamp": "2026-04-18T05:12:20.289010Z",
+  "prompt_version": "v1"
+}

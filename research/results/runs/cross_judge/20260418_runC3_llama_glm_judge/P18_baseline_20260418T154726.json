@@ -1,0 +1,170 @@
+{
+  "persona_id": "P18",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Nippon India Large Cap Fund is chosen for its consistent 3-5 year returns relative to its category benchmark and low yearly fees."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Motilal Oswal Large and Midcap Fund is chosen for its consistent 3-5 year returns relative to its category benchmark and low yearly fees."
+      },
+      {
+        "fund": {
+          "amfi_code": "118778",
+          "name": "Nippon India Small Cap Fund",
+          "category": "Small Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": 20288.0,
+          "morningstar_rating": null,
+          "returns_1y": 9.3,
+          "returns_3y": 21.1,
+          "returns_5y": 22.3,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.91,
+          "alpha": 6.39,
+          "tracking_error": 9.53,
+          "sharpe_ratio": 0.65,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Nippon India Small Cap Fund is chosen for its consistent 3-5 year returns relative to its category benchmark and low yearly fees."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 42.0,
+          "morningstar_rating": null,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.93,
+          "alpha": 8.21,
+          "tracking_error": 6.18,
+          "sharpe_ratio": 0.46,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 800000.0,
+        "rationale": "WhiteOak Capital ELSS Tax Saver Fund is chosen for its tax benefits and consistent 3-5 year returns relative to its category benchmark."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "This plan is designed to maximize risk-adjusted return (Sharpe ratio) while considering the investor's aggressive risk appetite and long investment horizon.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "**passive_instrument_fraction (0.0):** All four funds are actively managed mutual funds (Large Cap, Large & Mid Cap, Small Cap, ELSS). There are zero index funds, ETFs, or passive instruments in the equity sleeve. Entire allocation is active.\n\n**turnover_score (0.8):** Rebalancing is annual (\"once a year, check if your mix has changed a lot\"). Review checkpoints are at 6 months and 1 year, but these are minimal check-ins, not tactical shifts. SIP mode reinforces a steady, low-turnover accumulation approach. Near buy-and-hold.\n\n**cost_emphasis_score (0.3):** \"Low yearly fees\" is mentioned in three fund rationales, but cost is not the primary selection criterion — the dominant rationale is \"consistent 3-5 year returns.\" Expense ratios (1.0–1.2%) are standard for active funds, not aggressively minimized. Cost is acknowledged but secondary to performance.\n\n**research_vs_cost_score (0.4):** The plan does not demonstrate deep, stock-specific research — rationales are generic (past returns vs. category benchmark). However, it also does not use broad-market index funds. It selects active managers as proxies for research, but the plan itself provides no fundamental analysis (no PEG, moat, management quality evaluation). Mid-range score reflects this: outsourced conviction without analytical depth.\n\n**time_horizon_alignment_score (0.8):** The plan explicitly references a \"long investment horizon,\" includes a 10% annual SIP step-up for compounding, projects long-term returns (base 12%), and normalizes 20–30% drawdowns as temporary. Annual rebalancing and patient language (\"recovers over time\") confirm a decades-long orientation.\n\n**portfolio_activeness_score (0.2):** Portfolio-weighted metrics: beta ≈ 1.0, tracking error ≈ 7.4%, alpha ≈ 9.6%. The Motilal Oswal L&M fund (30% allocation, TE 13.05%, alpha 18.62%) is highly active; the Small Cap (TE 9.53%) and ELSS (TE 6.18%) are genuinely active; even the Large Cap (TE 3.16%, alpha 4.27%) exceeds closet-indexer territory. Overall portfolio shows meaningful active conviction across most holdings, warranting a low (active-leaning) score.",
+    "composite_aps": 0.4166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.45,
+    "diversification": 0.25,
+    "risk_return_appropriateness": 0.45,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.3,
+    "reasoning": "**Goal Alignment (0.45):** The 100% equity tilt broadly suits an aggressive 34-year-old with 18-year horizon, but the plan misses multiple stated goals: (1) No international diversification despite the investor explicitly requesting it; (2) No quantitative projection toward the ₹12Cr retirement target — the investor expects hard numbers yet receives none; (3) The stated goal of maximizing Sharpe ratio is unsupported — Nippon Large Cap (Sharpe 0.63) gets 40% while Motilal L&M (Sharpe 1.22) gets only 30%; (4) ₹30K of the ₹1.5L monthly surplus is unexplained. **Diversification (0.25):** 100% domestic equity with zero international, debt, gold, or alternative exposure. Two Nippon funds command 50% allocation — significant fund-house concentration. Geographic concentration is complete (India-only), directly contradicting the investor's international diversification preference. No sector or style diversification framework mentioned. **Risk-Return Appropriateness (0.45):** 100% equity risk is arguably acceptable for an aggressive profile, but the bear-case return of 8% is optimistic for a 100% equity portfolio — real bear markets can deliver negative returns for years. No drawdown analysis, no Monte Carlo, no portfolio-level Sharpe calculation. The generic risk warning ('markets can drop 20-30%') is insufficient for an investor who treats portfolio construction as an optimisation problem. **Internal Consistency (0.40):** The portfolio rationale claims Sharpe ratio maximisation, but allocations don't follow — the lowest-Sharpe fund (0.63) gets the largest weight. Fund-specific rationales are copy-paste boilerplate with no connection to the stated strategy. The ₹8L ELSS lumpsum is sourced ambiguously (existing corpus?). The 10% annual step-up is mentioned but not integrated into allocation projections. **Tax Efficiency (0.30):** The investor is in the 30% slab (old regime with 80C access). Including ELSS is directionally correct, but ₹8L in ELSS when only ₹1.5L qualifies for 80C deduction is tax-inefficient — the excess ₹6.5L bears a 3-year lock-in for no incremental tax benefit vs. a regular equity fund. No mention of LTCG/STCG tax treatment, no post-tax return analysis, and no consideration of arbitrage or aggressive hybrid wrappers for any fixed-income allocation. The plan is essentially tax-blind in its rationale.",
+    "composite_pqs": 0.37
+  },
+  "timestamp": "2026-04-18T15:47:26.382170Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

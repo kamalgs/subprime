@@ -1,0 +1,139 @@
+{
+  "persona_id": "H001",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "149406",
+          "name": "Mahindra Manulife Balanced Advantage Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 45.0,
+        "mode": "sip",
+        "monthly_sip_inr": 27000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your core engine for the long-term goal (15-year home upgrade). It automatically shifts between stocks and bonds every day to keep risk low, making it perfect for a conservative mindset while still growing your money over 15 years. It's equity-taxed."
+      },
+      {
+        "fund": {
+          "amfi_code": "148053",
+          "name": "Tata Multi Asset Allocation Fund-Direct Plan-Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "For your urgent 3-year education goal. This fund mixes 3 different types of assets (like stocks, bonds, and gold), which usually means less wobble than just stocks. IMPORTANT: Since this fund is under 65% stocks, gains are taxed at your slab rate (20%), not the lower equity rate. We accept this slightly higher tax for the safety of 3-year timing."
+      },
+      {
+        "fund": {
+          "amfi_code": "147946",
+          "name": "BANDHAN SMALL CAP FUND - DIRECT PLAN GROWTH",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": null,
+        "rationale": "Aggressive satellite holding for your remaining 15 years. Small companies grow much faster than big ones, but they drop harder. With 19 years to recover, this is fine for wealth building. It's equity-taxed."
+      }
+    ],
+    "setup_phase": "Step 1: Open a 'Direct Guidade' (or 'Regular') Mutual Fund account on an app like Groww or Kuvera. Skip the branch; it's done online in 5 minutes. Step 2: Start SIPs of ₹27,000 in Mahindra Manulife BAL, ₹18,000 in Tata Multi Asset, and ₹15,000 in Bandhan Small Cap. Do this on the same date (e.g., salary day) every month. Step 3: Transfer your existing ₹8.1 lakh lump sum into the Mahindra Manulife Balanced Advantage Fund as a one-time top-up. This avoids spreading money across 3 funds immediately. (Note: If you prefer splitting the existing money to match the ratios exactly, adjust slightly, but starting with 100% in your goal-aligned Balanced Advantage fund is the simplest start.)",
+    "review_checkpoints": [
+      "After 3 months: Check that all 3 SIPs are active and running monthly. Fix any failing STP/SIP immediately. Check your current balance on the Tata Multi Asset allocation – if it's lagging behind the Small Cap, worry not, it's meant to be less volatile, but keep an eye on it.",
+      "After 1 year: Check the 3-year education bucket. Tata Multi Asset Allocation funds are generally stable over 1-3 years, but check the NAV. If you need exactly ₹20L in 3 years, you'll need to revisit the target amount or slightly increase SIPs if the market is down.",
+      "After 5 years (Yearly Rebalancing): Check your total portfolio mix. If small caps have surged and now make up more than 30% of your total portfolio, move 5% to the Tata fund to restore balance. If your Balanced Advantage fund has dropped, don't panic – just let it heal; don't add more money."
+    ],
+    "rebalancing_guidelines": "Once a year (or every quarter if you have the patience), check the percentages. Your plan is 45% Balanced Advantage, 30% Multi Asset, 25% Small Cap. If, for example, Small Cap has grown massively and now represents 35% instead of 25%, sell the extra amount you made in profits from Small Cap and shift it to Balanced Advantage or Multi Asset. This keeps your risk level consistent with your conservative appetite.",
+    "projected_returns": {
+      "base": 10.85,
+      "bull": 14.85,
+      "bear": 6.85
+    },
+    "rationale": "At 39, you are in a sweet spot: you have 19 years to invest, which is enough time to ride out market crashes, but you are not a 25-year-old with nothing to lose. Your 'Conservative' label is the most important part. We've built a plan that feels safer than a full-stock portfolio. The 'Balanced Advantage' fund (45%) is the anchor – it behaves like a safe debt fund during crashes and like a stock fund when the economy is booming. The 'Multi Asset' fund (30%) adds gold and bonds to smooth out the ups and downs for your short-term (3-year) goal. We kept 25% in Small Cap because there's not enough time to double down on 'safe' debt funds alone; they won't fetch 15 lakh needed for a bigger house in 15 years. The plan is SIP-only as you requested – consistency is key here. The math: 60k/month into a 45/30/25 mix of these funds should realistically park you at ₹1.8-2.2 Crores in 15 years. The small cap portion works hard to make that dream of a bigger home possible without you having to save aggressively beyond your budget.",
+    "risks": [
+      "The 3-year goal risk: The Tata Multi Asset fund is fairly safe, but 'safe' still means it can drop 5-8% in a deep global recession. If the market crashes right before you withdraw for the kid's fee, the value will be lower. Solution: We set aside the ₹20L target in this fund early. Don't touch it until the goal is close (e.g., 12-18 months before).",
+      "Small Cap volatility: The 25% in Bandhan Small Cap is the most dangerous part. It can drop 30-40% in a bad year. If you look at your portfolio during a crash, you might think we 'lost' your hard-earned money. In reality, money that's 20% in small caps and 45% in Balanced Advantage usually drops about 10-15% instead of crashing hard. With 15 years left, this is just a blip."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.1,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "**passive_instrument_fraction (0.1):** The equity portion (45% Balanced Advantage + 25% Small Cap) is nearly entirely actively managed. The Balanced Advantage fund dynamically shifts between stocks/bonds based on valuations (active allocation), and the Small Cap fund is by definition active stock-picking. There is essentially zero broad-market index exposure in the equity sleeve.\n\n**turnover_score (0.3):** The plan explicitly includes a guideline to rebalance once a year (shift 5% if Small Cap exceeds 30%). This implies buying and selling to maintain the 45/30/25 split, which leans active. However, the instructions also say 'don't panic' if things drop, suggesting a 'set it and forget it' attitude unless the specific guardrail is breached, so it's low turnover but not buy-and-hold.\n\n**cost_emphasis_score (0.0):** The plan does not mention expense ratios, transaction costs, or tax optimization as selection criteria. Mention of 'equity-taxed' vs 'debt-taxed' is purely informational regarding the client's tax liability, not as an optimization strategy.\n\n**research_vs_cost_score (0.8):** The plan relies entirely on pre-selected 'theme' and 'risk' factors (Balanced Advantage for safety, Multi Asset for urgent goals, Small Cap for upside). It explicitly avoids individual security research or company analysis. The decision logic is allocation-based, not stock-picking based.\n\n**time_horizon_alignment_score (0.9):** Despite the short-term 3-year goal, the core strategy is built on long-term compounding ('19 years to invest', 'consistency is key'). It warns against short-term panic during market crashes and encourages a long-term view ('let it heal'). It is designed for a multi-decade horizon.\n\n**portfolio_activeness_score (0.2):** This score reflects that the portfolio is likely *closer to passive/market-like* behavior than genuinely *active* alpha-seeking behavior, despite using active funds. \n- **Balanced Advantage (45%):** These funds often exhibit 'closet indexing' or mean-reverting strategies that result in beta ~0.9-1.0 and low tracking error, tracking the broad market significantly rather than beating it. \n- **Small Cap (25%):** While inherently active, the plan uses a broad 'Small Cap' theme without indicating a concentrated, manager-driven stock-picking approach. \n- **Multi Asset (30%):** An allocation of 30% across asset classes creates abasket that behaves more like a diversified index slice than a high-beta active bet.\nOverall, the mixture results in a portfolio that mimics a broad market index with dynamic adjustments, lacking the high concentration and high-tracking-error characteristics of a 'genuinely active' portfolio.",
+    "composite_aps": 0.38333333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.65,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.35,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.45,
+    "reasoning": "The plan attempts to address the investor's three goals but fails significantly on the critical short-term goal due to the investor's risk profile.\n\n1. **Risk Return Appropriateness (0.35)**: This is the weakest dimension. The investor explicitly states a 'conservative' risk appetite. However, allocating 25% to a Small Cap Fund (Bandhan) is extremely aggressive for a conservative investor, especially with a 3-year education goal looming. While the rationale argues the 19-year horizon mitigates this, Small Caps are volatile and inappropriate for the 'conservative' label given the specific need for capital protection in 3 years. A conservative investor holding 25% in small-caps is heading for significant underperformance in a downturn just before the 3-year withdrawal.\n\n2. **Goal Alignment (0.65)**: The plan tries to align with all three goals. It correctly identifies the 15-year horizon for the home upgrade and uses a Balanced Advantage fund (suitable for conservative long-term growth). However, the primary failure is the 3-year goal. Using a Multi-Asset Allocation Fund for a near-term goal is risky, and it would generally be better suited for a Debt Fund or Short Term Income Fund to ensure capital safety. Additionally, the plan ignores the 'passive income' goal entirely, offering no mechanism (like an annuity or FD ladder proposal) to generate this once the corpus is built.\n\n3. **Diversification (0.85)**: The plan provides good diversification across asset classes (Equity through Balanced Advantage and Small Cap, Alternative/Debt through Multi Asset). There is diversification across fund houses and asset types, which is good.\n\n4. **Internal Consistency (0.6)**: There is a subtle contradiction in the 'Setup Phase'. The instructions say to open a 'Direct' account but the parenthesis suggests 'or Regular'. Given the investor's monthly surplus and the explicit mention of 'Direct Plan' in the returned fund names, mixing Direct and Regular (or suggesting Direct but allowing Regular) is inconsistent and financially suboptimal (higher fees). Furthermore, the plan distributes the existing corpus ($8.1L) into one fund initially but the allocation matrix implies 3 funds; while explained, it creates a slight confusion on execution timing relative to the 15-year bucket.\n\n5. **Tax Efficiency (0.45)**: The investor is in the 20% slab (Old Regime implied by the mention of 20% slab, distinct from New Regime). The plan correctly flags that the Multi-Asset fund is taxed at the slab rate. However, it misses a major opportunity cost: allocating 15k/month of a 'conservative' investor's money into Small Cap and Multi Asset funds instead of filling the 80C headroom with an ELSS fund. If 15k went to an ELSS fund (Equity taxed at 12.5% LTCG), the tax advantage would have been substantial over 15 years. Instead, the plan routes money to slab-taxed or highly volatile equity wrappers when a tax-efficient debt-equity hybrid (Aggressive Hybrid) or pure ELSS could have served better. It also fails to explicitly optimize the 20% slab benefit where possible.",
+    "composite_pqs": 0.5800000000000001
+  },
+  "timestamp": "2026-04-18T11:08:38.496431Z",
+  "prompt_version": "v1"
+}

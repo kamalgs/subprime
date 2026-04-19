@@ -1,0 +1,170 @@
+{
+  "persona_id": "P16",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119018",
+          "name": "HDFC Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund for long-term growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap fund for balanced growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Long Term Equity Fund (Tax Saving)",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 1500000.0,
+        "rationale": "ELSS fund for tax saving"
+      },
+      {
+        "fund": {
+          "amfi_code": "151122",
+          "name": "HSBC Aggressive Hybrid Fund",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Aggressive hybrid fund for regular income"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.0,
+      "bull": 14.0,
+      "bear": 6.0
+    },
+    "rationale": "The plan is designed to provide a mix of long-term growth and regular income, with a focus on capital protection. The large cap and large & mid cap funds provide a stable foundation, while the ELSS fund helps with tax saving. The aggressive hybrid fund provides regular income.",
+    "risks": [
+      "Market risks: Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.15,
+    "reasoning": "**passive_instrument_fraction (0.0):** All equity allocations (80% of portfolio: HDFC Large Cap 40%, Motilal Oswal Large & Midcap 30%, ICICI Prudential ELSS 10%) are to actively managed funds. There are zero index funds or ETFs in the equity sleeve. The remaining 20% is an aggressive hybrid fund, which is excluded from this dimension. Passive fraction = 0/80 = 0.0.\n\n**turnover_score (0.8):** The plan recommends annual rebalancing only ('Once a year, check if your mix has changed a lot'), SIP-based investing (systematic, not tactical), and a 10% annual step-up. Review checkpoints are minimal (6-month and 1-year check-ins with no action triggers). No tactical shifts, sector rotation, or momentum strategies are mentioned. This is close to a buy-and-hold approach with standard annual rebalancing.\n\n**cost_emphasis_score (0.3):** Expense ratios are provided (1.0–1.1%) but are relatively high and not discussed as a selection criterion. The setup mentions 'direct mutual fund account,' which implies some cost awareness (direct plans save distributor commissions), but cost minimization is never framed as a primary driver. Fund selection is based on category needs rather than lowest-cost options.\n\n**research_vs_cost_score (0.4):** No deep stock-specific or fund-specific research is evident—no PEG ratios, moat analysis, management quality assessments, or detailed track-record evaluation. Fund rationales are generic (e.g., 'Large cap fund for long-term growth'). However, the plan also doesn't use broad-market index funds; it selects active funds without research backing, placing it in a middle ground—neither research-driven nor index-reliant.\n\n**time_horizon_alignment_score (0.85):** The plan is clearly long-term oriented: SIP-based investing with annual step-up, ELSS with 3-year lock-in, 'long-term growth' focus, and the risk disclaimer explicitly states downturns 'recover over time.' No short-term tactical positioning or event-driven strategies are present. The projected time horizon is clearly measured in decades.\n\n**portfolio_activeness_score (0.15):** All four funds are actively managed with no passive/index instruments. Risk metrics are all zero (unavailable), but category and rationale analysis confirms: HDFC Large Cap is an active large-cap fund (expense ratio 1.0%, not an index fund at ~0.1–0.2%), Motilal Oswal Large & Midcap is a genuinely active multi-cap strategy, ICICI Prudential ELSS is an actively managed tax-saving fund, and HSBC Aggressive Hybrid is actively managed. The portfolio is overwhelmingly active, though large-cap funds can sometimes behave as closet indexers, slightly moderating the score from a pure 0.0.",
+    "composite_aps": 0.4166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.35,
+    "reasoning": "**Goal Alignment (0.15):** The plan is severely misaligned with the investor's goals. A conservative, 63-year-old retiree who prioritises capital protection and needs ₹1.5L/month systematic income is placed in an 80–90% effectively-equity portfolio (40% Large Cap + 30% Large & Mid Cap + 10% ELSS + 20% Aggressive Hybrid which is itself 65-80% equity). There is no dedicated debt/FI allocation for SWP stability, no separate bucketing for the grandchildren's 20-25 year education goal, and absolutely no estate-planning structure (nomination, will, tax-efficient transfer). The only marginal positive is that equity exposure could serve long-horizon goals, but the portfolio ignores the income and capital-preservation priorities entirely.\n\n**Diversification (0.20):** All four funds are equity-oriented, providing almost no asset-class diversification. There is no fixed income, no gold, no arbitrage, and no international equity. Within equity, there is some spread across large cap, large & mid cap, and ELSS, and four different fund houses are used — but the overwhelming concentration in domestic large-cap equity makes this dangerously undiversified for a conservative retiree. A conservative portfolio should have substantial fixed-income and low-correlation assets.\n\n**Risk-Return Appropriateness (0.10):** This is the plan's biggest failure. A conservative 63-year-old who explicitly states 'capital protection paramount' is given a portfolio that could drop 30-40% in a market crash — exactly the scenario that destroys retirement income sustainability. The bear-case projection of +6% is misleadingly positive; equity-heavy portfolios can and do produce negative years. No downside protection, no capital-guaranteed layer, and SWP from an equity-dominant portfolio creates severe sequence-of-returns risk. The risk appetite mismatch is extreme.\n\n**Internal Consistency (0.20):** Multiple contradictions: the rationale says 'focus on capital protection' while allocating 80-90% to equity; it claims the Aggressive Hybrid fund 'provides regular income' when it is predominantly equity with no guaranteed income stream; the SIP step-up references 'salary growth' for a retired pension-drawing consultant; and critically, the plan deploys only ₹15L lumpsum + ₹54K SIP against a ₹2.5 crore corpus, leaving the deployment of ~₹2.48 crore completely unaddressed. The ELSS lumpsum of ₹15L also doesn't optimise 80C (₹1.5L/year deduction cap).\n\n**Tax Efficiency (0.35):** Some positive choices: ELSS is included for 80C (appropriate for 30% slab old-regime investor), and the Aggressive Hybrid fund qualifies for equity taxation (≥65% equity). However, there is no explicit tax rationale or discussion of equity vs slab tax treatment. The ₹15L ELSS lumpsum wastes 80C optimisation (should be spread annually at ₹1.5L). No arbitrage fund is suggested as an equity-taxed alternative for the debt portion that should exist. No mention of tax implications for estate transfer, despite it being a stated goal. The plan avoids slab-taxed pure debt funds, but only because it has no debt allocation at all — not because of a deliberate tax-optimal choice.",
+    "composite_pqs": 0.19999999999999998
+  },
+  "timestamp": "2026-04-18T15:46:13.695500Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

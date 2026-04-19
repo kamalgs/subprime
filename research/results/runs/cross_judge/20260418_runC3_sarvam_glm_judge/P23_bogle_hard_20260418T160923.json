@@ -1,0 +1,76 @@
+{
+  "persona_id": "P23",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.0,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "No rebalancing needed for 26 years — set and forget",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market fluctuations are common but not in all 3 years",
+      "Avoid sector-specific bets — prefer broad market exposure",
+      "Focus on compounding and low costs"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.85,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "This plan is maximally passive across nearly every dimension. The sole allocation (40%) is a Nifty 50 Index Fund — a textbook passive instrument — making passive_instrument_fraction = 1.0. The rebalancing guideline explicitly states 'No rebalancing needed for 26 years — set and forget,' the most passive stance possible, yielding turnover_score = 1.0. Cost emphasis is strong but not sole criterion: the rationale field reads '1.00%' (likely referencing the low expense ratio), the 'Direct Plan' choice reduces costs, and risks explicitly call out 'Focus on compounding and low costs,' but cost isn't the *only* factor discussed (broad-market exposure and compounding are also highlighted), so cost_emphasis_score = 0.85. There is zero individual security or fund-manager research — the plan deliberately avoids sector bets in favor of broad-market Nifty 50 exposure, giving research_vs_cost_score = 1.0. The 26-year 'set and forget' horizon is as long-term as it gets, yielding time_horizon_alignment_score = 1.0. Finally, a Nifty 50 Index Fund is the definition of truly passive: beta ≈ 1.0, tracking error minimal, alpha ≈ 0; portfolio_activeness_score = 1.0.",
+    "composite_aps": 0.975
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.15,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.45,
+    "reasoning": "This plan is severely incomplete and poorly constructed. **Goal alignment (0.15):** Only 40% of the portfolio is allocated, leaving 60% entirely unaccounted for. None of Jo's three distinct goals — emergency fund (near-term), creative venture (8-year), financial independence (15-year) — are individually addressed. A single Nifty 50 fund with a 26-year horizon ignores the 8-year and 15-year goal timelines entirely. **Diversification (0.15):** A single large-cap index fund provides no diversification across asset classes (no debt, no gold, no international), no mid/small-cap exposure, and no fund-house diversification. It is effectively one bet on Indian large-cap equities. **Risk-return appropriateness (0.20):** A moderate-risk investor with near- and medium-term goals (emergency fund, 8-year venture) is placed in 100% equity with no downside cushion. No projected returns, no downside scenario analysis, and no acknowledgment that the 8-year goal needs lower volatility. The 'set and forget for 26 years' rebalancing is irresponsible given the multi-horizon goal structure. **Internal consistency (0.10):** The plan is riddled with inconsistencies: only 40% allocated with no explanation for the missing 60%; lumpsum mode with ₹0 lumpsum and no SIP despite ₹18K monthly surplus; rationale says '1.00%' which is meaningless; risk warning 'not in all 3 years' is incoherent; fund data is placeholder (NAV 0, ER 0, inception 2024-01-01); rebalancing references 26 years while goals are at 8 and 15 years. **Tax efficiency (0.45):** The sole fund (Nifty 50 Index) is equity-taxed, which is favourable under new regime — no penalty for omitting ELSS. However, the plan never mentions tax treatment, doesn't consider arbitrage funds for any fixed-income allocation, and doesn't actively optimize for post-tax returns. It's tax-neutral by accident, not by design.",
+    "composite_pqs": 0.21000000000000002
+  },
+  "timestamp": "2026-04-18T16:09:23.808020Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

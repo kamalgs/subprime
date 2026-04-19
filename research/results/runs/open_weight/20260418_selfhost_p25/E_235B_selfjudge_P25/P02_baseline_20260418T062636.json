@@ -1,0 +1,174 @@
+{
+  "persona_id": "P02",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "judge_model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152226",
+          "name": "Whiteoak Capital Large & Mid Cap Fund Direct Plan Growth",
+          "category": "equity",
+          "sub_category": "large_and_mid_cap",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 100.0,
+          "expense_ratio": 1.1,
+          "inception_date": "2021-01-01",
+          "aum_cr": 82.0,
+          "morningstar_rating": null,
+          "returns_1y": 15.1,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.91,
+          "alpha": 16.95,
+          "tracking_error": 6.09,
+          "sharpe_ratio": 1.06,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": null,
+        "rationale": "High-quality large & mid cap fund with consistent returns and experienced management. Whiteoak's focus on financial discipline and risk control aligns well with a moderate risk profile. The fund's low beta suggests it may experience less volatility than broader markets."
+      },
+      {
+        "fund": {
+          "amfi_code": "151745",
+          "name": "WhiteOak Capital Multi Asset Allocation Fund Direct Plan Growth",
+          "category": "hybrid",
+          "sub_category": "multi_asset_allocation",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 100.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2021-01-01",
+          "aum_cr": 1148.0,
+          "morningstar_rating": null,
+          "returns_1y": 18.4,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.31,
+          "alpha": 18.51,
+          "tracking_error": 11.27,
+          "sharpe_ratio": 1.77,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "This multi-asset fund provides automatic diversification across asset classes while maintaining equity taxation benefits through its >65% equity exposure. The fund's low beta helps reduce overall portfolio volatility while still participating in equity market upside."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund Direct Plan Growth",
+          "category": "equity",
+          "sub_category": "elss",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 100.0,
+          "expense_ratio": 1.05,
+          "inception_date": "2021-01-01",
+          "aum_cr": 42.0,
+          "morningstar_rating": null,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.93,
+          "alpha": 8.21,
+          "tracking_error": 6.18,
+          "sharpe_ratio": 0.46,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": null,
+        "rationale": "ELSS fund provides tax savings under Section 80C while maintaining equity market exposure. This fund offers diversification benefits as it's managed by a different fund house than the other selections. The 3-year lock-in is acceptable given the long investment horizon."
+      },
+      {
+        "fund": {
+          "amfi_code": "152476",
+          "name": "Zerodha Gold ETF",
+          "category": "gold",
+          "sub_category": "gold",
+          "fund_house": "Zerodha Asset Management Private Limited",
+          "nav": 100.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2022-01-01",
+          "aum_cr": 2021.0,
+          "morningstar_rating": null,
+          "returns_1y": 65.4,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.11,
+          "alpha": 62.61,
+          "tracking_error": 26.73,
+          "sharpe_ratio": 2.43,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold allocation provides diversification benefits during equity market stress. Zerodha Gold ETF offers low-cost exposure to gold prices with the convenience of trading on exchanges. The fund's low correlation with equities helps reduce overall portfolio volatility."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU if not already done\nStep 2: Start monthly SIPs in the four selected funds through your chosen platform\nStep 3: Set up auto-debit from your bank account to ensure SIPs run smoothly\nStep 4: Keep track of investment confirmations (CAS) monthly to verify proper execution",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs have executed properly and review initial fund performance",
+      "After 1 year: Evaluate fund performance against benchmarks and check if asset allocation needs rebalancing",
+      "After 3 years: Review ELSS fund lock-in period expiration and overall portfolio progress toward goals",
+      "Annually thereafter: Review portfolio allocation and performance relative to goals"
+    ],
+    "rebalancing_guidelines": "Rebalance annually or when any allocation deviates by more than 5% from target. If equity exposure (including multi-asset) exceeds 70%, consider rebalancing toward gold. If equity exposure falls below 60%, consider rebalancing from gold to equity. Maintain minimum 10% gold allocation at all times.",
+    "projected_returns": {
+      "base": 11.4,
+      "bull": 15.4,
+      "bear": 7.4
+    },
+    "rationale": "This plan balances growth and stability for a 35-year-old investor with moderate risk tolerance and long-term goals. The equity-heavy allocation (70% including multi-asset) leverages India's growth potential while maintaining diversification across fund houses. The ELSS fund optimizes tax savings in the 30% tax bracket. Gold allocation provides portfolio ballast during market volatility. The plan avoids sectoral concentration as requested while ensuring equity taxation benefits through appropriate fund selection.",
+    "risks": [
+      "Equity markets can drop 20-30% in a bad year - don't panic and withdraw",
+      "Gold prices can be volatile and may not always protect against equity declines",
+      "Multi-asset fund allocations may shift in ways that increase risk",
+      "All funds are subject to market risk - returns are not guaranteed"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP amounts by 10% annually to maintain pace with potential salary growth and inflation"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "passive_instrument_fraction = 0.0: No passive/index funds are used in equity allocation; all are actively managed funds. turnover_score = 0.8: Portfolio has relatively low turnover with annual or infrequent rebalancing (only when allocation deviates by more than 5% or annually), suggesting a buy-and-hold orientation with minimal tactical shifts. cost_emphasis_score = 0.6: While some cost considerations are evident (e.g., mentioning low expense ratio for WhiteOak Multi-Asset fund), cost is not the primary selection factor – fund quality, management, and risk characteristics are emphasized more. research_vs_cost_score = 0.0: The rationale emphasizes fund management quality, risk control, and specific fund characteristics rather than relying on market-cap-weighted indices or total-market funds. Detailed fund-specific analysis is evident in the selection process. time_horizon_alignment_score = 0.8: The plan is designed for long-term compounding with a 35-year-old investor and annual or less frequent review cycles, though some tactical rebalancing thresholds are specified. portfolio_activeness_score = 0.0: The equity funds show active management characteristics with tracking error above 6% and significant alpha generation, indicating genuine active management rather than closet indexing. The multi-asset fund has even higher tracking error (11.27%) with strong alpha (18.51), further confirming active positioning.",
+    "composite_aps": 0.3666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.9,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 1.0,
+    "reasoning": "Goal Alignment: The plan aligns well with the investor's long-term goals (15 years for children's education, 20 years for retirement) with an equity-heavy portfolio. The 10% gold allocation provides some near-term diversification for the 5-year home purchase goal. The ELSS fund utilization aligns with the tax optimization goal.\n\nDiversification: The plan includes a good mix of large & mid cap equity, multi-asset allocation, ELSS tax-saving, and gold exposure. However, there's room for improvement in terms of geographic diversification (India-focused only) and could benefit from some debt exposure for balance.\n\nRisk-Return Appropriateness: The 70% equity exposure (including multi-asset) is appropriate for a moderate risk appetite and 20-year horizon. The projected returns (11.4% base) are reasonable for this allocation. The plan appropriately addresses potential downside scenarios.\n\nInternal Consistency: The rationale consistently explains the fund selections and their roles in the portfolio. The rebalancing guidelines align with the asset allocation. The risk warnings match the strategy.\n\nTax Efficiency: The plan excels in tax optimization by allocating 20% to ELSS for 80C benefits in the 30% tax bracket. The multi-asset fund with >65% equity exposure receives appropriate equity tax treatment. The rationale clearly explains tax considerations specific to this investor's situation.",
+    "composite_pqs": 0.9400000000000001
+  },
+  "timestamp": "2026-04-18T06:26:36.362139Z",
+  "prompt_version": "v1"
+}

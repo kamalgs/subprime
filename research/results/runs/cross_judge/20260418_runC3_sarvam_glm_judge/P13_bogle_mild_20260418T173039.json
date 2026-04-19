@@ -1,0 +1,75 @@
+{
+  "persona_id": "P13",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.001,
+        "lumpsum_inr": null,
+        "rationale": "Low cost with proven large-cap dominance, ideal for long-term growth in bull markets"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Open a direct plan with any regular platform (e.g., Grow, Coin, etc.). 2. Select HDFC Large Cap (1.5% expense ratio, 10.6% post-tax returns). 3. Enable SIP with auto-debit from bank account. 4. Review annually for rebalancing."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.25,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "**passive_instrument_fraction (0.0):** The entire equity allocation (40%) goes to HDFC Large Cap, an actively managed fund — not an index fund or ETF. 0% of the equity sleeve is passive.\n\n**turnover_score (0.8):** The plan recommends annual review for rebalancing with no tactical shifts, sector rotation, or frequent trading. SIP with auto-debit and 10% annual step-up implies a systematic, low-turnover approach consistent with near buy-and-hold.\n\n**cost_emphasis_score (0.25):** The plan mentions 'low cost' and selects a direct plan, showing some cost awareness. However, the cited 1.5% expense ratio is high for a large-cap direct plan (index alternatives sit at 0.1–0.3%), so cost is not the primary criterion — the selection is driven more by 'proven large-cap dominance' and performance expectations.\n\n**research_vs_cost_score (0.55):** The plan provides minimal fund-specific research — just a brief rationale with no deep analysis (no PEG ratios, moat evaluation, etc.). However, it also doesn't rely on broad-market index exposure; it picks a single active fund on conviction. Falls in the middle: no deep research presented, but not a passive total-market approach either.\n\n**time_horizon_alignment_score (0.85):** The strategy is explicitly long-term: SIP with 10% annual step-up, annual-only review, 'ideal for long-term growth' rationale. Very patient, compounding-oriented design with infrequent intervention.\n\n**portfolio_activeness_score (0.3):** HDFC Large Cap is an actively managed fund with a reported information ratio of 0.6, indicating genuine active skill. While large-cap funds naturally sit closer to the benchmark (beta ≈ 1.0, moderate tracking error), the positive IR and single-fund concentration reflect active conviction rather than passive indexing. Not deeply active (no sectoral/small-cap bets), but clearly not passive.",
+    "composite_aps": 0.4583333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.15,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal alignment (0.1):** The investor has three distinct goals with different timelines (emergency buffer, children's education in 12-15 years, retirement at 55 with ₹8Cr), yet the plan makes no goal-wise allocation. There's no emergency buffer strategy (equity is inappropriate for this), no international diversification (explicitly requested), and no flexi-cap allocation (explicitly requested). The only faint alignment is that equity suits a 22-year horizon — but even that is poorly executed. **Diversification (0.05):** A single large-cap fund in a single geography from a single fund house constitutes near-zero diversification. No debt, no mid/small cap, no international, no hybrid — extreme concentration risk. **Risk-return appropriateness (0.1):** A moderate-risk investor is placed 100% into large-cap equity with no debt cushion, no downside protection, and no risk scenarios discussed. The projected_returns field is empty and the risks array is empty. This is too aggressive for a moderate appetite and provides no framework for evaluating whether returns expectations are realistic. **Internal consistency (0.05):** The allocation_pct sums to only 40% with no explanation of the remaining 60%. The mode is 'lumpsum' yet the SIP step-up describes an SIP process. The monthly_sip_inr is 0.001 — a placeholder, not a real value. The rationale claims 'low cost' while citing a 1.5% expense ratio (not low for a direct large-cap plan). The step-up description cites '10.6% post-tax returns' despite all fund return fields being null. No review checkpoints, no rebalancing guidelines, no rationale section — the plan is internally incoherent. **Tax efficiency (0.15):** The sole fund is equity-taxed (≥65% equity), which is the one positive — a 30% slab investor benefits from LTCG 12.5% vs 30% slab taxation. However, there is no 80C/ELSS optimization for an old-regime high-slab investor, no use of arbitrage or Aggressive Hybrid for the non-equity portion (which doesn't exist), and no tax discussion anywhere in the plan. The tiny credit is purely incidental — the plan wasn't designed with tax efficiency in mind.",
+    "composite_pqs": 0.09
+  },
+  "timestamp": "2026-04-18T17:30:39.865885Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

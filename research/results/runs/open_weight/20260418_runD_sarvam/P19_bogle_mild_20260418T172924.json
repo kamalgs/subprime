@@ -1,0 +1,79 @@
+{
+  "persona_id": "P19",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118346",
+          "name": "HDFC Large Cap Fund - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.65
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap Fund), which is categorised as an active fund with no indication of passive/index tracking. The absence of any rebalancing guidelines or review checkpoints suggests a static, long-term structure, leading to high scores on turnover and time horizon. However, there is no mention of cost considerations such as expense ratios or tax efficiency, and the rationale for fund selection appears to be based on fund identity rather than cost or indexing. The information ratio of 0.65 suggests active management with some alpha generation, but without tracking error or beta, the portfolio appears actively managed by intent and category. Debt, hybrid, and other allocations are absent, so the equity sleeve is entirely active. Thus, across dimensions, the plan leans heavily towards active management with passive-like holding behaviour due to lack of rebalancing.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows minimal alignment with the investor's goals: a 40% allocation to a single large-cap equity fund does not adequately address the need for wealth transfer, passive income, or inflation protection over a 10-year horizon for a conservative investor. Diversification is extremely poor—only one fund, entirely in large-cap equity, with no exposure to debt, arbitrage, or hybrid instruments despite the investor's preference for short-duration debt and arbitrage. Risk-return is inappropriate: a conservative investor at age 58 should not have 40% in equities without offsetting stable income generators; the plan lacks any downside protection or income-focused assets. Internal consistency is weak: the rationale is missing ('direct' is not a rationale), no rebalancing, no review checkpoints, and no explanation linking the allocation to the investor's life stage or goals. Tax efficiency is poor: the investor is in the 30% slab, yet the plan uses a regular equity fund without mentioning tax optimisation—it misses the opportunity to use arbitrage or aggressive hybrid funds for better post-tax returns, and omits ELSS despite the investor being in the old regime (implied by 30% slab with potential 80C benefit). No tax treatment is discussed, despite its material impact.",
+    "composite_pqs": 0.24
+  },
+  "timestamp": "2026-04-18T17:29:24.305167Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 41269,
+    "output_tokens": 7467,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 232.50925802718848
+}
