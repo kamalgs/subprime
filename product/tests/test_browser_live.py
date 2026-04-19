@@ -1,21 +1,21 @@
-"""Live browser smoke tests — full Playwright run against the deployed URL.
+"""Live browser smoke tests against the deployed React SPA.
 
-These are the *real* smoke tests: they drive a headless Chromium through the
-actual user flow the way a human would, which means they catch the JS wiring
-bugs that plain HTTP smoke tests can't.
+These hit the real deployed URL with Playwright. They don't make LLM calls —
+just validate the UI loads, routing works, static assets serve, and the
+cheat-code → persona-bank flow functions end-to-end.
 
 Run:
     SUBPRIME_URL=https://finadvisor.gkamal.online \\
     SUBPRIME_OTP_CHEAT=242424 \\
     uv run pytest product/tests/test_browser_live.py -m browser -v -s
 
-Marker `browser` is deselected by default.
+For the full wizard-to-plan flow (mocked LLM, local uvicorn), see:
+    product/tests/test_frontend_e2e.py
 """
-
 from __future__ import annotations
 
 import os
-import re
+from urllib.parse import urlparse
 
 import pytest
 
@@ -33,178 +33,118 @@ def _require_base():
 @pytest.fixture
 async def page():
     _require_base()
-    from playwright.async_api import async_playwright
-    from urllib.parse import urlparse
-
-    host = urlparse(BASE_URL).hostname
+    try:
+        from playwright.async_api import async_playwright
+    except ImportError:
+        pytest.skip("playwright not installed")
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
+        try:
+            browser = await p.chromium.launch(headless=True)
+        except Exception as exc:
+            pytest.skip(f"chromium browser not available: {exc}")
         context = await browser.new_context()
-        # Pre-seed the SEBI ack cookie so the modal never appears during tests.
+        host = urlparse(BASE_URL).hostname
+        # Pre-dismiss the SEBI modal so every test doesn't need to click it
         await context.add_cookies([{
             "name": "sebi_ack", "value": "1", "domain": host, "path": "/",
         }])
-        page = await context.new_page()
-        page.on("pageerror", lambda exc: print(f"[PAGE ERROR] {exc}"))
-        page.on("console", lambda msg: print(f"[console.{msg.type}] {msg.text}"))
-        page.on("requestfailed", lambda r: print(f"[REQUEST FAILED] {r.url} → {r.failure}"))
-        yield page
+        pg = await context.new_page()
+        pg.on("pageerror", lambda exc: print(f"[PAGE ERROR] {exc}"))
+        pg.on("console", lambda msg: print(f"[{msg.type}] {msg.text}") if msg.type == "error" else None)
+        yield pg
         await context.close()
         await browser.close()
 
 
-async def _dismiss_sebi(page) -> None:
-    """Wait for the SEBI modal (which appears after JS runs, not immediately
-    on DOM load) and dismiss it. Safe to call if modal never shows."""
-    modal = page.locator("#sebi-modal")
-    try:
-        await modal.wait_for(state="visible", timeout=2000)
-        await page.locator("#sebi-ack").click()
-        await modal.wait_for(state="hidden", timeout=3000)
-    except Exception:
-        pass  # cookie may already be set or modal not rendered
-
-
-async def _unlock_demo(page) -> None:
-    """Walk through step 1 using the OTP cheat code so we land on step 2 with
-    the full research persona bank available."""
-    await page.goto(f"{BASE_URL}/step/1", wait_until="domcontentloaded")
-    await _dismiss_sebi(page)
-    # Fill premium email + request OTP
-    await page.get_by_placeholder("your@email.com").fill("browser-test@benji.local")
-    await page.get_by_role("button", name=re.compile("Send code", re.I)).click()
-    # OTP input appears — submit the cheat code
-    code_input = page.locator('input[name="code"]')
-    await code_input.wait_for(timeout=10000)
-    await code_input.fill(CHEAT)
-    await page.get_by_role("button", name=re.compile("Verify", re.I)).click()
-    # Wait for redirect to step 2
-    await page.wait_for_url(re.compile(r"/step/2"), timeout=15000)
+async def _verify_cheat_in_browser(pg) -> None:
+    result = await pg.evaluate(
+        """async ({code}) => {
+            const r = await fetch('/api/v2/session/otp/verify', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                credentials: 'same-origin',
+                body: JSON.stringify({email: 'browsertest@example.com', code}),
+            });
+            return { status: r.status, body: await r.json() };
+        }""",
+        {"code": CHEAT},
+    )
+    assert result["status"] == 200, result
+    assert result["body"]["is_demo"] is True, result
 
 
 # ---------------------------------------------------------------------------
-# Actual browser checks
+# Tests
 # ---------------------------------------------------------------------------
 
 
 @pytest.mark.asyncio
-async def test_step1_renders_and_sebi_modal_shows():
-    """SEBI modal must appear on a fresh (no-cookie) visit."""
-    _require_base()
-    from playwright.async_api import async_playwright
-
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        context = await browser.new_context()  # NO cookies
-        page_ = await context.new_page()
-        await page_.goto(f"{BASE_URL}/step/1", wait_until="domcontentloaded")
-        await page_.wait_for_selector("text=Choose your plan", timeout=10000)
-        await page_.locator("#sebi-modal").wait_for(state="visible", timeout=5000)
-        await context.close()
-        await browser.close()
+async def test_spa_loads_and_shows_tier_cards(page):
+    await page.goto(BASE_URL + "/", wait_until="networkidle")
+    await page.wait_for_selector("text=Choose your plan", timeout=10000)
+    await page.wait_for_selector("text=Start free plan")
+    await page.wait_for_selector("text=Most popular")
 
 
 @pytest.mark.asyncio
-async def test_regular_user_sees_archetypes(page):
-    await page.goto(f"{BASE_URL}/step/1", wait_until="domcontentloaded")
-    await _dismiss_sebi(page)
-    # Basic tier → step 2
-    await page.get_by_role("button", name=re.compile("Start free plan", re.I)).click()
-    await page.wait_for_url(re.compile(r"/step/2"), timeout=10000)
-    await page.wait_for_selector("text=Early career", timeout=5000)
-    assert not await page.locator("text=Tony Stark").is_visible()
+async def test_basic_tier_navigates_to_step2(page):
+    await page.goto(BASE_URL + "/", wait_until="networkidle")
+    await page.click("text=Start free plan")
+    await page.wait_for_url("**/step/2", timeout=10000)
+    await page.wait_for_selector("text=Your investor profile")
 
 
 @pytest.mark.asyncio
-async def test_cheat_code_shows_full_persona_bank(page):
-    await _unlock_demo(page)
-    await page.wait_for_selector("text=Tony Stark", timeout=5000)
+async def test_step2_shows_archetypes_for_regular_user(page):
+    await page.goto(BASE_URL + "/step/2", wait_until="networkidle")
+    await page.wait_for_selector("text=Early career", timeout=10000)
+    await page.wait_for_selector("text=Mid career")
+    await page.wait_for_selector("text=Retired")
+    assert await page.get_by_text("Tony Stark").count() == 0
 
 
 @pytest.mark.asyncio
-async def test_full_flow_strategy_to_plan(page):
-    """The actual user journey: cheat → persona → strategy → Generate Plan
-    → loading page → reveal overlay → plan visible.
+async def test_archetype_prefills_custom_form(page):
+    await page.goto(BASE_URL + "/step/2", wait_until="networkidle")
+    await page.click("text=Mid career")
+    age_input = page.locator("input[type='number']").first
+    await age_input.wait_for(state="visible", timeout=5000)
+    assert (await age_input.input_value()) == "38"
 
-    Catches: broken JS wiring, generate-plan button not firing, loading-page
-    redirect hang, stale plan_generating flag.
-    """
-    await _unlock_demo(page)
 
-    # Pick a persona — the first card in the demo grid
+@pytest.mark.asyncio
+async def test_cheat_code_unlocks_persona_bank(page):
+    await page.goto(BASE_URL + "/", wait_until="networkidle")
+    await _verify_cheat_in_browser(page)
+    await page.goto(BASE_URL + "/step/2", wait_until="networkidle")
     await page.wait_for_selector("text=Tony Stark", timeout=10000)
-    await page.get_by_text("Tony Stark").first.click()
-    # Persona selection uses hx-swap=none + HX-Redirect to /step/3
-    await page.wait_for_url(re.compile(r"/step/3"), timeout=15000)
-
-    # Strategy is generated on load — wait for it to render
-    await page.wait_for_selector("text=Asset allocation", timeout=90000)
-
-    # Click Generate my plan — plain form submit → 303 → /step/4
-    btn = page.locator("#generate-plan-btn")
-    await btn.wait_for(state="visible", timeout=5000)
-    plan_request_seen = {"value": False}
-
-    def on_request(request):
-        if request.method == "POST" and "/api/generate-plan" in request.url:
-            plan_request_seen["value"] = True
-
-    page.on("request", on_request)
-    await btn.click()
-
-    await page.wait_for_url(re.compile(r"/step/4"), timeout=15000)
-    assert plan_request_seen["value"], "Clicking Generate Plan did not POST /api/generate-plan"
-
-    # Loading page should render while the background task runs
-    await page.wait_for_selector("text=Building your plan", timeout=5000)
-
-    # Meta-refresh cycles the DOM every 3s until the plan is ready. Playwright
-    # selector waits get confused by the repeated full-page reloads, so poll
-    # the page content ourselves using the API.
-    import asyncio
-    deadline = asyncio.get_event_loop().time() + 180
-    while asyncio.get_event_loop().time() < deadline:
-        try:
-            content = await page.content()
-            if "Fund allocations" in content:
-                break
-        except Exception:
-            pass  # mid-reload
-        await asyncio.sleep(2)
-    else:
-        await page.screenshot(path="/tmp/plan-timeout.png", full_page=True)
-        raise AssertionError("Plan page never rendered within 180s — see /tmp/plan-timeout.png")
-
-    # Final assertions on the real plan page
-    assert "Corpus projection" in await page.content()
 
 
 @pytest.mark.asyncio
-async def test_generate_plan_works_after_back_navigation(page):
-    """Simulates the 'step 4 interrupted → back to step 3 → click again' case.
+async def test_api_v2_session_endpoint(page):
+    # Navigate first so fetch() has a base URL
+    await page.goto(BASE_URL + "/", wait_until="domcontentloaded")
+    r = await page.evaluate("""async () => {
+        const resp = await fetch('/api/v2/session', { credentials: 'same-origin' });
+        return { status: resp.status, body: await resp.json() };
+    }""")
+    assert r["status"] == 200
+    assert r["body"]["mode"] in ("basic", "premium")
+    assert "id" in r["body"] and len(r["body"]["id"]) > 0
 
-    Ensures the button remains wired after HTMX re-swaps and after a full
-    page navigation + back.
-    """
-    await _unlock_demo(page)
-    await page.wait_for_selector("text=Tony Stark", timeout=10000)
-    await page.get_by_text("Tony Stark").first.click()
-    await page.wait_for_url(re.compile(r"/step/3"), timeout=15000)
-    await page.wait_for_selector("text=Asset allocation", timeout=90000)
 
-    # First click — fires request and navigates
-    await page.locator("#generate-plan-btn").click()
-    await page.wait_for_url(re.compile(r"/step/4"), timeout=15000)
-
-    # Now navigate back to /step/3 (simulates user hitting back or the
-    # 'Back to strategy' link on an error state).
-    await page.goto(f"{BASE_URL}/step/3", wait_until="domcontentloaded")
-    await page.wait_for_selector("text=Asset allocation", timeout=90000)
-
-    # Click must still fire a request
-    plan_request_seen = {"value": False}
-    page.on("request", lambda r: plan_request_seen.__setitem__("value", True) if "/api/generate-plan" in r.url and r.method == "POST" else None)
-    await page.locator("#generate-plan-btn").click()
-    await page.wait_for_url(re.compile(r"/step/4"), timeout=15000)
-    assert plan_request_seen["value"], "Generate Plan button lost its handler after back-navigation"
+@pytest.mark.asyncio
+async def test_static_assets_load(page):
+    """The bundled JS + CSS that index.html references actually serve 200."""
+    import re
+    await page.goto(BASE_URL + "/", wait_until="domcontentloaded")
+    html = await page.evaluate("async () => (await fetch('/')).text()")
+    js = re.search(r"/assets/index-[\w-]+\.js", html)
+    css = re.search(r"/assets/index-[\w-]+\.css", html)
+    assert js and css, "index.html did not reference Vite /assets/* paths"
+    for asset in (js.group(), css.group()):
+        status = await page.evaluate(
+            "async (u) => (await fetch(u)).status", asset,
+        )
+        assert status == 200, f"{asset} → HTTP {status}"
