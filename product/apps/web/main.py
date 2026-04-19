@@ -39,6 +39,7 @@ logger = logging.getLogger(__name__)
 _HERE = Path(__file__).parent
 _TEMPLATES_DIR = _HERE / "templates"
 _STATIC_DIR = _HERE / "static"
+_SPA_DIST_DIR = _STATIC_DIR / "dist"       # Vite build output
 
 
 def _migrate_duckdb_schema() -> None:
@@ -112,6 +113,7 @@ def create_app() -> FastAPI:
     """Create and configure the FastAPI application."""
     from apps.web import api, routes
     from apps.web.api_v2 import router as api_v2_router
+    from fastapi.responses import FileResponse
 
     app = FastAPI(title="Benji", description="Your personal mutual fund advisor", lifespan=lifespan)
 
@@ -124,8 +126,29 @@ def create_app() -> FastAPI:
     app.include_router(api.router)
     app.include_router(api_v2_router)
 
-    @app.get("/", include_in_schema=False)
-    async def root() -> RedirectResponse:
-        return RedirectResponse(url="/step/1", status_code=307)
+    # If the React SPA is present (built via `make frontend`), serve it as the
+    # catch-all for non-API routes: /, /step/*, and any unknown client route.
+    # API routes (/api/*) are matched first by the routers above.
+    spa_index = _SPA_DIST_DIR / "index.html"
+    if spa_index.exists():
+        logger.info("Serving React SPA from %s", _SPA_DIST_DIR)
+
+        @app.get("/", include_in_schema=False)
+        async def spa_root() -> FileResponse:
+            return FileResponse(spa_index)
+
+        @app.get("/app/{path:path}", include_in_schema=False)
+        async def spa_client_route(path: str) -> FileResponse:  # noqa: ARG001
+            # React Router owns the rendered view. Every unknown path returns
+            # the SPA's index.html; client JS then routes based on window.location.
+            return FileResponse(spa_index)
+
+    else:
+        # No SPA build present — fall back to the legacy Jinja wizard at /
+        logger.info("No SPA build at %s — serving legacy Jinja templates", _SPA_DIST_DIR)
+
+        @app.get("/", include_in_schema=False)
+        async def root() -> RedirectResponse:
+            return RedirectResponse(url="/step/1", status_code=307)
 
     return app

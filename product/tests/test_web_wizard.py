@@ -405,13 +405,19 @@ class TestAppFactory:
         assert app is not None
 
     @pytest.mark.asyncio
-    async def test_root_redirects_to_step1(self):
+    async def test_root_serves_app(self):
+        """Root / either redirects to /step/1 (legacy) or serves the SPA index."""
         from apps.web.main import create_app
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.get("/", follow_redirects=False)
-            assert resp.status_code == 307
-            assert resp.headers["location"] == "/step/1"
+            # When the SPA is built the route returns 200 with index.html;
+            # otherwise it falls back to a 307 redirect to /step/1.
+            if resp.status_code == 200:
+                assert "<div id=\"root\"" in resp.text or "<html" in resp.text.lower()
+            else:
+                assert resp.status_code == 307
+                assert resp.headers["location"] == "/step/1"
 
     @pytest.mark.asyncio
     async def test_static_files_served(self):

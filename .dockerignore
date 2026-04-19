@@ -1,0 +1,36 @@
+# Everything that shouldn't land in the Docker build context
+
+# Repo noise
+.git/
+.github/
+.venv/
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+.claude/
+.playwright-mcp/
+
+# Build artifacts + caches
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+
+# Frontend source — we only need the built dist/ (product/apps/web/static/dist/)
+# which IS included by the product/apps/ COPY in the Dockerfile.
+product/apps/web/frontend/
+product/apps/web/frontend/node_modules/
+
+# Tests, docs, research data — not needed at runtime
+product/tests/
+docs/
+research/
+conversations/
+*.duckdb
+*.duckdb.wal
+
+# Secrets & local state
+.env
+*.env.local
+.subprime/

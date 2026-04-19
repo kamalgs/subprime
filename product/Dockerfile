@@ -1,5 +1,12 @@
 FROM python:3.12-slim
 
+# Python-only image. The React frontend is built separately via
+#     make frontend          (or: cd product/apps/web/frontend && npm run build)
+# which outputs to product/apps/web/static/dist/. That directory is picked
+# up by the `COPY product/apps/ ./apps/` below, so no Node tooling is
+# required in this image. If dist/ is absent, FastAPI falls back to the
+# legacy Jinja wizard.
+
 # Install uv for fast dependency resolution
 RUN pip install --no-cache-dir uv
 
