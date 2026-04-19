@@ -54,4 +54,16 @@ Dose-response (7 conditions, varying prompt intensity): APS scales monotonically
 
 ---
 
+---
+
+## Built With
+
+Fully vibe engineered.
+
+Refurbished ThinkPad T14 at ₹25k. Contabo VPS, 4 cores, $10/month. Claude Max subscription. A few hours a day.
+
+No fancy rigs, no team, no budget. This is a showcase of what experienced people can build by leveraging AI — the coding agent handles all the grunt and mechanical work, the human provides imagination and intuition. Complex products and research, little effort.
+
+---
+
 **Course:** [LLMs — A Hands-on Approach](https://cce.iisc.ac.in/cce-proficience/large-language-modelsa-hands-on-approach-jm-2026/), CCE IISc (2026) · [Architecture](docs/architecture.md) · [Roadmap](docs/roadmap.md) · MIT License
