@@ -15,6 +15,78 @@ from subprime.core.models import InvestmentPlan, InvestorProfile, StrategyOutlin
 logger = logging.getLogger(__name__)
 
 
+# Category-typical CAGRs (%) — used to compute fallback projected returns
+# when the LLM leaves plan.projected_returns empty or zero.
+_CATEGORY_CAGR = {
+    "large cap": 11.0, "mid cap": 13.0, "small cap": 15.0,
+    "flexi cap": 12.0, "multi cap": 12.0, "elss": 12.0,
+    "index": 11.0, "nifty": 11.0, "sensex": 11.0,
+    "hybrid": 9.5, "balanced": 9.5, "arbitrage": 6.5,
+    "debt": 7.0, "liquid": 6.0, "overnight": 5.5,
+    "gilt": 7.5, "corporate bond": 7.5, "short duration": 7.0,
+    "gold": 9.0, "international": 10.0,
+}
+
+_RISK_DEFAULTS = {
+    "aggressive":   {"bear": 8.0,  "base": 12.0, "bull": 16.0},
+    "moderate":     {"bear": 6.0,  "base": 10.0, "bull": 14.0},
+    "conservative": {"bear": 5.0,  "base": 8.0,  "bull": 11.0},
+}
+
+
+def _category_cagr(category: str, sub_category: str = "") -> float | None:
+    """Look up category-typical CAGR by matching on category/sub_category substrings."""
+    haystack = f"{category} {sub_category}".lower()
+    for key, cagr in _CATEGORY_CAGR.items():
+        if key in haystack:
+            return cagr
+    return None
+
+
+def fill_projected_returns_fallback(plan: InvestmentPlan, profile: InvestorProfile) -> None:
+    """Populate plan.projected_returns if the LLM left it empty or zero.
+
+    Strategy:
+      1. If existing values already look valid (base > 0), leave them alone.
+      2. Otherwise compute base CAGR as allocation-weighted average of
+         category-typical CAGRs; set bull = base + 4, bear = base - 4.
+      3. If allocation categories can't be matched, fall back to risk-appetite
+         defaults so the returns table always renders.
+    """
+    pr = plan.projected_returns or {}
+    base = pr.get("base", 0.0) or 0.0
+    if base > 0:
+        # Still fill in missing bull/bear so downstream rendering is safe
+        if not pr.get("bull"):
+            plan.projected_returns["bull"] = round(base + 4.0, 2)
+        if not pr.get("bear"):
+            plan.projected_returns["bear"] = round(max(base - 4.0, 1.0), 2)
+        return
+
+    weighted_sum = 0.0
+    matched_pct = 0.0
+    for a in plan.allocations:
+        cagr = _category_cagr(a.fund.category, a.fund.sub_category)
+        if cagr is not None:
+            weighted_sum += cagr * a.allocation_pct
+            matched_pct += a.allocation_pct
+
+    if matched_pct >= 50:
+        base_cagr = round(weighted_sum / matched_pct, 2)
+    else:
+        base_cagr = _RISK_DEFAULTS.get(profile.risk_appetite, _RISK_DEFAULTS["moderate"])["base"]
+
+    plan.projected_returns = {
+        "bear": round(max(base_cagr - 4.0, 1.0), 2),
+        "base": base_cagr,
+        "bull": round(base_cagr + 4.0, 2),
+    }
+    logger.info(
+        "Filled fallback projected_returns for %s: %s (matched_pct=%.1f)",
+        profile.id, plan.projected_returns, matched_pct,
+    )
+
+
 def _load_universe_context(db_path: Path | None = None) -> str | None:
     """Load the curated fund universe as markdown text from DuckDB."""
     if db_path is None:
@@ -260,6 +332,7 @@ async def generate_plan(
             logger.info("Refining premium plan with %s", refine_model)
             best, refine_usage = await refine_plan(best, profile, model=refine_model)
             total_usage.incr(refine_usage)
+        fill_projected_returns_fallback(best, profile)
         return best, total_usage
 
     # basic mode
@@ -272,4 +345,5 @@ async def generate_plan(
         logger.info("Refining basic plan with %s", refine_model)
         plan, refine_usage = await refine_plan(plan, profile, model=refine_model)
         total_usage.incr(refine_usage)
+    fill_projected_returns_fallback(plan, profile)
     return plan, total_usage

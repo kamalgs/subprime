@@ -1,120 +1,78 @@
 {% extends "base.html" %}
 
-{% block title %}Choose Your Plan — Benji{% endblock %}
+{% block title %}Choose your plan — Benji{% endblock %}
 
 {% block content %}
 <div class="space-y-6">
     <div class="text-center">
-        <h2 class="text-2xl font-bold text-gray-900">Choose Your Plan</h2>
-        <p class="mt-2 text-gray-500">Select the advisory experience that fits your needs.</p>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-slate-100">Choose your plan</h2>
+        <p class="mt-2 text-gray-500 dark:text-slate-400">Select the advisory experience that fits your needs.</p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-6 mt-8">
+    <div class="grid md:grid-cols-2 gap-4 sm:gap-6 mt-8">
+
+        {% macro check_item(text) %}
+        <li class="flex items-start gap-2 text-sm text-gray-700 dark:text-slate-300">
+            <svg class="w-4 h-4 mt-0.5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span>{{ text }}</span>
+        </li>
+        {% endmacro %}
 
         <!-- Basic Card -->
-        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col">
+        <div class="card card-spacious flex flex-col">
             <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-bold text-gray-900">Basic</h3>
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-700">
-                    Free
-                </span>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-slate-100">Basic</h3>
+                <span class="chip chip-neutral">Free</span>
             </div>
-            <p class="text-gray-500 text-sm mb-5">
-                Get a solid, research-backed investment plan tailored to your profile — completely free.
+            <p class="text-gray-500 dark:text-slate-400 text-sm mb-5">
+                A solid, research-backed investment plan tailored to your profile.
             </p>
             <ul class="space-y-2 mb-6 flex-1">
-                <li class="flex items-start gap-2 text-sm text-gray-700">
-                    <svg class="w-4 h-4 mt-0.5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Personalised asset allocation
-                </li>
-                <li class="flex items-start gap-2 text-sm text-gray-700">
-                    <svg class="w-4 h-4 mt-0.5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Top mutual fund recommendations
-                </li>
-                <li class="flex items-start gap-2 text-sm text-gray-700">
-                    <svg class="w-4 h-4 mt-0.5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    SIP amount breakdown
-                </li>
-                <li class="flex items-start gap-2 text-sm text-gray-700">
-                    <svg class="w-4 h-4 mt-0.5 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Goal-based projections
-                </li>
+                {{ check_item('Personalised asset allocation') }}
+                {{ check_item('Top mutual fund recommendations') }}
+                {{ check_item('SIP amount breakdown') }}
+                {{ check_item('Goal-based projections') }}
             </ul>
             <button
-                class="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors duration-150 htmx-indicator-parent"
+                class="btn btn-primary w-full py-3 rounded-xl htmx-indicator-parent"
                 hx-post="/api/select-tier"
                 hx-vals='{"mode": "basic"}'
                 hx-swap="none"
                 data-tier="basic">
-                Start Free Plan
+                Start free plan
             </button>
         </div>
 
         <!-- Premium Card -->
-        <div class="bg-white rounded-2xl border-2 border-amber-300 shadow-sm p-6 flex flex-col relative">
+        <div class="card card-spacious flex flex-col relative border-primary-300 dark:border-primary-500">
             <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-400 text-amber-900 shadow">
-                    Most Popular
-                </span>
+                <span class="chip bg-primary-600 text-white">Most popular</span>
             </div>
             <div class="flex items-center justify-between mb-4 mt-2">
-                <h3 class="text-xl font-bold text-gray-900">Premium</h3>
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-700">
-                    Premium
-                </span>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-slate-100">Premium</h3>
+                <span class="chip">Premium</span>
             </div>
-            <p class="text-gray-500 text-sm mb-5">
+            <p class="text-gray-500 dark:text-slate-400 text-sm mb-5">
                 Deeper analysis with live market data, interactive strategy refinement, and detailed fund comparisons.
             </p>
             <ul class="space-y-2 mb-6 flex-1">
-                <li class="flex items-start gap-2 text-sm text-gray-700">
-                    <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Everything in Basic
-                </li>
-                <li class="flex items-start gap-2 text-sm text-gray-700">
-                    <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Live NAV &amp; performance data
-                </li>
-                <li class="flex items-start gap-2 text-sm text-gray-700">
-                    <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Interactive strategy chat
-                </li>
-                <li class="flex items-start gap-2 text-sm text-gray-700">
-                    <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Side-by-side fund comparison
-                </li>
-                <li class="flex items-start gap-2 text-sm text-gray-700">
-                    <svg class="w-4 h-4 mt-0.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Detailed rationale &amp; risk analysis
-                </li>
+                {{ check_item('Everything in Basic') }}
+                {{ check_item('Live NAV & performance data') }}
+                {{ check_item('Interactive strategy chat') }}
+                {{ check_item('Side-by-side fund comparison') }}
+                {{ check_item('Detailed rationale & risk analysis') }}
             </ul>
             <div id="otp-section" class="mt-4 space-y-3">
                 <div class="flex gap-2">
                     <input type="email" name="email" placeholder="your@email.com" required
-                        class="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent">
+                        class="flex-1 min-w-0 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-slate-100 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent">
                     <button hx-post="/api/request-otp" hx-include="[name='email']" hx-target="#otp-section" hx-swap="outerHTML"
-                        class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold rounded-lg transition-colors whitespace-nowrap">
-                        Send me a code</button>
+                        class="btn btn-primary whitespace-nowrap">
+                        Send code</button>
                 </div>
-                <p class="text-xs text-gray-500">We'll email you a one-time code to unlock premium.</p>
+                <p class="text-xs text-gray-500 dark:text-slate-400">We'll email you a one-time code to unlock premium.</p>
             </div>
         </div>
 
