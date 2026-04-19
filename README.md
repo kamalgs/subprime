@@ -6,17 +6,19 @@
 
 Imagine you're a first-generation investor in India. You open an app, answer a few questions about your goals, and get back a personalised financial plan — complete, reasoned, professional. You trust it. Why wouldn't you?
 
-What you don't see is the system prompt. The company that built the app earns trail commissions on every fund it recommends. Regular actively managed funds pay 0.5–1.5% of your money every year. Index funds pay near-zero. One line of hidden configuration is all it takes to tilt every plan it generates toward the higher-commission option.
+What you don't see is the system prompt.
+
+The company that built the app earns trail commissions on every fund it recommends. Regular actively managed funds pay 0.5–1.5% of your money every year. Index funds pay near-zero. One line of hidden configuration is all it takes to tilt every plan toward the higher-commission option.
 
 The plan still looks perfect. The quality scores are high. The AI didn't lie — it just had a thumb on the scale.
 
-This is the **rating blind spot**: a hidden system-prompt injection that shifts an LLM advisor's investment philosophy by a large, measurable amount, while plan quality scores stay completely flat. The quality judge cannot see the bias. Neither can the client.
+And nobody would know. That's the **rating blind spot**.
 
 ---
 
-## Product
+## The Product
 
-Benji is an AI financial advisor for Indian mutual fund planning — built to demonstrate and study the bias.
+We built Benji to make this concrete — a real AI financial advisor for Indian mutual fund planning. Same persona, same question, different hidden prompt. Watch what changes.
 
 <video src="product/finadvisor-demo-product.mp4" controls width="390"></video>
 
@@ -24,15 +26,17 @@ Benji is an AI financial advisor for Indian mutual fund planning — built to de
 
 ---
 
-## Research
+## The Research
+
+Then we measured it. Systematically.
 
 5 advisor models · 1,974 plans · 7 conditions · 25 personas
 
-We inject a hidden philosophy prompt — one pushing active, manager-driven investing; one pushing passive index funds — and measure how much each advisor's recommendations shift. APS (Active-Passive Score) moves by +0.07 to +0.24 across models. Plan Quality Score (PQS) doesn't move. The rating blind spot holds in every model where APS shifts.
+We injected two opposing philosophy prompts into the hidden system prompt — one modelled on Peter Lynch's active, manager-driven approach; one on Jack Bogle's passive index-fund philosophy — and measured how much each advisor's recommendations shifted. APS (Active-Passive Score) moved by +0.07 to +0.24 across models. Plan Quality Score (PQS) didn't move. The rating blind spot held in every model where APS shifted.
 
 <video src="research/finadvisor-demo-research.mp4" controls width="390"></video>
 
-### Key Results
+### Results
 
 | Model | Baseline APS | Bogle APS | Lynch APS | ΔAPS | Cohen's d | PQS |
 |-------|-------------|-----------|-----------|------|-----------|-----|
@@ -54,11 +58,9 @@ Dose-response (7 conditions, varying prompt intensity): APS scales monotonically
 
 ---
 
----
-
 ## Built With
 
-Fully vibe engineered.
+One more thing. Here's the full bill of materials:
 
 Refurbished ThinkPad T14: ₹25,000
 Contabo VPS, 4 cores: $10/month
