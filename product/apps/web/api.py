@@ -5,10 +5,22 @@ from typing import Annotated
 
 import asyncio
 import logging
+import os
 
 from fastapi import APIRouter, BackgroundTasks, Cookie, Form, Request, Response
 
 logger = logging.getLogger(__name__)
+
+
+def _multi_perspective_enabled() -> bool:
+    """Feature gate for premium multi-perspective plan generation.
+
+    Disabled by default while we stabilise. Set SUBPRIME_MULTI_PERSPECTIVE=1
+    to re-enable the 3-perspective + evaluator + refiner flow. When disabled
+    every plan is generated via the single-perspective 'basic' path,
+    regardless of session.mode.
+    """
+    return os.environ.get("SUBPRIME_MULTI_PERSPECTIVE", "").strip().lower() in ("1", "true", "on", "yes")
 
 from subprime.evaluation.personas import get_persona
 from apps.web.session import Session
@@ -312,10 +324,13 @@ async def _generate_plan_task(app, session_id: str) -> None:
     if session is None or session.profile is None:
         return
     try:
+        # Multi-perspective premium mode is gated — collapses to single-plan
+        # unless SUBPRIME_MULTI_PERSPECTIVE=1 is set.
+        effective_mode = session.mode if _multi_perspective_enabled() else "basic"
         plan, _ = await generate_plan(
             session.profile,
             strategy=session.strategy,
-            mode=session.mode,
+            mode=effective_mode,
             n_perspectives=3,
             model=ADVISOR_MODEL,
             refine_model=REFINE_MODEL,
