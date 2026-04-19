@@ -159,21 +159,25 @@ async def test_full_flow_strategy_to_plan(page):
     # Loading page should render while the background task runs
     await page.wait_for_selector("text=Building your plan", timeout=5000)
 
-    # Wait for the final plan to render. The loading page polls /api/plan-status
-    # and navigates to /step/4 when ready; step 4 shows 'Fund allocations'.
-    # Budget generously — basic plan on Qwen3-235B runs ~50-90s.
-    try:
-        await page.wait_for_selector("text=Fund allocations", timeout=180000)
-    except Exception:
-        url = page.url
-        body_text = (await page.locator("body").text_content() or "")[:400]
-        print(f"\n[DIAG] url={url}")
-        print(f"[DIAG] first-400-chars: {body_text}")
+    # Meta-refresh cycles the DOM every 3s until the plan is ready. Playwright
+    # selector waits get confused by the repeated full-page reloads, so poll
+    # the page content ourselves using the API.
+    import asyncio
+    deadline = asyncio.get_event_loop().time() + 180
+    while asyncio.get_event_loop().time() < deadline:
+        try:
+            content = await page.content()
+            if "Fund allocations" in content:
+                break
+        except Exception:
+            pass  # mid-reload
+        await asyncio.sleep(2)
+    else:
         await page.screenshot(path="/tmp/plan-timeout.png", full_page=True)
-        print("[DIAG] screenshot saved to /tmp/plan-timeout.png")
-        raise
+        raise AssertionError("Plan page never rendered within 180s — see /tmp/plan-timeout.png")
 
-    await page.wait_for_selector("text=Corpus projection", timeout=2000)
+    # Final assertions on the real plan page
+    assert "Corpus projection" in await page.content()
 
 
 @pytest.mark.asyncio

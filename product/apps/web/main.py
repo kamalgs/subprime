@@ -3,8 +3,11 @@
 
 from __future__ import annotations
 
+import faulthandler
 import logging
 import os
+import signal
+import sys
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -15,6 +18,13 @@ logging.basicConfig(
     format="%(asctime)s %(levelname)s %(name)s: %(message)s",
     force=True,
 )
+
+# On SIGUSR1, dump the stacks of every Python thread to stderr. Lets us
+# diagnose a stuck worker with `kill -USR1 <pid>` without attaching a debugger.
+try:
+    faulthandler.register(signal.SIGUSR1, file=sys.stderr, all_threads=True)
+except (AttributeError, ValueError):
+    pass  # SIGUSR1 not available (Windows) — silently skip
 
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse

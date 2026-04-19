@@ -23,4 +23,4 @@ RUN mkdir -p /app/state/data /app/state/conversations
 
 EXPOSE 8091
 
-CMD ["uvicorn", "apps.web.main:create_app", "--factory", "--host", "0.0.0.0", "--port", "8091"]
+CMD ["uvicorn", "apps.web.main:create_app", "--factory", "--host", "0.0.0.0", "--port", "8091", "--workers", "2", "--timeout-keep-alive", "5"]
