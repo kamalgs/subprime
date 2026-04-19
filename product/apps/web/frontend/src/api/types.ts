@@ -70,6 +70,7 @@ export interface StrategyResponse {
 export interface Fund {
   amfi_code: string;
   name: string;
+  display_name?: string;  // short UI-friendly label; falls back to name
   category: string;
   sub_category: string;
   fund_house: string;

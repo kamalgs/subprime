@@ -38,6 +38,7 @@ class MutualFund(BaseModel):
 
     amfi_code: str
     name: str
+    display_name: str = ""  # short UI-friendly label; set from fund_universe.display_name
     category: str = ""
     sub_category: str = ""
     fund_house: str = ""

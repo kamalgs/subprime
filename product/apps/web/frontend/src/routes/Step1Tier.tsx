@@ -40,8 +40,11 @@ export default function Step1Tier() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-4">
-        <div className="card card-spacious flex flex-col">
+      {/* mt-4 on the outer grid leaves room for the absolute 'Most popular'
+          chip to render without being clipped by the card border on Chrome
+          (where the absolute chip at -top-3 was overflowing past its parent). */}
+      <div className="grid md:grid-cols-2 gap-4 items-stretch mt-5">
+        <div className="card card-spacious flex flex-col h-full">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xl font-bold">Basic</h3>
             <span className="chip chip-neutral">Free</span>
@@ -64,9 +67,9 @@ export default function Step1Tier() {
           </button>
         </div>
 
-        <div className="card card-spacious flex flex-col relative border-primary-300 dark:border-primary-500">
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-            <span className="chip">Most popular</span>
+        <div className="card card-spacious flex flex-col h-full relative border-primary-300 dark:border-primary-500">
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+            <span className="chip shadow-sm">Most popular</span>
           </div>
           <div className="flex items-center justify-between mb-4 mt-2">
             <h3 className="text-xl font-bold">Premium</h3>

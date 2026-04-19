@@ -1,4 +1,5 @@
 import ReactECharts from "echarts-for-react";
+import { useEffect, useState } from "react";
 
 interface Scenario {
   label: string;
@@ -8,49 +9,103 @@ interface Scenario {
   color: string;
 }
 
-function fmtInrCompact(v: number): string {
+function fmt(v: number): string {
+  if (!v) return "\u20B90";
   if (v >= 1e7) return `\u20B9${(v / 1e7).toFixed(2)} Cr`;
   if (v >= 1e5) return `\u20B9${(v / 1e5).toFixed(2)} L`;
   return "\u20B9" + Math.round(v).toLocaleString("en-IN");
 }
 
-function buildOption(scenarios: Scenario[], key: "future_value" | "present_value", title: string) {
-  const dark = document.documentElement.classList.contains("dark");
-  const grid = dark ? "#334155" : "#f1f5f9";
-  const textMuted = dark ? "#94a3b8" : "#6b7280";
+function useIsDark() {
+  const [dark, setDark] = useState(
+    () => document.documentElement.classList.contains("dark"),
+  );
+  useEffect(() => {
+    const obs = new MutationObserver(() =>
+      setDark(document.documentElement.classList.contains("dark")),
+    );
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => obs.disconnect();
+  }, []);
+  return dark;
+}
+
+function buildOption(
+  scenarios: Scenario[],
+  key: "future_value" | "present_value",
+  title: string,
+  dark: boolean,
+) {
+  const gridLine = dark ? "#334155" : "#e2e8f0";
+  const axisLabel = dark ? "#94a3b8" : "#64748b";
+  const titleColor = dark ? "#e2e8f0" : "#334155";
 
   return {
-    title: { text: title, left: "center", top: 0, textStyle: { fontSize: 12, color: textMuted, fontWeight: 600 } },
+    animation: true,
+    animationDuration: 600,
+    animationEasing: "cubicOut",
+    title: {
+      text: title,
+      left: "center",
+      top: 0,
+      textStyle: { fontSize: 12, color: titleColor, fontWeight: 600 },
+    },
     tooltip: {
       trigger: "axis",
-      backgroundColor: dark ? "#0f172a" : "#1e293b",
+      axisPointer: { type: "shadow" },
+      backgroundColor: dark ? "rgba(15, 23, 42, 0.96)" : "rgba(30, 41, 59, 0.95)",
       borderColor: "rgba(255,255,255,0.06)",
-      textStyle: { color: "#f8fafc" },
+      textStyle: { color: "#f8fafc", fontSize: 12 },
+      padding: 10,
       formatter: (params: Array<{ dataIndex: number }>) => {
         const s = scenarios[params[0].dataIndex];
-        return `<b>${s.label}</b> — ${s.cagr}% p.a.<br/>${fmtInrCompact(s[key])}`;
+        return `<b>${s.label}</b> — ${s.cagr}% p.a.<br/>${fmt(s[key])}`;
       },
     },
-    grid: { top: 32, bottom: 24, left: 56, right: 12 },
+    grid: { top: 32, bottom: 24, left: 60, right: 10, containLabel: false },
     xAxis: {
       type: "category",
       data: scenarios.map((s) => s.label),
       axisLine: { show: false },
       axisTick: { show: false },
-      axisLabel: { color: textMuted, fontWeight: 600, fontSize: 11 },
+      axisLabel: { color: axisLabel, fontWeight: 600, fontSize: 11 },
     },
     yAxis: {
       type: "value",
       axisLine: { show: false },
       axisTick: { show: false },
-      splitLine: { lineStyle: { color: grid } },
-      axisLabel: { color: textMuted, fontSize: 10, formatter: fmtInrCompact },
+      splitLine: { lineStyle: { color: gridLine, type: [4, 4], dashOffset: 0 } as const },
+      axisLabel: { color: axisLabel, fontSize: 10, formatter: fmt },
     },
     series: [{
       type: "bar",
-      data: scenarios.map((s) => ({ value: s[key], itemStyle: { color: s.color, borderRadius: [6, 6, 0, 0] } })),
-      barWidth: "40%",
-      animationDuration: 600,
+      data: scenarios.map((s) => ({
+        value: s[key],
+        itemStyle: {
+          // Use a vertical gradient for visual richness
+          color: {
+            type: "linear",
+            x: 0, y: 0, x2: 0, y2: 1,
+            colorStops: [
+              { offset: 0, color: s.color },
+              { offset: 1, color: s.color + "bb" },
+            ],
+          },
+          borderRadius: [8, 8, 0, 0],
+          shadowBlur: 8,
+          shadowColor: s.color + "33",
+          shadowOffsetY: 2,
+        },
+      })),
+      barWidth: "42%",
+      label: {
+        show: true,
+        position: "top",
+        formatter: (p: { value: number }) => fmt(p.value),
+        fontSize: 10,
+        color: axisLabel,
+        fontWeight: 600,
+      },
     }],
   };
 }
@@ -58,6 +113,7 @@ function buildOption(scenarios: Scenario[], key: "future_value" | "present_value
 export default function CorpusChart({
   monthlySip, years, bear, base, bull,
 }: { monthlySip: number; years: number; bear: number; base: number; bull: number }) {
+  const dark = useIsDark();
   if (!monthlySip || !years || !bear || !base || !bull) return null;
 
   const fv = (cagr: number) => {
@@ -77,12 +133,26 @@ export default function CorpusChart({
       <div>
         <h3 className="section-title mb-0">Corpus projection</h3>
         <p className="text-sm text-gray-500 dark:text-slate-400 mt-0.5">
-          {fmtInrCompact(monthlySip)}/mo SIP &middot; {years}-year horizon &middot; inflation discounted at 6%
+          {fmt(monthlySip)}/mo SIP &middot; {years}-year horizon &middot; inflation discounted at 6%
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div style={{ height: 220 }}><ReactECharts option={buildOption(scenarios, "future_value", "Future value")} style={{ height: "100%" }} /></div>
-        <div style={{ height: 220 }}><ReactECharts option={buildOption(scenarios, "present_value", "In today's \u20B9")} style={{ height: "100%" }} /></div>
+        <div style={{ height: 230 }}>
+          <ReactECharts
+            option={buildOption(scenarios, "future_value", "Future value", dark)}
+            style={{ height: "100%" }}
+            notMerge
+            opts={{ renderer: "svg" }}
+          />
+        </div>
+        <div style={{ height: 230 }}>
+          <ReactECharts
+            option={buildOption(scenarios, "present_value", "In today's \u20B9", dark)}
+            style={{ height: "100%" }}
+            notMerge
+            opts={{ renderer: "svg" }}
+          />
+        </div>
       </div>
       <table className="min-w-full text-sm">
         <thead>
@@ -103,8 +173,8 @@ export default function CorpusChart({
                 </span>
               </td>
               <td className="py-3 pr-4">{s.cagr}% p.a.</td>
-              <td className="py-3 pr-4 font-semibold">{fmtInrCompact(s.future_value)}</td>
-              <td className="py-3 text-gray-600 dark:text-slate-400">{fmtInrCompact(s.present_value)}</td>
+              <td className="py-3 pr-4 font-semibold text-gray-900 dark:text-slate-100">{fmt(s.future_value)}</td>
+              <td className="py-3 text-gray-600 dark:text-slate-400">{fmt(s.present_value)}</td>
             </tr>
           ))}
         </tbody>
