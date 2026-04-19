@@ -194,7 +194,7 @@ async def api_generate_strategy(
     if session.profile is None:
         return Response(status_code=400, content="No profile in session")
 
-    strategy, _ = await generate_strategy(session.profile)
+    strategy, _ = await generate_strategy(session.profile, model=ADVISOR_MODEL)
     session.strategy = strategy
     await store.save(session)
 
@@ -240,6 +240,7 @@ async def api_revise_strategy(
         session.profile,
         feedback=feedback,
         current_strategy=session.strategy,
+        model=ADVISOR_MODEL,
     )
     session.strategy = strategy
 

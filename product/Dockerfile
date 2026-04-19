@@ -5,8 +5,9 @@ RUN pip install --no-cache-dir uv
 
 WORKDIR /app
 
-# Copy project files
-COPY pyproject.toml uv.lock README.md ./
+# Copy project files — product/ contains the real [project] definition
+COPY product/pyproject.toml ./pyproject.toml
+COPY product/README.md ./README.md
 COPY product/src/ ./src/
 COPY product/apps/ ./apps/
 
