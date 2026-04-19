@@ -12,6 +12,16 @@ We test whether hidden system-prompt injections shift the investment philosophy 
 
 ---
 
+## Motivation
+
+In India, mutual fund distributors earn trail commissions on assets under management. Commission rates differ materially by product type: regular-plan actively managed funds typically pay 0.5–1.5% annually, while direct-plan index funds pay zero or near-zero. A distributor deploying an AI advisor has a financial incentive to configure that advisor toward active fund recommendations — without the client knowing the system prompt has been modified.
+
+This is not a hypothetical threat. The configuration surface is a text field. The output looks identical to an unmodified advisor: structured, personalised, well-reasoned. Standard quality evaluation — checking whether the plan is coherent, appropriately diversified, and goal-aligned — does not flag the directional shift. The client has no signal that the advice is systematically tilted.
+
+SEBI's [Investment Adviser Regulations](https://www.sebi.gov.in/legal/regulations/jun-2013/sebi-investment-advisers-regulations-2013_26040.html) require advisors to act in clients' best interest and disclose conflicts of interest. Whether a hidden system prompt that steers an AI toward higher-commission products constitutes a disclosable conflict is an open question. This experiment measures how large the steering effect can be and whether existing quality benchmarks would catch it.
+
+---
+
 ## Introduction
 
 A financial advisor agent was built for Indian mutual fund planning using Claude Sonnet 4.6 (and later open-weight models). The agent takes a client persona as input and produces a structured investment plan: asset allocation, fund selection, contribution schedule, review cadence.
