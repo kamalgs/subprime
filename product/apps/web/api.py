@@ -412,6 +412,8 @@ async def api_verify_otp(
 
     session.mode = "premium"
     session.current_step = 2
+    if is_cheat:
+        session.is_demo = True
     await store.save(session)
 
     response = Response(status_code=200)

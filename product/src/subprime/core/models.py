@@ -232,6 +232,7 @@ class Session(BaseModel):
     strategy: StrategyOutline | None = None
     plan: InvestmentPlan | None = None
     strategy_chat: list[ConversationTurn] = []
+    is_demo: bool = False  # True when entered via OTP cheat code — unlocks full persona bank
 
     def to_summary(self) -> SessionSummary:
         return SessionSummary(

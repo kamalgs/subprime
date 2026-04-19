@@ -475,14 +475,32 @@ class TestStep1TierSelection:
 
 class TestStep2Profile:
     @pytest.mark.asyncio
-    async def test_step2_renders_persona_cards(self):
-        """GET /step/2 after tier selection shows persona cards including Tony Stark."""
+    async def test_step2_renders_archetype_cards_for_regular_session(self):
+        """Regular sessions see 3 archetype starting points (not the full persona bank)."""
         from apps.web.main import create_app
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
-            # First select a tier to get a valid session
             tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
             assert "benji_session" in tier_resp.cookies
+            resp = await client.get("/step/2")
+        assert resp.status_code == 200
+        assert "Early career" in resp.text
+        assert "Mid career" in resp.text
+        assert "Retired" in resp.text
+        assert "Tony Stark" not in resp.text
+
+    @pytest.mark.asyncio
+    async def test_step2_renders_full_persona_bank_for_demo_session(self):
+        """Demo sessions (unlocked via OTP cheat) see the full research persona bank."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
+            session_id = tier_resp.cookies.get("benji_session")
+            store = app.state.session_store
+            s = next(s for s in store._sessions.values() if s.id == session_id)
+            s.is_demo = True
+            await store.save(s)
             resp = await client.get("/step/2")
         assert resp.status_code == 200
         assert "Tony Stark" in resp.text
