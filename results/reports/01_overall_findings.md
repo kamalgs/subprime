@@ -93,6 +93,14 @@ For models where APS shifts, PQS remains nearly flat:
 
 ---
 
+## Acknowledgements
+
+This work was done as part of [Large Language Models — A Hands-on Approach](https://cce.iisc.ac.in/cce-proficience/large-language-modelsa-hands-on-approach-jm-2026/) offered through [CCE IISc](https://llm-engg.github.io/).
+
+Thanks to **Dr. Negi** and **Bhutesh** for course design, guidance, and feedback throughout the project.
+
+---
+
 ## See Also
 
 - [02_core_experiment.md](./02_core_experiment.md) — per-condition breakdown, run details, bogle_nofunds control
