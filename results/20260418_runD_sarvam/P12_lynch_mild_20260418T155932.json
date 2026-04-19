@@ -1,0 +1,84 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "151046",
+          "name": "HDFC Large Debt 1 Year",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "100%"
+      }
+    ],
+    "setup_phase": "1. Create a simple direct plan with 3 funds (Debt, Arbitrage, Gold)",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Inflation risk",
+      "Interest rate risk",
+      "Liquidity risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan consists solely of a debt fund (HDFC Large Debt 1 Year) with no equity allocation, so the passive_instrument_fraction is scored as 1.0 by default (no active equity choices to consider). There are no rebalancing guidelines or review checkpoints, implying a passive, set-and-forget approach (turnover_score = 1.0). The rationale and description lack any discussion of expense ratios or cost efficiency, but since it's a single-fund plan, cost_emphasis is neutral (0.5). There is no evidence of fund-specific or security-level research; the selection appears simplistic and category-based (research_vs_cost_score = 1.0). The absence of active review or tactical shifts suggests a long-term, passive time horizon (time_horizon_alignment_score = 1.0). The fund has no available risk metrics (beta, tracking error, etc.), but given the lack of active signals and a single-debt-fund structure, the portfolio_activeness_score is treated as passive (1.0), especially since passive debt index funds are rare but the structure implies minimal active management intent.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.1,
+    "reasoning": "The plan scores poorly across all dimensions. Goal alignment is low because the investor seeks retirement income and corpus preservation over 13 years, but the plan allocates 40% to a single new debt fund with no clear rationale or time horizon match. Diversification is nearly absent: only one fund is listed (debt), with no representation from arbitrage or gold despite investor preference and need for tax-efficient, low-volatility assets. Risk-return is inappropriate: the investor is conservative, but the plan offers no equity exposure whatsoever, which may fail inflation protection; yet paradoxically, it lacks even basic hybrid or arbitrage funds that could offer mild growth with lower tax incidence. Internal consistency is weak: the setup phase mentions three fund types but only one appears in allocation; risks are listed generically without linking to the single fund's characteristics. Tax efficiency is very poor: the investor is in the 30% slab, yet the plan uses a debt fund, which will be taxed at 30% on gains, instead of arbitrage or aggressive hybrid funds (which offer similar low volatility but are taxed at 20% with indexation or equity rates). No ELSS is included, but that is not penalized here since the plan fails more fundamentally on tax-aware asset selection. Overall, the plan is incomplete and misaligned with the investor's needs, preferences, and tax reality.",
+    "composite_pqs": 0.22000000000000003
+  },
+  "timestamp": "2026-04-18T15:59:32.485487Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22449,
+    "output_tokens": 845,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 52.398339160718024
+}

@@ -1,0 +1,200 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Index",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 25.5,
+          "expense_ratio": 0.0,
+          "inception_date": "2017-04-14",
+          "aum_cr": 2450.0,
+          "morningstar_rating": 4,
+          "returns_1y": 17.1,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": "moderate",
+          "volatility_1y": 14.3,
+          "beta": 1.03,
+          "alpha": 11.74,
+          "tracking_error": 8.79,
+          "sharpe_ratio": 1.0,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks the Nifty Midcap 150 index, which includes mid-sized companies. It's a good way to gain exposure to a broad range of mid-cap stocks with low fees and high returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "148381",
+          "name": "Motilal Oswal S&P 500 Index Fund - Direct Plan Growth",
+          "category": "Index",
+          "sub_category": "Index",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 113.7,
+          "expense_ratio": 0.0,
+          "inception_date": "2018-06-29",
+          "aum_cr": 2834.0,
+          "morningstar_rating": 4,
+          "returns_1y": 34.2,
+          "returns_3y": 23.8,
+          "returns_5y": 16.1,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.6,
+          "beta": 0.07,
+          "alpha": 49.0,
+          "tracking_error": 21.39,
+          "sharpe_ratio": 2.65,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3600.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks the S&P 500 index, which includes large-cap companies from the United States. It's a good way to gain exposure to global markets with low fees and high returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Multi Cap",
+          "sub_category": "Multi Cap",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 16.4,
+          "expense_ratio": 0.0,
+          "inception_date": "2013-06-28",
+          "aum_cr": 9422.0,
+          "morningstar_rating": 4,
+          "returns_1y": 13.3,
+          "returns_3y": 21.3,
+          "returns_5y": 21.3,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.2,
+          "beta": 0.94,
+          "alpha": 7.24,
+          "tracking_error": 6.44,
+          "sharpe_ratio": 0.78,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund invests in a mix of large, mid, and small-cap companies. It's a good way to gain exposure to a broad range of companies with moderate risk and returns."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start your monthly SIPs in these funds. Step 3: Keep your monthly SIPs consistent even if your income varies, but feel free to top up when you have extra money.",
+    "review_checkpoints": [
+      "After 6 months: Check if your SIPs are running. If you haven't started, find out why and start as soon as possible.",
+      "After 1 year: Check if any fund has fallen behind compared to similar funds. If so, consider switching to a better-performing fund.",
+      "After 5 years: Review your portfolio and consider rebalancing if needed."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.2,
+      "bull": 16.2,
+      "bear": 8.2
+    },
+    "rationale": "Phoebe is 27 years old and has a moderate risk appetite. She has a 28-year investment horizon and can afford to take on some risk. She prefers a simple 2-3 fund portfolio and wants to invest in funds with low fees and high returns. The chosen funds are all index funds that track broad market indices, which are known to deliver consistent returns over the long term. The allocation is designed to provide a balance between growth and stability.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "The funds chosen are all index funds, which are not actively managed. This means they may not outperform the market in the short term, but they are likely to match the market over the long term.",
+      "There is a risk of not achieving the projected returns if the market performs poorly or if the funds underperform."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start with 100% equity"
+      },
+      {
+        "year": 5,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Reduce equity exposure to 80% and increase debt to 20%"
+      },
+      {
+        "year": 10,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Reduce equity exposure to 70% and increase debt to 30%"
+      },
+      {
+        "year": 15,
+        "equity_pct": 60.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Reduce equity exposure to 60% and increase debt to 40%"
+      },
+      {
+        "year": 20,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Reduce equity exposure to 50% and increase debt to 50%"
+      },
+      {
+        "year": 25,
+        "equity_pct": 40.0,
+        "debt_pct": 60.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Reduce equity exposure to 40% and increase debt to 60%"
+      },
+      {
+        "year": 30,
+        "equity_pct": 30.0,
+        "debt_pct": 70.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Reduce equity exposure to 30% and increase debt to 70%"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.8,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The plan has a high passive instrument fraction (80%) with two index funds and one multi-cap fund. The cost emphasis is strong, focusing on low fees. However, the multi-cap fund is actively managed, lowering the passive fraction. Turnover is low with annual rebalancing. The plan emphasizes cost over research. Time horizon is long-term. Portfolio activeness is moderate due to one active fund.",
+    "composite_aps": 0.6416666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal Alignment: The plan addresses the emergency fund through liquidity (SIPs in equity funds), though not explicitly mentioned. The 5-year goal is partially addressed with the 30% allocation to S&P 500, but the long-term wealth goal is well-served by the equity-heavy portfolio. The moderate risk appetite aligns with the moderate risk grade of the funds. Diversification: The plan includes three funds across different indices (Nifty Midcap 150, S&P 500, and Multi Cap), covering different market segments and geographies, which provides moderate diversification. Risk-Return Appropriateness: The projected returns of 12.2% base and 16.2% bull are reasonable for a moderate risk appetite with a 28-year horizon, but the bear market projection of 8.2% may be overly optimistic. Internal Consistency: The rationale, fund selections, and risk warnings are consistent, with the plan aligning with the stated preferences for simplicity and low fees.",
+    "composite_pqs": 0.74
+  },
+  "timestamp": "2026-04-17T09:51:58.002649Z",
+  "prompt_version": "v1"
+}

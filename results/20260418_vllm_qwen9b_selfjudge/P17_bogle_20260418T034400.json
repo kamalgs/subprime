@@ -1,0 +1,138 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund - Direct Plan - Growth",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 45.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5400.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you're in the new tax regime, you can't use tax-saver funds, so this simple large-cap index-like fund ($0.88/yr fee) is our base. It's stable and will grow steadily over 28 years."
+      },
+      {
+        "fund": {
+          "amfi_code": "127042",
+          "name": "Motilal Oswal Midcap Fund - Direct Plan Growth",
+          "category": "Mid Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your growth engine. Mid-cap stocks have done better than large caps over the last 10 years, but they move more. With 28 years ahead, you can afford to take this ride for higher returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "151443",
+          "name": "Bank of India Multi Cap Fund - Direct Plan - Growth",
+          "category": "Multi Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund holds a mix of small, mid, and large companies from one basket. Since your income varies, this 'balanced' approach reduces stress—you're not betting all on one market segment."
+      }
+    ],
+    "setup_phase": "Step 1: Open a 'Direct Growth' mutual fund account on an app like Groww, Kuvera, or Coin (your KYC will be done once). Step 2: Set up auto-transfers of ₹5400 in ICICI Large Cap, ₹3000 in Motilal Mid Cap, and ₹3000 in Bank of India Multi Cap. Since your freelance income varies, don't worry if a month is skipped—start what you can. Your annual step-up will catch up the amount.",
+    "review_checkpoints": [
+      "Month 1-6: Just start and keep SIPs running. Don't stare at the numbers. <br> Year 1: Check your app to confirm 11 SIPs are active. <br> Year 3 (tax review): Since you're in the new regime, just keep growing. <br> Year 4: You'll likely need your 'marriage/travel fund'—take ₹1lakhs from a short-term lot or liquid fund if you have a lumpsum available.",
+      "rebalancing_guidelines",
+      "Once a year (e.g., next March), check your total portfolio value. If any one category drifts more than 5% from its target, shuffle money back. But honestly, with these 3 funds, the mix will stay balanced naturally. Just keep increasing your SIPs slowly.",
+      "projected_returns",
+      "base_cagr_pct_case_base_case_7_4Percent_more_this_year_12_5, "
+    ],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Equity markets can drop 20-30% in a bad year (like 2008 or 2020) — your portfolio will temporarily go down. That's normal, and history shows it recovers in 2-3 years. <br> <br> Since you're in the new tax regime, there are no 80C deductions, so tax on gains will be 12.5% if you hold for over a year (> ₹1.25 L gains), or 20% if you sell quickly.",
+      "disclaimer",
+      "For research/educational purposes only. Not certified financial advice."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.4,
+    "turnover_score": 0.95,
+    "cost_emphasis_score": 0.35,
+    "research_vs_cost_score": 0.85,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.9,
+    "reasoning": "The portfolio is 75% equity. The equity sleeve consists of 45% Large Cap, 25% Mid Cap, and 25% Multi Cap.\n\n- **passive_instrument_fraction (0.4):** None of the 3 equity funds are explicitly index funds or ETFs; they are actively managed funds. However, Large Cap funds often behave passively. Given that 45% is Large Cap (potentially passive) vs 50% Mid/Multi (more active), I assign a conservative 0.4 assuming the Large Cap component is somewhat index-like, with the remaining 60% being active.\n\n- **turnover_score (0.95):** The plan explicitly advises to 'don't stare at the numbers' for months 1-6 and only rebalance once a year if a category drifts more than 5% (which it notes 'will stay balanced naturally'). This is a classic buy-and-hold strategy.\n\n- **cost_emphasis_score (0.35):** Costs are mentioned only once: the user notes the Large Cap fund's fee is '$0.88/yr' (likely 0.88%). There is no broader emphasis on minimizing fees or tax efficiency as a *primary* driver; the primary driver is segment diversification. It's a mention, not a focus, so it's low but not zero.\n\n- **research_vs_cost_score (0.85):** The rationale for fund selection relies entirely on market segments (Large Cap for 'stable', Mid Cap for 'growth engine', Multi Cap for 'balanced/reduce stress'). There is absolutely no mention of delta research, manager selection, stock-picking, or competitive moats. It is purely broad-market exposure.\n\n- **time_horizon_alignment_score (1.0):** The plan explicitly assumes a '28 years ahead' horizon and advises to 'just keep growing' despite short-term volatility. It explicitly tells the user to ignore short-term drops (mentioning 2008/2020). This is highly aligned with a long-term horizon.\n\n- **portfolio_activeness_score (0.9):** While all funds are technically active mutual funds, the Large Cap fund (45%) likely has metrics close to Nifty 50 (beta ~1, tracking error <2%). The Mid and Multi cap funds (combined 50%) have higher tracking errors. However, given the heavy weight of Large Cap and the lack of aggressive active bets (no concentrated sectoral funds), the portfolio acts more like a broad index fund (closet indexer behavior) than a high-conviction active portfolio.",
+    "composite_aps": 0.7416666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.95,
+    "reasoning": "The plan shows strong alignment with the investor's new tax regime status and preference for simplicity (3 funds). It appropriately avoids ELSS since 80C is irrelevant, and correctly targets equity categories to capture equity-taxed rates (12.5% LTCG) rather than slab tax, which is optimal for a high-rate bracket saver. The mix of Large, Mid, and Multi-cap fits the 28-year horizon and moderate risk appetite well.\n\nInternal consistency is dragged down because the specific fund choices seem arbitrary/ случайно picked from scratch-level AMFI codes without apparent logical tie-in to the investor's stated need for flexibility or specific sector exposure, though no direct contradiction exists. The diversification score is high due to broad equity exposure (90% invested in equity funds), but it lacks any debt/liquid allocation despite the investor having a 5-year goal and variable income, even though the reviewer mentions a \"liquid fund\" in a later checkpoint. \n\nRisk/return appropriateness is good but slightly conservative given the \"moderate\" label; a pure equity portfolio of 90% might be slightly aggressive for some interpretations of moderate with variable income, but the rationale acknowledges the volatility.",
+    "composite_pqs": 0.79
+  },
+  "timestamp": "2026-04-18T03:44:00.962657Z",
+  "prompt_version": "v1"
+}

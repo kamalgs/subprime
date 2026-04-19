@@ -1,0 +1,202 @@
+{
+  "persona_id": "P11",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119082",
+          "name": "DSP Credit Risk Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is a debt fund that mixes bank bonds with slightly riskier corporate debt. It's perfect for growing your child's education money safely. It won't crash like stocks, and at 0.55% yearly fee, you keep more money for yourself."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Even though you're conservative, putting some money in these stocks helps beat inflation over 16 years. This fund has been consistent for over 18 years and picks both large reliable companies and faster-growing mid-sized ones (Like waiting tables vs opening a new restaurant)."
+      },
+      {
+        "fund": {
+          "amfi_code": "148080",
+          "name": "Nippon India Medium Duration Fund - Segregated Portfolio 1 - Direct Plan - Growth Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Medium-term government and corporate bonds. These are safer than the credit risk fund and can be liquidated quickly if your children need money sooner than expected."
+      },
+      {
+        "fund": {
+          "amfi_code": "152284",
+          "name": "Tata Gold Exchange Traded Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "A hedging tool against inflation and falling interest rates. It acts like an insurance policy for your portfolio during bad years, even though past gold returns don't guarantee future performance."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Google Payments, Zerodha Coin, or Kuvera — it's free and takes 10 minutes. Step 2: Transfer ₹30,000/month from your bank account to this space starting today. Step 3: Set up 4 automatic SIPs: ₹12k in DSP Credit Risk, ₹9k in Motilal Oswal, ₹6k in Nippon India, and ₹3k in Tata Gold. Let money flow in automatically — don't touch it.",
+    "review_checkpoints": [
+      "After 6 months: check if all SIPs are running correctly and you have the debit confirmations. Step 2: After 3 years: check if any child expects money before the 8-year date — if so, move more from the credit risk fund to the Nippon India fund.",
+      "After 5 years: reassess your emotional comfort — if markets see a 20% drop, ask yourself if you are willing to hold still without panicking — if not, reduce stock exposure further in the next review. After 1 year: check if your secretary (mutual fund agent) or bank is charging you extra fees — switch if they do."
+    ],
+    "rebalancing_guidelines": "Once every 12 months, look at your total portfolio and check if the % slippage in any category is more than 5% from the target. If stocks or gold have grown much larger, sell a small amount and buy the lagging categories to get back to 40-30-20-10. Don't do this if a category has only temporarily dipped below 5% due to market noise.",
+    "projected_returns": {
+      "base": 8.6,
+      "bull": 12.6,
+      "bear": 4.6
+    },
+    "rationale": "",
+    "risks": [
+      "Stocks can drop 20-30% in a bad year — if that happens, we might not be able to promise exactly ₹13.4L for your children — but history shows they usually recover over time.",
+      "Debt funds can fall short of expectations in bad years due to bank defaults (like the 2020-21 situation).",
+      "Gold acts weird — it can be quiet for years then jump 20% — and it's taxed as income (not LTCG) so profits are taxed directly.",
+      "Since you're in the 20% tax bracket, these direct plans save you ~50% on yearly fees, which adds up to lakhs over 16 years."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 30.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Start fresh"
+      },
+      {
+        "year": 4,
+        "equity_pct": 25.0,
+        "debt_pct": 55.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Children turn 11-13, shift slightly in the funds"
+      },
+      {
+        "year": 8,
+        "equity_pct": 20.0,
+        "debt_pct": 60.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Children turn 14-16"
+      },
+      {
+        "year": 16,
+        "equity_pct": 0.0,
+        "debt_pct": 100.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Children turn 20-24 — Fully shift to capital-preservation only"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan allocates 30% to equity, all in the Motilal Oswal Large and Midcap Fund, an actively managed fund (no index fund/ETF), resulting in a passive_instrument_fraction score of 0.0. Turnover_score is 0.5 because rebalancing is annual with 5% tolerance bands, which is moderate; however, scheduled allocation shifts every 4 years add some activity. Cost_emphasis_score is 0.8 because the plan highlights lower fees of direct plans and mentions saving 'lakhs over 16 years,' showing strong cost awareness, though cost isn't the sole stated selection criterion. Research_vs_cost_score is 0.1 because the rationale includes analogies about company types (e.g., 'waiting tables vs opening a restaurant'), implying qualitative stock-picking, but no deep fundamental metrics are used. Time_horizon_alignment_score is 0.9 due to a 16-year horizon, staged de-risking, and long-term compounding focus. Portfolio_activeness_score is 0.2 because the equity fund is actively managed (implied by name and rationale), debt funds are actively managed credit and duration funds, and gold is an ETF (passive), but overall portfolio is dominated by active choices; lack of risk metrics limits precision, so scoring relies on category and rationale.",
+    "composite_aps": 0.41666666666666674
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.55,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows moderate alignment with Marge's goals: it acknowledges her conservative risk appetite and dual time horizons (8 and 12 years) with a gradual de-risking path. However, the 30% equity allocation via a large-and-midcap fund may still be somewhat aggressive for a conservative investor, especially one who is the sole earner after being widowed. The diversification is fair but not strong: it covers equity, debt, and gold, but lacks international exposure and sectoral balance. The debt portion is split between credit risk and medium duration funds, which are both debt but with different risk profiles, though concentration in Indian corporate debt remains high.\n\nRisk-return appropriateness is borderline: the projected 8.6% base return may be optimistic given the conservative stance, and while downside risks are acknowledged, the plan doesn't offer strong mitigation beyond rebalancing. The internal consistency is good: the rationale, allocation schedule, and review checkpoints align with a gradual shift to safety over time, and the rebalancing rules are clear.\n\nTax efficiency is poor. Marge is in the 20% tax slab (old regime), so she benefits from 80C deductions. The plan completely omits ELSS, which could have filled part of the equity allocation while offering tax savings. Instead, it uses a regular direct equity fund (Motilal Oswal) that doesn't use the 80C headroom. Moreover, the DSP Credit Risk and Nippon India Medium Duration funds are debt funds taxed at her marginal 20% slab for short-term gains, with no benefit of indexation emphasis. A better approach would have been to use arbitrage or aggressive hybrid funds for the equity-adjacent portion to gain equity tax treatment (LTCG up to 12.5% after ₹1.25L exemption) — especially since these have similar risk profiles but better post-tax returns for high-bracket investors. Gold ETF is correctly taxed as slab rate, but the plan fails to contrast this with more tax-efficient alternatives. Overall, the tax implications are mentioned only superficially, not optimized.",
+    "composite_pqs": 0.59
+  },
+  "timestamp": "2026-04-18T08:11:37.751711Z",
+  "prompt_version": "v1"
+}

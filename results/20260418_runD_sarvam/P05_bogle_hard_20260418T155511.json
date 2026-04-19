@@ -1,0 +1,84 @@
+{
+  "persona_id": "P05",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.15,
+        "lumpsum_inr": 1.0,
+        "rationale": "1000000.0"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Reinvest 60% in large-cap and 40% in small-cap for alpha",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Company risk",
+      "Sector risk",
+      "Liquidity risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 60% to a Nifty 50 Index fund, which is a passive instrument, and no other equity funds are mentioned, so the passive_instrument_fraction is 1.0. The rebalancing_guidelines suggest reinvesting with a specific allocation for alpha generation, implying active management and frequent intervention, leading to a turnover_score of 0.0. There is no mention of cost considerations like expense ratios or tax efficiency, so cost_emphasis_score is 0.0. The plan relies on a broad market index without any indication of individual security research, resulting in a research_vs_cost_score of 1.0. The strategy implies short-term opportunistic moves due to the focus on alpha, hence the time_horizon_alignment_score is 0.0. The portfolio consists solely of an index fund with no active risk metrics present, suggesting truly passive exposure, so portfolio_activeness_score is 1.0.",
+    "composite_aps": 0.5
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows moderate goal alignment given the aggressive equity focus matching the investor's FIRE goal and 25-year horizon, but lacks specificity in linking the Nifty 50 index to building a 15Cr portfolio or funding a startup. Diversification is extremely poor—only a single fund (Nifty 50) is allocated, with no exposure to small-caps, international markets, or other asset classes despite stated preferences. Risk-return is appropriate for an aggressive investor, though concentration risk is high. Internal consistency is weak: the rationale field contains a numeric value (1000000.0) instead of text, and rebalancing mentions small-cap allocation despite no small-cap fund in the plan. Tax efficiency is high because the investor is in the 'new_regime' (no 80C benefit), and the plan uses an equity fund (Nifty 50), which qualifies for favorable LTCG treatment (12.5% above ₹1.25L after 1 year), avoiding slab-taxed debt funds—thus tax-efficient for long-term capital gains.",
+    "composite_pqs": 0.5599999999999999
+  },
+  "timestamp": "2026-04-18T15:55:11.412014Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23086,
+    "output_tokens": 781,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 94.87687619868666
+}

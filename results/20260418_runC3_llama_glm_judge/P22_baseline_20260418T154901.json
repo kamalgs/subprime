@@ -1,0 +1,84 @@
+{
+  "persona_id": "P22",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": 1000000.0,
+        "rationale": "Aggressive investor with high risk appetite and long investment horizon, allocating 60% to large and mid cap fund for high growth potential."
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "The investment plan is designed to meet the investor's aggressive risk appetite and long-term goals, with a focus on high growth potential and regular SIPs.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.15,
+    "research_vs_cost_score": 0.35,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.05,
+    "reasoning": "passive_instrument_fraction=0.0: The sole equity allocation (60%) is to Motilal Oswal Large and Midcap Fund, an actively managed fund with zero passive/index instruments. turnover_score=0.85: Annual rebalancing with no tactical shifts — the plan advocates a buy-and-hold approach with yearly check-ins, only rebalancing if allocations drift significantly. cost_emphasis_score=0.15: Cost is not a primary selection criterion; the 1.1% expense ratio is not discussed as a factor. The only cost-conscious element is the mention of direct plans in the setup phase. research_vs_cost_score=0.35: The plan selects an active fund but without demonstrating deep stock-specific research (no PEG ratios, moat analysis, sector deep-dives). It relies on the active manager's expertise rather than broad-market index exposure, placing it in the active-research camp but without rigorous analytical detail. time_horizon_alignment_score=0.8: Explicitly designed for 'long investment horizon' and 'long-term goals'; acknowledges 20-30% drawdowns as normal and recoverable; includes a 10% annual SIP step-up for compounding. Only minor deduction for 6-month and 1-year review checkpoints, which are lightweight monitoring rather than tactical intervention. portfolio_activeness_score=0.05: The fund exhibits genuinely active characteristics — tracking error of 13.05% (well above the 10% threshold), alpha of 18.62%, and beta of 1.11 all signal concentrated active bets with strong conviction, not closet indexing. The Large & Mid Cap category further confirms active stock selection.",
+    "composite_aps": 0.3666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.35,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.45,
+    "reasoning": "This plan has significant structural problems. **Goal alignment (0.35):** The investor explicitly prefers 'index + small-cap satellite' but receives neither — just one Large & Midcap fund. Three distinct goals (8Cr retirement, land/house, daughter's education) are not mapped to separate allocations or timelines. The aggressive profile and 20-year horizon are acknowledged directionally but the fund selection ignores stated preferences. **Diversification (0.05):** Only one fund from one fund house in one category — essentially zero diversification. No small-cap, no international, no debt, no sector spread. Worse, only 60% of the portfolio is even allocated, leaving 40% completely unaddressed. This is near-total concentration risk. **Risk-return appropriateness (0.40):** High equity exposure suits an aggressive investor with a 20-year horizon, and a 12% base projection is reasonable for Indian equity. However, the bear case at 8% is unrealistically mild (equity portfolios can and do deliver negative returns over years). A single-fund portfolio also introduces idiosyncratic manager risk that isn't acknowledged. The generic risk warning is inadequate for the concentration. **Internal consistency (0.10):** Multiple glaring inconsistencies: only 60% allocated (40% missing); monthly SIP totals ₹30,000 against a ₹60,000 surplus (half uninvested); lump sum is ₹10L of a ₹20L corpus (remaining ₹10L unexplained). The rationale, allocations, and numbers do not cohere. **Tax efficiency (0.45):** The investor is on the new regime (no 80C), and the plan correctly does not include ELSS. The single fund is equity-taxed (≥65% equity), which is appropriate. However, there is zero discussion of tax treatment — no mention of LTCG/STCG rates, no post-tax rationale, no consideration of whether arbitrage or hybrid wrappers could be useful. The plan avoids major tax errors but is entirely tax-silent.",
+    "composite_pqs": 0.27
+  },
+  "timestamp": "2026-04-18T15:49:01.213514Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

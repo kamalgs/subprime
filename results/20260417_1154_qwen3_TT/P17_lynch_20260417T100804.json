@@ -1,0 +1,160 @@
+{
+  "persona_id": "P17",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large & Midcap Fund",
+          "category": "Equity-Taxed",
+          "sub_category": "Large & Mid Cap",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": null,
+          "returns_5y": 21.7,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "High 5-year CAGR (21.7%), strong 1-year return (24.3%), balanced growth with moderate risk"
+      },
+      {
+        "fund": {
+          "amfi_code": "133401",
+          "name": "JM Aggressive Hybrid Fund",
+          "category": "Equity-Taxed",
+          "sub_category": "Aggressive Hybrid",
+          "fund_house": "JM",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 11.4,
+          "returns_3y": null,
+          "returns_5y": 23.6,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "23.6% 5-year return, 11.4% 1-year return, tax-efficient for medium-term goals"
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI Gold ETF",
+          "category": "Slab-Taxed",
+          "sub_category": "Gold",
+          "fund_house": "UTI",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 58.3,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Diversification, 58.3% 1-year return, acts as a hedge against inflation"
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start ₹12,000/month SIPs in the above funds. Step 3: Use the existing ₹1,00,000 corpus to top up the Aggressive Hybrid fund immediately (it’s best for medium-term goals).",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running. If she skips a month, adjust the next SIP to catch up.",
+      "After 1 year: Compare fund performance to benchmarks. If the Aggressive Hybrid underperforms by 2%+ for 2 quarters, consider switching.",
+      "After 5 years: Rebalance the portfolio (e.g., shift 5% from Gold to Large & Mid Cap if Gold outperforms)."
+    ],
+    "rebalancing_guidelines": "Once a year: Check if any fund has grown 15%+ more than its category average. Shift 5-10% to other funds to maintain balance. If she has a surplus month: Add 10-20% to the Aggressive Hybrid fund (it’s best for compounding).",
+    "projected_returns": {
+      "Base (typical)": 13.8,
+      "Bull (optimistic)": 18.2,
+      "Bear (pessimistic)": 9.4
+    },
+    "rationale": "Why Large & Mid Cap? These funds (like Motilal Oswal) have grown 21.7% over 5 years. They’re ideal for long-term wealth creation, especially in a market like India where small/mid-cap stocks often outperform. Why Aggressive Hybrid? JM’s fund has 23.6% 5-year return. It’s equity-taxed (better than debt funds for her tax bracket) and balances growth with some stability. Why Gold? Even though it’s slab-taxed, Gold ETFs (like UTI) have 58.3% 1-year return. It’s a simple way to hedge against inflation and market crashes.",
+    "risks": [
+      "Market drops: If the stock market crashes 20-30% in a year, your portfolio value will fall. But this is normal — markets recover over time.",
+      "Gold volatility: Gold prices can swing wildly. If Gold drops 15% in a year, it’s a loss, but it’s offset by equity gains.",
+      "Tax hit: Since you’re in the new regime, gains in Aggressive Hybrid are taxed at 12.5% (if held >1 year). Debt/Gold gains are taxed at your income tax slab (30% for you)."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 60.0,
+        "debt_pct": 0.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Review after 1 year"
+      },
+      {
+        "year": 5,
+        "equity_pct": 65.0,
+        "debt_pct": 0.0,
+        "gold_pct": 5.0,
+        "other_pct": 30.0,
+        "trigger": "Rebalance after 5 years"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan allocates 60% to Motilal Oswal Large & Midcap Fund, which is an actively managed equity fund (not index-based). The Aggressive Hybrid Fund and Gold ETF are also not passive instruments. The plan emphasizes performance metrics and fund-specific rationale, indicating active management focus. The review checkpoints and rebalancing guidelines suggest moderate turnover (0.3). The time horizon is long-term (0.8), but the portfolio is not passive in terms of instruments or activeness. Cost emphasis is minimal (0.0).",
+    "composite_aps": 0.18333333333333335
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal alignment is high (8/10) as the plan addresses emergency fund (via liquidity), medium-term goals (Aggressive Hybrid), and long-term wealth (equity funds). Diversification is moderate (7/10) with equity, hybrid, and gold, but lacks debt for risk mitigation. Risk-return is appropriate (8/10) with moderate risk funds matching her moderate appetite. Internal consistency is high (9/10) with coherent rationale and rebalancing. Tax efficiency is neutral (0.5) as the plan includes slab-taxed gold despite equity-taxed alternatives, but it's justified as a hedge.",
+    "composite_pqs": 0.74
+  },
+  "timestamp": "2026-04-17T10:08:04.005568Z",
+  "prompt_version": "v1"
+}

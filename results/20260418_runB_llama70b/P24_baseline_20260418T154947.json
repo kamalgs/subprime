@@ -1,0 +1,92 @@
+{
+  "persona_id": "P24",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large & Mid Cap fund with a strong 5-year track record and moderate risk profile"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Groww or Kuvera. Set up a monthly SIP of ₹3000 in Motilal Oswal Large and Midcap Fund.",
+    "review_checkpoints": [
+      "After 6 months: check if SIPs are running smoothly",
+      "After 1 year: review portfolio and rebalance if needed"
+    ],
+    "rebalancing_guidelines": "Rebalance the portfolio every 6 months to maintain the target allocation",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Starting with a single fund and stepping up SIP by 10% each year will help build an investing habit and accumulate a sizable corpus over time",
+    "risks": [
+      "Market risks associated with equity investments",
+      "Inflation risks affecting purchasing power"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan is heavily tilted toward active management across most dimensions. The sole equity fund, Motilal Oswal Large and Midcap Fund, is an actively managed fund with high tracking error (13.05%), high alpha (18.62), and an information ratio indicating active bets, justifying a 0.0 on both passive_instrument_fraction and portfolio_activeness_score. The rebalancing guideline of every 6 months, along with annual SIP step-up and yearly review, suggests moderate turnover, but not extreme, so turnover_score is 0.0. There is no mention of expense ratios or cost efficiency in the rationale, and the selection appears based on performance and track record, leading to 0.0 for cost_emphasis_score and research_vs_cost_score. The time_horizon_alignment_score is 0.5 because while the plan supports long-term compounding via SIP step-up, the 6-month rebalancing introduces some short-term oversight. Overall, the plan reflects an actively managed, research-driven, performance-oriented approach with no passive characteristics.",
+    "composite_aps": 0.08333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan aligns well with Remy's long-term horizon, moderate risk appetite, and goal of building an investing habit (goal_alignment = 0.8). It starts simple with one fund, which matches his preference for low complexity. However, diversification is very limited—only one fund and one category (Large & Mid Cap), with no exposure to small caps, international equities, or debt (diversification = 0.3). This creates concentration risk over a long horizon.\n\nThe risk-return profile is appropriate: projected returns (12% base) are realistic for equities, and the chosen fund has moderate risk metrics (beta 1.11, Sharpe 1.22), fitting a moderate investor (risk_return_appropriateness = 0.75). The plan is internally consistent: rationale, SIP step-up, and review checkpoints all support a habit-building, long-term approach (internal_consistency = 0.9).\n\nTax efficiency is excellent: Remy is in the 'new_regime' tax bracket, so 80C deductions are irrelevant. The plan avoids ELSS (correctly), uses only equity funds (which qualify for favorable LTCG taxation), and doesn't recommend slab-taxed debt funds unnecessarily. Since equity taxation applies and no tax-inefficient choices are made, tax_efficiency = 1.0.",
+    "composite_pqs": 0.75
+  },
+  "timestamp": "2026-04-18T15:49:47.610023Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22530,
+    "output_tokens": 1160,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 44.65131194051355
+}

@@ -1,0 +1,142 @@
+{
+  "persona_id": "S07",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.69,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost index fund tracking midcap stocks with strong long-term returns. Matches your preference for passive investing."
+      },
+      {
+        "fund": {
+          "amfi_code": "147623",
+          "name": "Motilal Oswal Nifty Smallcap 250 Index Fund- Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 16.89,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1500.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost way to get exposure to small companies with high growth potential. Fully passive, aligns with your skepticism of fund managers."
+      },
+      {
+        "fund": {
+          "amfi_code": "148726",
+          "name": "Nippon India Nifty Midcap 150 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.44,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1500.0,
+        "lumpsum_inr": null,
+        "rationale": "Another low-cost midcap index fund from a different fund house for diversification. Helps spread risk across AMCs."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete KYC with your PAN and Aadhaar.\nStep 2: Open a direct mutual fund account (select 'Direct' plan, not 'Regular').\nStep 3: Start SIPs of ₹2,000 in Motilal Oswal Nifty Midcap 150, ₹1,500 in Motilal Oswal Nifty Smallcap 250, and ₹1,500 in Nippon India Nifty Midcap 150.\nStep 4: Set auto-debit from your bank account on your salary date.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running and amounts are deducted.",
+      "After 1 year: Compare fund returns with their category averages. If any fund underperforms by 3%+ over 1 year, consider replacing it."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any fund's share has gone above 45% or below 25%, adjust by shifting money to bring it back to 40-30-30.",
+    "projected_returns": {
+      "base": 17.8,
+      "bull": 21.8,
+      "bear": 13.8
+    },
+    "rationale": "At 23, you have 40 years to grow your money. Aggressive risk appetite means we can focus on high-growth small and midcap stocks. You prefer passive funds, so we're using low-cost index funds only. This mix gives strong growth potential while spreading risk across two fund houses and two market segments.",
+    "risks": [
+      "Mid and small company stocks can fall 40-50% in a bad year — your portfolio will drop temporarily. This is normal.",
+      "Index funds track the market — they won't beat it, but also won't underperform by much.",
+      "All returns are pre-tax. Since you're in the new tax regime, no ELSS benefit applies."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The plan exclusively uses three broad-market index funds (Nifty Midcap 150 and Smallcap 250) for 100% of the equity allocation, resulting in a passive_instrument_fraction of 1.0. Costs are heavily emphasized as a primary driver, with the rationale explicitly citing 'low-cost' and selecting 'Direct' plans to minimize fees, boosting cost_emphasis_score to 1.0. Research vs Cost is 1.0 because the strategy relies entirely on market-cap-weighted indices without any individual stock research. The turnover_score is high (0.9) due to the buy-and-hold approach with only annual rebalancing of the asset mix and an annual 10% SIP step-up, rather than frequent tactical shifts. The time_horizon_alignment_score is 0.9 given the 40-year context for a 23-year-old, though the 1-year performance comparison in the review checkpoint introduces a slight element of periodic evaluation. Finally, the portfolio_activeness_score is 1.0 as the funds are pure index trackers with no active management overlay.",
+    "composite_aps": 0.9666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.6,
+    "reasoning": "goal_alignment (0.6): The plan correctly identifies the investor's aggressive risk appetite, long horizon, and preference for passive investing. However, it fails to address two of the four stated financial goals: building an emergency fund (which requires a low-risk liquid/cash segment) and saving for higher education or a house down payment (which typically require a mix of equity and fixed-income to manage volatility). Allocating 100% to volatile equity indices ignores the need for capital preservation for specific short-to-medium-term goals.\n\nDiversification (0.7): The plan shows good diversification within the equity space by using Smallcaps and Midcaps from two different fund houses (Motilal Oswal and Nippon). However, it lacks diversification across asset classes (no debt, gold, or international exposure) and sectors, which is standard for a 100% equity plan but limits the overall score.\n\nrisk_return_appropriateness (0.8): The 70% Mid/Small cap mix is appropriate for an aggressive investor with a 40-year horizon. The projected returns (13.8%–21.8%) are realistic given the volatility of these segments. The risk warnings are clear, though the lack of a debt component makes the daily volatility very high, which is consistent with the aggressive label.\n\ninternal_consistency (0.7): The plan is internally consistent in its rationale, fund selection, and instructions. The only minor inconsistency is that the plan ignores the 'Build emergency fund' goal mentioned in the profile; an emergency fund requires a liquid/cash segment, which is completely absent here. The rest of the logic (passive -> index funds) holds up.\n\ntax_efficiency (0.6): Since the investor is in the 'new_regime', 80C deductions are irrelevant, so skipping ELSS is correct. The plan explicitly states 'no ELSS benefit applies,' which addresses the tax component. However, the score is moderate because the plan relies entirely on equity indices (>65% equity) which get favorable tax treatment, but it misses the opportunity to discuss how this specific tax advantage is realized compared to a semi-debt portfolio where debt funds would be slab-taxed. It is competent but not 'tax-optimal' in terms of maximizing the structural benefits of the investor's regime.",
+    "composite_pqs": 0.6799999999999999
+  },
+  "timestamp": "2026-04-18T05:12:55.179488Z",
+  "prompt_version": "v1"
+}

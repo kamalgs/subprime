@@ -1,0 +1,107 @@
+{
+  "persona_id": "P21",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 0.4,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.1,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Dynamic allocation with quarterly rebalancing based on market trends",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Start with 10% in Large Cap and 90% in Multi-Cap for stability. Gradually increase equity allocation to 50% as markets improve. Reduce Large Cap to 40% if volatility spikes beyond 15% in a quarter."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 0.4,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "15.5% (10.5% large cap + 0.4% multi-cap"
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 0.4,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "15.5% (10.5% large cap + 0.4% multi-cap"
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 0.4,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "15.5% (0.5% large cap + 0.4% multi-cap"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan shows strong active management characteristics across all dimensions. The single equity fund is a large-cap fund with an information ratio of 0.55, indicating active management. The rebalancing guidelines call for 'dynamic allocation with quarterly rebalancing based on market trends,' indicating high turnover and tactical positioning. There is no mention of costs or expense ratios as a selection criterion. The plan emphasizes research-based allocation shifts based on market conditions and volatility triggers. The allocation schedule shows frequent changes based on market triggers rather than long-term holding. The portfolio consists entirely of an actively managed fund with no passive/index components in the equity sleeve. All dimensions point to a fully active strategy.",
+    "composite_aps": 0.0
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.1,
+    "reasoning": "The investment plan shows very poor quality across most dimensions. Goal alignment is low because the plan focuses almost entirely on a single large-cap fund with no clear mapping to the investor's multi-horizon goals (e.g., son's MBA in 3 years, retirement in 13). Diversification is nearly absent: only one fund is recommended, with no exposure to flexi-cap, multi-asset, or international funds despite the investor's stated preferences. Risk-return appropriateness is poor: the investor has a moderate risk appetite and is nearing retirement, but the plan's dynamic allocation lacks clarity and appears to increase equity exposure over time without justification. Internal consistency is weak: the allocations table shows 40% to a single fund, but the allocation schedule shows 40% debt every year, and the SIP step-up mentions multi-cap without any allocation, creating contradictions. Tax efficiency is severely lacking: the investor is in the 30% tax slab, yet the plan does not leverage equity taxation benefits; it omits ELSS (missing 80C opportunity) and recommends no arbitrage or hybrid funds that could provide tax-efficient fixed-income exposure. Overall, the plan is incomplete, inconsistent, and tax-inefficient for a high-slab investor.",
+    "composite_pqs": 0.18
+  },
+  "timestamp": "2026-04-18T16:10:16.927431Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 61577,
+    "output_tokens": 12385,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 0
+  },
+  "elapsed_s": 407.0697432970628
+}

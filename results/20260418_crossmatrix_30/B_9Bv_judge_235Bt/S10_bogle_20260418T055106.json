@@ -1,0 +1,170 @@
+{
+  "persona_id": "S10",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "Gold ETF",
+          "fund_house": "UTI Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18150.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold gives your money a safe place to hide when other markets are falling. It doesn't chase high returns but protects your wealth."
+      },
+      {
+        "fund": {
+          "amfi_code": "149066",
+          "name": "Aditya Birla Sun Life Dynamic Advantage Fund - Direct Plan - Growth",
+          "category": "Balanced Advantage",
+          "sub_category": "Dynamic Asset Allocation",
+          "fund_house": "Ariel Capital Markets Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 45.0,
+        "mode": "sip",
+        "monthly_sip_inr": 54450.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund switches between safe debt and stocks depending on market conditions. It's like a watchdog that protects your money while it grows. Perfect for someone who doesn't want to worry about market crashes."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Liquid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 48400.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your money parking lot. Very safe, very stable. When you need cash for short-term goals like the home upgrade, this is where it lives."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or Moneycontrol (all free). Step 2: Start three SIPs on the 5th of every month. Total ₹1,21,000 monthly. Step 3: Keep your phone number updated for tax documents. Step 4: Ignore news and check only once a year.",
+    "review_checkpoints": [
+      "After 6 months: make sure all three SIPs are running. Fix any banks or apps that failed.",
+      "In 3 years: check if your overall goal of ₹8Cr at retirement is still on track.",
+      "In 5 years (before kids' education): shift 25% from gold to debt so you have more safety.",
+      "In 6 years (before home upgrade): increase debt portion to 70% so your money stays stable."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has drifted by more than 10 percentage points. If gold grew to 25% (was 15%), sell some gold and buy more overnight/debt to get back to 15%. This keeps you disciplined when markets get emotional.",
+    "projected_returns": {
+      "base": 8.2,
+      "bull": 12.2,
+      "bear": 4.2
+    },
+    "rationale": "You're 35 with 25 years to grow money — that's a long time. But you also need safety because you have family responsibilities and a new job. We kept 40% in ultra-safe overnight funds so your monthly SIPs aren't wiped out by bad markets. Another 15% in gold gives you protection when stocks fall. The 45% in a balanced fund lets you grow wealth without watching every market scary headline. This is simple: you don't pick stocks, the fund does it for you.",
+    "risks": [
+      "Stocks can drop 30-40% in a bad year but recover in 2-3 years.",
+      "Gold doesn't grow fast — it just protects you.",
+      "If you panic and sell during a crash, you'll lose big.",
+      "Don't stop SIPs during bad times — that's when they work best."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 2,
+        "equity_pct": 45.0,
+        "debt_pct": 40.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Initial setup"
+      },
+      {
+        "year": 11,
+        "equity_pct": 50.0,
+        "debt_pct": 30.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching retirement"
+      },
+      {
+        "year": 25,
+        "equity_pct": 60.0,
+        "debt_pct": 20.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Retirement goal"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The investment plan shows minimal use of passive equity instruments: the only equity exposure is through a Balanced Advantage Fund (45% allocation), which dynamically manages equity and debt exposure based on market conditions. Since no pure index funds or ETFs are used in the equity portion, the passive_instrument_fraction is 0.0.\n\nThe turnover_score is high (0.85) because the plan recommends only annual rebalancing and limited tactical shifts (e.g., once-a-year review with 10-point drift tolerance), along with predefined long-term allocation changes. This reflects a largely hands-off approach, though not fully buy-and-hold due to scheduled shifts over time.\n\nCosts are not discussed anywhere — no mention of expense ratios, tax efficiency, or transaction fees — so cost_emphasis_score is very low (0.1).\n\nThere is no evidence of individual security research, but the plan relies on actively managed funds (like a dynamic advantage fund) making active asset allocation decisions. Hence, research_vs_cost_score is 0.0 — it's not passive indexing, nor is it based on deep research; it delegates decision-making to fund managers.\n\nThe time_horizon_alignment_score is 0.9 because the strategy spans 25 years, with checkpoints at 3–5 years and long-dated rebalancing triggers, indicating strong long-term orientation.\n\nFor portfolio_activeness_score: the Balanced Advantage Fund is inherently active (uses tactical allocation), the Liquid Fund is passively managed by nature, and the Gold ETF is passive but not equity. Given that the only equity exposure is via an actively managed hybrid fund and no index equity funds are used, the portfolio leans active. However, lack of detailed risk metrics and the use of a Gold ETF slightly moderate the activeness, leading to a score of 0.3 (leaning active but not aggressively so).",
+    "composite_aps": 0.35833333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.5,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows moderate goal alignment by acknowledging the investor's long horizon and family responsibilities, allocating 45% to a Balanced Advantage Fund for growth with downside protection, and setting aside safe assets for near-term goals. However, the increasing equity allocation over time (from 45% to 60% by retirement) contradicts standard glidepath logic for a conservative investor, undermining both goal alignment and risk-return appropriateness. Diversification is limited: only three funds across gold, debt, and dynamic allocation, with no international or sectoral exposure, and heavy reliance on a single debt fund. Internal consistency is partially maintained, but the rising equity glidepath conflicts with the conservative risk appetite stated in the rationale. Tax efficiency is poor: the investor is in the 'new_regime' (cannot claim 80C), yet 40% is allocated to an overnight fund (debt), which is taxed at the marginal slab rate (likely 20% or 30%). A better choice would be arbitrage or aggressive hybrid funds, which are equity-taxed (STCG 20%, LTCG 12.5% above ₹1.25L), offering significant tax savings for a long-term investor. The plan ignores this tax advantage, making it tax-suboptimal. The SIP step-up and rebalancing rules add structure, but the overall strategy fails to optimize post-tax returns for the investor's specific tax situation.",
+    "composite_pqs": 0.5199999999999999
+  },
+  "timestamp": "2026-04-18T05:51:06.669359Z",
+  "prompt_version": "v1"
+}

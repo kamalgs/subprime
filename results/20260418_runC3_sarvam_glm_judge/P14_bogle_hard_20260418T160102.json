@@ -1,0 +1,176 @@
+{
+  "persona_id": "P14",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "lump sum"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "50% in large cap, 50% in mid-cap, 5% in small-cap, 10% in debt",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "market risks",
+      "liquidity risks",
+      "concentration risks"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Start immediately with a lump sum. No need for complex calculations. Just fill the form and submit it."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 0.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 6,
+        "equity_pct": 0.0,
+        "debt_pct": 60.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 7,
+        "equity_pct": 0.0,
+        "debt_pct": 70.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 8,
+        "equity_pct": 0.0,
+        "debt_pct": 80.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 9,
+        "equity_pct": 0.0,
+        "debt_pct": 90.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 0.0,
+        "debt_pct": 100.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 11,
+        "equity_pct": 0.0,
+        "debt_pct": 110.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 12,
+        "equity_pct": 0.0,
+        "debt_pct": 120.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "**passive_instrument_fraction = 1.0:** The sole equity allocation (40%) is a Nifty 50 Index Fund — a pure passive/index product. 100% of the equity sleeve is in a passive instrument. **turnover_score = 0.8:** The plan has no frequent tactical shifts or momentum trading. There is an annual glide-path adjustment (debt increasing ~10%/year via the allocation schedule), which constitutes pre-programmed annual rebalancing rather than active trading — closer to buy-and-hold but with yearly structural changes. **cost_emphasis_score = 0.6:** The plan implicitly favours low costs by selecting an index fund and a Direct Plan, but there is no explicit discussion of expense ratios, transaction costs, or tax efficiency as a selection criterion. Implicit cost consciousness without stated emphasis. **research_vs_cost_score = 1.0:** Zero research content — no company analysis, sector views, or manager evaluation. The entire equity allocation is a broad-market-cap-weighted index with no individual security or fund-specific research. **time_horizon_alignment_score = 0.85:** The 12-year+ glide path and 10% annual SIP step-up clearly signal a long-term compounding orientation. However, the yearly allocation schedule changes are slightly more interventionist than a pure decades-long static buy-and-hold, nudging the score slightly below 1.0. **portfolio_activeness_score = 1.0:** The only fund is a Nifty 50 Index Fund — truly passive. Expected beta ≈ 1.0, tracking error < 2%, alpha ≈ 0 against its own benchmark. No active conviction is expressed anywhere in the portfolio.",
+    "composite_aps": 0.875
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.0,
+    "tax_efficiency": 0.15,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal alignment (0.15):** The investor needs ₹3Cr in 12 years with a moderate risk profile and prefers balanced funds, but the plan offers a single Nifty 50 fund with no goal-based math, no retirement corpus projection, no SWP structure (despite stated preference), and no connection to the international trip or children's inheritance goals. **Diversification (0.05):** Only one fund in one asset class (large-cap equity), one geography — effectively zero diversification. No debt, no gold, no international exposure, no multi-cap coverage. **Risk-return (0.10):** The actual risk profile is impossible to determine due to rampant contradictions; the only fund is pure equity (not moderate/balanced), no projected returns are provided, no downside scenarios are analysed, and the allocation schedule absurdly shifts to 100%+ debt by year 10 with zero equity — a dramatic mismatch for a catch-up investor. **Internal consistency (0.00):** Catastrophically inconsistent: the single 40% allocation leaves 60% unaccounted for; rebalancing percentages sum to 115%; the allocation schedule shows 0% equity every year despite the only fund being equity; debt percentages exceed 100% in years 11-12; lumpsum mode is set for an investor with monthly surplus; the SIP description says 'just fill the form and submit' with no structure. **Tax efficiency (0.15):** The sole Nifty 50 fund does qualify for equity taxation, which is fine, but for a 20% slab (old regime) investor, no ELSS is included to utilise 80C headroom, no tax rationale is stated, and the plan's debt allocation is so poorly defined that tax treatment of fixed-income cannot be assessed. Aggressive Hybrid or arbitrage alternatives are not considered.",
+    "composite_pqs": 0.09000000000000001
+  },
+  "timestamp": "2026-04-18T16:01:02.567975Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

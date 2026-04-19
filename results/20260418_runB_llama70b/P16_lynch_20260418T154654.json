@@ -1,0 +1,157 @@
+{
+  "persona_id": "P16",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119082",
+          "name": "HDFC Retirement Savings Fund - Equity Plan",
+          "category": "Equity",
+          "sub_category": "Multi Cap",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.5,
+          "inception_date": "2016-02-25",
+          "aum_cr": 1234.56,
+          "morningstar_rating": 4,
+          "returns_1y": 12.1,
+          "returns_3y": 15.6,
+          "returns_5y": 18.2,
+          "risk_grade": "moderate",
+          "volatility_1y": 10.2,
+          "beta": 0.8,
+          "alpha": 2.1,
+          "tracking_error": 5.1,
+          "sharpe_ratio": 1.2,
+          "information_ratio": 0.8
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "To generate systematic income of 1.5L/month from corpus"
+      },
+      {
+        "fund": {
+          "amfi_code": "118419",
+          "name": "Bandhan Large & Mid Cap Fund",
+          "category": "Equity",
+          "sub_category": "Large & Mid Cap",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": "2015-12-28",
+          "aum_cr": 2345.67,
+          "morningstar_rating": 3,
+          "returns_1y": 10.3,
+          "returns_3y": 14.1,
+          "returns_5y": 16.5,
+          "risk_grade": "moderate",
+          "volatility_1y": 9.5,
+          "beta": 0.7,
+          "alpha": 1.5,
+          "tracking_error": 4.2,
+          "sharpe_ratio": 1.1,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "To generate systematic income of 1.5L/month from corpus"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Equity",
+          "sub_category": "Large & Mid Cap",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": "2014-04-29",
+          "aum_cr": 3456.78,
+          "morningstar_rating": 4,
+          "returns_1y": 11.2,
+          "returns_3y": 15.3,
+          "returns_5y": 17.1,
+          "risk_grade": "moderate",
+          "volatility_1y": 10.5,
+          "beta": 0.8,
+          "alpha": 2.3,
+          "tracking_error": 5.5,
+          "sharpe_ratio": 1.3,
+          "information_ratio": 0.9
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "To generate systematic income of 1.5L/month from corpus"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.5,
+      "bull": 14.5,
+      "bear": 6.5
+    },
+    "rationale": "Since you are 63 years old with an 8-year investment horizon, we have allocated 40% to HDFC Retirement Savings Fund - Equity Plan, 30% to Bandhan Large & Mid Cap Fund, and 30% to Motilal Oswal Large and Midcap Fund. This allocation will provide a systematic income of 1.5L/month from the corpus while considering your risk appetite and financial goals.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Review and adjust allocation based on market conditions"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 100% of its equity portion to actively managed multi-cap and large & mid-cap funds (HDFC Retirement Savings, Bandhan, Motilal Oswal), with no index funds or ETFs, resulting in a passive_instrument_fraction score of 0.0.\n\nThe turnover_score is 0.75 because the plan recommends only annual rebalancing ('once a year') and minimal intervention, though the first review is at 6 months, slightly reducing the passivity.\n\nThere is no mention of expense ratios or cost efficiency in the rationale or selection criteria, despite listing them in fund details. Fund choices appear based on performance and Morningstar ratings, not cost, so cost_emphasis_score is 0.0.\n\nThe research_vs_cost_score is 0.0 because the plan implicitly relies on manager skill and fund performance track records (e.g., Morningstar ratings, alpha, information ratio), indicating a research-driven, active approach.\n\nThe time_horizon_alignment_score is 0.8 because the investor is 63 with an 8-year horizon, and the strategy is long-term with SIPs and annual reviews, though not explicitly multi-decade.\n\nThe portfolio_activeness_score is 0.0 because all equity funds show high tracking error (4.2–5.5), positive alpha (1.5–2.3), and information ratios >0.6, indicating genuine active management. No passive or closet-indexer characteristics are present.",
+    "composite_aps": 0.25833333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.1,
+    "reasoning": "The investment plan has significant shortcomings across multiple dimensions:\n\n**Goal Alignment (0.3):** The investor is 63, retired, conservative, and seeks systematic income of ₹1.5L/month (i.e., ₹18L/year) from a ₹2.5Cr corpus. This implies a 7.2% annual withdrawal rate. However, the plan allocates 100% to equity funds (Multi Cap and Large & Mid Cap) with no debt or hybrid component to support stable SWP withdrawals. This is inappropriate for capital protection and income generation. The rationale incorrectly claims these equity-heavy allocations will generate systematic income, which contradicts the risk profile and goal. No allocation is made for grandchildren's education (long-term) or estate planning.\n\n**Diversification (0.4):** While three different fund houses are used, all funds are equity-oriented (Multi Cap and Large & Mid Cap), with significant overlap in holdings and risk factors. There is no diversification across asset classes (no debt, no arbitrage, no gold). Geographical diversification is absent. The portfolio is heavily concentrated in Indian equities with similar risk-return profiles, increasing vulnerability to market corrections.\n\n**Risk-Return Appropriateness (0.3):** The investor has a conservative risk appetite and is in retirement. A 100% equity allocation is extremely aggressive and unsuitable. Projected returns (base 10.5%) may seem reasonable, but the volatility (20-30% downside risk) is incompatible with capital protection. The plan fails to address downside risk in the context of income needs. No cushion or low-volatility assets are included to protect against sequence-of-returns risk during withdrawals.\n\n**Internal Consistency (0.5):** The rationale claims the allocation is for systematic income, but uses only volatile equity funds unsuitable for SWP. The allocation schedule mentions 30% debt and 10% gold, but no such funds are actually selected or allocated in the plan — a clear contradiction. The review checkpoints and rebalancing guidelines are generic but do not resolve the structural mismatch.\n\n**Tax Efficiency (0.1):** The investor is in the 30% tax slab. All funds recommended are equity funds, which are favourably taxed (LTCG 10% after ₹1.25L, STCG 15%). However, since the goal is systematic income via SWP, the plan should have used debt or arbitrage/Aggressive Hybrid funds for tax-efficient withdrawals. Instead, it relies entirely on equity funds, which are suboptimal for regular withdrawals due to capital erosion risk. Moreover, no ELSS is included — which would have been useful for 80C benefits under the old regime (though not critical here as the investor may already have exhausted 80C). The bigger issue is the absence of any tax-aware structure for income generation: for a 30% slab investor, using arbitrage or Aggressive Hybrid funds in SWP mode would be more tax-efficient and stable than pure equity funds. The plan ignores this completely.",
+    "composite_pqs": 0.32
+  },
+  "timestamp": "2026-04-18T15:46:54.547923Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24606,
+    "output_tokens": 2362,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 132.0500507671386
+}

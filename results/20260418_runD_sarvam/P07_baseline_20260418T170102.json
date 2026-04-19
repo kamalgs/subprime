@@ -1,0 +1,79 @@
+{
+  "persona_id": "P07",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.1,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap), which has a high information ratio (1.05), indicating strong active management. Since there is no mention of passive/index funds in the equity allocation, the passive_instrument_fraction is 0.0. No rebalancing guidelines or review checkpoints are specified, suggesting a static, long-term hold strategy, leading to high scores on turnover_score (1.0) and time_horizon_alignment_score (1.0). There is no discussion of costs, so cost_emphasis_score is 0.0. The rationale mentions only 'direct' without any cost or research justification, but the use of an actively managed fund with high information ratio implies reliance on fund manager skill rather than market exposure, resulting in a low research_vs_cost_score (0.0). The portfolio_activeness_score is 0.0 because the sole equity fund shows characteristics of genuine active management (high information ratio), and no passive instruments are used. Overall, the plan reflects a purely active equity approach with a long-term, buy-and-hold structure.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan shows very poor quality across most dimensions. \n\n- **goal_alignment (0.2)**: The investor has multiple goals (5Cr in 10 years, apartment in 3 years, FI by 45), but the plan offers only a single large-cap fund allocation with no segmentation for different horizons or purposes. No rationale ties the allocation to goal timelines or amounts.\n\n- **diversification (0.1)**: The plan allocates 40% to a single large-cap fund with no exposure to mid/small caps, debt, or international assets — despite the investor's stated interest in mid/small caps and aggressive risk appetite. Extremely concentrated and inadequate for long-term wealth creation.\n\n- **risk_return_appropriateness (0.3)**: While the investor is aggressive, allocating only 40% to equities (and only large-cap at that) is far too conservative. No justification for the low equity exposure. Projected returns or risk scenarios are missing.\n\n- **internal_consistency (0.4)**: The plan mentions 'direct' as rationale but provides no coherent strategy. Allocation percentages don't sum to 100%, lumpsum amount is listed as 0.1 (ambiguous units), and no SIP amounts despite high monthly surplus. Many fields are empty, indicating incompleteness.\n\n- **tax_efficiency (0.2)**: Investor is in 30% tax slab, yet the plan uses a regular large-cap fund (likely taxed as equity, which is good), but ignores ELSS for 80C benefits. No mention of tax strategy, and no use of arbitrage or hybrid funds for better post-tax efficiency. Fails to optimize for high slab.\n\nOverall, the plan is incomplete, poorly diversified, misaligned with goals, and tax-inefficient.",
+    "composite_pqs": 0.24
+  },
+  "timestamp": "2026-04-18T17:01:02.752618Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 59261,
+    "output_tokens": 1375,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 0
+  },
+  "elapsed_s": 52.8994240090251
+}

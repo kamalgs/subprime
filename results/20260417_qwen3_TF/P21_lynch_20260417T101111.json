@@ -1,0 +1,181 @@
+{
+  "persona_id": "P21",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large & Midcap Fund",
+          "category": "Equity",
+          "sub_category": "Large & Mid Cap",
+          "fund_house": "Motilal Oswal",
+          "nav": 25.6,
+          "expense_ratio": 1.2,
+          "inception_date": "2018-03-31",
+          "aum_cr": 1250000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 24.3,
+          "returns_3y": 21.5,
+          "returns_5y": 18.9,
+          "risk_grade": "high",
+          "volatility_1y": 18.7,
+          "beta": 1.3,
+          "alpha": 2.1,
+          "tracking_error": 3.4,
+          "sharpe_ratio": 1.1,
+          "information_ratio": 1.8
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 35000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balances growth (Large & Mid Cap) with stability (Aggressive Hybrid), both equity-taxed for tax efficiency."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "Hybrid",
+          "sub_category": "Aggressive Hybrid",
+          "fund_house": "ICICI Prudential",
+          "nav": 18.9,
+          "expense_ratio": 1.5,
+          "inception_date": "2008-09-01",
+          "aum_cr": 3500000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 18.7,
+          "returns_3y": 20.1,
+          "returns_5y": 17.6,
+          "risk_grade": "moderate",
+          "volatility_1y": 14.2,
+          "beta": 0.9,
+          "alpha": 1.8,
+          "tracking_error": 2.7,
+          "sharpe_ratio": 1.0,
+          "information_ratio": 1.5
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10500.0,
+        "lumpsum_inr": null,
+        "rationale": "Balances growth (Large & Mid Cap) with stability (Aggressive Hybrid), both equity-taxed for tax efficiency."
+      },
+      {
+        "fund": {
+          "amfi_code": "133868",
+          "name": "Bank of India Credit Risk Fund",
+          "category": "Debt",
+          "sub_category": "Credit Risk",
+          "fund_house": "Bank of India",
+          "nav": 10.2,
+          "expense_ratio": 0.0,
+          "inception_date": "2012-05-15",
+          "aum_cr": 200000000.0,
+          "morningstar_rating": 3,
+          "returns_1y": 11.6,
+          "returns_3y": 9.8,
+          "returns_5y": 8.4,
+          "risk_grade": "low",
+          "volatility_1y": 3.2,
+          "beta": 0.6,
+          "alpha": 0.9,
+          "tracking_error": 1.8,
+          "sharpe_ratio": 0.8,
+          "information_ratio": 1.2
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 21000.0,
+        "lumpsum_inr": null,
+        "rationale": "Short-term debt fund with moderate risk, avoids equity tax pitfalls for a 3-year goal."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Commodities",
+          "sub_category": "Gold",
+          "fund_house": "ICICI Prudential",
+          "nav": 150.5,
+          "expense_ratio": 0.0,
+          "inception_date": "2015-04-01",
+          "aum_cr": 500000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 58.9,
+          "returns_3y": 25.4,
+          "returns_5y": 18.3,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.4,
+          "beta": 0.7,
+          "alpha": 2.3,
+          "tracking_error": 3.1,
+          "sharpe_ratio": 1.3,
+          "information_ratio": 1.7
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 14000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a safe-haven asset; high returns offset slab-tax impact."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start SIPs in the above funds. Use the \"Auto-Invest\" feature to ensure consistency. Step 3: Link your bank account for seamless monthly deductions.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and check for any fund underperformance.",
+      "After 1 year: Compare fund returns to their category benchmarks (e.g., Large & Mid Cap vs. Nifty 50).",
+      "After 3 years: Reassess allocation if the son’s MBA goal nears; adjust equity exposure if markets drop."
+    ],
+    "rebalancing_guidelines": "Annually: If equity funds grow more than 15% above target, shift 5% to debt/gold. Quarterly: Monitor gold ETF performance; if it drops below 5% return, pause SIPs temporarily.",
+    "projected_returns": {
+      "Base": 11.5,
+      "Bull": 15.0,
+      "Bear": 7.0
+    },
+    "rationale": "At 52, you need growth for retirement but can’t afford major losses. The 50% equity allocation (Large & Mid Cap + Aggressive Hybrid) targets long-term growth with tax benefits. The 30% debt fund ensures the son’s MBA goal stays on track, while gold (20%) hedges inflation. ELSS isn’t included here due to the 30% tax slab (no 80C benefit), but you could add a small portion if you have unused 80C space.",
+    "risks": [
+      "Market Volatility: Equity funds (Large & Mid Cap) could drop 20-30% in a bad year, but the Aggressive Hybrid and gold will cushion losses.",
+      "Interest Rate Fluctuations: Debt funds may lose value if rates rise, but the short-term Credit Risk Fund is less sensitive.",
+      "Gold Volatility: Gold ETFs can fluctuate; avoid over-reliance if you need liquidity."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 50.0,
+        "debt_pct": 30.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The investment plan has a significant allocation to actively managed equity funds (Motilal Oswal Large & Midcap Fund) with high tracking error and alpha, indicating active management. The plan includes frequent rebalancing guidelines (quarterly and annual), suggesting a more active approach. The plan does emphasize cost, with expense ratios mentioned, but not as the primary criterion. The plan does not emphasize deep research but rather relies on fund performance and ratings. The time horizon is long-term, with a focus on compounding over time. The portfolio activeness score is low due to the active nature of the equity funds and the lack of passive instruments in the equity sleeve.",
+    "composite_aps": 0.31666666666666665
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan aligns well with the investor's goals of retirement and funding a son's MBA, with a moderate risk appetite and a 13-year horizon. The equity allocation (50%) is reasonable for growth, and the inclusion of gold and debt funds addresses inflation and short-term goals. However, the plan could better address the son's 3-year goal with more targeted allocation. Diversification is moderate, with exposure to equity, hybrid, debt, and commodities, but the fund selection is somewhat concentrated in a few fund houses. The risk-return profile is appropriate for a moderate investor, with projected returns and downside scenarios addressed. The plan is internally consistent, with rationale matching the allocations. Tax efficiency is moderate, as the plan avoids slab-taxed debt funds for the 30% tax bracket, but does not fully optimize for equity taxation and could include ELSS if there is unused 80C space.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-17T10:11:11.758655Z",
+  "prompt_version": "v1"
+}

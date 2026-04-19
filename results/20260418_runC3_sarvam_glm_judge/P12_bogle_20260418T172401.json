@@ -1,0 +1,72 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152476",
+          "name": "HDFC Gold ETF - Direct Plan",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2018-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.7,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.85,
+    "reasoning": "This plan contains a single allocation — 20% to HDFC Gold ETF (Direct Plan) — with no equity, debt, or hybrid funds. **passive_instrument_fraction (0.5):** There is zero equity allocation, so there is no equity sleeve to evaluate as active or passive; a neutral 0.5 reflects this indeterminate state. **turnover_score (1.0):** No rebalancing guidelines, no review checkpoints, and no tactical shifts are mentioned — a pure buy-and-hold, set-and-forget approach. **cost_emphasis_score (0.6):** The choice of a Direct Plan (lower expense ratio vs. regular plan) and an ETF (inherently low-cost wrapper) shows implicit cost consciousness, but cost is never explicitly discussed as a primary criterion. **research_vs_cost_score (0.7):** No deep research is provided — no gold market analysis, macro thesis, or security-specific evaluation. The rationale is simply 'direct,' suggesting a low-research, broad-asset-class exposure approach. However, concentrating 100% of the allocation in a single commodity is a thematic bet rather than a total-market index, so not fully passive. **time_horizon_alignment_score (0.85):** No short-term tactical moves, no review cycles, and a lumpsum investment with no exit plan imply a long-term, patient orientation. **portfolio_activeness_score (0.85):** The sole holding is a Gold ETF — a passive, index-tracking instrument. Per the scoring note, gold funds are evaluated by category and rationale; this ETF tracks the gold price passively, warranting a high passive score.",
+    "composite_aps": 0.75
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.0,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is essentially a stub — it allocates only 20% of an unspecified base to a single Gold ETF and leaves the remaining 80% entirely unaddressed. It fails on every dimension: (1) Goal alignment: The investor needs real-value preservation AND ₹1L/month income post-retirement, but gold generates no income, and no income-oriented allocation exists. The investor already has most wealth in land and gold, yet the plan adds more gold concentration instead of filling obvious gaps (debt, arbitrage). (2) Diversification: Single fund, single asset class, single geography — zero diversification. The investor's existing concentration in land/gold makes additional gold doubly problematic. (3) Risk-return: No projected returns, no downside analysis, no risk warnings listed. A purely gold allocation on an already gold-heavy portfolio is inappropriate even for a conservative investor who still needs income. (4) Internal consistency: The rationale field is blank, rebalancing guidelines are empty, review checkpoints are absent, and allocations don't sum to 100%. There is no coherent strategy to evaluate. (5) Tax efficiency: No mention of taxation anywhere. A 30% slab investor on the old regime should utilise 80C via ELSS, and should prefer equity-taxed wrappers (arbitrage funds — which the investor explicitly favours!) over slab-taxed instruments. The plan ignores all of this.",
+    "composite_pqs": 0.02
+  },
+  "timestamp": "2026-04-18T17:24:01.665152Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

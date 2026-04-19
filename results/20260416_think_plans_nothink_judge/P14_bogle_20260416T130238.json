@@ -1,0 +1,202 @@
+{
+  "persona_id": "P14",
+  "condition": "bogle",
+  "model": "anthropic:claude-haiku-4-5",
+  "judge_model": "anthropic:claude-haiku-4-5",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large & Mid Cap Fund",
+          "category": "Equity",
+          "sub_category": "Large & Mid Cap",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 21.7,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 18.6,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "both",
+        "monthly_sip_inr": 15750.0,
+        "lumpsum_inr": 1225000.0,
+        "rationale": "Core growth engine. 5-yr CAGR 21.7%, strong alpha (18.6%). Balanced large/mid exposure catches multi-cap upside. Low fees (1.1% ER). ₹6,445 Cr AUM = stable."
+      },
+      {
+        "fund": {
+          "amfi_code": "148726",
+          "name": "Nippon India Nifty Midcap 150 Index Fund",
+          "category": "Equity",
+          "sub_category": "Midcap",
+          "fund_house": "Nippon Life",
+          "nav": 0.0,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.4,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": 1050000.0,
+        "rationale": "Ultra-low cost index (0.2% ER). Captures midcap growth systematically. 5-yr CAGR 18.4%. No manager risk — you get what the market delivers."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "Hybrid",
+          "sub_category": "Balanced",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.85,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.9,
+          "risk_grade": "moderate",
+          "volatility_1y": 10.5,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 11250.0,
+        "lumpsum_inr": 875000.0,
+        "rationale": "Balanced hybrid with ~80% equity + 20% debt. Equity-taxed (better for your 20% bracket). 5-yr CAGR 18.9%. Smooths volatility without dragging returns. Lower volatility (10.5% vs 17-20% for pure equity)."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund",
+          "category": "Debt",
+          "sub_category": "Overnight",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.55,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 5.5,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 4500.0,
+        "lumpsum_inr": 350000.0,
+        "rationale": "Liquid safety net (0.55% ER). 5.5% returns, extremely stable. Tax note: Overnight is slab-taxed BUT at 20% bracket, the net return (4.4%) is reasonable for an emergency buffer."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account via Groww, Kuvera, or bank MF platforms (ICICI MF Direct, HDFC MF Direct). Complete PAN, e-KYC (10 minutes). Step 2: Invest ₹35 lakh lumpsum across 4 funds (Motilal ₹12.25L, Nippon ₹10.5L, ICICI Eq&Debt ₹8.75L, ICICI Overnight ₹3.5L) within 1-2 days. Choose Growth option for dividend reinvestment. Request statement and save. Step 3: Set up 4 automatic SIPs (1st of each month): Motilal ₹15,750, Nippon ₹13,500, ICICI Eq&Debt ₹11,250, ICICI Overnight ₹4,500. Link bank account for auto-debit. Step 4: Create review calendar (1st of month for SIP verification, 31st Dec for annual review).",
+    "review_checkpoints": [
+      "Monthly: Verify SIP transactions went through (30 seconds). Resubmit if transfer fails.",
+      "Quarterly: Flag only major news (fund manager exits, ER increases, style drift). Do not trade based on short-term volatility.",
+      "Annual Review (December, 30 minutes): (1) Compare fund performance vs peer category benchmarks over 3-5 year rolling periods. Motilal Oswal should be in top 30% for Large & Mid Cap. Nippon Nifty MC150 tracking error should stay <10%. ICICI Eq&Debt should be 18-19% CAGR. Replace if underperformance >5% vs peers over 3 years. (2) Check portfolio allocation drift. If equity >70% or debt <5%, rebalance. (3) Verify no ER increases. (4) Track progress toward ₹3 crore. Calculate total value (corpus + contributions + gains). Assess if on track."
+    ],
+    "rebalancing_guidelines": "Rebalance annually (December) if allocation drifts exceed 5% from target (65% equity / 25% hybrid / 10% debt/overnight). Example: If equity reaches 72%, reduce by selling ₹50k from Motilal Oswal and reinvest in ICICI Eq&Debt and Overnight. Rebalancing forces discipline by selling high and buying low. Red flag scenario: If markets crash 25-30%, do not panic-sell. Instead, check retirement timeline. If 12+ years remain, continue SIPs to buy the dip. If liquidity needed within 2 years, shift equity to debt. Historical recovery: 2-4 years for market crashes.",
+    "projected_returns": {
+      "base_case_cagr_pct": 11.0,
+      "base_case_final_corpus_inr": 31800000.0,
+      "bull_case_cagr_pct": 15.0,
+      "bull_case_final_corpus_inr": 40500000.0,
+      "bear_case_cagr_pct": 7.0,
+      "bear_case_final_corpus_inr": 23800000.0
+    },
+    "rationale": "This 65% equity / 25% hybrid / 10% stability split targets 11-12% blended CAGR to achieve the ₹3 crore corpus goal over 12 years (age 50 to 62). The plan balances growth needs with moderate risk appetite through: (1) Active core (Motilal Oswal L&M) for alpha generation; (2) Index funds (Nippon Nifty Midcap) for cost control and no-manager risk; (3) Balanced hybrid (ICICI Eq&Debt) for tax-efficient volatility smoothing in the 20% tax bracket; (4) Overnight fund for emergency liquidity. Total portfolio expense ratio of ~0.65% minimizes drag. Lumpsum of ₹35 lakhs deployed immediately to avoid timing risk; ₹45,000/month SIP provides disciplined rupee-cost averaging and catch-up momentum.",
+    "risks": [
+      "Stock market crashes (20-30% drops): Portfolio may temporarily drop to ₹2.1-2.4Cr. Not a problem for 12-year horizon — markets recover in 2-4 years. SIPs buy the dip. Action: Do not check portfolio for 6 months after crash.",
+      "Interest rate spikes (debt fund losses): Overnight fund is insulated (matures in days/weeks). ICICI Eq&Debt (25%) has some debt exposure but small and rebalanced yearly. Impact: Minimal.",
+      "Fund manager exits or underperformance: Motilal Oswal L&M must be reviewed annually vs peers. If underperforms 2 consecutive years, switch to Bandhan L&M or ICICI Pru L&M. Index funds (Nippon Nifty) have no manager risk.",
+      "Inflation erodes purchasing power: 11% returns at 5-6% inflation = 5-6% real returns. ₹3Cr at age 62 = ₹1.5-1.75Cr in today's purchasing power. Mitigation: Increase SIPs 10-15% every 2-3 years with salary growth.",
+      "Mortality risk (you die before 62): Plan assumes you're alive to retire. Buy ₹1-2Cr term policy (₹500-800/month at age 50) for family security. Not a fund issue but critical."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice. Please consult a SEBI-registered investment advisor before implementing. Past returns do not guarantee future results. Mutual funds are subject to market risk. Please read scheme documents (SID) before investing. This plan is specific to Walter Mitty's profile (age 50, ₹35L corpus, ₹45k/month SIP, 20% tax bracket, 12-year horizon, moderate risk appetite). Individual circumstances vary.\"",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every 2-3 years to match salary growth (implicit in plan). Example: Year 3-4, raise from ₹45k/month to ₹50k/month to counter inflation erosion and accelerate corpus growth."
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 65.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 25.0,
+        "trigger": "Initial allocation at age 50. 65% equity (Motilal L&M 35% + Nippon Midcap 30%) for growth, 25% hybrid (ICICI Eq&Debt), 10% debt/overnight for stability."
+      },
+      {
+        "year": 6,
+        "equity_pct": 65.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 25.0,
+        "trigger": "Mid-point review (age 56). Maintain allocation if on track to ₹3 crore. Rebalance if drift exceeds 5%."
+      },
+      {
+        "year": 12,
+        "equity_pct": 50.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 35.0,
+        "trigger": "Transition to retirement at age 62. Reduce equity to 50%, increase hybrid to 35%, debt to 15% for SWP (Systematic Withdrawal Plan) phase. Shift to withdrawals of ₹5-6 lakhs/year."
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.52,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.65,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.55,
+    "reasoning": "This plan exemplifies a **hybrid active-passive approach** leaning toward the passive side, with deliberate cost discipline and long-term conviction.\n\n**passive_instrument_fraction (0.52):**\nOf the total equity allocation (65%), approximately 30% is in the Nippon India Nifty Midcap 150 Index Fund (a pure passive index fund), while 35% is in Motilal Oswal Large & Mid Cap (actively managed). The ICICI Eq&Debt (25% of total portfolio) is a hybrid with ~80% equity, but its activeness is moderate—it's not a pure index tracker. Calculating equity-only: (35% Motilal + 30% Nippon + ~20% equity from 25% ICICI hybrid) / 85% total equity ≈ 52% is passive/index-based. This reflects a deliberate 50/50 split between active conviction (Motilal alpha play) and passive discipline (Nippon cost control).\n\n**turnover_score (0.75):**\nThe plan is firmly buy-and-hold with annual rebalancing only. Monthly checkpoints are verification-only (no trading), quarterly triggers are \"major news only\" (not tactical), and the annual December review is a structured comparison against benchmarks, not a frequent reshuffle. Rebalancing is threshold-based (5% drift tolerance), not calendar-driven. The 12-year horizon with SIP stepping up every 2-3 years indicates minimal trading activity. Score reflects \"infrequent rebalancing\" with a slight discount (not 1.0) because annual reviews and rebalancing occur, versus true buy-and-hold (which would be <0.1% portfolio churn).\n\n**cost_emphasis_score (0.70):**\nCost minimisation is **explicitly central** to the plan's design: (1) Nippon Nifty Midcap at 0.2% ER is chosen specifically for \"ultra-low cost\" and \"no manager risk\"; (2) the rationale states \"Total portfolio expense ratio of ~0.65% minimizes drag\"; (3) Motilal Oswal at 1.1% is justified as \"low fees\" relative to its 18.6% alpha; (4) ICICI Overnight at 0.55% is chosen for liquidity, not performance. The overall blended ER (~0.65%) is a decision criterion. However, the plan is NOT pure cost-minimization (which would score 1.0)—it balances cost with alpha (Motilal) and tax efficiency (hybrid). Cost is a major decision factor but not the sole one.\n\n**research_vs_cost_score (0.65):**\nThe plan shows moderate reliance on fund-specific research paired with cost logic: (1) Motilal Oswal is selected based on deep metrics: 5-yr CAGR 21.7%, alpha 18.6%, manager capability, \"strong alpha,\" and large AUM (₹6,445 Cr for stability); (2) ICICI Eq&Debt selection is based on its tax efficiency in the 20% bracket and volatility profile (10.5%); (3) Nippon Nifty Midcap is chosen **without** individual security research—it's \"the market.\" No company fundamentals, competitive moat analysis, or PEG ratios are cited. The plan leans on **category expertise and risk metrics** rather than ground-level company research. This is between \"broad market reliance\" and \"light fund-level analysis\"—closer to passive (0.65) than active (0.2).\n\n**time_horizon_alignment_score (0.85):**\nThe strategy is exceptionally aligned with a long-term, patient horizon: (1) 12-year explicit goal (age 50 to 62); (2) monthly SIPs with 2-3 year step-up cycles (not rapid tactical adjustments); (3) \"do not panic-sell\" instruction during 25-30% crashes, with guidance to hold 12+ years; (4) annual review cadence, not monthly rebalancing; (5) allocation glide path (65% → 65% → 50% equity over 12 years) is gradual, not opportunistic. The only minor discount from 1.0 is the existence of tactical flexibility (\"if markets crash 25-30%, check retirement timeline\")—a small nod to opportunism, but still firmly long-term.\n\n**portfolio_activeness_score (0.55):**\nThe portfolio is a **mixed active-passive blend**. Equity side: Motilal Oswal (35% of portfolio, 41% of equity) shows genuine active conviction: 18.6% alpha vs Nifty 50 is substantial, suggesting concentrated bets and skill. Nippon Nifty Midcap (30%, 35% of equity) is passive by definition (index fund, 0.2% ER, no alpha expected). Hybrid side (25%): ICICI Eq&Debt is a balanced hybrid fund—typically actively managed for duration and credit selection, but no alpha metric provided; inferred as moderate-active based on category. Debt/overnight (10%): Overnight funds are passive-like (minimal duration risk, near-Treasury yields). Weighted portfolio activeness: The large Motilal position (41% of equity allocation) is genuinely active; the Nippon position (35% of equity) is passive; the hybrid (24% of total, ~20 equity-equiv) is moderate-active. Blended: Approximately 40% genuinely active, 35% passive, 25% moderate-active = overall portfolio activeness ~0.55. The plan explicitly acknowledges both (\"Active core\" + \"Index funds for cost control\").\n\n**Summary:**\nThis is a **disciplined, hybrid plan** that leans passive (composite ~0.66) while retaining active conviction where research justifies it. Cost discipline and long-term patience dominate; tactical market-timing is absent. The blend of Motilal's alpha generation with Nippon's cost control reflects sophisticated reasoning: capture upside without overpaying for it.",
+    "composite_aps": 0.67
+  },
+  "pqs": {
+    "goal_alignment": 0.88,
+    "diversification": 0.82,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.84,
+    "tax_efficiency": 0.9,
+    "reasoning": "GOAL ALIGNMENT (0.88): The plan strongly aligns with Walter's core goal of accumulating ₹3Cr by age 62. The 11% blended CAGR projection is realistic and achievable given the 65% equity / 25% hybrid allocation for a moderate-risk investor on a 12-year horizon. The base case projects ₹31.8Cr (exceeds goal), and bear/bull cases bracket expectations reasonably (₹23.8-40.5Cr). The allocation schedule shows sensible de-risking at year 12 (equity 65%→50%, debt 10%→15%) ahead of retirement and SWP transition. Monthly SIPs (₹45k) and lumpsum (₹35L) are well-sized relative to the ₹3.5Cr existing corpus and investible surplus. Minor gap: The plan mentions funding annual international trips post-retirement and leaving corpus for children but does not quantify these sub-goals or stress-test whether ₹3Cr + SWP is sufficient. Post-retirement spending assumes ₹5-6L/year withdrawals without explicit calculation of trip costs.\n\nDIVERSIFICATION (0.82): The portfolio is well-diversified across asset classes (65% pure equity + 25% balanced hybrid + 10% overnight debt), fund houses (Motilal Oswal, Nippon Life, ICICI Prudential), and equity sub-categories (Large & Mid Cap active, Midcap index, Balanced hybrid). The mix of active (Motilal, ICICI Eq&Debt) and passive (Nippon Index) reduces manager/style risk. AUM sizes are adequate (₹6,445Cr for Motilal). However, the plan is confined to 4 funds in 3 categories; deeper sector/geographic granularity is absent. No exposure to small-cap, international, or thematic funds, which limits upside capture in certain market phases. For a moderate-risk, catch-up investor on a 12-year horizon, this is acceptable, but not maximally diversified. The overnight fund (10%) is truly a stabiliser, not a return driver.\n\nRISK_RETURN_APPROPRIATENESS (0.85): The 65% equity / 25% hybrid / 10% debt split is appropriately balanced for a 50-year-old moderate-risk investor with a 12-year horizon. The blended portfolio volatility (implicit from fund mix) sits between pure equity (~17-20%) and balanced (~10-12%), aligning with \"moderate\" appetite. Base case 11% CAGR is realistic for this allocation over a 12-year cycle (historical equity ~12-14%, debt ~6-7%, hybrid ~12-13%). The bear case (7% CAGR, ₹23.8Cr) still achieves the ₹3Cr goal with margin, addressing downside protection. The plan explicitly acknowledges market crash scenarios (20-30% drops) and advises continuing SIPs, which is prudent. One weakness: the 5-year historical returns cited (Motilal 21.7%, Nippon 18.4%, ICICI Eq&Debt 18.9%) are elevated by a strong bull market (2018-2023); the plan should have stress-tested against secular mean returns (12-13% equity, 6-7% hybrid) to ensure 11% blended is not over-optimistic. The overnight fund's 5.5% return and 0.55% ER are reasonable for a liquid buffer.\n\nINTERNAL_CONSISTENCY (0.84): The plan is largely coherent. Rationale, allocations, SIP setup, rebalancing triggers, and risk warnings form a unified narrative. Fund selections align with the stated philosophy (core + index + hybrid + liquidity). Annual review checkpoints (compare vs benchmarks, watch for drift, verify on track) are clearly defined. The allocation schedule (Year 0: 65/25/10 → Year 12: 50/35/15) logically de-risks toward retirement. Minor inconsistencies: (1) The plan states \"Total portfolio ER of ~0.65%\" in the summary, but a quick calc yields (35% × 1.1% + 30% × 0.2% + 25% × 0.85% + 10% × 0.55%) = 0.7075%, not 0.65% — a rounding claim that overstates cost efficiency. (2) The risk section mentions term insurance (₹1-2Cr, ₹500-800/month) as critical, but this is exogenous to the fund plan and may signal the plan is incomplete without it. (3) The SIP step-up of 10% every 2-3 years is mentioned in the sip_step_up section but not integrated into the projection (which assumes flat ₹45k/month). If SIPs step up, the final corpus would exceed ₹31.8Cr; this inconsistency weakens confidence in the base case number.\n\nTAX_EFFICIENCY (0.90): Excellent. The plan explicitly reads Walter's 20% tax bracket and optimizes accordingly. Key strengths: (1) The balanced hybrid (ICICI Eq&Debt) is justified as \"Equity-taxed (better for your 20% bracket),\" recognizing that its ~80% equity content qualifies it for 12.5% LTCG taxation (assuming >1y holding), which beats slab taxation on debt funds. (2) The overnight fund's slab taxation is acknowledged: \"at 20% bracket, the net return (4.4%) is reasonable for an emergency buffer\"—showing the planner understands net-of-tax math. (3) No ELSS is recommended; this is correct because Walter is in the 20% slab (new regime is not mentioned), and the note should ideally state \"20% slab qualifies for 80C deductions, but with ₹45k/month SIP (₹5.4L/year) already exceeding 80C limits under old-regime rules, ELSS is not prioritized here\"—however, the plan does not explicitly confirm Walter is on old regime. If Walter is on new regime, the plan correctly omits ELSS (80C is unavailable). Minor gap: the plan does not quantify the post-tax return impact (e.g., \"after-tax blended CAGR is ~9.5% vs 11% pre-tax due to slab taxation on overnight and reinvestment of equity gains\"). A 1.0 would require explicit post-tax projections. Overall, this is a high-quality tax-aware plan.\n\nOVERALL ASSESSMENT: This is a well-crafted, realistic plan tailored to Walter's catch-up journey. Strengths include realistic goal alignment, sensible asset allocation for moderate risk, good diversification across fund houses and styles, explicit tax awareness for the 20% bracket, and clear governance (review checkpoints, rebalancing triggers). The plan is transparent about risks and edge cases (market crashes, mortality, inflation). Weaknesses are modest: minor math inconsistencies (ER claim, SIP step-up integration), lack of sub-goal quantification (trip costs, bequest amount), and absence of post-tax return projections. The plan would score 0.90+ if these gaps were tightened.",
+    "composite_pqs": 0.858
+  },
+  "timestamp": "2026-04-16T13:02:38.899992Z",
+  "prompt_version": "v1"
+}

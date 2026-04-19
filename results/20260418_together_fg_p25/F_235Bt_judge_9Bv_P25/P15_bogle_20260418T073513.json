@@ -1,0 +1,141 @@
+{
+  "persona_id": "P15",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "both",
+        "monthly_sip_inr": 25000.0,
+        "lumpsum_inr": 4000000.0,
+        "rationale": "Balanced hybrid fund with 65%+ equity exposure, so gains are taxed at 12.5% after 1 year (not at 30% slab). This provides equity growth with lower volatility. ICICI is a stable fund house with consistent 5-year returns. Matches your conservative risk appetite and need for stable growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 6.28,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 2400000.0,
+        "rationale": "Overnight fund is slab-taxed, but we use it here for capital protection and liquidity. However, for a 30% slab investor, this gives only ~4.4% post-tax. We keep allocation limited and plan to shift to arbitrage fund later for better tax efficiency. Used now for stability and short-term needs like daughter's wedding."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.33,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 1600000.0,
+        "rationale": "Gold acts as a hedge against inflation and market shocks. This ETF tracks physical gold and is easy to buy/sell. Taxed at slab rate, but gold has delivered strong long-term returns. 20% allocation helps diversify and protect wealth, especially important as you want to preserve family wealth."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera.\nStep 2: Transfer ₹80 lakh existing corpus.\nStep 3: Allocate ₹40 lakh to ICICI Equity & Debt Fund, ₹24 lakh to ICICI Overnight Fund, ₹16 lakh to ICICI Gold ETF.\nStep 4: Start a monthly SIP of ₹25,000 in ICICI Equity & Debt Fund.\nStep 5: For future lump sums, split 50% to Equity & Debt, 30% to Overnight, 20% to Gold.",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running and fund performance is in line with category.",
+      "After 1 year: Review returns. If any fund underperforms its category for 2+ quarters, consider switching.",
+      "Before daughter's wedding (Year 4): Shift ₹25 lakh from Overnight and Equity & Debt to liquid fund for safekeeping."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If any category moves more than 5% from target (e.g., equity grows to 58%), book profits and move money to underweight categories. This keeps risk in check.",
+    "projected_returns": {
+      "base": 9.6,
+      "bull": 13.6,
+      "bear": 5.6
+    },
+    "rationale": "At 48, with 12 years to retirement, you need growth but with stability. A 50% allocation to Aggressive Hybrid gives equity upside with lower swings. The 30% in overnight fund keeps money safe for near-term goals like your daughter's wedding. Gold (20%) protects against inflation and adds diversification. Since you're in the 30% tax slab, we avoid high-debt funds and will shift to arbitrage funds later for better tax efficiency. This mix balances growth, safety, and tax-smart planning.",
+    "risks": [
+      "Markets can drop 20-30% in a bad year — your Aggressive Hybrid fund will fall too, but recovers over time.",
+      "Overnight and debt funds give low returns after tax (only ~4.4% net) — inflation can erode value if held too long.",
+      "Gold prices can stay flat for years — don't expect consistent growth.",
+      "Lump sum investments can buy at high prices — spreading via SIP reduces this risk."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.7,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "1. **Passive Instrument Fraction (0.0):** The equity sleeve (within the Aggressive Hybrid) relies on an actively managed fund. There are no broad-market index funds in the equity portion.\n2. **Turnover Score (0.6):** The plan involves annual rebalancing but explicitly includes tactical triggers ('underperform by 2+ quarters' induces switching, 'shift to liquid fund' for a specific event in Year 4). This mix of static allocation with reactive tactical shifts places it in the middle range.\n3. **Cost Emphasis Score (0.5):** The plan shows moderate awareness of costs (mentioning expense ratios and tax implications) but prioritizes manager stability and category selection over strict cost minimization. It explicitly considers switching for tax efficiency (arbitrage) but doesn't state cost as the primary driver.\n4. **Research vs Cost Score (0.7):** The plan selects funds based on brand stability ('ICICI is stable') and tax efficiency rather than deep fundamental analysis of the underlying portfolio or stock-picking research.\n5. **Time Horizon Alignment Score (0.7):** The plan is for a 12-year horizon, but the 30% allocation in the Overnight Fund is explicitly for a near-term goal (daughter's wedding in ~4 years). This near-term liability requirement forces a focus on stability over long-term compounding, slightly lowering the pure long-term score.\n6. **Portfolio Activeness Score (0.4):** The active sleeve (Aggressive Hybrid) likely contains deep active conviction (given the ~1% expense ratio is high for indexing and the fund manager is historically active), yielding a lower portfolio activeness score (closer to passive). However, the inclusion of Debt (clones of indices but managed actively for credit risk) and Gold adds weight, keeping the overall score in the middle. The fund metrics provided in the JSON are null for the equity fund, so we must infer from the 'Aggressive Hybrid' category which is inherently active management.",
+    "composite_aps": 0.48333333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.45,
+    "internal_consistency": 0.75,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan shows strong tax efficiency (0.9) by correctly identifying the investor as a 30% slab holder and using Aggressive Hybrid fund for equity exposure to benefit from LTCG treatment, while explicitly flagging the slab tax on debt portions. It also aligns well with goals (0.85) by addressing the daughter's wedding and retirement. However, the plan has significant flaws in risk appropriateness (0.45) and diversification (0.6). \n\n1. Risk Return Appropriateness: The investor is explicitly 'conservative' with a 12-year horizon, yet the plan allocates 50% to an Aggressive Hybrid Fund (which is suitable for moderate/high risk). While the rationale claims this matches a 'conservative' appetite, 50% equity is generally too aggressive for a conservative investor who wants stability. Moreover, placing the daughter's wedding goal (4 years away) in a volatility-prone Equity & Debt fund and an Overnight fund (which has duration risk in 4 years) is misaligned with the time horizon required for safety.\n\n2. Diversification: The plan lacks fund house diversification (100% ICICI Prudential). Instead of spreading across different asset managers, it concentrates all capital in one house, creating manager-specific risk. Geographically, it's also narrow (mostly domestic, with no indication of international equity exposure despite the investment horizon).\n\n3. Internal Consistency (0.75): There is a slight contradiction in the risk warnings vs. the allocation advice. The plan warns markets can drop 20-30%, which is appropriate for an equity-heavy holding, yet frames this same mix as suitable for a conservative client who demands 'stable, predictable returns.' While not logically broken, the tone is off.\n\n4. Tax Efficiency: Excellent recognition of the 30% slab and the tax benefit of the 65%+ equity fund.",
+    "composite_pqs": 0.71
+  },
+  "timestamp": "2026-04-18T07:35:13.044099Z",
+  "prompt_version": "v1"
+}

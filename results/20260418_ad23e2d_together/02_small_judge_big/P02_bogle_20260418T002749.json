@@ -1,0 +1,116 @@
+{
+  "persona_id": "P02",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "148726",
+          "name": "Nippon India Nifty Midcap 150 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": null,
+        "rationale": "This low-cost index fund tracks India's mid-cap stocks. It has only 0.20% yearly fee (vs 1%+ for active funds). Over 20 years, this tiny fee difference can cost you over 2 lakhs in lost returns. The fund has delivered 23% in 3 years and 19% in 5 years."
+      },
+      {
+        "fund": {
+          "amfi_code": "122639",
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": null,
+        "rationale": "This famous flexi cap fund invests across large, mid, and small caps plus selective bonds and US stocks. Its fee is 1% but the fund has consistently delivered 18.6% in 3 years by staying invested across market-cap segments, providing diversification beyond pure index funds."
+      }
+    ],
+    "setup_phase": "Step 1: Open a free Direct Mutual Fund account on Kuvera, Groww, Coin by Zerodha, or MFU app (takes 10-15 minutes).\nStep 2: Transfer money from your bank account to the new folio (1-2 days).\nStep 3: Create 2 SIPs of ₹40,000 each month in the two funds above. Set monthly start date, select 'Growth' option, and enable auto-invest.\nStep 4: Use your ₹15 lakhs corpus: invest ₹10 lakhs lumpsum in these two funds (50-50 split), keep ₹5 lakhs in a liquid fund for emergency.\nStep 5: Link bank account for auto-debit and set SMS/email alerts.",
+    "review_checkpoints": [
+      "After 1 year: Verify both SIPs are running correctly.\nAfter 3 years: Re-read your plan. Have goals changed? If no, keep going.\nAnnually: Rebalance only if one fund has grown/shrunk by >5% from your 50-50 target.\nAfter 15 years: When child's education goal begins, gradually shift to debt funds.",
+      "rebalancing_guidelines",
+      "Once a year, check your allocation. Sell some of the larger and buy the smaller if the drift is more than 5%. Most years you'll need zero rebalancing. Don't rebalance in panic.",
+      "projected_returns",
+      "base_cagr_20yr_base_return_object",
+      "bull_cagr_20yr_bull_return_object",
+      "bear_cagr_20yr_bear_return_object",
+      "risks",
+      "1. Stock markets can drop 25-30% in a bad year. This is normal and historically recovers in 1-2 years.\n2. Nifty Midcap 150 track mid-size companies which are more volatile than large caps. Your SIP helps by buying more units when prices are down.\n3. Inflation (7% annual) will erode purchasing power; ₹5 crores in 20 years will have the power of ₹1.7 crores today.\n4. Life events (job loss, medical emergencies) can disrupt SIPs. Keep ₹5 lakhs liquid.",
+      "rationale",
+      "At 35 with 20 years ahead, you can afford to ride out volatility. Your ₹80k monthly SIP is powerful over 20 years. This plan gives you broad exposure to mid-cap growth plus a well-diversified large-cap fund, avoiding sector concentration as you prefer.",
+      "disclaimer",
+      "For research/educational purposes only. Not certified financial advice."
+    ],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.7,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "The plan allocates 50% to a Nifty Midcap 150 Index Fund (passive) and 50% to Parag Parikh Flexi Cap Fund (actively managed), resulting in a passive_instrument_fraction of 0.5. Rebalancing is minimal (only if drift exceeds 5%) and annual, leading to a high turnover_score of 1.0 (passive). Cost is emphasized strongly, especially in the rationale for the index fund (highlighting 0.20% vs 1%+ fees), though the active fund has a 1% fee, so cost_emphasis_score is high but not perfect (0.8). The plan does not require individual stock research and favors broad market exposure via index and diversified flexi cap fund, so research_vs_cost_score is 0.7. The time horizon is clearly long-term (20 years), with SIPs and step-up, earning a 1.0. For portfolio_activeness_score: the index fund is clearly passive; Parag Parikh, while actively managed, has historically behaved like a closet indexer with low tracking error and global diversification, so weighted average activeness is moderate (0.5).",
+    "composite_aps": 0.75
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows strong goal alignment with a 20-year horizon and moderate risk appetite, leveraging SIPs and a long-term view for wealth creation. It acknowledges key goals like child education and retirement, and includes a liquid buffer for emergencies. However, diversification is limited: 50% in a midcap index fund creates concentration risk, despite the flexi cap fund offering some balance. The absence of international, debt, or arbitrage exposure reduces geographic and asset class diversification.\n\nRisk-return is appropriate for a moderate investor given the SIP discipline and long horizon, though midcap-heavy allocation leans aggressive. The rationale acknowledges volatility and provides risk warnings, enhancing appropriateness.\n\nThe plan is internally consistent: SIP setup, lumpsum deployment, rebalancing, and step-up are logically connected and support the long-term strategy.\n\nTax efficiency is poor. The investor is in the 30% tax slab, yet the plan uses only equity funds without leveraging tax-efficient hybrids or arbitrage funds for potential fixed-income needs. While equity taxation is favorable, the lack of any tax-optimized debt allocation (e.g., arbitrage or Aggressive Hybrid funds, which qualify for equity taxation) represents a missed opportunity. No mention of 80C or ELSS is made — forgivable if the investor has no headroom, but not stated. However, the biggest flaw is treating all equity funds the same tax-wise without optimizing the fixed-income sleeve (even implicitly), especially since ₹5L is held in a liquid fund (slab-taxed) without specifying a tax-efficient alternative. This results in a low tax_efficiency score.",
+    "composite_pqs": 0.6299999999999999
+  },
+  "timestamp": "2026-04-18T00:27:49.842177Z",
+  "prompt_version": "v1"
+}

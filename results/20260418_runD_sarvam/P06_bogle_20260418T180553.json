@@ -1,0 +1,79 @@
+{
+  "persona_id": "P06",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 60% to a Nifty 50 Index fund, which is a passive equity instrument, and there is no indication of any active equity funds; thus, the entire equity allocation is passive, resulting in a passive_instrument_fraction score of 1.0. There are no rebalancing guidelines or review checkpoints specified, implying a buy-and-hold approach, leading to a turnover_score of 1.0. The plan does not explicitly emphasize cost minimization, but index funds inherently have lower costs; without explicit discussion, cost_emphasis_score is moderate at 0.5. No individual security or fund research is involved—reliance is on a broad market index—so research_vs_cost_score is 1.0. The absence of short-term triggers or frequent reviews suggests a long-term horizon, giving a time_horizon_alignment_score of 1.0. The portfolio consists entirely of a Nifty 50 index fund, which by category and rationale is clearly passive; even without risk metrics, the 'direct' rationale and index name imply index-like behavior (beta ~1, tracking error ~0), so portfolio_activeness_score is 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan allocates 60% to a Nifty 50 Index fund, which is a reasonable equity exposure for a 30-year horizon and moderate risk appetite, partially aligning with long-term wealth building. However, it completely ignores the investor's short- and medium-term goals (emergency fund, marriage in 6 years), offering no fixed-income or low-volatility component, hence low goal_alignment. Diversification is extremely poor: only one fund, one asset class (equity), no sector or geography diversification. Risk-return is suboptimal: 100% equity via lumpsum (even if symbolic) for a moderate investor with near-term goals is aggressive; no downside protection. Internal consistency is moderate: the rationale is minimal ('direct'), but the allocation doesn't contradict it — just incomplete. Tax efficiency is fair: for a 'new_regime' investor, ELSS is not needed (no 80C benefit), and the equity fund is correctly chosen under equity taxation (LTCG >1yr), which is efficient. No slab-taxed debt funds are used, so no tax inefficiency, but no explicit tax rationale is provided, limiting the score.",
+    "composite_pqs": 0.38
+  },
+  "timestamp": "2026-04-18T18:05:53.919086Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22730,
+    "output_tokens": 773,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 29.18848879635334
+}

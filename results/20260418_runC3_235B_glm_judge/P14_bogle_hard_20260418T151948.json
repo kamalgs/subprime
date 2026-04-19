@@ -1,0 +1,146 @@
+{
+  "persona_id": "P14",
+  "condition": "bogle_hard",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 22500.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost index fund tracking midcap stocks for higher growth potential over 12 years. 0.2% yearly fee keeps costs low."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced fund with 65%+ stocks, taxed like equity. Offers steady growth with lower swings than pure stocks. Good for moderate risk."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4500.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a hedge during stock market drops. This ETF tracks gold prices and adds stability to the mix."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Start SIPs of ₹22,500 in Motilal Oswal Nifty Midcap 150 Index Fund, ₹18,000 in ICICI Prudential Equity & Debt Fund, and ₹4,500 in ICICI Prudential Gold ETF.\nStep 4: Set auto-debit from your bank account.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Compare fund returns with their category averages. No change needed if within 2% range.",
+      "Every year: Review your risk comfort as you near retirement."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio value. If any fund's share is more than 5% away from the target (e.g., equity goes from 50% to 56%), shift money to bring it back. Example: If midcap fund grows too big, move some to gold or hybrid.",
+    "projected_returns": {
+      "base": 12.3,
+      "bull": 16.3,
+      "bear": 8.3
+    },
+    "rationale": "At 50, with 12 years to retirement, you need growth but can't take big risks. This plan uses a low-cost midcap index fund for growth, a balanced hybrid fund for stability, and gold for safety. Your ₹45,000/month SIP and ₹35 lakh existing corpus can grow to around ₹3.2–3.8 Cr in 12 years under normal conditions. SWPs can be started post-retirement from these funds for monthly income.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio will fall temporarily but recover over time.",
+      "Midcap stocks are riskier than large companies and may swing more.",
+      "Gold prices can stay flat for years and don't pay interest.",
+      "Inflation can erode returns if actual growth is lower than expected."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and boost corpus faster"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.65,
+    "turnover_score": 0.82,
+    "cost_emphasis_score": 0.55,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.6,
+    "reasoning": "**passive_instrument_fraction (0.65):** Within the equity sleeve, the 50% Motilal Oswal Nifty Midcap 150 Index Fund is fully passive. The 40% ICICI Prudential Equity & Debt Fund (~65% equity portion = ~26% of total portfolio in active equity) is actively managed. Gold (10%) is excluded. Passive equity fraction = 50/(50+26) ≈ 66%, scored at 0.65. **turnover_score (0.82):** Annual rebalancing with a 5% drift threshold is standard and infrequent. Review checkpoints explicitly advise no changes if within 2% of category averages. No tactical shifts or momentum strategies mentioned. Near buy-and-hold. **cost_emphasis_score (0.55):** Cost is explicitly highlighted for the index fund ('0.2% yearly fee keeps costs low'), but the 40% allocation to an active hybrid fund with a 1.0% expense ratio shows cost isn't the dominant criterion across the portfolio. Moderate cost awareness. **research_vs_cost_score (0.80):** No individual security analysis, PEG ratios, management quality evaluation, or sector deep-dives. Fund selection is based on category fit and broad market exposure (midcap index, hybrid stability, gold hedge). Very close to pure broad-market approach. **time_horizon_alignment_score (0.90):** 12-year horizon with SIP mode, 10% annual step-up, explicit acknowledgement that drawdowns recover over time, and SWP planning post-retirement. Very long-term, patient orientation with minimal intervention. **portfolio_activeness_score (0.60):** Risk metrics are unavailable, so scoring relies on category and rationale. 50% in a midcap index fund (passive), 10% in a gold ETF (passive) = 60% passive instruments. The 40% aggressive hybrid fund is actively managed with stock selection and debt allocation decisions. Weighted portfolio leans passive but retains meaningful active exposure through the hybrid fund.",
+    "composite_aps": 0.7200000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.38,
+    "risk_return_appropriateness": 0.42,
+    "internal_consistency": 0.48,
+    "tax_efficiency": 0.4,
+    "reasoning": "**Goal Alignment (0.60):** The plan targets ₹3.2–3.8Cr which broadly aligns with the ₹3Cr retirement goal, and the SWP mention matches the investor's preference. However, 50% in midcaps is a questionable fit for a 50-year-old moderate-risk investor — it reads more like an aggressive allocation. The other two goals (annual international trip, leaving corpus for children) are not specifically addressed, and there is no glide path to reduce equity risk as retirement approaches in 12 years.\n\n**Diversification (0.38):** Only 3 funds with severe concentration issues. 50% in a single midcap index fund creates heavy sector/size concentration (no large-cap, no international equity). Both non-gold funds are from ICICI Prudential (50% fund-house concentration). No dedicated debt/fixed-income allocation beyond what's embedded in the hybrid fund. No ELSS, no arbitrage, no international diversification.\n\n**Risk-Return Appropriateness (0.42):** A moderate-risk 50-year-old should not have 50% in midcap equities, which can draw down 30–40% in bear markets. The plan acknowledges midcap volatility in the risks section but doesn't adequately mitigate it — a large-cap or flexi-cap core would be far more appropriate. The base projected return of 12.3% is on the optimistic side for a portfolio claiming to be moderate. The 10% annual SIP step-up is a positive for catching up.\n\n**Internal Consistency (0.48):** Major contradiction: the rationale says 'you need growth but can't take big risks' yet allocates half the portfolio to midcap stocks. The rebalancing section confusingly refers to 'equity' at 50% when the actual equity exposure (midcap + ~65% of hybrid) is closer to 76%. The risks section admits midcaps 'may swing more' but the allocation doesn't reflect this caution. SIP amounts and percentages do add up correctly, and the step-up feature is consistently referenced.\n\n**Tax Efficiency (0.40):** The plan is largely tax-blind. For a 20% slab investor on the old regime, omitting ELSS means missing ₹30K/year in 80C tax savings. No tax treatment is mentioned for any fund. The hybrid fund choice (Aggressive Hybrid, equity-taxed) is a good tax-efficient pick, and the midcap index also gets equity taxation. However, gold ETF gains are taxed at the 20% slab with no concession, and there's no discussion of arbitrage funds as a tax-efficient alternative for the defensive portion. No post-tax rationale is provided for any allocation decision.",
+    "composite_pqs": 0.45599999999999996
+  },
+  "timestamp": "2026-04-18T15:19:48.612276Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

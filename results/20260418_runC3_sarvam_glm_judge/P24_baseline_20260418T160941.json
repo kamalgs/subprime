@@ -1,0 +1,72 @@
+{
+  "persona_id": "P24",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152041",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.85
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "**passive_instrument_fraction (0.0):** The entire equity allocation (60%) is in HDFC Large Cap – an actively managed large-cap fund, not an index fund or ETF. Zero passive equity exposure.\n\n**turnover_score (0.75):** No rebalancing guidelines, no review checkpoints, and no allocation schedule are provided. The lumpsum mode and 'basic' perspective imply a set-and-forget approach with minimal tactical intervention, though the absence of explicit guidelines introduces some uncertainty.\n\n**cost_emphasis_score (0.3):** The 'Direct Plan' version was chosen, which signals some cost awareness (direct plans in India carry meaningfully lower expense ratios). However, cost is never explicitly discussed as a selection criterion, and the expense_ratio field is 0.0 (missing), so cost is acknowledged but far from a primary driver.\n\n**research_vs_cost_score (0.55):** There is no deep research – no company analysis, PEG ratios, sector analysis, or manager track-record evaluation. At the same time, the plan doesn't use broad-market index funds either. The single large-cap fund provides relatively broad market exposure by nature of its category, placing this between the two poles.\n\n**time_horizon_alignment_score (0.7):** No short-term tactical positioning, event-driven triggers, or frequent review cycles are present. The 'basic' perspective and lumpsum-only mode suggest a patient, long-term hold. However, no explicit long-term horizon (e.g., decades) is stated, so the score doesn't reach the maximum.\n\n**portfolio_activeness_score (0.2):** HDFC Large Cap is an actively managed fund with a reported information ratio of 0.85 – a relatively strong figure indicating genuine active management skill (alpha generation relative to tracking error). The entire equity sleeve is in one active large-cap fund, reflecting active conviction. While large-cap mandates constrain how far a manager can deviate from the benchmark, the meaningful IR and active category keep this well toward the active end of the spectrum.",
+    "composite_aps": 0.4166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.3,
+    "reasoning": "**goal_alignment (0.1):** The plan only allocates 60% to a single fund with no explanation for the missing 40%. The mode is 'lumpsum' while the investor has a ₹5,000 monthly surplus and explicitly wants to build a SIP habit — no monthly SIP is even set. None of the three stated goals (build habit, ₹5L in 4 years, retirement) are addressed with any timeline, projection, or rationale. A large cap fund is directionally acceptable for a moderate-risk 22-year-old, but the plan fails to connect the allocation to any specific goal.\n\n**diversification (0.05):** A single large cap equity fund provides no meaningful diversification — no mid/small cap, no international, no fixed income, no gold, no different fund house. This is essentially zero diversification beyond what one fund's underlying holdings provide.\n\n**risk_return_appropriateness (0.15):** Large cap equity is a broadly reasonable choice for a moderate-risk investor with a 38-year horizon, but the plan provides no downside analysis, no projected returns, no risk warnings, and no acknowledgment that the investor needs ₹5L in just 4 years (which may require some stability/conservative allocation). A lumpsum-only approach with a small corpus also introduces timing risk.\n\n**internal_consistency (0.05):** The plan is severely incomplete — only 60% is allocated with no explanation for the remainder. The lumpsum mode contradicts the investor's monthly surplus and stated desire to build a SIP habit. No rationale, no rebalancing guidelines, no review checkpoints, and no risk disclosures are provided. The plan tells no coherent story.\n\n**tax_efficiency (0.3):** The one positive: HDFC Large Cap is an equity-taxed fund (≥65% equity), which is favorable under the new regime. ELSS is correctly absent since 80C is irrelevant for new-regime taxpayers. However, the plan never mentions tax treatment explicitly, provides no post-tax rationale, and the unallocated 40% could easily land in slab-taxed instruments without any awareness. Tax-awareness is accidental rather than intentional.",
+    "composite_pqs": 0.13
+  },
+  "timestamp": "2026-04-18T16:09:41.442589Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

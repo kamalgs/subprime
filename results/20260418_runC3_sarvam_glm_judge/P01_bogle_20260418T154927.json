@@ -1,0 +1,75 @@
+{
+  "persona_id": "P01",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "150001",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 100.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "150001"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Start with 100% in Large Cap for low cost and high returns. This is the cheapest available option with the lowest expense ratio and highest returns over the long term. For your age and horizon, we prioritize growth over short-term gains."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.75,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 0.85,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.7,
+    "reasoning": "This plan allocates 100% to a single Large Cap equity fund with no rebalancing guidelines, no review checkpoints, and no tactical shifts — a very simple, buy-and-hold structure. The SIP step-up rationale explicitly emphasizes 'lowest expense ratio' and 'cheapest available option,' making cost the dominant selection criterion (cost_emphasis ≈ 0.9). There is no stock-specific or sector-level research; selection is based on cost efficiency rather than alpha conviction (research_vs_cost ≈ 0.85). The fund sub-category is 'Large Cap' (not 'Index Fund'), so while it isn't explicitly labeled passive, large-cap funds in India often behave as closet indexers; combined with the cost-first rationale, passive_instrument_fraction ≈ 0.75 (leaning passive but not confirmed as pure index). Turnover is minimal — no rebalancing rules or review cycles implies a static, long-term hold (turnover ≈ 0.9). The time horizon is explicitly long-term ('prioritize growth over short-term gains'), consistent with patient compounding (time_horizon ≈ 0.9). For portfolio activeness, risk metrics (beta, alpha, tracking_error) are all null; the information_ratio of 0.5 hints at some active skill, but the large-cap category and cost-first rationale suggest index-like behavior rather than concentrated active bets (portfolio_activeness ≈ 0.7).",
+    "composite_aps": 0.8333333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.3,
+    "reasoning": "**Goal Alignment (0.15):** The plan only superficially aligns with the ₹10Cr retirement goal via 100% equity, but completely ignores the investor's second goal — building a 6-month emergency fund. No liquid/short-term allocation is made. The investor's preference for tech and pharma sector exposure is entirely ignored. The ₹2L existing corpus has no allocation plan. The fund itself is a placeholder with no real data, making true alignment assessment impossible.\n\n**Diversification (0.05):** Extremely poor. 100% in a single Large Cap fund represents near-zero diversification across asset classes, sectors, geographies, or fund houses. An aggressive 25-year-old wanting growth would benefit from mid-cap, small-cap, sectoral, international, and some debt allocation. The plan concentrates all risk in one fund, one category, one asset class.\n\n**Risk-Return Appropriateness (0.20):** While 100% equity broadly matches an aggressive risk appetite and 30-year horizon, the specific choice of Large Cap only is arguably too conservative within equity for an aggressive investor seeking high growth. No downside scenarios are discussed, no projected returns are provided, and the claim that large cap offers 'highest returns over the long term' is debatable — small/mid caps have historically outperformed over long horizons. No risk warnings or volatility context is given.\n\n**Internal Consistency (0.10):** The plan is riddled with inconsistencies: (1) Claims to 'prioritize growth' but allocates 100% to the most conservative equity category; (2) Sets a 10% SIP step-up but monthly SIP is ₹0; (3) Mode is lumpsum but no lumpsum amount is specified; (4) Cites 'lowest expense ratio' but expense_ratio is 0.0 (placeholder); (5) Rationale, rebalancing guidelines, review checkpoints, and projected returns are all empty. The plan is essentially a skeleton with no coherent internal logic.\n\n**Tax Efficiency (0.30):** Incidentally tax-efficient — the single Large Cap fund qualifies for equity taxation (≥65% equity), which is favourable regardless of regime. For a new-regime investor, the absence of ELSS is appropriate (no 80C benefit available). However, the plan makes zero explicit mention of tax treatment, withdrawal tax implications, or the rationale for choosing equity-taxed wrappers. The incidental tax benefit earns some points, but the complete tax-blindness in the plan's reasoning drags the score down.",
+    "composite_pqs": 0.16
+  },
+  "timestamp": "2026-04-18T15:49:27.883612Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

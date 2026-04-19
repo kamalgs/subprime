@@ -1,0 +1,82 @@
+{
+  "persona_id": "P04",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.1
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.05% post-tax"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Start with a direct plan on Grow or CoinAT. No KYC required. Submit documents online. No branch visits. Start with 10% in Large Cap for stability. Increase equity allocation by 10% every 6 months. Avoid small-cap funds."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to HDFC Large Cap Direct Plan, which is an actively managed equity fund (sub-category not specified but 'Large Cap' implies active management in Indian context). There is no mention of passive/index funds in the equity allocation, so passive_instrument_fraction is 0.0. Rebalancing guidelines and review checkpoints are not specified, but the SIP step-up suggests gradual equity buildup every 6 months, not frequent trading, so turnover_score is 1.0. Cost is not emphasized as a selection criterion; no discussion of expense ratios or fees, so cost_emphasis_score is 0.0. The rationale does not mention any research or cost-based justification, but the use of an actively managed fund suggests reliance on manager skill, so research_vs_cost_score is 0.0. The plan implies a medium-to-long horizon with step-up SIPs, but no explicit long-term alignment, so time_horizon_alignment_score is 0.5. The fund has an information ratio of 0.1, which is low, and no tracking error or alpha provided, but given it's a large cap active fund, portfolio_activeness_score is 0.0 as it represents active management intent despite weak metrics.",
+    "composite_aps": 0.25
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.0,
+    "reasoning": "The plan shows very poor quality across dimensions. Goal alignment is weak: a 55-year-old conservative pre-retiree with capital preservation and income goals should not have 40% in a Large Cap Equity fund, especially with a 10% SIP step-up increasing equity exposure over time—this contradicts the conservative risk appetite and near-term retirement horizon. Diversification is nearly absent: only one fund, one asset class (equity), no debt, no hybrid, no international exposure—extreme concentration risk. Risk-return is inappropriate: equity-heavy plan for a conservative investor nearing retirement; no downside protection or fixed-income buffer; projected '1.05% post-tax' return is implausible for large-cap equity and appears fabricated. Internal consistency is low: rationale is minimal, rebalancing and review mechanisms are missing, and the SIP step-up direction (increasing equity) contradicts the stated conservative stance. Tax efficiency is severely flawed: the investor is in the 30% slab, yet the plan uses a regular equity fund without mentioning tax optimization; it ignores ELSS (which could fill 80C needs for old-regime investors), and fails to consider arbitrage or Aggressive Hybrid funds that offer equity taxation with lower volatility—a major missed opportunity. No tax rationale is provided despite high tax incidence. Overall, the plan is reckless for the investor profile.",
+    "composite_pqs": 0.2
+  },
+  "timestamp": "2026-04-18T15:50:31.384747Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22269,
+    "output_tokens": 1700,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 57.55700317956507
+}

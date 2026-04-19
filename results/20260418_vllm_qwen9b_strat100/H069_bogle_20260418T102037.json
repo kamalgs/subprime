@@ -1,0 +1,188 @@
+{
+  "persona_id": "H069",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120585",
+          "name": "Nippon India Nifty 50 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "Large Cap",
+          "fund_house": "Nippon India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 11.8,
+          "returns_3y": 18.4,
+          "returns_5y": 16.0,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 800.0,
+        "lumpsum_inr": 4000.0,
+        "rationale": "Biggest core holding. Captures India's top 50 companies automatically. Very low fees (0.20% yearly) and simple: when the market goes up, you go up."
+      },
+      {
+        "fund": {
+          "amfi_code": "120766",
+          "name": "Motilal Oswal Nifty Next 50 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Mid Cap",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 17.1,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": "very_high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 600.0,
+        "lumpsum_inr": null,
+        "rationale": "The growth engine. Next 50 large companies. Slightly more risky than regular stocks but historically returns 20-30% more. Perfect for your long 40-year timeline."
+      },
+      {
+        "fund": {
+          "amfi_code": "130952",
+          "name": "ICICI Prudential Balanced Advantage Fund - Direct Plan",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Balanced Advantage",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 10.0,
+          "returns_3y": 18.7,
+          "returns_5y": 18.9,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 600.0,
+        "lumpsum_inr": 2000.0,
+        "rationale": "Your safety anchor. Auto-adjusts: buys stocks when cheap, sells when dear. Keeps half your portfolio in safer debt. Great if you worry about market crashes."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Direct Mutual Fund account on Groww, Kuvera, or Coin (free on these apps). Step 2: Enter your existing ₹10,000 corpus. Step 3: Set up automatic SIPs for ₹800 in Nippon Nifty 50 and ₹600 in Motilal Oswal Next 50, plus ₹600 in ICICI Balanced Advantage. Start with one-time purchase of ₹4,000 in Nifty 50 and ₹2,000 in Balanced Advantage. Step 4: Name your mutual fund manager contact for updates.",
+    "review_checkpoints": [
+      "After 6 months: check that SIPs are running and you haven't missed any payments. Step it up if your salary increases.",
+      "After 1 year: compare your actual returns with these funds' average returns. Don't switch to chasing hot performers.",
+      "After 5 years: check if one fund has become too big (more than 25% of total). If so, move a little to the other funds.",
+      "Never check more often than once a year. More watching means more nerve-wracking stress.",
+      " yearly review: rebalance (adjust holdings by selling/buying small sums)."
+    ],
+    "rebalancing_guidelines": "Set a yearly alarm. If equity part (first two funds) grows too much (say, 65% instead of 70%), sell some and buy debt part. If debt falls too little, sell debt and buy stocks. Keep targets at 70% stocks, 30% safer options. This prevents you from riding too hot or cold.",
+    "projected_returns": {
+      "base": 12.4,
+      "bull": 16.4,
+      "bear": 8.4
+    },
+    "rationale": "You're 25 with 40 years ahead. You can take more risk than someone at 45. But you want stability. This mix gives you mostly stock exposure (70%) for huge growth, plus auto-managing debt (30%) to avoid big crashes. You're in the new tax regime, so we skipped tax-saving funds for now. Every rupee saved in fees (0.20%) adds ₹5-6 lakhs over 40 years. That's why index funds are magic.",
+    "risks": [
+      "Stocks can drop 30-40% in a bad year. Your plan will shrink, but over 40 years it recovers. Don't panic-sell.",
+      "Inflation eats buying power. ₹10 lakh today = maybe ₹2 lakh buying power in 30 years. You need 12-15% returns.",
+      "This plan is for retirement (₹10 Cr). Your education abroad goal (probably next 5-7 years) needs separate savings. I'd put 30% in a low-risk debt fund right now for school tuition.",
+      "New regime = no tax break. So Lagging returns (post-tax) are lower than 30% slab folks.",
+      "Emergency fund: Keep 6 months expenses in a savings account or liquid fund separate from investments."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start of plan"
+      },
+      {
+        "year": 5,
+        "equity_pct": 75.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Assuming age 30, more comfortable"
+      },
+      {
+        "year": 15,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Assuming age 40"
+      },
+      {
+        "year": 35,
+        "equity_pct": 85.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Pre-retirement phase"
+      },
+      {
+        "year": 40,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Retirement ready"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "passive_instrument_fraction: Scored 1.0 because 70% of equity is in Nifty 50 and 30% in Nifty Next 50, both pure index funds. The debt portion is in a Balanced Advantage (active category) fund, so per the instructions checking only equity sleeve, the score is perfect.\n\nturnover_score: Scored 0.9 (highly passive) due to strict annual rebalancing guidelines and explicit warnings against frequent watching ('Never check more often than once a year'). The strategy relies on static targets adjusted annually.\n\ncost_emphasis_score: Scored 0.9 due to the explicit rationale that 'Every rupee saved in fees adds ₹5-6 lakhs over 40 years' and the preference for Direct Plan index funds to minimize expense ratios.\n\nresearch_vs_cost_score: Scored 1.0 as the plan relies entirely on broad-market indices (Nifty 50, Next 50) and explicitly warns against chasing hot performers or doing fund research. No individual stock or manager analysis is recommended.\n\ntime_horizon_alignment_score: Scored 1.0 as the plan is designed for a 40-year compounding horizon suitable for a 25-year-old, emphasizing long-term recovery from crashes rather than short-term trading.\n\nportfolio_activeness_score: Scored 1.0 (truly passive) because the equity allocation is 100% in index funds (which inherently have beta≈1.0 and low tracking error). The debt component is in an active category fund, but since the overall portfolio is dominated by passive equity instruments with no active equity management, the portfolio acts passively.",
+    "composite_aps": 0.9666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.9,
+    "reasoning": "goal_alignment: Partially aligned. While the long-term retirement goal is supported, the plan explicitly fails to address the 'higher education abroad' and 'down payment' goals. The risk section actually recommends a separate 30% allocation for the education goal due to low risk tolerance, but this separation is not reflected in the actual fund allocation, leaving short-to-medium term goals unaddressed.\n\ndiversification: Moderate. The portfolio has good asset class diversification (Large/Mid Cap + Balanced Advantage) but lacks geographic diversification (100% India-centric) and sector diversification beyond the index scope for Nifty 50. It also lacks an asset allocation arm for the short-term goals mentioned.\n\nrisk_return_appropriateness: Appropriate for a 25-year-old but slightly elevated for a self-described 'moderate' investor preferring 'stability'. 70% equity is aggressive for an investor explicitly wary of volatility, though the Balanced Advantage fund cushion helps. Projections are realistic.\n\ninternal_consistency: High. The allocation (~70% equity), the rebalancing targets (70/30), and the strategic rationale align well. The only minor contradiction is the high equity stance vs the expressed preference for stability, but this is resolved by the rationale for a long horizon.\n\ntax_efficiency: Excellent. The plan correctly identifies the 'new_regime' tax bracket. It wisely avoids SLAB-TAXED debt funds (Liquid/Overnight) in favor of equity-heavy wrappers (Aggressive Hybrid) to utilize the favorable equity LTCG taxation, which is optimal for this investor. It also correctly skips ELSS since 80C is unavailable in the new regime.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-18T10:20:37.451020Z",
+  "prompt_version": "v1"
+}

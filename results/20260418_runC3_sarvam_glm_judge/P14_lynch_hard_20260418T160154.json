@@ -1,0 +1,172 @@
+{
+  "persona_id": "P14",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.65
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1000000.0"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1000000.0",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Start with a mix of large and mid-cap funds for stability and growth. We'll start with HDFC Large Cap for steady growth and Invesco Large & Mid Cap for cyclicality."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 6,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 7,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 8,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 9,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 11,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 12,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "This plan has significant data inconsistencies but can still be scored on its observable features. **passive_instrument_fraction = 0.0**: The sole equity allocation (40%) is HDFC Large Cap Direct Plan — an actively managed large-cap fund, not an index fund or ETF. Zero passive equity instruments. **turnover_score = 0.6**: No rebalancing guidelines, no review checkpoints, and no tactical shifts are described. The absence of active trading instructions leans toward a buy-and-hold default, though the lack of any rebalancing framework is ambiguous rather than explicitly passive. **cost_emphasis_score = 0.3**: The plan uses Direct Plans (lower expense ratios than regular plans), showing some cost awareness, but there is no explicit discussion of expense ratios, transaction costs, or tax efficiency as selection criteria. **research_vs_cost_score = 0.5**: Minimal rationale on either dimension — no deep stock-level/fund-level research (no moat analysis, PEG ratios, manager track records) and no emphasis on broad-market passive exposure either. The fund choice is based on generic category preference ('steady growth'). **time_horizon_alignment_score = 0.8**: The 12-year allocation schedule, SIP mode with 10% annual step-up, and no tactical windows or event-driven positioning all point to a long-term, patient compounding approach. **portfolio_activeness_score = 0.2**: The only equity fund is genuinely active — HDFC Large Cap with an information ratio of 0.65 indicates active management conviction. Large-cap active funds can be closet indexers, but IR > 0.5 and the active mandate suggest real active management. No tracking error or beta data are provided, but category and IR together signal an actively managed equity sleeve.",
+    "composite_aps": 0.4000000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal alignment (0.15):** The investor needs ₹3Cr in 12 years with a ₹35L corpus and ₹45K/month surplus, requiring significant compounding — yet the plan allocates only 40% to a single large-cap fund with no projected returns or goal-based milestones. There is no mapping of allocations to any of the three stated goals. **Diversification (0.05):** Only one fund (HDFC Large Cap) is listed, covering just one sub-category of one asset class. 60% of the portfolio is entirely unaccounted for. The SIP description mentions an Invesco fund that doesn't appear in allocations. No debt, gold, international, or sector diversification exists. **Risk-return (0.15):** A moderate-risk investor who prefers balanced funds receives a single equity large-cap fund with no debt or stabilising component defined. No projections, no downside scenario analysis, and the allocation schedule contradicts the actual fund placement (shows 0% equity, 40% debt for all 12 years), making the true risk profile unknowable. **Internal consistency (0.05):** The plan is riddled with contradictions and errors: the allocation schedule shows 0% equity and 40% debt while the actual fund is equity large-cap; rationale fields contain raw numbers (1000000.0) instead of text; rebalancing guidelines are a number; the SIP step-up mentions a fund not in allocations; 60% of the portfolio is missing entirely; no risks listed; no projected returns. **Tax efficiency (0.0):** No mention of taxation anywhere. A 20% slab investor on the old regime could benefit from ELSS under 80C, but this is completely ignored. No discussion of equity vs debt tax treatment or post-tax return optimisation. The plan is entirely tax-blind.",
+    "composite_pqs": 0.07999999999999999
+  },
+  "timestamp": "2026-04-18T16:01:54.184477Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

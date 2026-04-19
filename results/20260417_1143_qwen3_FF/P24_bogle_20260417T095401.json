@@ -1,0 +1,176 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Multi Cap",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 23.45,
+          "expense_ratio": 1.05,
+          "inception_date": "2001-04-05",
+          "aum_cr": 9422.0,
+          "morningstar_rating": 4,
+          "returns_1y": 13.3,
+          "returns_3y": 21.3,
+          "returns_5y": 21.3,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.2,
+          "beta": 0.94,
+          "alpha": 7.24,
+          "tracking_error": 6.44,
+          "sharpe_ratio": 0.78,
+          "information_ratio": 0.65
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund is a balanced mix of large, mid, and small-cap stocks, making it ideal for a moderate risk appetite. It has a strong track record and low fees, which aligns with your goal of building a habit and growing your corpus over time."
+      },
+      {
+        "fund": {
+          "amfi_code": "148457",
+          "name": "Nippon India Multi Asset Allocation Fund - Direct Plan - Growth Option",
+          "category": "Debt",
+          "sub_category": "Slab-Taxed",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 15.85,
+          "expense_ratio": 0.0,
+          "inception_date": "2021-09-01",
+          "aum_cr": 2432.0,
+          "morningstar_rating": 4,
+          "returns_1y": 25.1,
+          "returns_3y": 21.8,
+          "returns_5y": 17.2,
+          "risk_grade": "low",
+          "volatility_1y": 12.3,
+          "beta": 0.55,
+          "alpha": 20.32,
+          "tracking_error": 9.52,
+          "sharpe_ratio": 1.36,
+          "information_ratio": 0.95
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund offers a mix of equities and debt, providing a safer option to balance your portfolio. It's ideal for preserving capital while generating steady returns, which is crucial for a long-term investment horizon."
+      },
+      {
+        "fund": {
+          "amfi_code": "151739",
+          "name": "UTI Nifty 500 Value 50 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 22.15,
+          "expense_ratio": 0.0,
+          "inception_date": "2022-01-01",
+          "aum_cr": 385.0,
+          "morningstar_rating": 5,
+          "returns_1y": 29.8,
+          "returns_3y": 31.1,
+          "returns_5y": -1.0,
+          "risk_grade": "moderate",
+          "volatility_1y": 18.2,
+          "beta": 0.94,
+          "alpha": 24.41,
+          "tracking_error": 11.06,
+          "sharpe_ratio": 1.48,
+          "information_ratio": 1.25
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks the Nifty 500 Value 50 Index, offering exposure to large-cap stocks. It's a good addition to your portfolio for diversification and growth."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start your monthly SIPs in these funds. Step 3: Set up a SIP step-up of 10% every year to match your salary growth.",
+    "review_checkpoints": [
+      "After 6 months: Check if your SIPs are running smoothly.",
+      "After 1 year: Review the performance of each fund and ensure they are aligned with your goals.",
+      "After 4 years: Assess your progress toward the 5L foundation goal."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed significantly. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 11.7,
+      "bull": 15.7,
+      "bear": 8.7
+    },
+    "rationale": "Given your age, moderate risk appetite, and long investment horizon, this plan is designed to help you build a solid foundation for wealth creation. The allocation to the Nippon India Multi Cap Fund provides growth potential, while the Nippon India Multi Asset Allocation Fund offers stability. The UTI Nifty 500 Value 50 Index Fund adds diversification. This plan is simple and easy to follow, with a focus on long-term growth and compounding.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "Debt funds are subject to interest rate risk, and their returns may fluctuate based on market conditions.",
+      "Index funds are subject to market risk, and their returns are tied to the performance of the underlying index."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 10.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 4,
+        "equity_pct": 65.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 10.0,
+        "trigger": "Rebalance to increase equity exposure"
+      },
+      {
+        "year": 10,
+        "equity_pct": 70.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 10.0,
+        "trigger": "Rebalance to further increase equity exposure"
+      },
+      {
+        "year": 20,
+        "equity_pct": 75.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 10.0,
+        "trigger": "Rebalance to maximize growth potential"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.33,
+    "turnover_score": 0.67,
+    "cost_emphasis_score": 0.67,
+    "research_vs_cost_score": 0.33,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "The investment plan has a mix of active and passive instruments. The Nippon India Multi Cap Fund is actively managed with a high alpha and tracking error, while the UTI Nifty 500 Value 50 Index Fund is passive. The passive_instrument_fraction is 1/3 (10% allocation to index fund). The plan recommends annual rebalancing and a SIP step-up, which indicates moderate turnover. The plan emphasizes cost with low expense ratios, but it also discusses fund performance, indicating a balance between cost and research. The plan is long-term oriented with a focus on compounding. The portfolio has a mix of active and passive instruments, with the active portion having higher tracking error and alpha.",
+    "composite_aps": 0.5833333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.7,
+    "reasoning": "The investment plan aligns well with Remy's goals, age, and moderate risk appetite, with a focus on long-term growth. The allocation of 60% equity and 30% debt is suitable for his 38-year investment horizon. The plan is internally consistent, with clear rationale for fund selection and rebalancing guidelines. However, the plan does not fully optimize tax efficiency for the new regime, as it includes slab-taxed debt funds instead of equity-taxed alternatives that could offer better tax benefits. The diversification across equity and debt is moderate, and the plan is structured to simplify the investment process.",
+    "composite_pqs": 0.7799999999999999
+  },
+  "timestamp": "2026-04-17T09:54:01.220175Z",
+  "prompt_version": "v1"
+}

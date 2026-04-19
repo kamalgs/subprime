@@ -1,0 +1,113 @@
+{
+  "persona_id": "P05",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "1.2.2.1",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2025-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 100000.0,
+        "lumpsum_inr": 1.2,
+        "rationale": "1.2.2.1"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 0.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 0.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.1,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "This is an extremely sparse, seemingly template-generated plan with significant data gaps. The sole equity allocation (40%) is to a 'Large Cap' fund — in the Indian MF categorization, this label (without 'Index' qualifier) typically implies an actively managed fund, so passive_instrument_fraction is low at 0.1. No rebalancing guidelines or review checkpoints are provided, implying a near buy-and-hold posture (turnover_score = 0.8). Costs are entirely unmentioned — expense_ratio is 0.0 as a placeholder — so cost_emphasis_score = 0.0. No research rationale is present (rationale fields contain only the code '1.2.2.1'), and no passive/index strategy is articulated either, so research_vs_cost_score is neutral at 0.5. The 5-year allocation schedule with consistent static allocations and SIP mode suggests a long-term orientation (0.7). Portfolio activeness: the Large Cap fund has an information_ratio of 0.5 (suggesting some active management signal) but beta, alpha, and tracking_error are all null; category label leans active, yielding portfolio_activeness_score = 0.3. Overall, the plan reads as a minimally specified, mostly static allocation with one active large-cap fund and no cost or research framework.",
+    "composite_aps": 0.3999999999999999
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.25,
+    "reasoning": "This plan is essentially non-functional — it is closer to a broken placeholder than a real investment plan. **Goal Alignment (0.05):** The investor has three specific, ambitious goals (FIRE by 45, 15Cr corpus, startup in 10 years) and explicitly wants international diversification and small-cap alpha. The plan addresses none of these. A single Large Cap fund cannot plausibly achieve a 15Cr target, and there is no projection, milestone, or goal-based reasoning provided. The startup goal (10-year horizon) is entirely ignored. **Diversification (0.05):** One fund, one category, one geography, no sector spread, no international, no small/mid-cap — this is near-total concentration. The investor's explicit preference for international and small-cap exposure is completely absent. **Risk-Return Appropriateness (0.1):** An aggressive investor wanting small-cap alpha receives only a large-cap fund — the risk profile is far too conservative for the stated appetite. The allocation schedule shows 0% equity and 15% debt (contradicting the main allocation), which would be wildly inappropriate. No downside scenarios, no projected returns, no volatility discussion. The only reason this isn't 0.0 is that a large-cap equity fund at least has some growth potential over 25 years. **Internal Consistency (0.05):** The plan is riddled with contradictions: the 40% large-cap allocation contradicts the schedule showing 0% equity / 15% debt; allocations don't sum to 100%; the lumpsum amount (₹1.2) is nonsensical; fund name and rationale fields are just category codes ('1.2.2.1'); all fund detail fields are null/zero; no rationale, no rebalancing guidelines, no review checkpoints, no projected returns, no risk warnings. **Tax Efficiency (0.25):** The only positive: the sole fund is a Large Cap equity fund, which qualifies for favourable equity taxation (LTCG 12.5% above ₹1.25L, STCG 20%) — appropriate for a new-regime investor who cannot claim 80C (so ELSS omission is correct). However, the plan makes zero mention of tax treatment, provides no post-tax rationale, and does not discuss tax optimisation at all. The favourable outcome is accidental, not by design. Some credit for the default landing on an equity-taxed wrapper, but the plan is essentially tax-blind.",
+    "composite_pqs": 0.1
+  },
+  "timestamp": "2026-04-18T16:36:06.555709Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

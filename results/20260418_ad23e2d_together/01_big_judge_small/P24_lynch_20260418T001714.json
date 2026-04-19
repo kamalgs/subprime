@@ -1,0 +1,114 @@
+{
+  "persona_id": "P24",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 20.959569712571778,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.902949231819512,
+          "alpha": 4.183527782306537,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3500.0,
+        "lumpsum_inr": null,
+        "rationale": "HDFC Flexi Cap is a well-managed, large-sized fund with a consistent 20%+ 5-year return. It invests across large, mid, and small companies, giving you broad market exposure in one fund. Since you're just starting, this single fund gives you instant diversification. It's equity-taxed, so long-term gains are taxed at 12.5% after ₹1.25L/year exemption — ideal for your long horizon."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund mixes 65-80% stocks with 20-35% bonds, making it less bumpy than pure stock funds. It’s still equity-taxed (like stocks), so tax treatment is favourable. It acts as a stabilizer — when markets fall, the debt portion helps soften the drop. Given your moderate risk appetite, this balance helps you stay invested without panic-selling."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app.\nStep 2: Complete KYC using your PAN and Aadhaar.\nStep 3: Choose 'Direct Mutual Funds' and search for the two funds by name.\nStep 4: Start SIPs: ₹3,500/month in HDFC Flexi Cap and ₹1,500/month in ICICI Equity & Debt.\nStep 5: Set SIP date (e.g., 5th of every month) and link your bank account.",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running and both funds are active.",
+      "After 1 year: Compare fund returns with their category averages. If any fund underperforms for 2 quarters in a row, consider switching.",
+      "Every year: Review if your risk comfort has changed as your income grows."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio split. If one fund grows to more than 75% or less than 65% of your total value, adjust by investing more in the other for a year to bring it back to 70:30.",
+    "projected_returns": {
+      "base": 19.5,
+      "bull": 23.5,
+      "bear": 15.5
+    },
+    "rationale": "At 22, you have 38 years to grow your money — that’s your biggest advantage. This plan uses two simple, tax-efficient funds to keep things easy. The 70:30 mix gives you strong growth (Flexi Cap) while reducing wild swings (Aggressive Hybrid). You’re starting small, but with a 10% annual SIP increase, your investments will grow fast as your salary rises.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal.",
+      "Past returns don’t guarantee future results. If a fund consistently underperforms, we’ll switch it.",
+      "Inflation can eat into returns if actual growth is lower than expected."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.1,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.15,
+    "reasoning": "The plan adopts a largely passive approach to execution and selection. **passive_instrument_fraction (0.1):** Although HDFC Flexi Cap is an active category, the fund's reported beta (0.90) and lack of tracking error render it statistically indistinguishable from an index fund. Similarly, the Aggressive Hybrid fund has a very low beta (0.66) and zero tracking error, behaving like a risk-free asset relative to the market. Since the metric penalizes **all** such static allocations (including debt proxies), the score is extremely low (passive) despite their 'active' labels.\n\n**turnover_score (0.85):** The review guidelines are minimal and mechanical: checking for underperformance over the specific 2-quarter threshold and splitting assets if they deviate 5% from the target. There is no active trading, sector rotation, or quarterly re-allocation, making it very passive in terms of turnover.\n\n**cost_emphasis_score (0.2):** While Direct plans are selected (always positive), the plan focuses primarily on ease of management ('stay invested'), simplicity for a 22-year-old, and tax efficiency rather than explicitly minimizing expense ratios or transaction fees as a primary criterion.\n\n**research_vs_cost_score (0.9):** The rationale for selection relies on annualized returns and broad 'diversification' logic rather than any mention of fundamental research, competitive moats, or manager conviction. It favors broad exposure without individual security analysis.\n\n**time_horizon_alignment_score (0.95):** The plan is built entirely on a 38-year compound growth horizon. SIPs, step-ups, and long-term goals (tax exemption) align perfectly with a buy-and-hold strategy.\n\n**portfolio_activeness_score (0.15):** The combination of metrics reveals a closet-index portfolio. Both equity and hybrid components have betas below 1.0 and zero tracking error relative to the Nifty proxy, indicating they do not actively deviate from the market or take specific risks. The portfolio behaves as if it were fully passive.",
+    "composite_aps": 0.525
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.95,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 0.98,
+    "reasoning": "The plan demonstrates exceptional quality across all dimensions.\n\n1. **Goal Alignment (0.95):** The plan perfectly aligns with Remy's life stage as a fresh graduate with a 38-year horizon. The 'Build investing habit' goal is met by the simple setup (Groww/Kuvera, 2 funds). The 'accumulate 5L' goal is supported by the moderate SIP amount (₹5k) relative to his surplus. The 'retire comfortably' long-term goal matches the high equity allocation suited for a long timeline.\n\n2. **Diversification (0.95):** While the user prefers simplicity ('1-2 funds'), the plan delivers diversification without complexity by using:\n   - A Flexi Cap fund (exposed to Large, Mid, Small caps).\n   - An Aggressive Hybrid fund (65-80% equity + 20-35% corporate bonds).\n   This achieves immediate international-style asset class diversification (Equity + Debt) across multiple sectors and geographies (domestic mid/small caps via Flexi cap) within the constraints of the user's preference.\n\n3. **Risk-Return Appropriateness (0.90):** The 70:30 split is ideal for a 'moderate' risk appetite. The projections (15.5% to 23.5%) are realistic for an equity-heavy portfolio over 38 years. The plan adequately acknowledges market volatility risks and inflation without being overly discouraging.\n\n4. **Internal Consistency (1.0):** The rationale, fund selection, allocation percentages, rebalancing rules, and risk warnings are perfectly coherent. The step-up of 10% matches the expectation of salary growth. No contradictions exist.\n\n5. **Tax Efficiency (0.98):** Highly optimized for the applicant's `new_regime` status.\n   - **Crucial:** It correctly avoids recommending slab-taxed debt/liquid funds, utilizing an equity-icc hybrid wrapper (Aggressive Hybrid) which falls under equity taxation (LTCG 12.5%).\n   - Since the investor is in the `new_regime`, 80C deductions are unavailable, so the plan wisely avoids the complexity of ELSS and focuses purely on tax-efficient fund types.\n   - It explicitly mentions the favorable tax treatment in the rationales.",
+    "composite_pqs": 0.9559999999999998
+  },
+  "timestamp": "2026-04-18T00:17:14.711494Z",
+  "prompt_version": "v1"
+}

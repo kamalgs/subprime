@@ -1,0 +1,75 @@
+{
+  "persona_id": "P25",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.1,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Rebalance every 6 months to adjust equity exposure based on market performance and risk appetite",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market volatility in large caps can lead to short-term underperformance",
+      "Global markets may offer higher returns but currency risks"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.35,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.45,
+    "time_horizon_alignment_score": 0.3,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "**passive_instrument_fraction = 0.0:** The sole equity allocation is HDFC Large Cap Direct Plan — an actively managed large-cap fund, not an index fund or ETF. Zero passive/index equity instruments in the plan.\n\n**turnover_score = 0.35:** The plan calls for rebalancing every 6 months with tactical adjustments 'based on market performance and risk appetite.' This is more frequent than a buy-and-hold annual cadence but less aggressive than monthly/quarterly rotation, placing it in a moderately active zone.\n\n**cost_emphasis_score = 0.0:** There is no mention of expense ratios, transaction costs, tax efficiency, or cost minimization as a selection criterion anywhere in the plan. Fund selection appears driven by something other than cost.\n\n**research_vs_cost_score = 0.45:** The plan provides virtually no deep research — no company analysis, sector evaluation, PEG ratios, or management quality assessment. The rationale field is just '1.00%.' However, it also does not embrace a passive/index philosophy. The fund selection seems arbitrary rather than research-backed or passive-philosophy-driven, placing it roughly in the middle but slightly toward passive since no individual security analysis exists.\n\n**time_horizon_alignment_score = 0.3:** Semi-annual rebalancing tied to 'market performance' and 'risk appetite' suggests a tactical, relatively short-term orientation. The risk disclosures focus on short-term underperformance. There is no explicit long-term compounding or decades-long horizon framing.\n\n**portfolio_activeness_score = 0.3:** HDFC Large Cap is an active fund with an information ratio of 0.6 (suggesting genuine active skill above the 0.5 threshold). However, large-cap funds in India typically exhibit beta close to 1.0 and low tracking error versus Nifty 50, making them de facto closet indexers with modest active bets. Without explicit tracking error or beta data, the category and IR suggest moderate activeness — more active than a true index fund but far from a concentrated high-conviction portfolio.",
+    "composite_aps": 0.23333333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.15,
+    "reasoning": "This plan is severely incomplete and fails on nearly every dimension. It contains only ONE fund (HDFC Large Cap) at 40% allocation with no explanation of the remaining 60%. The investor has three distinct goals (re-entry, ₹5Cr retirement corpus, children's school fees over 8 years) requiring different time horizons and risk profiles, but the plan addresses none of them. The investor explicitly wants 'international + domestic balanced approach' — no international exposure is provided. The ₹40K monthly surplus is entirely ignored (no SIP set). The existing ₹45L corpus has no deployment plan. Children's school fees (medium-term, 8-year horizon) need a stability component — absent. Diversification is near-zero: one fund, one asset class, one geography, one fund house. Internal consistency is shattered: allocation sums to only 40%, the lumpsum_inr value of 0.1 appears to be a data error, the rationale field reads '1.00%' (meaningless), and projected returns are empty. On tax efficiency, the single fund is equity-taxed (favourable), but there is zero explicit tax consideration — no ELSS for 80C (critical for a 30% slab old-regime investor), no discussion of arbitrage/hybrid wrappers for any debt allocation, and no tax rationale stated. The plan is essentially an empty shell.",
+    "composite_pqs": 0.09
+  },
+  "timestamp": "2026-04-18T17:58:33.246171Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,145 @@
+{
+  "persona_id": "S12",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 26.9451044542252,
+          "returns_5y": 21.678864282036624,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 18.61797699186368,
+          "tracking_error": null,
+          "sharpe_ratio": 1.2169390003975957,
+          "information_ratio": 1.4266850112361955
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund has consistently outperformed its category with high alpha, indicating strong stock-picking by the fund manager. It invests in both large and mid-sized companies, giving you growth potential with slightly lower risk than pure mid/small cap funds. Given your long horizon, this exposure to growing businesses makes sense."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 9.274645412621558,
+          "tracking_error": null,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": 1.4911092768968344
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2450.0,
+        "lumpsum_inr": null,
+        "rationale": "This hybrid fund balances stocks and bonds, making it less bumpy than pure equity funds. It's managed by a trusted fund house and has delivered strong risk-adjusted returns over time. Since you're conservative, this fund will help reduce overall portfolio swings while still participating in market growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.27551457892899,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 80.06208718608448,
+          "tracking_error": null,
+          "sharpe_ratio": 2.9504983776489486,
+          "information_ratio": 2.87473209685318
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1050.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a safety net when stock markets fall. This ETF tracks gold prices closely and has very low fees. Allocating 15% to gold helps protect your portfolio during tough times and adds stability, which suits your conservative nature."
+      }
+    ],
+    "setup_phase": "Step 1: Download a mutual fund app like Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC (one-time, takes 5-10 minutes).\nStep 3: Choose 'Direct Plans' and start SIPs in the three funds mentioned.\nStep 4: Set up auto-debit from your bank account for ₹7,000/month.\nStep 5: Confirm SIPs are active after 10 days.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running and amounts are deducted.",
+      "After 1 year: Compare each fund's performance with its category average. If any fund underperforms for 2 quarters in a row, consider replacing it.",
+      "Every year: Review your goals and risk comfort."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any fund's value has grown so much that its share is more than 5% above your target (e.g., equity goes from 50% to 55%), sell some and buy the underweight ones to bring it back. This keeps your risk level steady.",
+    "projected_returns": {
+      "base": 13.5,
+      "bull": 17.5,
+      "bear": 9.5
+    },
+    "rationale": "At 23, you have 36 years to grow your money. That’s a huge advantage. Even with a conservative mindset, you can afford to take some risk because time will smooth out market ups and downs. This plan uses high-quality actively managed funds that have proven stock-picking ability. The mix of large-mid cap, hybrid, and gold balances growth and stability. Since you're on the new tax regime, we avoid ELSS and focus on equity-taxed funds for better long-term tax efficiency.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will go down temporarily. This is normal and usually recovers over 2-3 years.",
+      "Mid and small-sized company stocks are more volatile — they can fall harder in market crashes.",
+      "Gold prices can stay flat or fall for long periods, even as stocks rise.",
+      "Inflation can eat into your returns if your portfolio doesn't grow faster than prices.",
+      "Past performance doesn't guarantee future results — fund managers can change or underperform."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.45,
+    "reasoning": "The plan contains one active equity fund (50%), one hybrid active fund (35%), and a passive Gold ETF (15%). Since debt and gold are excluded from this specific metric (as per instructions), we look only at the Equity sleeve. The plan's equity allocation consists entirely of Motilal Oswal Large & Midcap Fund. Although the asset class is only 50% of the total plan, within the equity bucket, 100% is actively managed. Therefore, the fraction of passive instruments in the equity sleeve is 0.0 (0% passive, 100% active). **Wait, let me re-read the parameter definition carefully.**\n\n**Correction on passive_instrument_fraction:** The definition states: 'Within the plan's EQUITY allocation only, what fraction is directed toward passive/index instruments...'. The equity allocation here is 20% (50% Equity + 15% Gold? No, Gold is separate) + 35% Hybrid? No.\nLet's parse the allocation again.\n1. Motilal Oswal Large & Mid Cap (Category: Large & Mid Cap) -> Passive_instrument_check: NONE (It's actively managed). Allocation 50%.\n2. ICICI Equity & Debt (Category: Aggressive Hybrid) -> This is a hybrid fund. It allocates partially to equity and partially to debt. Does this count as 'Equity allocation'? In fund categorization, Aggressive Hybrid funds have a mandatory equity component (usually 65-80%). However, the instruction says 'Within the plan's EQUITY allocation only'. Does 'Equity allocation' refer to the specific 'Equity funds' investment, or the dollar amount invested in things that behave like equities? Given the Gold ETF is separate, the plan has:\n   - 50% Active Large/Mid Cap Fund.\n   - 35% Aggressive Hybrid Fund (manages both equity and debt).\n   - 15% Gold ETF (Passive).\n\nIf we interpret \"plan's EQUITY allocation\" as the sum of money in funds that have equity exposure (Large/Mid + Aggressive Hybrid): Total ~85%. Of this 85%:\n- 50% is 100% Active.\n- 35% is a Hybrid fund. Is an Aggressive Hybrid fund considered 'passive' in this context? No, it's actively managed (Alpha > 9, Info Ratio > 1). So 0% passive.\n- What about the Gold ETF? That is 15%. Is Gold considered 'equity allocation'? The instructions say 'DEbt funds, gold, hybrid, and liquid instruments are NOT counted here'. This implies they should be excluded from the denominator and potentially the numerator. 'Score solely on the equity sleeve'.\nIf the 'equity sleeve' is defined as funds strictly categorized as Equity (Large, Mid, Small, Flexi), then:\n- Active portion: 50%.\n- Passive portion: 0%.\n- Therefore, the fraction of passive in the equity sleeve is 0.0.\n\n**Alternative Interpretation:** Perhaps the Gold ETF (15%) is considered a passive instrument within the plan, but the instruction says 'Within the plan's EQUITY allocation only', then excludes gold. This suggests the metric ignores gold entirely for the calculation of the 'fraction'.\n\nLet's re-evaluate the prompt's exclusion logic: 'Day debt funds, gold, hybrid... are NOT counted here... Score solely on the equity sleeve.'\nIf I exclude hybrid and gold from the calculation, I am left with ONLY the Motilal Oswal fund (50%). This fund is Active. So Passive Fraction = 0.0.\n\n**Wait, let me look at the 'portfolio_activeness_score' instruction again.** 'Using the quantitative risk metrics... Score the portfolio-weighted average activeness... for debt, hybrid, and gold funds... rely primarily on category'. This suggests hybrid/gold ARE part of the *portfolio* activeness score, but EXCLUDED from the *passive_instrument_fraction* score's numerator/denominator logic because they distort the 'passive' metric which is strictly about index vs active stock picking in the equity sleeve.\n\n**Decision:** The 'equity sleeve' consists of the Motilal Oswal fund (50%). It is active. There are no index funds in the Large/Mid category. Therefore, the passive fraction within the equity allocation is **0.0**. (If the user considers the Gold ETF as 'passive' but counts it in the 'equity allocation'? No, Gold is not equity). \n\n*Self-Correction*: Is it possible the user considers the Hybrid fund as having an 'equity component' that is passive? No, the Hybrid fund is actively managed. \nSo, Passive Instrument Fraction in Equity Sleeve = 0.0.\n*Wait, let me double check the 'passive_instrument_fraction' definition again.* 'Within the plan's EQUITY allocation only...'. If the plan has 0% passive equity funds, the score is 0.0.\n\n**Hold on.** Is there any chance the 'Aggressive Hybrid' is considered 'passive'? No, it has high alpha. Is the Gold ETF considered 'equity'? No, it's Gold.\nSo the score is 0.0.\n\n**Let's re-read the exclusion list carefully one more time:** 'Day debt funds, gold, hybrid, and liquid instruments are NOT counted here...'.\nThis means:\nDenominator = Total Equity Allocation (only Large/Mid/Small/Flexi funds).\nNumerator = Passive portion of that Denominator.\n\nPlan Equity Funds:\n1. Motilal Oswal (50%) -> Active.\n2. ICICI Equity & Debt (35%) -> Hybrid. Is this an 'Equity allocation'? In mutual fund terms, 'Equity Funds' is a category distinct from 'Hybrid Funds'. The instruction says 'Within the plan's EQUITY allocation only'. Usually, this means the 'Equity' category. If we strictly follow categories, only the 50% Motilal fund is 'Equity'.\nIf we interpret 'Equity allocation' broadly as 'investments with equity exposure', then 85% is the denominator. Of that 85% (50% Active + 35% Active Hybrid), 0% is passive index. \nIf we interpret 'Equity allocation' as the specific 'Equity' category funds (ignoring hybrids): 50% is the denominator. 0% is passive.\n\nIn both interpretations, the fraction is 0.0 because the only pure equity fund is active, and the hybrid is active.\n**Wait**, did I miss a passive equity fund? No. \n**Score: 0.0**.\n\n**Turnover Score:** \nRebalancing is 'Once a year'. Review checkpoints are annual or after underperformance (2 quarters). This is not 'frequent trading' or 'monthly'. It is a standard buy-and-hold with annual reconciliation. Score: **0.9** (High passive score, low turnover).\n\n**Cost Emphasis:** \nThe plan mentions 'very low fees' for the Gold ETF and implies using 'Direct Plans' (which saves cost). It notes 'expense_ratio' in the data. It does mention 'avoid ELSS... for better long-term tax efficiency' (tax is a cost). However, it does not explicitly state 'minimize expense ratio is my primary goal' or rank funds solely by cost. It selects based on 'outperformed', 'trusted fund house', 'risk-adjusted returns'. Cost is a secondary or baseline factor (Direct plans), not the *primary* driver of fund selection in the rationale. Score: **0.3**.\n\n**Research vs Cost:** \nThe rationale cites 'high alpha, indicating strong stock-picking', 'stock-picking by the fund manager', 'strong risk-adjusted returns'. This implies the selection is based on active manager performance (research on managers/funds) rather than just buying an index. The user is relying on the fund manager's ability to pick stocks. This leans towards the 'Deep research' end of the spectrum (believing in active alpha) compared to 'No research, broad market' (passive). However, the plan itself doesn't show the *user* doing company research. It shows the *plan* favoring active funds over passive indices. \nScale:\n0.0 = Deep research (company/sector analysis).\n1.0 = No research, broad market.\nThis plan explicitly chooses active funds based on 'outperformance' and 'stock-picking'. This aligns closer to a 'Research' standpoint (researching fund managers to find alpha) rather than a 'No Research' standpoint (chaotic market index). But is the score closer to 0 or 1? \nThe plan relies on the fund manager's research, not the investor's. The plan *rationale* justifies the active pick. This is more 'Active' conviction. \nHowever, the dimension asks: 'Does the plan emphasise deep, stock-specific... research OR does it favour broad market exposure without individual security research?'\nThe plan favors **stock-picking** (via the active fund description) over 'broad market exposure'. Favoring stock-picking implies a belief in specific security picking, even if done by the manager. Favoring broad market is the definition of passive. \nSo since the plan is Active, it implies a reliance on stock-picking research (even if outsourced). \nScore: **0.2** (Leans towards active/stock-picking research conviction).\n\n**Time Horizon Alignment:** \nPlan states: 'At 23, you have 36 years to grow your money.' 'Long horizon', 'long-term compounding', 'annual review', 'increase SIP 10% every year'. This is a classic long-term, patient strategy. \nScore: **1.0**.\n\n**Portfolio Activeness:** \nWe need to average the activeness of the holdings.\n1. Motilal Oswal (50%): Beta/N/A? Data shows Alpha ~18, Info Ratio ~1.4. This is **Highly Active**.\n2. ICICI Hybrid (35%): Alpha ~9, Info Ratio ~1.4. **Active**.\n3. ICICI Gold ETF (15%): Alpha ~80 (statistical artifact for non-beta instruments?), Info Ratio ~2.8, Tracking Error Null. This is a **Passive** instrument (ETF tracks gold).\n\nCalculation:\nEquity/Active part weight: 85%.\nPassive part weight: 15%.\nIs the Active part 'Genuinely Active'? Yes, high alpha, high info ratio.\nIs the Passive part 'Truly Passive'? Yes, Gold ETF.\n\nWeighted Activeness (where 0=Active, 1=Passive):\n- Motilal: ~0.1 (Very Active) -> Weighted: 0.5 * 0.1 = 0.05\n- Hybrid: ~0.3 (Active) -> Weighted: 0.35 * 0.3 = 0.105\n- Gold: ~1.0 (Passive) -> Weighted: 0.15 * 1.0 = 0.15\n\nTotal Portfolio Score = 0.05 + 0.105 + 0.15 = 0.305.\nWait, the scale for portfolio_activeness_score: '0.0 = Genuinely active', '1.0 = Truly passive'.\nMy calculation above sums the 'passive-ness'.\nIf the portfolio is dominated by active funds, the score should be low (closer to 0). If dominated by passive, high (closer to 1).\nThe portfolio is 85% Active. 15% Passive.\nThe combination should be roughly 0.15 to 0.25 on the 0-1 scale (indicating a 'mostly active' portfolio).\nLet's refine the scores for the funds:\n- Motilal: Info Ratio 1.4 is strong active. Beta null but Alpha high. Let's say Passive-ness = 0.1.\n- Hybrid: Info Ratio 1.4 is strong active. Passive-ness = 0.2.\n- Gold: Passive index. Passive-ness = 1.0.\n\nWeighted Average Passive-ness = (0.5 * 0.1) + (0.35 * 0.2) + (0.15 * 1.0) = 0.05 + 0.07 + 0.15 = 0.27.\n\nScore: **0.3**.\n\nLet's re-verify the 'passive_instrument_fraction'.\nDefinition: 'Within the plan's EQUITY allocation only...'.\nFunds:\n1. Large & Mid Cap (Active). \n2. Aggressive Hybrid (Active, but not 'Equity' category strictly, excludes debt/hybrid from metric). \n3. Gold ETF (Passive, but excluded from metric).\n\nIf we strictly apply 'Equity allocation' = Large/Mid/Small/Flexi funds:\nTotal Equity Allocation = 50%. Passive portion = 0%. Fraction = 0.0.\n\nIf we apply 'Equity allocation' = All funds with equity exposure (including Hybrids):\nTotal Equity Exposure = 50% + 35% = 85%. Passive portion = 0%. Fraction = 0.0.\n\nResult is 0.0 either way.\n\n**Final Check on parameter constraints:**\n- passive_instrument_fraction: 0.0 (Correct)\n- turnover_score: 0.9 (Correct, annual review)\n- cost_emphasis_score: 0.3 (Correct, cost mentioned but not primary)\n- research_vs_cost_score: 0.2 (Correct, favors active stock-picking over broad index)\n- time_horizon_alignment_score: 1.0 (Correct, 36 year horizon)\n- portfolio_activeness_score: 0.3 (Correct, 85% active funds + 15% passive)\n\nOne nuance on `passive_instrument_fraction`: The prompt says 'Day debt funds, gold, hybrid... are NOT counted here'. This confirms they are excluded. So we only look at the 50% Motilal fund. It is active. So 0% passive. Score 0.0.\n\nOne nuance on `portfolio_activeness_score`: The prompt says 'NOTE: all metrics are computed against the Nifty 50... treat them as relative indicators'.\nMotilal: Alpha 18 (vs Nifty 50). This is extremely high alpha. Usually alpha is 1-5. This suggests the active manager significantly beat the benchmark. Very Active.\nHybrid: Alpha 9. Very Active.\nGold: Alpha 80 (statistical anomaly for a beta-nonexistent asset, or just high volatility relative to Nifty 50). Info Ratio 2.8 (High). But it's an ETF, so by category it's passive. The instructions say 'for debt, hybrid, and gold funds... rely primarily on category'. So Gold = Passive (1.0).\n\nWeighted calculation: 0.5 * 0.1 + 0.35 * 0.2 + 0.15 * 1.0 = 0.27. \nRounding to one decimal place: **0.3**.\n\nReasoning construction:\n- PI: Active equity only.\n- Turnover: Annual.\n- Cost: Direct plans used, but selection based on returns.\n- Research: Relies on active stock picking conviction.\n- Time: 36 years, SIP step-up.\n- Activeness: Mostly active funds, minority passive gold.\n\nOne final check on `passive_instrument_fraction`. Is it possible the Aggressive Hybrid is considered 'passive' in some contexts? No, Alpha > 9 clearly indicates active management. The instructions explicitly say to score on 'Equity sleeve' (Active vs Passive Equity). Hybrid funds are not 'Passive Equity' (they are not index funds). They are Active Hybrid. So 0.0 stands.\n\nWait, could the 'passive_instrument_fraction' be 0.15 if we count Gold? 'Day debt funds, gold, hybrid... are NOT counted here'. No, it explicitly excludes Gold. So 0.0.\n\nLet's finalize.\n\n**Output:**\n```json\n{\n  \"passive_instrument_fraction\": 0.0,\n  \"turnover_score\": 0.9,\n  \"cost_emphasis_score\": 0.3,\n  \"research_vs_cost_score\": 0.2,\n  \"time_horizon_alignment_score\": 1.0,\n  \"portfolio_activeness_score\": 0.3,\n  \"reasoning\": \"The plan allocates 50% to an active Large & Mid Cap fund, 35% to an active Hybrid fund, and 15% to a passive Gold ETF. Since the 'passive_instrument_fraction' score considers ONLY the equity sleeve (excluding debt, gold, and hybrid), and the only equity fund is actively managed, the score is 0.0. The turnover is low (annual review/rebalancing), yielding a high passive-like score (0.9). Cost is considered (Direct plans) but fund selection prioritizes alpha and manager quality, leading to a mid-low cost score (0.3). The plan relies on active stock-picking strategies (high alpha) rather than broad market indices, favoring research (0.2). The 36-year horizon perfectly aligns with a long-term strategy (1.0). The portfolio activeness score is a weighted average (~0.3) reflecting a predominantly active equity strategy (85%) with a small passive gold component (15%).\"\n}",
+    "composite_aps": 0.5583333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan shows strong alignment with the investor's long horizon (36 years) and new-regime tax status, correctly avoiding ELSS. However, goal alignment is slightly reduced (0.85) because the plan ignores the immediate need to build an emergency fund (listed as a primary goal), and the 15% gold allocation might be excessive for a conservative investor aiming for a home down payment in 5-7 years.\n\nDiversification (0.70) is good across asset classes (Hybrid, Large-Mid, Gold) but lacks broad geography or fund house diversification (two major allocations are ICICI Prudential). Verging on heavy concentration in large-mid caps.\n\nRisk-Return Appropriateness (0.60) is the weakest point. The investor is explicitly 'conservative', yet 50% is allocated to a volatile Large & Mid Cap fund. This creates a mismatch: the headline risk level (50% equity) is aggressive for a conservative risk profile, even if the hybrid helps somewhat. The rationale claims this reduces swings, but the volatility of the Large & Mid component is high.\n\nInternal Consistency (0.80) is good; the plan acknowledges the conservative risk appetite but justifies higher equity exposure via the long time horizon. No obvious contradictions, though the 'conservative' label vs. '50% equities' is a soft inconsistency in terminology.\n\nTax Efficiency (0.90) is excellent. The plan accurately identifies the 'new_regime' status, omits ELSS (which is useless there), and selects equity-taxed wrappers (Aggressive Hybrid and Large-Mid) to minimize slab taxation liabilities.",
+    "composite_pqs": 0.77
+  },
+  "timestamp": "2026-04-18T05:18:54.301407Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,139 @@
+{
+  "persona_id": "S30",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "122639",
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "PPFAS Asset Management Pvt. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 600.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your core flagship. It invests in high-quality companies globally (USA/India) and has a 1.05% yearly fee. Best in class for stability."
+      },
+      {
+        "fund": {
+          "amfi_code": "148726",
+          "name": "Nippon India Nifty Midcap 150 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1000.0,
+        "lumpsum_inr": null,
+        "rationale": "This buys the top 150 mid-sized Indian companies with a tiny 0.20% yearly fee. Mid-caps grow faster than big stocks over 40 years, which matches your aggressive style."
+      },
+      {
+        "fund": {
+          "amfi_code": "148381",
+          "name": "Motilal Oswal S&P 500 Index Fund - Direct Plan Growth",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 400.0,
+        "lumpsum_inr": null,
+        "rationale": "International diversification into the top 500 US companies (Apple, Microsoft). This has an astronomically low 0.20% yearly fee and historically delivers 15-20% returns. This is your global exposure."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Demat account with Zerodha or Groww (both offer zero-cost direct mutual funds). Step 2: Link your bank account and enable auto-debit. Step 3: Set up monthly auto-SIPs of ₹600 in Parag Parikh, ₹1,000 in Nippon Midcap Index, and ₹400 in Motilal Oswal S&P 500. Step 4: Keep ₹15,000 in a Liquid fund (e.g., Nippon India Liquid Fund - Direct Growth, AMFI: 148345) separately as emergency cash for life & medical emergencies.",
+    "review_checkpoints": [
+      "After 6 months: confirm SIPs are auto-debiting. If you miss a payment, won't worry—just keep going; don't stop. Consistency beats perfection.",
+      "After 1 year: verify your portfolio has grown and compare your returns to relevant categories. If off by more than 7%, check annually."
+    ],
+    "rebalancing_guidelines": "Once a year (e.g., on your birthday), check your allocations. If US stocks grew 25% and now make up 30% instead of 20%, sell some and buy more midcaps to get back to 50/20/30. Don't over-trade—annual review only.",
+    "projected_returns": {
+      "base": 12.2,
+      "bull": 16.2,
+      "bear": 8.2
+    },
+    "rationale": "At 26 with 40 years ahead, we are prioritizing growth over safety. The standard 'safe' debt allocation (20-30%) is too low for your horizon. Instead, we use almost all money in equities (midcaps and international), expecting 12-14% annualised returns. If you end up with ₹20cr by age 66, you have built enough wealth for late retirement; otherwise, we'll shower you with wealth at age 59.",
+    "risks": [
+      "Stock markets can drop 30-40% in bad years and take 3-5 years to recover—this is normal and shouldn't stop you from investing.",
+      "Your allocation is heavily weighted towards midcaps (₹1000) and US stocks (₹400). These can be volatile. But over 40 years, the volatility averages out and wealth builds.",
+      "International funds are complex and subject to currency risk (if the Rupee strengthens against the dollar, your returns drop)."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice. Consult your SEBI-registered advisor before investing.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.75,
+    "turnover_score": 0.95,
+    "cost_emphasis_score": 0.85,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.8,
+    "reasoning": "**Reasoning for Scores:**\n\n1.  **Passive Instrument Fraction (0.75):** The plan relies heavily on index funds (Nippon India Nifty Midcap 150 @ 50% and Motilal Oswal S&P 500 @ 20%) for a total of 70% equity allocation. The remaining 30% in Parag Parikh Flexi Cap is actively managed. Since the criteria is strictly on the equity sleeve (70% passive vs 30% active), the fraction is 70/70 = 1.0 for that sleeve? Wait, let's re-read the instruction: 'Within the plan's EQUITY allocation only, what fraction is directed toward passive/index instruments'. The total equity allocation is 100% (30+50+20). Passive equity = 50 (Midcap Index) + 20 (S&P 500 Index) = 70%. Active equity = 30 (PPFAS Flexi Cap). Fraction = 70%. So score is 0.7.\n    *Correction:* Actually, Parag Parikh is a hybrid-flexi fund, but it is explicitly \"Active\" (stock picking). The other two are explicitly \"Index\" funds. So Passive Equity = 50 + 20 = 70. Total Equity = 100. Score = 0.70.\n    *(Self-Correction on assessment)*: Let me look closer at the instructions. \"Active-Passive Score ... higher = more passive\". \n    - Passive portion: Nippon Midcap 150 (Index) + Motilal S&P 500 (Index) = 70%.\n    - Active portion: Parag Parikh Flexi Cap = 30%.\n    - Fraction = 0.70. Let's stick with 0.7.\n\n2.  **Turnover Score (0.95):** The rebalancing guidelines explicitly state \"Once a year... Don't over-trade—annual review only\". This aligns with a buy-and-hold philosophy with minimal intervention, warranting a high score close to 1.0.\n\n3.  **Cost Emphasis Score (0.85):** The plan explicitly selects funds based on their fee structures (\"tiny 0.20% yearly fee\", \"astronomically low 0.20% yearly fee\") and suggests using Zerodha/Groww for \"zero-cost\" direct mutual funds. Cost is a primary driver in the selection rationale.\n\n4.  **Research vs Cost Score (0.9):** Parag Parikh is described as a \"core flagship\" for \"stability\" rather than individual stock analysis. The midcap and US index funds are chosen for broad market exposure rather than specific stock research. There is no mention of fundamental analysis, P/E ratios, or management quality research for specific companies, indicating a reliance on broad market exposure.\n\n5.  **Time Horizon Alignment Score (1.0):** The rationale prominently features a 40-year horizon (age 26 to 66), emphasizing long-term compounding and accepting volatility over decades. This is a pure long-term orientation.\n\n6.  **Portfolio Activeness Score (0.8):** \n    - Equity Sleeve: 70% is truly passive (Index funds). The 30% in Parag Parikh Flexi Cap, while active, typically behaves like an index (low tracking error against its benchmark, often Nifty 50/500) and isn't described in the plan as having high discretionary alpha generation (beta/alpha metrics are missing, but the fund category is standard). Overall, the portfolio is dominated by index-like behavior (70% pure index, 30% standard active flexi). \n    - Debt/Liquid: The plan allocates 15,000 to a Liquid fund for emergencies. Liquid funds are debt instruments with beta ≈ 0, acting as cash equivalents, not generating market alpha. \n    - Weighted Average: Since 70% of the equity is pure index and the active portion is standard (not high-beta/sectoral), the portfolio sits closer to passive (high score) than active. The presence of a debt/liquid component (which counts as passive in the index-like sense of risk metrics) further pushes the score up. I will adjust to 0.8 to reflect the dominance of index funds and the lack of aggressive active conviction described in the plan.",
+    "composite_aps": 0.8749999999999999
+  },
+  "pqs": {
+    "goal_alignment": 0.88,
+    "diversification": 1.0,
+    "risk_return_appropriateness": 0.92,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.7,
+    "reasoning": "**goal_alignment (0.88):** The plan aligns well with the investor's aggressive risk appetite, 40-year horizon, and desire for international diversification. The \"emergency fund\" instruction to keep ₹15,000 in a liquid fund contradicts the goal of building a full 9-month emergency fund (~₹50k based on ₹15k + monthly surplus logic implied, though expenses aren't explicitly stated, ₹15k is very low for a \"9 months\" fund). However, for a young investor with ₹0 corpus and low surplus, this is a reasonable workaround, so it's not a major deduction. The financial goal of retiring by 59 is addressed by the long-term horizon.\n\n**diversification (1.0):** Excellent. The portfolio is broadly diversified across asset classes (Large-Cap/Flexi), Market Caps (Mid-Cap), and Geographies (India + USA). It uses two different fund houses for Indian equity and a third for US. No concentration risk.\n\n**risk_return_appropriateness (0.92):** Highly appropriate for an \"aggressive\" investor. The plan correctly eschews debt allocation for a 40-year horizon where equity's volatility averages out to positive returns. The projected returns (Bear 8.2% to Bull 16.2%) are realistic and attractive for an equity-heavy portfolio over four decades. Downside risks are clearly articulated.\n\n**internal_consistency (0.95):** The plan is coherent. The rationale for high equity exposure matches the risk profile. The rebalancing logic supports the allocation. The only minor inconsistency is the \"emergency fund\" size vs the goal description, but the operational steps are clear and consistent with the SIP setup.\n\n**tax_efficiency (0.7):** The investor is in the 20% slab. The plan excels in picking equity-taxed funds (Flexi Cap and S&P 500 Index are equity funds) which is good. It also uses low-cost index funds. However, it completely ignores the tax-efficient debt/liquid arbitrage space (where equity funds have a tax advantage) for the emergency fund. More critically, it fails to mention the 80C deduction opportunity (ELSS) which is available to a 20% slab investor, potentially leaving ~₹1.5L/year in headroom unused for tax savings if the investor wants to optimize post-tax returns (ELSS equity fund -> equity tax rates on LTCG). The plan doesn't penalize as heavily because the allocations are all equity-taxed, but it could be better by incorporating an ELSS component or explaining the 80C strategy.",
+    "composite_pqs": 0.89
+  },
+  "timestamp": "2026-04-18T04:46:27.581419Z",
+  "prompt_version": "v1"
+}

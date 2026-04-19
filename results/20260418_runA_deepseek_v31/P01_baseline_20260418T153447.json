@@ -1,0 +1,215 @@
+{
+  "persona_id": "P01",
+  "condition": "baseline",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "Equity Scheme - Flexi Cap Fund",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "1994-12-08",
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": 9.412035479701863,
+          "returns_3y": 20.959569712571778,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": 13.804940988272781,
+          "beta": 0.902949231819512,
+          "alpha": 4.183527782306537,
+          "tracking_error": 3.8829440841356386,
+          "sharpe_ratio": 0.36646093714617606,
+          "information_ratio": 1.0774112868117207
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Flexi cap fund for broad market exposure across large, mid, and small caps with solid track record"
+      },
+      {
+        "fund": {
+          "amfi_code": "147946",
+          "name": "BANDHAN SMALL CAP FUND - DIRECT PLAN GROWTH",
+          "category": "Small Cap",
+          "sub_category": "Equity Scheme - Small Cap Fund",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": "2020-02-03",
+          "aum_cr": 8900.6548,
+          "morningstar_rating": null,
+          "returns_1y": 13.658390941870891,
+          "returns_3y": 31.329635382214562,
+          "returns_5y": 23.709316458342112,
+          "risk_grade": null,
+          "volatility_1y": 17.868139147132016,
+          "beta": 0.9172791604560766,
+          "alpha": 9.7835403256556,
+          "tracking_error": 11.72052388385936,
+          "sharpe_ratio": 0.5942397213158095,
+          "information_ratio": 0.8347357526508494
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": null,
+        "rationale": "High-performing small cap fund with excellent 3-year returns for aggressive growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "118668",
+          "name": "Nippon India Growth Mid Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Mid Cap",
+          "sub_category": "Equity Scheme - Mid Cap Fund",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.15,
+          "inception_date": "1995-09-25",
+          "aum_cr": 8172.295300000001,
+          "morningstar_rating": null,
+          "returns_1y": 16.635345929779977,
+          "returns_3y": 26.564463283049754,
+          "returns_5y": 22.20387620417441,
+          "risk_grade": null,
+          "volatility_1y": 16.98265691671836,
+          "beta": 1.0064526227578858,
+          "alpha": 13.732312048480267,
+          "tracking_error": 8.58960386398559,
+          "sharpe_ratio": 1.1216158637240234,
+          "information_ratio": 1.5987130798961495
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "Consistent mid cap performer with strong historical returns and experienced fund management"
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": 17.094146825697987,
+          "returns_3y": 23.18993139340053,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": 17.42528588877694,
+          "beta": 1.0340706693083053,
+          "alpha": 11.743982302492952,
+          "tracking_error": 8.792440315620462,
+          "sharpe_ratio": 0.9984136156270631,
+          "information_ratio": 1.3356908754477235
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 200000.0,
+        "rationale": "Low-cost index fund for midcap exposure with minimal fees, using existing corpus"
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU\nStep 2: Set up SIPs for ₹20,000 in HDFC Flexi Cap, ₹15,000 in Bandhan Small Cap, and ₹10,000 in Nippon Mid Cap\nStep 3: Invest the existing ₹2 lakh corpus as lumpsum in Motilal Oswal Nifty Midcap 150 Index Fund\nStep 4: Enable auto-debit for your SIPs from your bank account",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly and NAVs are tracking",
+      "After 1 year: Review fund performance compared to their benchmarks",
+      "Annually: Rebalance portfolio if any fund has deviated significantly from target allocation"
+    ],
+    "rebalancing_guidelines": "Once a year, check if your portfolio mix has drifted more than 5% from target. If small cap grows beyond 35% or mid cap beyond 25%, sell some units and rebalance back to 30% small cap, 20% mid cap. If flexi cap falls below 35%, top it up.",
+    "projected_returns": {
+      "base": 18.7,
+      "bull": 22.7,
+      "bear": 14.7
+    },
+    "rationale": "At 25 with aggressive risk appetite and 30-year horizon, this 100% equity portfolio maximizes growth potential. Flexi cap provides stability across market caps, small cap offers highest growth potential, mid cap adds diversification, and the index fund provides low-cost exposure. Your tech background and startup role suggest comfort with volatility, making this high-equity approach suitable.",
+    "risks": [
+      "Stock markets can drop 30-40% during major corrections — your portfolio value will temporarily decline",
+      "Small cap funds are particularly volatile and can underperform for extended periods",
+      "This is 100% equity — no debt cushion for market downturns",
+      "Long-term commitment required — don't panic sell during market dips"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match expected salary growth in tech career"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial aggressive allocation"
+      },
+      {
+        "year": 10,
+        "equity_pct": 90.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start adding stability as retirement horizon approaches"
+      },
+      {
+        "year": 20,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Gradual shift to more conservative mix"
+      },
+      {
+        "year": 25,
+        "equity_pct": 60.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching retirement — reduce equity exposure"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.1,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan allocates 90% of equity to actively managed funds (HDFC Flexi Cap, Bandhan Small Cap, Nippon Mid Cap) and only 10% to a passive index fund (Motilal Oswal Nifty Midcap 150), resulting in a low passive_instrument_fraction of 0.1. The turnover_score is 0.75 because rebalancing is annual and only triggered by significant deviations (>5%), indicating moderate passivity. Cost_emphasis_score is 0.6 as the index fund is noted for 'minimal fees', but other fund selections are based on performance and track record, not cost. The research_vs_cost_score is 0.2 because the rationale emphasizes fund performance, management experience, and track records — indicative of active research — rather than broad market exposure without analysis. The time_horizon_alignment_score is high (0.95) due to a 30-year horizon and long-term holding strategy with SIP step-up. Finally, portfolio_activeness_score is 0.2 because most equity funds show high tracking error (8.5% to 11.7%), positive alpha, and active management indicators, except the 10% index fund, making the overall portfolio predominantly active.",
+    "composite_aps": 0.4666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.95,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 1.0,
+    "reasoning": "The investment plan is highly aligned with Tony Stark's aggressive risk appetite, 30-year horizon, and goal of building a ₹10Cr retirement corpus. The 100% equity allocation across flexi cap, mid cap, and small cap funds is appropriate for long-term growth, and the inclusion of an index fund adds low-cost exposure. The plan acknowledges the investor's tech background and comfort with volatility, justifying the high-equity stance. Diversification is strong across market caps and fund houses, though slightly tilted toward mid and small caps (50% combined), which increases risk but is acceptable given the investor's profile. The plan is internally consistent: rationale, allocations, rebalancing, and risk warnings all support an aggressive, long-term equity strategy. Projected returns (18.7% base) are optimistic but plausible for Indian equities over 30 years, and downside risks are clearly communicated.\n\nTax efficiency is excellent because the investor is in the 'new_regime' tax bracket (no 80C benefit), and the plan avoids ELSS or slab-taxed debt funds. All allocations are in equity funds, which qualify for favorable equity taxation (LTCG 12.5% above ₹1.25L after 1 year). Since the investor cannot claim 80C deductions, skipping ELSS is correct. The plan uses only equity-taxed instruments, which is optimal for post-tax returns under the new regime. No slab-taxed debt/liquid funds are recommended, avoiding higher taxation. The plan doesn't explicitly discuss tax treatment, but the fund choices inherently reflect tax-smart decisions given the investor's tax status, warranting a full score.",
+    "composite_pqs": 0.9400000000000001
+  },
+  "timestamp": "2026-04-18T15:34:47.703827Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 101369,
+    "output_tokens": 2718,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 8
+  },
+  "elapsed_s": 67.28580331802368
+}

@@ -1,0 +1,79 @@
+{
+  "persona_id": "P23",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.1,
+        "lumpsum_inr": null,
+        "rationale": "1.05% on gains over 1.5L"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1. Avoid 10%+ equity. Prefer large-cap for stability. Add mid-cap for growth. Keep 20% in debt for safety. Rebalance every 6 months. Increase equity if market rises 20%.",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan shows a fully active profile across all dimensions:\n\n- **passive_instrument_fraction = 0.0**: The only equity fund allocated (HDFC Large Cap Direct) is an actively managed fund. There is no allocation to index funds or ETFs.\n\n- **turnover_score = 0.0**: Rebalancing is recommended every 6 months, with tactical adjustments (e.g., 'increase equity if market rises 20%'), indicating active management and frequent intervention.\n\n- **cost_emphasis_score = 0.0**: There is no mention of expense ratios, fees, or cost efficiency in fund selection. The rationale focuses on tax implications ('1.05% on gains over 1.5L'), not cost minimization.\n\n- **research_vs_cost_score = 0.0**: The rationale does not mention broad market exposure or indexing; instead, it implies stock-picking through active large-cap and mid-cap allocation, suggesting reliance on fund manager research.\n\n- **time_horizon_alignment_score = 0.0**: The plan includes short-term triggers (e.g., market rise of 20%) and biannual reviews, indicating a short- to medium-term tactical orientation rather than a long-term buy-and-hold philosophy.\n\n- **portfolio_activeness_score = 0.0**: The single equity fund has an information ratio of 0.6, which suggests active management with an intent to generate alpha. Although other risk metrics (beta, tracking error) are missing, the fund's category and the plan's tactical nature point to active intent. Debt is mentioned (20%) but not specified—likely actively managed given the context.\n\nOverall, the plan reflects a fully active investment approach with no passive characteristics.",
+    "composite_aps": 0.0
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows partial goal alignment by emphasizing large-cap stability and a long-term horizon, which suits Jo's moderate risk appetite and 26-year investment horizon. However, it fails to address her specific goals like funding a creative venture in 8 years or building an emergency fund. Diversification is extremely poor—only one equity fund with no exposure to mid-cap, small-cap, international, or debt, despite a stated need for 20% debt. The rationale mentions keeping 20% in debt but allocates 100% to equity, creating internal inconsistency. Risk-return is moderately appropriate for a moderate investor but lacks downside protection mechanisms. Tax efficiency is acceptable because the fund is equity-taxed (favorable under new regime), and no ELSS is recommended (correct for new regime investor). However, the rationale incorrectly states '1.05% on gains over 1.5L', which misrepresents LTCG tax (should be 12.5% over ₹1.25L), indicating a flawed tax understanding. No mention of arbitrage or hybrid funds, but not penalized heavily since equity taxation is still efficient. Overall, the plan is overly simplistic and contradicts its own guidelines.",
+    "composite_pqs": 0.42000000000000004
+  },
+  "timestamp": "2026-04-18T17:56:32.370359Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22506,
+    "output_tokens": 989,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 19.375572596676648
+}

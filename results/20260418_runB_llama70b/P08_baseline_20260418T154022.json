@@ -1,0 +1,177 @@
+{
+  "persona_id": "P08",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 48000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Strong performance track record and low expense ratio"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 36000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Consistent returns and strong alpha"
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 42.0,
+          "morningstar_rating": null,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.93,
+          "alpha": 8.21,
+          "tracking_error": 6.18,
+          "sharpe_ratio": 0.46,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 300000.0,
+        "rationale": "Tax benefits and potential for long-term growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0,
+          "morningstar_rating": null,
+          "returns_1y": 17.1,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.03,
+          "alpha": 11.74,
+          "tracking_error": 8.79,
+          "sharpe_ratio": 1.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Diversification and potential for long-term growth"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "This plan is designed to maximize real returns above inflation, with a focus on strong performance track record and low expense ratio. The allocation to large cap, large and mid cap, ELSS, and index funds provides diversification and potential for long-term growth.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "passive_instrument_fraction: Only one fund (Motilal Oswal Nifty Midcap 150 Index Fund) is a passive/index fund, constituting 20% of the total equity allocation. The other three funds (Nippon India Large Cap, Motilal Oswal Large and Midcap, WhiteOak ELSS) are actively managed. Since the entire portfolio is equity-focused, the passive fraction within equity is 20%, hence 0.2.\n\nturnover_score: The plan recommends annual rebalancing ('Once a year, check if your mix has changed...'), which is moderate infrequency. There's no suggestion of tactical trading or frequent shifts. Review checkpoints are at 6 months and 1 year, but only for monitoring. Hence, score is high on passivity: 0.75.\n\ncost_emphasis_score: The rationale mentions 'low expense ratio' as a criterion, especially for the Nippon fund, but it's not the dominant theme. Other factors like performance and tax benefits are equally emphasized. Expense ratios are noted, but not deeply analysed or compared. Thus, cost is considered but not primary: 0.6.\n\nresearch_vs_cost_score: The rationale focuses on performance track record, alpha, and fund-level returns rather than individual stock research. However, selection appears based on fund-level quantitative metrics (alpha, returns) rather than broad market exposure. No mention of avoiding research; instead, fund-specific analysis is implied. Hence, leans active but not deep in security-level research: 0.3.\n\ntime_horizon_alignment_score: The plan emphasizes long-term growth, tax-saving (ELSS), SIP step-up, and recovery over time from market drops. Review and rebalancing are annual, consistent with long-term compounding. No short-term tactics: 0.8.\n\nportfolio_activeness_score: Using risk metrics against Nifty 50:\n- Nippon Large Cap: beta 0.98 (index-like), tracking error 3.16% (low), alpha 4.27 — slightly active.\n- Motilal Large & Midcap: beta 1.11, TE 13.05%, alpha 18.62 — clearly active.\n- WhiteOak ELSS: beta 0.93, TE 6.18%, alpha 8.21 — moderately active.\n- Motilal Nifty Midcap 150 Index: beta 1.03, TE 8.79% — higher TE than typical index fund, but category is 'Index', so likely passive.\n\nWeighted average suggests majority active exposure, especially given high-alpha, high-TE funds dominating (70% allocation to active funds). The index fund has surprisingly high tracking error (8.79%), which may indicate implementation issues, but category label suggests intent is passive. Overall, portfolio is tilted toward active management: score 0.35.",
+    "composite_aps": 0.5
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.9,
+    "reasoning": "The investment plan is highly aligned with Sherlock Holmes' aggressive risk appetite, 20-year horizon, and goals of maximizing real returns, retiring at 55 with ₹8Cr, and funding his daughter's education. The 100% equity allocation across large cap, large & mid cap, midcap index, and ELSS funds supports long-term capital appreciation, which suits his life stage and data-driven preferences.\n\nDiversification is strong across market caps (large, mid, large & mid) and fund houses (Nippon, Motilal Oswal, WhiteOak), though there is some concentration in Motilal Oswal funds (two allocations). The inclusion of an index fund adds passive exposure, improving balance. However, there is no allocation to international equities, debt, or arbitrage funds, which slightly limits geographic and asset-class diversification.\n\nRisk-return is appropriate: the investor is aggressive, and the plan assumes 12% base return (realistic for equity), with bear (8%) and bull (16%) cases acknowledged. Volatility is expected and addressed in risks.\n\nInternal consistency is high: the rationale emphasizes performance, growth, and tax efficiency; allocations reflect this; rebalancing and review checkpoints support long-term discipline. SIP step-up aligns with income growth.\n\nTax efficiency is strong: the investor is in the 30% slab, and the plan allocates 10% to ELSS (₹3L lump sum), fully utilizing the 80C benefit (₹1.5L/year over two years). The rest is in equity funds, which enjoy favorable LTCG taxation. No slab-taxed debt funds are used, which is optimal for high-tax-bracket investors. Arbitrage or Aggressive Hybrid funds could have been considered for slight tax arbitrage, but their absence isn't a major flaw given the aggressive mandate.",
+    "composite_pqs": 0.9099999999999999
+  },
+  "timestamp": "2026-04-18T15:40:22.614751Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24363,
+    "output_tokens": 2420,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 92.81770272087306
+}

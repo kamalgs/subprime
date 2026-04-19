@@ -1,0 +1,81 @@
+{
+  "persona_id": "P15",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "HDFC Large - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "18/07/2024"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "15/07/2024"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.55,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "This is a very sparse, bare-bones plan with a single allocation: 40% to HDFC Large (an actively managed large-cap equity fund), leaving 60% unallocated. **passive_instrument_fraction = 0.0**: The entire equity sleeve is in an active fund — zero passive/index instruments. **turnover_score = 0.7**: No rebalancing guidelines or review checkpoints are stated, and no tactical shift language appears, suggesting a set-and-forget posture (leaning passive), though the silence could also reflect incompleteness. **cost_emphasis_score = 0.0**: Costs are never mentioned; expense ratio data is missing and cost is not a stated criterion. **research_vs_cost_score = 0.4**: The fund rationale is just a date ('18/07/2024') — no company analysis, sector thesis, or manager evaluation. However, an active fund was chosen rather than a broad-market index, so it falls between deep research (0) and pure passive (1). **time_horizon_alignment_score = 0.55**: No explicit time horizon or compounding philosophy is articulated, but also no short-term tactical language. Neutral-to-slightly-long-term by default. **portfolio_activeness_score = 0.25**: HDFC Large is an actively managed large-cap fund with an information ratio of 1.05, suggesting genuine active management. While large-cap active funds can drift toward closet indexing, the positive IR indicates real active bets. All other risk metrics (beta, alpha, tracking error) are unavailable, but the category and IR point to active rather than passive behavior. The 60% unallocated remainder adds uncertainty but doesn't change the equity-sleeve assessment.",
+    "composite_aps": 0.3166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.05,
+    "reasoning": "This plan is essentially an empty template rather than a coherent investment plan. Critical failures across every dimension: (1) Goal Alignment — Only one fund (HDFC Large Cap) at 40% allocation with 60% of the portfolio completely unaccounted for; no dedicated bucket for the ₹25L wedding goal in 4 years (which demands short-duration debt), no retirement income modelling, no wealth preservation strategy. A conservative investor wanting 'stable, predictable returns' and 'conservative hybrid and short-duration debt' gets a single pure-equity large-cap fund — a complete mismatch. (2) Diversification — Single fund, single asset class (equity), single fund house (HDFC); zero debt, zero gold, zero geographic or sectoral diversification; only 40% of capital is even assigned. (3) Risk-Return Appropriateness — A conservative 48-year-old with a 4-year near-term goal is placed in a 40% pure-equity allocation with no downside cushion, no risk warnings, no projected returns, and no debt anchor — wildly inappropriate. (4) Internal Consistency — Rationale fields contain dates ('18/07/2024') instead of reasoning; allocation schedule shows 0% for all asset classes; only 40% total allocation with the remaining 60% unexplained; no coherent story linking any element. (5) Tax Efficiency — No mention of taxation whatsoever; a 30% slab investor gets no ELSS for 80C headroom, no arbitrage or aggressive-hybrid wrappers for the missing debt allocation, and no post-tax rationale. The plan is tax-blind. Overall, this is a non-functional placeholder with near-zero plan quality.",
+    "composite_pqs": 0.05
+  },
+  "timestamp": "2026-04-18T17:21:40.125445Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

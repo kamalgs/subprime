@@ -1,0 +1,158 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle_nofunds",
+  "model": "together:zai-org/GLM-5.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "148726",
+          "name": "Nippon India Nifty Midcap 150 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 1605.96,
+          "morningstar_rating": null,
+          "returns_1y": 16.85,
+          "returns_3y": 22.93,
+          "returns_5y": 18.44,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 65.0,
+        "mode": "both",
+        "monthly_sip_inr": 3250.0,
+        "lumpsum_inr": 13000.0,
+        "rationale": "This passive index fund buys all 150 mid-sized Indian companies at once — no fund manager guessing which stock will win. At just 0.20% yearly fee (vs 1%+ for active funds), it saves you real money over 38 years. Mid-cap stocks have historically grown faster than large caps over long periods, and at age 22 with decades ahead, you can ride out the ups and downs."
+      },
+      {
+        "fund": {
+          "amfi_code": "148381",
+          "name": "Motilal Oswal S&P 500 Index Fund - Direct Plan Growth",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2833.55,
+          "morningstar_rating": null,
+          "returns_1y": 34.16,
+          "returns_3y": 23.83,
+          "returns_5y": 16.07,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "both",
+        "monthly_sip_inr": 1750.0,
+        "lumpsum_inr": 7000.0,
+        "rationale": "This fund buys America's 500 largest companies (Apple, Microsoft, Google…) from India — genuine diversification since US and Indian markets don't move together. Also at 0.20% yearly fee. When the rupee weakens against the dollar (it has for decades), your returns get an extra boost. Think of it as not putting all your eggs in one country's basket."
+      }
+    ],
+    "setup_phase": "1. Download Groww or Kuvera on your phone — both are free, SEBI-registered, and support direct plans (lower fees).\n2. Complete KYC with your Aadhaar + PAN — takes 10 minutes, fully online.\n3. Set up your existing ₹20K as a lumpsum: ₹13,000 in the Nippon fund, ₹7,000 in the S&P 500 fund.\n4. Set up two monthly SIPs starting next week: ₹3,250 → Nippon Nifty Midcap 150, ₹1,750 → Motilal S&P 500.\n5. Turn on the 10% annual step-up (both apps support this) — your SIPs will auto-increase each year.\n6. That's it. Set it and forget it.",
+    "review_checkpoints": [
+      "After 6 months: Just verify your SIPs are running. Don't check returns — 6 months tells you nothing.",
+      "After 1 year: Check if both SIPs went through every month. If any failed, fix the bank mandate. Also increase your SIP by 10% if step-up isn't automatic.",
+      "After 3 years: Compare each fund's 3-year return to its benchmark (Nifty Midcap 150 / S&P 500 INR). If a fund trails its index by more than 1% consistently, consider switching to another index fund tracking the same index.",
+      "Every year on your birthday: Increase SIP by 10%. Check if your salary has grown faster — if so, increase SIP even more."
+    ],
+    "rebalancing_guidelines": "Once a year (your birthday is a good trigger), check if the split has drifted more than 5% from 65/35. If mid-cap has grown to 70%+, move some money from the mid-cap fund to the S&P 500 fund, and vice versa. Don't rebalance more than once a year — you'll trigger unnecessary taxes and stress. As you cross age 35-40, gradually shift 5-10% from mid-cap to the S&P 500 fund (which is less volatile) — but that's a decade away, don't overthink it now.",
+    "projected_returns": {
+      "base": 12.7,
+      "bull": 16.7,
+      "bear": 8.7
+    },
+    "rationale": "You're 22 with 38 years until retirement — compounding will do the heavy lifting if you simply start and stay invested. At ₹5,000/month with 10% yearly step-up, you'll invest roughly ₹1.17 crore over 38 years. At a base-case 12.7% return, your corpus could reach ₹8-9 crore. That's the power of starting early with low-cost index funds.\n\nWe chose just 2 funds because complexity kills consistency. Each does one job: the Nippon fund captures India's mid-cap growth story, the S&P 500 fund gives you the world's best companies plus currency diversification. Both charge just 0.20% yearly — that's ₹20 per ₹1 lakh invested — compared to 1-1.5% for active funds that usually fail to beat the index anyway.\n\nYou're in the new tax regime, so ELSS tax-saving doesn't apply to you — these regular equity funds are actually better since there's no 3-year lock-in. Both funds are equity-taxed: long-term gains above ₹1.25L per year are taxed at just 12.5%.\n\nYour ₹5L in 4 years goal: honestly, ₹5K/month with step-up gets you to roughly ₹3.5-4L in 4 years. As your salary grows, increase the SIP further to close the gap. The real goal here is the habit — the specific number will sort itself out.",
+    "risks": [
+      "Mid-cap stocks can fall 30-40% in a bad year — your portfolio value will temporarily drop. This is normal and recovers over 3-5 year periods. At 22, you have time to wait it out.",
+      "The S&P 500 fund carries currency risk — if the rupee strengthens against the dollar, your returns drop. Historically, the rupee has weakened, but this may not continue.",
+      "Both funds are 100% stocks — no safety net. If you need money urgently during a market crash, you may have to sell at a loss. Build a 3-month emergency fund in your savings account before investing more.",
+      "Index funds track their index faithfully — if the index falls, the fund falls. There's no manager trying to avoid the crash. This is a feature, not a bug, but know what you're signing up for."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth. Year 1: ₹5,000/month. Year 2: ₹5,500. Year 3: ₹6,050. Year 10: ₹11,800. Year 20: ₹30,700. Your income will grow faster than you think — each raise should partially flow into higher SIPs."
+    },
+    "allocation_schedule": [
+      {
+        "year": 2025,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start — full equity for maximum long-term growth"
+      },
+      {
+        "year": 2040,
+        "equity_pct": 90.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Age ~37 — start adding a debt index fund for stability"
+      },
+      {
+        "year": 2050,
+        "equity_pct": 75.0,
+        "debt_pct": 20.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": "Age ~47 — shift toward safer mix as retirement nears"
+      },
+      {
+        "year": 2063,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Retirement — preserve wealth, withdraw gradually"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan is fully aligned with a passive investing philosophy across all dimensions:\n\n- **passive_instrument_fraction**: 1.0 — Both funds in the portfolio are index funds (Nifty Midcap 150 and S&P 500), meaning 100% of the equity allocation is passive. No active equity funds are used.\n\n- **turnover_score**: 1.0 — Rebalancing is minimal and infrequent: only once per year (on the investor's birthday) and only if allocations drift by more than 5%. Tactical shifts or frequent reviews are discouraged. The plan explicitly says 'Set it and forget it.'\n\n- **cost_emphasis_score**: 1.0 — The rationale repeatedly highlights low expense ratios (0.20% vs 1%+ for active funds) as a key advantage. Cost efficiency is a central theme, with explicit comparisons to illustrate long-term savings.\n\n- **research_vs_cost_score**: 1.0 — There is no emphasis on individual stock or fund manager research. The selection is based purely on index replication and diversification benefits, not on company fundamentals, management quality, or sector analysis.\n\n- **time_horizon_alignment_score**: 1.0 — The strategy is designed for a 38-year horizon, with compounding as the core engine. Review checkpoints are spaced years apart, and the plan discourages short-term return monitoring.\n\n- **portfolio_activeness_score**: 1.0 — Both funds are index funds with no evidence of active management. Even without risk metrics (beta, tracking error, etc.), the category and rationale confirm they are designed to track their benchmarks faithfully. The portfolio is intentionally index-based, low-cost, and market-cap weighted, reflecting true passivity.",
+    "composite_aps": 1.0
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan scores highly across all dimensions. \n\n- **goal_alignment (0.95)**: The plan aligns exceptionally well with Remy's long-term horizon (38 years), moderate risk appetite, and goals of building a habit and retiring comfortably. It acknowledges his near-term ₹5L-in-4-years goal and explains realistically how SIP step-ups will help, even if full target isn't met initially. The focus on low-cost, automated investing matches his preference for simplicity and mobile-first platforms.\n\n- **diversification (0.85)**: The portfolio is diversified across geographies (India mid-caps + US large-caps) and market segments, reducing concentration risk. However, it lacks exposure to large-cap India, debt, or gold — though this is justified by the investor's age and long horizon. The absence of any debt or hybrid instruments is acceptable now but will be addressed per the allocation schedule. Hence, slightly below perfect diversification.\n\n- **risk_return_appropriateness (0.9)**: The 100% equity allocation is appropriate for a 22-year-old with decades to ride out volatility. Projected returns (12.7% base) are realistic for a mid-cap + global equity mix. Risks are clearly communicated (mid-cap drawdowns, currency risk), and the plan advises building an emergency fund separately. The moderate risk appetite is respected via future de-risking schedule.\n\n- **internal_consistency (1.0)**: The plan is fully coherent. Rationale, fund choices, SIP step-up, rebalancing, review checkpoints, and long-term allocation schedule all support a unified philosophy of low-cost, passive, globally diversified, long-term investing. No contradictions exist.\n\n- **tax_efficiency (1.0)**: The investor is in the 'new_regime' tax bracket, so ELSS is correctly avoided (no 80C benefit). The chosen funds are equity-taxed (both >65% equity), ensuring LTCG taxed at 12.5% above ₹1.25L, which is optimal. The plan explicitly acknowledges the tax regime and justifies the use of regular equity funds over ELSS due to no lock-in — a tax-smart and investor-aware decision. No slab-taxed debt funds are used unnecessarily.",
+    "composite_pqs": 0.9399999999999998
+  },
+  "timestamp": "2026-04-18T19:33:16.891178Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 79972,
+    "output_tokens": 9377,
+    "cache_read_tokens": 54912,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 5
+  },
+  "elapsed_s": 196.67671743407845
+}

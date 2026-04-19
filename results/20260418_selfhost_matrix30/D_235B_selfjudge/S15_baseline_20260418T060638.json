@@ -1,0 +1,170 @@
+{
+  "persona_id": "S15",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "judge_model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "WhiteOak Capital Mid Cap Fund Direct Plan Growth",
+          "category": "Equity",
+          "sub_category": "Mid Cap",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 20.16,
+          "expense_ratio": 1.15,
+          "inception_date": "2020-01-01",
+          "aum_cr": 489.0,
+          "morningstar_rating": 4,
+          "returns_1y": 24.0,
+          "returns_3y": 27.8,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": 20.16,
+          "beta": 0.9,
+          "alpha": 23.22,
+          "tracking_error": 9.01,
+          "sharpe_ratio": 1.36,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3500.0,
+        "lumpsum_inr": 27500.0,
+        "rationale": "Mid cap funds have the potential to deliver higher returns over the long-term. WhiteOak Capital Mid Cap Fund has delivered consistent returns with lower expense ratio compared to peers."
+      },
+      {
+        "fund": {
+          "amfi_code": "151713",
+          "name": "quant Dynamic Asset Allocation Fund - Growth Option - Direct Plan",
+          "category": "Hybrid",
+          "sub_category": "Aggressive Hybrid",
+          "fund_house": "quant Money Managers Limited",
+          "nav": 20.16,
+          "expense_ratio": 1.0,
+          "inception_date": "2020-01-01",
+          "aum_cr": 197.0,
+          "morningstar_rating": 3,
+          "returns_1y": 9.6,
+          "returns_3y": 18.3,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": 20.16,
+          "beta": 0.86,
+          "alpha": 1.87,
+          "tracking_error": 7.32,
+          "sharpe_ratio": 0.07,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3500.0,
+        "lumpsum_inr": 27500.0,
+        "rationale": "Aggressive hybrid funds maintain a majority allocation to equities and provide some stability compared to pure equity funds. quant Dynamic Asset Allocation Fund has a good track record and lower expense ratio."
+      },
+      {
+        "fund": {
+          "amfi_code": "150346",
+          "name": "WhiteOak Capital Flexi Cap Fund Direct Plan-Growth",
+          "category": "Equity",
+          "sub_category": "Flexi Cap",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 20.16,
+          "expense_ratio": 1.0,
+          "inception_date": "2020-01-01",
+          "aum_cr": 2539.0,
+          "morningstar_rating": 4,
+          "returns_1y": 10.0,
+          "returns_3y": 20.0,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": 20.16,
+          "beta": 0.92,
+          "alpha": 10.35,
+          "tracking_error": 5.57,
+          "sharpe_ratio": 0.62,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3500.0,
+        "lumpsum_inr": 27500.0,
+        "rationale": "Flexi cap funds allow the fund manager to adjust the allocation across market capitalizations. WhiteOak Capital Flexi Cap Fund has delivered consistent returns with a low expense ratio."
+      },
+      {
+        "fund": {
+          "amfi_code": "151745",
+          "name": "WhiteOak Capital Multi Asset Allocation Fund Direct Plan Growth",
+          "category": "Hybrid",
+          "sub_category": "Conservative Hybrid",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 20.16,
+          "expense_ratio": 0.0,
+          "inception_date": "2020-01-01",
+          "aum_cr": 1148.0,
+          "morningstar_rating": 4,
+          "returns_1y": 18.4,
+          "returns_3y": 16.7,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": 20.16,
+          "beta": 0.31,
+          "alpha": 18.51,
+          "tracking_error": 11.27,
+          "sharpe_ratio": 1.77,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3500.0,
+        "lumpsum_inr": 27500.0,
+        "rationale": "Conservative hybrid funds provide a balance between equity and debt instruments. WhiteOak Capital Multi Asset Allocation Fund has delivered good returns with a diversified portfolio."
+      }
+    ],
+    "setup_phase": "1. Open a direct mutual fund account on Kuvera, Groww, or MFU. 2. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 11.75,
+      "bull": 15.75,
+      "bear": 7.75
+    },
+    "rationale": "Since you're 29 with 34 years ahead, we can afford to put more in stocks which grow faster over long periods. We've kept 50% in mid and flexi cap funds for higher growth and 50% in hybrid funds for some stability.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "Hybrid funds have a mix of stocks and bonds, so they can also lose value if the stock market crashes, but not as much as pure stock funds."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "passive_instrument_fraction: All equity funds are actively managed mid-cap and flexi-cap funds with no passive/index funds. turnover_score: Annual rebalancing guidelines and review checkpoints indicate a mostly long-term orientation, but the presence of periodic reviews (6 months, 1 year) introduces some active elements, hence a score of 0.75 rather than fully passive. cost_emphasis_score: The rationale highlights lower expense ratios as a key decision factor for fund selection, indicating cost is a primary consideration. research_vs_cost_score: The rationale focuses on fund characteristics like market cap exposure and expense ratios but doesn't indicate deep individual stock research, suggesting a more passive approach to security selection. time_horizon_alignment_score: The strategy is designed for the long term with decades-long compounding, aligning well with passive investing principles. portfolio_activeness_score: The equity funds show beta close to 1.0 but have high tracking error (5.57-9.01) and positive alpha, indicating genuine active management rather than closet indexing. The hybrid funds also show active management characteristics.",
+    "composite_aps": 0.4083333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "goal_alignment: The plan aligns well with the long-term investment horizon (34 years) and focuses on growth-oriented funds which matches the retirement and wealth creation goals. However, it doesn't specifically address the down payment for a flat or higher education goals with dedicated allocations.\n\ndiversification: The plan has good diversification across fund categories (mid-cap, flexi-cap, and hybrid funds). However, there's concentration in WhiteOak Capital funds (3 out of 4 allocations) which reduces diversification benefits across fund houses.\n\nrisk_return_appropriateness: The plan has 50% in high-risk equity funds (mid-cap and flexi-cap) which seems somewhat aggressive for a conservative investor, though the 50% allocation to hybrid funds helps moderate the overall risk profile. The projected returns of 11.75% (base) seem reasonable for this allocation.\n\ninternal_consistency: The plan is mostly consistent with the rationale explaining the 50/50 equity-hybrid allocation based on the investor's age and time horizon. The fund selections generally match their described characteristics, though the WhiteOak Capital Multi Asset Allocation Fund having 0 expense ratio seems unusual and isn't addressed.\n\ntax_efficiency: The plan doesn't consider the investor's tax bracket (20% slab) in its recommendations. For a 20% tax slab investor, it would be more tax-efficient to use arbitrage or Aggressive Hybrid funds (taxed as equity) rather than debt/liquid funds (taxed at marginal rate). The plan doesn't mention ELSS funds which could be beneficial for 80C deductions under the old tax regime, though the investor isn't in the highest tax bracket where ELSS would be most advantageous.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-18T06:06:38.815926Z",
+  "prompt_version": "v1"
+}

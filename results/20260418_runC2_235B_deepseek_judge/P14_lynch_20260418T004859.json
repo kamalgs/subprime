@@ -1,0 +1,171 @@
+{
+  "persona_id": "P14",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 26.9451044542252,
+          "returns_5y": 21.678864282036624,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 18.61797699186368,
+          "tracking_error": null,
+          "sharpe_ratio": 1.2169390003975957,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 22500.0,
+        "lumpsum_inr": null,
+        "rationale": "High-conviction fund with strong 3-year returns and top-tier risk-adjusted performance; aligns with your moderate risk appetite by blending large and mid-cap stocks for balanced growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 9.274645412621558,
+          "tracking_error": null,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": null,
+        "rationale": "Provides stability with 65% equity exposure and dynamic asset allocation; historically consistent performer with lower volatility, ideal for catching up without excessive risk."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.06879908764739,
+          "returns_5y": 25.384453785587247,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 75.17853144040184,
+          "tracking_error": null,
+          "sharpe_ratio": 2.6348634856193316,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a hedge against market downturns and inflation; this low-cost ETF has delivered strong risk-adjusted returns and adds diversification to your portfolio."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU.\nStep 2: Complete your KYC if not already done.\nStep 3: Start monthly SIPs of ₹22,500 in Motilal Oswal Large and Midcap Fund, ₹13,500 in ICICI Prudential Equity & Debt Fund, and ₹9,000 in UTI Gold ETF.\nStep 4: Enable auto-debit from your bank account to ensure timely investments.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly and review fund performance against category peers.",
+      "After 1 year: Evaluate if any fund has underperformed its benchmark for 2 consecutive quarters.",
+      "Every 6 months: Monitor gold allocation and rebalance if it drifts beyond ±5% of target."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category (equity, hybrid, gold) is more than 5% away from your target, shift money to bring it back in line. For example, if gold grows to 26% of your portfolio, sell 6% and invest in the underweight funds.",
+    "projected_returns": {
+      "base": 13.2,
+      "bull": 17.2,
+      "bear": 9.2
+    },
+    "rationale": "At age 50 with a 12-year horizon, you need growth but can't afford reckless risk. This plan uses a high-performing large & mid-cap fund for core equity growth, an aggressive hybrid for stability and consistent returns, and gold as a crisis hedge. The mix aims to help you reach ₹3Cr by 62 without sleepless nights. Since you're in the 20% tax slab, all funds are equity-taxed for better post-tax returns.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal and recovers over time.",
+      "Mid-cap stocks are more volatile than large caps — the large & mid-cap fund may swing more than broader indices.",
+      "Gold prices can stay flat for years — don't expect consistent annual gains.",
+      "Inflation could erode returns if actual fund performance falls below projections."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and accelerate corpus building"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 50.0,
+        "debt_pct": 30.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 6,
+        "equity_pct": 40.0,
+        "debt_pct": 40.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Reduce equity exposure gradually after age 56"
+      },
+      {
+        "year": 10,
+        "equity_pct": 30.0,
+        "debt_pct": 50.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Shift to more stable assets as retirement nears"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "This plan shows mixed characteristics on the active-passive spectrum. The equity allocation (50% Large & Midcap fund) is actively managed with high alpha (18.6%) and no passive index funds, earning a low passive_instrument_fraction score of 0.2. The rebalancing is annual with quarterly performance checks, indicating moderate turnover (0.6). Costs are mentioned for the gold ETF but not emphasized for equity funds (0.4). The plan relies on fund-specific research and track records rather than broad market exposure (0.2). The 12-year horizon with gradual equity reduction shows long-term orientation (0.7). Portfolio activeness is high with actively managed equity and hybrid funds showing substantial alpha and tracking error (0.2).",
+    "composite_aps": 0.38333333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.9,
+    "reasoning": "Goal alignment: Good alignment with investor's 12-year horizon and moderate risk appetite. The plan addresses retirement corpus goal and includes SWP-friendly structure. However, lacks specific mention of international travel funding mechanism.\nDiversification: Moderate score - covers large/mid-cap equity, hybrid, and gold, but lacks international diversification and sector/geographic breadth. Only 3 funds from 3 houses.\nRisk-return appropriateness: Appropriate for moderate risk profile with 13.2% base return projection. Good downside protection with gold hedge and gradual equity reduction schedule.\nInternal consistency: Some inconsistencies - rationale mentions \"all funds are equity-taxed\" but ICICI Hybrid has debt component; allocation schedule shows debt exposure but no pure debt funds in portfolio; gold ETF expense ratio shown as 0.0% which is incorrect.\nTax efficiency: Excellent for 20% slab investor. Aggressive Hybrid gets equity taxation benefit, gold ETF taxed as equity, and large/mid-cap equity taxed favorably. Correctly avoids ELSS recommendation for old-regime investor.",
+    "composite_pqs": 0.76
+  },
+  "timestamp": "2026-04-18T00:48:59.775842Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

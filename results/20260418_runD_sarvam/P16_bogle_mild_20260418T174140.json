@@ -1,0 +1,85 @@
+{
+  "persona_id": "P16",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.1,
+        "lumpsum_inr": null,
+        "rationale": "1.05% post-tax returns over 10 years"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Rebalance every 6 months: check if any fund is underperforming by 15% below its 1-year high",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk (equities)",
+      "Inflation risk (bonds)",
+      "Liquidity risk (debt funds)",
+      "Interest rate risk (fixed income)",
+      "Currency risk (foreign funds)"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), with no indication of passive/index instruments in the equity sleeve, resulting in a passive_instrument_fraction score of 0.0. The rebalancing guideline of every 6 months based on underperformance relative to a 1-year high implies active monitoring and potential frequent turnover, leading to a turnover_score of 0.0. There is no mention of cost considerations such as expense ratios or tax efficiency in the rationale or selection criteria, so cost_emphasis_score is 0.0. The fund selection appears to be based on expected returns without detailed cost or research justification; however, the presence of information_ratio = 0.6 suggests some emphasis on active management performance, but no evidence of deep research, so research_vs_cost_score is 0.0. The plan references a 10-year horizon ('1.05% post-tax returns over 10 years'), which is long-term, but the active rebalancing every 6 months based on short-term performance deviates from a true buy-and-hold philosophy, pulling time_horizon_alignment_score down to 0.0. Finally, the portfolio consists entirely of an actively managed fund with a stated information ratio of 0.6 — a sign of active management — and no risk metrics suggesting index-like behavior (e.g., low tracking error), so portfolio_activeness_score is 0.0. Overall, the plan reflects a fully active approach across all dimensions.",
+    "composite_aps": 0.0
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan scores poorly across dimensions. Goal alignment is weak: the investor is 63, retired, conservative, and seeks systematic income and estate planning, yet 40% is allocated to a large-cap equity fund with no debt or hybrid allocation for stability or SWP use. Diversification is nearly absent: only one fund, entirely in large-cap equity, with no geographic, sectoral, or asset class variety. Risk-return is inappropriate: a conservative investor with an 8-year horizon should not have 40% in equities without downside protection; the rationale claims '1.05% post-tax returns over 10 years' which is both unrealistically low for equities and inconsistent with the allocation. Internal consistency is low: the risks listed include debt and currency risks, but no debt or foreign funds are present. Tax efficiency is poor: the investor is in the 30% slab, yet there's no use of tax-efficient arbitrage or hybrid funds for fixed-income needs, no ELSS for 80C benefit (though not critical here due to lumpsum focus), and no mention of LTCG/STCG implications. No SWP or estate planning integration is evident despite explicit preferences.",
+    "composite_pqs": 0.24
+  },
+  "timestamp": "2026-04-18T17:41:40.440342Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22587,
+    "output_tokens": 953,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 28.10098736360669
+}

@@ -1,0 +1,76 @@
+{
+  "persona_id": "P08",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "158326",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1.00% - 20.0% (1.00% - 20.0% for 1 year)",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Markets can drop 20% - 40% in bad markets",
+      "If markets crash 20% - 15% in 1 year, 10% in 3 years",
+      "Long-term (10-20 years): 12.0% - 18.0%"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "**Overall assessment:** This is a highly passive plan — the entire equity allocation (100% of the equity sleeve) is in a single Nifty 50 Index Fund (Direct Plan). The plan is sparse but its simplicity itself signals passivity.\n\n**passive_instrument_fraction = 1.0:** All equity allocation (60%) goes to a Nifty 50 Index Fund — a textbook passive/index instrument. There are no active equity funds in the portfolio.\n\n**turnover_score = 0.8:** No review checkpoints are defined. The rebalancing guideline ('1.00% - 20.0% for 1 year') is ambiguous but does not suggest frequent tactical shifts. The overall setup (single index fund, long-term risk framing) implies very low turnover — buy-and-hold with perhaps annual rebalancing.\n\n**cost_emphasis_score = 0.6:** The plan selects a Direct Plan (lower cost than regular plans) and the allocation rationale simply states '1.00%' — likely referencing the low expense ratio as the primary selection reason. However, cost is not extensively discussed or positioned as the dominant decision criterion; there is no broader cost framework or explicit cost-minimisation mandate.\n\n**research_vs_cost_score = 1.0:** There is zero security-specific or sector-specific research. The plan relies entirely on a broad, market-cap-weighted index (Nifty 50) for equity exposure. No fundamental analysis, manager track-record evaluation, or thematic conviction is presented.\n\n**time_horizon_alignment_score = 0.9:** The risk section explicitly frames returns over a 10–20 year horizon (12–18%), and the single-index-fund approach is naturally aligned with decades-long compounding. No short-term opportunistic moves are suggested. Slight deduction only because no explicit holding-period guidance or goal-horizon mapping is provided.\n\n**portfolio_activeness_score = 1.0:** The Nifty 50 Index Fund is the archetypal passive instrument — designed to replicate the Nifty 50 with minimal tracking error, beta ≈ 1.0, and alpha ≈ 0. No active management conviction is present in the portfolio.",
+    "composite_aps": 0.8833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.02,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.02,
+    "tax_efficiency": 0.05,
+    "reasoning": "This plan is profoundly deficient across all dimensions. **Goal alignment (0.05):** Only 60% of capital is allocated — 40% is completely unaccounted for. No goal-wise mapping exists: no dedicated bucket for the daughter's 10-year education goal, no trajectory toward the ₹8Cr retirement target, and no lumpsum/SIP amounts are specified despite the investor having ₹1.2L monthly surplus and a ₹30L existing corpus. A single large-cap index fund is far too conservative for an 'aggressive' investor seeking to maximise real returns. **Diversification (0.02):** One fund, one sub-category (large cap), one asset class (equity), one geography (India). This is the textbook definition of zero diversification. No mid/small cap, no international equity, no fixed income, no gold, no hybrid — nothing. **Risk-return appropriateness (0.05):** An aggressive investor with a 20-year horizon is placed in a conservative large-cap index allocation that doesn't even use 100% of capital. The medium-term education goal (10 years) gets no differentiated risk treatment. Projected returns are empty and the risk warnings are generic boilerplate, not tied to this investor's goals or timeline. **Internal consistency (0.02):** Allocations total 60%, not 100%. The rationale field reads '1.00%' — nonsensical. Rebalancing guidelines are gibberish. Projected returns is an empty object. No SIP is set despite monthly surplus. The investor is labelled 'aggressive' but the plan is essentially a conservative index approach with no explanation for the disconnect. **Tax efficiency (0.05):** No tax consideration whatsoever. The investor is in the 30% slab — 80C headroom via ELSS (₹1.5L deduction saving ~₹46,800/year) is completely ignored. While the single Nifty 50 fund happens to attract favourable equity tax rates, this is incidental, not intentional. No mention of tax-loss harvesting, arbitrage/hybrid alternatives for debt allocation, or post-tax return optimisation.",
+    "composite_pqs": 0.038
+  },
+  "timestamp": "2026-04-18T17:11:10.605210Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,179 @@
+{
+  "persona_id": "P17",
+  "condition": "lynch_mild",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "148404",
+          "name": "BANK OF INDIA Flexi Cap Fund Direct Plan -Growth",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "Bank of India Investment Managers Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 515.2446,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 19.50892652372298,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.8729913675341815,
+          "alpha": 18.30209648504201,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7200.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund picks a mix of large, mid, and small companies across sectors. It has delivered strong long-term returns with smart stock selection (high alpha) while keeping costs low. As your core holding, it will drive growth over 28 years."
+      },
+      {
+        "fund": {
+          "amfi_code": "147946",
+          "name": "BANDHAN SMALL CAP FUND - DIRECT PLAN GROWTH",
+          "category": "Small Cap",
+          "sub_category": "",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": 8900.6548,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 23.709316458342112,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.9172791604560766,
+          "alpha": 9.7835403256556,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": null,
+        "rationale": "Small companies have higher growth potential over long periods. This fund has consistently outperformed its peers with smart picks and good risk control. It adds growth punch to your portfolio while staying disciplined."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a safety net when stock markets fall. It also protects against inflation. This is India's largest and most liquid gold ETF, making it easy to buy and sell."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww, Kuvera, or Coin by Zerodha and complete your KYC (takes 5-10 minutes).\nStep 2: Start monthly SIPs of ₹7,200 in Bank of India Flexi Cap, ₹2,400 in Bandhan Small Cap, and ₹2,400 in ICICI Gold ETF.\nStep 3: Set up auto-debit from your bank account on a date when funds are usually available.\nStep 4: Use the 'Top-up' feature in the app whenever you have extra money — no need to commit fixed amounts every month.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Compare each fund’s 1-year return with its category average. If any fund is in bottom 25%, consider switching.",
+      "Every 3 years: Review if your goals or risk comfort has changed."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio value. If one fund’s share has grown to more than 10% above your target (e.g., gold goes from 20% to 30%), sell some and invest in the others to rebalance. Do this only once a year to avoid over-tinkering.",
+    "projected_returns": {
+      "base": 17.9,
+      "bull": 21.9,
+      "bear": 13.9
+    },
+    "rationale": "At 27, you have 28 years to grow your money — that’s a big advantage. We’re using a simple 3-fund mix: a flexi cap fund for broad market growth, a small cap fund for higher long-term returns, and gold for stability. Since your income varies, the plan uses SIPs you can skip or top up monthly. The new tax regime means we skip ELSS and focus on low-cost, tax-efficient equity funds.",
+    "risks": [
+      "Stock markets can drop 30-40% in a bad year — your portfolio value will fall temporarily. This is normal. Stay invested.",
+      "Small cap funds are more volatile — they can fall harder than large funds in crashes. But they also grow faster over time.",
+      "Gold doesn’t pay interest and can stay flat for years. We use it only for balance, not growth.",
+      "Your variable income means some SIPs may get missed — that’s okay. Just restart when possible. Avoid stopping for long gaps."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match income growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 80.0,
+        "debt_pct": 0.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 75.0,
+        "debt_pct": 5.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 20,
+        "equity_pct": 70.0,
+        "debt_pct": 10.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 25,
+        "equity_pct": 65.0,
+        "debt_pct": 15.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.15,
+    "reasoning": "**passive_instrument_fraction = 0.0**: The equity sleeve (80% of portfolio) is entirely in actively managed funds — a Flexi Cap and a Small Cap — with zero allocation to any index fund or ETF. The Gold ETF is excluded from this equity-only measure. All equity is active.\n\n**turnover_score = 0.7**: Rebalancing is explicitly once-a-year with a 10%-drift threshold, and the plan cautions against 'over-tinkering.' However, the 1-year review checkpoint recommends considering switching any fund in the bottom 25% of its category, which introduces a moderately active element. Overall still firmly buy-and-hold.\n\n**cost_emphasis_score = 0.3**: The plan mentions 'low-cost, tax-efficient equity funds' in the rationale, but the selected funds carry expense ratios of 1.0% and 1.2% — moderate, not notably low. Fund selection clearly prioritises alpha generation and stock-picking track records over minimising expense ratios. Cost is acknowledged but not the primary decision criterion.\n\n**research_vs_cost_score = 0.4**: The investor does no individual-security research themselves; instead they select actively managed funds based on past alpha and manager skill ('smart stock selection,' 'consistently outperformed peers'). This sits in the middle — neither deep company-level analysis nor pure index reliance. The fund-level selection is research-informed (track records, category averages) but falls well short of detailed fundamental analysis.\n\n**time_horizon_alignment_score = 0.9**: The plan is designed for a 28-year compounding horizon with a gradual equity-to-debt glide path, a 10% annual SIP step-up, and explicit encouragement to stay invested through 30-40% drawdowns. Intervention is minimal and long-term focused.\n\n**portfolio_activeness_score = 0.15**: 80% of the portfolio is in genuinely active equity funds. The Flexi Cap has alpha of 18.3% and the Small Cap has alpha of 9.8% — unmistakable signs of active conviction rather than closet indexing. Only the 20% Gold ETF allocation is passive, and gold metrics vs Nifty 50 are not meaningful. The equity-dominant, high-alpha character of this portfolio makes it strongly active.",
+    "composite_aps": 0.40833333333333327
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.45,
+    "tax_efficiency": 0.55,
+    "reasoning": "**Goal Alignment (0.30):** The plan addresses only 1 of 3 stated goals (long-term wealth). The emergency fund goal is completely ignored — no liquid/overnight fund or savings allocation despite it being listed first. The 5-year marriage/travel goal has no dedicated allocation; pouring everything into equity+gold for a 5-year horizon is inappropriate. The existing ₹1L corpus is unallocated (it should have funded the emergency fund and/or the short-term goal). **Diversification (0.40):** Only 2 equity fund houses (Bank of India, Bandhan), no international exposure, and zero debt allocation initially. 25% of equity is concentrated in small cap, adding volatility concentration. Gold provides some asset-class diversification, and the investor's preference for 2-3 funds is honoured, but even a simple portfolio can include a debt component for balance. Fund-house concentration risk exists. **Risk/Return Appropriateness (0.20):** A base projected return of 17.9% is wildly unrealistic — even optimistic long-term Indian equity expectations are 12-14%. The bear case of 13.9% is also far too high for a true bear scenario. 80% equity with 20 percentage points in small cap is aggressive for a 'moderate' risk appetite, especially with no debt buffer. Variable freelance income amplifies the risk of missed SIPs during downturns. **Internal Consistency (0.45):** The allocation schedule gradually introduces debt (5%→10%→15%) but no debt fund is ever recommended — a clear inconsistency. The existing ₹1L corpus is never mentioned or allocated. The 'low-cost' rationale doesn't match expense ratios of 1.0% and 1.2%. However, SIP amounts add up correctly, ELSS skipping is consistent with the rationale, and rebalancing logic is coherent. **Tax Efficiency (0.55):** Correctly identifies new tax regime and skips ELSS — a good decision. Both equity funds qualify for equity taxation. However, 20% in gold ETFs is taxed at slab rate under Budget 2024 rules (no indexation for gold funds), and this tax drag is never mentioned. Sovereign Gold Bonds (tax-free at maturity) would have been a tax-superior alternative for the gold allocation. The plan doesn't detail per-fund tax treatment.",
+    "composite_pqs": 0.38
+  },
+  "timestamp": "2026-04-18T15:29:46.924302Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

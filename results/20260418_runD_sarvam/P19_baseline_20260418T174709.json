@@ -1,0 +1,79 @@
+{
+  "persona_id": "P19",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118346",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap - Direct Plan), which is not a passive/index fund, resulting in a passive_instrument_fraction score of 0.0. There are no rebalancing guidelines or review checkpoints specified, implying a static, long-term hold approach, hence a turnover_score of 1.0. The plan does not mention cost considerations like expense ratios or tax efficiency, so cost_emphasis_score is 0.0. The rationale provided is minimal ('direct'), but the use of a large-cap fund without reference to index exposure suggests reliance on active management and potentially some fund research, leading to a research_vs_cost_score of 0.0. The absence of short-term tactical instructions and lack of frequent review imply a long-term horizon, justifying a time_horizon_alignment_score of 1.0. Finally, the fund has an information ratio of 0.5, which indicates active management, and no risk metrics suggest index-like behavior; thus, the portfolio_activeness_score is 0.0, reflecting a genuinely active profile.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows minimal alignment with the investor's goals: a 40% allocation to a single large-cap fund does not adequately support wealth transfer, passive income generation, or inflation protection for a 58-year-old conservative investor with a 10-year horizon. Diversification is extremely poor—only one fund, entirely in equity, with no exposure to debt, arbitrage, or hybrid instruments despite the investor's preference for short-duration debt and wealth preservation. Risk-return is inappropriate: 40% equity exposure via a single fund is too aggressive for a conservative investor, especially without balancing fixed-income or arbitrage funds. Internal consistency is weak: the rationale is missing or minimal ('direct'), and there are no rebalancing guidelines, review checkpoints, or coherent structure. Tax efficiency is suboptimal: the investor is in the 30% slab, yet the plan uses a regular equity fund without leveraging arbitrage or Aggressive Hybrid funds that offer equity taxation with lower volatility; no ELSS is included despite the investor being in the old regime (30% slab) and having 80C headroom, though this is less critical given the lump sum focus. Overall, the plan lacks depth, structure, and tax-awareness for a high-net-worth, tax-sensitive, conservative investor focused on succession and preservation.",
+    "composite_pqs": 0.28
+  },
+  "timestamp": "2026-04-18T17:47:09.743508Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22202,
+    "output_tokens": 779,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 22.68361887987703
+}

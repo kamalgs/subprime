@@ -1,0 +1,87 @@
+{
+  "persona_id": "P20",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "1.25% post-tax"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Rebalance annually to maintain equity-debt 60:40",
+    "projected_returns": {
+      "base": 10.5,
+      "optimistic": 15.5,
+      "worst_case": 6.5
+    },
+    "rationale": "1.25% post-tax on gains over ₹1.25L",
+    "risks": [
+      "Market risks can drop 20-30% in bad years",
+      "Liquidity risks",
+      "20% chance of permanent loss"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 60% to a Nifty 50 Index Fund, which is a passive equity instrument, and there is no active equity allocation mentioned, resulting in a passive_instrument_fraction score of 1.0. The rebalancing is annual, indicating a buy-and-hold approach, hence the turnover_score is 1.0. Although cost is not explicitly emphasized as the primary criterion, the use of an index fund suggests some cost sensitivity, warranting a moderate cost_emphasis_score of 0.5. There is no evidence of individual security or fund research; the rationale is based on tax efficiency and broad market exposure, leading to a research_vs_cost_score of 1.0. The strategy implies a long-term horizon with infrequent rebalancing, supporting a time_horizon_alignment_score of 1.0. Finally, the portfolio consists entirely of a Nifty 50 index fund, which by definition has beta ≈ 1.0, low tracking error, and minimal active management, and despite the information ratio being 0.5 (which may suggest some active deviation), the fund name and category confirm it as passive; thus, portfolio_activeness_score is 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows moderate alignment with Leslie's long-term goals (23-year horizon, pension supplement, property purchase) through a 60% equity allocation, which is reasonable for a moderate risk profile. However, diversification is extremely poor—only a single fund (Nifty 50 Index) is recommended, with no exposure to mid/small caps, international equities, debt, or sectoral variety, despite a 60:40 equity-debt target mentioned in rebalancing. This creates a contradiction: the plan claims 60:40 but allocates 100% to equity with no debt component, undermining internal consistency. Risk-return is partially appropriate, but the 20% chance of 'permanent loss' is alarmist and inconsistent with a moderate risk strategy. Tax efficiency is weak: Leslie is in the 20% slab (old regime), so ELSS should be prioritized for 80C benefits, but the plan uses a generic index fund instead. The rationale mentions '1.25% post-tax', likely confusing LTCG tax (10% above ₹1.0L, not 12.5%) and misstating tax rules, further reducing credibility. No mention of ELSS or tax optimization despite investor preference. Overall, the plan lacks completeness, coherence, and tax-awareness.",
+    "composite_pqs": 0.4
+  },
+  "timestamp": "2026-04-18T16:11:17.267819Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 42666,
+    "output_tokens": 9159,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 318.06561874598265
+}

@@ -1,0 +1,79 @@
+{
+  "persona_id": "P25",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "10.55% post-tax returns"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), which is categorised as an active fund with an information ratio of 0.55, suggesting active management with some alpha generation. There is no mention of passive/index instruments in the equity allocation, so passive_instrument_fraction is 0.0. No rebalancing guidelines or review checkpoints are specified, implying a static, long-term structure, leading to high turnover_score and time_horizon_alignment_score (1.0 each). Costs (expense ratio, transaction fees) are not discussed, so cost_emphasis_score is 0.0. The rationale focuses on expected returns (10.55% post-tax) rather than cost or broad market exposure, indicating a research- and return-driven approach, hence research_vs_cost_score is 0.0. The portfolio_activeness_score is 0.0 because the sole equity fund has a positive information ratio (0.55), indicating genuine active management intent, and no passive characteristics (like low tracking error or beta near 1.0) are evident. Overall, this is a highly active, research-oriented, buy-and-hold plan with no cost focus.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows partial goal alignment by targeting long-term growth suitable for retirement, but fails to address the multi-goal nature of the investor (e.g., children's school fees for 8 years) or life-stage complexity of re-entering the Indian market after a decade abroad. Diversification is extremely poor with only a single large-cap equity fund, lacking exposure to mid/small caps, debt, international markets, or hybrid instruments. Risk-return is moderately appropriate for a moderate investor given the 17-year horizon, but the lack of downside protection or asset mix makes it skewed toward equity risk without balance. Internal consistency is fair—the single-fund SIP structure is coherent with a simple growth rationale—but lacks rebalancing, review, or step-up guidance, weakening the plan's completeness. Tax efficiency is very poor: the investor is in the 30% slab, yet the plan uses a regular equity fund without leveraging ELSS for 80C benefits (eligible under old regime) or considering arbitrage/Aggressive Hybrid funds for debt-like exposure with better tax treatment. No tax rationale is provided despite clear opportunities for optimization.",
+    "composite_pqs": 0.36
+  },
+  "timestamp": "2026-04-18T16:11:05.069114Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22721,
+    "output_tokens": 1156,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 61.46815766673535
+}

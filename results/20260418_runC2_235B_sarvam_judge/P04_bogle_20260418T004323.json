@@ -1,0 +1,200 @@
+{
+  "persona_id": "P04",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund holds around 65-80% in stocks and the rest in bonds, giving a balanced mix. It’s taxed like equity (12.5% on gains above ₹1.25L after 1 year), which is better than debt funds for your 30% tax slab. It has delivered steady 5-year returns with moderate risk, making it ideal for capital preservation with some growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16618.7596,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 17.660092596665432,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Large-cap stocks are from India’s biggest and most stable companies like Reliance, HDFC, and Infosys. This fund tracks them closely and has consistently delivered solid long-term returns. It’s less risky than mid or small caps, aligning with your conservative approach."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 67.25002048586663,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Overnight funds invest in securities that mature in just one day, making them extremely stable. This is one of the safest debt options with very low risk. However, returns are taxed at your slab rate (30%), so we keep this portion small and use it for stability."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.384453785587247,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a safety net during market downturns and inflation. It doesn’t generate regular income but holds value over time. This ETF tracks physical gold prices closely and is easy to buy and sell like a stock. It’s taxed at your slab rate, so we limit it to 10%."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Link your bank account.\nStep 4: Start SIPs of ₹40,000 in ICICI Prudential Equity & Debt Fund, ₹30,000 in Nippon India Large Cap Fund, ₹20,000 in ICICI Prudential Overnight Fund, and ₹10,000 in UTI Gold ETF.\nStep 5: Set up auto-debit for SIPs on the 1st of every month.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Review fund performance. If any fund has underperformed its category average for 3 years, consider switching.",
+      "Every year: Rebalance your portfolio if any category is more than 5% away from your target."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If, for example, equity has grown to 50% due to market gains, sell some and move money to debt or gold to bring it back to 70% (40% Aggressive Hybrid + 30% Large Cap). This keeps your risk level steady.",
+    "projected_returns": {
+      "base": 9.8,
+      "bull": 13.8,
+      "bear": 5.8
+    },
+    "rationale": "At 55, with retirement in 5 years, your focus is on protecting your ₹2Cr corpus while growing it steadily. You want to leave ₹2Cr for each child and keep ₹50L for healthcare. With a conservative style and no interest in small caps, we’ve built a 70% equity (via stable large caps and balanced hybrid) and 30% debt + gold portfolio. This mix aims to grow your money reliably without big swings. The ₹1L monthly SIP will add ₹1.2Cr over 10 years, helping you reach your goals.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal and usually recovers over time.",
+      "Overnight and gold funds are taxed at your 30% slab rate, which reduces returns. We’ve kept them small to limit tax impact.",
+      "Inflation may grow faster than your returns, reducing your purchasing power over time.",
+      "Past performance doesn’t guarantee future results — funds may not continue delivering high returns."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 70.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Start of investment"
+      },
+      {
+        "year": 5,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching retirement - reduce equity exposure"
+      },
+      {
+        "year": 10,
+        "equity_pct": 50.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "At retirement - prioritize capital preservation"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "1. **passive_instrument_fraction (0.0):** The equity allocation (70%) is entirely in actively managed funds (Aggressive Hybrid and Large Cap). No passive index funds or ETFs are used in the equity portion.\n2. **turnover_score (0.5):** The plan recommends annual rebalancing and tactical adjustments (e.g., switching underperforming funds), indicating moderate turnover.\n3. **cost_emphasis_score (0.3):** While expense ratios are mentioned, costs are not emphasized as a primary criterion. The rationale focuses on tax efficiency and stability over cost minimization.\n4. **research_vs_cost_score (0.2):** The plan emphasizes stock-specific research (e.g., 'stable large-cap companies like Reliance, HDFC') and fund performance analysis, prioritizing active selection over broad-market exposure.\n5. **time_horizon_alignment_score (0.7):** The strategy aligns with a long-term horizon (5-year retirement timeline) and emphasizes compounding with infrequent intervention.\n6. **portfolio_activeness_score (0.0):** The equity funds are actively managed (high tracking error, no passive labels), and debt/gold allocations use active funds. Metrics like 'beta ≈ 1.0' are absent, confirming active management.",
+    "composite_aps": 0.2833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.5,
+    "reasoning": "goal_alignment: The plan's 70% equity (Aggressive Hybrid and Large Cap) aligns with the investor's conservative profile but may be slightly aggressive for a 5-year horizon. The inclusion of debt and gold provides stability. However, the equity allocation could be more conservative given the short retirement timeline.\n\ndiversification: The plan includes equity (Aggressive Hybrid, Large Cap), debt (Overnight), and gold. However, the equity portion is concentrated in two funds (ICICI Prudential and Nippon India), which may lack diversification across fund houses or sectors. The debt allocation is limited to overnight funds, which are all from ICICI Prudential, reducing diversification.\n\nrisk_return_appropriateness: The projected returns (9.8% base) seem reasonable for a conservative portfolio. The risk level is appropriate for a conservative investor, but the equity allocation could be slightly high for a 5-year horizon. The inclusion of gold and debt helps mitigate risk.\n\ninternal_consistency: The rationale supports the allocations, but the tax treatment of debt and gold (30% slab) is acknowledged but not fully optimized. The rebalancing guidelines are clear, and the projected returns align with the asset allocation.\n\ntax_efficiency: The plan uses Aggressive Hybrid (equity taxation) for the majority of equity, which is tax-efficient for a 30% slab investor. However, the debt (Overnight) and gold (ETF) are taxed at slab rate, which reduces post-tax returns. The plan does not mention ELSS for tax saving under 80C, but since the investor is in the new regime, this is not required. The tax rationale is partially addressed but could be more detailed.",
+    "composite_pqs": 0.6599999999999999
+  },
+  "timestamp": "2026-04-18T00:43:23.252368Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

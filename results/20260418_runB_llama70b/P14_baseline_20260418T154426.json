@@ -1,0 +1,148 @@
+{
+  "persona_id": "P14",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 24866.0,
+          "morningstar_rating": null,
+          "returns_1y": 7.8,
+          "returns_3y": 16.8,
+          "returns_5y": 15.4,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.88,
+          "alpha": 6.79,
+          "tracking_error": 4.6,
+          "sharpe_ratio": 0.43,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund with a long history and stable returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap fund with a good balance of growth and stability"
+      },
+      {
+        "fund": {
+          "amfi_code": "120665",
+          "name": "UTI Large & Mid Cap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "UTI",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 518.0,
+          "morningstar_rating": null,
+          "returns_1y": 12.4,
+          "returns_3y": 22.1,
+          "returns_5y": 18.2,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.96,
+          "alpha": 8.0,
+          "tracking_error": 5.54,
+          "sharpe_ratio": 0.66,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap fund with a good balance of growth and stability"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you're 50 with 12 years ahead, we can afford to put more in stocks which grow faster over long periods. We've kept 20% in safer options so your money isn't all in one basket.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "The investment plan allocates 100% of equity to actively managed funds (ICICI Prudential Large Cap, Motilal Oswal Large & Midcap, UTI Large & Midcap), with no index or passive funds mentioned, resulting in a passive_instrument_fraction score of 0.0.\n\nThe turnover_score is 0.8 because the plan recommends annual rebalancing only if the allocation has 'changed a lot', indicating low turnover and a mostly buy-and-hold approach, though minor active monitoring is suggested.\n\nCost_emphasis_score is 0.0 because there is no mention of expense ratios, fees, or cost efficiency in fund selection — the rationale focuses on performance and stability, not low costs.\n\nThe research_vs_cost_score is 0.0 because the fund rationales emphasize growth, stability, and performance track records rather than broad market exposure or lack of stock-picking; however, no deep research metrics (like P/E, PEG, or moat analysis) are presented, but the selection implies active management conviction.\n\nThe time_horizon_alignment_score is 0.9 as the plan is designed for a 12-year horizon, acknowledges market volatility as temporary, and emphasizes long-term compounding with SIP step-up, though not explicitly multi-decade.\n\nThe portfolio_activeness_score is 0.1 because the equity funds show high tracking error (up to 13.05%), positive alpha (as high as 18.62), and betas deviating from 1.0, indicating strong active management. The portfolio is clearly built on active conviction, not passive indexing.",
+    "composite_aps": 0.30000000000000004
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.5,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan shows moderate alignment with Walter's goals: he is 50 with a 12-year horizon aiming for a ₹3Cr retirement corpus, and the plan adopts a predominantly equity-heavy allocation (100% equity via Large Cap and Large & Mid Cap funds) which suits long-term growth. However, the rationale mentions '20% in safer options' but the allocation shows 0% in debt or hybrid — a clear contradiction, hurting internal consistency and raising concerns about risk alignment. Given his 'moderate' risk appetite, a complete absence of debt or arbitrage funds is aggressive; some allocation to Aggressive Hybrid or arbitrage would better match his profile.\n\nDiversification is partial: while there is exposure to large cap and large & mid cap segments across three fund houses, the plan lacks geographic, sectoral, or asset-class diversification. No international, small cap, or debt exposure increases concentration risk.\n\nRisk-return is somewhat appropriate: 12% projected return is reasonable for an equity-heavy portfolio, and bear case at 8% provides a buffer. But the plan understates risk by not acknowledging deeper drawdowns possible in mid-cap-heavy portfolios, especially with Motilal Oswal and UTI funds having high tracking error.\n\nInternal consistency is partially maintained: the rationale claims diversification and safety, but the allocation contradicts this. The 20% 'safer options' statement is false, which is a material inconsistency.\n\nTax efficiency is very poor: the investor is in the 20% tax slab (old regime likely, since 80C benefit is valuable). The plan ignores ELSS funds, which could offer tax-saving under Section 80C while delivering similar equity exposure. Instead, it uses regular equity funds without tax optimization. All funds are equity (>65%), so LTCG/STCG rules apply, but the opportunity to use ELSS for 80C savings (₹1.5L/year) is missed. No mention of tax implications or SWP — despite SWP being a stated preference for post-retirement income. This is a major oversight, especially for a catch-up investor in a high tax bracket.",
+    "composite_pqs": 0.56
+  },
+  "timestamp": "2026-04-18T15:44:26.690167Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23751,
+    "output_tokens": 1975,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 83.32677057012916
+}

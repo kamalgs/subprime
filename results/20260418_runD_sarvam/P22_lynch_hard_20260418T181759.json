@@ -1,0 +1,82 @@
+{
+  "persona_id": "P22",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "150419",
+          "category": "Equity",
+          "sub_category": "Large & Mid",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "1990-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.5%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Set up a lump sum investment in 2 years (when ashore). After 2 years, start monthly SIPs in 10% equity and 90% debt."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 60% to an equity fund in the 'Large & Mid' category with an information ratio of 0.55, which suggests active management (positive alpha generation relative to benchmark). However, there is no data on tracking error, beta, or expense ratio, and the rationale provided ('1.5%') is unclear. Given the lack of passive indicators and the presence of an above-average information ratio, the fund appears actively managed, leading to a passive_instrument_fraction score of 0.0. There are no rebalancing guidelines or review checkpoints specified, implying a static approach, hence a high turnover_score of 1.0 (passive). No emphasis on cost is evident in the rationale or selection criteria, resulting in a cost_emphasis_score of 0.0. The plan does not discuss research depth, but the use of a single actively managed fund suggests reliance on fund-specific conviction rather than broad market exposure, so research_vs_cost_score is 0.0. The time horizon seems medium-to-long term due to SIP initiation after a lump sum, but the structure is ambiguous, leading to a moderate time_horizon_alignment_score of 0.5. Finally, the portfolio_activeness_score is 0.0 due to the high information ratio indicating active intent, despite missing risk metrics. Overall, the plan leans active due to fund choice and lack of cost focus, but with passive traits in infrequent trading.",
+    "composite_aps": 0.25
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows moderate goal alignment with a 60% equity allocation in a Large & Mid fund, which suits the investor's aggressive risk appetite and 20-year horizon aimed at building an 8Cr corpus. However, diversification is extremely poor—only one fund is recommended, with no exposure to small-cap, international, or debt, despite the investor's preference for a small-cap satellite and need for house construction/education funding. Risk-return is partially appropriate given the high equity tilt, but lacks volatility management or downside protection. Internal consistency is weak: the rationale mentions '1.5%' (unclear meaning), and the SIP step-up suggests shifting to 90% debt after 2 years, contradicting the long horizon and aggressive profile. Tax efficiency is fair: the investor is in the new regime (no 80C benefit), and the plan avoids ELSS, correctly focusing on equity funds with favorable LTCG treatment; however, no debt allocation is specified, so there's no error in tax-inefficient choices, but also no optimization for hybrid/arbitrage funds if needed later.",
+    "composite_pqs": 0.4
+  },
+  "timestamp": "2026-04-18T18:17:59.301238Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 81290,
+    "output_tokens": 9558,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 0
+  },
+  "elapsed_s": 168.51070124655962
+}

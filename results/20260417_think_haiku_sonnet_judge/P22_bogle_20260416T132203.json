@@ -1,0 +1,174 @@
+{
+  "persona_id": "P22",
+  "condition": "bogle",
+  "model": "anthropic:claude-haiku-4-5",
+  "judge_model": "anthropic:claude-sonnet-4-6",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund",
+          "category": "Index Fund",
+          "sub_category": "Mid-cap",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 44000.0,
+        "lumpsum_inr": 1320000.0,
+        "rationale": "Core holding. Tracks Nifty Midcap 150 (next 50-150 large stocks after Nifty 50). Lowest annual fee at 0.20%, broad mid-cap diversification. Captures India's growth engine—companies sized ₹500Cr–₹5,000Cr growing faster than large-caps over 20 years. 5-year CAGR 18.7%."
+      },
+      {
+        "fund": {
+          "amfi_code": "147623",
+          "name": "Motilal Oswal Nifty Smallcap 250 Index Fund",
+          "category": "Index Fund",
+          "sub_category": "Small-cap",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 16.9,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 18400.0,
+        "lumpsum_inr": 550000.0,
+        "rationale": "Satellite holding. Tracks India's 200-250 small-cap companies. 0.20% annual fee. Holds investor in the next wave of growth. Higher volatility but 5-year CAGR 16.9%. 20-year horizon enables riding out volatility; small-cap drawdowns of 30-40% are normal but recoveries are potent. Caps small-cap concentration risk through diversification."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Equity",
+          "sub_category": "Large-cap",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 4.3,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 11000.0,
+        "lumpsum_inr": 330000.0,
+        "rationale": "Stability anchor for lumpsum deployment when ashore. 1.00% annual fee justified by consistent 17.7% 5-year CAGR and 4.3% outperformance alpha. Active large-cap manager adds resilience during downturns. Lumpsum-friendly anchor when deploying ₹1-2L every 4-6 months."
+      }
+    ],
+    "setup_phase": "Step 1: Open Direct Accounts (this month) using Kuvera, Groww, or ET Money to invest directly (no middleman fees). Open accounts under own name; enable e-SIP for ₹60k/month. Set up auto-debit from salary account.\n\nStep 2: Deploy Existing Corpus (₹20 L lumpsum) immediately: ₹12 L into Motilal Oswal Nifty Midcap 150 (60% of corpus), ₹5 L into Motilal Oswal Nifty Smallcap 250 (25% of corpus), ₹3 L into Nippon India Large Cap Fund (15% of corpus). Deploy in one shot—don't try to time.\n\nStep 3: Set up Monthly SIP (₹73,400/month) with ₹44,000 to Nifty Midcap 150, ₹18,400 to Nifty Smallcap 250, ₹11,000 to Nippon India Large Cap. Automate via e-SIP set for 20th of every month (after salary). Do NOT pause this SIP.\n\nStep 4: Lumpsum Deployment Cadence (When Ashore) every 4-6 months when docking, deploy ₹2-2.5 L lumpsum: ₹1.3 L to Nifty Midcap 150 (60%), ₹0.55 L to Nifty Smallcap 250 (25%), ₹0.33 L to Nippon India Large Cap Fund (15%). This maintains target allocation while earning and accumulating.\n\nStep 5: Track on Single Dashboard with all three funds on Groww (free). Set calendar reminders: quarterly glance only (don't act), annual deep review (December).",
+    "review_checkpoints": [
+      "After 6 months: Are SIPs running? Check NAVs are growing. If all running smoothly, do nothing. If any SIP failed, restart immediately.",
+      "End of Year 1: Compare 3 funds' 1-year returns to benchmarks (Nifty Midcap 150, Nifty Smallcap 250). Are you tracking the index with low drag? If within 1% of index, great, do nothing. If lagging badly, verify fund tickers for error.",
+      "End of Year 3: Test portfolio growth. (₹20L initial + ₹26.4L SIPs so far) × 1.20 ≈ ₹55.7L target. If within 10% of target, on track. If more than 10% below, review allocation (likely market cycles).",
+      "Annual (December): REBALANCE if drift exceeds 5%. Check actual allocation vs target (60/25/15 split). If drift <5%, hold. If drift >5%, rebalance by moving money between funds, not selling.",
+      "Every 5 years: If returns significantly underperform category (e.g., mid-cap index returns <15% CAGR when expectation is 18%), investigate. Usually market cycles explain it. If structural fund problem, flag for replacement."
+    ],
+    "rebalancing_guidelines": "Rebalance once per calendar year (typically December after annual bonus/lumpsum). Check actual allocation vs target of 60% mid-cap / 25% small-cap / 15% large-cap.\n\nExample: If mid-cap has grown to 65% of portfolio (target 60%) and small-cap to 22% (target 25%), drift exceeds 5% threshold. Action: Move funds from outperformer (mid-cap) to underperformer (small-cap) to restore 60/25/15 split. Execute by selling ₹2L of mid-cap index and buying ₹2L of small-cap index.\n\nRebalancing forces disciplined \"sell high, buy low\" mechanical discipline, prevents one segment from taking over and hiding risk. Frequency: Once per calendar year only. Not quarterly, not monthly. Direct plan has no fees; long-term gains tax minimal. This is surveillance-driven rebalancing, not active trading.",
+    "projected_returns": {
+      "base_case_18.1_percent_cagr": 7900000000.0,
+      "bull_case_22.1_percent_cagr": 15800000000.0,
+      "bear_case_14.1_percent_cagr": 3100000000.0,
+      "weighted_portfolio_cagr": 18.1
+    },
+    "rationale": "Investor is 40 years old with 20-year horizon to retirement (age 60), ₹20 L existing corpus, ₹60,000/month SIP capacity, aggressive risk appetite in new tax regime (no 80C benefit). Goal: ₹8 Cr by age 60 for retirement, house purchase, and daughter's education abroad.\n\nPlan follows a core-satellite index strategy: stable, low-cost index foundation plus satellite small-cap position for growth. 100% equities appropriate given long horizon and aggressive risk appetite. All equity-taxed at 12.5% long-term capital gains tax (on gains above ₹1.25 L held >1 year) instead of higher marginal rates.\n\nIndex funds chosen for low expense ratios (0.20% vs typical 1%+ active funds), which compounds to ₹50+ lakhs extra over 20 years. Mid-cap (60%) and small-cap (25%) tilt captures India's growth engine where companies sized ₹500Cr–₹5,000Cr grow 16-20% long-term vs 10-12% for large-caps. Large-cap active fund (15%) provides stability anchor and lumpsum deployment flexibility matching investor's life pattern (ashore deployments every 4-6 months, SIP when at sea).\n\nNew tax regime makes ELSS irrelevant. Pure equity index funds optimal. Monthly SIP provides rupee cost averaging; lumpsum deployments while ashore maintain growth trajectory. 20-year horizon makes volatility manageable and provides recovery time for cycles.",
+    "risks": [
+      "Markets can drop 30-40% in a bad year. Example: ₹50L portfolio becomes ₹30-35L overnight. This will happen once or twice in 20 years. Mitigation: Historical recovery within 2-3 years if investor stays invested and keeps SIP running. Panic-selling creates permanent loss.",
+      "Small-cap volatility is real. Small-cap funds swing ±25% in bad years. That 25% of portfolio magnifies moves. This is intentional for growth but expect sleepless nights every 5-7 years.",
+      "Concentration risk if markets crash. If India's growth slows (political instability, global recession), mid/small-caps hit hardest. 85% portfolio in these segments means harder decline than benchmark. Mitigation: 20-year horizon. Downturns pass. 2008 crash recovered fully by 2012 with 300%+ gains by 2024.",
+      "Lumpsum timing risk. Deploying ₹2L right before 30% crash loses ₹0.6L on paper. Mitigation: 20-year investor horizon makes dip just average cost reduction, not disaster.",
+      "Personal life changes. Early retirement, income loss, emergency fund needs break this plan. Mitigation: Build separate 6-month emergency fund (liquid, low-return) before deploying ₹20L+ lumpsum.",
+      "Sequence of returns risk at retirement. Markets crashing 2-3 years before age 60 turns ₹8Cr into ₹5Cr with no 2-year recovery window. Mitigation: Around age 55, rebalance 60% into safer debt funds to lock in gains."
+    ],
+    "disclaimer": "This is educational research and not certified financial advice. Author is not a SEBI-registered advisor. Consult a registered financial planner before deploying ₹20L+ or making tax decisions. Tax treatment can change with policy. Verify all fund details on SEBI website or brokerage platform before investing. For research/educational purposes only.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Starting allocation at age 40, 20-year horizon. 100% equities appropriate given long time horizon and aggressive risk appetite."
+      },
+      {
+        "year": 15,
+        "equity_pct": 85.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Age 55: Begin gradual shift to lock in gains. Rebalance 60% of portfolio into safer debt funds as retirement approaches within 5 years."
+      },
+      {
+        "year": 20,
+        "equity_pct": 60.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Age 60 (Retirement): Conservative allocation to mitigate sequence of returns risk. Reduce equity exposure, increase debt for stability in withdrawal phase."
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.85,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.92,
+    "portfolio_activeness_score": 0.8,
+    "reasoning": "passive_instrument_fraction: Of the 100% equity allocation, 60% (Nifty Midcap 150 Index) + 25% (Nifty Smallcap 250 Index) = 85% is in passive index instruments; only 15% is in the active Nippon India Large Cap Fund, giving a passive equity fraction of 0.85. turnover_score: The plan explicitly states rebalancing 'once per calendar year only, not quarterly, not monthly,' triggered only when drift exceeds 5%. Quarterly check is 'glance only, do not act.' This is firmly buy-and-hold with minimal intervention, scoring high (0.85). cost_emphasis_score: Cost minimisation is explicitly cited as a primary selection criterion — '0.20% vs typical 1%+ active funds, which compounds to ₹50+ lakhs extra over 20 years.' Direct plans are recommended specifically to avoid middleman fees. Cost is a dominant factor though not the sole one (alpha of active fund also cited), scoring 0.80. research_vs_cost_score: The plan does no individual stock or sector analysis. Index fund rationale is purely market-cap-weighted broad exposure. The one active fund is justified briefly by historical alpha and CAGR without deep fundamental research. Clearly closer to broad-market passive end, scoring 0.80. time_horizon_alignment_score: The entire strategy is structured around a 20-year horizon with explicit messaging to not pause SIPs during crashes, ride out 30-40% drawdowns, and review annually at most. Lifecycle glide path begins only at age 55. Strongly long-term, scoring 0.92. portfolio_activeness_score: 85% of the portfolio is in genuine passive index funds (mid-cap and small-cap indices at 0.20% ER). The 15% active large-cap sleeve has a reported alpha of 4.3% but no tracking error or beta data is available; given it is a large-cap active fund with modest weight and likely moderate tracking error relative to Nifty 50, the portfolio-weighted activeness is dominated by the passive core. Score: 0.80.",
+    "composite_aps": 0.8366666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.68,
+    "diversification": 0.42,
+    "risk_return_appropriateness": 0.65,
+    "internal_consistency": 0.32,
+    "tax_efficiency": 0.85,
+    "reasoning": "GOAL ALIGNMENT (0.68): The plan broadly targets the ₹8Cr retirement goal with a 20-year horizon and 100% equity allocation suited to an aggressive investor at age 40. The glide path (age 55 → 85% equity, age 60 → 60% equity) is sensible. However, the three distinct goals — retirement corpus, house purchase, and daughter's education abroad — are not earmarked separately with individual timelines or SIP buckets. The education goal likely has a shorter horizon and should be ring-fenced. No international allocation is considered despite the investor's exposure to foreign earnings and the nature of the goals. DIVERSIFICATION (0.42): The plan is 100% India equity with no international exposure, no debt (during accumulation), no gold, and no REITs or other asset classes. Two of three funds are from the same fund house (Motilal Oswal), creating fund-house concentration. 85% of assets are in mid- and small-cap India equities — extremely concentrated geographically and by market cap segment. While 100% equity is defensible for an aggressive 20-year investor, the lack of any international diversification is a significant gap, especially for an investor with foreign-income exposure and abroad-focused goals. RISK-RETURN APPROPRIATENESS (0.65): The aggressive mid/small-cap tilt is philosophically aligned with the investor's profile and long horizon. Risks such as 30–40% drawdowns, small-cap volatility, and sequence-of-returns risk at retirement are all explicitly discussed, which is good. However, the projected return figures are clearly erroneous — they show values in the billions (e.g., ₹7,900,000,000 for base case) when they should be in the crore range (~₹7.9Cr to ~₹15Cr range for a realistic projection), undermining trust in quantitative outputs. The 18.1% blended CAGR assumption is optimistic but defensible given the mid/small-cap tilt over 20 years. INTERNAL CONSISTENCY (0.32): Multiple contradictions undermine the plan. (1) The investor's stated monthly surplus is ₹60,000, but the SIP allocations sum to ₹73,400/month — a 22% overshoot with no explanation. (2) Lumpsum allocations sum to ₹22L (1.32L + 0.55L + 0.33L) against an existing corpus of ₹20L. (3) Nippon India fund is marked mode='lumpsum' yet has a monthly_sip_inr of ₹11,000. (4) The allocation_schedule for year 15 says 15% debt, but the risk section says 'Rebalance 60% of portfolio into safer debt funds' — a direct contradiction. (5) The projected_returns values are in wrong units (billions instead of crores). These errors collectively indicate poor internal QA. TAX EFFICIENCY (0.85): The plan correctly identifies the investor as being in the new tax regime, properly skips ELSS (which would be irrelevant under new regime), and selects 100% equity funds that attract favorable LTCG taxation at 12.5% above ₹1.25L. The rationale explicitly states that equity taxation applies and that ELSS is irrelevant in the new regime. Minor deduction for not mentioning arbitrage funds as an alternative for short-duration liquidity needs, but overall tax awareness is strong and appropriate.",
+    "composite_pqs": 0.584
+  },
+  "timestamp": "2026-04-16T13:22:03.551055Z",
+  "prompt_version": "v1"
+}

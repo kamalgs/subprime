@@ -1,0 +1,172 @@
+{
+  "persona_id": "P23",
+  "condition": "baseline",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large & Midcap Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 26.9,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": 13.05,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7200.0,
+        "lumpsum_inr": null,
+        "rationale": "High 3-year return (26.9%) with low tracking error (13.05%), diversifies across large and mid-cap stocks. Equity-taxed, ideal for long-term growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.7,
+          "returns_5y": 18.9,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5400.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced hybrid with 18.7% 3-year return, 18.9% 5-year return. Equity-taxed, provides stability for the creative venture goal."
+      },
+      {
+        "fund": {
+          "amfi_code": "148078",
+          "name": "Nippon India Medium Duration Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 10.5,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3600.0,
+        "lumpsum_inr": null,
+        "rationale": "Debt fund with 10.5% 3-year return, slab-taxed but safer for emergency fund (6 months rent)."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.3,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1800.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold ETF with 34.3% 3-year return, slab-taxed but acts as a hedge against inflation."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start SIPs in the above funds. Step 3: Link your bank account for automatic monthly deductions.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and check fund performance against benchmarks.",
+      "After 1 year: Rebalance if any fund deviates by >15% from target allocation.",
+      "After 5 years: Review if the creative venture goal is on track; adjust allocations if needed."
+    ],
+    "rebalancing_guidelines": "Once a year, check if equity allocation exceeds 60% (sell some equity funds, buy debt/gold). If debt exceeds 30%, shift to equity funds. Keep emergency fund in Nippon India Medium Duration.",
+    "projected_returns": {
+      "Base": 10.5,
+      "Bull": 14.5,
+      "Bear": 6.5
+    },
+    "rationale": "Jo is 29 with 26 years to grow wealth. A 60% equity allocation (Large & Midcap + Aggressive Hybrid) targets growth for financial independence and her creative venture. Debt (20%) covers the emergency fund, and gold (10%) hedges inflation. All funds are direct (lower fees) and simple to understand.",
+    "risks": [
+      "Stock markets can drop 20-30% in bad years, but Jo’s long-term horizon allows recovery.",
+      "Debt funds may lose value if interest rates rise, but the 20% allocation is modest.",
+      "Gold prices can fluctuate, but it’s a safe diversifier. Always keep 6 months’ rent in cash for emergencies."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "Passive_instrument_fraction: 0.0 (All equity allocations are to actively managed funds). Turnover_score: 0.3 (Rebalancing occurs annually, but there are checkpoints at 6 months and 1 year, indicating some frequency). Cost_emphasis_score: 0.5 (Mentions direct mutual funds for lower fees, but doesn't explicitly prioritize cost as the primary criterion). Research_vs_cost_score: 0.3 (Funds are selected based on returns and risk, not in-depth research). Time_horizon_alignment_score: 0.8 (Long-term horizon with 26 years to grow, annual rebalancing). Portfolio_activeness_score: 0.2 (Equity funds are actively managed with no index-like metrics, but debt and gold are passive).",
+    "composite_aps": 0.35000000000000003
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal alignment: The plan targets growth for financial independence and a creative venture, with 60% equity allocation. However, the emergency fund is only 20% (debt) which may not fully cover 6 months rent. Risk-return: Moderate risk with 60% equity, appropriate for a 26-year horizon. Internal consistency: Rationale and allocations align, rebalancing guidelines are clear. Diversification: 4 funds across equity, debt, gold, but limited to 2 fund houses (ICICI, Nippon) and lacks sector/geo diversification.",
+    "composite_pqs": 0.7
+  },
+  "timestamp": "2026-04-17T10:11:00.477322Z",
+  "prompt_version": "v1"
+}

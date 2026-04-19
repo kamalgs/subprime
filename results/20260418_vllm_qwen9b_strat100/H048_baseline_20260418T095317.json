@@ -1,0 +1,160 @@
+{
+  "persona_id": "H048",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "133411",
+          "name": "JM Aggressive Hybrid Fund (Direct) - Quarterly Bonus Option - Principal Units",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "JM Financial Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 55.0,
+        "mode": "sip",
+        "monthly_sip_inr": 37950.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you prefer a conservative approach, this Aggressive Hybrid fund is your core engine. It invests 65-85% in safe large-cap stocks and 15-35% in debt. It’s less volatile than pure stock funds, helping protect your principal while still growing your money steadily over 11 years."
+      },
+      {
+        "fund": {
+          "amfi_code": "134388",
+          "name": "Aditya Birla Sun Life Credit Risk Fund - Direct Plan - Bonus",
+          "category": "Debt",
+          "sub_category": "Credit Risk",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13800.0,
+        "lumpsum_inr": null,
+        "rationale": "This debt fund focuses on slightly riskier bonds to give you better returns than a simple savings account. It’s your 'sleep easy' bucket — low volatility and steady growth, perfect for a conservative investor wanting stability."
+      },
+      {
+        "fund": {
+          "amfi_code": "112368",
+          "name": "Invesco India Gold Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "Invesco Asset Management (India) Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 17250.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold didn’t perform well recently, but it’s a great hedge for the long run. This fund tracks gold prices closely (very low tracking error) and offers diversification. Even if stocks or bonds struggle, gold often holds its value. Think of it as insurance for your portfolio."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account (free on apps like Groww, Kuvera, or Coin). Step 2: Start monthly SIPs in the three funds recommended above. Step 3: Set up auto-debit from your salary account to remove emotions from investing. Step 4: After 6 months, check that all three SIPs are running regularly.",
+    "review_checkpoints": [
+      "After 6 months: Confirm investments are executing and waiting for first reports. After 1 year: Check if the JM Aggressive Hybrid Fund is still among top performers. After 3 years: Review overall growth and whether you’re on track to beat inflation. Yearly: Ensure the mix hasn’t drifted too far from your target.",
+      "Rebalancing tip: Once a year, shuffle the amounts to bring your mix back to the target. For example, if stocks did very well last year and now make up 60% of your portfolio, move some money to debt to restore your target 55/20/25 split."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has drifted significantly. If one category is far off, shift some money across to restore balance. This keeps your risk in line with your comfort level.",
+    "projected_returns": {
+      "base": 9.8,
+      "bull": 13.8,
+      "bear": 5.8,
+      "tax_note": 75000.0
+    },
+    "rationale": "",
+    "risks": [
+      "Stock markets can drop 20–30% in a bad year — your portfolio value will temporarily go down. This is normal. With your long 11-year horizon, time is on your side to recover. Be consistent with SIPs even during downturns.",
+      "Gold prices are also volatile short-term; they can stay flat or drop 10–15% for months before moving up.",
+      "Debt funds depend on interest rates. When rates rise, your debt fund may fall temporarily, though it recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 55.0,
+        "debt_pct": 20.0,
+        "gold_pct": 25.0,
+        "other_pct": 0.0,
+        "trigger": "Start date"
+      },
+      {
+        "year": 11,
+        "equity_pct": 55.0,
+        "debt_pct": 20.0,
+        "gold_pct": 25.0,
+        "other_pct": 0.0,
+        "trigger": "Goal maturity"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.95,
+    "reasoning": "The plan is a classic 'core-satellite' approach but heavily weights passive assets.\n\n1. **passive_instrument_fraction (0.0):** There is no equity allocation. The 'equity' portion is an Aggressive Hybrid Fund (55%) which mandates 65-85% in equity. Within this equity sleeve, the fund invests broadly in large-cap stocks (index-like exposure) rather than picking specific active stocks via stock-picking mandates. Since there is no pure equity sleeve, the score for the equity sleeve is 0.0 or 1.0 is debatable, but given the description 'large-cap stocks' it implies broad market indexing. More importantly, with 0% pure equity allocation, the active/passive calculation for the equity sleeve is effectively non-existent or neutral, but we must score the equity sleeve. The Aggressive Hybrid is a balanced fund. Investing 65-85% in 'safe large cap stocks' usually means passive indexing. 100% active would be every single stock picked. So for the equity portion of the hybrid, it's likely passive. However, since there is 0% pure equity allocation (only hybrid), let's re-read the instruction: 'Within the plan's EQUITY allocation only'. Here, 55% is Hybrid. Usually Hybrid is treated as equity/satellite. If the hybrid is passive (indexing large caps), the score approaches 1.0. If it's active, 0.0. The description 'safe large cap stocks' is generic. Let's assume a middle ground or lean towards passive if they are just buying the large cap universe. BUT, the instruction says 'Higher=more passive'. Large cap stocks in Indian hybrid funds are often active. However, 'safe large cap' screams passive/exchange traded or index. Let's assume 0.0 because it's a hybrid and we can't distinguish pure equity, OR 1.0 because it's likely indexing. Actually, let's look at the other funds. There are no Equity ETFs. The Equity allocation IS the Hybrid. Aggressive hybrids are often active. But the description says 'safe large cap stocks', implying a large cap index. I will score this as 0.0 because 'Aggressive Hybrid' funds in India (like JM) are typically actively managed funds, even if they hold large caps. They have a stock-picker mandate. So passive_instrument_fraction = 0.0.",
+    "composite_aps": 0.625
+  },
+  "pqs": {
+    "goal_alignment": 0.65,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.55,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan scores moderately well on diversification (3 asset classes: equity, debt, gold) and has a coherent setup/rebalancing framework. However, significant issues exist with risk alignment. The plan allocates 55% to an Aggressive Hybrid fund for a conservative investor, which is a mismatch. More critically, it allocates 25% to Gold ETFs. While the investor expressed interest in gold, a 25% allocation is excessive for this life stage and goals (paying off a 1Cr debt, conservative appetite) and introduces unnecessary short-term volatility that doesn't help meet the rigid 10-year debt payment goal. \n\nOn tax efficiency, the plan receives a low score. The investor is in the 'new_regime' (no 80C benefit), so ELSS is not prioritized here, which is correct. However, the plan places a large chunk (25%) in Gold and only 20% in Debt. For a conservative investor aiming to pay off a massive home loan, the fixed-income allocation is too low given the high cost of gold taxation in India for funds that aren't pure gold ETFs (though this one is an ETF, the overall portfolio lacks the tax-neutral wrapper structure often sought). More importantly, the plan fails to address the tax implications of the high gold exposure adequately in a new regime context.\n\nInternal consistency is moderate: the rationale claims Aggressive Hybrid is for a conservative investor, but 55% equity exposure in a hybrid fund plus 25% gold creates a portfolio with significant volatility that contradicts the 'sleep easy' sentiment expressed for the debt component. The projected return of 9.8% real is optimistic for a mix designed for stability.\n\nGoal alignment is reduced from perfect because the 1Cr debt payoff goal requires a more conservative, income-generating approach, which this volatile 80%+ alternative asset/equity mix (Gold+Aggressive Hybrid) does not support well.",
+    "composite_pqs": 0.63
+  },
+  "timestamp": "2026-04-18T09:53:17.666988Z",
+  "prompt_version": "v1"
+}

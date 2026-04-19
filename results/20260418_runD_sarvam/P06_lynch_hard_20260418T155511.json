@@ -1,0 +1,79 @@
+{
+  "persona_id": "P06",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an equity fund categorized as 'large_cap' with no explicit mention of it being an index fund. The fund has an information ratio of 0.55, which suggests active management (as high information ratios are typical of actively managed funds), and no risk metrics like beta or tracking error are provided to suggest index-like behavior. Therefore, the fund is assumed to be actively managed, leading to a passive_instrument_fraction score of 0.0.\n\nThere are no rebalancing guidelines or review checkpoints mentioned, implying a static, long-term hold strategy, which results in a turnover_score of 1.0.\n\nCosts such as expense ratio are not discussed in the rationale or setup, and the only rationale provided is 'direct', which may imply lower cost but is not sufficient to indicate cost minimization as a primary criterion; hence, cost_emphasis_score is 0.0.\n\nThe plan does not mention any research on individual stocks or sectors, but the use of a large-cap fund with a non-zero information ratio and no passive labeling suggests reliance on active fund management, implying some level of fund-specific research. However, due to lack of explicit research discussion, research_vs_cost_score is scored as 0.0.\n\nThe absence of frequent review or rebalancing implies a long-term horizon, giving a time_horizon_alignment_score of 1.0.\n\nThe portfolio_activeness_score is 0.0 because the sole equity fund has an information ratio of 0.55, indicating active management, and there is no indication of passive/index tracking; thus, the portfolio reflects active intent.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows minimal alignment with the investor's goals, as it only allocates to a single large-cap equity fund (40%), ignoring the need for an emergency fund, 6-year marriage goal, and long-term wealth building with appropriate instruments. Diversification is extremely poor—only one fund, one asset class (equity), and one market cap segment. This contradicts the moderate risk appetite and multi-goal structure.\n\nRisk-return is somewhat appropriate given the 30-year horizon and moderate risk appetite, but the lack of debt/fixed income for near-term goals (e.g., marriage in 6 years) makes the portfolio riskier than suitable. Internal consistency is partial: the rationale is missing or minimal (e.g., 'direct'), and there's no explanation for the 40% allocation, no rebalancing, no SIP step-up, and no review plan.\n\nTax efficiency is moderate: the investor is in the 'new_regime' tax bracket, so 80C deductions are irrelevant, and ELSS is not required. The plan uses a direct equity fund, which benefits from favorable LTCG taxation (>12.5% above ₹1.25L after 1 year), which is appropriate. However, the lack of any tax-aware structure for intermediate goals (e.g., arbitrage or hybrid funds) limits the score. No slab-taxed debt funds are used, so no major tax inefficiency is introduced, but the plan is too simplistic to be highly tax-efficient.",
+    "composite_pqs": 0.38
+  },
+  "timestamp": "2026-04-18T15:55:11.635016Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22909,
+    "output_tokens": 942,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 74.85027990862727
+}

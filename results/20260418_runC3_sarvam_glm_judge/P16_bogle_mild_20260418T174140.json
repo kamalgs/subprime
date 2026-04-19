@@ -1,0 +1,78 @@
+{
+  "persona_id": "P16",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.1,
+        "lumpsum_inr": null,
+        "rationale": "1.05% post-tax returns over 10 years"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Rebalance every 6 months: check if any fund is underperforming by 15% below its 1-year high",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk (equities)",
+      "Inflation risk (bonds)",
+      "Liquidity risk (debt funds)",
+      "Interest rate risk (fixed income)",
+      "Currency risk (foreign funds)"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.4,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.55,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "1) passive_instrument_fraction=0.0: The sole equity allocation is HDFC Large Cap Direct Plan, an actively managed large-cap fund — no index funds or ETFs are present in the equity sleeve. 2) turnover_score=0.4: Semi-annual rebalancing with a tactical underperformance trigger (15% below 1-year high) is more active than annual/less but less active than quarterly — squarely in the middle. 3) cost_emphasis_score=0.2: The 'Direct Plan' designation implies some cost awareness, but cost is not discussed as a selection criterion; the rationale references returns rather than expense minimisation. 4) research_vs_cost_score=0.5: No deep stock-specific or fund-specific research is provided; the rationale is minimal ('1.05% post-tax returns over 10 years'). Yet there's also no broad index/passive logic — it's an active pick with a thin rationale, so the score sits mid-range. 5) time_horizon_alignment_score=0.55: The 10-year return reference suggests a long-term orientation, but the 6-month rebalancing cycle with underperformance checks introduces a semi-tactical element, pulling it slightly below a fully patient, long-term score. 6) portfolio_activeness_score=0.35: The only holding is an active large-cap fund with an information ratio of 0.6 (above the 0.5 'genuinely active' threshold). However, large-cap funds often behave like closet indexers (beta ≈ 1, moderate tracking error), and with no tracking error or alpha data available, the score reflects moderate activeness — leaning active but constrained by the large-cap category's inherent index-like characteristics.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.0,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is catastrophically misaligned with the investor's profile. Dumbledore is a 63-year-old conservative investor seeking capital protection, ₹1.5L/month systematic income via SWP, grandchildren's education (20-25yr horizon), and tax-efficient estate planning. Instead, the plan allocates 100% to a single large-cap equity fund — the exact opposite of what a conservative retiree needs. There is no debt/hybrid allocation to support SWP income, no separate long-horizon bucket for grandchildren, and zero mention of estate planning. The fund rationale claims '1.05% post-tax returns over 10 years' which is absurdly low for equity and internally contradictory. The monthly SIP of ₹0.1 is clearly an error. The allocation states 40% but only one fund exists (effectively 100%). The risk list includes 'currency risk (foreign funds)' despite no foreign funds. There is no tax rationale at all; 80C headroom is ignored for this 30% slab old-regime investor (no ELSS), the SWP tax-efficiency angle is unaddressed, and estate planning tax considerations are absent. The single-fund, single-asset-class allocation scores zero on diversification. A 100% equity allocation for a conservative retiree focused on capital protection is wildly inappropriate for risk-return, earning a zero. Internal consistency is near zero because every element contradicts the others. The only marginal credit on tax efficiency is that the sole equity fund does receive favourable equity tax treatment, but this appears accidental rather than by design.",
+    "composite_pqs": 0.04
+  },
+  "timestamp": "2026-04-18T17:41:40.440342Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

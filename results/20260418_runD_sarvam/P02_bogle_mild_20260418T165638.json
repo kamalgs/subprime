@@ -1,0 +1,83 @@
+{
+  "persona_id": "P02",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.2
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.6,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Avoid sectoral concentration beyond large cap and multi-cap",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Regulatory risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), which has a high information ratio (1.2), indicating strong active management. Since there is no allocation to index funds or ETFs in the equity portion, the passive_instrument_fraction is 0.0. The rebalancing guidelines are minimal and do not suggest frequent trading, implying a buy-and-hold approach, hence turnover_score is 1.0. There is no mention of cost considerations such as expense ratios or tax efficiency, so cost_emphasis_score is 0.0. The rationale does not emphasize individual stock or fund research, but the use of an actively managed fund with high information ratio suggests reliance on manager skill, leading to a low research_vs_cost_score (0.0). The lack of frequent review checkpoints and tactical shifts indicates a long-term orientation, so time_horizon_alignment_score is 1.0. Finally, the portfolio_activeness_score is 0.0 because the sole equity fund shows characteristics of genuine active management (high information ratio), and no passive instruments are used.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.0,
+    "reasoning": "The investment plan shows significant deficiencies across all dimensions. Goal alignment is poor: the plan allocates 40% to a single large-cap fund with no clear mapping to the investor's three distinct goals (education, home, retirement) across different time horizons. Diversification is extremely weak: only one fund is recommended, concentrated in large-cap equity, violating the investor's preference to avoid sectoral concentration and failing to include mid/small caps, debt, or international exposure. Risk-return appropriateness is low: a moderate-risk investor with a 20-year horizon should have a balanced mix, but the plan lacks risk controls and downside protection, especially for near-term goals like home purchase in 5 years. Internal consistency is questionable: the rationale is minimal ('1.00%'), the allocation percentage (40%) and lumpsum amount (0.6) are inconsistent with the investor's ₹1.5M corpus and ₹80k monthly surplus, and rebalancing guidelines mention avoiding sectoral concentration while the plan itself is narrowly focused. Tax efficiency is nearly absent: the investor is in the 30% tax slab, yet the plan uses a regular equity fund without considering tax-efficient structures; it fails to utilize ELSS for 80C benefits despite the investor being in the old regime (implied by 30% slab), and makes no mention of tax implications, capital gains, or optimal fund categorization under Budget 2024 rules. Overall, the plan is underdeveloped and unsuitable for the investor's complex, goal-based needs.",
+    "composite_pqs": 0.24000000000000005
+  },
+  "timestamp": "2026-04-18T16:56:38.114102Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 41150,
+    "output_tokens": 1057,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 44.77946115564555
+}

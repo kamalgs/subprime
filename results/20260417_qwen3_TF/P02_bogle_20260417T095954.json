@@ -1,0 +1,169 @@
+{
+  "persona_id": "P02",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low expense ratio (1.00%), consistent 17.7% 5-year return, and broad large-cap exposure."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty 50 Index Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.2,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Tracks Nifty 50 with 0.20% fee, lowest-cost index fund for long-term growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "150346",
+          "name": "WhiteOak Capital Arbitrage Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 10.0,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Equity-taxed (12.5% LTCG), 10.0% 1-year return, avoids slab-tax on debt."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 65.2,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": null,
+        "rationale": "0.40% fee, 65.2% 1-year return, hedge against inflation."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start SIPs in the above funds. No lumpsum needed—SIPs automatically invest monthly.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are active and no fund has paused.",
+      "After 1 year: Compare fund performance to their category benchmarks (e.g., Nifty 50 for index fund).",
+      "After 5 years: Rebalance if any fund’s allocation drifts by >5% from the target."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed. If one category (e.g., equity) grew much more than planned, move some money to safer options (debt/arbitrage) to stay within your target.",
+    "projected_returns": {
+      "Base": 12.7,
+      "Bull": 16.7,
+      "Bear": 8.7
+    },
+    "rationale": "At 35, with 20 years ahead, you can afford equity growth (12.7% base) while balancing safety. The 40% equity (Large Cap + Index) targets long-term growth, 30% arbitrage avoids slab-tax on debt, and 20% gold hedges inflation. SIPs ensure you’re not timing the market, and diversification across fund houses (Nippon, Motilal Oswal, WhiteOak, ICICI) reduces risk.",
+    "risks": [
+      "Market drops: Stock markets can fall 20–30% in a bad year—your portfolio value will drop temporarily. This is normal and recovers over time.",
+      "Gold volatility: Gold may not keep up with equity growth, especially in a rising interest rate environment.",
+      "Arbitrage risks: Low returns in a low-interest rate environment (e.g., 6% may shrink to 4% if rates fall)."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "The investment plan has a 50% passive instrument fraction in the equity sleeve, as it includes the Nifty 50 index fund (10%) and a large-cap fund (40%). The turnover score is 0.75 due to annual rebalancing and minimal tactical adjustments. The cost emphasis score is high at 0.8 because the plan prioritizes low expense ratios and tax efficiency. The research versus cost score is 0.6 as the plan emphasizes broad market exposure and cost over detailed stock-specific analysis. The time horizon alignment score is 0.9, indicating a long-term, patient approach. The portfolio activeness score is 0.4, as the equity sleeve includes both active and passive funds, with the large-cap fund showing active characteristics.",
+    "composite_aps": 0.6583333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.7,
+    "reasoning": "The plan aligns well with Hermione's financial goals, life stage, and investment horizon. The allocation of 40% to equity funds supports long-term growth for her children's education and retirement, while 30% in arbitrage funds and 20% in gold provides a balanced approach. Diversification across fund houses and asset classes is adequate but could be improved with more sectoral diversification. The risk-return profile is appropriate for a moderate risk appetite, with projected returns that are realistic. The plan is internally consistent, with rationale and allocations supporting the strategy. Tax efficiency is moderate as the plan uses equity-taxed funds for a 30% slab investor, but it could be better optimized by considering more tax-efficient debt instruments and utilizing ELSS for 80C deductions.",
+    "composite_pqs": 0.82
+  },
+  "timestamp": "2026-04-17T09:59:54.411760Z",
+  "prompt_version": "v1"
+}

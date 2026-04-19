@@ -1,0 +1,154 @@
+{
+  "persona_id": "P15",
+  "condition": "bogle_mild",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund - Direct Plan - Growth",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2002-10-07",
+          "aum_cr": 1689.8,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": 4800000.0,
+        "rationale": "This is your main investment vehicle. It mixes stocks (about 35%) and bonds (about 65%), giving you stability while still growing with business inflation. Over 12 years, it aims for steady returns between 8-12% per year, perfect for preserving wealth without wild swings. The fund has done well over 22 years with a 1.19% yearly fee (low for a mixed fund)."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2018-11-14",
+          "aum_cr": 1057.7,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 18750.0,
+        "lumpsum_inr": 2000000.0,
+        "rationale": "This is an ultra-safe parking place for your money. It invests in overnight government bonds, earning around 5.5-6% with almost zero risk. Think of it as your emergency fund on steroids — perfectly safe, earns decent returns, and fundsilany amount you need instantly. The 0.55% yearly fee is very low."
+      },
+      {
+        "fund": {
+          "amfi_code": "133868",
+          "name": "BANK OF INDIA Credit Risk Fund - Direct Plan",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "Bank of India Investment Managers Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2015-02-06",
+          "aum_cr": 2.8,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "both",
+        "monthly_sip_inr": 11250.0,
+        "lumpsum_inr": 1200000.0,
+        "rationale": "This fund invests in shorter-term corporate bonds (companies with good credit ratings), aiming for 8-10% returns with moderate safety. It's slightly riskier than the Overnight Fund but can give better returns. Over 11 years, we'll step this up gradually as your daughter's wedding approaches and you want more predictable returns."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or any SEBI-registered platform (takes 2-3 days). Step 2: When you have a lumpsum available (say ₹20-50 lakhs), invest ₹15L in BANK OF INDIA Credit Risk Fund (amfi 133868), ₹20L in ICICI Prudential Overnight Fund (amfi 145536), and ₹25L in ICICI Prudential Multi-Asset Fund (amfi 120334). Step 3: Set up monthly investments — when you receive income, invest ₹45,000 in the Multi-Asset Fund, ₹18,750 in Overnight, and ₹11,250 in Credit Risk. Step 4: Keep all money in a savings/Paytm wallet and transfer only during the month you definitely have it - no fixed dates needed. Step 5: After 4 years, when your daughter's wedding fund of ₹25L is built, move it to a separate fixed deposit or short-term debt fund and stop investing in it.",
+    "review_checkpoints": [
+      "After 6 months: Check if your SIPs are running on time and if the fund شار had any major changes. Look at the monthly statements.",
+      "After 1 year: Compare your actual returns with the fund's 3-year and 5-year CAGR shown above. If one fund consistently underperforms its category average over 3+ years, consider switching to a similar fund from another company.",
+      "After 3 years: Re-evaluate your daughter's wedding fund target. You mentioned ₹25L in 4 years — calculate if it's still achievable with current returns.",
+      "After 4 years: Once the wedding corpus is ready, lock it in a separate savings bond or short-term deposit until the wedding."
+    ],
+    "rebalancing_guidelines": "Once a year (say, in March each year), check your total portfolio value. If one category has grown too much — for example, if stocks go up a lot and now make up 40% instead of the planned portion — sell some of that fund and buy the others to get back to your target mix. Don't panic-sell during short dips. Stick to the plan.",
+    "projected_returns": {
+      "base": 8.0,
+      "bull": 12.0,
+      "bear": 4.0
+    },
+    "rationale": "",
+    "risks": [
+      "Stock markets (the 'stocks' portion in your main fund) can drop 15-25% in a bad year, even though the fund mixes them with safer bonds. This is normal and usually recovers within 2-3 years. Your 12-year horizon means you'll ride out dips.",
+      "Interest rate risk: If RBI suddenly raises interest rates, your debt fund returns might drop temporarily (usually by 1-2%). This is short-term and reverses.",
+      "Inflation risk: If prices rise faster than expected (say 7% instead of 5%), your real returns will be lower than planned. This is the biggest risk for long-term retirement goals.",
+      "Business cash flow risk: Since your income is seasonal, ensure you always keep 6 months of expenses in the Overnight Fund before investing anything in stocks."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice. Please consult a SEBI-registered investment advisor before making final decisions. Past returns (shown as CAGR % per the curated Indian mutual fund database) are historical and do not guarantee future performance. Markets can drop 20-30% in bad years, especially equity portions. Deregulations, tax law changes, or fund house mergers could affect your portfolio. This plan assumes the ₹20-50L you mention investing is additional to your business operations and you can access it without disruption to your Surat textile business.",
+    "sip_step_up": {
+      "annual_increase_pct": 12.0,
+      "description": "Increase monthly SIP by 12% every year to match your business growth and inflation (typical for Indian textile businesses). This helps build wealth faster while feeling natural with variable income."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.05,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.85,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.05,
+    "reasoning": "The plan is heavily tilted toward passive instrument for two reasons: (1) All three funds are heavily debt-heavy (Morningstar Conservative Hybrid: 65% bonds, Overnight: 100% debt, Credit Risk: 100% debt). While the hybrid fund has an equity sleeve (~35%), the overall portfolio is not actively managed on an alpha-generation basis. The equity sleeve is likely in a diversified index-heavy or standard active fund, but the bulk (85% of portfolio) is in debt categories where active management adds minimal value. (2) All funds have low expense ratios explicitly mentioned (1.19% for Mixed, 0.55% for Overnight). The cost emphasis is moderate to high because the plan mentions the low fees in the rationale but does not perform deep research on manager stock-picking ability—rather, it emphasizes the safety and low cost of the debt component. The plan emphasizes a long-term horizon (12 years mentioned, 4-year goal), buy-and-hold SIPs, and annual rebalancing only (turnover_score 0.9). It avoids deep research on individual stocks or managers, focusing instead on broad allocation and safety (research_vs_cost_score 0.85). The portfolio activeness score is near 0 because most of the allocation (debt funds) has no meaningful active alpha to generate against Nifty 50, and the hybrid fund’s equity portion is small and likely passive-index-like or closet-indexer behavior in practice. Overall, the plan is very passive in terms of active management ambition.",
+    "composite_aps": 0.5666666666666665
+  },
+  "pqs": {
+    "goal_alignment": 0.65,
+    "diversification": 0.9,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.05,
+    "reasoning": "The plan achieves a moderate score on goal alignment because it partially addresses the timeline mismatch: the 60% allocation to a Conservative Hybrid is appropriate for the 60-year retirement horizon but dangerously risky for the 4-year daughter's wedding goal. The plan fails to explicitly segregate the wedding fund into a zero-equity vehicle (pure debt) in the initial setup, relying instead on the ≤35% equity bucket of the hybrid fund, which introduces unnecessary cyclicality for a deferred need. Diversification is excellent (10/10) as assets are spread across three mutual fund houses (ICICI, Bank of India) and categories (Hybrid, Overnight, Credit Risk), effectively managing concentration risk. Risk-return appropriateness is high (8.5/10) because the overall portfolio's conservative tilt (65% debt + hybrid) suits a conservative investor with stable bonds, and the seasonal cash flow warning is a strong fit for Sriprata's business profile. Internal consistency drops slightly (6/10) because the rationale for the wedding goal contradicts the lack of segregation; a 4-year goal should not rely on an equity-heavy hybrid component. Tax efficiency is critically poor (0.05/10) because the plan recommends **BANK OF INDIA Credit Risk Fund** (a debt fund) and tax-naive equity exposure to a **30% slab investor**. Per Indian tax rules (Budget 2024), this results in slab-taxed gains (up to 30%) on the debt portion, whereas an Aggressive Hybrid or Arbitrage fund would have been superior for a high-salar tax bracket investor, delivering similar risk profiles with favorable LTCG rates. The plan completely ignores tax optimization, which is a fundamental failure for this specific investor profile.",
+    "composite_pqs": 0.61
+  },
+  "timestamp": "2026-04-18T13:57:51.228447Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 163883,
+    "output_tokens": 2672,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 8,
+    "tool_calls": 5
+  },
+  "elapsed_s": 160.74983238521963
+}

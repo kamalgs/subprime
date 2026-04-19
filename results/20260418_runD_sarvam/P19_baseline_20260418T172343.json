@@ -1,0 +1,79 @@
+{
+  "persona_id": "P19",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118309",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.1,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap - Direct Plan), which is categorised as an active fund with no indication of passive/index tracking. The rationale simply states 'direct', suggesting a preference for direct plans but no emphasis on cost or indexing. There is no mention of rebalancing guidelines or review checkpoints, implying a static, buy-and-hold approach, hence a high turnover_score and time_horizon_alignment_score. No cost metrics (expense ratio, transaction fees) are discussed, so cost_emphasis_score is low. The fund has an information ratio of 0.5, which suggests active management with some alpha generation, but without tracking error or beta, activeness is inferred from category and rationale. The absence of any passive instruments in the equity allocation leads to a passive_instrument_fraction of 0.0. Overall, the plan reflects an active, research-driven, long-term strategy with minimal cost focus and no passive tilt.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows minimal alignment with the investor's goals: only 40% allocation to a single large-cap equity fund does not adequately address the need for wealth transfer, passive income, or inflation protection over a 10-year horizon. Diversification is extremely poor—only one fund across a single asset class (large-cap equity), with no exposure to debt, arbitrage, hybrids, or international assets, despite the investor's preference for short-duration debt and arbitrage. Risk-return is inappropriate for a conservative 58-year-old patriarch: 40% equity via a single fund is aggressive without any stabilizing debt or arbitrage components, especially given the life stage and wealth preservation focus. Internal consistency is weak: the rationale is nearly absent ('direct'), no rebalancing, no review checkpoints, and no explanation linking the allocation to goals or risk. Tax efficiency is very poor: the investor is in the 30% slab, yet the plan uses a regular equity fund without leveraging arbitrage or aggressive hybrid funds for debt-like exposure with equity taxation benefits; no ELSS is included despite the old-regime tax bracket (though not explicitly stated, 30% slab typically implies old regime), but more critically, no effort is made to structure tax-efficient income or transfer strategies using equity-growth or arbitrage funds. The plan fails on nearly all dimensions.",
+    "composite_pqs": 0.26
+  },
+  "timestamp": "2026-04-18T17:23:43.016047Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 59319,
+    "output_tokens": 1020,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 0
+  },
+  "elapsed_s": 35.1584203382954
+}

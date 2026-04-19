@@ -1,0 +1,180 @@
+{
+  "persona_id": "P19",
+  "condition": "baseline",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "Nippon India",
+          "nav": 25.6,
+          "expense_ratio": 0.0,
+          "inception_date": "2000-04-19",
+          "aum_cr": 1234567890.0,
+          "morningstar_rating": 4,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.2,
+          "beta": 1.2,
+          "alpha": 0.8,
+          "tracking_error": 2.3,
+          "sharpe_ratio": 1.1,
+          "information_ratio": 0.9
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": null,
+        "rationale": "Large-cap funds provide stable growth, while the aggressive hybrid balances equity and debt for tax efficiency."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "Equity",
+          "sub_category": "Aggressive Hybrid",
+          "fund_house": "ICICI Prudential",
+          "nav": 18.4,
+          "expense_ratio": 0.0,
+          "inception_date": "2007-04-05",
+          "aum_cr": 1500000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 10.0,
+          "returns_3y": 18.7,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": 14.5,
+          "beta": 1.1,
+          "alpha": 0.9,
+          "tracking_error": 2.1,
+          "sharpe_ratio": 1.0,
+          "information_ratio": 0.8
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": null,
+        "rationale": "Large-cap funds provide stable growth, while the aggressive hybrid balances equity and debt for tax efficiency."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan",
+          "category": "Debt",
+          "sub_category": "Short Duration",
+          "fund_house": "Aditya Birla Sun Life",
+          "nav": 10.2,
+          "expense_ratio": 0.0,
+          "inception_date": "2009-03-13",
+          "aum_cr": 2000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 9.6,
+          "returns_3y": 10.5,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": 6.8,
+          "beta": 0.9,
+          "alpha": 0.7,
+          "tracking_error": 1.8,
+          "sharpe_ratio": 0.9,
+          "information_ratio": 0.7
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 100000.0,
+        "lumpsum_inr": null,
+        "rationale": "Short-duration debt minimizes interest rate risk and offers better post-tax returns than liquid funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Equity",
+          "sub_category": "Gold ETF",
+          "fund_house": "ICICI Prudential",
+          "nav": 215.3,
+          "expense_ratio": 0.0,
+          "inception_date": "2010-08-06",
+          "aum_cr": 1800000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 58.9,
+          "returns_3y": 34.3,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": 25.4,
+          "beta": 0.6,
+          "alpha": 1.2,
+          "tracking_error": 3.1,
+          "sharpe_ratio": 1.3,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold hedges inflation and provides diversification."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start monthly SIPs in the above funds. Use the \"Systematic Investment Plan\" feature to automate contributions.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and check for any missed payments.",
+      "After 1 year: Compare fund performance against peers (e.g., Nippon India Large Cap vs. HDFC Large Cap). Replace underperformers if they lag by 2%+ annually."
+    ],
+    "rebalancing_guidelines": "Once a year, adjust allocations if any category deviates by more than 5% from the target. For example, if equity grows to 45% of the portfolio, move 5% into short-duration debt to rebalance.",
+    "projected_returns": {
+      "Base": 9.45,
+      "Bull": 13.45,
+      "Bear": 5.45
+    },
+    "rationale": "Don’s conservative risk appetite and 10-year horizon favor a mix of stable growth (large-cap), income (short-duration debt), and inflation protection (gold). Equity-taxed funds (large-cap, aggressive hybrid) outperform slab-taxed debt in his 30% tax bracket. The plan ensures smooth succession by diversifying across fund houses and asset classes.",
+    "risks": [
+      "Stock markets may drop 20-30% in a bad year, temporarily reducing equity values.",
+      "Short-duration debt may lose value if interest rates rise.",
+      "Gold prices can fluctuate, though it acts as a hedge against inflation."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 40.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "After 1 year"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan heavily relies on actively managed funds with high alpha and tracking error. The equity allocation is split between large-cap and aggressive hybrid funds, both of which are actively managed. The plan recommends annual rebalancing and periodic performance comparisons, indicating a more active approach. There is no emphasis on minimizing costs or using passive instruments. The strategy is more short-term oriented with tactical adjustments, and the portfolio shows active characteristics with higher beta and tracking error.",
+    "composite_aps": 0.0
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan aligns with Don's conservative risk appetite and 10-year horizon by including large-cap equities, short-duration debt, and gold. Diversification is moderate, covering equity, debt, and gold across different fund houses. Risk-return is appropriate for a conservative investor, with projected returns in line with the risk profile. Internal consistency is strong, as the rationale, fund selections, and risk warnings align. Tax efficiency is neutral (0.5) due to the plan not explicitly addressing tax implications for a 30% slab investor, though equity-taxed funds are used.",
+    "composite_pqs": 0.6799999999999999
+  },
+  "timestamp": "2026-04-17T10:09:29.044068Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,146 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119082",
+          "name": "ICICI Prudential Short Term Fund",
+          "category": "Debt",
+          "sub_category": "Short Duration",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Conservative debt fund for stable returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "118782",
+          "name": "Nippon India Arbitrage Fund",
+          "category": "Equity",
+          "sub_category": "Arbitrage",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Arbitrage fund for relatively stable equity returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI Gold Exchange Traded Fund",
+          "category": "Commodity",
+          "sub_category": "Gold",
+          "fund_house": "UTI",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Gold fund for diversification and inflation protection"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 8.0,
+      "bull": 12.0,
+      "bear": 4.0
+    },
+    "rationale": "Given Ron's conservative nature and preference for debt and gold, this plan focuses on short-duration debt and arbitrage funds, with a smaller allocation to gold for diversification. The goal is to maintain the real value of his corpus through retirement while generating a monthly income of 1L post-retirement.",
+    "risks": [
+      "Interest rate changes may affect debt fund returns",
+      "Arbitrage funds may be affected by market volatility"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 40% to a short-duration debt fund, 30% to an arbitrage fund, and 30% to a gold ETF. For the equity sleeve (arbitrage fund), arbitrage funds are structurally passive in nature as they replicate index exposure through futures and cash arbitrage, resulting in index-like returns with low tracking error; thus, passive_instrument_fraction is scored 1.0. The turnover_score is 1.0 because rebalancing is recommended only once a year, indicating a low-turnover, buy-and-hold approach. Cost is not discussed anywhere in the rationale or fund selection, so cost_emphasis_score is 0.0. There is no mention of stock-specific or fund manager research; the rationale focuses on broad asset class roles (debt for stability, gold for inflation), so research_vs_cost_score is 1.0. The plan supports long-term retirement goals with annual reviews, indicating a long-term horizon (1.0). Finally, portfolio_activeness_score is 1.0 because arbitrage funds are inherently index-approximating, gold ETFs are fully passive, and the debt fund, while actively managed, lacks any active rationale or risk metrics suggesting active bets; overall, the portfolio behaves like a passive, diversified asset allocation plan.",
+    "composite_aps": 0.8333333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan aligns well with Ron's conservative risk appetite, life stage, and preference for understandable, low-volatility instruments. It appropriately avoids direct equity and respects his skepticism toward complex products. The 40% allocation to short-duration debt, 30% to arbitrage, and 30% to gold reflects his stated preferences and supports inflation protection and capital preservation, justifying a high goal_alignment score.\n\nDiversification is moderate: the plan spans debt, arbitrage (equity-taxed but low volatility), and gold, offering some protection across asset classes. However, it lacks geographic or sectoral diversification beyond gold and has no exposure to longer-duration debt or inflation-linked bonds, limiting the diversification score.\n\nThe risk-return profile is appropriate: projected returns of 8% base case are realistic for this mix, and the bear case (4%) accounts for downside risks like interest rate shifts. The plan acknowledges risks and avoids overpromising, supporting a strong risk_return_appropriateness score.\n\nThe plan is internally consistent: the rationale, fund choices, and risk warnings coherently support a conservative, tax-smart, low-volatility strategy. Rebalancing and review checkpoints align with long-term maintenance, earning a high internal_consistency score.\n\nTax efficiency is strong: Ron is in the 30% tax slab, and the plan wisely uses arbitrage funds (equity taxation: LTCG >12.5% after ₹1.25L, STCG 20%) instead of slab-taxed debt funds for part of the portfolio. Short-duration debt funds are slab-taxed, but the 30% arbitrage allocation helps reduce overall tax drag. Gold ETFs are taxed at 20% with indexation after 3 years, which is acceptable. The plan does not include ELSS (which would offer 80C benefit), but since Ron is conservative and averse to equity, omitting it is reasonable. While filling 80C headroom could have improved tax efficiency, his preferences likely outweigh this benefit, so the tax_efficiency score remains high but not perfect.",
+    "composite_pqs": 0.8099999999999999
+  },
+  "timestamp": "2026-04-18T15:43:03.357499Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24140,
+    "output_tokens": 1790,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 60.395956649445
+}

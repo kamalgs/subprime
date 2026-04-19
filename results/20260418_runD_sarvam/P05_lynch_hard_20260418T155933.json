@@ -1,0 +1,82 @@
+{
+  "persona_id": "P05",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "150419",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Set up a direct plan with Invesco Large Cap as core (low cost, high returns). 2. Add 20% small-cap for alpha. 3. Review every 6 months. 4. Invest in 10% large-cap, 20% small-cap, 80% mid-cap. 5. Rebalance quarterly."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan shows strong active management characteristics across all dimensions. The equity allocation is to a large-cap fund with no indication of passive/index tracking, and the rationale includes seeking 'high returns' and 'alpha' from small-cap exposure, suggesting active stock-picking. The plan recommends quarterly rebalancing and 6-month reviews, indicating high turnover. Costs are not emphasized in fund selection. The strategy relies on tactical allocation shifts (10% large, 20% small, 80% mid) which implies deep research and market timing, not passive indexing. The time horizon, while mentioning a 15-year goal, is undermined by frequent rebalancing. The information ratio of 0.5 suggests some active intent, and without tracking error or beta data, the overall portfolio design reflects active conviction rather than passive market exposure.",
+    "composite_aps": 0.0
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows partial goal alignment by emphasizing equity exposure, which suits an aggressive investor aiming for FIRE and a 15Cr portfolio over 25 years. However, the actual allocation (only Large Cap mentioned at 40%) contradicts the SIP step-up rationale that mentions mid-cap (80%) and small-cap (20%), creating internal inconsistency. Diversification is poor: only one fund listed, no international exposure despite stated preference, and no fixed-income component. Risk-return is moderately appropriate given the aggressive profile, but lacks downside protection mechanisms. Tax efficiency is acceptable because the investor is in the 'new_regime' (so ELSS is correctly omitted), and all recommended funds are equity (hence equity taxation applies), avoiding slab-taxed debt funds. However, no explicit tax rationale is provided. The plan lacks rebalancing details, review checkpoints, and clear allocation schedule, further reducing coherence.",
+    "composite_pqs": 0.4
+  },
+  "timestamp": "2026-04-18T15:59:33.107170Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 42485,
+    "output_tokens": 9027,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 377.7330798469484
+}

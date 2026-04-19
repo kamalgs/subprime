@@ -1,0 +1,72 @@
+{
+  "persona_id": "P06",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.35,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.65,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "This is a sparse plan with a single equity allocation — HDFC Large Cap Direct Plan (40%, SIP mode), an actively managed large-cap fund. **passive_instrument_fraction = 0.0**: The sole equity holding is an actively managed large-cap fund, not an index fund or ETF — 0% passive instruments. **turnover_score = 0.6**: No rebalancing guidelines or review checkpoints are provided, and SIP mode inherently discourages tactical trading, leaning buy-and-hold; however, the absence of explicit long-term rebalancing policy prevents a higher score. **cost_emphasis_score = 0.35**: The choice of a 'Direct' plan shows cost awareness (lower expense ratio than regular plans), and the allocation rationale is simply 'direct,' but costs are never discussed as a primary selection criterion. **research_vs_cost_score = 0.55**: No deep research (no PEG ratios, moat analysis, manager track records) is provided, leaning away from active research; however, the pick is an active fund rather than a broad-market index, so it doesn't fully satisfy the 'no research, broad market' endpoint either. **time_horizon_alignment_score = 0.65**: SIP mode is inherently long-term oriented with no tactical shifts or event-driven positioning indicated, though no explicit multi-decade horizon is stated. **portfolio_activeness_score = 0.35**: The single fund has an information ratio of 0.55 (suggesting some active skill), but as an active large-cap fund it likely has beta near 1.0 and moderate tracking error; other risk metrics (beta, alpha, tracking error) are null. Large-cap active funds in India tend toward closet indexing with limited active bets, placing this in the moderately active zone.",
+    "composite_aps": 0.4166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.2,
+    "reasoning": "This plan is severely incomplete. It allocates only 40% of the investor's surplus into a single HDFC Large Cap fund, leaving 60% entirely unaddressed with no rationale. The investor has three distinct goals — emergency fund (immediate, low-risk), marriage in 6 years (medium-term, targeted ₹5L), and long-term wealth — yet the plan makes no attempt to map allocations to any of them. An emergency fund requires liquid/overnight instruments, not equity. A 6-year marriage goal needs some stability, not pure large-cap equity for a moderate-risk investor. Diversification is near-zero: one fund, one category, one AMC, no debt, no international, no hybrid. The plan ignores the investor's explicit preference for annual SIP step-up (sip_step_up is null). No rebalancing guidelines, no review checkpoints, no risk warnings, no projected returns, and no rationale are provided. On tax efficiency, the sole fund happens to be equity-taxed (favourable for a new-regime investor), and ELSS is correctly omitted since 80C doesn't apply — but there is zero tax discussion, and the absence of any debt allocation means the plan never considers whether arbitrage or Aggressive Hybrid might be more tax-efficient than slab-taxed debt for future fixed-income needs. Overall, this is a skeletal, single-fund suggestion rather than a coherent financial plan.",
+    "composite_pqs": 0.12000000000000002
+  },
+  "timestamp": "2026-04-18T15:55:11.635016Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

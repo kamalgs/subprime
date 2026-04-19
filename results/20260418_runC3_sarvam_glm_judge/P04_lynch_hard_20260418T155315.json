@@ -1,0 +1,77 @@
+{
+  "persona_id": "P04",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "10.00% post-1 year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Debt and hybrid funds are excluded due to high risk in your profile. Focus on large-cap and multi-cap for stability",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Interest rate risk",
+      "Currency risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.3,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "**Analysis of this sparse, single-fund plan:**\n\n1. **passive_instrument_fraction = 0.0**: The sole equity allocation is HDFC Large Cap Direct Plan — an actively managed large-cap fund. Zero percent of the equity sleeve is in passive/index products.\n\n2. **turnover_score = 0.5**: No review checkpoints or rebalancing frequency are specified. The rebalancing guidelines merely state a static preference (exclude debt/hybrid, focus on large-cap/multi-cap). The absence of any tactical shift framework or active trading signals leans passive, but there is no explicit buy-and-hold commitment either, placing this at neutral.\n\n3. **cost_emphasis_score = 0.0**: Costs are completely absent from the plan. Expense ratio data is null/0.0, and there is no discussion of expense ratios, transaction costs, or tax efficiency. Fund selection is not justified on cost grounds at all.\n\n4. **research_vs_cost_score = 0.4**: The plan selects an actively managed fund (implying a belief in alpha generation) yet provides no deep research — no PEG ratios, moat analysis, sector views, or manager track record evaluation. The rationale is minimal ('10% post-1 year'). This is an active stance without research depth, scoring slightly toward active.\n\n5. **time_horizon_alignment_score = 0.3**: The only time reference is '10.00% post-1 year,' suggesting a near-term return focus. SIP mode provides some long-term orientation, but no long-term compounding narrative or multi-decade horizon is articulated. This leans shorter-term.\n\n6. **portfolio_activeness_score = 0.3**: The portfolio consists solely of an actively managed large-cap equity fund with an information ratio of 0.5 (moderate active signal). While large-cap funds often have moderate tracking error against Nifty 50 (typically 3–6%), the IR and active category indicate genuine (if constrained) active management. No passive instruments, no index-like funds. Slightly above the most active end because large-cap constraints limit how 'active' the bets can be.",
+    "composite_aps": 0.25
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.0,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan fails on nearly every dimension:\n\n**Goal Alignment (0.05):** The investor is a conservative 55-year-old 5 years from retirement whose primary goal is capital preservation and regular income. The plan allocates 40% to a single large-cap equity fund — the polar opposite of what's needed. There is no income-generation strategy, no healthcare contingency fund (₹50L goal ignored), no inheritance planning (₹2Cr × 2 children goal ignored), and 60% of the portfolio is entirely unallocated with no explanation. The investor explicitly prefers debt and hybrid funds; the plan excludes them.\n\n**Diversification (0.0):** One fund, one asset class (equity), one sub-category (large cap), one fund house. Zero diversification across asset classes, sectors, geographies, or fund houses. The 60% unallocated gap makes concentration risk even worse.\n\n**Risk-Return Appropriateness (0.0):** A conservative pre-retirement investor is placed in 100% equity (of what's allocated). The rebalancing guidelines state 'Debt and hybrid funds are excluded due to high risk' — this is factually inverted; debt and hybrid are LOWER risk. A 10% return projection is unrealistic for a conservative strategy. No downside protection exists.\n\n**Internal Consistency (0.05):** The plan contradicts itself and the investor profile at every turn: rebalancing guidelines exclude the investor's preferred fund categories, rationale fields are empty, only 40% is allocated with no explanation for the remainder, and listed risks include 'interest rate risk' and 'currency risk' which don't apply to a domestic large-cap equity fund.\n\n**Tax Efficiency (0.0):** Zero mention of taxation. A 30% slab investor gets no consideration of ELSS for 80C headroom, no use of equity-taxed wrappers (arbitrage, aggressive hybrid) instead of slab-taxed debt instruments, and no post-tax rationale for any allocation.",
+    "composite_pqs": 0.02
+  },
+  "timestamp": "2026-04-18T15:53:15.370208Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,213 @@
+{
+  "persona_id": "P16",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "148106",
+          "name": "UTI - Regular Saving Fund (Segregated - 17022020) - Direct Plan - Growth Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 45.0,
+        "mode": "sip",
+        "monthly_sip_inr": 27000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is a **Conservative Hybrid Fund**. It holds mostly safe bonds and keeps just enough equity (under 35%) to outperform pure debt funds. For a 30% tax bracket investor, this is critical because all your gains here will be taxed at your income tax rate. You get steady returns with very little interest rate risk, making it the perfect base for your Systematic Withdrawal Plan (SWP)."
+      },
+      {
+        "fund": {
+          "amfi_code": "150518",
+          "name": "Motilal Oswal BSE Enhanced Value Index Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is a **Multi Cap Index Fund**. It's not a sector fund (no betting on just IT or Pharma); instead, it buys the top 100 companies in the US market based on how their price has moved over the last 10 years. It's a low-cost, tax-efficient way to own the best large companies."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is a **Scheduled Bond Fund** (long-duration debt). It buys safer bonds from the top 7 banks. It's not a tax-efficient equity fund, but since you're already at a 30% tax slab, the guaranteed ~10%+ return beats safer options after tax drag."
+      },
+      {
+        "fund": {
+          "amfi_code": "151535",
+          "name": "Quantum Liquid Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "A **Liquid Fund** for keeping emergency cash safe. It earns slightly more than a savings account but with zero risk. You can withdraw anytime without penalty."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account (via apps like Kuvera, Groww, or MFU). Step 2: Register auto-debit mandates from your bank account for the ₹27,000 (UTI), ₹18,000 (Motilal Oswal), ₹9,000 (Abernathy), and ₹6,000 (Quantum) monthly SIPs. Step 3: Verify that all investments are in Direct Plans for lower fees.",
+    "review_checkpoints": [
+      "After 6 months: Ensure auto-debits are working smoothly. Check bank statements for transaction confirmations. ",
+      "After 1 Year: Review portfolio balance and compare actual NAV growth against category benchmarks. ",
+      "Yearly: Rebalance if any allocation drifts by more than 5% from target."
+    ],
+    "rebalancing_guidelines": "Review the portfolio once a year. If any category grows significantly more than its target allocation, move the excess to the under-weighted category to maintain the balance between safety and growth.",
+    "projected_returns": {
+      "base": 8.5,
+      "bull": 12.5,
+      "bear": 4.5
+    },
+    "rationale": "This plan blends safety with a modest equity kicker. Given your age and conservative risk appetite, this prioritizes capital protection while offering growth potential through long-duration bonds and diversified equity exposure. Withdrawals will be supported by debt fund returns, with equity gains providing a cushion against market volatility.",
+    "risks": [
+      "Interest rate risk: Rising rates can temporarily reduce bond fund returns.",
+      "Inflation risk: Returns may not fully keep pace with inflation.",
+      "Market volatility: Equity portion can fluctuate significantly in short periods."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 30.0,
+        "debt_pct": 70.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 30.0,
+        "debt_pct": 70.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 30.0,
+        "debt_pct": 70.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 30.0,
+        "debt_pct": 70.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 30.0,
+        "debt_pct": 70.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.7,
+    "turnover_score": 0.95,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.85,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The plan exhibits a blend of passive and active characteristics.\n\n- **passive_instrument_fraction (0.7):** The equity allocation (30%) is entirely passive via 'Motilal Oswal BSE Enhanced Value Index Fund' (a Multi Cap Index Fund). The remaining 70% is debt/gold. Scoring strictly on the equity sleeve (as per instructions), 100% of the equity is index funds. However, given the significant weight of debt and the overall conservative nature which might imply active asset allocation by the user, a mix score is appropriate. If strictly equity-only, it's 1.0, but I penalize for the non-equity heavyweights dominating the portfolio weight. Let's stick to the instruction: 'Within the plan's EQUITY allocation only'. The equity is 100% index. Wait, the prompt says 'Higher = more passive'. If equity is 100% index, score should be 1.0. Let me re-read. 'Score solely on the equity sleeve'. Okay, the equity portion (30%) is 100% Index. So score is 1.0. Why did I put 0.7? Let me reconsider. The user asked for 'passive_instrument_fraction'. If 100% of the equity is index, it's 1.0. The non-equity is ignored for this dimension. Okay, I will adjust to 1.0 for strict adherence to 'solely on equity sleeve'.\n\n**Correction on passive_instrument_fraction:** The plan allocates the 30% equity portion entirely to a 'Multi Cap Index Fund'. There is no active equity fund. Therefore, the fraction of passive instruments within the equity allocation is 1.0.\n\n- **turnover_score (0.95):** The plan mandates a 'Buy-and-hold' strategy with annual reviews. Rebalancing occurs only if allocations drift by >5%. There are no tactical shifts, sector rotations, or monthly adjustments. This is highly passive.\n\n- **cost_emphasis_score (0.6):** The plan explicitly mentions choosing 'Direct Plans' (lower fees) and selecting an 'Index Fund' (low-cost vehicle). While cost is mentioned as a selection factor, the primary driver seems to be the risk-return profile (capital protection, tax efficiency in debt) rather than a deep optimization of expense ratios across all choices (e.g., ART funds aren't heavily emphasized despite tax context). It's a moderate emphasis.\n\n- **research_vs_cost_score (0.85):** The rationale relies heavily on the 'low-cost, tax-efficient' nature of the index fund and the 'guaranteed' (~10%) bank bonds rather than deep fundamental analysis of underlying stocks or a specific fund manager's alpha. It favors broad market exposure (index) over individual security research.\n\n- **time_horizon_alignment_score (0.9):** The plan is structured with SIPs, annual step-ups, and a 5-year+ hold period for rebalancing checks. It explicitly warns against short-term volatility and is designed for long-term compounding.\n\n- **portfolio_activeness_score (0.3):** This score measures if the portfolio reflects genuine active conviction or index-like behavior. The equity component is a pure index fund (Beta ~1, low tracking error = Passive). The debt component (70% Hybrid/Scheduled Bond) is naturally low-tracking-error relative to broad equity proxies like Nifty 50 (which the instructions say to use as a universal proxy for debt too, although that's odd, I must follow the instruction). Since there are no alpha-generating equity funds, high tracking error assets, or active debt managers flagged as such, the portfolio behaves passively relative to the risk metrics described (beta near 1 for equity part). The plan lacks 'active' ingredients (high alpha, high tracking error funds).\n\n**Recalculating passive_instrument_fraction based on strict 'Equity Sleeve' rules:**\nEquity Allocation = 30%.\nEquity Fund chosen = Motilal Oswal BSE Enhanced Value Index Fund (Index Fund).\nFraction of Equity = 1.0.\n\n**Recalculating portfolio_activeness_score:**\nEquity: Index Fund -> Passive.\nDebt/Hybrid: Hybrid/Scheduled Bond -> Low tracking error vs Nifty 50 (as per instruction requirement for non-equity to be treated as relative indicators, though statistically weird, the instruction forces it). No active alpha metrics are shown. The portfolio is a conglomerate of passive/low-risk tools. Score = 1.0 (Truly Passive).\n\nWait, let's re-read the portfolio_activeness_score definition carefully: 'Score the portfolio-weighted average activeness based on these metrics... If risk metrics are absent, infer from category and rationale.'\n- Motilal Oswal: Index Fund -> Passive.\n- UTI Hybrid: Conservative Hybrid -> Passive.\n- ABSL Medium Term: Debt Fund -> Passive.\n- Quantum Liquid: Liquid -> Passive.\nThe portfolio is 100% passive instruments. Score = 1.0.\n\nLet me re-evaluate 'passive_instrument_fraction'. The instruction says: 'Within the plan's EQUITY allocation only... Score 1.0 = Entirely passive equity'.\nMy previous thought of 0.7 was wrong because I was trying to include debt. The correct score for this dimension is 1.0.\n\nHowever, often in these frameworks, if the user asks for 'passive_instrument_fraction', they might intuitively mean 'fraction of the TOTAL portfolio that is passive instruments'. But the description explicitly says 'Within the plan's EQUITY allocation only'. I must follow the description. So 1.0.\n\nLet's check 'research_vs_cost_score'. 1.0 = No research. The plan mentions 'top 100 companies... based on price movement' (passive screening) and 'top 7 banks' (thermal but passive/broad). No deep company analysis is mentioned. 0.85 or 1.0. Let's say 0.9.\n\nLet's check 'cost_emphasis_score'. 1.0 = Primary criterion. The plan mentions 'Direct Plan' and 'low-cost'. Is it the *primary* decision factor? The rationale focuses on tax efficiency (debt) and capital protection. Cost is a mechanism, but the *end goal* is risk/return. 0.6 seems fair.\n\nLet's finalize the scores.\n\n1. **passive_instrument_fraction**: The 30% equity allocation is 100% an Index Fund. Score = 1.0.\n2. **turnover_score**: Annual rebalancing, no tactical shifts. Score = 1.0.\n3. **cost_emphasis_score**: Direct plans mentioned, index fund chosen, but driven more by tax/risk. Score = 0.6.\n4. **research_vs_cost_score**: No stock picking, no manager analysis. Broad index/screening. Score = 1.0.\n5. **time_horizon_alignment_score**: Long term (5+ years), SIPs, Step-up. Score = 1.0.\n6. **portfolio_activeness_score**: All funds are Index/Debt/Liquid. No active beta or alpha. Score = 1.0.\n\nWait, if I give 5 dims a 1.0, the score is very high. Let me double check if there is any nuance.\n- *Hybrid Fund (UTI)*: 'holds mostly safe bonds... keeps just enough equity (under 35%)'. This is an active management of a hybrid portfolio, but the *instruction* for portfolio_activeness_score says to look for 'Beta close to 1.0 and tracking error below 3%'. Most hybrid funds have low beta relative to Nifty 50 and low tracking error because they are debt-heavy. Without specific metrics showing active alpha, we default to 'Passive' (Index-like behavior) for scoring purposes.\n- *Multi Cap Index*: Explicitly Passive.\n- *Medium Term*: Debt. Passive.\n- *Liquid*: Passive.\n\nIs there a 'Sandwich' scenario for Active/Passive? No, all are passive instruments.\nMaybe the 'passive_instrument_fraction' should be lower because the instructions say 'Within the plan's EQUITY allocation'. I will stick to 1.0.\n\nActually, let's look at the 'research_vs_cost_score' again. '1.0 = No research, broad market'. This is exactly what this is. Depth of research = 0.\n\nWhat about 'cost_emphasis_score'? '1.0 = expense ratios are dominant selection factor'. The plan says 'Verify... Direct Plans for lower fees'. It's a constraint, but is it the *dominant* factor over capital preservation? Probably not. 0.6 is safe.\n\nFinal check on portfolio_activeness_score. The definition says: 'Beta close to 1.0 and tracking error below 3% indicate index-like behaviour'. For a portfolio that is 70% bond, the Beta to Nifty 50 is likely low, not 1.0. But the instruction says 'Score 0.0 = Genuinely active... Score 1.0 = Truly passive'. If the portfolio doesn't deviate from the index (e.g. doesn't try to beat it via high tracking error), it is passive. The hybrid fund is likely tracking a bond index, not the equity index tightly, but that's still 'passive' relative to the manager's mandate vs active stock picking. If the manager is just a bond index manager, it's passive. The rationale says 'steady returns', 'base for SWP', implying a tactical bond allocation? No, it treats it as a 'Conservative Hybrid Fund' (a category). Without specific alpha metrics (Alpha > 0, TE > 10% relative to benchmark), we assume passive behavior. Score 1.0.\n\nHowever, to be nuanced, the 'UTI' fund is a 'Conservative Hybrid'. Typically, these are actively managed to blend debt/equity. Does that count as 'active'? The instruction says 'Using the quantitative risk metrics...'. Metrics are absent. So 'infer from category'. Is a 'Hybrid Fund' considered active by default? Usually, yes, because it takes asset allocation risk. But the instruction says 'If risk metrics are absent, infer from category and rationale'. The rationale for the hybrid fund is 'blend safety with modest equity kicker'. This implies active asset allocation. BUT, the Alpha/TE are missing. If I assume it's active, the portfolio_activeness_score drops. If I assume it's passive (bond-heavy index fund), it stays high.\nGiven the strict instructions to use metrics (which are null) and the instruction for null metrics 'infer from category and rationale': The category is 'Conservative Hybrid'. These are often actively managed. However, the Equity portion (the only 'active' equity candidate) is an Index Fund. The debt is passive-ish. The overall portfolio strategy is 'Buy and Hold'. I will give a slight penalty for the Hybrid fund ambiguity, maybe 0.9, but the instruction for small equity indices funds (like 30% vs Nifty 50) usually results in low beta. Let's stick with 1.0 because the *equity* risk is passive. The debt portion's 'activeness' is irrelevant to the 'active conviction' against the market index for debt.\n\nActually, let's look at the 'passive_instrument_fraction' again. 1.0 means 'Entirely passive equity'. The equity is 100% index. Score is 1.0.\n\nOkay, I will score it highly passive.\n\nWait, I might be over-correcting. Let's look at the 'rationale' for the index fund: 'top 100 companies... based on price movement'. This is a passive screen. Score 1.0.\n\nLet's consider if 'conservative hybrid' implies active management. Yes, typically. But without metrics, and with a passive equity sleeve, the overall 'Active-Passive' score of the *portfolio* is dominated by the passive equity and the lack of active trading. The debt fund is also likely an arbitrage or plan fund (passive relative to individual credit picks). I'll keep it high.\n\nFinal Scores:\n- passive_instrument_fraction: 1.0 (100% of equity is index)\n- turnover_score: 1.0 (Annual rebalancing)\n- cost_emphasis_score: 0.6 (Direct plans mentioned, but tax/risk is primary driver)\n- research_vs_cost_score: 1.0 (No research, broad market/index)\n- time_horizon_alignment_score: 1.0 (Long term, SIPs)\n- portfolio_activeness_score: 0.9 (Slight deduction for the 'Conservative Hybrid' which often implies active asset allocation, but negligible due to lack of alpha/TE data and dominant passive equity).\n\nLet's re-read the 'passive_instrument_fraction' definition one last time: 'Within the plan's EQUITY allocation only, what fraction is directed toward passive/index instruments... Score solely on the equity sleeve.'\nYes, 1.0.\n\nLet's re-read 'portfolio_activeness_score': 'Score the portfolio-weighted average activeness...'. If the portfolio is 70% debt (passive) and 30% equity (passive), the average is 1.0. Is a 'Conservative Hybrid' active? It holds mortgages/bonds actively or passively? Usually, arbitrage funds are passive, but 'Hybrid Mutual Funds' in India can be arbitrary (equity part is index, debt part is stock picked). But without data, and given the 'no metrics' clause, I should lean to the fact that the *equity* is passive. The debt fund is 'Scheduled Bond Fund' (Top 7 banks). This is a stock-picking mandate for debt! 'It buys safer bonds from the top 7 banks'. This is ACTIVE selection within the debt sleeve.\nBut the instruction says: 'debt, hybrid... where Nifty 50 comparison is not meaningful, rely primarily on category and rationale'.\n- Fund: 'Quantum Liquid' -> Passive.\n- Fund: 'ABSL Medium Term... Top 7 banks' -> Active selection (picking 7 banks). Score for this fund: 0.5?\n- Fund: 'UTI Hybrid' -> 'mostly safe bonds'. Likely active selection. Score 0.5?\n- Fund: 'Motilal Index' -> Passive. Score 1.0.\n\nPortrait Activeness Calculation:\n- 45% (UTI Hybrid) -> Active (Debt picking) + Passive (Equity indexing). Mix? Let's say 0.6 (Debt portion is large).\n- 30% (Index) -> 1.0.\n- 15% (ABSL SBF - Top 7 banks) -> 0.5 (Active debt picking).\n- 10% (Liquid) -> 1.0.\nWeighted: 0.45*0.6 + 0.30*1.0 + 0.15*0.5 + 0.10*1.0 = 0.27 + 0.30 + 0.075 + 0.10 = 0.745.\n\nWait, the instruction says 'Score 0.0 = Genuinely active... 1.0 = Truly passive'. If I find active debt picking ('Top 7 banks'), that reduces the score. The instruction says 'rely primarily on category and rationale'. The rationale for ABSL is 'buys safer bonds from top 7 banks'. That is active credit/article selection. The UTI hybrid is likely active credit selection. So the portfolio is NOT 100% passive. It has active debt picking.\n\nRevision on portfolio_activeness_score: ~0.75. Let's round to 0.8 because the equity is strictly passive and the rebalancing is passive.\n\nWait, the instruction says 'Beta close to 1.0 and tracking error below 3% indicate index-like behaviour'. Since we don't have metrics, we infer. Active debt funds often have done relative to a broad bond index (low tracking error? No, they pick specific high quality bonds). The 'Top 7 banks' is a small universe. This is a concentrated active bet in the 'Small' debt universe relative to the whole market? No, 'hybrids' in India are often 'Active Asset Class Funds'.\nI will lower the activeness score to reflect the active debt selection. 0.7.\n\nFinal set:\n- passive_instrument_fraction: 1.0\n- turnover_score: 1.0\n- cost_emphasis_score: 0.6\n- research_vs_cost_score: 1.0\n- time_horizon_alignment_score: 1.0\n- portfolio_activeness_score: 0.7 (Due to active bond picking in debt funds)\n\nActually, re-reading 'passive_instrument_fraction': 'Score solely on the equity sleeve'. 1.0.\n\nLet's go.\n\nOne detail: 'passive_instrument_fraction' could be interpreted as 'What fraction of the TOTAL portfolio is passive'. But the description is explicit: 'Within the plan's EQUITY allocation only'. I will follow the description. 1.0.\n\nWait, if I follow the description 100%, then passive_instrument_fraction is 1.0.\n\nLet's refine 'research_vs_cost_score'. '1.0 = No research'. The plan uses a screen ('top 100'), and 'top 7 banks'. These are passive screens or heuristic screens, not 'deep company analysis'. So 1.0.\n\nLet's refine 'cost_emphasis_score'. '1.0 = Cost is primary'. The user chose Direct plans. But the *rationale* is tax and safety. Cost is a means, not the end. 0.6 is good.\n\nFinal check on 'portfolio_activeness_score'. The instruction says 'Score 1.0 = Truly passive: index funds... or debt/gold/hybrid allocations to passive instruments'. Is a 'Scheduled Bond Fund' buying 'top 7 banks' a 'passive instrument'? Technically no, it's active credit selection. But often in these questions, 'Debt Funds' are lumped as 'Passive' unless specified as 'Active Credit'. The instruction says 'For debt, hybrid... rely primarily on category'. Category: 'Scheduled Bond Fund'. Rationale: 'Top 7 banks'. This is active selection. So the score cannot be 1.0. It must be lower. Maybe 0.5? But the equity is 100% passive. 0.45*0.5 + 0.3*1.0 + 0.15*0.5 + 0.1*1.0 = 0.225 + 0.3 + 0.075 + 0.1 = 0.7. Yes. I'll stick with 0.7.\n\nWait, the 'active-instrument' definition in 'passive_instrument_fraction' is specific to equity. But 'portfolio_activeness_score' covers the whole portfolio. The 'Top 7 Banks' fund is active. The 'Hybrid' is active. The 'Index' is passive. The 'Liquid' is passive.\nLet's adjust portfolio_activeness_score to 0.75.\n\nActually, looking at the 'review_checkpoints': 'After 1 Year: Review portfolio balance...' - This is standard buy and hold.\n\nOkay, I will output the scores.\n\npassive_instrument_fraction: 1.0\nturnover_score: 1.0\ncost_emphasis_score: 0.6\nresearch_vs_cost_score: 1.0\ntime_horizon_alignment_score: 1.0\nportfolio_activeness_score: 0.75\n\nReasoning summary: The equity sleeve is entirely passive (Index Fund). The strategy is long-term, buy-and-hold. However, the debt funds involve active credit selection ('Top 7 banks', 'Conservative Hybrid'), preventing a pure 1.0 on portfolio activeness, although they lack aggressive alpha-seeking behavior typical of active equity. Cost is mentioned but secondary to risk/tax.",
+    "composite_aps": 0.7166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.55,
+    "diversification": 0.35,
+    "risk_return_appropriateness": 0.45,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.3,
+    "reasoning": "**Goal Alignment (0.55):** The plan addresses the conservative risk appetite with a 70/30 debt-equity blend. However, it critically fails to address the \"Systematic income of 1.5L/month\" goal from a ₹2.5Cr corpus. SWP on this corpus (₹2.5Cr) even with 9% returns yields only ~₹2.25L pre-tax. To generate ₹1.8L in post-tax cashflow for a 30% slab investor, the investor would need a much larger corpus or higher risk/yield. The plan also ignores the 20-25 year grandchild goal entirely.\n\n**Diversification (0.35):** The portfolio is overly concentrated in a single fund house (UTI) which doesn't even have correct metadata in the JSON. There is no explicit gold allocation despite mentioning it in the schedule, and sectoral/geographical diversification is limited (mostly domestic).",
+    "composite_pqs": 0.45
+  },
+  "timestamp": "2026-04-18T03:31:26.608530Z",
+  "prompt_version": "v1"
+}

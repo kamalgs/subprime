@@ -1,0 +1,72 @@
+{
+  "persona_id": "P23",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 | "
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "This plan allocates 100% of its equity sleeve (60% total portfolio) to a single Nifty 50 Index fund — the textbook passive instrument. passive_instrument_fraction = 1.0 because all equity is in a broad-market index fund. turnover_score = 1.0 as there are no review checkpoints or rebalancing guidelines, implying buy-and-hold. cost_emphasis_score = 0.7: while costs are never explicitly discussed (rationale is empty/garbage), the very choice of an index fund implicitly prioritises low expense ratios. research_vs_cost_score = 1.0 because there is zero security- or fund-specific research; the plan relies entirely on market-cap-weighted index exposure. time_horizon_alignment_score = 0.8: no explicit long-term horizon is stated, but the lumpsum into a single index fund with no review cadence is consistent with decades-long compounding — slightly below 1.0 only because the plan lacks an explicit time-horizon statement. portfolio_activeness_score = 1.0: a Nifty 50 Index fund is definitively passive (beta ≈ 1.0, near-zero tracking error, alpha ≈ 0).",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.2,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal alignment (0.1):** Only 60% of capital is allocated (to a single Nifty 50 fund); none of the three goals — financial independence in 15 years, emergency fund, or creative venture in 8 years — are addressed or mapped to allocations. The emergency fund goal is entirely ignored, and the 8-year medium-term goal receives no dedicated lower-risk bucket. **Diversification (0.05):** A single large-cap index fund constitutes the entire plan — no debt, no mid/small-cap, no international diversification, no sector spread, and 40% of the portfolio is simply unallocated. This is near-zero diversification. **Risk-return appropriateness (0.15):** While 60% in Nifty 50 isn't wildly aggressive for a moderate investor with a 26-year horizon, the plan completely fails to provide a less volatile allocation for the 8-year creative-venture goal, offers no downside scenario analysis, and leaves 40% of capital unaccounted for — making the overall risk-return profile poorly constructed. **Internal consistency (0.1):** The plan is riddled with contradictions and gaps: only 60% allocated (40% missing), the rationale field is garbage/spam text, the mode is lumpsum despite the investor explicitly investing monthly, monthly_sip is null despite an ₹18,000 surplus, and no rebalancing, review checkpoints, or risk warnings exist. This is essentially a non-plan. **Tax efficiency (0.2):** The investor is on the new regime (no 80C), and the sole fund chosen (Nifty 50 Index) does receive favourable equity tax treatment — a small positive. However, there is zero explicit tax reasoning, no discussion of why equity-taxed wrappers are preferred under the new regime, and no consideration of arbitrage/hybrid for any fixed-income need (which doesn't exist because the plan has no debt allocation at all). The accidental alignment earns minimal credit.",
+    "composite_pqs": 0.11000000000000001
+  },
+  "timestamp": "2026-04-18T18:00:08.619719Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,72 @@
+{
+  "persona_id": "P23",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.1,
+        "lumpsum_inr": null,
+        "rationale": "1.05% on gains over 1.5L"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1. Avoid 10%+ equity. Prefer large-cap for stability. Add mid-cap for growth. Keep 20% in debt for safety. Rebalance every 6 months. Increase equity if market rises 20%.",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.25,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.35,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "**passive_instrument_fraction (0.0):** The sole equity allocation is HDFC Large Cap Direct Plan — an actively managed large-cap fund, not an index fund or ETF. 100% of the equity sleeve is actively managed, so passive fraction = 0.\n\n**turnover_score (0.3):** The plan prescribes semi-annual rebalancing ('Rebalance every 6 months') combined with a tactical market-timing overlay ('Increase equity if market rises 20%'). Semi-annual is more frequent than annual buy-and-hold, and the conditional equity increase based on market moves adds meaningful activeness. Not quarterly-active, but clearly not passive either.\n\n**cost_emphasis_score (0.25):** The use of a Direct Plan (lower expense ratio than regular) and the LTCG tax rationale ('1.05% on gains over 1.5L') show some cost awareness, but cost is far from the primary selection criterion. The plan chose an active large-cap fund over a cheaper index alternative, and there's no explicit minimisation of total cost of ownership.\n\n**research_vs_cost_score (0.4):** No deep, stock-specific or manager-specific research is presented — rationale is limited to a tax comment. However, selecting a single active large-cap fund (rather than defaulting to a broad-market index) represents an implicit active bet. The score reflects the middle ground: not research-driven, but not purely index-reliant either.\n\n**time_horizon_alignment_score (0.35):** While a SIP structure implies some long-term intent, the plan's tactical guidance ('Increase equity if market rises 20%') introduces short-term opportunistic positioning. Semi-annual rebalancing cycles and market-condition-dependent allocation shifts work against a patient, decades-long compounding orientation.\n\n**portfolio_activeness_score (0.35):** The information ratio of 0.6 (above the 0.5 threshold for genuine active management) suggests the fund delivers alpha relative to its benchmark. However, as a large-cap fund, it is likely to have moderate tracking error (typically 3–6%) and beta near 1.0 — closer to closet-indexer territory than high-conviction concentrated bets. Without explicit beta, tracking error, or alpha data, the category and IR together point to moderately active, not truly passive.",
+    "composite_aps": 0.27499999999999997
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.2,
+    "reasoning": "This plan is severely deficient on nearly every dimension. **Goal alignment (0.1):** None of Jo's three goals — financial independence in 15 years, emergency fund, or creative venture in 8 years — are addressed. Only 40% of her capital is allocated; the remaining 60% is unaccounted for. There is no emergency fund provision, no timeline-based glide path for the 8-year goal, and no goal-specific strategy. **Diversification (0.05):** A single large-cap fund from a single fund house constitutes the entire plan. There is no debt, no mid/small cap, no international exposure, and no asset-class diversity — the rebalancing guidelines mention debt and mid-cap but the actual allocation includes none of them. **Risk-return appropriateness (0.15):** A sole 40% large-cap allocation is oddly conservative for a 29-year-old with a 26-year horizon and moderate risk appetite, yet the remaining 60% is unallocated, making risk assessment impossible. No projected returns, no downside scenarios, and the rebalancing guideline contradicts the allocation by saying 'Avoid 10%+ equity' while 40% is in equity. **Internal consistency (0.05):** The plan is riddled with contradictions: allocations sum to only 40%; rebalancing guidelines reference debt, mid-cap, and equity limits that conflict with the actual allocation; the SIP amount reads as ₹0.1 (clear data error); and the rationale string '1.05% on gains over 1.5L' is garbled and factually wrong (Budget 2024 LTCG is 12.5% above ₹1.25L). Nothing in this plan coheres. **Tax efficiency (0.2):** Jo is on the new regime so ELSS omission is fine. The equity fund gets favourable equity tax treatment. However, the plan provides no explicit tax rationale, the garbled tax note shows confusion about current rates, and since there is no debt allocation at all, there is no discussion of whether equity-taxed wrappers (arbitrage, aggressive hybrid) would be preferable to slab-taxed debt — a missed opportunity for a new-regime investor. The tax awareness is minimal and partially incorrect.",
+    "composite_pqs": 0.11000000000000001
+  },
+  "timestamp": "2026-04-18T17:56:32.370359Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,218 @@
+{
+  "persona_id": "P09",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "143079",
+          "name": "Sundaram Long Term Tax Advantage Fund Series IV",
+          "category": "ELSS",
+          "sub_category": "Tax Saving",
+          "fund_house": "Sundaram Finance",
+          "nav": 25.45,
+          "expense_ratio": 1.25,
+          "inception_date": "2010-04-01",
+          "aum_cr": 1500000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 18.7,
+          "returns_3y": 22.4,
+          "returns_5y": 25.3,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.2,
+          "beta": 1.1,
+          "alpha": 1.8,
+          "tracking_error": 2.3,
+          "sharpe_ratio": 1.4,
+          "information_ratio": 1.2
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 800000.0,
+        "rationale": "80C deduction + equity tax, 5-year lock-in"
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "Nippon India Mutual Fund",
+          "nav": 34.65,
+          "expense_ratio": 1.15,
+          "inception_date": "2008-03-14",
+          "aum_cr": 2500000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 16.9,
+          "returns_3y": 21.2,
+          "returns_5y": 24.1,
+          "risk_grade": "moderate",
+          "volatility_1y": 14.5,
+          "beta": 1.05,
+          "alpha": 2.1,
+          "tracking_error": 2.5,
+          "sharpe_ratio": 1.3,
+          "information_ratio": 1.1
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10500.0,
+        "lumpsum_inr": null,
+        "rationale": "Stable growth, low volatility"
+      },
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap",
+          "category": "Equity",
+          "sub_category": "Multi Cap",
+          "fund_house": "Nippon India Mutual Fund",
+          "nav": 33.25,
+          "expense_ratio": 1.15,
+          "inception_date": "2008-04-10",
+          "aum_cr": 2200000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 17.4,
+          "returns_3y": 21.8,
+          "returns_5y": 23.9,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.8,
+          "beta": 1.08,
+          "alpha": 2.0,
+          "tracking_error": 2.4,
+          "sharpe_ratio": 1.25,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10500.0,
+        "lumpsum_inr": null,
+        "rationale": "Diversified across market caps"
+      },
+      {
+        "fund": {
+          "amfi_code": "133401",
+          "name": "JM Aggressive Hybrid",
+          "category": "Hybrid",
+          "sub_category": "Aggressive Hybrid",
+          "fund_house": "JM Financial Mutual Fund",
+          "nav": 28.95,
+          "expense_ratio": 1.3,
+          "inception_date": "2015-09-18",
+          "aum_cr": 1800000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 14.2,
+          "returns_3y": 18.6,
+          "returns_5y": 21.4,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.3,
+          "beta": 0.95,
+          "alpha": 1.6,
+          "tracking_error": 2.1,
+          "sharpe_ratio": 1.1,
+          "information_ratio": 0.95
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7000.0,
+        "lumpsum_inr": null,
+        "rationale": "Equity-tax, balanced risk"
+      },
+      {
+        "fund": {
+          "amfi_code": "133868",
+          "name": "Bank of India Credit Risk Fund",
+          "category": "Debt",
+          "sub_category": "Short-Term",
+          "fund_house": "Bank of India Mutual Fund",
+          "nav": 10.45,
+          "expense_ratio": 0.0,
+          "inception_date": "2012-06-15",
+          "aum_cr": 850000000.0,
+          "morningstar_rating": 3,
+          "returns_1y": 6.8,
+          "returns_3y": 7.2,
+          "returns_5y": 7.5,
+          "risk_grade": "low",
+          "volatility_1y": 2.1,
+          "beta": 0.8,
+          "alpha": 0.9,
+          "tracking_error": 1.8,
+          "sharpe_ratio": 0.7,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3500.0,
+        "lumpsum_inr": null,
+        "rationale": "Stability for short-term goals"
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Invest ₹800,000 lumpsum in Sundaram ELSS (143079). Step 3: Start ₹35,000/month SIPs in the other funds: ₹10,500 in Nippon India Large Cap (118632), ₹10,500 in Nippon India Multi Cap (118650), ₹7,000 in JM Aggressive Hybrid (133401), ₹3,500 in Bank of India Credit Risk Fund (133868)",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and NAVs are stable.",
+      "After 1 year: Check if ELSS has grown (minimum 15% CAGR), and compare fund performance vs benchmarks.",
+      "After 5 years: Rebalance if any fund underperforms by >10% vs category."
+    ],
+    "rebalancing_guidelines": "Once/year: Adjust allocations if equity funds grow >30% vs debt. Trigger: If ELSS gains >25%, move 5% to debt to lock in tax benefits. Avoid: Over-allocating to single funds; maintain 3+ fund houses for diversification.",
+    "projected_returns": {
+      "base": 9.45,
+      "bull": 13.45,
+      "bear": 5.45
+    },
+    "rationale": "Elizabeth’s moderate risk appetite and 22-year horizon allow a mix of equity (60%) and debt (40%). ELSS (20%) ensures tax savings and long-term growth. Large/Multi Cap (50%) balances growth with stability. Aggressive Hybrid (20%) adds flexibility for market dips. Debt (10%) protects short-term goals like the home down payment.",
+    "risks": [
+      "Market volatility: Equity funds may drop 20-30% in bad years, but your portfolio will recover over time.",
+      "Tax implications: Debt funds will be taxed at 20% slab (e.g., 7% return → 5.6% post-tax).",
+      "Inflation: Ensure SIPs outpace inflation (target 8-10% CAGR)."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 60.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 1 year"
+      },
+      {
+        "year": 5,
+        "equity_pct": 60.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 5 years"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "Passive_instrument_fraction: 0.0 (All equity allocations are to actively managed funds; no index funds or ETFs). Turnover_score: 0.5 (Rebalancing every year and checking performance vs benchmarks, but not frequent tactical shifts). Cost_emphasis_score: 0.5 (Expense ratios are mentioned but not the primary selection factor). Research_vs_cost_score: 0.0 (Funds are selected based on performance and ratings, not detailed research). Time_horizon_alignment_score: 1.0 (Long-term 22-year horizon with annual rebalancing). Portfolio_activeness_score: 0.0 (Equity funds have alpha and tracking error above index-like thresholds, indicating active management).",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal alignment is strong for retirement and long-term goals, but the home down payment (5-year horizon) is underrepresented in equity-heavy allocation. Diversification is moderate with multiple fund houses and asset classes, but limited to 2 equity funds and 1 hybrid. Risk-return is appropriate for moderate risk, with realistic returns and downside scenarios. Internal consistency is high as rationale and allocations align, with clear rebalancing and tax considerations.",
+    "composite_pqs": 0.74
+  },
+  "timestamp": "2026-04-17T10:02:09.051633Z",
+  "prompt_version": "v1"
+}

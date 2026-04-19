@@ -1,0 +1,149 @@
+{
+  "persona_id": "S17",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 75.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2250.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you have a 'conservative' risk appetite and this is your first time investing, we'll put the majority of your money here. This fund invests in very short-term debt (overnight), so it's one of the safest options available. It's highly liquid (you can sell anytime) and earns around 5-6% yearly with almost no price fluctuation. Think of this as your foundation that keeps your principal safe while you learn."
+      },
+      {
+        "fund": {
+          "amfi_code": "151895",
+          "name": "Bajaj Finserv Flexi Cap Fund-Direct Plan-Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 750.0,
+        "lumpsum_inr": null,
+        "rationale": "Even though you are conservative, you have 38 years to invest. That's a long time! To beat inflation and reach ₹5Cr, you absolutely need exposure to stocks (equity). Funds like 'Flexi Cap' can invest in small, medium, and large companies depending on what's cheap. This one has consistently beaten its benchmark over 3+ years. While you can't see returns easily in the next 6 months, over 30 years, stocks have grown much faster than safe debt."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Demat+Mutual Fund account on an app like Groww, Kuvera, or Zerodha. You will need an Aadhar and PAN card.\n\nStep 2: Enable 'Direct Plans' in your settings. Direct plans have lower fees (around 0.1-1% less per year) compared to 'Regular' plans, which helps you save money.\n\nStep 3: Go to the 'Mutual Fund' section and search for the AMFI codes below:\n- For 75% allocation: Search 'ICICI Prudential Overnight Fund' (Code: 145536)\n- For 25% allocation: Search 'Bajaj Finserv Flexi Cap Fund' (Code: 151895)\n\nStep 4: Select the 'Growth Option' in both funds.\n\nStep 5: Set up a monthly SIP (Systematic Investment Plan) for ₹2,250 in the Overnight Fund and ₹750 in the Flexi Cap Fund. If the app allows, set the date to the 1st of every month.",
+    "review_checkpoints": [
+      "After 3 months: Just check that your monthly SIPs are being deducted and the money is invested in the correct funds.",
+      "After 1 year: Log in and check the NAV (price per unit) of these funds. Compare the Overnight Fund's returns (should be around 6%) and the Flexi Cap Fund's performance against its category benchmark. Has the Flexi Cap fund missed its targets for 3 out of the last 4 years?",
+      "Every year: Do a mental check. If you plan to buy a flat in Mumbai over the next 5-7 years, take some profit out of the Flexi Cap fund and move it to the Overnight fund or keep it as a separate emergency buffer. Don't keep all your house money in stocks.",
+      "After 10 years: You can add a third 'Mid Cap' fund slowly (increasing the stock portion) only if you feel comfortable with the risk."
+    ],
+    "rebalancing_guidelines": "Once a year (or whenever you log in to check your portfolio), calculate the total value of your investments. If the Flexi Cap portion (which aims for 25%) has grown too much and becomes 35% of your total portfolio, sell some units of the Flexi Cap fund and buy the Overnight fund to bring it back to 25%. This is called 'Rebalancing' and ensures you don't stay exposed to stocks for too long if the market booms.",
+    "projected_returns": {
+      "base": 9.8,
+      "bull": 10.2,
+      "bear": 9.4
+    },
+    "rationale": "This plan is built for you specifically. You are young (22) with a very long time (38 years) before retirement, which usually allows for high-risk, high-reward investing. However, you told me you prefer a 'conservative' approach. We respect that by starting with a strong base of very safe short-term debt (75%). This gives you the comfort that your money isn't gambling. The remaining 25% in a Flexi Cap fund is the 'magic' ingredient. Because of the long time horizon, even if the market drops 30% in the next 5 years, you have time to wait for recovery and for compounding to work its wonders. By starting with this 25% equity, you build a habit without losing your sleep.",
+    "risks": [
+      "Market Risk: The Flexi Cap fund is invested in stocks. In bad years, it might drop 20-30%. If you panic and sell during a crash, you will lose money. Never sell your equity fund when the red arrow is long and strong.",
+      "Interest Rate Risk: The Overnight fund is debt, so if interest rates rise, its value goes down slightly. However, since it holds very short-term assets, this effect is very small.",
+      "Inflation Risk: If inflation is very high (10%+), your 'safe' returns might not be enough to buy a ₹5Cr flat. However, this plan builds a habit and a base that can grow over 38 years.",
+      "Liquidity Risk: While the Overnight fund is very liquid, if you need to withdraw all your money after just 1 year, the Flexi Cap fund might have lost value. Don't withdraw equity funds (the 25% portion) for emergency needs. Keep a separate cash buffer."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 12.0,
+      "description": "Since you are just starting and young, try to increase your SIP by 12% every year (instead of inflation's usual 6%). If your salary jumps, put the extra savings here. Starting ₹3,000 vs ₹6,000 can make a huge difference over 38 years."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 25.0,
+        "debt_pct": 75.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial Setup Phase"
+      },
+      {
+        "year": 5,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Review: Increase equity exposure gradually as time horizon extends and you get comfortable with small ups and downs."
+      },
+      {
+        "year": 15,
+        "equity_pct": 75.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Review: By year 15, you can shift more to equity for aggressive growth towards the ₹5Cr target, assuming your 'housing goal' is still 10+ years away."
+      },
+      {
+        "year": 30,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Review: As you near retirement (age 54), slowly shift back to safer options to protect your corpus."
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "The plan allocates 25% to equity via a Flexi Cap fund, which is actively managed (not passive/index), resulting in a passive_instrument_fraction score of 0.0. The turnover_score is 0.75 because rebalancing is annual or event-driven (e.g., equity exceeding 35%), not frequent trading. Cost_emphasis_score is 0.8 because the plan explicitly recommends direct plans to save on fees, showing strong cost awareness. Research_vs_cost_score is 0.2 as the rationale focuses on long-term growth and inflation-beating rather than deep research or individual stock analysis, but still selects a fund based on past benchmark-beating performance, indicating some research. Time_horizon_alignment_score is 0.9 due to the 38-year horizon and long-term compounding mindset, despite some mid-term tactical shifts. Portfolio_activeness_score is 0.1 because the equity portion is in an actively managed Flexi Cap fund with no indication of index-like behavior (no risk metrics provided, but category implies active); debt is overnight (passive-like in stability but not indexed), but overall portfolio leans active.",
+    "composite_aps": 0.4583333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows strong goal alignment by respecting the investor's conservative risk appetite while still incorporating a long-term growth component via 25% equity exposure in a Flexi Cap fund, justified by the 38-year horizon. The allocation schedule gradually increases equity over time, aligning with rising risk tolerance and long-term goals like retirement and home ownership. However, diversification is limited: only two funds are used, with no exposure to international equities, gold, or hybrid categories, and the debt portion is overly concentrated in overnight funds, missing opportunities for better diversification. Risk-return is reasonably appropriate—25% equity suits a conservative investor with long horizon, and the plan acknowledges market risks and includes rebalancing. The plan is internally consistent: rationale, allocations, rebalancing, and review checkpoints all support the core strategy of safety with gradual growth. Tax efficiency is poor: the investor is in the 'new_regime' tax bracket (so 80C benefits are irrelevant), but the plan uses a debt fund (overnight) for 75% of the portfolio, which will be taxed at the marginal slab rate (likely 20% or 30% effective). It fails to consider equity-taxed alternatives like arbitrage or aggressive hybrid funds, which, despite similar risk profiles, offer more favorable LTCG treatment (12.5% above ₹1.25L after 1 year). Given the long horizon, this tax inefficiency will significantly erode post-tax returns. No mention of tax implications in rationale or fund selection further weakens this dimension.",
+    "composite_pqs": 0.6799999999999999
+  },
+  "timestamp": "2026-04-18T05:59:46.998929Z",
+  "prompt_version": "v1"
+}

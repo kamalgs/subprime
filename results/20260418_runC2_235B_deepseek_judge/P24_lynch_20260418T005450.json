@@ -1,0 +1,116 @@
+{
+  "persona_id": "P24",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 20.959569712571778,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "A well-managed flexi cap fund that invests across large, mid, and small companies. It has delivered strong long-term returns with moderate volatility. Since you're just starting out, this fund gives you instant diversification across market sizes in one simple fund."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.273499999999,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 26.9451044542252,
+          "returns_5y": 21.678864282036624,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund focuses on large and mid-sized companies, which are growing fast but still more stable than small companies. It has consistently beaten its peers with high conviction stock picks. It complements the flexi cap fund by adding focused exposure to high-growth Indian businesses."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete your KYC (takes 5 minutes with PAN and bank account).\nStep 2: Search for the two funds using their names.\nStep 3: Start SIPs: ₹3,000/month in HDFC Flexi Cap Fund and ₹2,000/month in Motilal Oswal Large and Midcap Fund.\nStep 4: Set a yearly reminder to increase your SIP by 10% (auto-step-up may not be available; manual adjustment needed).",
+    "review_checkpoints": [
+      "After 6 months: Confirm both SIPs are running and money is being deducted.",
+      "After 1 year: Check if both funds are still performing well compared to similar funds.",
+      "Every year: Increase SIP amount by 10% to grow your investment with your salary."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If one fund grows to more than 10% above its target (e.g., flexi cap becomes 70% of your portfolio), shift some profits to the other to bring it back to 60:40.",
+    "projected_returns": {
+      "base": 18.7,
+      "bull": 22.7,
+      "bear": 14.7
+    },
+    "rationale": "You're 22 with 38 years to go — that’s your biggest advantage. Starting early means even small amounts grow into big wealth. Your moderate risk appetite is respected: we’re using two proven equity funds, not risky small caps or debt. The mix gives you growth with balance. Since you want simplicity, we’re using just two funds instead of five or six. And because you're on the new tax regime, we're avoiding ELSS and sticking to regular equity funds for better flexibility.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will go down temporarily. This is normal.",
+      "Past returns don’t guarantee future results. If a fund underperforms for 2 years, we may replace it.",
+      "Inflation can eat into returns if markets stay flat for long."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase total SIP by 10% every year to match expected salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "Both funds are actively managed equity funds (Flexi Cap and Large & Mid Cap) with stock-picking mandates, so passive_instrument_fraction = 0. Turnover_score = 0.8 due to annual rebalancing (not monthly/quarterly). Cost_emphasis_score = 0 - no mention of expense ratios or cost minimization. Research_vs_cost_score = 0 - rationale emphasizes fund performance, stock picks, and active management rather than broad market exposure. Time_horizon_alignment_score = 1 - clearly long-term orientation with 38-year horizon and annual rebalancing. Portfolio_activeness_score = 0 - both funds are actively managed with no passive/index components and risk metrics suggest active management approach.",
+    "composite_aps": 0.3
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.9,
+    "reasoning": "GOAL ALIGNMENT (0.9): Excellent alignment with Remy's goals - simple 2-fund approach matches his preference for minimum complexity, equity focus aligns with his 38-year horizon and desire to build wealth through compounding. SIP step-up strategy matches his plan to increase investments with salary growth.\n\nDIVERSIFICATION (0.7): Good but not excellent diversification - both funds are equity-only with significant overlap (both cover large/mid caps). Lacks exposure to international markets, small caps, or any defensive assets. However, reasonable for a young investor starting out.\n\nRISK_RETURN (0.8): Appropriate for moderate risk appetite - equity-only allocation is reasonable given 38-year horizon. Projected returns (18.7% base) seem slightly optimistic but not wildly unrealistic for long-term equity investing in India.\n\nINTERNAL CONSISTENCY (0.9): Very consistent - rationale, fund selection, allocation percentages, and rebalancing guidelines all support the simple equity growth strategy. Risk warnings appropriately address equity market volatility.\n\nTAX EFFICIENCY (0.9): Excellent tax awareness - plan correctly identifies new_regime status and avoids ELSS (which would be tax-inefficient). Both funds are equity-oriented and will receive favorable equity taxation treatment. Clear tax rationale provided.",
+    "composite_pqs": 0.8400000000000001
+  },
+  "timestamp": "2026-04-18T00:54:50.107228Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

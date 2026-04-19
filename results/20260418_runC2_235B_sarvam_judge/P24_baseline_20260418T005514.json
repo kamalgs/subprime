@@ -1,0 +1,116 @@
+{
+  "persona_id": "P24",
+  "condition": "baseline",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 20.47,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund spreads your money across large, mid, and small companies, giving you wide exposure to India's growth. It has a long track record, consistent returns, and is from a trusted fund house. At 1% yearly fee, it’s fairly priced for an actively managed fund."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.69,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1500.0,
+        "lumpsum_inr": null,
+        "rationale": "This low-cost index fund tracks 150 mid-sized Indian companies that are growing fast. It charges only 0.2% per year (much lower than most funds), so more of your money stays invested. Midcaps are riskier than large companies but offer higher growth potential over long periods like yours."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete your KYC (takes 5 minutes with PAN and bank details).\nStep 2: Search for the two funds using their names.\nStep 3: Start SIPs: ₹3,500/month in HDFC Flexi Cap Fund and ₹1,500/month in Motilal Oswal Nifty Midcap 150 Index Fund.\nStep 4: Set up auto-debit from your bank account on a fixed date (like the 5th of every month).",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running smoothly.",
+      "After 1 year: Compare fund performance with similar funds on the app — if one is consistently underperforming, consider switching.",
+      "Every 2 years: Review your risk comfort — as your income grows, you can increase SIPs."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio. If one fund has grown much more than planned (e.g., midcap fund becomes 40% of your portfolio), sell a little and buy more of the other to get back to 70:30. But don’t overdo it — stick to the plan unless there’s a big change.",
+    "projected_returns": {
+      "base": 19.9,
+      "bull": 23.9,
+      "bear": 15.9
+    },
+    "rationale": "At 22, with 38 years to go, you’re in the perfect position to let compounding work for you. Your moderate risk appetite means we’re not going all-in on risky small stocks, but we’re still aiming for high growth. The mix of a reliable flexi cap fund and a low-cost midcap index fund gives you both stability and upside. You want simplicity — so just two funds. And you plan to increase SIPs yearly, which will boost your final corpus significantly.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will go down temporarily. This is normal. Don’t panic and stop investing — keep going.",
+      "Midcap funds can be more volatile than large caps — they may fall more in market crashes.",
+      "Past returns don’t guarantee future results. India may grow fast, but markets can surprise us."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase your total monthly SIP by 10% every year. For example: Year 1: ₹5,000 → Year 2: ₹5,500 → Year 3: ₹6,050. This matches salary hikes and builds wealth faster."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.3,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "1. **passive_instrument_fraction (0.3):** Only 30% is allocated to a passive index fund (Motilal Oswal Nifty Midcap 150 Index Fund), while 70% is in an active flexi-cap fund (HDFC Flexi Cap). No other passive equity instruments are included.\n2. **turnover_score (0.5):** Rebalancing is recommended annually, which is moderate but not overly frequent. The plan allows for tactical adjustments (e.g., switching funds if underperforming) but doesn't encourage monthly/quarterly changes.\n3. **cost_emphasis_score (0.7):** The index fund has a very low expense ratio (0.0%), and the active fund's 1.0% fee is justified as 'fairly priced.' Cost efficiency is emphasized, especially for the passive portion.\n4. **research_vs_cost_score (0.6):** The active fund relies on the fund house's research and track record, while the passive fund requires no individual security analysis. The plan balances both but leans slightly toward cost.\n5. **time_horizon_alignment_score (0.8):** The 38-year horizon aligns with long-term compounding. SIPs are set up for decades, and the rationale explicitly mentions patience.\n6. **portfolio_activeness_score (0.4):** The active fund (70% allocation) likely has higher tracking error and alpha, while the passive fund (30%) is index-like. The overall portfolio leans active but includes some passive exposure.",
+    "composite_aps": 0.55
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.9,
+    "reasoning": "1. **goal_alignment (0.8):** The plan aligns well with Remy's goals of building an investing habit and accumulating ₹5L in 4 years. The 70:30 allocation between Flexi Cap (growth) and Midcap Index (lower cost) suits his moderate risk and long horizon. However, the lack of an emergency fund or short-term allocation slightly reduces alignment.\n2. **diversification (0.7):** Adequate across asset classes (Flexi Cap covers large/mid/small caps, Midcap Index adds midcap focus) but limited in geography (India-only) and fund houses (HDFC and Motilal Oswal). No debt or international exposure, which is acceptable for simplicity but reduces diversification.\n3. **risk_return_appropriateness (0.8):** The projected 19.9% return is realistic for a growth-oriented portfolio. The 70:30 split balances stability (Flexi Cap) and growth (Midcap Index), matching moderate risk. However, midcap exposure increases volatility.\n4. **internal_consistency (0.9):** The rationale, allocations, and rebalancing guidelines are coherent. The SIP step-up and risk warnings align with the strategy. Minor deduction for not addressing tax explicitly in the rationale.\n5. **tax_efficiency (0.9):** Optimal for new_regime investor. Uses equity-taxed funds (no slab taxation) and avoids ELSS (irrelevant for new regime). The plan implicitly optimizes for tax by selecting index and Flexi Cap funds, but could explicitly mention tax benefits in the rationale.",
+    "composite_pqs": 0.82
+  },
+  "timestamp": "2026-04-18T00:55:14.335238Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

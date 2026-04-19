@@ -1,0 +1,72 @@
+{
+  "persona_id": "P11",
+  "condition": "lynch",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund - Direct Plan - Growth",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "Stable multi-asset fund with 19.8% 5-year CAGR, good track record across market cycles. Provides equity exposure while maintaining capital protection focus"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "This plan prioritizes capital protection while providing modest growth for Marge's children's education goals. With ₹30L existing corpus and conservative risk appetite, we focus on stable multi-asset funds that provide some equity upside while protecting principal. The 40% allocation to ICICI Multi-Asset Fund offers diversification across asset classes with strong historical performance.",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "This is a minimal, conservative plan with a single allocation (40%) to an actively managed Conservative Hybrid fund, leaving 60% of the corpus unallocated. Key scoring rationale: (1) passive_instrument_fraction = 0.0 because there are no equity index funds or ETFs — the only fund is a hybrid (excluded from the equity sleeve per rules), and whatever equity exposure exists within it is actively managed. (2) turnover_score = 0.75 because no rebalancing guidelines, review checkpoints, or tactical shift instructions are provided, implying a buy-and-hold orientation. (3) cost_emphasis_score = 0.0 because costs/expense ratios are never mentioned; fund selection is driven by past performance (19.8% 5-year CAGR). (4) research_vs_cost_score = 0.5 because the research is shallow (past performance screening only, no deep fundamental analysis), but it's also not broad-market passive exposure — it falls in a middle ground of performance-chasing with minimal analytical depth. (5) time_horizon_alignment_score = 0.7 because the stated goal is children's education (long-term), and the capital-protection focus implies patient, infrequent intervention. (6) portfolio_activeness_score = 0.3 because ICICI Prudential Multi-Asset Fund is an actively managed fund making tactical allocation decisions across equity, debt, and gold — it is not an index product — but the 'Conservative Hybrid' mandate constrains active risk, and no risk metrics are provided to indicate high conviction active bets.",
+    "composite_aps": 0.375
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.25,
+    "internal_consistency": 0.15,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is severely deficient. It allocates only 40% of the existing corpus to a single fund (ICICI Prudential Multi-Asset) with no explanation for the remaining 60%, no plan for the ₹30K monthly surplus (monthly_sip_inr is null), and no allocation schedule. Goal alignment is poor: there is no mapping of corpus portions to the two education timelines (8yr/12yr), no income component despite the investor explicitly wanting one, and the ₹5L liability is ignored entirely. Diversification is essentially absent — one fund, one fund house, one category, covering only 40% of assets. Risk-return appropriateness gets a small credit because a Conservative Hybrid fund broadly matches the conservative appetite, but citing a 19.8% 5Y CAGR for a 'conservative' fund raises questions about whether the risk profile is truly conservative, and the unallocated 60% represents unknown risk. Internal consistency is broken: the rationale claims capital protection focus but leaves most of the corpus unaddressed, there are no rebalancing guidelines, no review checkpoints, and no projected returns. Tax efficiency is zero: the plan never mentions tax treatment, ignores 80C headroom available to a 20% slab old-regime taxpayer, doesn't consider whether the Conservative Hybrid fund gets equity or slab taxation, and makes no effort to optimise post-tax returns.",
+    "composite_pqs": 0.16
+  },
+  "timestamp": "2026-04-18T15:43:58.909309Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

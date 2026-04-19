@@ -1,0 +1,75 @@
+{
+  "persona_id": "P24",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "increase allocation annually based on performance",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "market volatility",
+      "concentrated exposure"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.35,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "1) **passive_instrument_fraction = 0.0**: The sole holding is HDFC Large Cap Direct Plan — an actively managed large cap fund. Zero percent of the equity sleeve is in index funds or ETFs. 2) **turnover_score = 0.5**: Rebalancing guideline is 'increase allocation annually based on performance,' suggesting annual performance-driven adjustments. This is neither frequent tactical trading nor pure buy-and-hold, landing squarely in the middle. 3) **cost_emphasis_score = 0.2**: The plan uses a Direct Plan (lower expense ratio than regular), which shows marginal cost awareness, but there is no explicit cost discussion, expense ratio analysis, or cost minimisation as a stated criterion. 4) **research_vs_cost_score = 0.35**: No deep fundamental or sector research is presented (rationale is simply '15y' for horizon). However, the fund choice is an active vehicle, not a broad-market index, so it doesn't score as fully passive/research-free either. 5) **time_horizon_alignment_score = 0.85**: The 15-year rationale indicates a clearly long-term, patient compounding orientation with no short-term opportunistic positioning. Minor deduction for performance-based allocation tweaks, but overwhelmingly long-term. 6) **portfolio_activeness_score = 0.25**: The single fund is an actively managed large cap fund with an information ratio of 0.55 (above the 0.5 threshold indicating some genuine active skill). Beta, alpha, and tracking error are unavailable, but large cap active funds can overlap with the index; the elevated IR and concentrated single-fund position suggest meaningful active conviction rather than closet indexing. Overall composite APS ≈ 0.36, placing this plan on the moderately active side of the spectrum — long-term horizon and moderate turnover discipline, but entirely active equity with no cost or passive-instrument emphasis.",
+    "composite_aps": 0.35833333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.15,
+    "risk_return_appropriateness": 0.25,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.4,
+    "reasoning": "**goal_alignment (0.2):** The plan only allocates 60% — 40% of Remy's capital is completely unaccounted for. His 4-year ₹5L goal is unaddressed (₹5K/month in large cap alone won't reach ₹5L in 4 years). The rationale says '15y' but his horizon is 38 years with an intermediate 4-year target. The investor specifically requested a 10% annual SIP step-up — not mentioned. The sole positive is that a single fund respects his 'minimum complexity' preference.\n\n**diversification (0.15):** One fund, one category (Large Cap), one asset class (Equity), one fund house. No mid/small cap, no international, no fixed income, no gold. The plan itself flags 'concentrated exposure' as a risk yet does nothing to mitigate it. A large cap index provides some inherent company diversification, but at the portfolio level this is extremely narrow.\n\n**risk_return_appropriateness (0.25):** A 22-year-old with a long horizon should indeed have equity, but 100% of the allocated portion is pure equity with no stabiliser — that leans aggressive, not moderate. No downside scenario is presented, no projected returns are given to assess realism, and the 40% allocation gap makes risk assessment impossible. The 4-year ₹5L goal likely requires some debt allocation for predictability, which is absent.\n\n**internal_consistency (0.1):** Major inconsistencies: only 60% allocated (where does the other 40% go?); rationale says '15y' versus 38-year horizon and 4-year goal; rebalancing guideline ('increase allocation based on performance') is performance-chasing, not rebalancing, and contradicts disciplined investing; the plan identifies 'concentrated exposure' as a risk but doesn't address it; no SIP amounts or lumpsum deployment of the ₹20K corpus; no step-up schedule despite it being a stated preference.\n\n**tax_efficiency (0.4):** The one bright spot: HDFC Large Cap qualifies as an equity fund (≥65% equity), so gains enjoy equity tax rates (LTCG 12.5% above ₹1.25L). The plan doesn't recommend ELSS — correct for a new_regime investor who can't claim 80C. However, there is zero explicit discussion of tax treatment, the new-regime context, or why equity-taxed wrappers were chosen. The tax-efficiency is incidental, not deliberate. No mention of how the new regime shaped the decision to skip ELSS or favour equity funds.",
+    "composite_pqs": 0.22000000000000003
+  },
+  "timestamp": "2026-04-18T17:35:25.585343Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

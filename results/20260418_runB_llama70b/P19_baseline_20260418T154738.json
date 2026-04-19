@@ -1,0 +1,145 @@
+{
+  "persona_id": "P19",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap fund for stable growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "150187",
+          "name": "BARODA BNP PARIBAS LARGE CAP Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Baroda BNP Paribas",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Diversification across fund houses"
+      },
+      {
+        "fund": {
+          "amfi_code": "120392",
+          "name": "Invesco India Largecap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Invesco",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Conservative large-cap fund"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.0,
+      "bull": 14.0,
+      "bear": 6.0
+    },
+    "rationale": "Since you're 58 with 10 years ahead, we can afford to put more in large-cap stocks which grow steadily over long periods",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 100% of its equity portion to actively managed large-cap funds (ICICI Prudential, Baroda BNP Paribas, Invesco), with no index funds or ETFs, resulting in a passive_instrument_fraction score of 0.0. The turnover_score is 0.75 because rebalancing is recommended only annually, which is relatively passive, though some monitoring occurs at 6 months and 1 year. There is no mention of cost or expense ratios in fund selection despite identical expense ratios listed, so cost_emphasis_score is 0.0. The plan does not discuss any research metrics or cost-based rationale, but selects funds based on stability and diversification across fund houses, indicating active management without deep research — hence research_vs_cost_score is 0.0. The time_horizon_alignment_score is high (0.9) as the plan explicitly targets a 10-year horizon for a 58-year-old, emphasizing long-term compounding and tolerance for short-term volatility. Finally, portfolio_activeness_score is 0.0 because all selected funds are actively managed large-cap funds, and although risk metrics are missing, the category and rationale confirm active management with no indication of closet indexing or passive intent.",
+    "composite_aps": 0.27499999999999997
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan scores poorly on multiple dimensions. Goal alignment is partial (0.4) because while large caps align with stable growth, the investor's goals include tax-efficient wealth transfer and inflation-protected passive income, which are not addressed. Diversification is extremely poor (0.2) — all funds are large-cap equity, same category, no geographic or sectoral spread, minimal fund house diversification without risk-based justification. Risk-return appropriateness is low (0.3) as a conservative 58-year-old with wealth preservation goals should not have 100% equity exposure; projected 10% returns assume high risk inconsistent with 'conservative' appetite. Internal consistency is moderate (0.6): rationale mentions long-term growth, which matches 10-year horizon, but contradicts conservative risk profile; rebalancing and review steps are generic but coherent. Tax efficiency is very low (0.2): investor is in 30% slab, yet entire portfolio is in equity funds without leveraging arbitrage or aggressive hybrid funds for debt-like exposure with equity taxation benefits; no ELSS despite 80C availability under old regime (implied by 30% slab); no mention of tax strategy for wealth transfer or income generation. Overall, the plan ignores key investor needs: succession planning, passive income structuring, tax efficiency, and risk control.",
+    "composite_pqs": 0.33999999999999997
+  },
+  "timestamp": "2026-04-18T15:47:38.095674Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23567,
+    "output_tokens": 1562,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 51.36632946692407
+}

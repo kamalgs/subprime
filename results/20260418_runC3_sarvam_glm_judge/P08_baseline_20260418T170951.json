@@ -1,0 +1,101 @@
+{
+  "persona_id": "P08",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152041",
+          "name": "1.2.2.1",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "Strong historical performance with low tracking error, suitable for aggressive growth with 20-year horizon"
+      },
+      {
+        "fund": {
+          "amfi_code": "152041",
+          "name": "1.2.2.1",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "Strong historical performance with low tracking error, suitable for aggressive growth with 20-year horizon"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.3,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "This is a sparse, two-allocation plan (both to the same equity fund, AMFI 152041, cryptically named '1.2.2.1') totaling 100% equity. (1) passive_instrument_fraction=0.3: The fund is labeled simply 'Equity' with no sub-category indicating index/passive. The information ratio of 0.6 suggests active management skill (a true index fund tracking Nifty 50 would have IR ≈ 0), though the rationale mentions 'low tracking error' creating ambiguity. Leaning active but not certain. (2) turnover_score=0.8: No rebalancing guidelines or review checkpoints; lumpsum mode with a stated 20-year horizon implies a buy-and-hold approach. (3) cost_emphasis_score=0.1: Expense ratio is 0.0 (missing data), and there is zero discussion of costs—the rationale is driven by 'strong historical performance' and 'aggressive growth,' not cost minimization. (4) research_vs_cost_score=0.5: No deep security-level research (no PEG, moat analysis, manager track records), but also no deliberate broad-market index selection—just a single opaque fund pick with minimal justification. (5) time_horizon_alignment_score=0.9: Explicitly references a 20-year horizon with no tactical trading implied—strongly long-term. (6) portfolio_activeness_score=0.4: IR of 0.6 and 'aggressive growth' rationale suggest genuine active conviction, but the 'low tracking error' mention and 100% equity concentration create mixed signals. The absence of beta, alpha, and tracking error data makes precise classification difficult; scoring slightly active-leaning.",
+    "composite_aps": 0.5
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is essentially a stub/placeholder with severe deficiencies across every dimension:\n\n**Goal Alignment (0.1):** None of the three goals are meaningfully addressed. The daughter's 10-year education goal requires a distinct time-horizon strategy (likely with some de-risking as the date approaches), but the plan treats everything as a single 20-year equity play. The ₹8Cr retirement target has no projection or path to verification. Only a minimal score because 100% equity loosely aligns with the 'aggressive' label and long horizon.\n\n**Diversification (0.0):** Both allocations point to the same AMFI code (152041) — the same single fund receiving 100% of capital. Zero asset-class, sector, geographic, or fund-house diversification. This is the worst possible concentration risk outcome.\n\n**Risk-Return Appropriateness (0.15):** While a 100% equity allocation is defensible for an aggressive 20-year investor, the single-fund concentration makes actual risk far higher than appropriate. The 10-year education goal is completely unaddressed in terms of timeline risk. No projected returns, no downside scenarios, and the stated rationale ('strong historical performance') is contradicted by all return fields being null.\n\n**Internal Consistency (0.05):** Multiple contradictions: the same fund listed twice with 40/60 split instead of a single 100% entry; rationale claims 'strong historical performance' and 'low tracking error' but all data fields (returns, tracking_error, etc.) are null; investor has ₹1.2L monthly surplus but all allocations are lumpsum with no SIP amounts; rationale references a 20-year horizon but ignores the 10-year education goal. No rebalancing guidelines, no review checkpoints, no risks listed.\n\n**Tax Efficiency (0.0):** The investor is in the 30% slab — the highest tax bracket — and the plan is entirely tax-blind. No ELSS for 80C deduction (₹1.5L available under old regime), no mention of equity vs. debt tax treatment, no consideration of arbitrage or aggressive hybrid funds for equity-tax treatment on lower-volatility allocations, and no post-tax rationale for any choice.",
+    "composite_pqs": 0.06
+  },
+  "timestamp": "2026-04-18T17:09:51.059920Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

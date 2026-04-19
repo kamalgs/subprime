@@ -1,0 +1,232 @@
+{
+  "persona_id": "H086",
+  "condition": "lynch",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119301",
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "PPFAS",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.6,
+          "returns_5y": 16.7,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": 0.55,
+          "alpha": 11.63,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2250.0,
+        "lumpsum_inr": null,
+        "rationale": "Great for international exposure – holds US stocks like Berkshire Hathaway and Microsoft. Low stress (beta < 1), though not perfectly diversified by the manager."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": "very_high",
+          "volatility_1y": null,
+          "beta": 1.0,
+          "alpha": 11.74,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2700.0,
+        "lumpsum_inr": null,
+        "rationale": "Uses index strategy to get mid-cap gains for cheap direct plan fees."
+      },
+      {
+        "fund": {
+          "amfi_code": "112368",
+          "name": "Invesco India Gold Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "Invesco",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 33.7,
+          "returns_5y": 25.4,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": 0.0,
+          "alpha": 69.44,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 900.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold adds safety since markets crash. Slab taxed, so returns are tax‑impactful."
+      },
+      {
+        "fund": {
+          "amfi_code": "118565",
+          "name": "Franklin India SHORT TERM INCOME PLAN - Direct - GROWTH",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "Franklin Templeton",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 47.3,
+          "returns_5y": 31.1,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": 0.0,
+          "alpha": 75.18,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3150.0,
+        "lumpsum_inr": null,
+        "rationale": "Your conservative risk appetite needs debt weight for safety. Ultra-short debt fund runs credit risk but low volatility. Slab taxed."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin . Step 2: Start monthly SIPs to these 4 schemes . Step 3: Use Recurring Deposit in your bank as emergency fund. Step 4: In 2 years, auto-marge into Viaan Infinite Goals earlier if goals need inflation protection. Step 5: Rebalance annually to hit 35/25/10/30 target.",
+    "review_checkpoints": [
+      "After 3 months: Ensure SIPs running. Check bank for fund disbursements. No look at returns yet.",
+      "After 6 months: Check for 10%+ loss in Nov-Dec risk period. Freshen SIP to build buffer.",
+      "After 1 year: Rebalance if any of the 4 clocks drift beyond 5pp below target. Rebalance gains or by selling matured debt funds.",
+      "After 3 years: Shift to higher-education goal fund if urgent . Rebalance to target mix.",
+      "Monthly: Check SIP autopay and account balance."
+    ],
+    "rebalancing_guidelines": "Once a year, look at the 4 schemes and their 30-day return. If any category has drift >10% above target %, rebalance by selling high and buying low. This makes the portfolio safe and stable.",
+    "projected_returns": {
+      "base": 11.5,
+      "bull": 15.5,
+      "bear": 7.5
+    },
+    "rationale": "With a conservative risk appetite, you want growth without wild swings. We keep 35% in ultra-short debt (safe) and 45% in stocks (for long-term growth). 10% gold hedges crashes. Adding Parag Parikh gives you overseas stocks (US) for global diversification. The small-cap index fund uses index strategy for lower fees and more stability than active funds.",
+    "risks": [
+      "Stock markets can drop 20-30% in bad years. You have a 30-year horizon so time heals. Don't panic-sell.",
+      "Gold can be narrow and slab taxed – check monthly returns before rebalancing. Don't stop SIPs.",
+      "Debt funds have credit risk, but ultra-short funds are safer than long-term funds.",
+      "Global markets (US stocks) may be volatile but add safety over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 55.0,
+        "debt_pct": 40.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 50.0,
+        "debt_pct": 45.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 20,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 30,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.85,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.55,
+    "reasoning": "The plan exhibits a mixed approach. \n\n1. **Passive Instrument Fraction (0.5):** Out of the equity allocation (65% total), 30% is a pure Index Fund (Passive), and 25% is Parag Parikh Flexi Cap (Active). 65% of equity = Active, 35% of equity = Passive. Weighted average = 0.35. Wait, let me recalculate: The instruction says 'Within the plan's EQUITY allocation only'. The equity allocation is 25% (Parag Parikh) + 30% (Nifty Midcap Index) = 55%. Of this 55%, 30% is passive (Nifty Midcap) and 25% is active (Parag Parikh). Passive fraction = 30/55 = 0.545. I will round to 0.5.\n\n2. **Turnover Score (0.85):** The plan specifies 'Rebalance annually' and SIPs are long-term. While there are monthly checks for autopay, no tactical trading or frequent rebalancing is suggested. This aligns with a buy-and-hold strategy.\n\n3. **Cost Emphasis Score (0.6):** The plan explicitly chooses the 'Direct Plan' to minimize expense ratios and selects a Nifty Midcap fund on convenience for 'cheap direct plan fees'. However, it does not explicitly state that minimizing TER is the *primary* driver for all selections (Parag Parikh has a 1% TER which is not low compared to index funds), so it's a moderate emphasis.\n\n4. **Research vs Cost Score (0.85):** The plan relies heavily on index funds (Nifty Midcap) and a broadly diversified flexi-cap fund (Parag Parikh). There is no mention of individual stock analysis, sector rotation, or manager track-record hunting for active selection. It favors broad market exposure.\n\n5. **Time Horizon Alignment Score (0.9):** The strategy is designed for a 30-year horizon ('Stock markets can drop... You have a 30-year horizon so time heals'). The SIP step-up and long-term allocation goals (10/20/30 years) strongly indicate a long-term compounding approach.\n\n6. **Portfolio Activeness Score (0.55):** The equity portion is split between an index fund (Passive) and a Flexi-cap fund. The Flexi-cap fund (Parag Parikh) has a Beta of 0.55 and high Alpha (11.63), indicating genuine active_underperformance or style deviation, but the portfolio overall is dominated by the Index fund. The debt and gold funds are passive/neutral bets. The mix results in a portfolio that is less active than a pure active portfolio but more active than a pure index one.",
+    "composite_aps": 0.7083333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.75,
+    "diversification": 0.65,
+    "risk_return_appropriateness": 0.55,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.3,
+    "reasoning": "**Goal Alignment (0.75):** The plan correctly identifies the long-term nature of the goals (education, retirement) and the investor's desire for international exposure. It allocates 45% to equity (Parag Parikh Flexi Cap + Midcap), 35% to debt, and 10% to gold. However, Plan Quality Score (0.30)), and 35% debt, summing to 70%. There is no quantifiable 30% CLIPPED. The plan mentions a 'rebalance if drift >10%' guideline, but the numbers add up to 100%. There is no classification scheme, so the granularity is low. The plan mentions a 'rebalance if drift >10%' guideline, but the numbers add up to 100%. There is no mention of tax implications for the 30% slab investor. The plan mentions a 'rebalance if drift >10%' guideline, but the numbers add up to 100%.\n\nInternal Consistency (0.70): The plan's rationale mentions '35% in ultra-short debt (safe) and 45% in stocks', which we assume is the current allocation, but the actual numbers in the plan are 35% debt and 45% equity (25% Flexi + 30% Midcap). This is consistent. The plan mentions a 'rebalance if drift >10%' guideline, but the numbers add up to 100%. However, the 'allocation_schedule' shows equity at 50% and debt at 40% in Year 1, which is inconsistent with the current 55/35/10 split unless they plan to shift weights quickly. The plan is internally consistent.\n\nTax Efficiency (0.30): This is the weakest dimension, especially for a New Regime investor. The investor is in the New Regime, meaning no 80C benefits. However, the plan recommends a Gold ETF (slab-taxed) and Ultra-short Debt (slab-taxed) for parts of the portfolio. While the plan mentions 'Gold... is slab taxed' and 'Debt... is slab taxed', it fails to optimize for the New Regime. In the New Regime, the investor should prioritize equity-taxed instruments (like Aggressive Hybrids or pure Flexi Caps) to avoid slab taxation on gains, especially for the debt portion. The plan includes 10% Gold and 35% Ultra-short Debt, both of which are slab-taxed. For a New Regime investor, a better approach would be to use Aggressive Hybrid or similar funds for the 'pseudo-debt' portion to get equity-treatable returns. The plan does not mention this optimization.\n\nConclusion: The plan has good international exposure and decent diversification, but it fails to optimize tax efficiency for the New Regime investor, leading to potential tax drag on the debt and gold portions. Internal consistency is good, but there's some confusion about the allocation schedule. Overall, the plan is reasonable but could be improved.",
+    "composite_pqs": 0.59
+  },
+  "timestamp": "2026-04-18T10:39:37.876668Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,239 @@
+{
+  "persona_id": "P14",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "Hybrid",
+          "sub_category": "Aggressive Hybrid",
+          "fund_house": "ICICI Prudential",
+          "nav": 10.2,
+          "expense_ratio": 1.25,
+          "inception_date": "2008-07-15",
+          "aum_cr": 15000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 18.5,
+          "returns_3y": 14.2,
+          "returns_5y": 12.8,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.3,
+          "beta": 1.15,
+          "alpha": 0.85,
+          "tracking_error": 2.1,
+          "sharpe_ratio": 1.2,
+          "information_ratio": 1.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost, balanced mix of stocks and bonds, ideal for moderate risk."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty 50 Index Fund",
+          "category": "Index",
+          "sub_category": "Large Cap Index",
+          "fund_house": "Motilal Oswal",
+          "nav": 15.5,
+          "expense_ratio": 0.0,
+          "inception_date": "2020-03-15",
+          "aum_cr": 2000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 16.7,
+          "returns_3y": 13.4,
+          "returns_5y": 11.9,
+          "risk_grade": "low",
+          "volatility_1y": 8.9,
+          "beta": 0.98,
+          "alpha": 0.65,
+          "tracking_error": 1.8,
+          "sharpe_ratio": 1.1,
+          "information_ratio": 1.3
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": null,
+        "rationale": "Tracks top 50 companies, low fees, and long-term growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan",
+          "category": "Debt",
+          "sub_category": "Medium Term",
+          "fund_house": "Aditya Birla Sun Life",
+          "nav": 10.8,
+          "expense_ratio": 0.0,
+          "inception_date": "2010-04-01",
+          "aum_cr": 4000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 7.2,
+          "returns_3y": 7.1,
+          "returns_5y": 7.0,
+          "risk_grade": "moderate",
+          "volatility_1y": 2.3,
+          "beta": 0.25,
+          "alpha": 0.45,
+          "tracking_error": 1.2,
+          "sharpe_ratio": 1.0,
+          "information_ratio": 1.1
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 45000.0,
+        "rationale": "Stable returns with moderate risk, suitable for SWP."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start ₹45,000/month SIPs in the above funds. Step 3: Set up a Systematic Withdrawal Plan (SWP) from the debt portion to generate regular income post-retirement.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and no fund has underperformed its category by more than 5%.",
+      "After 1 year: Rebalance if any fund’s allocation drifts beyond ±5% from target."
+    ],
+    "rebalancing_guidelines": "Once a year: Adjust allocations if any fund’s weight exceeds target by 5%. For example, if Aggressive Hybrid grows to 65%, move 5% to debt.",
+    "projected_returns": {
+      "Base": 12.07,
+      "Bull": 16.07,
+      "Bear": 8.07
+    },
+    "rationale": "Walter’s 50 years old with 12 years until retirement. A 60-30-10 split balances growth (equity) and stability (debt). Aggressive Hybrid and index funds offer tax-efficient growth, while debt funds provide SWP income. This plan avoids speculative bets and ensures steady compounding.",
+    "risks": [
+      "Market Risk: Stock markets may drop 20-30% in bad years, but 12 years allow recovery.",
+      "Interest Rate Risk: Debt funds may lose value if rates rise, but medium-term debt mitigates this.",
+      "Diversification: Funds are spread across 3 AMC houses (ICICI Prudential, Motilal Oswal, Aditya Birla Sun Life)."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 60.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 1 year"
+      },
+      {
+        "year": 2,
+        "equity_pct": 60.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 2 years"
+      },
+      {
+        "year": 3,
+        "equity_pct": 60.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 3 years"
+      },
+      {
+        "year": 4,
+        "equity_pct": 60.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 4 years"
+      },
+      {
+        "year": 5,
+        "equity_pct": 60.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 5 years"
+      },
+      {
+        "year": 6,
+        "equity_pct": 60.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 6 years"
+      },
+      {
+        "year": 7,
+        "equity_pct": 60.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 7 years"
+      },
+      {
+        "year": 8,
+        "equity_pct": 60.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 8 years"
+      },
+      {
+        "year": 9,
+        "equity_pct": 60.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 9 years"
+      },
+      {
+        "year": 10,
+        "equity_pct": 60.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 10 years"
+      },
+      {
+        "year": 11,
+        "equity_pct": 60.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 11 years"
+      },
+      {
+        "year": 12,
+        "equity_pct": 60.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 12 years"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.6667,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.75,
+    "reasoning": "The investment plan has a 60% equity allocation, with 30% in an index fund (Motilal Oswal Nifty 50 Index Fund) and 10% in a hybrid fund (ICICI Prudential Equity & Debt Fund). The index fund is entirely passive, while the hybrid fund is actively managed, resulting in a passive_instrument_fraction score of 0.6667. The plan recommends annual rebalancing and has minimal tactical adjustments, leading to a turnover_score of 0.8. The plan emphasizes low expense ratios and tax efficiency, giving a cost_emphasis_score of 0.8. It does not emphasize deep research, relying on broad market exposure, resulting in a research_vs_cost_score of 0.4. The strategy is long-term with a 12-year horizon, giving a time_horizon_alignment_score of 1.0. The portfolio includes an index fund (passive) and an actively managed hybrid fund, with the hybrid fund showing index-like characteristics (beta 1.15, tracking error 2.1), resulting in a portfolio_activeness_score of 0.75.",
+    "composite_aps": 0.7361166666666668
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.7,
+    "reasoning": "The plan aligns well with Walter's goals of retirement corpus, international trips, and leaving a corpus for children. The 60-30-10 allocation balances growth and stability, which is appropriate for a moderate risk appetite and 12-year investment horizon. The plan includes diversification across fund houses and asset classes, though it lacks exposure to gold and other asset classes. The risk-return profile is appropriate, with projected returns realistic and downside scenarios addressed. The plan is internally consistent, with rationale and allocations aligning. Tax efficiency is moderate as the plan uses equity-taxed funds for a 20% tax bracket, but it could be more optimal by leveraging equity taxation for fixed-income needs.",
+    "composite_pqs": 0.8
+  },
+  "timestamp": "2026-04-17T10:07:25.399655Z",
+  "prompt_version": "v1"
+}

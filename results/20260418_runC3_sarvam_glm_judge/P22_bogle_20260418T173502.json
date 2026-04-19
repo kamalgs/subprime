@@ -1,0 +1,77 @@
+{
+  "persona_id": "P22",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "100.0% of corpus"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Allocate 80% to large-cap and 20% to small-cap for diversification",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Company risk",
+      "Regulatory risk"
+    ],
+    "disclaimer": "This is not investment advice. Consult a SECFP before investing",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.35,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.75,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "This plan allocates 100% of its equity sleeve to a single Nifty 50 Index Fund, making it entirely passive on the instrument dimension (1.0). Turnover is very low: no review checkpoints, no tactical calls, and a simple static allocation guideline, suggesting a near buy-and-hold approach (0.85). Cost emphasis is implicit rather than explicit: the Direct Plan choice reflects cost awareness, but the rationale and plan text never discuss expense ratios or total cost of ownership as a decision driver (0.35). Research is non-existent — the plan relies entirely on a broad-cap-weighted index with no stock or manager analysis (1.0). Time horizon alignment is reasonably long (growth option, lumpsum into a large-cap index, no short-term triggers) but the plan never explicitly states a decades-long horizon or compounding rationale (0.75). Portfolio activeness is clearly passive: a Nifty 50 Index Fund with expected beta ≈ 1.0, minimal tracking error, and near-zero alpha — the quintessential passive instrument (1.0).",
+    "composite_aps": 0.8250000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.25,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.15,
+    "tax_efficiency": 0.4,
+    "reasoning": "**Goal Alignment (0.25):** The investor has three distinct goals (8Cr retirement, house/land, daughter's education abroad) but the plan treats this as a single undifferentiated pot. No goal-specific timelines, amounts, or bucketing is provided. The investor explicitly prefers an index core + small-cap satellite, yet no small-cap allocation exists. The 60% allocation to one fund leaves 40% of the portfolio entirely unexplained. Only the long-horizon + aggressive-risk + equity direction is vaguely aligned.\n\n**Diversification (0.1):** Extremely poor. A single Nifty 50 index fund in a single category (large-cap) and single asset class (equity) provides almost no diversification. No mid/small-cap, no international equity, no debt/arbitrage, no multi-asset. The rebalancing guideline mentions an 80/20 large/small split but no small-cap fund is actually allocated. This is effectively a one-fund, one-asset-class plan.\n\n**Risk-Return Appropriateness (0.3):** An aggressive investor with a 20-year horizon should indeed have high equity, so directionally the plan is not wildly wrong. However, a pure Nifty 50 index fund is a moderate-risk core holding — it doesn't match the 'aggressive' label the investor chose. The investor's preferred small-cap satellite (which would add risk) is absent. No projected returns are provided, no downside scenarios are analysed, and no assessment of whether the monthly ₹60K SIP + ₹20L lump sum can realistically reach 8Cr is made.\n\n**Internal Consistency (0.15):** Multiple contradictions: (1) Allocation is 60% but rationale says '100% of corpus' — these don't reconcile. (2) Rebalancing guidelines state an 80/20 large/small split but only one large-cap fund appears at 60%, with no small-cap fund and a 40% gap. (3) Mode is 'lumpsum' but the investor explicitly runs SIPs between deployments — no SIP amount is set despite a ₹60K monthly surplus. (4) Projected returns section is empty. The plan is internally incoherent.\n\n**Tax Efficiency (0.4):** The investor is on the new tax regime, so ELSS/80C is irrelevant — and the plan correctly does not recommend ELSS. The sole allocation (Nifty 50 Index) qualifies for equity tax treatment (LTCG 12.5% above ₹1.25L), which is appropriate for a new-regime investor. However, the plan is entirely tax-silent: no mention of tax treatment, no post-tax return analysis, no discussion of why equity-taxed wrappers were chosen. The outcome is not actively harmful, but no tax awareness is demonstrated either.",
+    "composite_pqs": 0.24
+  },
+  "timestamp": "2026-04-18T17:35:02.680147Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

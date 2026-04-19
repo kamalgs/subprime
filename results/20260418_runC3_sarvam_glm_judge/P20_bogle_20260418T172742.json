@@ -1,0 +1,80 @@
+{
+  "persona_id": "P20",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "1990-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.65
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.05,
+        "lumpsum_inr": null,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Rebalance annually to maintain equity-debt ratio",
+    "projected_returns": {
+      "base": 10.5,
+      "optimistic": 15.5,
+      "pessimistic": 18.5
+    },
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "liquidity risk",
+      "counterparty risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.55,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "**passive_instrument_fraction = 1.0:** The entire equity allocation (60% of portfolio) is in a single Nifty 50 Index fund — 100% passive equity exposure.\n\n**turnover_score = 1.0:** The plan specifies annual rebalancing only, with no tactical shifts or momentum-based trading. Classic buy-and-hold discipline.\n\n**cost_emphasis_score = 0.55:** While selecting an index fund implicitly reflects cost-consciousness (index funds carry the lowest expense ratios), the plan does not explicitly discuss costs, expense ratios, or tax efficiency as a decision criterion. The implicit cost benefit is recognized but not stated, warranting a moderate rather than top score.\n\n**research_vs_cost_score = 1.0:** No individual security, sector, or fund-specific research is conducted. The plan relies entirely on broad market-cap-weighted Nifty 50 exposure — textbook passive approach.\n\n**time_horizon_alignment_score = 1.0:** The rationale references a 15-year horizon, and annual rebalancing with a static allocation supports decades-long compounding with minimal intervention.\n\n**portfolio_activeness_score = 1.0:** A Nifty 50 Index fund is truly passive: beta ≈ 1.0, tracking error near zero, alpha ≈ 0. The listed information ratio (0.65) is a data anomaly for an index fund and does not reflect active management. Category and rationale confirm pure passive exposure.",
+    "composite_aps": 0.9249999999999999
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.08,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.05,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal Alignment (0.05):** Only 60% of capital is allocated (to a single Nifty 50 fund), leaving 40% entirely unaccounted for. None of the three distinct goals — ₹3Cr corpus (23y horizon), second property (8y horizon), children's education — are mapped to specific allocations or timelines. The investor's preference for a balanced equity-debt mix is ignored. **Diversification (0.05):** A single large-cap index fund constitutes the entire visible allocation. No mid/small-cap, no international equity, no debt, no gold, no multi-asset — and 40% of the portfolio is simply missing. Extreme concentration risk. **Risk-Return (0.08):** The pessimistic projected return (18.5%) is HIGHER than the optimistic return (15.5%) — a clear inversion/error that renders scenario analysis meaningless. A moderate-risk investor is given an all-equity portfolio with no downside protection. The 8-year property goal receives no conservative allocation. **Internal Consistency (0.05):** Multiple contradictions: rebalancing guideline references an 'equity-debt ratio' but no debt fund exists; only 60% is allocated with no explanation for the remaining 40%; the rationale field says '15y' but the horizon is 23 years; monthly_sip_inr = 0.05 is nonsensical. **Tax Efficiency (0.05):** The investor is in the 20% slab and explicitly requests ELSS for 80C tax saving — yet no ELSS is included. There is no mention of tax treatment anywhere. The 80C headroom is completely unutilized. No consideration of equity-taxed vs. slab-taxed wrappers for the debt portion (which doesn't exist anyway).",
+    "composite_pqs": 0.055999999999999994
+  },
+  "timestamp": "2026-04-18T17:27:42.655480Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

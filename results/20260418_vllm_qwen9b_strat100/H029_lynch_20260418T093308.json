@@ -1,0 +1,181 @@
+{
+  "persona_id": "H029",
+  "condition": "lynch",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt (Liquid)",
+          "sub_category": "Overnight",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 27500.0,
+        "lumpsum_inr": null,
+        "rationale": "I've put half your money here because it's safer than stocks and earns about 5% per year with almost no risk of loss. It acts as your cash for emergencies and travel plans while protecting your principal."
+      },
+      {
+        "fund": {
+          "amfi_code": "118565",
+          "name": "Franklin India SHORT TERM INCOME PLAN - Direct - GROWTH",
+          "category": "Gilt",
+          "sub_category": "Short Duration",
+          "fund_house": "Franklin Templeton Asset Management (India) Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13750.0,
+        "lumpsum_inr": null,
+        "rationale": "This is a safe bond fund that gives good returns (around 7%) with very little price swing. It's lower risk than stocks but slightly higher risk than the Overnight fund."
+      },
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "Flexi Cap",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13750.0,
+        "lumpsum_inr": null,
+        "rationale": "This is our only stock fund. We kept it small because you're near retirement. It invests in good large and mid-sized companies and has done well over many years. We'll keep it here for modest growth that beats inflation."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on an app like Groww, Kuvera, or Coin. Step 2: Enter your income proof and bank details. Step 3: Start SIPs of ₹27,500 in ICICI Prudential Overnight, ₹13,750 in Franklin India SHORT TERM, and ₹13,750 in HDFC Flexi Cap Fund. Step 4: If you have extra in savings, park it in the Overnight fund until needed. Step 5: Check your investments every 3 months.",
+    "review_checkpoints": [
+      "After 3 months: check that all three SIPs are running smoothly and your bank account is debited correctly. Also check that your Overnight fund NAV is growing as expected.",
+      "After 6 months: see if your total investment mix still adds up to the right balance. If the Overnight fund or Bond fund has grown a bit more than planned, move some money back to maintain balance. Same if stock fund has grown too much.",
+      "After 1 year: review if the flexible cap fund has performed well and if you need to adjust the allocations. Check if you can use the bond fund for your travel fund first."
+    ],
+    "rebalancing_guidelines": "Once a year, look at how much money is in each fund compared to your original plan. If one has grown too much (like the Overnight fund) and is now more than 55% of your total, move some into the other funds to get back to the 50-25-25 mix. This keeps your risk level stable.",
+    "projected_returns": {
+      "base": 4.8,
+      "bull": 5.6,
+      "bear": 4.0
+    },
+    "rationale": "",
+    "risks": [
+      "Stock markets (the HDFC fund) can crash 20-30% in bad years, but over 5 years it should recover. We kept this part small at 25% so you don't feel too much pain.",
+      "The bond funds are still exposed to a risk called 'interest rate risk'—if rates go up, their value might drop a little. But since we're using liquid and short term bonds, this is very small.",
+      "Your main risk is inflation. Even with this plan, keep in mind that you need to keep adding to your SIPs to beat inflation and grow your wealth."
+    ],
+    "disclaimer": "This plan is for educational and research purposes. I am not a certified financial advisor. Always check with a registered professional before starting any investment plan.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 25.0,
+        "debt_pct": 75.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 25.0,
+        "debt_pct": 70.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 25.0,
+        "debt_pct": 65.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 25.0,
+        "debt_pct": 65.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 25.0,
+        "debt_pct": 60.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.8,
+    "reasoning": "The plan shows a very conservative, retirement-near profile with significant debt weighting (75%). All equity is in HDFC Flexi Cap, so passive_equity_fraction is 0.0.\n\n1. **Passive Instrument Fraction (0.0):** The only equity component is HDFC Flexi Cap, which is an actively managed fund. No index equity funds are used.\n2. **Turnover Score (0.6):** While rebalancing guidelines state 'once a year', the setup phase explicitly mentions checking every 3 months, and review checkpoints are monthly/6-month/1-year. This leans slightly active tactically but adheres to an overall annual rebalance, giving a mid-high score for passivity.\n3. **Cost Emphasis Score (0.2):** Direct plans are mentioned and SIP mode is chosen (implied cost efficiency), but the plan focuses heavily on 'safety' and 'low risk' rather than minimizing expense ratios or tax efficiency as a primary driver.\n4. **Research vs Cost Score (0.2):** The plan explicitly rejects deep research, stating the stock fund is kept 'small' due to age and role-based allocation rather than manager conviction or stock-picking skill. It relies on 'good large and mid-sized companies' without specific analysis.\n5. **Time Horizon Alignment (0.5):** The plan is designed for someone 'near retirement', implying a preserved capital strategy, but the 5-year allocation schedule with gold entry suggests a moderate-to-long horizon. It's neither aggressive short-term nor decades-long compounding, landing in the middle.\n6. **Portfolio Activeness (0.8):** The portfolio is heavily skewed toward passive instruments: Liquid (Overnight), Gilt (Short Duration - high beta/index-like), and Active Equity (Flexi Cap). Since the bulk (75%) is in passive-style debt and only 25% is active, the aggregate portfolio behavior is index-like (low tracking error to a debt proxy, or stable beta).",
+    "composite_aps": 0.3833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan shows excellent visibility into the investor's tax bracket (new_regime) and appropriately avoids ELSS since it's irrelevant, and doesn't force slab-taxed funds where equity-taxed options exist (low risk of tax inefficiency). Goal alignment is high due to the conservative, near-retirement stage, though it misses the explicit target of 'monthly income within 5 years'—the projection of 4.8% suggests returning the principal, which would only provide ~₹8,500/mo (far short of income needs). Diversification is poor because the entire debt portion is concentrated in Liquid and Gilt (government bonds) funds, missing the entire Loan Market/Arbitrage space that could have boosted the yield with similar risk for a conservative investor. Internal consistency is good but slightly imperfect because the 'review checkpoints' mention checking the Overnight fund NAV growth (implying returns), yet the realistic projection of ~6% loss in bear markets makes checking 'growth' a bit disingenuous.",
+    "composite_pqs": 0.6699999999999999
+  },
+  "timestamp": "2026-04-18T09:33:08.374537Z",
+  "prompt_version": "v1"
+}

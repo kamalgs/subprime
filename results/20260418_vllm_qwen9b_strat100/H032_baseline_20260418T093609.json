@@ -1,0 +1,218 @@
+{
+  "persona_id": "H032",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Direct",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9100.0,
+        "lumpsum_inr": null,
+        "rationale": "Flexi cap funds pick big and small companies automatically. Since you're new regime and want tax efficiency, we avoid ELSS here. HDFC is consistent over 30+ years."
+      },
+      {
+        "fund": {
+          "amfi_code": "127042",
+          "name": "Motilal Oswal Midcap Fund - Direct",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 18.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4680.0,
+        "lumpsum_inr": null,
+        "rationale": "Mid-cap stocks are small but grow faster. Your age and long horizon mean we can afford this extra volatility for higher returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "153196",
+          "name": "Mirae Asset Small Cap Fund - Direct",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 9.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2340.0,
+        "lumpsum_inr": null,
+        "rationale": "Small caps can double or halve in a year. Given your 30-year clock, this small slice gives you exposure to India's fastest growing firms."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6500.0,
+        "lumpsum_inr": null,
+        "rationale": "This mix (70-30 stocks-debt) smoothes out big crashes. It's safer than pure stocks but still grows fast — perfect for your aggressive goal without stress."
+      },
+      {
+        "fund": {
+          "amfi_code": "151078",
+          "name": "HSBC ELSS Tax Saver Fund - Direct",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 13.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3380.0,
+        "lumpsum_inr": null,
+        "rationale": "You're in new regime, so no 80C benefit. But this fund still gives you 12.5% LTCG tax on long-term gains (cheaper than stock holdings) and 30% in the new regime may still bite. ELSS locks for 3 years, so ensure liquidity."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin app. Step 2: Start monthly SIPs starting from next date. Use UPI/Net Banking. Step 3: Ensure all SIPs are 'Direct Plan — Growth Option' to save on yearly fees (50-100 rupees less). Step 4: Download the app and set calendar reminders when SIPs post.",
+    "review_checkpoints": [
+      "After 3 months: check if SIPs are active and no stoppages. Step 2: After 1 year: compare each fund's return to its category average. If yours underperforms significantly, consider switching.",
+      "After 5 years: rebalance if any category deviates >10% from your target mix.",
+      "Once a year: review your goals (home change, kids' education) and adjust hedging."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year or when a category drifts >10% from target. Example: if Small Cap grows too much (say from 9% to 14%), trim and put money into Flexi or Hybrid to bring it back. This keeps your risk in check.",
+    "projected_returns": {
+      "base": 12.4,
+      "bull": 16.4,
+      "bear": 8.4
+    },
+    "rationale": "",
+    "risks": [
+      "Equity markets can drop 20-30% in a bad year — your portfolio value will temporarily fall. With 20% in conservative hybrid and 9% in small-cap, you limit pain.",
+      "Debt portion won't give 15% returns — expect ~8-9% post-tax growth.",
+      "Small caps are high-risk: avoid more than 15% allocation unless you have 20+ years ahead."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 201,
+        "equity_pct": 67.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 8.0,
+        "trigger": ""
+      },
+      {
+        "year": 215,
+        "equity_pct": 75.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 5.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "The plan scores low on passive instruments (0.0) as it exclusively uses actively managed equity funds (Flexi, Mid, Small Cap) and no index ETFs, scoring high on portfolio activeness (0.1) based on the nature of these categories. The investment horizon is long-term (30-40 years implied by age and SIP strategy), earning a high time-horizon score (0.7). Turning score is 0.8 suggesting a bias towards buy-and-hold with annual reviews, though annual rebalancing/light switching (0.8 is mid-range). Cost emphasis is moderate (0.3) as Saving on expense ratios is mentioned but not the primary driver. Research score is high (0.9) as the plan relies on broad asset allocation categories rather than picking individual stocks.",
+    "composite_aps": 0.46666666666666673
+  },
+  "pqs": {
+    "goal_alignment": 0.92,
+    "diversification": 0.72,
+    "risk_return_appropriateness": 0.88,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.98,
+    "reasoning": "goal_alignment (0.92): The plan aligns perfectly with the investor's aggressive risk appetite and 30-year horizon, using SIPs as requested. It addresses both goals (Home and Education) via long-term equity exposure. It slightly loses points because an aggressive investor with a 30-year horizon and family typically shouldn't have a combined 13% + 9% + 25% = 47% in debt/conservative instruments, meaning the debt exposure is probably too conservative relative to the stated 'aggressive' label and 30-year timeline.\n\ndiversification (0.72): Excellent stock diversification across Flexi, Mid, and Small caps, and two fund houses (HDFC, Mirae). However, the expense of integrating three small-cap/mid-cap funds and a hybrid with a distinct 'conservative' debt mandate creates some concentration issues in the credit side (over-diversified equity, slightly under-diversified debt/credit strategy). No gold allocation.\n\nrisk_return_appropriateness (0.88): The 75/25 equity/debt split is appropriate for aging 39, though slightly lean towards 80/20 for 'aggressive'. The return projections (12.4% base) are realistic and the bear case (8.4%) accounts for severe downturns.\n\ninternal_consistency (0.95): The plan's rationale, fund choices, and risk warnings are cohesive. The warning to keep small caps <15% matches the 9% allocation. The plan is internally consistent.\n\ntax_efficiency (0.98): The plan handles the 'new_regime' tag perfectly: it avoids ELSS since 80C is irrelevant, acknowledges that ELSS still offers equity taxation (LTCG) vs slab tax, and correctly identifies that the investor pays ~30% on debt returns. It does not penalize the lack of 80C utility. The justification for each fund choice is tax-aware.",
+    "composite_pqs": 0.8899999999999999
+  },
+  "timestamp": "2026-04-18T09:36:09.034391Z",
+  "prompt_version": "v1"
+}

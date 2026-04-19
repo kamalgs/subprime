@@ -1,0 +1,170 @@
+{
+  "persona_id": "P22",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119552",
+          "name": "UTI NIFTY INDEX FUND",
+          "category": "Index",
+          "sub_category": "Nifty",
+          "fund_house": "UTI Mutual Fund",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": 1200000.0,
+        "rationale": "Index fund for stable returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "147612",
+          "name": "MOTILAL OSWAL SMALL CAP FUND",
+          "category": "Small Cap",
+          "sub_category": "Small Cap",
+          "fund_house": "Motilal Oswal Mutual Fund",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": 400000.0,
+        "rationale": "Small cap fund for high growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD EXCHANGE TRADED FUND",
+          "category": "Gold",
+          "sub_category": "Gold",
+          "fund_house": "UTI Mutual Fund",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Gold fund for diversification"
+      },
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI PRUDENTIAL LARGE CAP FUND",
+          "category": "Large Cap",
+          "sub_category": "Large Cap",
+          "fund_house": "ICICI Prudential Mutual Fund",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund for stable returns"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you are 40 with 20 years ahead, we can afford to put more in stocks which grow faster over long periods. We have kept 20% in safer options so your money isn't all in one basket.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.67,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.15,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.7,
+    "reasoning": "**passive_instrument_fraction (0.67):** Equity allocation totals 90% (60% Nifty Index + 20% Small Cap + 10% Large Cap). Of this equity sleeve, 60/90 = 66.7% is directed to a broad-market index fund (UTI Nifty Index Fund), while 33.3% goes to actively managed equity funds. The gold allocation (10%) is excluded per scoring rules.\n\n**turnover_score (0.80):** Rebalancing is explicitly annual ('Once a year, check if your mix has changed a lot'). Review checkpoints are minimal — a 6-month SIP check and a 1-year performance comparison. No tactical shifts, sector rotation, or momentum-based trading is mentioned. This is close to buy-and-hold with light annual maintenance.\n\n**cost_emphasis_score (0.15):** Costs are barely discussed. The plan does recommend opening a 'direct mutual fund account' on Kuvera/Groww/MFU, which implicitly saves on distributor commissions — a minor cost nod. However, expense ratios, transaction costs, and tax efficiency are never mentioned as selection criteria. Fund choices appear driven by category fit (index, small cap growth, diversification) rather than cost minimization.\n\n**research_vs_cost_score (0.55):** No deep security-level research is presented — no PEG ratios, management quality assessments, or competitive moat analysis. However, the plan does make specific active fund selections (Motilal Oswal Small Cap, ICICI Prudential Large Cap) rather than defaulting entirely to passive indices, implying some fund-selection judgment. The overall approach is category-based rather than research-heavy, landing it in the middle of the spectrum.\n\n**time_horizon_alignment_score (0.90):** The plan is explicitly designed for a 20-year horizon ('you are 40 with 20 years ahead'). Risk disclosures emphasize patience ('Stock markets can drop 20-30% in a bad year — this is normal and recovers over time'). The SIP step-up feature reinforces long-term compounding. Intervention is infrequent — annual rebalancing only. This is strongly patient/long-term oriented.\n\n**portfolio_activeness_score (0.70):** With risk metrics unavailable (all zeros), inference is based on categories and rationale. Of the 90% equity sleeve, 66.7% is in a pure Nifty index fund (beta ≈ 1.0, near-zero tracking error — truly passive). The 10% in ICICI Prudential Large Cap is actively managed but likely a closet indexer (most Indian large-cap active funds closely track Nifty 50). The 20% in Motilal Oswal Small Cap is genuinely active with expected high tracking error. The 10% gold ETF is also passive. Portfolio-weighted, roughly 70% behaves like passive/index exposure, yielding a score of 0.70.",
+    "composite_aps": 0.6283333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.55,
+    "diversification": 0.35,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.4,
+    "reasoning": "**Goal Alignment (0.55):** The plan correctly picks up the investor's stated preference for 'index + small-cap satellite' (60% Nifty Index + 20% Small Cap) and accommodates lump-sum investing alongside SIPs. However, it fails to map allocations to the three distinct goals (8Cr retirement, land/house, daughter's education) — there's no goal-specific timeline, sub-target, or withdrawal strategy. The SIP shortfall (₹50K deployed vs ₹60K surplus) also means the 8Cr projection is unreliable since less capital is being invested than the investor can afford.\n\n**Diversification (0.35):** Significant weaknesses. (1) All equity is Indian — zero international diversification. (2) The 10% ICICI Large Cap fund heavily overlaps with the 60% Nifty Index fund (both hold the same large-cap universe), providing illusory diversification. (3) No debt/fixed-income allocation at all, even for goal-segmented stability. (4) UTI fund house concentration at ~70% (Nifty Index + Gold ETF). (5) Only 2 fund houses. The 10% gold is a positive but insufficient to offset these gaps.\n\n**Risk-Return Appropriateness (0.50):** A ~90% equity / 10% gold allocation is broadly appropriate for an aggressive 40-year-old with a 20-year horizon. However, (1) the bear-case projection of 8% is unrealistically optimistic for a 90% equity portfolio — true bear scenarios involve negative returns. (2) Zero debt allocation is extreme even for an aggressive investor approaching mid-life with multiple goals including a near-term land purchase. (3) The SIP shortfall (₹10K/month missing) directly undermines projected return feasibility.\n\n**Internal Consistency (0.30):** Multiple concrete inconsistencies: (a) SIPs total ₹50K, not the stated ₹60K surplus — a ₹10K/month gap. (b) Lumpsum totals ₹16L, not the ₹20L corpus — a ₹4L gap. (c) Allocation percentages (60/20/10/10) don't reconcile with actual rupee amounts. (d) Gold (10%) and Large Cap (10%) have zero lumpsum despite their allocation weight. (e) The rationale says '20% in safer options' but the 10% large-cap allocation is equity (not 'safer'), and 10% gold is volatile — the characterisation is misleading.\n\n**Tax Efficiency (0.40):** Positives: No ELSS recommended (correct for a new-regime investor who cannot claim 80C). All three equity funds qualify for favourable equity taxation (LTCG 12.5% above ₹1.25L). Negatives: (1) Zero tax discussion in the plan — no mention of new-regime implications, equity vs non-equity taxation, or post-tax return rationale. (2) The Gold ETF is taxed at the investor's slab rate (new regime rates), not at equity rates — this tax drag is not flagged. (3) No consideration of whether an equity-taxed alternative (e.g., aggressive hybrid or arbitrage fund) could replace the slab-taxed gold allocation for a more tax-efficient portfolio. (4) The overlapping large-cap fund could have been merged into the index fund (lower turnover = better tax efficiency), but this isn't addressed.",
+    "composite_pqs": 0.42000000000000004
+  },
+  "timestamp": "2026-04-18T15:49:09.863662Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

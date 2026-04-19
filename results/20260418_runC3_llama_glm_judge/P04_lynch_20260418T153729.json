@@ -1,0 +1,138 @@
+{
+  "persona_id": "P04",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap fund for stable growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large & Mid Cap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large & mid-cap fund for balanced growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "119354",
+          "name": "Baroda BNP Paribas Multi Cap Fund",
+          "category": "Multi Cap",
+          "sub_category": "",
+          "fund_house": "Baroda BNP Paribas",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Multi-cap fund for diversification"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.0,
+      "bull": 14.0,
+      "bear": 6.0
+    },
+    "rationale": "Given your conservative risk appetite and priority for capital preservation, we have allocated 40% to a large-cap fund, 30% to a large & mid-cap fund, and 30% to a multi-cap fund. This will provide a balanced portfolio with stable growth.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.45,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "**passive_instrument_fraction = 0.0:** All three equity allocations are to actively managed funds (Large Cap, Large & Mid Cap, Multi Cap). No index funds or ETFs appear anywhere in the portfolio — 0% passive equity exposure.\n\n**turnover_score = 0.85:** The plan prescribes annual rebalancing ('Once a year, check if your mix has changed a lot') and the review checkpoints (6 months to verify SIPs are running, 1 year for a simple peer comparison) are check-ins rather than active trading triggers. This is close to a buy-and-hold posture with periodic maintenance.\n\n**cost_emphasis_score = 0.1:** Cost is not discussed as a selection criterion anywhere in the plan. The rationales focus on 'stable growth,' 'balanced growth,' and 'diversification.' While the setup mentions direct platforms (Kuvera/Groww/MFU) which implicitly reduce costs, expense ratios are not evaluated or compared, and minimizing total cost of ownership is not a stated priority.\n\n**research_vs_cost_score = 0.45:** The plan is in a middle ground — there is no deep, fund-specific research (no manager track record analysis, no alpha/Sharpe discussion, no competitive moat evaluation), but it also doesn't rely on passive/index exposure. Fund selection appears category-driven rather than research-driven, with generic rationales. The 'basic' perspective confirms minimal analytical depth, but the active fund choices mean it's not a pure broad-market approach either.\n\n**time_horizon_alignment_score = 0.9:** The strategy is designed for long-term compounding: SIP-based accumulation, annual rebalancing, a base-case 10% return projection, and a risk disclosure that explicitly says temporary drops 'recover over time.' There are no tactical windows, event-driven shifts, or short-term positioning.\n\n**portfolio_activeness_score = 0.2:** All three funds are actively managed with typical active expense ratios (1.0–1.1%). Risk metrics are unavailable (all zeros), so inference is based on category labels: Large Cap funds often behave as closet indexers, but Large & Mid Cap and Multi Cap categories allow meaningful active bets. Overall, the portfolio reflects genuine active management with no passive instruments, though the large-cap overweight may result in some index-like behavior in that sleeve.",
+    "composite_aps": 0.4166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is fundamentally misaligned with the investor's profile on nearly every dimension. **Goal Alignment (0.1):** A conservative, 55-year-old investor retiring in 5 years who prioritises capital preservation and needs regular post-retirement income is given a 100% equity portfolio with zero debt or hybrid allocation. None of the three goals are addressed — no healthcare contingency fund (₹50L), no inheritance planning strategy (₹4Cr total for two children), and no income-generation mechanism for post-retirement. The existing ₹2Cr corpus is entirely ignored. **Diversification (0.2):** All three funds are pure equity; there is no asset-class diversification (zero debt, hybrid, gold, or liquid). Two of three funds are from the same fund house (ICICI Prudential), creating significant concentration risk. The multi-cap fund has mandatory small-cap exposure despite the investor explicitly avoiding small-caps. **Risk-Return Appropriateness (0.1):** A 100% equity allocation for a conservative investor nearing retirement is wildly inappropriate. The bear-case projection of +6% is unrealistic — equity markets can and do fall 30-50%, which would be devastating for capital preservation. No downside protection, no income strategy, no glide path toward retirement. **Internal Consistency (0.3):** The stated rationale ('conservative risk appetite and priority for capital preservation') directly contradicts the 100% equity allocation. The risk warning mentions 20-30% drops but doesn't connect this to the need for capital preservation. The multi-cap selection contradicts the 'avoid small-cap' preference. A small positive: the allocations at least add up to 100% and the SIP amounts are proportional. **Tax Efficiency (0.1):** A 30% slab investor on the old regime gets zero 80C planning — no ELSS to utilise the ₹1.5L deduction. No arbitrage or aggressive hybrid funds are included despite being ideal tax-efficient alternatives for a high-slab investor seeking lower volatility. No tax treatment is mentioned for any fund. The plan is effectively tax-blind.",
+    "composite_pqs": 0.15999999999999998
+  },
+  "timestamp": "2026-04-18T15:37:29.052815Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

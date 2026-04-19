@@ -1,0 +1,83 @@
+{
+  "persona_id": "P10",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "150001",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "150001"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "10% rebalancing every 6 months",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "market fluctuations",
+      "regulatory changes",
+      "liquidity risks"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 60% to a single equity fund in the Large Cap category, but the fund is not identified as an index or passive instrument (e.g., no indication it tracks Nifty 50), and with an information ratio of 0.5, it suggests active management. Thus, passive_instrument_fraction is 0.0. Rebalancing is scheduled every 6 months with a 10% threshold, indicating moderate turnover, so turnover_score is 0.5. There is no mention of cost considerations like expense ratios or tax efficiency, leading to a cost_emphasis_score of 0.0. The rationale provided is minimal ('150001') and lacks any discussion of research or market exposure philosophy, but the use of a single large cap fund without indexing cues suggests a research-driven (though unspecified) active pick, so research_vs_cost_score is 0.0. The review cycle is semi-annual, which is not extremely frequent, suggesting a moderate time horizon, hence time_horizon_alignment_score is 0.5. Finally, the portfolio_activeness_score is 0.0 because the fund has an information ratio of 0.5 — a sign of active management — and no risk metrics suggest index-like behavior (e.g., low tracking error); combined with lack of passive categorization, this indicates an actively managed portfolio.",
+    "composite_aps": 0.16666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows partial goal alignment by allocating 60% to equity, which is reasonable for a moderate investor with an 18-year horizon targeting retirement and education goals. However, it lacks specificity in linking fund choices to goals, and ignores the emergency fund need. Diversification is extremely poor — only one fund (Large Cap) is selected, with no exposure to mid/small cap, debt, or international assets, creating significant concentration risk. Risk-return is moderately appropriate for a moderate investor, but the lack of diversification increases unintended risk. Internal consistency is weak: the rationale is nearly empty ('150001'), yet a rebalancing rule is mentioned without supporting allocations; the plan structure contradicts itself by listing lumpsum and SIP fields without values. Tax efficiency is average: the investor is in the 20% slab, and the plan uses an equity fund (favourably taxed), avoiding slab-taxed debt funds. However, it misses opportunities to use arbitrage or aggressive hybrid funds for partial debt exposure with equity taxation benefits. No ELSS is included, but the tax bracket is '20_percent_slab' (likely old regime), so there's unutilized 80C headroom — yet the plan doesn't mention tax optimization at all, limiting the score.",
+    "composite_pqs": 0.4
+  },
+  "timestamp": "2026-04-18T17:20:07.510493Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22807,
+    "output_tokens": 892,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 36.230422283522785
+}

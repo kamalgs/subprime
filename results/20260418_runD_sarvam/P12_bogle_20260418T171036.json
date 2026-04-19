@@ -1,0 +1,79 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152476",
+          "name": "HDFC Gold ETF - Direct Plan",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2018-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan consists solely of HDFC Gold ETF, which is a passive instrument (Gold ETF), resulting in a passive_instrument_fraction score of 1.0. Since there is no equity allocation specified, the equity sleeve is empty, but by default, the only instrument used is passive, so the score remains 1.0.\n\nThere are no rebalancing guidelines or review checkpoints mentioned, implying a static, buy-and-hold approach, leading to a turnover_score of 1.0.\n\nThe plan does not explicitly emphasize cost minimization, but ETFs are inherently low-cost, and no active cost discussion is present. Thus, cost_emphasis_score is moderate at 0.5.\n\nThere is no indication of any research into individual securities or fund managers; the rationale is simply 'direct', suggesting reliance on broad market exposure via an ETF. Hence, research_vs_cost_score is 1.0.\n\nThe absence of tactical shifts or short-term review cycles implies a long-term, passive time horizon, giving a time_horizon_alignment_score of 1.0.\n\nThe portfolio consists entirely of a Gold ETF, which is a passive instrument with no active management intent. Although risk metrics like beta and alpha are missing, the category and structure imply passive exposure. Therefore, portfolio_activeness_score is 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows minimal alignment with the investor's goals: while gold allocation respects his preference for tangible assets, it fails to address his need for post-retirement income or corpus preservation over a 13-year horizon. Diversification is extremely poor—only one fund (Gold ETF) is recommended, with no exposure to debt, arbitrage, or hybrid funds that match his conservative risk appetite and tax slab. Risk-return is inappropriate: a 20% allocation to gold alone may introduce volatility inconsistent with 'conservative' labeling, and no risk mitigation strategy is presented. Internal consistency is weak—rationale is missing, no rebalancing or review plan, and no explanation for excluding other asset classes despite large investible surplus and corpus. Tax efficiency is partially addressed: gold ETFs are taxed at 20% with indexation (better than slab for long-term), but the plan ignores superior equity-tax wrappers like arbitrage or aggressive hybrid funds that could serve his low-risk needs with better post-tax returns for a 30% slab investor. No use of 80C (e.g., ELSS) is mentioned, though arbitrage funds would be more relevant for his preferences and tax profile.",
+    "composite_pqs": 0.27999999999999997
+  },
+  "timestamp": "2026-04-18T17:10:36.112968Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22741,
+    "output_tokens": 800,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 26.720048095099628
+}

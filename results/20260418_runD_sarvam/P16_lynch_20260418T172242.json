@@ -1,0 +1,108 @@
+{
+  "persona_id": "P16",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.1
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      },
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.1
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1.00% (1.00% over 1.00%))",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 80% total to HDFC Large Cap Direct Plan, an actively managed large-cap fund, with no indication of passive/index instruments in the equity sleeve, resulting in a passive_instrument_fraction score of 0.0. The rebalancing guideline mentions only a vague threshold (\\\"1.00% over 1.00%\\\"), but no frequent review cycles or tactical shifts are specified, suggesting a static, buy-and-hold approach, hence a turnover_score of 1.0. There is no mention of expense ratios, costs, or tax efficiency in the rationale or metadata, so cost_emphasis_score is 0.0. The plan does not describe any research process, but the use of a single active fund without cost focus implies reliance on fund-specific selection, leading to a low research_vs_cost_score of 0.0. The absence of short-term triggers and the static structure suggest a long-term horizon, giving a time_horizon_alignment_score of 1.0. Finally, the fund has an information ratio of 0.1, which is low, but without tracking error or alpha data, and given its active category and lack of index naming, it is classified as genuinely active; thus, portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.1,
+    "reasoning": "The investment plan shows very poor quality across most dimensions. Goal alignment is low (0.2) because the investor is 63, retired, conservative, and seeks systematic income and estate planning, yet 80% of the portfolio is allocated to a single large-cap equity fund, which is inconsistent with capital protection needs. Diversification is nearly absent (0.0) — duplicate allocation to the same fund (HDFC Large Cap) with no exposure to debt, hybrid, or international assets, and no rationale for concentration. Risk-return appropriateness is poor (0.2) as an 80% equity allocation is unsuitable for a conservative, retired investor with an 8-year horizon; the plan ignores downside risk and income generation needs. Internal consistency is weak (0.3): the rationale fields are meaningless ('1.00%'), rebalancing rules are nonsensical ('1.00% over 1.00%)'), and the strategy contradicts the investor's risk profile. Tax efficiency is very low (0.1): the investor is in the 30% slab, yet the plan uses only equity funds without leveraging tax-efficient debt/hybrid structures like arbitrage or Aggressive Hybrid funds for income; no ELSS is included (though not critical here), but more importantly, no tax-aware fund selection or SWP strategy is mentioned despite the investor's explicit interest in SWP from debt/hybrid funds. The plan fails to address estate planning or income generation, making it largely irrelevant to the investor's stated goals.",
+    "composite_pqs": 0.15999999999999998
+  },
+  "timestamp": "2026-04-18T17:22:42.921305Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23190,
+    "output_tokens": 8918,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 222.78781379014254
+}

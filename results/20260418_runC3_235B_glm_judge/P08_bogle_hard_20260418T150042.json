@@ -1,0 +1,116 @@
+{
+  "persona_id": "P08",
+  "condition": "bogle_hard",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 72000.0,
+        "lumpsum_inr": null,
+        "rationale": "Core midcap index fund with low 0.2% yearly fee and strong 18.7% 5-year return. Midcaps have historically outperformed largecaps over long horizons, aligning with your aggressive risk appetite and 20-year timeline."
+      },
+      {
+        "fund": {
+          "amfi_code": "148726",
+          "name": "Nippon India Nifty Midcap 150 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2021-02-04",
+          "aum_cr": 1605.9588,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.441899049830024,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 48000.0,
+        "lumpsum_inr": null,
+        "rationale": "Diversifying midcap index fund from a different fund house, ensuring portfolio stability through AMC diversification. Similar performance and cost profile to primary fund, reducing concentration risk."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Start two SIPs: ₹72,000/month in Motilal Oswal Nifty Midcap 150 Index Fund and ₹48,000/month in Nippon India Nifty Midcap 150 Index Fund.\nStep 4: Set auto-debit from your savings account to ensure timely investments.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are running without fail.",
+      "After 1 year: Compare both funds' performance against the Nifty Midcap 150 index — both should track closely (within 1%).",
+      "Every 3 years: Check if expense ratios remain below 0.25% and tracking error is under 2%."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If one fund’s value grows to more than 5% above its target allocation (e.g., crosses 65% or 45%), sell the excess and reinvest in the other to restore 60:40 balance.",
+    "projected_returns": {
+      "base": 18.5,
+      "bull": 22.5,
+      "bear": 14.5
+    },
+    "rationale": "At 38, with a 20-year horizon and aggressive risk appetite, your portfolio is fully equity-focused to maximise long-term wealth creation. Midcap index funds offer higher growth potential than largecaps, crucial for reaching your ₹8 crore retirement goal. Both funds have near-identical performance and low fees, ensuring cost-efficient exposure to 150 mid-sized Indian companies. You’re in the 30% tax slab, so equity-taxed funds are optimal — gains over ₹1.25 lakh/year are taxed at just 12.5% after one year.",
+    "risks": [
+      "Midcap stocks can drop 40-50% in a severe market crash — your portfolio may temporarily lose significant value.",
+      "Past returns don't guarantee future performance — if midcaps underperform largecaps, your corpus growth could lag.",
+      "A 20-year horizon helps ride out volatility, but extended downturns can delay your ₹8 crore target."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and inflation"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.85,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "**passive_instrument_fraction = 1.0:** 100% of the equity allocation goes to two Nifty Midcap 150 Index Funds — pure passive/index instruments. No active equity funds at all.\n\n**turnover_score = 0.9:** Annual rebalancing with a 5% drift threshold before any action is taken; no tactical shifts, sector rotation, or market-timing. Review checkpoints (6 months, 1 year, every 3 years) are monitoring-only. Slightly below 1.0 because annual rebalancing is marginally more active than a pure buy-and-hold-with-no-rebalancing approach.\n\n**cost_emphasis_score = 0.85:** Cost is heavily foregrounded — rationale mentions \"low 0.2% yearly fee\" and \"cost-efficient exposure,\" direct plans are chosen, and the 3-year checkpoint explicitly checks that expense ratios stay below 0.25%. Not quite 1.0 because cost isn't the *only* driver; the midcap growth thesis and 18.7% 5-year returns also feature in the rationale.\n\n**research_vs_cost_score = 1.0:** Zero individual-security or fund-manager research. The entire thesis is \"buy the index\" — a market-cap-weighted basket of 150 midcap companies. No PEG ratios, management quality, moat analysis, or manager track-record evaluation.\n\n**time_horizon_alignment_score = 1.0:** Explicitly designed for a 20-year compounding horizon with minimal intervention (annual rebalancing at most). SIP with 10% annual step-up reinforces a long-term, patient approach. No tactical windows or event-driven positioning.\n\n**portfolio_activeness_score = 1.0:** Both funds are bona-fide index funds tracking the Nifty Midcap 150. While risk metrics are null, the category labels (\"Index\" / \"Other Scheme - Index Funds\") and rationale (tracking within 1%) confirm index-like behavior: beta ≈ 1 vs. the benchmark, near-zero alpha, tracking error < 2%. No active management conviction anywhere in the portfolio.",
+    "composite_aps": 0.9583333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.15,
+    "risk_return_appropriateness": 0.25,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.55,
+    "reasoning": "**Goal Alignment (0.40):** The aggressive midcap tilt matches the investor's risk appetite and 20-year retirement horizon, and the step-up SIP is good. However, the plan completely ignores the 10-year daughter's education goal — 100% midcap with no de-risking timeline for a goal only 10 years away is a serious misalignment. There's also no guidance on deploying the ₹30L existing corpus, and no projection showing whether the plan actually reaches the ₹8Cr retirement target.\n\n**Diversification (0.15):** Extremely poor. Both funds track the exact same index (Nifty Midcap 150) — this is the same bet with two different AMCs, not meaningful diversification. The portfolio has zero exposure to large caps, small caps, international equity, debt, gold, or any other asset class. 100% single-segment, single-country, single-asset-class concentration is a critical diversification failure.\n\n**Risk-Return Appropriateness (0.25):** Projected 18.5% base-case return is wildly optimistic for midcap index funds over 20 years — even the bear case of 14.5% exceeds realistic long-term equity averages of 12–14%. There is no downside protection or glide path, and the risk is inappropriate for the 10-year education goal (a midcap crash in year 8–9 could make foreign education unaffordable). The risk warnings about 40–50% drops are acknowledged but unmitigated.\n\n**Internal Consistency (0.50):** The plan is internally consistent within its narrow framework — rationale, fund selection, and risk warnings all say 'aggressive midcap.' However, the claim that a second fund tracking the identical index 'reduces concentration risk' is contradicted by the portfolio structure. Also, if both funds have 'near-identical performance,' the 60:40 split rationale is unexplained. The ₹30L existing corpus is never addressed, creating a gap.\n\n**Tax Efficiency (0.55):** Gets the big picture right — equity index funds receive favourable LTCG taxation (12.5% above ₹1.25L exemption) vs. the 30% slab on debt, and this is explicitly noted. However, the plan misses a significant 80C optimisation: a 30% slab old-regime investor could save ~₹46,800/year by allocating ₹1.5L to ELSS. No tax-loss harvesting guidance or strategic use of the LTCG exemption is discussed.",
+    "composite_pqs": 0.37
+  },
+  "timestamp": "2026-04-18T15:00:42.765917Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

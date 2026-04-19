@@ -1,0 +1,83 @@
+{
+  "persona_id": "P23",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.0,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "No rebalancing needed for 26 years — set and forget",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market fluctuations are common but not in all 3 years",
+      "Avoid sector-specific bets — prefer broad market exposure",
+      "Focus on compounding and low costs"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan is fully passive across all dimensions. The equity allocation (100% of equity sleeve) is directed to a Nifty 50 Index Fund, which is a passive instrument. Rebalancing is explicitly 'set and forget' for 26 years, indicating zero turnover. The rationale emphasizes low costs and compounding, highlighting cost as a primary criterion. There is no mention of stock-specific or fund-specific research — the approach relies on broad market exposure. The time horizon is clearly long-term (26 years), aligning with passive, buy-and-hold philosophy. The portfolio consists solely of an index fund with no active risk metrics (beta, alpha, tracking error not provided, but category and rationale confirm passivity), leading to a fully passive portfolio activeness score.",
+    "composite_aps": 1.0
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows minimal alignment with Jo March's goals: it allocates 40% to a Nifty 50 index fund but provides no rationale for the remaining 60%, which is unallocated. This undermines goal alignment, especially for her creative venture in 8 years and financial independence in 15. Diversification is extremely poor — only one large-cap equity fund is selected, with no exposure to mid/small caps, debt, or international assets, creating high concentration risk. Risk-return is moderately appropriate for a moderate investor over a 26-year horizon, but the lack of diversification increases risk beyond stated appetite. Internal consistency is low: the rationale is nearly empty ('1.00%'), rebalancing is dismissed as unnecessary over 26 years (contradicting standard practice), and the structure lacks coherence. Tax efficiency is scored neutral (0.6) because the investor is under the new tax regime (so 80C/ELSS is irrelevant), and the sole fund is equity-taxed, which is optimal for long-term gains. However, no tax rationale is provided, and the absence of hybrid or arbitrage funds — which could enhance post-tax returns — limits the score. Overall, the plan is underdeveloped and lacks critical components for a moderate-risk, long-horizon investor.",
+    "composite_pqs": 0.34
+  },
+  "timestamp": "2026-04-18T16:09:23.808020Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23110,
+    "output_tokens": 807,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 31.189312061294913
+}

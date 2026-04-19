@@ -1,0 +1,145 @@
+{
+  "persona_id": "P10",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119551",
+          "name": "UTI Nifty 50 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 10000.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost, simple index fund that tracks the top 50 Indian companies. Perfect for a set-and-forget investor like Forrest. UTI is a well-known, trusted fund house. Since it's an index fund, it doesn't try to beat the market but matches it reliably with the lowest possible fees."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4000.0,
+        "lumpsum_inr": null,
+        "rationale": "Adds growth potential by investing in the next 150 mid-sized companies after the Nifty 50. Midcaps have historically grown faster than large caps over long periods. This is a simple, low-cost index fund, so Forrest doesn't need to worry about the fund manager's skill."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 200000.0,
+        "rationale": "A stable hybrid fund that automatically balances stocks and bonds. It reduces risk compared to a 100% stock portfolio. This fund is from ICICI, one of India's largest and most trusted AMCs. It's equity-taxed, which is better for Forrest in the 20% tax slab compared to a debt fund."
+      }
+    ],
+    "setup_phase": "Step 1: Download the Groww or Kuvera app on your phone.\nStep 2: Complete your KYC using your PAN and Aadhaar (takes 5 minutes).\nStep 3: For the ₹10 Lakh existing corpus: Invest ₹2 Lakh as a one-time lumpsum in ICICI Prudential Equity & Debt Fund. Keep the remaining ₹8 Lakh in your savings account for now.\nStep 4: Start monthly SIPs: Set up auto-debit of ₹12,000 for UTI Nifty 50 Index Fund and ₹4,000 for Motilal Oswal Nifty Midcap 150 Index Fund.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs have been deducted from your bank account.",
+      "After 1 year: Check the annual returns of each fund. Don't panic if they are down; markets go up and down.",
+      "Every 3 years: Review if the fund is still among the top performers in its category."
+    ],
+    "rebalancing_guidelines": "Once every 3 years, check your portfolio. If one part (like the midcap fund) has grown much more than planned (e.g., more than 25% of your total), sell some of it and buy more of the part that's behind (e.g., the Nifty 50 fund) to get back to 60-20-20.",
+    "projected_returns": {
+      "base": 11.8,
+      "bull": 15.8,
+      "bear": 7.8
+    },
+    "rationale": "Forrest is 42 with an 18-year horizon to age 60. This is long enough to handle some stock market ups and downs. He wants simplicity and stability. So, we use low-cost index funds for the core of his portfolio (80% in Nifty 50 and Nifty Midcap 150) which will grow his money steadily. The 20% in a trusted hybrid fund (ICICI) acts as a shock absorber, making the overall ride less bumpy. This mix balances growth and stability perfectly for a moderate investor.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year. Your portfolio value will fall temporarily. This is normal.",
+      "Midcap stocks are more volatile than large caps. The Motilal Oswal fund might fall more than the UTI fund in a market crash.",
+      "Inflation could erode your money's value if returns are lower than expected."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase your total SIP amount by 10% every year, split proportionally between the two funds, to build wealth faster as your income grows."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.9,
+    "reasoning": "EQUITY ALLOCATION: 80% equity allocation is entirely passive index funds (Nifty 50 and Nifty Midcap 150 index funds). TURNOVER: Infrequent rebalancing every 3 years, primarily using SIP mode with minimal tactical changes. COST EMPHASIS: Strong focus on low costs, explicit mention of expense ratios as key selection criteria. RESEARCH: No fund-specific research emphasis - relies entirely on broad market index exposure. TIME HORIZON: Long-term 18-year horizon with buy-and-hold approach, minimal intervention. PORTFOLIO ACTIVENESS: Equity portion is entirely passive index funds with beta ≈ 1.0; hybrid fund (20%) is the only actively managed component, but overall portfolio weighted heavily toward passive instruments.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.7,
+    "reasoning": "The plan shows good alignment with Forrest's goals: 18-year horizon justifies equity-heavy allocation, index funds match his preference for simplicity, and the hybrid fund provides stability. However, the emergency fund goal isn't addressed in the allocations. Diversification is adequate with large cap, midcap, and hybrid exposure across different fund houses, but lacks international diversification. Risk-return profile is appropriate for moderate risk appetite with 80% equity/20% hybrid split and reasonable return projections. The plan is internally consistent with clear rationale, setup instructions, and rebalancing guidelines that support the strategy. Tax efficiency is decent - the hybrid fund provides equity taxation benefits for his 20% tax bracket, but the plan could be more explicit about tax optimization rationale and doesn't mention ELSS for his 80C deductions.",
+    "composite_pqs": 0.7799999999999999
+  },
+  "timestamp": "2026-04-18T00:47:06.459849Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,170 @@
+{
+  "persona_id": "P16",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": 9.979395774892641,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": null,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced hybrid fund with 65%+ equity, so gains are equity-taxed (12.5% on gains above ₹1.25L/year). Ideal for conservative investors who want some stock growth but lower risk. ICICI has a long track record and consistent returns. Perfect for generating stable returns while allowing SWP withdrawals."
+      },
+      {
+        "fund": {
+          "amfi_code": "133868",
+          "name": "BANK OF INDIA Credit Risk Fund - Direct Plan",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "Bank of India Investment Managers Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 28.3034,
+          "morningstar_rating": null,
+          "returns_1y": 11.594896461102966,
+          "returns_3y": 8.126880235868628,
+          "returns_5y": 26.92212924058863,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.006089784453783013,
+          "alpha": 15.103016700487856,
+          "tracking_error": null,
+          "sharpe_ratio": 1.3960552693285244,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": null,
+        "rationale": "Credit risk funds invest in slightly riskier corporate bonds to earn higher interest. This one has delivered strong risk-adjusted returns. Since you're in the 30% tax slab, debt funds are slab-taxed (your full income tax rate). But we use it here for SWP stability and higher yield than bank FDs. Bank of India is a trusted name."
+      },
+      {
+        "fund": {
+          "amfi_code": "112368",
+          "name": "Invesco India Gold Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "Invesco Asset Management (India) Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 694.7789,
+          "morningstar_rating": null,
+          "returns_1y": 57.934332298731015,
+          "returns_3y": 33.73702600495692,
+          "returns_5y": 25.35017269022022,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.20170782693987785,
+          "alpha": 69.43634060072937,
+          "tracking_error": null,
+          "sharpe_ratio": 2.634544437762143,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a safety net during market crashes and inflation. This ETF tracks physical gold and is easy to buy/sell. It's slab-taxed, but gold rarely generates large short-term gains. We keep 15% to protect your corpus and support estate planning, as gold is widely accepted and liquid."
+      },
+      {
+        "fund": {
+          "amfi_code": "148457",
+          "name": "Nippon India Multi Asset Allocation Fund - Direct Plan - Growth Option",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2432.2666,
+          "morningstar_rating": null,
+          "returns_1y": 25.110802183590142,
+          "returns_3y": 21.768186537301748,
+          "returns_5y": 17.230360978388546,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.548893692823792,
+          "alpha": 20.31823633239141,
+          "tracking_error": null,
+          "sharpe_ratio": 1.3635479994680189,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund spreads money across stocks, bonds, and gold — a natural diversifier. It's slab-taxed, but its volatility is low and returns are strong. We use it to further reduce risk while keeping growth. Nippon has managed it well with high alpha, meaning it beats its mix of assets."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Start SIPs in the four funds with the amounts shown (₹30,000 + ₹15,000 + ₹9,000 + ₹6,000 = ₹60,000/month).\nStep 4: After 6 months, initiate a Systematic Withdrawal Plan (SWP) of ₹1.5L/month from the ICICI Aggressive Hybrid and Bank of India Credit Risk funds (start with 70% from debt, 30% from hybrid).",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are active and check for any fund underperforming its category.",
+      "After 1 year: Review SWP stability and ensure withdrawal rate is not eroding corpus too fast.",
+      "Every year: Check if any fund has underperformed its category for 2 quarters — if yes, replace it."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category (equity, debt, gold) has moved more than 5% away from target, rebalance by selling excess and buying underweight parts. For example, if gold jumps to 25%, sell some and add to debt or hybrid.",
+    "projected_returns": {
+      "base": 10.2,
+      "bull": 14.2,
+      "bear": 6.2
+    },
+    "rationale": "At 63, retired, and conservative, your priority is capital protection and steady income. So we use 50% in a tax-efficient hybrid fund (equity-taxed), 25% in a high-yield debt fund for SWP, 15% in gold for safety, and 10% in a multi-asset fund for extra diversification. This mix aims to generate ~10% returns while keeping risk low. The portfolio supports SWP, estate planning, and inflation protection.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your hybrid and multi-asset funds will fall, but not as much as pure stock funds.",
+      "Credit risk funds can see small dips if a company delays interest payment — but this fund is well-managed.",
+      "Gold prices can stay flat for years — don't expect high growth from this portion.",
+      "Your 30% tax slab means debt and gold gains are taxed fully — we minimize this by focusing on long-term holding and SWP efficiency."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.6,
+    "reasoning": "**passive_instrument_fraction**: 0.0. The equity portion of the plan (largely held in the Aggressive Hybrid, Multi Asset, and potentially the Credit Risk fund) appears to be in actively managed funds. The selected funds (ICICI Aggressive Hybrid, Invesco Gold ETF, Bank of India Credit Risk, Nippon Multi Asset) are all actively managed vehicles with high alpha values in the data provided. There are no pure passive index funds or broad-market equity ETFs in the equity allocation.\n\n**turnover_score**: 0.6. While the plan considers a medium-to-long-term horizon, the review guidelines are quite aggressive. It suggests checking performance after just 6 months and rebalancing if a fund underperforms for only 2 quarters. This frequency of review and the condition-based replacement strategy introduce a level of active monitoring and potential churning that leans away from a pure buy-and-hold philosophy.\n\n**cost_emphasis_score**: 0.4. The plan mentions expense ratios for a couple of funds (showing 0% and 1.0%) but does not argue for these based on low costs. The selection rationale focuses on manager track records, alpha, trustworthiness of the fund house, and safety nets (gold), rather than minimizing total cost of ownership or explicit fee comparisons.\n\n**research_vs_cost_score**: 0.6. The plan relies on broad market exposure through multi-asset and hybrid strategies rather than individual stock picks. It mentions sensitive metrics like 'alpha' and 'beta' and highlights 'trust' in fund houses. There is no evidence of deep individual security analysis (PEG, moats, etc.), leaning more toward the passive spectrum of relying on fund manager allocation than active research.\n\n**time_horizon_alignment_score**: 0.6. The plan is designed for a 63-year-old retiree focused on income generation (SWP), which supports a long-term view. However, the short review windows (6 months, 2 quarters for replacement) and tactical re-balancing rules imply a need for ongoing attention that is less passive than a 'set and forget' 1.0 score. It is a long-term income plan but requires active maintenance.\n\n**portfolio_activeness_score**: 0.6. The portfolio is heavily weighted into actively managed funds (Hybrid, Gold ETF, Credit Risk, Multi-Asset) which all exhibit high alpha and low beta compared to the Nifty 50 proxy (indicating they are actively managed relative to a large-cap equity benchmark). While Gold is a passive instrument by nature (tracking spot price), the equity and debt components are actively managed. The portfolio lacks a true index fund or ETF to anchor the equity sleeve to the passive spectrum.",
+    "composite_aps": 0.46666666666666673
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.75,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan demonstrates high quality overall.\n\n**Goal Alignment (0.95):** Excellent alignment with the investor's need for retirement income (SWP), estate planning (via gold and diversified corpus), and capital protection. The 8-year horizon and conservative risk profile are well-respected.\n\n**Diversification (0.75):** Good coverage across asset classes (Equity, Debt, Gold, Multi-Asset) across two fund houses (ICICI Prudential, Bank of India, Invesco, Nippon India). However, the 50% allocation to a single Aggressive Hybrid Fund is a slight concentration risk, preventing a perfect score despite the multi-asset and gold holdings providing breadth.",
+    "composite_pqs": 0.89
+  },
+  "timestamp": "2026-04-18T07:36:18.957787Z",
+  "prompt_version": "v1"
+}

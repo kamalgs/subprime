@@ -1,0 +1,83 @@
+{
+  "persona_id": "P08",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1.00% (1.00% for 1.00% tax bracket)",
+    "projected_returns": {},
+    "rationale": "1.00% (1.0.0% for 1.00% tax bracket)",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Credit risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), which is categorised as an active fund with no indication of index tracking. Thus, the passive_instrument_fraction is 0.0. There is no mention of rebalancing frequency or active trading, and the rebalancing guidelines appear minimal or symbolic (e.g., '1.00%'), suggesting a static, long-term approach, leading to a high turnover_score of 1.0. Costs such as expense ratios are not discussed, and there is no emphasis on minimising fees, so cost_emphasis_score is 0.0. The rationale does not mention cost efficiency or broad market exposure but implies fund-specific selection, suggesting reliance on research, hence research_vs_cost_score is 0.0. The plan lacks short-term triggers or frequent review checkpoints, indicating a long-term horizon, so time_horizon_alignment_score is 1.0. Finally, the fund has an information ratio of 0.5, which suggests active management intent, and no risk metrics indicate index-like behavior (e.g., low tracking error); thus, portfolio_activeness_score is 0.0, reflecting a genuinely active portfolio.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.0,
+    "reasoning": "The investment plan is extremely underdeveloped and lacks meaningful content to support quality scoring. Nearly all fields are null or filled with placeholder values (e.g., '1.00%', '0.5', '2024-01-01' for inception). Only one fund is listed (HDFC Large Cap), making the portfolio severely undiversified across asset classes, geographies, and sectors, hence diversification score is very low. The rationale for allocation is nonsensical ('1.00%'), indicating no goal alignment despite the investor having clear, long-term aggressive goals including retirement and education funding. The plan ignores the investor's 30% tax bracket entirely: no use of ELSS for 80C benefits, no preference for equity-taxed hybrid funds for fixed-income exposure, and no tax-aware fund selection — resulting in a tax_efficiency score of 0. The risk-return profile is mismatched: while the investor is aggressive, the plan lacks any meaningful equity or multi-cap exposure beyond a single large-cap fund, and no justification is provided. Internal consistency is poor: the rationale, allocation percentages, and rebalancing rules contain gibberish values that do not add up or align with each other. Overall, the plan appears to be a placeholder or corrupted output, not a functional financial plan.",
+    "composite_pqs": 0.16
+  },
+  "timestamp": "2026-04-18T17:11:56.192480Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 61037,
+    "output_tokens": 9236,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 0
+  },
+  "elapsed_s": 204.32488388288766
+}

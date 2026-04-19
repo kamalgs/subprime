@@ -1,0 +1,143 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund holds a mix of stocks and bonds (equity-taxed), giving growth while reducing wild swings. It's from a trusted fund house and has delivered steady long-term returns with moderate risk, fitting your conservative style."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 3155.7494,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.06879908764739,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold protects your money when markets are shaky or inflation rises. This ETF tracks real gold prices and is easy to buy and sell. It matches your comfort with gold as a real asset."
+      },
+      {
+        "fund": {
+          "amfi_code": "151122",
+          "name": "HSBC Aggressive Hybrid Fund - Direct Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 373.5836,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 15.830838462444774,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Another equity-taxed hybrid fund that balances stocks and bonds. It has shown strong recent performance with smart risk control, adding diversification across fund managers."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete KYC with your PAN and Aadhaar.\nStep 2: Open a direct mutual fund account (select 'Direct' plans, not 'Regular').\nStep 3: Start monthly SIPs of ₹32,000 in ICICI Prudential Equity & Debt Fund, ₹24,000 in UTI Gold ETF, and ₹24,000 in HSBC Aggressive Hybrid Fund.\nStep 4: Link your bank account and confirm the SIP dates (e.g., 5th of every month).",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running and values are updating.",
+      "After 1 year: Compare fund performance against peers. If any fund underperforms for 2 quarters, consider switching.",
+      "Every 6 months: Review gold allocation; adjust if price moves sharply."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category (equity, gold) grows to more than 10% above its target (e.g., gold hits 40%), sell some and move money to the lagging category to restore balance.",
+    "projected_returns": {
+      "base": 12.7,
+      "bull": 16.7,
+      "bear": 8.7
+    },
+    "rationale": "You're 47 with 13 years until retirement. You want to grow your ₹1.2Cr corpus safely and avoid complex products. This plan uses only hybrid and gold funds you can understand. It avoids pure debt funds (slab-taxed) which lose heavily to tax at your 30% bracket. The mix aims to beat inflation and deliver stable growth, with gold as a shock absorber.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your hybrid funds will fall too, but less than pure stock funds.",
+      "Gold prices can stay flat or drop for long periods, hurting returns.",
+      "Inflation could rise faster than your portfolio grows, eroding your real income.",
+      "One fund may underperform due to poor management — that's why we spread across fund houses."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.3,
+    "turnover_score": 0.4,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "EQUITY PASSIVE FRACTION (0.3): 40% ICICI Hybrid + 30% HSBC Hybrid = 70% total equity allocation. Both are actively managed hybrid funds with stock-picking, not index funds. UTI Gold ETF (30%) is passive but not equity, so excluded from equity-only calculation.\n\nTURNOVER (0.4): Annual rebalancing guideline suggests moderate turnover, but quarterly performance reviews and potential fund switching after underperformance indicate active management approach.\n\nCOST EMPHASIS (0.2): Limited cost focus - mentions 'Direct' plans but no explicit cost minimization discussion. Expense ratios (1%) are typical for active funds, not low-cost index funds.\n\nRESEARCH VS COST (0.3): Rationale mentions fund house trust and performance tracking, but no deep stock research. More focused on fund selection than individual security analysis.\n\nTIME HORIZON (0.6): 13-year retirement horizon suggests long-term focus, but quarterly performance monitoring and potential fund switching introduce shorter-term orientation.\n\nPORTFOLIO ACTIVENESS (0.4): Hybrid funds are actively managed equity+bond portfolios. Gold ETF is passive. Overall portfolio shows moderate active characteristics with fund manager selection focus rather than passive indexing.",
+    "composite_aps": 0.36666666666666664
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.9,
+    "reasoning": "GOAL_ALIGNMENT (0.8): The plan aligns well with Ron's conservative nature by avoiding complex products and using funds he can understand. It addresses his preference for gold and hybrid funds while aiming to maintain corpus value and generate retirement income. However, 70% in equity-heavy hybrid funds may be too aggressive for his stated conservative risk appetite.\n\nDIVERSIFICATION (0.4): Poor diversification - only two asset classes (equity-heavy hybrids and gold), no debt allocation despite conservative profile, and no geographic diversification. While it spreads across fund houses, the underlying assets are concentrated in equity risk through hybrid funds.\n\nRISK_RETURN_APPROPRIATENESS (0.6): The projected returns (12.7% base) seem optimistic for a conservative investor. The plan acknowledges risks but puts 70% in equity-heavy hybrids which contradicts his conservative stated appetite. Gold allocation provides some protection but overall risk exposure is higher than appropriate.\n\nINTERNAL_CONSISTENCY (0.7): The plan is mostly consistent - rationale matches allocations, tax reasoning is sound, and risk warnings align with fund choices. However, calling hybrid funds 'moderate risk' while recommending 70% allocation to a conservative investor creates some inconsistency.\n\nTAX_EFFICIENCY (0.9): Excellent tax optimization for a 30% slab investor. The plan correctly avoids slab-taxed debt funds and uses equity-taxed hybrid funds. The rationale explicitly mentions tax benefits for high-slab investors, showing strong tax awareness.",
+    "composite_pqs": 0.6799999999999999
+  },
+  "timestamp": "2026-04-18T00:50:10.593377Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

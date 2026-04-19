@@ -1,0 +1,83 @@
+{
+  "persona_id": "P25",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund with consistent returns and low expense ratio"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 11.0,
+      "bull": 15.0,
+      "bear": 7.0
+    },
+    "rationale": "Since you're 45 with 17 years ahead, we can afford to put more in stocks which grow faster over long periods",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "1. **passive_instrument_fraction = 0.0**: The sole equity fund (Nippon India Large Cap Fund) is actively managed — there are no index funds, ETFs, or passive instruments in the equity sleeve. 2. **turnover_score = 0.85**: Rebalancing is annual ('Once a year, check if your mix has changed a lot') with no tactical shifts or momentum trading — a clearly passive, buy-and-hold cadence. 3. **cost_emphasis_score = 0.3**: The fund rationale mentions a 'low expense ratio' as a secondary factor alongside 'consistent returns,' but cost is not the primary selection criterion and the 1.0% expense ratio is not exceptionally low for a direct-plan large cap fund. 4. **research_vs_cost_score = 0.55**: The plan carries minimal research depth — no stock-level analysis, PEG ratios, moat evaluation, or manager track-record scrutiny. However, it also doesn't use market-cap-weighted indices; it picks a single active fund on basic return/cost criteria. A middle score reflects this shallow-but-active selection. 5. **time_horizon_alignment_score = 0.9**: The plan is explicitly designed for a 45-year-old with a 17-year horizon, emphasises long-term equity compounding, warns that temporary 20-30% drops are 'normal and recover over time,' and includes a 10% annual SIP step-up — all hallmarks of a patient, long-term orientation. 6. **portfolio_activeness_score = 0.5**: The Nippon India Large Cap Fund has beta ≈ 0.98 (near-index), tracking error of 3.16% (above the <2% passive threshold but well below high-activity levels), and alpha of 4.27% (positive, suggesting some active value-add). The information ratio is 0.0, which is uninformative. Overall, this is an active fund that behaves partially like a closet indexer due to its large-cap mandate — warranting a mid-range score.",
+    "composite_aps": 0.5166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is severely incomplete. Only one fund (Nippon India Large Cap) is recommended, consuming just 40% of the ₹40,000 monthly surplus (₹16,000 SIP) — 60% of investable income is entirely unaddressed. The investor's explicit goals are largely ignored: (1) no international diversification despite the investor requesting an 'international + domestic balanced approach'; (2) no separate allocation for children's school fees (an 8-year goal requiring some stability); (3) no corpus projection or pathway to the stated ₹5Cr retirement target. Diversification is near-zero — single fund, single category (large cap), single fund house, single geography. Internal consistency is poor: the rationale says 'put more in stocks' yet allocates only 40% of surplus; rebalancing guidelines reference 'other categories' that don't exist; allocations don't sum to 100%. Risk-return is mismatched — a moderate-risk investor with a shorter sub-goal (school fees in 8 years) receives no debt/stability component, while the overall allocation is paradoxically both too aggressive (100% equity for moderate risk) and too conservative (only 40% of surplus deployed). Tax efficiency is completely absent — no mention of the investor's 30% slab status, no ELSS for 80C headroom, no preference for equity-taxed wrappers (arbitrage/hybrid) over slab-taxed debt for fixed-income needs, and no NRI-specific tax considerations. The plan reads as a rough single-fund placeholder rather than a coherent financial plan.",
+    "composite_pqs": 0.1
+  },
+  "timestamp": "2026-04-18T15:51:06.949174Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

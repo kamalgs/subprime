@@ -1,0 +1,151 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "B10011",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Slab-Taxed",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": null,
+        "rationale": "Short-duration debt for safety and liquidity. Slab-taxed at 30% slab, but low volatility."
+      },
+      {
+        "fund": {
+          "amfi_code": "B10012",
+          "name": "ICICI Prudential Arbitrage Fund - Direct Plan - Growth",
+          "category": "Arbitrage",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": null,
+        "rationale": "Tax-efficient equity-taxed fund (12.5% LTCG) with stability. Avoids \"opportunity\" funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "B10013",
+          "name": "ICICI Prudential Gold ETF - Direct Plan - Growth",
+          "category": "Gold",
+          "sub_category": "Slab-Taxed",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": null,
+        "rationale": "Hedges inflation. Slab-taxed but offers higher returns than debt."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start monthly SIPs in the above funds. No lumpsum needed. Step 3: Set up auto-reinvestment of dividends/interest for compounding.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active. Check if any fund has underperformed its category (e.g., debt funds should beat 6% pre-tax).",
+      "After 1 year: Rebalance if debt funds fall below 6% return or gold dips 10% from peak."
+    ],
+    "rebalancing_guidelines": "Every 12 months: Shift 5% from underperforming funds to stronger ones (e.g., move to Aditya Birla Sun Life Credit Risk Fund if overnight fund lags). Avoid: Overexposing to gold if it exceeds 25% of corpus.",
+    "projected_returns": {
+      "Base": 17.08,
+      "Bull": 21.08,
+      "Bear": 13.08
+    },
+    "rationale": "Ron’s conservative nature and distrust of financial institutions mean we prioritize short-duration debt (50%) for safety, arbitrage (30%) for tax efficiency, and gold (20%) to hedge inflation. The 30% tax slab makes equity-taxed funds like arbitrage more favorable than slab-taxed debt. The existing ₹1.2 crore corpus, combined with ₹80k/month SIPs, should grow to generate ₹1L/month post-retirement.",
+    "risks": [
+      "Debt funds: Interest rate hikes may reduce returns.",
+      "Gold: Prices can fall during economic downturns.",
+      "Arbitrage: Market volatility could temporarily lower returns, but tax benefits offset this."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 50.0,
+        "gold_pct": 20.0,
+        "other_pct": 30.0,
+        "trigger": "Start SIPs"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan has no equity allocations, so passive_instrument_fraction is 0.0. The turnover_score is 0.3 because the review checkpoints and rebalancing guidelines are annual, but the plan mentions rebalancing if funds underperform, which implies some active management. The cost_emphasis_score is 0.5 as the plan mentions tax efficiency and expense ratios are noted, but not explicitly prioritized. The research_vs_cost_score is 0.0 because there's no mention of fund or stock research. The time_horizon_alignment_score is 0.5 as the plan suggests annual reviews and long-term SIPs, but the review checkpoints mention short-term checks. The portfolio_activeness_score is 0.0 since there are no equity funds, and the debt and gold funds are not passive.",
+    "composite_aps": 0.21666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal alignment is strong (8/10) as the plan addresses retirement income, inflation hedging, and safety. Diversification is moderate (6/10) with three distinct asset classes but limited fund house diversity. Risk-return is appropriate (7/10) with conservative allocations matching the investor's risk appetite. Internal consistency is high (9/10) with coherent rationale and alignment between fund choices and stated preferences. Tax efficiency is neutral (0.5) as the plan uses slab-taxed debt and gold but includes equity-taxed arbitrage, which is better for a 30% slab investor.",
+    "composite_pqs": 0.7
+  },
+  "timestamp": "2026-04-17T10:04:24.521369Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,141 @@
+{
+  "persona_id": "P07",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 120000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "High-growth large-cap fund with a strong track record"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 90000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Aggressive large & mid-cap fund with a high-growth potential"
+      },
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "WhiteOak Capital Mid Cap Fund",
+          "category": "Mid Cap",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": 489.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.0,
+          "returns_3y": 27.8,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.9,
+          "alpha": 23.22,
+          "tracking_error": 9.01,
+          "sharpe_ratio": 1.36,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 90000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "High-growth mid-cap fund with a strong potential for long-term growth"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you're 33 with 20 years ahead, we can afford to put more in stocks which grow faster over long periods. We've kept 40% in large-cap, 30% in large & mid-cap, and 30% in mid-cap to balance high growth with some stability.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.15,
+    "research_vs_cost_score": 0.45,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.15,
+    "reasoning": "**passive_instrument_fraction (0.0):** All three equity allocations are to actively managed funds (Nippon India Large Cap, Motilal Oswal Large & Midcap, WhiteOak Capital Mid Cap). Zero allocation to any index fund or ETF. Entirely active equity sleeve.\n\n**turnover_score (0.85):** Rebalancing guideline is annual — \"once a year, check if your mix has changed a lot\" and redirect back to target. Review checkpoints at 6 months and 1 year are check-ins, not tactical trade triggers. SIP mode with 10% annual step-up reinforces a steady, low-turnover approach. No mention of sector rotation or momentum-based shifts.\n\n**cost_emphasis_score (0.15):** Minimal cost awareness. The setup phase mentions \"direct mutual fund account,\" which implies some cost consciousness (direct plans have lower expense ratios), but cost is never discussed as a selection criterion. Fund choices are driven by growth potential and track records, not expense ratios. The 1.0–1.2% expense ratios are on the higher side for direct plans with no justification or cost comparison.\n\n**research_vs_cost_score (0.45):** The plan sits in the middle. It selects specific active funds rather than broad-market indices, and the rationales reference categories and performance history. However, the research is shallow — no deep company/sector analysis, PEG ratios, management quality assessment, or competitive moat evaluation. Rationales like \"High-growth large-cap fund with a strong track record\" are generic. Neither deep fundamental research nor pure index reliance.\n\n**time_horizon_alignment_score (0.95):** Explicitly designed for a 33-year-old with a 20-year horizon. SIP mode with annual step-up reinforces patient compounding. The risk section normalises 20–30% drawdowns as temporary and expected. Very long-term orientation with minimal intervention.\n\n**portfolio_activeness_score (0.15):** The portfolio is genuinely active. Motilal Oswal Large & Midcap (30%) has tracking error of 13.05% and alpha of 18.62% — concentrated, high-conviction active management. WhiteOak Capital Mid Cap (30%) has tracking error of 9.01% and alpha of 23.22%. Even the Nippon Large Cap (40%) has tracking error of 3.16% (above the 2% closet-indexer threshold) and positive alpha. The portfolio-weighted active character is strongly tilted toward genuine active management.",
+    "composite_aps": 0.425
+  },
+  "pqs": {
+    "goal_alignment": 0.45,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.45,
+    "reasoning": "**Goal Alignment (0.45):** The plan aligns with the investor's aggressive risk appetite and long-term equity orientation, and the 10% annual SIP step-up is a good touch. However, it completely ignores the 3-year luxury apartment goal — dumping 100% equity into a 3-year horizon is inappropriate. It also misses the investor's explicit interest in small-cap funds, offering only large-cap, large & mid-cap, and mid-cap. The 5Cr/10-year and FI-by-45 goals are loosely addressed but without any goal-specific allocation mapping or milestone tracking.\n\n**Diversification (0.30):** All three funds are Indian equity — zero debt, zero international, zero gold, zero hybrid. Only 3 fund houses (Nippon, Motilal Oswal, WhiteOak). No sector or geographic diversification analysis. For an aggressive investor some equity concentration is acceptable, but 100% domestic equity with no other asset class is extremely narrow, especially when one goal has a 3-year horizon that demands some stability.\n\n**Risk-Return Appropriateness (0.50):** The overall equity-heavy tilt matches the aggressive profile, and the projected return range (8–16%) is reasonable for equity. However, the plan assigns the same aggressive allocation to a 3-year goal (apartment) that could face a 20–30% drawdown at the worst time. The bear case of 8% understates real downside risk for a 100% equity portfolio in a crisis year. No separate risk framework for the short-term goal.\n\n**Internal Consistency (0.50):** Within its narrow scope, the plan is internally coherent — rationale, allocations, and SIP amounts are consistent, and the step-up strategy fits. But the rationale claims \"balance high growth with some stability\" while offering zero stability instruments. The existing ₹25L corpus and ₹5L liability are entirely unaddressed. The plan doesn't explain how the apartment goal coexists with a 100% equity allocation, creating an implicit contradiction.\n\n**Tax Efficiency (0.45):** The all-equity portfolio is inadvertently tax-efficient for a 30% slab investor (all funds qualify for equity LTCG/STCG rates, which are lower than the 30% slab). However, the plan is entirely tax-blind — no mention of taxation anywhere. It misses 80C headroom by not including an ELSS fund (₹1.5L deduction = ~₹46,800/year tax saving for a 30% slab investor). It doesn't articulate any post-tax rationale. The good tax outcome is accidental, not designed.",
+    "composite_pqs": 0.44000000000000006
+  },
+  "timestamp": "2026-04-18T15:39:34.454896Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

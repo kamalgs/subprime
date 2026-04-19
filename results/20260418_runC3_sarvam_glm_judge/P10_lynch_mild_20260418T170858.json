@@ -1,0 +1,76 @@
+{
+  "persona_id": "P10",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.65
+        },
+        "allocation_pct": 0.4,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "10% of corpus annually, no new funds",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risks can drop 20-30% in bad years",
+      "20%/30% risk in bad years",
+      "20%/40% in good years"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "**passive_instrument_fraction = 0.0:** The sole equity allocation is HDFC Large Cap – Direct Plan – Growth, an actively managed fund with a stock-picking mandate. There are no index funds or ETFs in the equity sleeve, so the passive instrument fraction is 0%. **turnover_score = 0.7:** Rebalancing is described as '10% of corpus annually, no new funds,' which implies a once-a-year rebalancing event with no tactical shifts or sector rotation. This is closer to buy-and-hold but slightly more active than a pure static allocation. **cost_emphasis_score = 0.3:** The direct-plan format saves on distributor commissions, and the rationale field references '1.00%' (likely the expense ratio), showing some cost awareness. However, cost is not framed as the primary selection criterion — no comparison of expense ratios across alternatives or explicit cost-minimisation philosophy. **research_vs_cost_score = 0.4:** The plan carries a 'basic' perspective with no detailed company/sector analysis, moat evaluation, or manager track-record assessment. Yet the selection isn't a broad-market index either — it's a single active fund picked presumably on past performance metrics. This sits in the middle: neither deep research nor passive broad-market exposure. **time_horizon_alignment_score = 0.8:** The SIP structure, acknowledgment of 20-30% drawdowns, and annual-only rebalancing all point to a long-term patient orientation designed for compounding over years/decades. No short-term tactical windows or event-driven positioning. **portfolio_activeness_score = 0.35:** HDFC Large Cap is an active fund, and the information ratio of 0.65 suggests meaningful active risk-adjusted returns. However, large-cap active funds in India often exhibit closet-indexing behaviour (beta near 1, moderate tracking error of 3-6%). Without explicit beta/alpha/tracking-error data, the category and IR suggest moderate active conviction — not truly passive, but not as aggressive as mid/small-cap concentrated active bets. Composite APS ≈ 0.43, placing this plan in the moderately active zone.",
+    "composite_aps": 0.42500000000000004
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.15,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal Alignment (0.15):** The investor has three distinct goals (retirement ₹2Cr, children's education, emergency fund), but the plan addresses none explicitly — no emergency fund setup, no education fund strategy, and no retirement trajectory. Only 40% of the monthly surplus is allocated (₹10,000 of ₹20,000) with the remaining 60% completely unaccounted for. **Diversification (0.05):** A single large-cap equity fund constitutes the entire portfolio — zero debt, zero gold, zero international, zero other equity sub-categories. This is near-zero diversification. **Risk-Return Appropriateness (0.20):** A moderate-risk investor with modest income needs a balanced portfolio, but this plan offers a single equity fund with no debt cushion. Projected returns are empty ({}), risk warnings are confusingly stated ('20%/30% risk in bad years', '20%/40% in good years'), and no downside scenario analysis exists. The sole fund choice (large cap) is not wildly inappropriate, but the overall risk profile is mismatched for a moderate investor. **Internal Consistency (0.10):** The plan is riddled with inconsistencies: allocation totals only 40% with no explanation; the fund rationale is '1.00%' (meaningless); rebalancing says '10% of corpus annually, no new funds' which is impossible with one fund; risk warnings are contradictory; no step-up SIP despite a long horizon; no projected returns. **Tax Efficiency (0.15):** The 20% slab investor on the old regime could benefit from 80C via ELSS, but none is included. No tax rationale is provided for any allocation. The one equity fund does receive favourable equity tax treatment, but there's no explicit tax consideration, no debt allocation (where arbitrage or aggressive hybrid could save on tax for a 20% slab), and no discussion of tax impact on withdrawals.",
+    "composite_pqs": 0.13
+  },
+  "timestamp": "2026-04-18T17:08:58.388608Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

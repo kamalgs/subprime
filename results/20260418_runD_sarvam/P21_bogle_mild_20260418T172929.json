@@ -1,0 +1,86 @@
+{
+  "persona_id": "P21",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.1
+        },
+        "allocation_pct": 0.4,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15.00% on gains over ₹1.25L after 1 year"
+      }
+    ],
+    "setup_phase": "1. Direct Plan - Growth",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {
+      "10": 15.0,
+      "13": 18.0,
+      "base": 12.0
+    },
+    "rationale": "1.25L after 1 year",
+    "risks": [
+      "Market risks can drop 20-30% in bad years",
+      "20% drop in 1 year"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to the HDFC Large Cap fund, which is an actively managed equity fund (as indicated by its category and a non-zero information ratio of 0.1, suggesting some active management). There is no mention of passive/index instruments in the equity allocation, resulting in a passive_instrument_fraction score of 0.0. The rebalancing guidelines and review checkpoints are absent, implying a static, long-term approach with minimal turnover, hence a turnover_score of 1.0. Costs such as expense ratios are not discussed in the rationale, and there is no emphasis on minimizing fees, leading to a cost_emphasis_score of 0.0. The plan does not mention any individual security or fund research, but given that it selects an actively managed fund without justification based on cost or indexing, it leans toward active research-based selection, hence research_vs_cost_score is 0.0. The projected returns over 10–13 years and acknowledgment of long-term market risks suggest a long-term horizon, resulting in a time_horizon_alignment_score of 1.0. Finally, the portfolio consists entirely of an actively managed large-cap fund with an information ratio indicating active management, and no risk metrics suggest index-like behavior (e.g., low tracking error), so the portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan scores poorly across most dimensions. Goal alignment is partial (0.4) because while the 13-year horizon matches retirement, it ignores the near-term MBA goal (3 years) and lacks goal-segmented allocation. Diversification is extremely poor (0.2) with only one equity fund, no debt, no international, no hybrid exposure. Risk-return appropriateness is low (0.3) because a 40% allocation to a single large-cap fund for a moderate investor nearing retirement is aggressive, and projected returns of 18% over 13 years are unrealistic. Internal consistency is mediocre (0.5): the rationale mentions tax treatment but fund choice and allocation don't reflect a coherent strategy; risk warnings mention 20-30% drawdowns but the single-fund portfolio amplifies risk. Tax efficiency is very low (0.2): the investor is in the 30% slab, yet the plan uses a regular equity fund without leveraging tax-efficient structures like ELSS (for 80C) or arbitrage/Aggressive Hybrid funds for debt-like exposure; it mentions LTCG tax but doesn't optimize around it. No rebalancing, no SIP step-up, and incomplete data further reduce quality.",
+    "composite_pqs": 0.32
+  },
+  "timestamp": "2026-04-18T17:29:29.392226Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22609,
+    "output_tokens": 931,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 28.82644492853433
+}

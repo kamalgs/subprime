@@ -1,0 +1,104 @@
+{
+  "persona_id": "P21",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "1990-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1y",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "market_volatility",
+      "sector_risks",
+      "liquidity_risks"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Start with a diversified equity-heavy portfolio with large-cap and multi-cap exposure. Increase allocation to mid-caps as markets stabilize. Reduce equity exposure gradually in last 2 years of the 13-year horizon."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 45.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.4,
+    "cost_emphasis_score": 0.15,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.75,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "**passive_instrument_fraction (0.0):** The entire equity allocation (100%) is directed to HDFC Large Cap Direct Plan, which is an actively managed large-cap fund — not an index fund or ETF. Zero passive equity instruments.\n\n**turnover_score (0.4):** Rebalancing is specified as annual ('1y'), which is moderately passive. However, the SIP step-up description mentions tactical adjustments — 'Increase allocation to mid-caps as markets stabilize' and 'Reduce equity exposure gradually in last 2 years' — implying some active allocation timing. Not purely buy-and-hold, but not高频 trading either.\n\n**cost_emphasis_score (0.15):** The choice of a 'Direct Plan' (lower expense ratio than regular plans) shows minimal cost awareness, but there is no explicit discussion of expense ratios, transaction costs, or tax efficiency as selection criteria. The expense_ratio field is 0.0/unavailable, and no cost rationale is provided.\n\n**research_vs_cost_score (0.2):** No deep security-level research (no PEG ratios, moat analysis, management quality evaluation) is presented in the plan. However, the selection of a specific actively managed fund rather than a broad-market index implies some fund-level research (the information_ratio of 0.55 suggests a track record was considered). Minimal but not zero research orientation.\n\n**time_horizon_alignment_score (0.75):** The 15-year horizon noted in the rationale and the 13-year SIP step-up plan signal a genuinely long-term orientation. The annual rebalancing is appropriate for this horizon. The planned tactical shifts (adding mid-caps later, reducing equity near the end) are modest and timeline-driven rather than event-driven, keeping this firmly in long-term territory.\n\n**portfolio_activeness_score (0.3):** The single fund is actively managed (HDFC Large Cap) with an information_ratio of 0.55, suggesting genuine active skill. However, large-cap funds in India typically run close to their Nifty 50 benchmark (beta ≈ 1.0, tracking error typically 2–5%) — they're often 'closet semi-indexers.' Without explicit beta/tracking_error data, the large-cap category label and IR suggest moderate active conviction, not extreme active management.",
+    "composite_aps": 0.3
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is severely deficient across nearly every dimension:\n\n**Goal Alignment (0.10):** The investor has three clear goals — retirement (13-year horizon), son's MBA (₹25L in 3 years), and annual travel — yet the plan addresses none of them specifically. There is no dedicated short-term allocation for the MBA goal due in just 3 years. The single fund (HDFC Large Cap) contradicts the investor's stated preference for flexi-cap and multi-asset. The fund rationale says '15y' but the horizon is 13 years.\n\n**Diversification (0.05):** Only one fund from one category (Large Cap) and one fund house (HDFC). No debt, no gold, no international exposure, no flexi-cap, no multi-asset — despite the investor explicitly requesting flexi-cap and multi-asset. This is essentially zero diversification.\n\n**Risk-Return Appropriateness (0.15):** While large-cap equity is not wildly mismatched for a moderate-risk investor, the plan is so incomplete that it fails to present a coherent risk-return framework. Only 40% of the portfolio is allocated (the remaining 60% is unspecified). No projected returns, no downside scenarios, and the allocation schedule bizarrely shows 0% equity in years 1–3 while recommending a 40% equity fund.\n\n**Internal Consistency (0.05):** Riddled with contradictions: (1) Allocations section says 40% equity (HDFC Large Cap), but allocation schedule says 0% equity and 50% debt in year 1; (2) No debt fund is recommended despite 50% allocation to debt in year 1; (3) Allocations total only 40%, leaving 60% unaccounted for; (4) SIP step-up of 10% is mentioned but no SIP amount is set (mode = lumpsum, monthly_sip = 0); (5) SIP description mentions 'diversified equity-heavy portfolio with large-cap and multi-cap' but only one large-cap fund exists; (6) Fund rationale says '15y' horizon vs actual 13-year horizon.\n\n**Tax Efficiency (0.10):** The investor is in the 30% slab — the highest tax bracket — yet the plan is entirely tax-blind. No mention of ELSS to utilize 80C deductions (investor is likely old regime given 30% slab). The allocation schedule pushes 50%/45%/40% into debt without specifying any fund, and with no discussion of tax-efficient alternatives like arbitrage funds or aggressive hybrid funds (which get equity tax treatment). No tax rationale is provided for any allocation choice.",
+    "composite_pqs": 0.09000000000000001
+  },
+  "timestamp": "2026-04-18T17:55:59.726117Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

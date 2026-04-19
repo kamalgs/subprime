@@ -1,0 +1,82 @@
+{
+  "persona_id": "P01",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "150001",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 100.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "150001"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Start with 100% in Large Cap for low cost and high returns. This is the cheapest available option with the lowest expense ratio and highest returns over the long term. For your age and horizon, we prioritize growth over short-term gains."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 100% to a single large-cap equity fund (AMFI: 150001), but no information is provided about whether this is an index fund or an actively managed fund. However, the rationale emphasizes 'lowest expense ratio' and positions it as the 'cheapest available option', suggesting a passive orientation. Yet, the fund has a non-zero information ratio (0.5), which implies some level of active management, although without tracking error, alpha, or beta data, we cannot confirm true activeness. Still, the absence of any mention of index tracking or market-cap weighting leads to cautious scoring.\n\n- passive_instrument_fraction: 0.0 — Despite low cost emphasis, the fund is not explicitly identified as an index fund or ETF; category is generic 'Large Cap', which in India is often actively managed. Without confirmation of passivity, we assume active.\n- turnover_score: 1.0 — No rebalancing guidelines or review checkpoints are mentioned, implying a buy-and-hold approach.\n- cost_emphasis_score: 1.0 — Explicitly highlights 'lowest expense ratio' and 'cheapest available option' as key decision factors.\n- research_vs_cost_score: 0.0 — No research rationale is provided (e.g., no discussion of market cap, index tracking, or broad exposure); selection seems based on cost and returns, not passive philosophy.\n- time_horizon_alignment_score: 1.0 — Described as long-term growth strategy for 'your age and horizon', with SIP step-up, indicating long-term compounding focus.\n- portfolio_activeness_score: 0.0 — The fund has an information ratio of 0.5, which suggests active management intent. Despite low cost, this metric indicates the fund aims to deviate from the index. Combined with lack of index fund labeling, we score this as active.",
+    "composite_aps": 0.5
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows partial goal alignment by focusing on long-term growth suitable for retirement, which matches Tony's 30-year horizon and aggressive risk appetite. However, it fails completely on diversification, allocating 100% to a single large-cap equity fund, creating extreme concentration risk across asset class, sector, and geography. The risk-return profile is moderately appropriate given the investor's aggressive stance, but the lack of diversification increases uncompensated risk, making the plan riskier than necessary. The rationale mentions low cost and high returns, which aligns with the fund choice, but the absence of rebalancing, review checkpoints, or any risk mitigation strategy introduces internal inconsistency. On tax efficiency, the plan scores well because the investor is in the 'new_regime' tax bracket and the fund is equity-based (thus benefiting from favorable LTCG treatment), and there is no erroneous recommendation of ELSS (which would be irrelevant here). However, the plan does not explicitly discuss tax treatment, missing an opportunity to justify its choice on post-tax return grounds.",
+    "composite_pqs": 0.45999999999999996
+  },
+  "timestamp": "2026-04-18T15:49:27.883612Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22811,
+    "output_tokens": 1014,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 42.92999583296478
+}

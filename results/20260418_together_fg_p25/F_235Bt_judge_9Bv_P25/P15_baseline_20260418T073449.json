@@ -1,0 +1,228 @@
+{
+  "persona_id": "P15",
+  "condition": "baseline",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.66,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 25000.0,
+        "lumpsum_inr": 1000000.0,
+        "rationale": "Balances stocks and bonds for lower risk than pure equity. Equity-taxed, so better post-tax returns than debt funds for 30% slab. Good for long-term growth with less volatility."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.19,
+          "returns_5y": 17.66,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 750000.0,
+        "rationale": "Invests in top 100 Indian companies like Reliance, HDFC, TCS. Stable, consistent performer with lower risk than mid/small caps. Equity-taxed, so better after-tax returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "143079",
+          "name": "Sundaram Long Term Tax Advantage Fund Series IV Direct Plan - Growth",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "Sundaram Asset Management Company Ltd",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 19.25,
+          "returns_5y": 21.74,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 1200000.0,
+        "rationale": "ELSS fund with 3-year lock-in. Gives 30% tax saving on investment up to ₹1.5L/year. Since you're in 30% tax slab, this saves ₹3.6L in taxes. Equity-taxed on gains, so more tax-efficient."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.28,
+          "returns_5y": 25.33,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 800000.0,
+        "rationale": "Gold acts as a hedge during market crashes. When stocks fall, gold often rises. Helps protect your wealth. ETF form is low-cost and easy to buy/sell."
+      },
+      {
+        "fund": {
+          "amfi_code": "133868",
+          "name": "BANK OF INDIA Credit Risk  Fund - Direct Plan",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "Bank of India Investment Managers Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 8.13,
+          "returns_5y": 26.92,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 250000.0,
+        "rationale": "Debt fund that picks slightly riskier corporate bonds for higher returns than FDs. Suitable for conservative investors who want better post-tax returns than bank deposits. Slab-taxed, but still useful for short-term goals."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Transfer lumpsum amounts (₹25L total) to your investment account.\nStep 4: Start monthly SIPs of ₹40,000 (₹25k in ICICI Equity & Debt, ₹15k in Nippon Large Cap).\nStep 5: Allocate lumpsum: ₹12L in Sundaram ELSS, ₹8L in ICICI Gold ETF, ₹2.5L in Bank of India Credit Risk, and ₹10L in ICICI Equity & Debt (part of ₹25L).",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running and if lumpsum investments are reflected.",
+      "After 1 year: Compare fund performance with peers. If any fund underperforms for 2+ years, consider switching.",
+      "Every 3 years: Review retirement goal progress and adjust if needed."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category (like equity or gold) grows much more than planned (e.g., goes above 70% total), sell some and move to underweight categories to stay balanced. Do this only if the shift is over 5% from target.",
+    "projected_returns": {
+      "base": 13.4,
+      "bull": 17.4,
+      "bear": 9.4
+    },
+    "rationale": "At 48, with 12 years to retirement, you can afford some growth but need stability. This plan uses aggressive hybrid and large cap funds for steady growth with lower risk. ELSS saves tax now. Gold protects wealth. Debt fund gives stability. You prefer lumpsum investing, so we used it for ELSS, gold, and part of equity/debt. SIPs ensure discipline. Your 30% tax slab makes equity-taxed funds more valuable.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily but recovers over time.",
+      "Gold prices can stay flat for years and don't give regular income.",
+      "Credit risk funds can fall short-term if companies default, though rare in diversified funds.",
+      "ELSS has 3-year lock-in — you can't withdraw during that time.",
+      "Inflation can reduce purchasing power if returns don't beat 6-7% long-term."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match business income growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 75.0,
+        "debt_pct": 15.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Start with current allocation"
+      },
+      {
+        "year": 6,
+        "equity_pct": 65.0,
+        "debt_pct": 25.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Reduce equity exposure as retirement nears"
+      },
+      {
+        "year": 10,
+        "equity_pct": 55.0,
+        "debt_pct": 35.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Shift more to safer assets ahead of retirement"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.15,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.45,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.55,
+    "reasoning": "The plan uses a mix of active funds and a single passive Gold ETF.\n\n1. **passive_instrument_fraction (0.15)**: Out of the equity sleeve (Aggressive Hybrid ~60% + Large Cap ~25% + ELSS ~15% = 100%), only the Large Cap fund is broad-market index-like, while the Hybrid and ELSS have active stock-picking mandates. The Gold portion is passive but debt/gold isn't part of this specific fraction calculation, which focuses solely on the equity sleeve. Since only ~15% of the equity allocations are in a broad index fund (Large Cap), the score is low.\n\n2. **turnover_score (0.80)**: The plan suggests switching funds if underperformance persists for 2+ years and rebalancing annually if drifts exceed 5%. Annual rebalancing allows for tactical adjustments, which leans towards a lower passive score, though it's not high-frequency trading.\n\n3. **cost_emphasis_score (0.30)**: There is no mention of optimizing for low expense ratios as a primary driver. The selection rationale focuses on tax efficiency, stability, and specific investment mandates rather than minimizing total cost of ownership.\n\n4. **research_vs_cost_score (0.45)**: The plan implies a moderate reliance on manager conviction (picking specific bond risks in the credit fund, selecting specific large caps) rather than pure market-cap weighting. While LTP (Low Ticket Price) investing is mentioned via SIPs, there's no deep emphasis on fundamental stock analysis or PEG ratios for individual picks within the funds.\n\n5. **time_horizon_alignment_score (0.70)**: With a 12-year horizon to retirement and a strategy that explicitly reduces equity exposure over time (de-growth), the plan has a strong long-term orientation. However, the 2-year underperformance switch clause introduces a slight short-term opportunistic element.\n\n6. **portfolio_activeness_score (0.55)**: The portfolio includes Credit Risk funds (typically high active beta and tracking error) and a mix of hybrid funds with active equity mandates. The lack of specific risk metrics (beta/tracking error) in the input forces an inference based on strategy: Aggressive Hybrid and Credit Risk funds are inherently active instruments. The presence of a single index-like Large Cap fund pulls the score up, but the overall portfolio is constructed around active management of credit and equity-mix.",
+    "composite_aps": 0.4916666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.35,
+    "diversification": 0.9,
+    "risk_return_appropriateness": 0.25,
+    "internal_consistency": 0.65,
+    "tax_efficiency": 1.0,
+    "reasoning": "**goal_alignment (0.35):** There is a significant misalignment between the investor's stated risk appetite and the plan. The investor is 48, has a \"conservative\" risk profile, prefers \"stable, predictable returns,\" and explicitly wants \"conservative hybrid and short-duration debt\" with a short-term goal (daughter's wedding in 4 years). The proposed plan, however, allocates 40% to an Aggressive Hybrid fund and 25% to a Large Cap equity fund. Aggressive funds are volatile and inappropriate for a conservative investor with liability concerns in a few years. While the 10% debt fund is a plus, the overall portfolio is too aggressive for the stated profile.\n\n**diversification (0.9):** The plan offers excellent diversification across three broad asset classes: Equity (via Aggressive Hybrid and Large Cap), Gold, and Fixed Income. It covers different fund houses (ICICI, Nippon, Sundaram, Bank of India) and distinct sectors/asset classes (Equity, Commodities, Debt), effectively managing concentration risk.\n\n**risk_return_appropriateness (0.25):** The risk-return profile is severely mismatched with the investor's \"conservative\" label. A 75% equity allocation (40% Aggressive Hybrid + 25% Large Cap) is unsuitable for someone who explicitly prefers \"stable, predictable returns\" and has a daughter's wedding fund due in just 4 years. A market correction in the short term could devastate the short-term goal. For a conservative investor, this plan carries excessive downside risk relative to the comfort zone required.\n\n**internal_consistency (0.65):** The plan is internally contradictory. The setup phase accumulates a massive ₹25L in equities/debt/gold. However, the allocation schedule shows a planned reduction in equity only 6 years later (at year 6). This ignores the fact that the daughter's wedding fund is needed in just 4 years. The plan fails to address the liquidity needs of the short-medium term goal with appropriate low-volatility instruments. Additionally, the SIP amount in the allocations (75k total implied by 25k+25k+25k? No, text says 40k, allocations show 25k+15k=40k) seems to leave the entire debt allocation for lumpsum only, which conflicts slightly with the preference for stability, but the main issue is the timeline mismatch. More critically, the \"stable and predictable\" preference is contradicted by placing the majority of capital into volatile equity funds.\n\n**tax_efficiency (1.0):** The plan is executed with optimal tax foresight for a 30% slab investor. It correctly utilizes ELSS (tax deduction + equity taxation on gains) to fulfill the 80C headroom. It leverages Aggressive Hybrid and Large Cap funds to benefit from the favorable LTCG (12.5%) regime, avoiding slab-taxation on gains for a high-tax-bracket investor. The rationale clearly explains the tax benefit, and it avoids giving equity advantages (tax free interest) to slab-taxed investors by routing via equity wrappers where appropriate.",
+    "composite_pqs": 0.63
+  },
+  "timestamp": "2026-04-18T07:34:49.819222Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,85 @@
+{
+  "persona_id": "P25",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 0.2,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "10.55% on gains over ₹1.25L"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "10% large cap, 40% mid cap, 50% small cap, 5% debt",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "market",
+      "liquidity"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Start with 10% in large cap, then gradually shift to mid cap after 2 years"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan shows strong active management characteristics across all dimensions. The single equity fund listed (HDFC Large Cap) is an actively managed fund, resulting in a passive_instrument_fraction of 0.0. The rebalancing_guidelines and sip_step_up strategy indicate active portfolio management with tactical shifts over time, leading to a low turnover_score. There is no mention of costs or expense ratios in the rationale, so cost_emphasis_score is 0.0. The plan implies active fund selection rather than broad market exposure, resulting in a low research_vs_cost_score. The strategy involves shifting allocations over time based on a schedule, indicating a shorter-term tactical orientation rather than a long-term buy-and-hold approach, so time_horizon_alignment_score is 0.0. Finally, the portfolio contains an actively managed large-cap fund with an information ratio of 0.55, suggesting active management, and no passive instruments are included, resulting in a portfolio_activeness_score of 0.0.",
+    "composite_aps": 0.0
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan shows minimal alignment with the investor's goals: it allocates only 20% to a single large-cap equity fund with no clear path to building a 5Cr retirement corpus in 17 years, and ignores the need for children's school fees over the next 8 years. Diversification is extremely poor—only one fund, all large-cap equity, no exposure to mid/small cap, debt, international assets, or hybrid funds as mentioned in the rebalancing guidelines (which contradict the actual allocation). Risk-return is inappropriate for a moderate investor re-entering after a decade; the plan lacks risk mitigation, downside protection, or glide path, and the stated SIP step-up (shifting to mid/small caps) increases risk over time. Internal inconsistency is severe: the allocation shows 20% large cap, but rebalancing guidelines suggest 10% large, 40% mid, 50% small, 5% debt—a major contradiction. Tax efficiency is very low: the investor is in the 30% slab, yet the plan uses a plain equity fund without leveraging ELSS for 80C benefits (investor is not in new regime), and makes no mention of tax-efficient debt allocation via arbitrage or aggressive hybrid funds. The rationale cites '10.55% on gains over ₹1.25L' which is incorrect—LTCG is 10% above ₹1.25L, not 10.55%. Overall, the plan is incomplete, contradictory, and tax-inefficient.",
+    "composite_pqs": 0.28
+  },
+  "timestamp": "2026-04-18T17:36:45.896198Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22581,
+    "output_tokens": 2709,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 80.3030062969774
+}

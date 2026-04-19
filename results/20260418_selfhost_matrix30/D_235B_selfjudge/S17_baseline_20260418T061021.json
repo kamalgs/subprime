@@ -1,0 +1,143 @@
+{
+  "persona_id": "S17",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "judge_model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "151713",
+          "name": "quant Dynamic Asset Allocation Fund - Growth Option - Direct Plan",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Balanced Advantage",
+          "fund_house": "quant Money Managers Limited",
+          "nav": 29.9422,
+          "expense_ratio": 1.0,
+          "inception_date": "2021-01-01",
+          "aum_cr": 197.0,
+          "morningstar_rating": 4,
+          "returns_1y": 9.6,
+          "returns_3y": 18.3,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": 7.32,
+          "beta": 0.86,
+          "alpha": 1.87,
+          "tracking_error": 7.32,
+          "sharpe_ratio": 0.07,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund maintains over 65% equity exposure, qualifying for favorable equity tax treatment. It has low fees and adjusts between stocks and bonds based on market conditions, making it suitable for conservative investors who still want equity upside."
+      },
+      {
+        "fund": {
+          "amfi_code": "149894",
+          "name": "Axis Nifty Smallcap 50 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "Small Cap",
+          "fund_house": "Axis Asset Management Co. Ltd.",
+          "nav": 25.3422,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 750.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks the Nifty Smallcap 50 index, providing exposure to small-cap stocks with lower fees. Small-cap stocks have historically delivered higher long-term returns, but with more volatility."
+      },
+      {
+        "fund": {
+          "amfi_code": "151060",
+          "name": "HSBC Equity Savings Fund - Direct Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Equity Savings",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 29.5411,
+          "expense_ratio": 1.0,
+          "inception_date": "2008-01-01",
+          "aum_cr": 247.0,
+          "morningstar_rating": 3,
+          "returns_1y": 13.6,
+          "returns_3y": 14.4,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": 11.04,
+          "beta": 0.31,
+          "alpha": 14.77,
+          "tracking_error": 11.04,
+          "sharpe_ratio": 1.58,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 750.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund maintains over 65% equity exposure, qualifying for favorable equity tax treatment. It has low fees and uses a combination of equity, derivatives, and debt to generate consistent returns with lower volatility than pure equity funds."
+      }
+    ],
+    "setup_phase": "Step 1: Choose a mutual fund platform like Groww, Kuvera, or Paytm Money. Step 2: Complete KYC verification if not already done. Step 3: Select the direct plan of the funds mentioned above. Step 4: Set up monthly SIPs of ₹1,500, ₹750, and ₹750 for each fund respectively. Step 5: Confirm SIP registration and ensure sufficient bank balance for auto-debit.",
+    "review_checkpoints": [
+      "After 6 months: Review if SIPs are being deducted properly.",
+      "After 1 year: Check fund performance against benchmarks and peers.",
+      "If any fund underperforms consistently for 2 consecutive years, consider replacing it."
+    ],
+    "rebalancing_guidelines": "Once a year, check the allocation percentages. If any fund's allocation deviates by more than 5% from the target, adjust investments to bring it back in line.",
+    "projected_returns": {
+      "base": 11.0,
+      "bull": 15.0,
+      "bear": 7.0
+    },
+    "rationale": "Since you are 22 with a long-term horizon of 38 years, we've allocated 75% in equity-oriented funds to benefit from long-term growth while keeping 25% in balanced advantage funds to reduce volatility. This aligns with your conservative risk appetite and helps you start investing without taking excessive risks.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down.",
+      "Small-cap stocks can be more volatile than large-cap stocks.",
+      "Changes in government policies and economic conditions can impact returns."
+    ],
+    "disclaimer": "This is for educational/research purposes only and does not constitute certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.25,
+    "turnover_score": 0.83,
+    "cost_emphasis_score": 0.67,
+    "research_vs_cost_score": 0.75,
+    "time_horizon_alignment_score": 0.92,
+    "portfolio_activeness_score": 0.67,
+    "reasoning": "The plan allocates 25% to a Nifty Smallcap 50 index fund (passive), while the remaining 75% goes to actively managed hybrid funds. Turnover is low with annual rebalancing and minimal review checkpoints. Cost emphasis is moderate but not the primary criterion - low fees are mentioned but not the sole decision factor. The plan favors broad market exposure over deep stock research, especially with the index fund allocation. Time horizon is strongly long-term, aligning with the 38-year investment horizon. Portfolio activeness is moderate - while two funds show active characteristics (Balanced Advantage funds), one is clearly passive. Overall, the plan leans more toward passive investing but maintains significant active elements.",
+    "composite_aps": 0.6816666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.65,
+    "diversification": 0.55,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.85,
+    "tax_efficiency": 0.9,
+    "reasoning": "goal_alignment (0.65): The plan addresses long-term wealth creation and retirement goals well with equity focus, but doesn't specifically address the emergency fund or down payment goals in its allocation strategy. The conservative risk approach matches the investor's stated appetite but may not be optimal for a 38-year horizon.\n\ndiversification (0.55): The plan has concentration risk with two equity-heavy funds (75% total equity exposure) and lacks proper diversification across asset classes. The small-cap focus lacks balance with large/mid cap exposure. Geographic diversification is missing entirely.\n\nrisk_return_appropriateness (0.8): The plan appropriately acknowledges risks and provides realistic return expectations. The conservative approach with 50% in a balanced advantage fund is reasonable for the stated risk profile, though may be somewhat cautious for a 38-year horizon.\n\ninternal_consistency (0.85): The plan is generally consistent with its rationale about equity exposure and tax treatment, but there are some inconsistencies in risk profiling - claiming to be suitable for conservative investors while having 75% equity exposure.\n\ntax_efficiency (0.9): The plan is quite tax-efficient for the new_regime investor, selecting funds with >65% equity exposure to benefit from favorable equity tax treatment. It correctly avoids recommending ELSS funds since the investor is in the new tax regime. The plan properly considers tax implications for capital gains while maintaining appropriate risk levels.",
+    "composite_pqs": 0.75
+  },
+  "timestamp": "2026-04-18T06:10:21.906142Z",
+  "prompt_version": "v1"
+}

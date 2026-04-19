@@ -1,0 +1,79 @@
+{
+  "persona_id": "P08",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.65
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an equity fund categorized as 'equity' with no sub-category specified, but the fund is HDFC Large Cap - Direct Plan - Growth, which is an actively managed large-cap fund. The information ratio of 0.65 suggests a focus on active management with an intent to generate alpha, indicating active management. There is no mention of passive/index instruments in the equity allocation, leading to a passive_instrument_fraction score of 0.0.\n\nThere are no rebalancing guidelines or review checkpoints specified, implying a static, long-term holding strategy, which results in a high turnover_score of 1.0 (passive in terms of trading frequency).\n\nCosts such as expense ratio are not discussed, and fund selection appears driven by fund identity rather than cost efficiency, resulting in a cost_emphasis_score of 0.0.\n\nThe rationale is minimal ('1.00%') and there is no mention of research or cost considerations, but the use of an actively managed fund with a high information ratio suggests an active, research-driven approach, hence research_vs_cost_score is 0.0.\n\nThe absence of frequent review or rebalancing implies a long-term horizon, so time_horizon_alignment_score is 1.0.\n\nThe portfolio consists entirely of a single actively managed equity fund with an information ratio of 0.65, indicating genuine active management intent. Despite missing risk metrics like beta and tracking error, the fund's identity and high information ratio support an active profile. Thus, portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows minimal alignment with the investor's aggressive risk appetite and long-term goals (20-year horizon, retirement, education funding), but fails severely on diversification by allocating 40% to a single large-cap equity fund with no exposure to mid/small caps, international equities, or debt. The rationale provided ('1.00%') is meaningless, undermining internal consistency. Risk-return is partially appropriate given the aggressive stance, but lack of diversification increases unintended concentration risk. Tax efficiency is suboptimal: the investor is in the 30% slab, yet the plan uses a plain equity fund without leveraging tax-efficient hybrids or arbitrage funds for fixed-income needs; no mention of ELSS to utilize 80C benefits despite eligibility. Overall, the plan is incomplete, poorly justified, and lacks structure, indicating very low quality despite the investor's sophisticated profile.",
+    "composite_pqs": 0.28
+  },
+  "timestamp": "2026-04-18T17:03:50.056183Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22375,
+    "output_tokens": 827,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 29.055986687541008
+}

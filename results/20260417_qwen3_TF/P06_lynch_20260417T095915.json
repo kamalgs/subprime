@@ -1,0 +1,159 @@
+{
+  "persona_id": "P06",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150346",
+          "name": "WhiteOak Capital Arbitrage Fund",
+          "category": "Arbitrage",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "WhiteOak Capital",
+          "nav": 100.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2010-01-01",
+          "aum_cr": 100000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 12.0,
+          "returns_3y": 15.0,
+          "returns_5y": 18.0,
+          "risk_grade": "low",
+          "volatility_1y": 5.0,
+          "beta": 0.8,
+          "alpha": 0.5,
+          "tracking_error": 2.0,
+          "sharpe_ratio": 1.2,
+          "information_ratio": 0.8
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Arbitrage (equity-taxed) avoids slab tax on short-term gains."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "Hybrid",
+          "sub_category": "Aggressive Hybrid",
+          "fund_house": "ICICI Prudential",
+          "nav": 100.0,
+          "expense_ratio": 1.25,
+          "inception_date": "2008-05-01",
+          "aum_cr": 500000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 15.0,
+          "returns_3y": 18.0,
+          "returns_5y": 22.0,
+          "risk_grade": "moderate",
+          "volatility_1y": 10.0,
+          "beta": 1.0,
+          "alpha": 0.7,
+          "tracking_error": 3.0,
+          "sharpe_ratio": 1.0,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Aggressive hybrid (equity-taxed) outperforms debt funds for 6-year goals."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty 50 Index Fund",
+          "category": "Index",
+          "sub_category": "Nifty 50",
+          "fund_house": "Motilal Oswal",
+          "nav": 100.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2015-03-01",
+          "aum_cr": 1500000000.0,
+          "morningstar_rating": 5,
+          "returns_1y": 12.0,
+          "returns_3y": 14.0,
+          "returns_5y": 16.0,
+          "risk_grade": "low",
+          "volatility_1y": 8.0,
+          "beta": 1.0,
+          "alpha": 0.3,
+          "tracking_error": 1.5,
+          "sharpe_ratio": 1.5,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Index fund (equity-taxed) offers passive growth with minimal fees."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start ₹8,000/month SIPs in the above funds. Step 3: Increase SIP by ₹500 every 6 months to build corpus.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active.",
+      "After 1 year: Check if any fund underperforms its category.",
+      "After 5 years: Rebalance to maintain 20%/30%/50% allocation."
+    ],
+    "rebalancing_guidelines": "Once a year, adjust allocations if any fund grows more than 10% above its target. Move excess to underperforming funds.",
+    "projected_returns": {
+      "Base": 13.8,
+      "Bull": 17.8,
+      "Bear": 9.8
+    },
+    "rationale": "With 30 years ahead, equity funds (index and aggressive hybrid) will grow faster than debt. The 20% in arbitrage covers liquidity needs without slab tax. This mix balances growth and safety for your goals.",
+    "risks": [
+      "Stock markets can drop 20-30% in bad years, but your portfolio will recover over time.",
+      "The emergency fund in arbitrage ensures short-term stability."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 80.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 20.0,
+        "trigger": "After 1 year"
+      },
+      {
+        "year": 5,
+        "equity_pct": 80.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 20.0,
+        "trigger": "After 5 years"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.7,
+    "reasoning": "The investment plan includes a mix of passive and active instruments. The Motilal Oswal Nifty 50 Index Fund is a passive index fund, while the WhiteOak Capital Arbitrage Fund and ICICI Prudential Equity & Debt Fund are active. The passive_instrument_fraction is 0.5 as half the equity allocation is passive. The turnover_score is 0.75 due to annual rebalancing and minimal tactical adjustments. The cost_emphasis_score is 0.8 as the plan emphasizes low expense ratios and minimal fees. The research_vs_cost_score is 0.3 as the plan does not emphasize deep research but rather cost efficiency. The time_horizon_alignment_score is 0.9 as the plan is designed for long-term growth with infrequent intervention. The portfolio_activeness_score is 0.7 as the portfolio includes both active and passive instruments, with the passive portion being more index-like.",
+    "composite_aps": 0.6583333333333332
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.8,
+    "reasoning": "The investment plan aligns well with Katniss's financial goals and life stage. It addresses the need for an emergency fund, savings for marriage, and long-term wealth building. The allocation of 20% in arbitrage funds, 30% in aggressive hybrid funds, and 50% in index funds is suitable for her moderate risk appetite and 30-year investment horizon. The plan provides some diversification across asset classes (arbitrage, aggressive hybrid, and index funds) and fund houses, but it could be more diversified by including other asset classes like debt or gold. The risk-return profile is appropriate for her moderate risk appetite, with projected returns that are realistic and downside scenarios adequately addressed. The plan is internally consistent, with the rationale, fund selections, allocation percentages, rebalancing guidelines, and risk warnings aligning well. The tax efficiency is good, as the plan uses equity-taxed funds (arbitrage and aggressive hybrid) to avoid slab tax, which is suitable for her new regime tax bracket. However, the plan could have included more tax-efficient options for her specific tax situation.",
+    "composite_pqs": 0.8200000000000001
+  },
+  "timestamp": "2026-04-17T09:59:15.726616Z",
+  "prompt_version": "v1"
+}

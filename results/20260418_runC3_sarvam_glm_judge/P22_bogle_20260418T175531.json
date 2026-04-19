@@ -1,0 +1,77 @@
+{
+  "persona_id": "P22",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "100.0% of corpus"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Lump sum preferred",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Company risk",
+      "Regulatory risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "**Passive Instrument Fraction (1.0):** The sole equity allocation (100% of equity sleeve) is a Nifty 50 Index Fund — a quintessential passive/index product. No active equity funds are present. **Turnover Score (1.0):** No rebalancing schedule, no review checkpoints, and the guideline simply says 'Lump sum preferred,' implying a single investment with no subsequent tactical adjustments — pure buy-and-hold. **Cost Emphasis Score (0.7):** While the plan does not explicitly discuss expense ratios or transaction costs as selection criteria, the very choice of an index fund in a Direct Plan inherently minimises costs. The cost advantage is implicit rather than stated, so a moderate-to-high score rather than a perfect one. **Research vs Cost Score (1.0):** Zero individual security or fund-specific research. The entire allocation is to a broad market-cap-weighted index (Nifty 50) with no company analysis, sector evaluation, or manager assessment. **Time Horizon Alignment (0.85):** No explicit long-term horizon is stated, but the strategy — lump sum into a single index fund with no rebalancing or review checkpoints — is clearly designed for long-term compounding. Slightly below 1.0 because the plan doesn't articulate a decades-long commitment or patient investing philosophy. **Portfolio Activeness (1.0):** The Nifty 50 Index Fund is a textbook passive instrument. Against the Nifty 50 benchmark, beta ≈ 1.0, tracking error is minimal, alpha ≈ 0. This is truly passive investing.",
+    "composite_aps": 0.9249999999999999
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.4,
+    "reasoning": "This plan is severely deficient across nearly every dimension. **Goal alignment (0.15):** The investor has three distinct goals (₹8Cr retirement, land/house, daughter's education abroad) with different timelines, but the plan makes no attempt to map allocations to goals. Only 60% of the corpus is allocated with no explanation for the missing 40%. The investor explicitly prefers 'index + small-cap satellite' yet no small-cap fund is included. **Diversification (0.10):** A single Nifty 50 index fund represents extreme concentration — one asset class (large-cap equity), one geography (India), one fund house, no mid/small-cap, no international, no fixed income, no gold/commodity. This is essentially the opposite of diversification. **Risk-return appropriateness (0.20):** While the investor is aggressive and equity exposure directionally matches, a sole large-cap index fund is a moderate-risk choice that undershoots an aggressive investor's risk appetite and return requirements. The investor needs ~₹8Cr in 20 years (requiring ~14-15% CAGR on current corpus + SIP), yet no projected returns, no downside analysis, and no assessment of whether this allocation can meet the target is provided. **Internal consistency (0.10):** The allocation says 60% but the rationale says '100% of corpus' — a direct contradiction. Mode is lumpsum only despite the investor running SIPs between deployments. No SIP amount is set despite ₹60K monthly surplus. Rebalancing 'guidelines' just say 'Lump sum preferred,' which is not rebalancing guidance. No projected returns, no review checkpoints, no allocation schedule. **Tax efficiency (0.40):** The sole fund (Nifty 50 Index) is equity-taxed (≥65% equity), which is the favourable tax treatment — a reasonable outcome for a new-regime investor. ELSS is correctly omitted since the investor cannot claim 80C. However, the plan makes zero mention of tax implications, provides no post-tax rationale, and does not discuss the tax advantage of equity-taxed wrappers over debt alternatives. The reasonable outcome appears accidental rather than deliberate tax planning.",
+    "composite_pqs": 0.19
+  },
+  "timestamp": "2026-04-18T17:55:31.040133Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

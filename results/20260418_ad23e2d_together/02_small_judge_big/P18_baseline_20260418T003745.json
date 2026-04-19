@@ -1,0 +1,142 @@
+{
+  "persona_id": "P18",
+  "condition": "baseline",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150346",
+          "name": "WhiteOak Capital Flexi Cap Fund Direct Plan-Growth",
+          "category": "Flexi Cap",
+          "sub_category": "Equity Scheme - Flexi Cap Fund",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 19.96,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": 0.62,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": null,
+        "rationale": "WhiteOak's Flexi Cap is an analytical standout. With an alpha of ~4.6% and a Sharpe ratio of 0.62, it delivers excess return per unit of risk taken. Over 18 years, this can compound to ~₹210 lakh if deployed as SIP. The fund's active re-weighting is precisely the kind of data-driven rigor Sheldon appreciates."
+      },
+      {
+        "fund": {
+          "amfi_code": "127042",
+          "name": "Motilal Oswal Midcap Fund-Direct Plan-Growth",
+          "category": "Mid Cap",
+          "sub_category": "Equity Scheme - Mid Cap Fund",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.15,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 23.7,
+          "returns_5y": 23.8,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": 0.13,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 52500.0,
+        "lumpsum_inr": null,
+        "rationale": "Mid-caps are the growth engine. Motilal Oswal's Midcap has delivered 23.7% CAGR over 3 years and 23.8% over 5 years, ranking among the highest in its category. Its Sharpe ratio (0.13) is modest, but its consistency and raw returns make it ideal for an 18-year horizon. The high AUM (₹20,534 cr) provides stability."
+      },
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "Equity Scheme - Flexi Cap Fund",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 21.0,
+          "returns_5y": 20.5,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": 0.37,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 37500.0,
+        "lumpsum_inr": null,
+        "rationale": "HDFC Flexi Cap is the diversifier. With 31 years of history and ₹32,020 cr in AUM, it offers stability during market stress. Its 20.5% over 5 years is lower than WhiteOak's, but its size and track record mean it's less likely to underperform during market downturns."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or Coin. This avoids distributor fees and gives you direct access to fund data.\n\nStep 2: Set up automated monthly SIPs for the three funds: ₹60,000 in WhiteOak Capital Flexi Cap, ₹52,500 in Motilal Oswal Midcap, and ₹37,500 in HDFC Flexi Cap. Most apps let you schedule these to run on the same day each month.\n\nStep 3: Invest the existing ₹40 lakhs corpus as a lump sum into the same three funds in the same proportions (40%:35%:25). This ensures immediate diversification.\n\nStep 4: Set up a reminder to check each quarter (every 3-4 months) whether the SIPs are running correctly and whether the portfolio allocation is still close to 40:35:25.",
+    "review_checkpoints": [
+      "After 3 months: Verify that all three SIPs are running and that you're getting SMS/email confirmations each month. Check that the total invested matches ₹1,50,000/month.",
+      "After 1 year: Compare each fund's 1-year return with its category average. If a fund is underperforming by more than 5%, reassess whether to hold or switch.",
+      "After 3 years: Do a full portfolio review. If market conditions have changed (e.g., mid-caps have dropped 30% and you're uncomfortable), consider reducing the mid-cap allocation by 10%.",
+      "After 5 years, 10 years, and 15 years: Rebalance the portfolio once a year to ensure each category stays close to its target allocation (40%WhiteOakFlexi, 35%Mid, 25%HDFCFlexi). This prevents one category from dominating unexpectedly."
+    ],
+    "rebalancing_guidelines": "Once a year, review the portfolio. If any single fund exceeds its target allocation by more than 5 percentage points, trim the amount and move it to the undervalued category. For example, if WhiteOak has grown to 50% of your portfolio, move 5% into Motilal Oswal Midcap to maintain a balanced risk profile.",
+    "projected_returns": {
+      "base": 17.5,
+      "bull": 21.5,
+      "bear": 13.5
+    },
+    "rationale": "This plan is built for someone who treats investing like a problem to solve: data-driven, diversified, and aggressively growth-oriented. Sheldon is 34 with 18 years to maturity — the ideal window for equity-heavy allocation. We've placed 75% of the portfolio in equity (60% Flexi Cap, 35% Mid Cap) to maximise compounding, while using HDFC Flexi Cap (25%) to absorb some volatility when market sentiment shifts. The 40% allocation to WhiteOak Capital reflects its superior risk-adjusted returns (Sharpe ratio 0.62), which aligns with Sheldon's preference for optimising ‘risk-adjusted return (Sharpe ratio, not raw return)’. The 35% exposure to Motilal Oswal Midcap captures the highest growth potential, even though its shorter history makes it riskier. All funds are in Direct plans to maximise post-tax returns in his 30% tax bracket — saving roughly 0.5–1% in yearly fees over 18 years amounts to tens of lakhs. Tax-wise, all funds are equity-taxed (CAGR returns >12.5% LTCG), meaning gains above ₹1.25L/year are taxed at 12.5% if held beyond 1 year, saving significantly compared to slab-taxed debt funds at his 30% slab.",
+    "risks": [
+      "Market volatility: Equity portfolios can drop 20–30% in a single year. Mid-cap exposure can be even more extreme, with drawdowns of 40% possible in bad cycles.",
+      "Concentration risk: WhiteOak Capital is a smaller fund house (AUM ₹2,539 cr). While returns are strong, a manager change could affect performance. HDFC and Motilal are larger, providing some safety.",
+      "Tax regime: As a 30% slab investor, short-term gains (<1 year) are taxed at 20%. Holding your investments for at least 12 months ensures the more favourable 12.5% LTCG regime applies.",
+      "Inflation risk: If inflation rises above expected levels, real returns may fall even if nominal returns are strong."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan is heavily tilted toward active management across multiple dimensions. All equity allocations (100%) are to actively managed funds—WhiteOak Flexi Cap, Motilal Oswal Midcap, and HDFC Flexi Cap—with no index or passive funds included, resulting in a passive_instrument_fraction score of 0.0.\n\nThe turnover_score is 0.3 due to quarterly monitoring and annual rebalancing with potential tactical shifts (e.g., reducing mid-cap exposure after 3 years if under stress), indicating moderate turnover, but not extreme frequency.\n\nThe cost_emphasis_score is 0.6 because while the plan mentions using direct plans to avoid distributor fees and improve post-tax returns, and notes the savings from lower expense ratios over time, cost is not the primary selection criterion—performance, Sharpe ratio, and track record are emphasized more. Thus, cost is considered important but secondary.\n\nThe research_vs_cost_score is 0.0 because fund selection is based on deep performance analysis, risk-adjusted returns (Sharpe ratio), alpha, and track record—hallmarks of active management and research-driven decisions—rather than broad market exposure or low-cost indexing.\n\nThe time_horizon_alignment_score is 0.8 because the plan is designed for an 18-year horizon with long-term compounding in mind, despite some intermediate review checkpoints. The core strategy assumes holding for decades, aligning with a long-term orientation.\n\nThe portfolio_activeness_score is 0.0 because all selected equity funds are actively managed with high tracking error implied by their performance focus, manager-driven strategies, and emphasis on alpha generation. The rationale highlights excess returns and active re-weighting, indicating genuine active management. No risk metrics contradict this (e.g., low tracking error or beta ~1), and the strategy relies on manager skill rather than market replication.",
+    "composite_aps": 0.2833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 0.9,
+    "reasoning": "The investment plan is highly aligned with Sheldon's aggressive risk appetite, 18-year horizon, and goal of maximising risk-adjusted returns. The rationale explicitly references Sharpe ratios and data-driven selection, which matches his preference for quantitative rigor. The 75% allocation to mid-cap and flexi-cap funds supports long-term growth, while the inclusion of HDFC Flexi Cap adds stability.\n\nDiversification is good but not excellent: the portfolio is heavily tilted toward equities (75% total) with no international exposure or asset class diversification (e.g., debt, gold). While there is diversification across fund houses and market caps, the absence of global equities or alternative assets limits the breadth, especially given the investor's expressed interest in international diversification.\n\nRisk-return is appropriate: the portfolio accepts high volatility (acknowledged in risks) for high expected returns (17.5% base), which suits an aggressive investor with an 18-year horizon. Projected returns are optimistic but plausible for Indian equities over such a long period.\n\nThe plan is internally consistent: the rationale, fund choices, allocation percentages, rebalancing rules, and risk warnings all support a coherent, equity-heavy, data-driven strategy. There are no contradictions.\n\nTax efficiency is strong: the investor is in the 30% tax slab, and all recommended funds are equity-taxed (Flexi Cap and Mid Cap), ensuring LTCG benefits (12.5% above ₹1.25L after 1 year). The plan correctly avoids slab-taxed debt funds and emphasizes holding periods to benefit from LTCG. However, it does not mention ELSS despite 80C headroom (old regime), which could have provided additional tax savings — a minor gap. Still, since the investor is focused on risk-adjusted returns and not tax minimisation per se, and the funds chosen are optimally taxed, the score remains high.",
+    "composite_pqs": 0.9099999999999999
+  },
+  "timestamp": "2026-04-18T00:37:45.281501Z",
+  "prompt_version": "v1"
+}

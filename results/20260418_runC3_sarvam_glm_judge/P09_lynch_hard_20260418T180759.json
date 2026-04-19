@@ -1,0 +1,101 @@
+{
+  "persona_id": "P09",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "HDFC Large Cap Direct Plan Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15% of corpus in large caps for stability and growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "HDFC Large Cap Direct Plan Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15% of corpus in large caps for stability and growth"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.15,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "**passive_instrument_fraction = 0.0**: The entire equity allocation (80% across two identical entries) is in HDFC Large Cap Direct Plan Growth — an actively managed large-cap fund, not an index fund or ETF. Zero passive equity instruments.\n\n**turnover_score = 0.85**: No rebalancing guidelines, no review checkpoints, and SIP mode all imply a buy-and-hold, set-and-forget approach. The absence of any tactical or frequent rebalancing signals strongly passive turnover behavior.\n\n**cost_emphasis_score = 0.15**: The plan uses a 'Direct Plan' (lower expense ratio than regular), which hints at marginal cost awareness, but cost is never mentioned in the rationale or any part of the plan as a selection criterion. The expense_ratio field is 0.0 (missing data), and the rationale is purely about 'stability and growth'. Very minimal cost emphasis.\n\n**research_vs_cost_score = 0.8**: The perspective is explicitly 'basic'. There is no deep research — no sector analysis, no company-specific evaluation, no fund manager track record discussion. The rationale is a one-liner about large-cap stability. This is broad-market exposure without security-level research.\n\n**time_horizon_alignment_score = 0.7**: SIP mode and the 'stability and growth' rationale suggest a long-term, patient orientation. However, no explicit time horizon or compounding narrative is stated, so it falls short of a clear decades-long commitment.\n\n**portfolio_activeness_score = 0.5**: The fund is an active large-cap mandate (IR = 0.5 suggests modest active management skill), but Indian large-cap funds are well-known closet indexers — beta typically ~1.0 and tracking error relatively low vs. mid/small cap funds. With null beta, alpha, and tracking error, the category label is the primary signal. The portfolio is concentrated in a single active large-cap fund, so it's neither truly passive nor genuinely high-conviction active — scoring mid-range.",
+    "composite_aps": 0.5
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.0,
+    "tax_efficiency": 0.15,
+    "reasoning": "This plan is fundamentally broken. It lists the same HDFC Large Cap fund twice at 40% each (total 80%), with no other allocations — no debt, no mid/small cap, no international, no hybrid, and critically no ELSS despite the investor explicitly preferring tax-efficient ELSS investing. Goal alignment is nearly absent: the investor has three goals with vastly different horizons (5yr home down payment, 15yr education, 22yr retirement) requiring distinct strategies, yet the plan makes no goal-wise segregation and puts a 5-year capital-preservation goal into 100% equity. Diversification is zero — single fund, single category, single AMC. Risk-return is mismatched: a moderate-risk investor with a near-term ₹60L down payment goal should not be 100% large-cap equity with no debt cushion. Internal consistency is the worst dimension: the same fund appears twice with identical rationale ('15% of corpus') contradicting the 40% allocation, allocations total only 80%, and there are no rebalancing guidelines, review checkpoints, or projected returns. Tax efficiency is poor: the 20% slab investor gets no 80C benefit (no ELSS), no arbitrage/hybrid for debt-side equity tax treatment, and no tax rationale is mentioned anywhere — the only slight positive is that the sole fund does receive equity tax treatment.",
+    "composite_pqs": 0.08
+  },
+  "timestamp": "2026-04-18T18:07:59.051146Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

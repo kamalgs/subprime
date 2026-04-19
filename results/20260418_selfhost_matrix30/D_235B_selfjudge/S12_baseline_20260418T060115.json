@@ -1,0 +1,170 @@
+{
+  "persona_id": "S12",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "judge_model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 58.12,
+          "expense_ratio": 1.0,
+          "inception_date": "2004-01-01",
+          "aum_cr": 16619.0,
+          "morningstar_rating": 5,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.2,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.45
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2800.0,
+        "lumpsum_inr": null,
+        "rationale": "Nippon India Large Cap Fund has a consistent performance with a low expense ratio. It is suitable for a conservative investor looking for stable growth in large-cap stocks."
+      },
+      {
+        "fund": {
+          "amfi_code": "118419",
+          "name": "Bandhan Large & Mid Cap Fund - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_and_mid_cap",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 38.75,
+          "expense_ratio": 1.1,
+          "inception_date": "2002-01-01",
+          "aum_cr": 2889.0,
+          "morningstar_rating": 4,
+          "returns_1y": 12.9,
+          "returns_3y": 24.1,
+          "returns_5y": 19.6,
+          "risk_grade": "moderate",
+          "volatility_1y": 18.5,
+          "beta": 0.88,
+          "alpha": 10.11,
+          "tracking_error": 7.34,
+          "sharpe_ratio": 0.72,
+          "information_ratio": 0.62
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1400.0,
+        "lumpsum_inr": null,
+        "rationale": "Bandhan Large & Mid Cap Fund offers a balanced mix of large and mid-cap stocks with a solid track record, providing moderate growth potential."
+      },
+      {
+        "fund": {
+          "amfi_code": "151713",
+          "name": "quant Dynamic Asset Allocation Fund - Growth Option - Direct Plan",
+          "category": "hybrid",
+          "sub_category": "aggressive_hybrid",
+          "fund_house": "quant Money Managers Limited",
+          "nav": 25.67,
+          "expense_ratio": 1.0,
+          "inception_date": "2019-01-01",
+          "aum_cr": 197.0,
+          "morningstar_rating": 4,
+          "returns_1y": 9.6,
+          "returns_3y": 18.3,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": 14.3,
+          "beta": 0.86,
+          "alpha": 1.87,
+          "tracking_error": 7.32,
+          "sharpe_ratio": 0.07,
+          "information_ratio": 0.03
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1400.0,
+        "lumpsum_inr": null,
+        "rationale": "quant Dynamic Asset Allocation Fund provides a dynamic approach to asset allocation, balancing equity and debt to manage risk while aiming for steady growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "gold",
+          "sub_category": "gold_etf",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 52.34,
+          "expense_ratio": 0.0,
+          "inception_date": "2007-01-01",
+          "aum_cr": 23675.0,
+          "morningstar_rating": 5,
+          "returns_1y": 58.9,
+          "returns_3y": 34.3,
+          "returns_5y": 25.3,
+          "risk_grade": "moderate",
+          "volatility_1y": 25.4,
+          "beta": 0.11,
+          "alpha": 80.06,
+          "tracking_error": 27.85,
+          "sharpe_ratio": 2.95,
+          "information_ratio": 1.45
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1400.0,
+        "lumpsum_inr": null,
+        "rationale": "ICICI Prudential Gold ETF offers exposure to gold, which acts as a hedge against market volatility and provides diversification benefits to the portfolio."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 11.2,
+      "bull": 15.2,
+      "bear": 7.2
+    },
+    "rationale": "Since you're 23 with 36 years ahead, we can afford to put more in stocks which grow faster over long periods. We've kept 20% in safer options so your money isn't all in one basket.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "Gold prices can be volatile and may not always move in tandem with the stock market."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The investment plan is entirely composed of active equity funds (Nippon India Large Cap and Bandhan Large & Mid Cap), active hybrid funds (quant Dynamic Asset Allocation), and a gold ETF (ICICI Prudential Gold ETF), which are not passive/index instruments, resulting in a passive_instrument_fraction score of 0.0. The turnover_score is 0.8 because the plan suggests minimal rebalancing, only recommending annual reviews and adjustments if the mix changes significantly. The cost_emphasis_score is 0.6, as the plan mentions the expense ratios of the funds but does not prioritize cost minimization as the primary criterion for fund selection. The research_vs_cost_score is 0.2, indicating that the plan relies on fund-specific research, such as performance metrics and Morningstar ratings, rather than opting for broad market exposure. The time_horizon_alignment_score is 0.9 since the strategy is long-term, targeting decades of compounding and advising minimal intervention. Lastly, the portfolio_activeness_score is 0.3 because the equity and hybrid funds have high tracking errors and positive alpha, indicating active management, while the gold ETF is passive but doesn't significantly influence the overall score.",
+    "composite_aps": 0.4666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.9,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.6,
+    "reasoning": "goal_alignment is 0.85 because the plan appropriately balances growth and stability for a young investor with long-term goals. The 60% equity exposure (40% + 20%) is reasonable for long-term growth while maintaining some conservatism, and the 20% gold allocation provides diversification benefits. However, it doesn't specifically address the investor's specific goals like emergency fund, flat down payment, or education savings.\n\ndiversification is 0.9 because the plan includes a good mix of asset classes (large-cap, large-and-mid-cap, dynamic hybrid, and gold). This provides diversification across equity styles and alternative assets. The selection covers different fund houses and risk profiles.\n\nrisk_return_appropriateness is 0.8 because the plan takes a moderately aggressive approach appropriate for a young investor with a long horizon, but with some conservative elements. The projected 11.2% return is reasonable for this allocation. However, with a conservative risk appetite, the 60% equity exposure might be somewhat high for this investor's stated comfort level.\n\ninternal_consistency is 0.9 because the rationale about long-term growth with some stability is consistent with the fund selections and allocation percentages. The risk warnings match the selected assets. However, there's slight inconsistency between the investor's conservative risk appetite and the relatively high equity exposure.\n\ntax_efficiency is 0.6 because the plan doesn't account for the investor's new_regime tax bracket under Indian MF tax rules. For a new_regime investor, there's no 80C benefit, yet the plan doesn't focus on tax-efficient fund selection. It recommends equity funds without distinguishing between tax treatments, and doesn't consider that Aggressive Hybrid funds might be more tax-efficient than pure debt funds for high-slab investors (though this investor is in new_regime). The plan would be more tax-efficient if it optimized fund selection based on equity vs debt tax treatment for the new_regime investor.",
+    "composite_pqs": 0.8099999999999999
+  },
+  "timestamp": "2026-04-18T06:01:15.479605Z",
+  "prompt_version": "v1"
+}

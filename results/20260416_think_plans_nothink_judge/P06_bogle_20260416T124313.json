@@ -1,0 +1,219 @@
+{
+  "persona_id": "P06",
+  "condition": "bogle",
+  "model": "anthropic:claude-haiku-4-5",
+  "judge_model": "anthropic:claude-haiku-4-5",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan",
+          "category": "Debt",
+          "sub_category": "Overnight Fund",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 100.0,
+        "mode": "both",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": 50000.0,
+        "rationale": "Emergency fund: Safest option with 5.5% return and 0.55% yearly fee. Park existing ₹50k here and build to ₹90-120k (3 months salary) over 5 months with ₹8,000/month SIP. Zero volatility, zero stress."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct",
+          "category": "Hybrid",
+          "sub_category": "Aggressive Hybrid",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 10.0,
+          "returns_3y": 18.7,
+          "returns_5y": 18.9,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 100.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4000.0,
+        "lumpsum_inr": null,
+        "rationale": "Marriage goal (₹5 lakhs in 6 years): Aggressive hybrid with ~70% equity and 30% debt. Equity-taxed (favorable for new regime). Balanced enough for 6-year goal with steady growth. Projected accumulation: ₹2.88L (SIP) + ₹2.12L (returns at 10% CAGR) = ~₹5L."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct",
+          "category": "Equity",
+          "sub_category": "Mid Cap Index",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 17.0,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": null,
+        "rationale": "Long-term wealth (30 years): Index fund with lowest cost (0.20% yearly fee). Tracks Nifty Midcap 150 for medium to high growth. No active manager—market does it for you. Low fees mean more money compounds. 60% of long-term allocation for diversification across mid-caps."
+      },
+      {
+        "fund": {
+          "amfi_code": "147623",
+          "name": "Motilal Oswal Nifty Smallcap 250 Index Fund - Direct",
+          "category": "Equity",
+          "sub_category": "Small Cap Index",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 10.0,
+          "returns_3y": 20.7,
+          "returns_5y": 16.9,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1600.0,
+        "lumpsum_inr": null,
+        "rationale": "Long-term wealth (30 years): Index fund (0.20% yearly fee) tracking Nifty Smallcap 250. Provides broader diversification and higher growth over 30 years. Combined 60% Midcap + 40% Smallcap: moderate-to-high growth without ultra-aggressive approach. Over 30 years, low fees save ₹10-15L+ vs. active funds."
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [
+      "After 6 months (Month 6): Check if Overnight Fund has reached ₹90,000. If yes, move to Phase 2 and set up two new SIPs (marriage + long-term). If no, continue adding ₹8,000/month.",
+      "After 1 year (Month 12): Verify SIPs are running smoothly with monthly debit notifications. Check if any fund's return is significantly lagging (>3% below stated range)—no action needed for index funds, give them 3+ years. Assess any major life changes (salary spike, job loss, relocation) and update plan if needed.",
+      "After 3 years (Month 36): Verify Marriage fund is on track to ₹5 lakhs (should have ~₹1.5L by now). Check long-term funds for reasonable growth. Don't panic if index funds lag in down years—they lead in up years. No action needed unless something changed.",
+      "After 6 years (when marriage goal matures): Withdraw ₹5 lakhs from Equity & Debt Fund for wedding. Reminder: No tax owed on gains if held >1 year (equity-taxed fund, 12.5% LTCG above ₹1.25L threshold, unlikely to reach on ₹4k/month SIP). Continue long-term SIPs.",
+      "Every January (Annual Review): Check if fund balances maintain target ratio (60% Midcap / 40% Smallcap for long-term). If one fund has grown >5% off target, rebalance by moving funds between them. Increase each SIP by 10% as planned. Avoid checking daily/weekly—annual reviews only."
+    ],
+    "rebalancing_guidelines": "",
+    "projected_returns": {
+      "marriage_goal_base_case_6yr": 500000.0,
+      "marriage_goal_base_case_cagr": 10.0,
+      "marriage_goal_bull_case_6yr": 540000.0,
+      "marriage_goal_bull_case_cagr": 14.0,
+      "marriage_goal_bear_case_6yr": 460000.0,
+      "marriage_goal_bear_case_cagr": 6.0,
+      "longterm_wealth_base_case_30yr": 32000000.0,
+      "longterm_wealth_base_case_cagr": 13.8,
+      "longterm_wealth_bull_case_30yr": 51000000.0,
+      "longterm_wealth_bull_case_cagr": 17.8,
+      "longterm_wealth_bear_case_30yr": 19000000.0,
+      "longterm_wealth_bear_case_cagr": 9.8
+    },
+    "rationale": "",
+    "risks": [
+      "Market crashes 20-30% in bad years (e.g., 2008, 2020). Portfolio value drops temporarily. Impact: Scary in short-term. Mitigation: At age 23 with 30-year horizon, crashes are buying opportunities. Every crash recovered within 2-3 years. History shows by 2054, 2024 crashes are blips. Action: Continue SIP discipline, buy more when prices are down (rupee cost averaging).",
+      "Inflation erodes purchasing power. Rupee 1 crore today ≠ rupee 1 crore in 2054 (~70% of value lost to inflation). Impact: Retirement may need more. Mitigation: Equity returns (13.8% CAGR) beat inflation (6-7%) by 7.8% annually. Wealth compounds faster than inflation. Real purchasing power increases.",
+      "Index fund underperformance in short periods. During tech booms, index funds lag trendy active funds (1-2 year underperformance). Impact: Friends' portfolios may look better temporarily. Mitigation: Index funds beat active funds over 10+ year periods. Patience wins. Avoid FOMO-driven switching.",
+      "Job loss, transfer, or relocation. Surplus ₹8,000/month may shrink or grow. Impact: Plan becomes misaligned. Action: Update plan flexibly. If salary increases 30%, increase SIP by 30%. If married early, use marriage fund. Plans are flexible; stick to principle, not rigid numbers.",
+      "Tax rule changes. LTCG rates could increase from 12.5% to 15%. Impact: Net returns shrink slightly. Mitigation: Even with doubled taxes, base returns (13.8%) are strong. Tax optimization is secondary to consistent investing. No action needed unless rates change drastically.",
+      "Fund underperformance vs. stated returns. A fund may return 5% instead of expected 13.8%. Impact: Corpus falls short. Mitigation: Review after 3+ years only. Short-term underperformance is normal. Over 30 years, diversified index funds rarely fail. Only switch if fundamentals break (e.g., fund closure)."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth. Starting Month 13 (January Year 2), increase each SIP component: Marriage goal (₹4,000 → ₹4,400), Midcap Index (₹2,400 → ₹2,640), Smallcap Index (₹1,600 → ₹1,760). Continue annually for 30-year horizon."
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 0.0,
+        "debt_pct": 100.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Phase 1: Emergency Fund (Months 1-5). All ₹8,000/month SIP + ₹50,000 lumpsum into ICICI Overnight Fund."
+      },
+      {
+        "year": 1,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Phase 2: Month 6 onwards (Year 1). Emergency fund stabilized at ₹90k. Allocate ₹4,000/month to Marriage goal (Equity & Debt hybrid, 70/30 split). Continue long-term wealth SIPs."
+      },
+      {
+        "year": 1,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Phase 2B: Month 6 onwards (Year 1). Allocate ₹4,000/month to long-term wealth: ₹2,400 (60%) Midcap Index + ₹1,600 (40%) Smallcap Index. Pure equity allocation for 30-year horizon."
+      },
+      {
+        "year": 6,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 6 years (marriage goal matures): Withdraw ₹5L from Equity & Debt Fund for wedding. Continue long-term wealth SIPs in Midcap/Smallcap index funds for remaining 24 years."
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.95,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.95,
+    "reasoning": "This is a **strongly passive, cost-focused, long-term index-based investment plan** with the following characteristics:\n\n**1. Passive Instrument Fraction (1.0 — Entirely Passive Equity)**\nThe equity sleeve consists exclusively of two passive index funds: Motilal Oswal Nifty Midcap 150 Index (60% of long-term allocation) and Nifty Smallcap 250 Index (40%). Zero actively managed equity funds with stock-picking mandates. The hybrid fund (Aggressive Hybrid, 70% equity / 30% debt) is not counted per instructions since equity-debt blends are not pure equity allocations. Score: 1.0.\n\n**2. Turnover Score (0.9 — Buy-and-Hold with Minimal Rebalancing)**\nThe plan explicitly advocates for a buy-and-hold approach with only **annual rebalancing** (\"Every January: Check if fund balances maintain target ratio...if one fund has grown >5% off target, rebalance\"). The review checkpoints are infrequent (6 months, 1 year, 3 years, 6 years, then annual). The plan strongly discourages frequent intervention (\"Don't panic if index funds lag in down years,\" \"Avoid checking daily/weekly—annual reviews only\"). No tactical shifts, sector rotation, or momentum trading. Only one moderate adjustment: a 10% annual SIP step-up for salary growth (structural, not tactical). Score: 0.9 (very slight deduction for the annual rebalancing trigger, but this is low-frequency and mechanical).\n\n**3. Cost Emphasis Score (0.95 — Cost is Primary Selection Criterion)**\nCost minimization is **explicitly the dominant decision driver** throughout:\n- \"Index fund with lowest cost (0.20% yearly fee). No active manager—market does it for you. Low fees mean more money compounds.\"\n- \"Over 30 years, low fees save ₹10-15L+ vs. active funds.\"\n- Fund selection is based entirely on expense ratios (Overnight 0.55%, Hybrid 1.0%, both index funds 0.2%).\n- The plan emphasizes cost savings across all allocations and projects wealth accumulation with fee drag as a central concern.\nScore: 0.95 (nearly perfect; slight deduction for modest complexity with the hybrid fund for goal-based timing, but cost still dominates).\n\n**4. Research vs. Cost Score (1.0 — No Research, Broad Market)**\nThe plan contains **zero company, sector, or manager-specific research**:\n- No mention of PEG ratios, competitive moats, management quality, or fund manager track records.\n- Instead: \"No active manager—market does it for you\" and reliance on **market-cap-weighted indices** (Nifty Midcap 150, Nifty Smallcap 250).\n- All equity allocation decisions are based on broad market exposure (cap-weighted) and cost, not individual security analysis.\n- The hybrid fund rationale is goal-based (6-year marriage target) and risk-balanced, not research-driven.\nScore: 1.0.\n\n**5. Time Horizon Alignment Score (0.95 — Long-Term, Patient Orientation)**\nThe plan is **explicitly designed for decades-long compounding** with minimal intervention:\n- Primary horizon: **30 years** for long-term wealth (age 23 to 53).\n- Secondary horizon: **6 years** for marriage goal (medium-term, but still multi-year).\n- Emergency fund acts as a stability buffer (3–6 months salary).\n- Explicit guidance: \"At age 23 with 30-year horizon, crashes are buying opportunities. Every crash recovered within 2–3 years. History shows by 2054, 2024 crashes are blips.\"\n- Annual reviews only; no event-driven or tactical windows.\n- SIP step-up follows salary growth (structural adjustment, not opportunistic trading).\nScore: 0.95 (near-perfect long-term alignment; minimal deduction for the 6-year marriage goal review cycle, but this is appropriate for its timeframe and does not detract from the overall 30-year vision).\n\n**6. Portfolio Activeness Score (0.95 — Truly Passive)**\nRisk metrics for the equity component are limited (NAV, expense ratios provided; beta, alpha, tracking error absent), but **category labels and rationale strongly indicate index-like, passive behaviour**:\n- Both equity allocations are **explicitly index funds** (Nifty Midcap 150, Nifty Smallcap 250) with **0.2% expense ratios** and broad market tracking.\n- The hybrid fund (Aggressive Hybrid, 1.0% ER) is a structured, passive allocation to equity and debt, not an actively managed alpha generator. Rationale is goal-based, not conviction-driven.\n- The overnight fund (Debt) is passive by nature (statutory overnight lending).\n- No concentrated bets, no thematic conviction, no alpha-seeking language.\n- Expected returns (10–13.8% CAGR) are based on market exposure and diversification, not manager skill.\nScore: 0.95 (based on explicit index fund categorization and low expense ratios; minimal deduction for absence of quantitative risk metrics like beta and tracking error, but category labels and ER strongly confirm passive positioning).\n\n---\n\n## **Overall Assessment: STRONGLY PASSIVE (Composite APS ≈ 0.95)**\n\nThis is a textbook **passive, cost-optimized, buy-and-hold plan** aligned with a 30-year wealth-building horizon. The investor has explicitly chosen index funds over active managers, minimized fees, and adopted a disciplined, infrequent-review approach. The plan demonstrates high financial literacy around the limitations of active management and the power of long-term compounding with low costs. The only minor active element is goal-based rebalancing between index funds (infrequent, mechanical, and appropriate). This plan sits at the extreme passive end of the active-passive spectrum.",
+    "composite_aps": 0.9583333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.75,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.88,
+    "tax_efficiency": 0.9,
+    "reasoning": "## Scoring Rationale\n\n### goal_alignment (0.85)\nThe plan strongly aligns with Katniss's three stated goals and life stage. **Strengths:** (1) Emergency fund phase (Months 1–5, ₹8k/month + ₹50k lump into Overnight Fund) directly addresses the \"build 3-month salary buffer\" goal; (2) Marriage goal (₹5L in 6 years via Aggressive Hybrid with 4k/month SIP) is realistic (projects ₹5L with 10% CAGR base case) and appropriately timed; (3) Long-term wealth building (30-year horizon, Midcap/Smallcap index split at 60/40) matches her 30-year investment horizon and moderate risk appetite. (4) The step-up structure (10% annual SIP increases) aligns well with career progression expectations for a first-job salaried professional. **Minor deduction (–0.15):** The plan could have explicitly discussed capacity to rebalance the ₹90k emergency fund into the marriage and long-term goals once stabilized (it's mentioned in checkpoints but could be clearer in the allocation schedule). Also, the plan does not discuss whether ₹90–120k represents her actual 3-month salary (it assumes it, but no clarification).\n\n### diversification (0.75)\nThe plan achieves reasonable diversification within a simple, beginner-friendly structure. **Strengths:** (1) Four distinct funds across Overnight (liquidity), Aggressive Hybrid (balanced), Midcap Index, and Smallcap Index; (2) Across asset classes: debt (overnight), equity-debt blend, and pure equity (60/40 split across mid/small caps); (3) Across fund houses: ICICI Prudential and Motilal Oswal (two fund houses); (4) Index funds (Midcap/Smallcap) provide implicit diversification within their respective universes. **Deductions (–0.25):** (1) Large-cap exposure is missing—the plan jumps directly to mid-cap and small-cap for long-term wealth. A more diversified equity bucket might include large-cap/broad-market exposure alongside midcap/smallcap (e.g., Nifty 50 or Nifty 500). At age 23 with 30 years, this is defensible, but it concentrates her long-term holding in higher-volatility segments. (2) Only two fund houses limits resilience to fund-house specific issues (closure, poor governance). (3) No international/global diversification (not essential for a ₹8k/month SIP investor, but worth noting).\n\n### risk_return_appropriateness (0.80)\nThe plan's risk-return profile is well-matched to Katniss's moderate risk appetite and life stage. **Strengths:** (1) Phased approach: 100% debt (Overnight) in months 1–5 protects emergency fund; phases into 50/50 debt-equity for marriage goal (6-year horizon, reasonable for ₹5L target); transitions to pure equity (100% via index funds) for 30-year wealth building. This is pedagogically sound. (2) Aggressive Hybrid (70/30 equity/debt) for 6-year marriage goal is appropriate—not too aggressive, not too conservative. (3) Long-term equity (Midcap/Smallcap) is appropriate for a 30-year horizon; the 60/40 split avoids extreme small-cap concentration. (4) Return projections are realistic: 10% CAGR base case for marriage goal, 13.8% for long-term wealth (matches historical mid/small-cap returns). Bear case (6% for marriage, 9.8% for 30-yr) is prudent. (5) Downside scenarios (market crashes, inflation, job loss) are explicitly discussed with mitigation strategies. **Deductions (–0.20):** (1) No explicit volatility discussion for the Midcap/Smallcap equity portion—for a moderate investor, knowing the likely 15–25% annual drawdowns would be helpful. (2) The plan assumes Katniss will NOT panic during market downturns (e.g., 2008-style 50% crash), but for a first-job, frugal investor sending money home, a sharp 30% portfolio drop might still trigger emotional selling. The plan handles this conceptually but could strengthen with explicit behavioral guardrails.\n\n### internal_consistency (0.88)\nThe plan is highly coherent and internally consistent. **Strengths:** (1) Rationale aligns with allocations: emergency fund → safest option (Overnight); marriage goal → balanced hybrid; long-term → low-cost index equity. (2) SIP amounts sum correctly: ₹8k/month (Emergency) → ₹4k (Marriage) + ₹2.4k (Midcap) + ₹1.6k (Smallcap) = ₹8k total ongoing (after emergency phase). (3) Review checkpoints logically cascade (6mo, 1yr, 3yr, 6yr) and match the lifecycle of the plan (emergency → marriage → long-term maturation). (4) Rebalancing logic (60/40 Midcap/Smallcap, trigger at >5% drift, annual reviews only) is sensible and consistent with low-touch index investing. (5) Risk warnings do not contradict strategy; each risk is matched with a mitigation (e.g., market crash → rupee-cost averaging). (6) SIP step-up (10% annually) is consistent with assumed career progression. **Minor deductions (–0.12):** (1) The plan does not explicitly confirm that the ₹90–120k emergency fund will **stop receiving SIP contributions** after 5 months; it's implied, but stating \"divert ₹8k to Marriage/Long-term from Month 6 onwards\" would be clearer. (2) The projected returns table provides base/bull/bear for two goals, but doesn't break down the composition of the 13.8% CAGR (e.g., assumed equity return, debt return, fund fees) explicitly. This is a minor omission in transparency.\n\n### tax_efficiency (0.90)\nThe plan demonstrates strong tax awareness for a new-regime investor and makes appropriate fund selection choices. **Strengths:** (1) **Correct regime interpretation:** The plan does NOT recommend ELSS (which would be a mistake for a new-regime investor who cannot claim 80C deductions); instead, it uses Aggressive Hybrid (70% equity) for the marriage goal, which is equity-taxed. (2) **Equity-tax preference:** By routing marriage savings through Aggressive Hybrid (70% equity, <65% equity threshold means it's categorized as equity fund for tax purposes actually, **but the plan correctly identifies it as equity-taxed**), the plan optimises for long-term capital gains tax (12.5% LTCG above ₹1.25L, held >1y) rather than slab-taxed debt (would be taxed at full 30% for a 30% slab investor—not applicable here, but the principle is sound). (3) **Long-term equity index funds:** Midcap/Smallcap index funds are 100% equity, so they receive favorable LTCG treatment (12.5% above ₹1.25L after 1 year). Over 30 years, this is optimal. (4) **Overnight fund tax rationale:** Overnight funds are taxed at slab rate, but the plan correctly uses them for short-term emergency (5 months), so the investor will likely not hold >1 year—minimizing tax impact. The modest return (5.5%) is justifiable for zero-volatility emergency savings. (5) **Explicit mention:** The plan mentions \"Equity-taxed (favorable for new regime)\" in the marriage goal rationale, showing tax awareness. (6) **No 80C loss:** The plan does not incorrectly push ELSS on a new-regime investor, which would be a major error. **Deductions (–0.10):** (1) The plan could be more explicit about post-tax return projections (e.g., \"10% CAGR base case = ~8.75% post-tax after 12.5% LTCG if gains exceed ₹1.25L threshold\"). For a ₹4k/month SIP over 6 years, gains will likely stay below ₹1.25L (total corpus ≈ ₹5L, gains ≈ ₹2.12L, but recognized gradually), so the tax impact is nuanced. (2) The plan doesn't discuss whether the ₹50k lump into Overnight Fund is from existing savings or new income; if from savings (post-tax), no additional tax. If from salary, already withheld. This is a minor point but relevant for precision. (3) Overnight fund return of 5.5% is stated but not explicitly post-tax (Overnight funds taxed at slab rate, so ₹5.5% gross = ₹3.85% post-tax for a 30% slab investor; for new-regime, it's lower effective rate but depends on exact income level—not discussed). For short-term holding, this is acceptable, but stating \"post-tax return\" would be clearer.\n\n---\n\n## Summary\nThis is a **well-structured, beginner-friendly plan** with strong goal alignment, realistic projections, and excellent internal consistency. Tax treatment is appropriate for a new-regime investor. The main areas for enhancement are: (1) adding large-cap diversification to the equity long-term bucket; (2) explicitly discussing volatility for mid/small-cap holdings; (3) clarifying the exact transition from emergency-fund accumulation to marriage/long-term SIPs; and (4) providing post-tax return projections. The plan successfully balances simplicity (four funds, low fees, index-based) with sophistication (phased approach, scenario analysis, behavioral guardrails), making it suitable for a young, first-job, frugal investor.\n",
+    "composite_pqs": 0.8360000000000001
+  },
+  "timestamp": "2026-04-16T12:43:13.947743Z",
+  "prompt_version": "v1"
+}

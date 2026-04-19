@@ -1,0 +1,108 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 500 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 70.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "1.20% per annum"
+      },
+      {
+        "fund": {
+          "amfi_code": "150002",
+          "name": "Nifty Large Cap Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 30.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.20% per annum"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 100% of its equity portion to index funds (Nifty 500 and Nifty Large Cap Index Fund), which are inherently passive instruments, resulting in a passive_instrument_fraction score of 1.0. There is no mention of rebalancing guidelines or review checkpoints, implying a buy-and-hold approach, hence the turnover_score is 1.0. While cost is not explicitly discussed, index funds are generally low-cost, but without explicit emphasis on minimizing expense ratios or fees, the cost_emphasis_score is moderate at 0.5. The plan uses broad market index funds without any indication of individual stock or fund manager research, leading to a research_vs_cost_score of 1.0. The absence of short-term tactical moves and use of long-term indexing suggests strong long-term orientation (time_horizon_alignment_score = 1.0). Finally, both funds are index-based with no active management intent; despite missing risk metrics, their category and structure indicate passive exposure, giving a portfolio_activeness_score of 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows partial goal alignment by allocating 100% to equity, which suits Remy's long 38-year horizon and moderate risk appetite for long-term wealth creation. However, it ignores his near-term goal of accumulating ₹5L in 4 years, which requires some capital protection — no debt or hybrid allocation is included. Diversification is poor: both funds are large-cap equity index funds (Nifty 500 and Nifty Large Cap), creating significant overlap and concentration risk; there's no exposure to mid/small caps, international equities, or other asset classes. Risk-return is moderately appropriate given Remy's age and horizon, but the lack of any diversification or glide path toward safety for intermediate goals makes it suboptimal. Internal consistency is weak: the rationale fields contain nonsensical entries like '1.20% per annum', allocations don't match SIP step-up preference, and there's no rebalancing or review plan. Tax efficiency is fair: since Remy is in the 'new_regime' tax bracket, ELSS is correctly avoided (no 80C benefit), and equity funds are used appropriately with favorable LTCG taxation. However, the plan fails to mention tax treatment, and using two highly similar large-cap funds adds no value. The investor's preference for 1-2 funds is met, but not in a strategically diversified way.",
+    "composite_pqs": 0.4
+  },
+  "timestamp": "2026-04-18T16:10:12.407973Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23551,
+    "output_tokens": 1077,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 42.08618085552007
+}

@@ -1,0 +1,148 @@
+{
+  "persona_id": "P07",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 120000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "High-growth large-cap fund with a strong track record"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 90000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Aggressive large & mid-cap fund with a high-growth potential"
+      },
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "WhiteOak Capital Mid Cap Fund",
+          "category": "Mid Cap",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": 489.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.0,
+          "returns_3y": 27.8,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.9,
+          "alpha": 23.22,
+          "tracking_error": 9.01,
+          "sharpe_ratio": 1.36,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 90000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "High-growth mid-cap fund with a strong potential for long-term growth"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you're 33 with 20 years ahead, we can afford to put more in stocks which grow faster over long periods. We've kept 40% in large-cap, 30% in large & mid-cap, and 30% in mid-cap to balance high growth with some stability.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan is heavily tilted towards active management across multiple dimensions. \n\n- **passive_instrument_fraction**: All equity allocations (100%) are to actively managed funds (Large Cap, Large & Mid Cap, Mid Cap), with no index funds or ETFs present. Hence, score is 0.0.\n\n- **turnover_score**: Rebalancing is recommended only once a year, and review checkpoints are at 6 months and 1 year, indicating low turnover. There's no suggestion of tactical trading or frequent adjustments. This reflects a mostly long-term orientation, warranting a high score of 0.75.\n\n- **cost_emphasis_score**: There is no mention of expense ratios, fees, or cost efficiency in fund selection. Funds are chosen based on performance and growth potential, not low cost. Thus, score is 0.0.\n\n- **research_vs_cost_score**: Fund selection is based on growth potential, track record, and category rationale, implying active stock-picking and manager skill. No emphasis on broad market exposure or index-based logic. Score is 0.0.\n\n- **time_horizon_alignment_score**: The plan explicitly references a 20-year horizon for a 33-year-old investor and emphasizes long-term compounding. Review and rebalancing are infrequent. This strong long-term focus justifies a score of 0.9 (not 1.0 due to annual review and performance monitoring).\n\n- **portfolio_activeness_score**: All three funds show characteristics of active management: high tracking error (ranging from 3.16% to 13.05%), positive alpha (up to 23.22), and deviation from Nifty 50 beta. The Large Cap fund has moderate tracking error (3.16%) but still positive alpha, suggesting active tilt. The portfolio is clearly constructed for active outperformance, not passive exposure. Score is 0.0.",
+    "composite_aps": 0.27499999999999997
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan shows strong goal alignment given the investor's aggressive risk appetite, 20-year horizon, and desire for high growth to achieve financial independence and a ₹5Cr corpus. The allocation to large-cap, large & mid-cap, and mid-cap funds supports long-term capital appreciation, and the 12% projected return is reasonable for this mix. The rationale, rebalancing, and review checkpoints are coherent, supporting internal consistency.\n\nHowever, diversification is moderate: the portfolio is entirely equity-focused across three categories but lacks exposure to small-caps (which the investor expressed interest in), international equities, debt, or arbitrage funds. While justified by the long horizon, some tactical diversification could improve resilience.\n\nThe major weakness is tax efficiency. The investor is in the 30% tax slab, yet the plan uses only regular equity funds without leveraging tax-efficient structures like Aggressive Hybrid or Arbitrage funds for potential fixed-income needs or stability. More critically, it omits ELSS funds despite the investor being in the old regime (30% slab) and likely having 80C headroom — a missed opportunity to claim deductions and enhance post-tax returns. No tax rationale is provided, making the plan tax-blind in execution despite being in a high-tax bracket.\n\nRisk-return is appropriate: volatility is expected and acknowledged, and the investor is comfortable with it. The plan correctly emphasizes long-term recovery from drawdowns.\n\nOverall, the plan is well-structured but falls short on tax optimization, which is a significant lever for high-slab investors.",
+    "composite_pqs": 0.67
+  },
+  "timestamp": "2026-04-18T15:39:34.454896Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23793,
+    "output_tokens": 1945,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 65.48478498030454
+}

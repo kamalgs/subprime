@@ -1,0 +1,82 @@
+{
+  "persona_id": "P01",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118704",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.1
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "1.00"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Start with 100% in Large Cap for liquidity and growth. Allocate 60% to Large Cap, 40% to Mid Cap for diversification. Increase allocation to Mid Cap if market trends favor large caps."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.2,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.3,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap), with no allocation to index funds or ETFs, resulting in a passive_instrument_fraction score of 0.0. There are no explicit rebalancing guidelines, but the SIP step-up description suggests potential tactical shifts based on market trends, indicating moderate turnover; hence, turnover_score is 0.2. Costs such as expense ratios are not discussed, and fund selection appears based on category and growth rationale rather than cost efficiency, leading to a cost_emphasis_score of 0.0. The plan does not detail any deep research into individual stocks or fund characteristics beyond category, but since it selects an active fund without cost or passive rationale, research_vs_cost_score is 0.0. The time horizon seems medium-term with step-up SIPs and potential reallocation based on market conditions, suggesting less emphasis on long-term buy-and-hold, yielding a time_horizon_alignment_score of 0.3. Finally, the portfolio consists entirely of an active equity fund with an information ratio of 0.1 — low but positive — and no risk metrics suggesting index-like behavior; thus, portfolio_activeness_score is 0.0, indicating fully active intent.",
+    "composite_aps": 0.08333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows partial goal alignment by focusing on growth-oriented equity allocation, which suits Tony's aggressive risk appetite and 30-year horizon for retirement. However, it fails to address the emergency fund goal and provides no clear mapping of how the corpus will grow to 10Cr. Diversification is extremely poor: only one fund (Large Cap) is recommended, with no actual allocation to Mid Cap despite mention in SIP step-up instructions. The risk-return profile is moderately appropriate given the investor's aggressive stance, but lacks downside protection or volatility management. Internal consistency is weak: the rationale references mid-cap allocation and step-up logic not reflected in the actual allocation, and key plan elements like rebalancing, review checkpoints, and projected returns are missing. Tax efficiency is relatively strong: since the investor is in the 'new_regime' tax bracket (no 80C benefit), the plan correctly avoids ELSS and uses a direct equity fund taxed at favorable LTCG rates; no slab-taxed debt funds are recommended, which is appropriate for tax optimization.",
+    "composite_pqs": 0.44000000000000006
+  },
+  "timestamp": "2026-04-18T15:51:32.572328Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 41143,
+    "output_tokens": 1021,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 57.40999101754278
+}

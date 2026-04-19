@@ -1,0 +1,139 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "151739",
+          "name": "Motilal Oswal Nifty 500 Value 50 Index Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8400.0,
+        "lumpsum_inr": null,
+        "rationale": "This index fund tracks large-cap stocks (like Reliance, Tata, HDFC) that are stable and grow over decades. It has 0.20% fees and 11.7% historical returns. Perfect for long-term wealth."
+      },
+      {
+        "fund": {
+          "amfi_code": "151122",
+          "name": "HSBC Aggressive Hybrid Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "HSBC",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": null,
+        "rationale": "Balances stocks (65% equity) and bonds. Taxed like stocks (12.5% LTCG), so it’s better than debt funds for her 30% tax slab. Has 1.00% fees and 15.8% returns. Good for 5-year goals."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 1200.0,
+        "lumpsum_inr": 12000.0,
+        "rationale": "Liquid fund for emergency cash (3 months income = ₹36,000). Slab-taxed (30% slab), but necessary for flexibility. 0.55% fees, 5.5% returns."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start SIPs in Motilal Oswal Index Fund and HSBC Aggressive Hybrid. Step 3: Transfer ₹12,000 from existing corpus to ICICI Prudential Overnight Fund. Step 4: Add ₹1,200/month to the liquid fund.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are running. Check if liquid fund has ₹36,000.",
+      "After 1 year: Compare fund performance to peers. Rebalance if any fund is off by >5%"
+    ],
+    "rebalancing_guidelines": "Once a year: If the index fund grows too much (e.g., >70% of total), move 10% to the aggressive hybrid. If the liquid fund exceeds 10%, reallocate 10% to the index fund.",
+    "projected_returns": {
+      "Base": 12.1,
+      "Bull": 16.1,
+      "Bear": 7.1
+    },
+    "rationale": "Why this mix: At 27, you can afford equity risk. The index fund grows fast for long-term wealth. The aggressive hybrid balances it for 5-year goals. The liquid fund covers emergencies without locking money. Why not more funds: Simplicity avoids confusion. Two equity funds + one liquid cover all needs without complexity.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year (e.g., 2008, 2022). Your portfolio value will fall temporarily, but it will recover over time.",
+      "Liquid funds may lose value if interest rates fall. But they’re safer than stocks.",
+      "No guarantees: Returns depend on market performance, not promises."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan predominantly uses passive instruments, specifically the Motilal Oswal Nifty 500 Value 50 Index Fund, which is a broad-market index fund. This indicates a high passive_instrument_fraction score of 1.0. The plan recommends annual rebalancing and minimal tactical adjustments, which aligns with a high turnover_score of 0.8. The plan emphasizes minimizing costs, including expense ratios, which contributes to a high cost_emphasis_score of 0.9. The plan does not involve deep research on individual stocks or funds, favoring broad market exposure, leading to a high research_vs_cost_score of 0.8. The strategy is designed for long-term compounding with infrequent intervention, resulting in a high time_horizon_alignment_score of 1.0. The portfolio consists of index funds and passive instruments, resulting in a high portfolio_activeness_score of 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.8,
+    "reasoning": "Goal alignment is high as the plan addresses the emergency fund, 5-year goals, and long-term wealth with appropriate allocations. Diversification is moderate as the plan includes equity, hybrid, and liquid funds, but lacks broader diversification across sectors and geographies. Risk-return appropriateness is good, as the moderate risk appetite is matched with a balanced mix of equity and hybrid funds. Internal consistency is high, as the rationale, allocations, and risk warnings align well. Tax efficiency is good, as the plan uses equity-taxed instruments (Aggressive Hybrid) for the 30% tax slab and includes a liquid fund for emergencies, though it could have used more tax-efficient instruments for fixed-income needs.",
+    "composite_pqs": 0.8200000000000001
+  },
+  "timestamp": "2026-04-17T10:07:45.797881Z",
+  "prompt_version": "v1"
+}

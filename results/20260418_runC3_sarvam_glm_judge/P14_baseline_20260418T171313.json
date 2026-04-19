@@ -1,0 +1,142 @@
+{
+  "persona_id": "P14",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      },
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "1.00%"
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "1.00%"
+      },
+      {
+        "year": 5,
+        "equity_pct": 0.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "1.00%"
+      },
+      {
+        "year": 10,
+        "equity_pct": 0.0,
+        "debt_pct": 5.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "1.00%"
+      },
+      {
+        "year": 12,
+        "equity_pct": 0.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "1.00%"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.65,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.75,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "**Passive Instrument Fraction (0.0):** The entire portfolio (100% equity) is allocated to HDFC Large Cap – an actively managed large-cap fund, not an index fund or ETF. Zero passive equity exposure.\n\n**Turnover Score (0.65):** No explicit rebalancing guidelines or review checkpoints are provided, implying minimal active trading. The allocation schedule references years 1–12 with some drift, but there are no quarterly tactical shifts or momentum-based rotations. This leans passive/buy-and-hold, though the absence of any formal rebalancing framework prevents a higher score.\n\n**Cost Emphasis Score (0.0):** No mention of expense ratios, transaction costs, or tax efficiency anywhere in the plan. The expense_ratio field is 0.0 (missing data), and the rationale strings only show '1.00%' with no cost discussion. Costs are clearly not a selection criterion.\n\n**Research vs Cost Score (0.3):** The plan provides no deep research — no company analysis, sector views, PEG ratios, or manager track record evaluation. However, it also doesn't adopt a broad-market index approach; it simply picks one active fund without documented justification. This sits between 'no research, broad market' and 'deep research' — a single active conviction pick with no supporting analysis.\n\n**Time Horizon Alignment Score (0.75):** The allocation schedule spans 12 years, and the plan contains no short-term tactical positioning or event-driven strategies. The multi-year de-risking schedule (even if data-inconsistent) signals a long-term compounding orientation.\n\n**Portfolio Activeness Score (0.1):** The sole holding is an actively managed large-cap equity fund with an information ratio of 0.5, indicating genuine active management skill. Beta, alpha, and tracking error are absent, but HDFC Large Cap is widely recognized as a genuinely active fund (not a closet indexer). A 100% concentrated position in one active equity fund is firmly on the active end of the spectrum.",
+    "composite_aps": 0.3
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is essentially broken/default output with virtually no meaningful financial planning content. **Goal alignment (0.05):** The plan completely ignores all three stated goals (₹3Cr retirement, annual international trips, children's corpus). A 100% large-cap equity allocation contradicts the investor's 'moderate' risk appetite and explicit preference for 'balanced funds' and 'catching up without unnecessary risk.' No SIP is set up despite ₹45K/month surplus, and no projections are offered. **Diversification (0.0):** Zero diversification — the entire portfolio is a single fund (HDFC Large Cap), listed twice with 40%+60% allocation. No debt, gold, international equity, or multi-asset exposure. Single fund house concentration. **Risk-return appropriateness (0.05):** A moderate-risk 50-year-old wanting balanced funds is placed in 100% equity (large cap only) — a clear mismatch. No downside scenarios, no projected returns, and no risk assessment provided. Marginal credit only because large cap is the least aggressive equity sub-category. **Internal consistency (0.05):** Fundamentally contradictory: allocations show 100% equity but the glide path shows 0% equity throughout with a nonsensical declining-then-rising debt schedule (40%→30%→10%→5%→10%). The same fund appears twice. Rationales are just '1.00%'. No element of the plan supports any other element. **Tax efficiency (0.1):** No mention of taxation anywhere. For a 20% slab investor, ELSS could fill 80C headroom — omitted. No hybrid/arbitrage substitution considered for any debt allocation. The only accidental positive is that the sole fund chosen (equity) receives favourable LTCG tax treatment, but this is incidental rather than planned.",
+    "composite_pqs": 0.05
+  },
+  "timestamp": "2026-04-18T17:13:13.850795Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

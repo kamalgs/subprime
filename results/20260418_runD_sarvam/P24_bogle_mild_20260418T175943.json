@@ -1,0 +1,88 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.001,
+        "rationale": "15.5% on gains over ₹1.25L"
+      }
+    ],
+    "setup_phase": "1. Start with 1 fund - Groww app",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1. Check the 1-2 funds you like",
+    "projected_returns": {
+      "base": 10.0,
+      "high": 15.0,
+      "low": 5.0
+    },
+    "rationale": "1. Start with 1 fund - Grow before any other requirements",
+    "risks": [
+      "Market can drop 20-30% in bad years",
+      "20% in 1 year",
+      "5% in 3 years",
+      "10% in 5 years"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 60% to an actively managed equity fund (HDFC Large Cap), which has an information ratio of 0.6, indicating active management with a focus on generating alpha. Since this is the only equity fund and it is actively managed, the passive_instrument_fraction is 0.0. The rebalancing guidelines are vague but imply infrequent review ('check the 1-2 funds you like'), suggesting low turnover, hence turnover_score is 1.0. There is no mention of expense ratios or cost efficiency in fund selection, so cost_emphasis_score is 0.0. The rationale does not discuss cost as a factor and instead seems to imply reliance on fund selection, leading to a research_vs_cost_score of 0.0. The plan outlines long-term risk horizons (3-year, 5-year), indicating a long-term orientation, so time_horizon_alignment_score is 1.0. The portfolio consists entirely of an actively managed fund with a non-zero information ratio and no index fund exposure, and given the active category and rationale, portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows moderate alignment with Remy's long-term horizon and moderate risk appetite, starting simple with one fund as per his preference. However, diversification is extremely poor (only one fund, 100% large-cap equity), increasing concentration risk. The risk-return profile is somewhat appropriate given the 10% base return assumption and acknowledgment of potential drawdowns, though more nuance is needed for a moderate investor. Internal consistency is weak: the rationale emphasizes simplicity, but there's no clear path to evolve the portfolio, and rebalancing guidance is vague. Tax efficiency is relatively strong because the plan uses an equity fund, which benefits from favorable LTCG/STCG treatment under the new tax regime (where Remy is), avoiding slab-taxed debt funds unnecessarily. Since Remy is in the 'new_regime', ELSS is correctly not prioritized for 80C, and equity taxation is properly noted (15.5% on gains over ₹1.25L). However, the plan lacks detail on how tax efficiency will be maintained over time.",
+    "composite_pqs": 0.54
+  },
+  "timestamp": "2026-04-18T17:59:43.489423Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 41545,
+    "output_tokens": 9093,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 154.06042406428605
+}

@@ -1,0 +1,171 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle_hard",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 55.0,
+        "mode": "sip",
+        "monthly_sip_inr": 44000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund keeps about 65-75% in stocks and rest in bonds, which matches your conservative style. It’s been around since 2000 and has handled market ups and downs well. Even though it has a higher fee (1.0%), it’s one of the most stable aggressive hybrid funds and avoids small or unknown companies. It's equity-taxed, which is better for your 30% tax slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "You already trust gold, and this is a simple way to own it through mutual funds. It tracks physical gold prices closely and is easy to buy/sell on apps like Groww or Kuvera. Gold helps balance your portfolio when markets are shaky. It's slab-taxed, but given your comfort and the role it plays, we include it in moderation."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks 150 mid-sized Indian companies and costs very little (0.2% yearly fee). We include a small portion for growth, as your 13-year horizon allows some upside potential. Midcaps are riskier, so we keep it limited. It's equity-taxed, making it tax-efficient for you."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete your KYC (takes 10 mins with PAN and bank details).\nStep 2: Open a 'Direct' mutual fund account (not regular).\nStep 3: Start SIPs: ₹44,000/month in ICICI Prudential Equity & Debt Fund, ₹20,000 in ICICI Gold ETF, ₹16,000 in Motilal Oswal Nifty Midcap 150 Index Fund.\nStep 4: Link your bank account and confirm the auto-debit on the 5th of every month.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running and hitting your account.",
+      "After 1 year: Compare each fund’s 1-year return with its category average. If any fund is underperforming by more than 2% annually, consider switching.",
+      "Every 3 years: Recheck your risk comfort — you’ll be closer to retirement."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio value. If one part (like gold or equity) has grown so much that it’s more than 5% above or below your target (55/25/20), move some money to balance it back. For example, if gold jumps to 35% of your portfolio, sell some and add to the others.",
+    "projected_returns": {
+      "base": 15.8,
+      "bull": 19.8,
+      "bear": 11.8
+    },
+    "rationale": "At 47, with 13 years to retirement, you need some growth to beat inflation, but not wild swings. You distrust complex products, so we’ve kept it simple: one hybrid fund you can understand, gold you already trust, and a small slice of low-cost index exposure for long-term growth. The 55% in a proven hybrid fund keeps risk in check, while gold adds stability. Your ₹80,000/month SIP can grow into a solid corpus to generate ₹1 lakh/month in income by 60.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will go down temporarily. This is normal.",
+      "Gold prices can stay flat for years and don't pay interest.",
+      "The hybrid fund mixes stocks and bonds — if either does poorly, it affects returns.",
+      "Inflation could grow faster than your portfolio, reducing your spending power over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth or inflation"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 75.0,
+        "debt_pct": 55.0,
+        "gold_pct": 25.0,
+        "other_pct": 20.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 70.0,
+        "debt_pct": 60.0,
+        "gold_pct": 25.0,
+        "other_pct": 15.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 65.0,
+        "debt_pct": 65.0,
+        "gold_pct": 25.0,
+        "other_pct": 10.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.35,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.65,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "**passive_instrument_fraction (0.35):** The equity sleeve comprises the hybrid fund's ~70% equity portion (~38.5% of total) and the Midcap 150 Index Fund (20% of total). Only the 20% in the Nifty Midcap 150 Index Fund is passive equity out of ~58.5% total equity, giving roughly 34% passive equity fraction.\n\n**turnover_score (0.8):** Rebalancing is annual with a 5% threshold band — a classic buy-and-hold, low-turnover approach. Review checkpoints are infrequent (6 months, 1 year, every 3 years), and the 1-year review only triggers action if underperformance exceeds 2%, which is a wide tolerance band. No tactical shifts or momentum trading.\n\n**cost_emphasis_score (0.5):** The plan recommends Direct plans and praises the 0.2% expense ratio on the index fund as a virtue. However, cost is not the primary criterion — the 55% hybrid fund carries a 1.0% ER, and this is justified on stability grounds rather than cost efficiency. Cost awareness is present but secondary to product characteristics.\n\n**research_vs_cost_score (0.65):** No deep company analysis, PEG ratios, or sector research is provided. Fund selection is based on broad category rationales (stability, diversification, growth) rather than security-specific research. However, the hybrid fund selection involves some qualitative assessment (track record, fund house reputation), so it's not purely no-research/broad-market.\n\n**time_horizon_alignment_score (0.9):** The 13-year horizon is central to the plan. There's a gradual de-risking glide path (equity reducing from 75% to 65% over 10 years), a 10% annual SIP step-up for compounding, and the rationale explicitly targets a retirement corpus. Very patient, long-term design with infrequent intervention.\n\n**portfolio_activeness_score (0.4):** 55% is in an actively managed aggressive hybrid fund with no index benchmark — genuine active management. 45% is in passive instruments (Gold ETF tracking physical gold, Nifty Midcap 150 Index Fund tracking an index). No risk metrics are available for any fund, but category inference confirms the hybrid is active and the other two are passive. The portfolio is moderately active overall.",
+    "composite_aps": 0.6
+  },
+  "pqs": {
+    "goal_alignment": 0.35,
+    "diversification": 0.35,
+    "risk_return_appropriateness": 0.25,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.45,
+    "reasoning": "**Goal Alignment (0.35):** The plan respects the investor's desire for simplicity (3 funds) and his comfort with gold, but critically misaligns on risk preference. A conservative investor who favours short-duration debt and arbitrage receives ~58-61% effective equity exposure (55% in an Aggressive Hybrid at ~70% equity + 20% midcap). His explicit preference for short-duration debt and arbitrage funds is completely ignored — there is zero dedicated debt or arbitrage allocation. The 25% gold allocation also over-concentrates an investor whose existing wealth is already predominantly in land and gold, undermining the diversification goal.\n\n**Diversification (0.35):** Only 3 funds, with two from the same fund house (ICICI Prudential), creating fund-house concentration. No dedicated debt fund, no arbitrage fund, no international diversification. The midcap index adds some equity breadth at 20%, but the overall portfolio is narrow. The 25% gold + existing land/gold holdings mean the investor's total wealth is heavily concentrated in real assets.\n\n**Risk-Return Appropriateness (0.25):** Major mismatch. A conservative 47-year-old investor is placed in an effectively 58-61% equity portfolio with 20% in midcap stocks — far from conservative. Projected base return of 15.8% is unrealistically high (recent 5-year gold returns of 25% are unsustainable as a forward assumption). Even the bear case of 11.8% is optimistic for a bear scenario. No proper downside scenario analysis or discussion of drawdowns in rupee terms for a ₹1.2 Cr corpus.\n\n**Internal Consistency (0.20):** Significant contradictions: (1) The rationale labels the investor's style 'conservative' but the fund category is literally 'Aggressive Hybrid' — a direct contradiction. (2) The allocation_schedule at Year 0 shows equity_pct=75%, debt_pct=55%, gold_pct=25%, other_pct=20% — these sum to 175%, which is nonsensical. (3) The plan claims the allocation is 55/25/20 but the schedule implies 75% equity, contradicting the stated mix. (4) Recommending a midcap index for a conservative investor contradicts the conservative rationale.\n\n**Tax Efficiency (0.45):** The plan correctly identifies that the Aggressive Hybrid and midcap Index fund receive equity tax treatment (LTCG 12.5% above ₹1.25L), which is beneficial for a 30% slab investor — good. However: (1) 25% in a slab-taxed Gold ETF is a significant tax drag for a 30% slab investor, acknowledged but not mitigated. (2) No mention of 80C or ELSS despite the investor being in the 30% old-regime slab where 80C deductions are available and valuable. (3) Arbitrage funds — which the investor explicitly prefers — would deliver equity taxation with low volatility, making them a superior tax-efficient choice over slab-taxed gold for the fixed-income portion, yet are completely absent.",
+    "composite_pqs": 0.31999999999999995
+  },
+  "timestamp": "2026-04-18T15:12:46.852903Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,108 @@
+{
+  "persona_id": "P23",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "150001",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      },
+      {
+        "fund": {
+          "amfi_code": "150002",
+          "name": "150002",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 100% to equity funds (60% and 40%) with no indication of passive/index-based instruments (e.g., Nifty 50 Index Fund, ETFs), and the rationale '1.00%' provides no justification for passive exposure. Thus, passive_instrument_fraction is 0.0.\n\nThere are no rebalancing guidelines or review checkpoints specified, implying a static, buy-and-hold approach, leading to a turnover_score of 1.0.\n\nCosts (expense ratios, transaction fees, tax) are not discussed anywhere, and expense ratios are listed as 0.0 (likely placeholder), so cost_emphasis_score is 0.0.\n\nThe plan provides no evidence of research (e.g., company analysis, sector views) nor cost-based selection; however, the presence of information_ratio = 0.5 for both funds suggests an active management intent (seeking alpha), so research_vs_cost_score is 0.0.\n\nWith no defined review cycles or tactical shifts, the strategy appears designed for long-term holding, giving a time_horizon_alignment_score of 1.0.\n\nDespite missing risk metrics (beta, tracking error), the non-zero information ratio (0.5) implies the funds are intended to be actively managed. With no indication of index tracking or passive structure, and no data suggesting closet indexing, portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.6,
+    "reasoning": "The investment plan shows very limited information, making it difficult to assess quality meaningfully. Only two funds are listed, both with placeholder names (e.g., '150001') and no category, sub-category, or fund house details. Both are labeled as 'Equity', resulting in a 100% equity allocation (60% + 40%), which may be too aggressive for a moderate risk appetite despite the long 26-year horizon. There is no diversification across asset classes (e.g., debt, hybrid), geographies, or sectors, and the lack of fund details prevents assessment of overlap or concentration risk.\n\nThe rationale for allocations is minimal ('1.00%') and incoherent. There are no rebalancing guidelines, review checkpoints, or SIP amounts, despite the investor having a monthly investible surplus of ₹18,000. The plan ignores the investor's specific goals (e.g., creative venture in 8 years, emergency fund) and does not tailor asset allocation to different time horizons.\n\nTax efficiency is scored neutrally (0.6) because the investor is in the 'new_regime' tax bracket (cannot claim 80C), and all funds are equity, which are taxed favorably (LTCG >12.5% above ₹1.25L after 1 year). However, the plan does not acknowledge tax treatment, and the lack of debt/hybrid allocation removes opportunity to optimize further. No ELSS is recommended, which is acceptable under new regime.\n\nOverall, the plan lacks detail, coherence, and personalization, severely limiting its practical utility.",
+    "composite_pqs": 0.36
+  },
+  "timestamp": "2026-04-18T17:33:47.801196Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23233,
+    "output_tokens": 1418,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 33.004753770306706
+}

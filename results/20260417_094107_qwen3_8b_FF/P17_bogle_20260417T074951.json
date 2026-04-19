@@ -1,0 +1,176 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Multi Cap",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 25.45,
+          "expense_ratio": 1.05,
+          "inception_date": "2001-04-01",
+          "aum_cr": 9422.0,
+          "morningstar_rating": 4,
+          "returns_1y": 13.3,
+          "returns_3y": 21.3,
+          "returns_5y": 21.3,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.3,
+          "beta": 0.94,
+          "alpha": 7.24,
+          "tracking_error": 6.44,
+          "sharpe_ratio": 0.78,
+          "information_ratio": 1.2
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7200.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund offers a balanced approach with exposure to large, mid, and small-cap stocks, which is ideal for a moderate risk profile. It has a good track record and low fees."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 18.25,
+          "expense_ratio": 1.0,
+          "inception_date": "2001-04-01",
+          "aum_cr": 16619.0,
+          "morningstar_rating": 4,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": "moderate",
+          "volatility_1y": 10.5,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 1.1
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3600.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund focuses on large-cap stocks, which are generally more stable and suitable for a moderate risk profile. It has a strong track record and low fees."
+      },
+      {
+        "fund": {
+          "amfi_code": "118668",
+          "name": "Nippon India Growth Mid Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Mid Cap",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 16.6,
+          "expense_ratio": 1.15,
+          "inception_date": "2001-04-01",
+          "aum_cr": 8172.0,
+          "morningstar_rating": 4,
+          "returns_1y": 16.6,
+          "returns_3y": 26.6,
+          "returns_5y": 22.2,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.0,
+          "beta": 1.01,
+          "alpha": 13.73,
+          "tracking_error": 8.59,
+          "sharpe_ratio": 1.12,
+          "information_ratio": 1.3
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1200.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund offers exposure to mid-cap stocks, which can provide higher growth potential. It has a good track record and low fees."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start your monthly SIPs in these funds. Step 3: Ensure that your SIPs are set to continue even if there are months when you cannot invest the full amount.",
+    "review_checkpoints": [
+      "After 6 months: Check if your SIPs are running and if the funds are performing as expected.",
+      "After 1 year: Review the performance of the funds and ensure they are aligned with your goals.",
+      "After 5 years: Rebalance your portfolio if needed and review the overall performance."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 11.7,
+      "bull": 15.7,
+      "bear": 8.7
+    },
+    "rationale": "Phoebe's plan focuses on a balanced mix of large-cap, mid-cap, and multi-cap funds to provide a good balance between growth and stability. This approach is suitable for her moderate risk profile and long investment horizon. The funds chosen have low fees and a good track record, which is important for long-term growth.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "There is no guarantee of returns, and the value of your investment can go up or down.",
+      "Market conditions can change, and the performance of the funds can vary."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "No change in allocation"
+      },
+      {
+        "year": 10,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "No change in allocation"
+      },
+      {
+        "year": 20,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "No change in allocation"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The plan has no passive instruments in the equity sleeve, as all allocations are to actively managed funds. The turnover score is 0.5 because the plan recommends annual rebalancing, which is less frequent than monthly or quarterly. The cost emphasis score is 0.7 as the plan highlights low fees as an important factor. The research versus cost score is 0.3 because the plan does not emphasize detailed stock or fund research. The time horizon alignment score is 1.0 as the plan is designed for long-term compounding with infrequent intervention. The portfolio activeness score is 0.3 as the funds have higher tracking error and alpha, indicating active management.",
+    "composite_aps": 0.4666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.7,
+    "reasoning": "The plan aligns well with Phoebe's moderate risk appetite and long investment horizon, as it uses a balanced mix of equity funds. The allocations are justified by her financial goals, including long-term wealth growth. The plan is diversified across large-cap, mid-cap, and multi-cap funds, which provides a good balance of growth and stability. The risk-return profile is appropriate for her moderate risk tolerance, with projected returns that are realistic for the market. The plan is internally consistent, with rationale and allocations that support the stated strategy. However, the tax efficiency score is lower because the plan does not explicitly address the tax implications for a new regime investor. While the funds are equity-taxed, the plan does not clearly state the post-tax rationale behind each allocation choice, which could be improved for better tax optimization.",
+    "composite_pqs": 0.8400000000000001
+  },
+  "timestamp": "2026-04-17T07:49:51.631081Z",
+  "prompt_version": "v1"
+}

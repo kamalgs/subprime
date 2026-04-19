@@ -1,0 +1,141 @@
+{
+  "persona_id": "S01",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a safety net for your money. It often moves opposite to stocks, helping keep losses low when markets are down."
+      },
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund mixes stocks, bonds, and gold in a safe way. Since we know gold and bonds are tax-heavy for you, this fund's all gains taxed benefit matches your comfort with stability."
+      },
+      {
+        "fund": {
+          "amfi_code": "150206",
+          "name": "BARODA BNP PARIBAS Conservative Hybrid Fund - Direct Plan - Growth Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "A balanced mix of around 75% stocks and 25% bonds for steady growth. This is a low-volatility way to add a bit more growth potential without the usual stock market jitters."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on apps like Groww, Kuvera, or Coin if you don't have one. Step 2: Set up automatic SIPs for the three funds above with the monthly amounts mentioned. Step 3: You said your existing FDs are maturing. So, direct that lumpsum amount into the BARODA BNP PARIBAS Conservative Hybrid Fund first, as it handles different types of assets and gives stable growth.",
+    "review_checkpoints": [
+      "After 3 months: Confirm your SIPs are running automatically. If any fail, they'll need to be restarted immediately. After 1 year: Check your total value vs. your goal of ₹2Cr. See if the asset split has drifted from our 40/40/20 mix.",
+      "After 6 months: If you see significant underperformance (e.g., your Multi-Asset Fund returns less than the category average), check the holdings to see if the fund manager is deviating too much."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your portfolio has drifted more than 5% from our target. If yes, move money from the biggest category to the smallest to return to 40/40/20. For instance, if your Multi-Asset fund has grown much larger, withdraw excess SIP and put it into Gold.",
+    "projected_returns": {
+      "base_cagr": 8.0,
+      "base_scenario_gain_lpa": 12.0,
+      "bull_scenario_gain_lpa": 16.0,
+      "bear_scenario_gain_lpa": 4.0
+    },
+    "rationale": "",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — even a 'safe' hybrid fund can see short-term losses. Your ₹2Cr goal is 5 years away, so stay invested through ups and downs.",
+      "Gold prices can be volatile in short terms too; it doesn't crash but won't guarantee returns either.",
+      "Inflation can eat into your purchasing power if your returns are lower than 6% per year.",
+      "For this plan, gains will be taxed as per your income-tax slab (30%)."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The investment plan does not allocate any portion of its equity exposure to passive/index instruments like index funds or ETFs (excluding gold ETF). The equity portion is split between a multi-asset fund and a conservative hybrid fund, both actively managed with no indication of index-based strategies, resulting in a passive_instrument_fraction score of 0.0.\n\nThe turnover_score is 0.8 because the plan recommends annual rebalancing only if allocations drift by more than 5%, which is relatively infrequent. However, there are review checkpoints at 3, 6, and 12 months suggesting some active monitoring, slightly reducing the passivity.\n\nCosts such as expense ratios, transaction fees, or tax efficiency are not discussed anywhere in the plan. Fund selection appears driven by tax treatment and stability rather than low cost, leading to a cost_emphasis_score of 0.0.\n\nThe plan does not emphasize individual security research, but it also does not advocate for broad market exposure via indices. Instead, it relies on actively managed funds without explaining stock-picking rigor, so research_vs_cost_score is 0.0 due to lack of clarity on research depth.\n\nThe time_horizon_alignment_score is 0.8 because the plan supports long-term investing over 5 years with warnings to stay invested through volatility, though it includes short-term review points that slightly detract from pure long-term orientation.\n\nFor portfolio_activeness_score, while risk metrics are missing, the use of actively managed multi-asset and hybrid funds—especially with rationales around manager decisions and potential deviation checks—suggests active management intent. However, without high tracking error or alpha evidence, and given the stable, diversified approach, the activeness is moderate, leading to a score of 0.2.",
+    "composite_aps": 0.3
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows moderate goal alignment by targeting wealth preservation and including gold for stability, appropriate for a pre-retirement conservative investor. However, the 75% equity exposure in the Conservative Hybrid Fund contradicts the stated conservative risk appetite and 5-year horizon, increasing downside risk. Diversification is reasonable across asset classes (equity, debt, gold) and fund types, though reliance on a single multi-asset and hybrid fund introduces concentration risk. Internal consistency is weakened by the rationale praising 'stability' while recommending high-equity hybrid funds and acknowledging 20-30% market drops, which may unsettle a conservative investor. Critically, tax efficiency is very poor: the investor is in the 30% slab, yet the plan recommends a Conservative Hybrid Fund (typically <65% equity) and a Multi-Asset Fund without confirming equity taxation, likely resulting in slab-rate taxation on most gains. It fails to use Aggressive Hybrid or arbitrage funds that offer equity tax treatment, and ignores ELSS for 80C benefits despite the investor being in the old regime. The explicit risk warning about 'gains taxed as per 30%' confirms the tax-inefficient outcome, making this a significant oversight.",
+    "composite_pqs": 0.52
+  },
+  "timestamp": "2026-04-18T05:43:44.089382Z",
+  "prompt_version": "v1"
+}

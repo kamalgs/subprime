@@ -1,0 +1,170 @@
+{
+  "persona_id": "P08",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 48000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Strong performance track record and low expense ratio"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 36000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Consistent returns and strong alpha"
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 42.0,
+          "morningstar_rating": null,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.93,
+          "alpha": 8.21,
+          "tracking_error": 6.18,
+          "sharpe_ratio": 0.46,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 300000.0,
+        "rationale": "Tax benefits and potential for long-term growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0,
+          "morningstar_rating": null,
+          "returns_1y": 17.1,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.03,
+          "alpha": 11.74,
+          "tracking_error": 8.79,
+          "sharpe_ratio": 1.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Diversification and potential for long-term growth"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "This plan is designed to maximize real returns above inflation, with a focus on strong performance track record and low expense ratio. The allocation to large cap, large and mid cap, ELSS, and index funds provides diversification and potential for long-term growth.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "**passive_instrument_fraction (0.20):** Only 1 of 4 equity funds is a passive index product (Motilal Oswal Nifty Midcap 150 Index Fund at 20%). The remaining 80% (Nippon Large Cap 40%, Motilal Oswal L&M 30%, WhiteOak ELSS 10%) are actively managed. Passive equity fraction = 20/100 = 0.20.\n\n**turnover_score (0.85):** Rebalancing is explicitly annual ('Once a year, check if your mix has changed a lot'). The 6-month checkpoint is merely checking SIP execution, not a tactical trigger. The 1-year review is a basic peer comparison, not a rotation signal. This is close to buy-and-hold with minimal tactical activity.\n\n**cost_emphasis_score (0.40):** Cost is mentioned ('low expense ratio' as rationale for the Nippon fund; 'strong performance track record and low expense ratio' in overall rationale), but it is secondary to performance/alpha. The Motilal Oswal L&M fund carries a 1.1% expense ratio, not particularly low. Cost is a factor but not the dominant selection criterion.\n\n**research_vs_cost_score (0.60):** There is no deep bottom-up security analysis, PEG ratios, or management-quality evaluation. Fund selection relies on top-level track records and alpha metrics — fund-level screening rather than security-level research. However, it also doesn't rely purely on market-cap-weighted indices (only 20% is passive). This sits in the middle: fund-picking based on performance history, but no granular research.\n\n**time_horizon_alignment_score (0.90):** The plan is clearly long-term: SIP mode for 90% of allocation, annual rebalancing, 10% annual SIP step-up, ELSS with 3-year lock-in, and the risk note explicitly says drawdowns 'recover over time.' No tactical windows or event-driven positioning.\n\n**portfolio_activeness_score (0.35):** The Motilal Oswal L&M (30%) is genuinely active — tracking error 13.05%, alpha 18.62%, beta 1.11. WhiteOak ELSS (10%) is active — TE 6.18%, alpha 8.21%. Nippon Large Cap (40%) is moderate-active — TE 3.16%, alpha 4.27%, beta 0.98 (closet-indexer tendencies but with some active calls). The Motilal Oswal Nifty Midcap 150 Index Fund (20%) is truly passive by category. Weighted: 40%×0.35 + 30%×0.0 + 10%×0.15 + 20%×1.0 ≈ 0.355 → rounded to 0.35. The portfolio leans active overall.",
+    "composite_aps": 0.55
+  },
+  "pqs": {
+    "goal_alignment": 0.5,
+    "diversification": 0.35,
+    "risk_return_appropriateness": 0.55,
+    "internal_consistency": 0.35,
+    "tax_efficiency": 0.4,
+    "reasoning": "**Goal Alignment (0.50):** The aggressive all-equity stance aligns with the stated goal of maximising real returns and the 20-year horizon. However, the plan critically fails to differentiate between the two major goals — the daughter's education in 10 years (a medium-horizon goal needing a de-risking glide path) and retirement in 17 years. There is no dedicated allocation, timeline, or withdrawal strategy for the education goal. The ₹10L liability is also unaddressed. For a data-driven investor, the absence of goal-specific planning is a significant gap.\n\n**Diversification (0.35):** The portfolio is 100% domestic equity with no international exposure, no debt, and no alternative assets. 50% of the allocation is concentrated in a single fund house (Motilal Oswal — two funds at 30%+20%). For an aggressive investor, high equity is fine, but zero geographic diversification and single-fund-house concentration are serious gaps. The complete absence of any debt allocation even as a buffer for the 10-year education goal compounds the issue.\n\n**Risk-Return Appropriateness (0.55):** The overall equity-heavy risk profile matches the investor's stated aggressive appetite, and the 12% base / 8% bear projected returns are realistic for equity. However, the plan ignores sequence-of-returns risk for the 10-year education goal — a market downturn in year 9 could force selling at a loss. The single risk warning ('markets can drop 20-30%') is far too superficial for someone who reads quarterly reports and expects detailed rationale.\n\n**Internal Consistency (0.35):** Multiple contradictions: (1) The allocation math doesn't reconcile — SIP totals ₹1,08,000 (only 90% of the ₹1,20,000 surplus), leaving ₹12,000/month unexplained; the 10% ELSS is a lumpsum from a different base. (2) The rationale claims 'low expense ratio' but the funds carry 1.0-1.1% ER, which is not low for their categories. (3) The rationale claims 'diversification' yet the portfolio is entirely domestic equity. (4) The ELSS is structured as a one-time ₹3L lumpsum rather than an ongoing SIP, which is inconsistent with maximising 80C benefits year after year.\n\n**Tax Efficiency (0.40):** Positive: ELSS is included (appropriate for a 30% slab old-regime investor), and all funds are equity-taxed (≥65% equity), avoiding slab-taxed debt funds. However: (1) The ELSS is a one-time ₹3L lumpsum — only ₹1.5L qualifies for 80C in year 1, and there's no ongoing 80C strategy for subsequent years. The unallocated ₹12,000/month could have been an ELSS SIP. (2) The chosen ELSS (WhiteOak) has only ₹42Cr AUM and no 5-year track record — a questionable pick for a data-driven investor. (3) The plan never explicitly discusses tax treatment, LTCG/STCG implications, or 80C optimization strategy. (4) No tax-aware withdrawal plan for the education goal.",
+    "composite_pqs": 0.43
+  },
+  "timestamp": "2026-04-18T15:40:22.614751Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

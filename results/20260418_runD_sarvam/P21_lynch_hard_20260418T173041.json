@@ -1,0 +1,82 @@
+{
+  "persona_id": "P21",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "10% every 6 months",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Direct Plan - Growth (Direct Plan - Direct Plan)"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), which has a high information ratio (1.05), indicating strong active management. There is no mention of passive/index funds in the equity allocation, resulting in a passive_instrument_fraction score of 0.0. The rebalancing guideline of '10% every 6 months' suggests frequent portfolio adjustments, leading to a low turnover_score. Costs such as expense ratios are not discussed, and there is no emphasis on minimizing fees, resulting in a low cost_emphasis_score. The rationale does not mention any cost-based decision-making. The fund selection appears based on active management metrics rather than broad market exposure, leading to a low research_vs_cost_score. The review and rebalancing frequency imply a short-term orientation, lowering the time_horizon_alignment_score. Finally, the portfolio consists entirely of an actively managed fund with high information ratio, and no risk mitigation through passive instruments, leading to a portfolio_activeness_score of 0.0. Overall, the plan reflects a fully active investment approach across all dimensions.",
+    "composite_aps": 0.0
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.0,
+    "reasoning": "The investment plan is extremely underdeveloped and lacks meaningful content to support a robust financial strategy for the investor.\n\n- **goal_alignment**: The investor is 52, aiming to retire in 13 years, with multiple goals including retirement, son's MBA in 3 years, and annual travel. The plan allocates 40% to a single large-cap fund with no segmentation across goals or time horizons. No allocation is made to debt or hybrid funds for near-term goals like the MBA. Score: 0.3.\n\n- **diversification**: The portfolio consists of only one equity fund (HDFC Large Cap), with no exposure to mid/small caps, international equities, debt, or hybrids. This is highly concentrated and ignores the investor's stated preference for flexi-cap and multi-asset funds. Score: 0.1.\n\n- **risk_return_appropriateness**: The investor has a moderate risk appetite and is nearing retirement, yet the plan is heavily skewed toward equities with no risk mitigation strategy. No justification is provided for the 40% allocation, and no downside protection or glide path is mentioned. Projected returns are missing. Score: 0.3.\n\n- **internal_consistency**: The plan is riddled with inconsistencies: the rationale says '15.00%' with no explanation; SIP and lumpsum amounts are null; review checkpoints, risks, and projected returns are empty; rebalancing is set to '10% every 6 months' without context. The structure contradicts itself. Score: 0.2.\n\n- **tax_efficiency**: The investor is in the 30% tax slab, so tax efficiency is critical. However, the plan makes no mention of tax implications. It uses a regular large-cap fund (not specified as direct in a way that confirms lower expense or better post-tax returns) and ignores ELSS for 80C benefits (though not explicitly stated as direct, even if it were, no 80C usage is noted). No use of arbitrage or aggressive hybrid funds for debt-like exposure with equity taxation. Entirely tax-blind. Score: 0.0.",
+    "composite_pqs": 0.18
+  },
+  "timestamp": "2026-04-18T17:30:41.966927Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23087,
+    "output_tokens": 4126,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 129.5200629895553
+}

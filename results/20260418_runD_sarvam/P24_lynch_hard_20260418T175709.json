@@ -1,0 +1,82 @@
+{
+  "persona_id": "P24",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "increase allocation annually based on performance",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "market volatility",
+      "concentrated exposure"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 60% to an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), which is not a passive/index fund, resulting in a passive_instrument_fraction score of 0.0. The rebalancing guideline suggests annual adjustments based on performance, indicating active management and frequent intervention, leading to a low turnover_score of 0.0. There is no mention of cost considerations such as expense ratios or tax efficiency in the rationale, so cost_emphasis_score is 0.0. The plan does not discuss any research methodology, but the use of an actively managed fund with a stated information ratio of 0.55 suggests an emphasis on active management and potential stock selection, hence research_vs_cost_score is 0.0. The time horizon appears to be long-term (rationale includes '15y'), supporting a moderate time_horizon_alignment_score of 0.5, though the active rebalancing tempers full credit. Finally, the portfolio_activeness_score is 0.0 because the sole equity fund has a positive information ratio (0.55), indicating intent for active outperformance, and no passive instruments are included. No risk metrics like beta or tracking error are provided, but the category and fund type point toward active management.",
+    "composite_aps": 0.08333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows partial goal alignment: Remy is a 22-year-old fresh graduate with a 38-year horizon and moderate risk appetite, aiming to build a habit and accumulate ₹5L in 4 years. A 60% equity allocation in a single large-cap fund acknowledges long-term growth but falls short on diversification. The plan lacks fund diversity (only one fund, one category), resulting in poor diversification (0.2). Risk-return is moderately appropriate (0.5) given moderate risk appetite, but concentration in a single fund increases risk without justification. Internal consistency is weak (0.4): the rationale is minimal ('15y'), rebalancing guideline is vague ('increase allocation annually based on performance'), and no SIP step-up or review checkpoints are specified despite Remy's stated intent to increase SIP by 10% yearly. Tax efficiency is strong (0.8): Remy is in the 'new_regime' tax bracket, so ELSS is not needed for 80C benefits, and the plan avoids slab-taxed debt funds. The single equity fund is taxed at favorable LTCG rates, which is optimal under the new regime. However, no fixed-income component is included, which may be necessary for rebalancing or future goals, but given the long horizon and moderate risk, this is not heavily penalized. Overall, the plan is overly simplistic and lacks structure but avoids tax inefficiencies.",
+    "composite_pqs": 0.5
+  },
+  "timestamp": "2026-04-18T17:57:09.421651Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23071,
+    "output_tokens": 881,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 19.708390559069812
+}

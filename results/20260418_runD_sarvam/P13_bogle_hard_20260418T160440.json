@@ -1,0 +1,79 @@
+{
+  "persona_id": "P13",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00% per year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 40% to a Nifty 50 Index Fund, which is a passive equity instrument, and there are no other equity allocations mentioned. Thus, within the equity sleeve, 100% is passive, leading to a passive_instrument_fraction of 1.0. There are no rebalancing guidelines or review checkpoints specified, implying a buy-and-hold approach, hence a turnover_score of 1.0. The plan does not emphasize cost as a primary criterion, but index funds are inherently low-cost; without explicit discussion on cost, the score is moderate at 0.5. There is no indication of individual security or fund research, relying instead on a broad market index, leading to a research_vs_cost_score of 1.0. The absence of frequent review or rebalancing suggests a long-term orientation, resulting in a time_horizon_alignment_score of 1.0. Finally, the portfolio consists entirely of a Nifty 50 index fund, which is passively managed with expected low tracking error and beta near 1.0 (despite missing risk metrics, the fund category confirms passivity), leading to a portfolio_activeness_score of 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan shows minimal alignment with the investor's goals, as it allocates 40% to a single Nifty 50 index fund with no clear rationale tied to Tyrion's moderate risk appetite, long (22-year) horizon, or specific goals like children's education and retirement. The diversification score is very low because the plan relies entirely on one large-cap equity fund, ignoring flexi-cap, international exposure, and asset class diversification that the investor explicitly appreciates. Risk-return is inappropriate for a moderate investor seeking long-term goals; a single large-cap fund creates concentration risk without balancing with other equity styles or debt. Internal consistency is poor: the rationale field states '1.00% per year', which is incoherent and contradicts the lack of any strategic explanation, projected returns, rebalancing, or review framework. Tax efficiency is poor because the investor is in the 30% slab, yet the plan does not leverage tax-efficient structures like ELSS (for 80C) or hybrid funds; it also fails to mention tax implications, missing a key opportunity to optimize post-tax returns. Overall, the plan is underdeveloped and lacks essential components for a sophisticated investor like Tyrion.",
+    "composite_pqs": 0.21999999999999997
+  },
+  "timestamp": "2026-04-18T16:04:40.549293Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23035,
+    "output_tokens": 8849,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 307.18414505571127
+}

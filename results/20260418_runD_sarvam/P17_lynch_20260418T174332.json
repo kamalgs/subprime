@@ -1,0 +1,79 @@
+{
+  "persona_id": "P17",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "150419",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.65
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "15% post-tax after 1 year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan allocates 40% to a single equity fund categorized as Large Cap with an information ratio of 0.65, which suggests active management (high tracking error and alpha generation relative to benchmark). However, no risk metrics like beta, tracking error, or alpha are provided, so activeness is inferred from the high information ratio and lack of index fund designation. Thus, the fund appears actively managed, leading to a passive_instrument_fraction of 0.0. There is no mention of rebalancing frequency or review checkpoints, implying a static, long-term structure, hence high turnover_score and time_horizon_alignment_score. No cost data (expense ratio, transaction fees) are provided or emphasized, so cost_emphasis_score is 0.0. The rationale mentions tax efficiency but not cost minimization or research depth; however, the use of a single fund without justification suggests minimal individual research, but since it's not favoring broad market exposure, research_vs_cost_score remains low. Finally, the portfolio_activeness_score is 0.0 due to the high information ratio indicating active intent, despite missing metrics. Overall, the plan leans active due to fund choice but lacks operational details on trading, cost, or research.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan scores poorly on goal alignment (0.3) because it ignores the investor's multi-horizon goals: no allocation for emergency fund or 5-year marriage/travel goal, and only one fund for long-term wealth. Diversification is very weak (0.2) with just a single fund in Large Cap equity, no exposure to mid/small cap, debt, or international assets, violating basic portfolio construction. Risk-return appropriateness is moderate (0.4): a 100% equity allocation may suit a 28-year horizon but is aggressive for a 'moderate' risk appetite and variable income; no downside protection or glide path is mentioned. Internal consistency is partial (0.5): while the single SIP aligns with simplicity preferences, the rationale is missing and '15% post-tax' claim lacks justification or time frame. Tax efficiency is good (0.8) because the investor is in the 'new_regime' (no 80C benefit), so avoiding ELSS is correct, and the equity fund will be taxed at favorable LTCG rates; however, no explanation of tax treatment is provided beyond an unsupported return claim, preventing a perfect score.",
+    "composite_pqs": 0.44000000000000006
+  },
+  "timestamp": "2026-04-18T17:43:32.604821Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22733,
+    "output_tokens": 1722,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 48.890648166649044
+}

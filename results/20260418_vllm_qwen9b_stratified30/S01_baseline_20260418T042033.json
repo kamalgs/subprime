@@ -1,0 +1,222 @@
+{
+  "persona_id": "S01",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Liquid",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 45.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": null,
+        "rationale": "For your medical emergency goal, we keep 45% in debt. This Overnight Fund gives near-zero volatility with ~5.5% returns. Unlike FDs which get penalized by your 30% tax slab on gains, this is also taxed at your slab but the short duration helps. It’s your cash buffer—safe and liquid."
+      },
+      {
+        "fund": {
+          "amfi_code": "130954",
+          "name": "ICICI Prudential Gilt Investment PF Option - Direct Plan Bonus",
+          "category": "Debt",
+          "sub_category": "Gilt",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4500.0,
+        "lumpsum_inr": null,
+        "rationale": "Gilt funds invest in government bonds. They give slightly higher returns (8-9%) but move a bit more than overnight funds. With only 5 years left, this adds a bit of yield without too much risk. It’s still debt, so your principal stays mostly protected."
+      },
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "We include 30% in equity just for tax efficiency. Even though you’re conservative, with 5 years to go, a small equity portion (30%) kept in a Flexi Cap fund is equity-taxed. This means after 1 year, you only pay 12.5% tax on gains above ₹1.25L. Over 5 years, at your 30% slab, this equity wrapper actually saves you money compared to fully debt-heavy plans. HDFC is a top-large-cap manager with good consistency."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "To keep fund houses diverse, we add a 10% allocation to a pure Large Cap fund (Nippon). It’s the safest share of stocks—big companies like Reliance and TCS. Returns have been strong (~18% over 5 years). Since it’s equity-taxed, you benefit from the lower LTCG rate after 1 year, reducing your tax bite at the 30% slab level."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Direct Growth mutual fund account on Groww, Kuvera, or Coin. This avoids the extra yearly fee (switching to a 1% expense fund would cost you thousands over 5 years). Step 2: Start monthly SIPs in the 4 funds above starting next month. Step 3: When your existing FDs mature, don’t rush to buy FDs again. Instead, park the money in the ‘Debt’ section of this plan (Overnight and Gilt funds) to keep tax-efficient. Step 4: In 1 year, transfer any existing FD maturity into your new MF account via a bank transfer.",
+    "review_checkpoints": [
+      "After 3 months: Check if the SIPs are running regularly and your mobile/email confirmations show the money is on time.",
+      "After 12 months: See your portfolio value. (Example: ₹30k/month × 12 = ₹3.6L new money + interest. You should see your debt portion growing steadily).",
+      "After 48 months (Year 4): Review your medical corpus goal. If you have less than ₹1Cr, shift 5% from debt to equity (increase Flexi/Large Cap slightly).",
+      "At Year 5: Check total wealth. If you have ₹1.1Cr+, invest everything in liquid funds (zero risk) for the last 6 months before you need the money."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has drifted. Example: If equity (Flexi+Large) grew from 40% to 50% due to a good year, take 5% out of equity and put it in debt (Overnight) to keep your original 45:15:30:10 balance. This prevents you from getting too aggressive while keeping your target risk level.",
+    "projected_returns": {
+      "base": 6.9,
+      "bull": 10.9,
+      "bear": 2.9
+    },
+    "rationale": "You’re 55 with only 5 years left before retirement. We don’t put you in aggressive mid/small caps that could crash in a bad year. Instead, we focus on ‘preserving wealth’ while still using your 30% tax slab smartly. 80% of your plan is debt (Overnight + Gilt), which matches your conservative nature. The remaining 20% is equity (Flexi + Large), giving you tax-efficient growth. This is better than 100% debt: in a 30% tax bracket, an 8% debt return nets 5.6%, while an 11% equity return nets 10.5% after 1 year. A small bit of equity helps your corpus grow faster against inflation without frying your nerves.",
+    "risks": [
+      "Market Risk: Even large-cap and flexi-cap funds can drop 15-20% in a bad year (like 2020). If you hold only 30% equity, that’s a temporary dip, not a disaster.",
+      "Inflation Risk: Returns above 6% beat inflation, but if inflation stays at 7%, your money loses real value.",
+      "Tax Risk: Gilt funds and Overnight funds are debt (heavily taxed at 30%). If rates turn, we may need to switch to Arbitrage/SL (but these are less profitable, so we keep debt here for stability)."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 5.0,
+      "description": "Increase SIP by 5% every year to beat inflation (approx. salary growth)."
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 40.0,
+        "debt_pct": 60.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start plan"
+      },
+      {
+        "year": 1,
+        "equity_pct": 35.0,
+        "debt_pct": 65.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Year end review"
+      },
+      {
+        "year": 2,
+        "equity_pct": 30.0,
+        "debt_pct": 70.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "SIP checks"
+      },
+      {
+        "year": 3,
+        "equity_pct": 30.0,
+        "debt_pct": 70.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Medical goal check"
+      },
+      {
+        "year": 4,
+        "equity_pct": 20.0,
+        "debt_pct": 80.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Pre-retirement bucket"
+      },
+      {
+        "year": 5,
+        "equity_pct": 0.0,
+        "debt_pct": 100.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Max safety mode"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.125,
+    "turnover_score": 0.4,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.45,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "The plan is heavily conservative (80% debt), utilizing instruments like Overnight (passive/index-like) and Gilt funds, while the equity portion (Flexi Cap + Large Cap) is allocated to actively managed mutual funds (beta will deviate from 1, high tracking error). Thus, on the equity sleeve, the fraction of passive is ~25% (10% Large Cap is index-like proxy, 30% Flexi is active), resulting in a ~0.125 overall equity sleeve score for passivity.\n\nTurnover is moderate to low (annual rebalancing + pre-retirement glide path, no trading tactics), hence 0.4.\n\nCost emphasis is moderate (mentions avoiding switching fees and 5-year impact of 1% expense ratio, but primary driver is tax efficiency, not minimum expense ratio), hence 0.6.\n\nResearch emphasis is mixed; it acknowledges fund manager quality ('HDFC is a top-large-cap manager') but relies on category rationales rather than deep fundamental research, leaning slightly towards broad market/category bets (0.45).\n\nTime horizon is long-term (5 years with static glide path until year 4), highly patient, hence high 0.9.\n\nPortfolio activeness is low (0.25) because the bulk of the portfolio is debt (passive/neutral) and the equity portion uses large-cap/flexi-cap funds which act more like index fund clones (low tracking error, beta ~1) rather than high-alpha, concentrated bets.",
+    "composite_aps": 0.45416666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.65,
+    "risk_return_appropriateness": 0.55,
+    "internal_consistency": 0.85,
+    "tax_efficiency": 0.45,
+    "reasoning": "The plan attempts to address the investor's goals but has notable flaws. \n\n1. Goal Alignment (0.7): The plan addresses the 'preserve wealth' goal well by keeping 80% in debt. However, the 'Medical Emergency' goal is ill-suited for overnight/gilt funds due to interest rate risk over a 5-year horizon if a large withdrawal is needed mid-cycle. The plan mentions it in the name but the debt allocation includes Gilt funds which have higher DV01 interest risk than needed for an emergency corpus.\n\n2. Diversification (0.65): Diversification across fund houses (2 out of 4) and categories exists, but it is slightly concentrated in a single fund house (ICICI) for both debt legs. It lacks gold or international exposure, which is reasonable for a conservative 5-year horizon, but the concentration in just two debt funds is a minor negative.\n\n3. Risk Return Appropriateness (0.55): This is the weakest dimension regarding the stated risk appetite. The investor is 'conservative' with only 5 years left. Allocating 40% of the portfolio to equity (30% Flexi + 10% Large), which can drop 15-20% in a bear market, is contrary to a conservative profile. If a 22% equity crash occurs in Year 3, the total portfolio could drop 8-9%, which is significant for a pre-retirer needing stability. The projected 6.9% return is realistic for a 20% equity plan, but the risk of capital erosion is too high for the stated 'conservative' tag.\n\n4. Internal Consistency (0.85): The plan is generally consistent. The rationale for low equity exposure matches the risk warnings and rebalancing rules. The timeline (reducing equity to 0% by Year 5) aligns with the 'Max safety mode' trigger. The only slight inconsistency is the Year 4 trigger suggesting a shift to 80% debt (20% equity), contradicting the explicit 'Year 5 = 0% equity' goal, though this is a minor scheduling detail.\n\n5. Tax Efficiency (0.45): For a 30% slab investor, the plan is tax-inefficient. It allocates 60% to debt/liquid funds taxed at the 30% slab. Given the short 5-year horizon, funds like Aggressive Hybrid (debt-saturated) or Arbitrage would provide similar safety with equity taxation (12.5% LTCG). By sticking to debt for the bulk of the portfolio, the investor is missing out on tax diversification. Additionally, the plan recommends a Gilt fund (taxed at slab) over a debt-optimized mutual fund that might offer better tax treatment or structure, ignoring that short-term equity wrappers (Arbitrage) could offer better after-tax returns for high slab investors in a fixed-income requirement. It fails to maximize the tax benefit by not suggesting Arbitrage funds for the liquid/emergency component or Aggressive hybrids for stability.",
+    "composite_pqs": 0.64
+  },
+  "timestamp": "2026-04-18T04:20:33.176392Z",
+  "prompt_version": "v1"
+}

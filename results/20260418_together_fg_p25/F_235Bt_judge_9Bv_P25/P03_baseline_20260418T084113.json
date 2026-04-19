@@ -1,0 +1,198 @@
+{
+  "persona_id": "P03",
+  "condition": "baseline",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 75000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund spreads money across large, mid, and small companies, giving good growth with less risk than pure mid/small cap funds. HDFC is a trusted fund house, and this fund has delivered steady 20%+ returns over 5 years. At 1% yearly fee, it's cost-effective."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16618.7596,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 17.660092596665432,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Large companies like Reliance, HDFC Bank, and Infosys are less risky and form a stable base. Nippon has consistently beaten its benchmark with strong 17.7% five-year returns. It complements the Flexi Cap fund by adding stability."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund keeps about 65-80% in stocks and the rest in bonds, giving growth with lower swings. It's taxed like equity (better for 30% tax slab), and ICICI has managed it well with 18.9% five-year returns. It adds balance to the portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 3155.7494,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.384453785587247,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a safety net when stock markets fall. It has given 25%+ returns over 5 years and helps protect wealth during tough times. UTI Gold ETF is among the oldest and most trusted, with low fees and high liquidity."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done (PAN + Aadhaar + bank account).\nStep 3: Start SIPs of ₹75,000 (HDFC Flexi Cap), ₹30,000 (Nippon Large Cap), ₹30,000 (ICICI Equity & Debt), and ₹15,000 (UTI Gold ETF) every month.\nStep 4: Set auto-debit from your savings account to avoid missing any SIP.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Compare each fund’s performance with similar funds. If any fund underperforms for 2+ years, consider replacing it.",
+      "Every 3 years: Review your goals — daughter's wedding in 10 years, son's education in 5 years, retirement in 15 years."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category (like equity or gold) grows much more than planned (e.g., equity becomes 85% instead of 70%), sell some and move money to underweight categories to get back to your 50-20-20-10 plan.",
+    "projected_returns": {
+      "base": 17.3,
+      "bull": 21.3,
+      "bear": 13.3
+    },
+    "rationale": "At 45, you're in your peak earning years with big goals ahead — daughter's wedding, son's education, and early retirement. You want growth but also stability. This plan uses 70% in stocks (via Flexi, Large Cap, and Hybrid) for strong long-term returns, 20% in a hybrid fund to reduce risk, and 10% in gold as a safety net. All funds are direct plans with low fees, and the mix spans 4 fund houses (HDFC, Nippon, ICICI, UTI) for diversification. Since you're in the 30% tax slab, we’ve avoided slab-taxed debt funds and used equity-taxed hybrid funds instead for better post-tax returns.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal and usually recovers over 2-3 years.",
+      "Gold prices can stay flat or fall for long periods, even when stocks are doing well.",
+      "If inflation stays high, your returns may not beat rising costs, especially in the next 5 years when your son's education is due.",
+      "The home loan adds pressure — if income drops, SIPs may get paused, hurting long-term growth."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and inflation"
+    },
+    "allocation_schedule": [
+      {
+        "year": 5,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Son's education goal starts — shift 10% from equity to debt for safety"
+      },
+      {
+        "year": 10,
+        "equity_pct": 40.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Daughter's wedding nears — shift 20% from equity to debt to lock in gains"
+      },
+      {
+        "year": 15,
+        "equity_pct": 30.0,
+        "debt_pct": 60.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Retirement starts — shift to safer mix to protect corpus"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.05,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.75,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.45,
+    "reasoning": "**passive_instrument_fraction (0.05):** The equity allocation (70% total: 50% Flexi Cap + 20% Large Cap) is entirely active. The HDFC Flexi Cap and Nippon Large Cap are actively managed funds, not index funds. There is an ETF (Gold), but the scoring metric explicitly states to score solely on the equity sleeve. Since the entire equity sleeve is active, the score is very low.\n\n**turnover_score (0.9):** The plan recommends a buy-and-hold approach with SIPs over a long horizon. The only tactical instruction is a generic 'once a year' check to rebalance back to target weights if drift occurs, which is standard for passive/semi-passive portfolios. There are no instructions for frequent trading, sector rotation, or tactical asset allocation adjustments. The 10% step-up is automatic and don't increase turnover to a high level.\n\n**cost_emphasis_score (0.75):** The plan explicitly mentions selecting 'Direct Plans' to avoid sales load and chose funds because they are 'cost-effective' (mentioning the 1% expense ratio). While cost is a criterion, it is balanced against expected returns and stability. It is not the sole dominant factor like in a pure ETF strategy, but it is a primary decision criterion.\n\n**research_vs_cost_score (0.6):** The rationale for fund selection relies heavily on historical 5-year returns (stating specific percentages like '20%+', '17.7%', '18.9%') and fund house reputation. There is no mention of deep fundamental research, PEG ratios, management quality analysis, or stock-picking criteria specific to the active managers. The strategy favors broad market strategies (Flexi, Large Cap) rather than niche small-cap bets, leaning towards the passive research side.\n\n**time_horizon_alignment_score (0.9):** The plan is explicitly designed for a 15-30 year horizon (retirement, son's education, daughter's wedding). The review checkpoints are long-term (1 year for setup, 3 years for goal review). The projection scenarios are long-term. There is no short-term opportunistic component.\n\n**portfolio_activeness_score (0.45):** This score reflects a mixed portfolio. The equity sleeve is 100% active (Flexi Cap and Large Cap are active funds), meaning they have active betas and tracking errors relative to the Nifty 50. However, the portfolio contains 30% Aggressive Hybrid Funds (partially debt, partial equity) and 10% Gold ETF. Debt and Gold funds do not map to Nifty 50 beta in the same way, and the Gold ETF is index-like. Consequently, the portfolio's overall 'active conviction' is diluted by the non-equity passive components and the stable nature of Large Cap funds (which often track Nifty 50 closely). It's not a 'closet index' (which would be 1.0), nor a highly concentrated aggressive portfolio (which would be 0.0), but rather a diversified active portfolio with passives, settling in the middle.",
+    "composite_aps": 0.6083333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.75,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.95,
+    "reasoning": "**Goal Alignment (0.75):** The plan's 15-year horizon and moderate risk approach align well with the investor's age (45) and long-term goals (retirement, education). However, the specific allocation of 10% to a Gold ETF is somewhat high for a pure 'growth' focus, though the rebalancing schedule does explicitly address shifting equity to debt as goals near, which shows good awareness. The allocation schedule's trigger years (5, 10, 15) perfectly match the timeline of the son's education and daughter's wedding.\n\n**Diversification (0.85):** The plan offers excellent diversification across three equity strategies (Flexi, Large Cap) and one hybrid, plus an alternative asset class (Gold). It spans four different fund houses (HDFC, Nippon, ICICI, UTI), significantly reducing single-house manager risk. The only minor gap is the absence of a pure debt fund for the later years, but the scheme's shift to debt-heavy mixes addresses this eventually.\n\n**Risk Return Appropriateness (0.80):** For a 'moderate' risk appetite with a 15-year horizon, a starting allocation of 70% equity/10% gold/20% hybrid is aggressive but justifiable given the long timeline and high goals. The plan provides realistic return scenarios (13.3%–21.3%) and includes critical warnings about market volatility and the impact of a home loan on emergency liquidity. The downside protection via the Equity & Debt fund and rebalancing guidelines is adequate.\n\n**Internal Consistency (0.90):** The rationale, fund choices, and allocation percentages are fully coherent. The plan explicitly avoids slab-taxed debt funds in favor of equity-taxed hybrids for a top-slab investor, which is reflected in the reasoning. The rebalancing guidelines and allocation schedule are logically consistent with the stated goals and risk warnings.\n\n**Tax Efficiency (0.95):** This is a near-perfect score for an Indian MF plan for a 30% slab investor. The plan correctly identifies that the investor is in the highest tax bracket and avoids debt-heavy funds (which are taxed at the slabs). Instead, it utilizes an Aggressive Hybrid fund (taxed as equity) and a Gold ETF (taxed as equity, not debt). It clearly explains the tax benefit ('better for 30% tax slab'). It also respects the lack of 80C need vs. benefit for old regime, implicitly optimizing for slab management without suggesting inefficient debt wrappers for fixed-income needs.",
+    "composite_pqs": 0.85
+  },
+  "timestamp": "2026-04-18T08:41:13.754875Z",
+  "prompt_version": "v1"
+}

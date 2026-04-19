@@ -1,0 +1,145 @@
+{
+  "persona_id": "P19",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap fund for long-term wealth preservation"
+      },
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap fund for long-term wealth preservation"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid-cap fund for long-term growth"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.0,
+      "bull": 14.0,
+      "bear": 6.0
+    },
+    "rationale": "Since you're 58 with 10 years ahead, we can afford to put more in large-cap stocks which grow steadily over long periods. We've kept 40% in safer options so your money isn't all in one basket.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 100% of its equity portion to actively managed large-cap and large & mid-cap funds (Nippon India, ICICI Prudential, Motilal Oswal), with no index or passive funds mentioned, resulting in a passive_instrument_fraction score of 0.0.\n\nThe turnover_score is 0.75 because the plan recommends annual rebalancing only if the allocation has drifted significantly, and review checkpoints are at 6 months and 1 year — indicating low turnover, though not strictly buy-and-hold.\n\nThere is no mention of expense ratios, costs, or tax efficiency in the rationale or selection criteria, despite the funds having non-trivial expense ratios (1.0–1.1%), so cost_emphasis_score is 0.0.\n\nThe fund selection appears based on category and reputation rather than cost or indexing; no individual stock or fund manager research is discussed, but the rationale does not emphasize research, so research_vs_cost_score is 0.0.\n\nThe time_horizon_alignment_score is 0.9 because the plan is designed for a 10-year horizon with long-term compounding in mind, and the investor is 58, indicating a focus on long-term wealth preservation and growth.\n\nFor portfolio_activeness_score, although risk metrics (beta, tracking error, alpha, etc.) are missing, all selected funds are actively managed large-cap and large & mid-cap funds with no indication of index tracking. These are not index funds, and the rationale supports active management ('fallen behind compared to similar funds' implies performance benchmarking), so the portfolio is judged as actively managed, scoring 0.0.",
+    "composite_aps": 0.27499999999999997
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan scores poorly on multiple dimensions due to significant misalignments with the investor's profile.\n\n**goal_alignment (0.4):** The investor is 58, conservative, and has a 10-year horizon with goals of wealth transfer, passive income, and inflation protection. The plan allocates 100% to equity (Large Cap and Large & Mid Cap funds), which is inconsistent with a conservative risk appetite and the need for capital preservation. No allocation is made to generate monthly income (e.g., arbitrage, short-duration debt) or for tax-efficient transfer. The rationale claims 40% is in 'safer options', but there is no such allocation — this is a factual error.\n\n**diversification (0.3):** The portfolio is concentrated in Indian equity, specifically large-cap and large & mid-cap funds, with no diversification across asset classes (e.g., debt, arbitrage, gold), geographies, or sectors. All three funds are from different houses, but the category overlap is extreme. No fixed-income or hybrid funds are included despite the need for stability and income.\n\n**risk_return_appropriateness (0.3):** A 100% equity portfolio is inappropriate for a conservative investor nearing retirement. Projected returns of 10% base are optimistic for this risk profile. The bear case (6%) is too close to the base, underestimating downside risk. The plan acknowledges market drops of 20-30% but offers no mitigation strategy, making the risk exposure mismatched.\n\n**internal_consistency (0.6):** The rationale claims '40% in safer options' but all allocations are to equity funds — a direct contradiction. The risk warnings mention market drops but the allocation doesn't reflect a conservative strategy. The review and rebalancing guidelines are generic but coherent. Otherwise, the structure is logical but undermined by this key inconsistency.\n\n**tax_efficiency (0.2):** The investor is in the 30% tax slab, making tax efficiency critical. The plan uses only equity funds, which are LTCG-taxed at 12.5% above ₹1.25L — this is favorable. However, it completely omits arbitrage or Aggressive Hybrid funds, which could provide lower-volatility, equity-taxed returns suitable for income and stability. No use of ELSS for 80C benefits (though not explicitly required, it could aid tax efficiency). But the bigger flaw is routing all funds through equity when debt needs exist — slab-taxed debt would be worse, but the plan fails to address the tax implications of its all-equity choice for a conservative investor needing income. No mention of tax treatment in rationale.",
+    "composite_pqs": 0.36
+  },
+  "timestamp": "2026-04-18T15:47:54.813680Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24218,
+    "output_tokens": 1988,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 60.26092715281993
+}

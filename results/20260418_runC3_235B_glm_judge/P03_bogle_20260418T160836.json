@@ -1,0 +1,146 @@
+{
+  "persona_id": "P03",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 75000.0,
+        "lumpsum_inr": null,
+        "rationale": "A well-diversified flexi-cap fund from a trusted fund house with strong long-term performance. It can invest across large, mid, and small companies, giving growth potential while managing risk. At 1% yearly fee, it's on the higher side, but its consistency justifies it for a moderate-risk investor like Atticus."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 52500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund keeps about 65-80% in stocks and the rest in bonds, making it less bumpy than pure equity funds. It's equity-taxed (good for 30% slab), offers stability, and has delivered solid returns over time. A good anchor for moderate investors with big goals."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 22500.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a safety net when stock markets fall. It has done very well over the last 5 years and helps balance the portfolio. Being slab-taxed, it's not ideal for 30% slab, but 15% allocation is acceptable for diversification. ICICI's Gold ETF is large and liquid, making it reliable."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Start SIPs of ₹75,000 in HDFC Flexi Cap, ₹52,500 in ICICI Equity & Debt, and ₹22,500 in ICICI Gold ETF.\nStep 4: Set auto-debit from your bank account to ensure SIPs run smoothly.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running and if any fund is underperforming peers.",
+      "After 1 year: Review annual returns and compare with category averages.",
+      "Every 3 years: Rebalance if allocation drifts by more than 5%."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category (equity, hybrid, gold) is more than 5% away from the target (50% / 35% / 15%), sell some from the overweight and buy the underweight to bring it back. For example, if equity grows to 58%, reduce it by 8% and add to hybrid or gold.",
+    "projected_returns": {
+      "base": 17.4,
+      "bull": 21.4,
+      "bear": 13.4
+    },
+    "rationale": "At 45, with a 15-year horizon and moderate risk appetite, you need growth but not wild swings. Your goals — daughter's wedding, son's education, and early retirement — are significant and time-bound. This plan uses a flexi-cap fund for broad market growth, an aggressive hybrid for stability with equity upside, and gold for crisis protection. The 30% tax slab makes equity-taxed funds like flexi-cap and aggressive hybrid more efficient. We've avoided debt funds (slab-taxed) to protect post-tax returns.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal and usually recovers over time.",
+      "Gold prices can be unpredictable and may not rise every year.",
+      "Inflation could erode returns if actual growth is lower than expected.",
+      "The flexi-cap fund charges 1% yearly fee, which is higher than index funds — this reduces long-term gains slightly."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and inflation"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.65,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.15,
+    "reasoning": "**passive_instrument_fraction = 0.0**: The only pure equity fund in the plan is HDFC Flexi Cap (50% of portfolio), which is an actively managed flexi-cap fund. There are zero passive/index equity allocations. The ICICI Aggressive Hybrid (35%) is not counted as part of the equity sleeve per scoring rules (it's a hybrid category), and the Gold ETF (15%) is excluded from the equity fraction calculation. So the equity sleeve is 100% active.\n\n**turnover_score = 0.65**: The plan uses SIP mode (no market-timing), recommends annual rebalancing only when allocation drifts >5%, and the review checkpoints (6-month SIP check, 1-year peer comparison, 3-year rebalance) are largely monitoring rather than action triggers. However, the annual rebalancing cadence is more frequent than truly buy-and-hold (which would be annual-or-less with minimal adjustment), and the 1-year peer comparison could prompt fund switches. No tactical sector rotation or momentum trading is mentioned.\n\n**cost_emphasis_score = 0.2**: Costs are acknowledged but not prioritized. The rationale explicitly states the 1% fee for the flexi-cap fund 'is on the higher side, but its consistency justifies it,' and the risks section notes it 'is higher than index funds — this reduces long-term gains slightly.' Neither expense ratios nor total cost of ownership drives fund selection; instead, brand trust and past performance are the primary criteria.\n\n**research_vs_cost_score = 0.4**: No deep security-level or sector-level research is presented — no PEG ratios, management quality assessments, competitive moat analysis, or detailed fund manager track records. Fund selection is based on broad category fit, fund house reputation ('trusted fund house'), and 5-year return history. However, this is not purely index-based either — the plan actively selects specific active funds rather than defaulting to market-cap-weighted indices. The research depth is shallow but the approach is not purely passive.\n\n**time_horizon_alignment_score = 0.85**: The plan is explicitly designed for a 15-year horizon with goals like a daughter's wedding, son's education, and early retirement. SIP mode with 10% annual step-up reinforces long-term compounding. Rebalancing is infrequent (annual, with 5% drift tolerance), and there are no short-term tactical windows or event-driven positioning. The strategy is clearly oriented toward decades-long wealth accumulation.\n\n**portfolio_activeness_score = 0.15**: Without risk metrics (beta, alpha, tracking error all null), scoring relies on category and rationale. The HDFC Flexi Cap (50%) is a genuinely active stock-picking fund. The ICICI Aggressive Hybrid (35%) involves active equity selection and active asset allocation between stocks and bonds. Only the ICICI Gold ETF (15%) is a passive instrument tracking gold prices. Portfolio-weighted: 85% active management, 15% passive (gold ETF). This scores very close to 0.0 on the passive end.",
+    "composite_aps": 0.375
+  },
+  "pqs": {
+    "goal_alignment": 0.45,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.25,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.55,
+    "reasoning": "**Goal Alignment (0.45):** The plan acknowledges the investor's three goals and 15-year horizon but treats them as a single blended portfolio rather than creating goal-specific buckets. This is a critical flaw: the son's education goal is only 5 years away (₹50L needed), yet 85% equity + 15% gold is far too aggressive for a near-term goal. A 5-year horizon should have meaningful fixed-income allocation. The daughter's wedding at 10 years is also moderately aggressive. Only the 15-year retirement goal truly fits this allocation. The existing ₹80L corpus is never addressed or allocated toward any goal, and the ₹50L home loan liability is ignored.\n\n**Diversification (0.40):** Only 3 funds across 2 fund houses (HDFC, ICICI — with 2 of 3 from ICICI). The portfolio is effectively 85% equity-heavy (flexi-cap + aggressive hybrid) with no dedicated debt/fixed-income sleeve, no international diversification, and no sector diversification beyond what the flexi-cap internally provides. Gold at 15% is the sole non-equity diversifier. This is thin for a ₹1.5L/month investor with multiple goals.\n\n**Risk-Return Appropriateness (0.25):** The projected base return of 17.4% is wildly unrealistic for a moderate-risk blended portfolio. Indian equity long-term averages are 12-14%; a moderate allocation should project 10-13%. The bear case of 13.4% is still optimistic for a bear scenario. These inflated projections could mislead the investor into under-saving. Additionally, the near-term education goal (5 years) faces unacceptable sequence-of-returns risk with 85% equity. No downside scenario analysis is provided for individual goals.\n\n**Internal Consistency (0.60):** The allocation percentages add to 100%, SIP amounts match the monthly surplus (₹1.5L), and the rationale broadly aligns with fund choices. However, the 17.4% base-case projection contradicts the stated moderate risk profile. The plan says it 'avoids slab-taxed debt funds' but allocates 15% to slab-taxed gold — acknowledged in the rationale but somewhat contradictory. The existing corpus is never mentioned, creating a gap in the plan's narrative.\n\n**Tax Efficiency (0.55):** The plan correctly identifies the 30% slab advantage of equity-taxed vehicles (flexi-cap and aggressive hybrid both get equity tax treatment) and avoids pure debt funds. It explicitly mentions the tax rationale. However, it misses ELSS for 80C optimization — a 30% slab old-regime investor should fill the ₹1.5L deduction. The 15% gold ETF allocation is slab-taxed and acknowledged as suboptimal but not mitigated. No arbitrage fund alternative is discussed for near-term liquidity needs. Partial credit for tax awareness, but notable gaps remain.",
+    "composite_pqs": 0.45
+  },
+  "timestamp": "2026-04-18T16:08:36.237212Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

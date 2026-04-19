@@ -1,0 +1,79 @@
+{
+  "persona_id": "P08",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152041",
+          "name": "152041",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.25% on gains over 1.25L after 3 years"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an equity fund in the Large Cap category, but the fund has an information ratio of 1.0 and lacks data on key risk metrics like beta, tracking error, or expense ratio. Given the absence of risk metrics and the high information ratio (which typically indicates active management), the fund is assumed to be actively managed. Thus, passive_instrument_fraction is 0.0 as no index fund/ETF is specified. There are no rebalancing guidelines or review checkpoints, implying a static, long-term structure, leading to high turnover_score and time_horizon_alignment_score (both 1.0). Cost is not discussed, so cost_emphasis_score is 0.0. No research details are provided, but the rationale is minimal and tax-focused, not research-driven; however, due to lack of evidence for broad-market exposure, research_vs_cost_score is 0.0. Finally, portfolio_activeness_score is 0.0 due to the high information ratio and lack of passive characteristics in the equity fund.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows partial goal alignment by allocating 40% to equity (Large Cap), which is suitable for an aggressive investor with a 20-year horizon targeting high real returns and retirement. However, it fails on diversification—only one fund, one category (Large Cap), and no exposure to mid/small cap, international, debt, or hybrid assets, creating severe concentration risk. Risk-return is moderately appropriate given the aggressive stance, but lack of portfolio breadth makes it riskier than necessary. Internal consistency is low: rationale mentions tax treatment (LTCG >1.25L after 3 years), but the fund is from 2023, and 3-year holding contradicts standard 1-year equity tax norm; also, no overall portfolio rationale, rebalancing, or review plan. Tax efficiency is partially addressed (mentions LTCG), but a 30% slab investor should use equity-taxed hybrids or arbitrage funds for debt allocation—none are present, and no ELSS is included despite 80C availability under old regime. Plan is incomplete and lacks structure.",
+    "composite_pqs": 0.32
+  },
+  "timestamp": "2026-04-18T17:03:20.995589Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22378,
+    "output_tokens": 757,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 22.126534740440547
+}

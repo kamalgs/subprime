@@ -1,0 +1,239 @@
+{
+  "persona_id": "P19",
+  "condition": "bogle",
+  "model": "together:zai-org/GLM-5.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Hybrid Scheme - Aggressive Hybrid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.31,
+          "morningstar_rating": null,
+          "returns_1y": 9.98,
+          "returns_3y": 18.66,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": 10.48,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 150000000.0,
+        "rationale": "Core anchor. Auto-rebalances stocks/bonds, only 10.5% volatility (vs 14-15% pure equity). Equity-taxed at 30% slab — saves ~1.5-2% vs slab-taxed debt. Largest AUM in category."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "Equity Scheme - Large Cap Fund",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16618.76,
+          "morningstar_rating": null,
+          "returns_1y": 11.56,
+          "returns_3y": 18.19,
+          "returns_5y": 17.66,
+          "risk_grade": null,
+          "volatility_1y": 14.63,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 100000000.0,
+        "rationale": "Inflation shield via India's top 100 blue-chips. Best 5yr track record among large caps. Equity-taxed. Large AUM ensures stability."
+      },
+      {
+        "fund": {
+          "amfi_code": "151060",
+          "name": "HSBC Equity Savings Fund - Direct Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Hybrid Scheme - Equity Savings",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 247.45,
+          "morningstar_rating": null,
+          "returns_1y": 13.62,
+          "returns_3y": 14.42,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": 6.45,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 75000000.0,
+        "rationale": "Uses equity + derivatives + debt. Only 6.4% volatility (near-debt) but equity-taxed. Perfect for SWP income draw without selling volatile equity."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "Debt",
+          "sub_category": "Debt Scheme - Medium Duration Fund",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 1383.74,
+          "morningstar_rating": null,
+          "returns_1y": 9.59,
+          "returns_3y": 10.55,
+          "returns_5y": 12.69,
+          "risk_grade": null,
+          "volatility_1y": 2.51,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 125000000.0,
+        "rationale": "True debt anchor — just 2.5% volatility, predictable income. Slab-taxed but essential for stability. Primary SWP source for monthly income."
+      },
+      {
+        "fund": {
+          "amfi_code": "113049",
+          "name": "HDFC Gold ETF - Growth Option",
+          "category": "Gold",
+          "sub_category": "Other Scheme - Gold ETF",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 22916.7,
+          "morningstar_rating": null,
+          "returns_1y": 58.64,
+          "returns_3y": 33.79,
+          "returns_5y": 25.22,
+          "risk_grade": null,
+          "volatility_1y": 25.49,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 50000000.0,
+        "rationale": "Crisis hedge — gold tends to rise when stocks fall. Massive AUM (₹22,916 Cr). Needs demat account."
+      }
+    ],
+    "setup_phase": "Step 1: Open demat accounts on Zerodha/Coin or Groww (needed for Gold ETF). Register each child as nominee on ALL holdings.\n\nStep 2: Deploy ₹5 Cr lumpsum in two tranches:\n— Immediately: Debt (₹1.25 Cr), Gold ETF (₹50 Lakh), Equity Savings (₹75 Lakh) — low-vol, deploy right away.\n— Over 6 months via STP: Move ₹1 Cr from liquid fund into Large Cap and ₹1.5 Cr into Aggressive Hybrid in equal monthly installments.\n\nStep 3: Start all 5 SIPs of ₹2 Lakh total from month 1.\n\nStep 4: Set up SWP — ₹1.5 Lakh/month from Debt fund + ₹50,000/month from Equity Savings = ₹2 Lakh/month family income. Never sell volatile equity for regular expenses.\n\nStep 5: Consult a succession lawyer about a private family trust to hold all mutual fund units. Trusts bypass probate and make transfer to children seamless.",
+    "review_checkpoints": [
+      "After 6 months: Verify SIPs and SWP are running. Confirm nominees registered.",
+      "After 1 year: Compare each fund vs its category. If any lags for 12+ months, consider switching.",
+      "Every year: Review if ₹2 Lakh/month SWP needs inflation adjustment.",
+      "At age 62 (4 years in): Begin shifting 5% from Large Cap to Debt — start de-risking.",
+      "At age 65: Target ~50% equity-taxed / 45% debt+gold. Full conservative mode."
+    ],
+    "rebalancing_guidelines": "Once a year (every January), check if any category has drifted more than 5% from target. If equity grew from 65% to 72%, sell the excess and move to debt. Never rebalance more than once a year — frequent trading creates tax events and erodes returns.\n\nFrom age 62 onward, shift 5% from equity to debt each year. By 65, you'll have a 50/50 mix suited for pure income generation.",
+    "projected_returns": {
+      "base": 9.1,
+      "bull": 13.1,
+      "bear": 5.1
+    },
+    "rationale": "At 58 with ₹5 Cr corpus, conservative risk appetite, and three goals — income, preservation, and transfer — this portfolio keeps 65% in equity-taxed funds (far better than slab-taxed debt for your 30% bracket) while maintaining low overall volatility.\n\nThe Aggressive Hybrid + Equity Savings combo delivers near-debt stability with equity tax rates — saving roughly 1.5-2% per year vs slab-taxed debt. Over 10 years, that's ₹75 Lakh–₹1 Cr more in your pocket.\n\nThe ₹2 Lakh/month SWP comes from the two least volatile funds (Debt + Equity Savings), so you're never forced to sell stocks in a down market.\n\nFor the ₹5 Cr/child transfer goal: at ~9% base return, the corpus grows to roughly ₹12 Cr in 10 years (~₹4 Cr/child). To reach ₹5 Cr/child, consider the bull scenario (~₹17 Cr) or supplement from business assets. Stagger transfers — you needn't move everything at once.",
+    "risks": [
+      "Stock markets can drop 25-30% in a bad year. Your 50% equity exposure means the portfolio could temporarily fall ₹1-1.5 Cr. This recovers in 2-3 years — don't panic-sell.",
+      "Debt funds carry credit risk. ABLS Medium Term has a solid track record but defaults are possible.",
+      "Gold (₹50 Lakh) is volatile — 25% swings. It's insurance, not a return driver. Can go sideways for years.",
+      "SWP during prolonged downturns can deplete capital. If markets drop, reduce SWP or draw only from debt.",
+      "Without a will or trust, mutual fund transmission to children can take 6-12 months and court involvement. Set up nominees + family trust immediately."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 5.0,
+      "description": "Increase SIP by 5% yearly to offset inflation — ₹2L becomes ₹2.1L next year"
+    },
+    "allocation_schedule": [
+      {
+        "year": 2025,
+        "equity_pct": 50.0,
+        "debt_pct": 25.0,
+        "gold_pct": 10.0,
+        "other_pct": 15.0,
+        "trigger": "Start: 65% equity-taxed (hybrid counts as equity), 25% debt, 10% gold"
+      },
+      {
+        "year": 2029,
+        "equity_pct": 45.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 15.0,
+        "trigger": "Age 62: shift 5% from large cap to debt"
+      },
+      {
+        "year": 2033,
+        "equity_pct": 35.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 15.0,
+        "trigger": "Age 65: conservative mode, income-focused"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "passive_instrument_fraction: 0.0 — The equity allocation (Large Cap, Aggressive Hybrid, Equity Savings) consists entirely of actively managed funds. No index funds or ETFs are used in the equity sleeve (Nippon India Large Cap, ICICI Prudential Equity & Debt, HSBC Equity Savings). Thus, 0% of the equity portion is passive.\n\nturnover_score: 0.75 — Rebalancing is limited to once per year unless drift exceeds 5%, and tactical shifts only begin at age 62 (gradual de-risking). No frequent trading is recommended. However, the plan includes STP over 6 months and annual SWP adjustments, which introduce moderate turnover. Hence, not fully buy-and-hold, but largely low-turnover.\n\ncost_emphasis_score: 0.3 — Costs (expense ratios, taxes) are mentioned in the context of tax efficiency (equity taxation advantage), but expense ratios are not a primary selection criterion. The rationale focuses on performance, AUM, and stability, not low fees. Expense ratios are uniformly 1.0% or 0.0% (possibly missing data), but no emphasis is placed on minimising them.\n\nresearch_vs_cost_score: 0.0 — The fund selection rationale is based on deep qualitative and quantitative research: track record (\"best 5yr among large caps\"), volatility, tax treatment, AUM, and specific risk-return profiles. This reflects active research rather than passive, broad-market exposure.\n\ntime_horizon_alignment_score: 0.8 — The strategy is designed for a 10-year horizon with long-term compounding, gradual de-risking, and multi-generational transfer. However, annual reviews and SWP adjustments imply some short-term monitoring, slightly reducing the score from perfect long-term alignment.\n\nportfolio_activeness_score: 0.0 — All equity and hybrid funds are actively managed with no index-based mandates. The rationale highlights manager skill, track record, and active allocation (e.g., derivatives in equity savings). Risk metrics are missing, but category labels and rationales confirm active management. Debt and gold are actively managed too (Medium Duration, Gold ETF). No passive indexing intent.",
+    "composite_aps": 0.30833333333333335
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.95,
+    "reasoning": "The investment plan demonstrates strong alignment with Don Corleone's goals of wealth preservation, tax-efficient transfer, and stable income. The 10-year horizon and conservative risk appetite are respected through a core of low-volatility, equity-taxed hybrid and debt funds, with a gradual de-risking path outlined via rebalancing and allocation shifts from age 62 onward. Diversification is solid across asset classes (equity, hybrid, debt, gold), geographies (large-cap Indian focus), and fund houses, though equity exposure is concentrated in large-cap and hybrid funds with limited mid/small-cap diversification — a reasonable choice given conservatism. Risk-return is appropriate: the 65% allocation to equity-taxed assets balances growth for inflation protection and corpus growth, while the projected 9.1% base return is realistic for the mix. Downside risks are acknowledged, and SWP sourcing from low-volatility funds protects against sequence-of-returns risk. The plan is highly internally consistent: every element — from fund selection to SWP design, rebalancing, and succession planning — supports the overarching strategy of stability, tax efficiency, and smooth transfer. Tax efficiency is excellent: the plan explicitly leverages equity taxation for Aggressive Hybrid and Equity Savings funds (which qualify under >65% equity rule), avoiding slab-taxation for a 30% investor where possible. It correctly avoids ELSS (no 80C mention needed, and not required for this investor's goals). The rationale highlights tax savings of 1.5-2% annually, showing deep awareness of post-tax returns. Only minor deduction: the 25% allocation to a slab-taxed medium-duration debt fund is necessary for stability and SWP, but could be partially shifted to arbitrage funds for marginally better tax efficiency; however, given its role as a primary SWP source, this is a justifiable trade-off. Overall, a sophisticated, goal-oriented, tax-smart plan tailored to a high-net-worth conservative investor in the 30% slab.",
+    "composite_pqs": 0.9099999999999999
+  },
+  "timestamp": "2026-04-18T18:06:12.035626Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 120106,
+    "output_tokens": 18806,
+    "cache_read_tokens": 82560,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 10
+  },
+  "elapsed_s": 332.4527517044917
+}

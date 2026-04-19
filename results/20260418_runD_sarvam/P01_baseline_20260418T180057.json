@@ -1,0 +1,84 @@
+{
+  "persona_id": "P01",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118704",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "1950-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 1.05,
+        "rationale": "15.00% on gains over 1.5L"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Company risk",
+      "Regulatory risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an equity fund categorized as 'equity' with no sub-category specified, but the fund name 'HDFC Large Cap - Direct Plan - Growth' suggests it is an actively managed large-cap fund. There is no indication of passive/index instruments in the equity allocation, resulting in a passive_instrument_fraction score of 0.0.\n\nThere are no rebalancing guidelines or review checkpoints specified, implying a static, long-term hold strategy, hence a turnover_score of 1.0.\n\nThe plan does not mention cost considerations such as expense ratios or transaction fees, and no rationale related to cost efficiency is provided, leading to a cost_emphasis_score of 0.0.\n\nThe selection appears to be based on fund category and name rather than broad market exposure without research; however, there is no evidence of deep research either, but given the lack of cost focus and use of an actively managed fund, the research_vs_cost_score is 0.0.\n\nThe absence of frequent review or rebalancing implies a long-term horizon, so time_horizon_alignment_score is 1.0.\n\nThe portfolio_activeness_score is 0.0 because the sole equity holding is an actively managed large-cap fund (implied by name and lack of 'index' designation), and although risk metrics like beta and tracking error are missing, the information_ratio is 1.0 — which may suggest strong active performance, reinforcing active management intent. No passive instruments are present.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows partial goal alignment: the investor is 25 with a 30-year horizon and aggressive risk appetite aiming for a 10Cr retirement corpus, and the 40% allocation to a large-cap equity fund aligns with long-term growth. However, diversification is extremely poor—only one fund is recommended, with no exposure to mid/small caps, international equities, debt, or emergency fund instruments, despite the stated goal of building a 6-month emergency fund. Risk-return is somewhat appropriate given the aggressive stance, but the lack of portfolio breadth increases unsystematic risk. Internal consistency is weak: the rationale mentions '15.00% on gains over 1.5L' (likely referring to LTCG tax), but there's no broader strategy narrative, rebalancing, or review plan, and the single-fund approach contradicts sound risk management. Tax efficiency is moderate: the investor is in the 'new_regime' tax bracket (so no 80C benefit), and the plan uses an equity fund (favourably taxed under LTCG rules), avoiding slab-taxed debt funds, which is appropriate. However, no tax-aware structure or harvesting is discussed. Overall, the plan is overly simplistic and incomplete for a 30-year horizon.",
+    "composite_pqs": 0.5
+  },
+  "timestamp": "2026-04-18T18:00:57.196278Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 40765,
+    "output_tokens": 1037,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 29.608882303349674
+}

@@ -1,0 +1,72 @@
+{
+  "persona_id": "P15",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150349",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "**passive_instrument_fraction = 0.0**: The plan's entire equity allocation (100% of the equity sleeve) is in HDFC Large Cap Direct Plan — an actively managed large-cap fund, not an index fund or ETF. Zero passive equity instruments are present.\n\n**turnover_score = 0.7**: No rebalancing guidelines, review checkpoints, or tactical shift recommendations are provided. The absence of any active trading guidance implies a default buy-and-hold posture with minimal intervention, though this may partly reflect an incomplete plan rather than an explicit passive philosophy.\n\n**cost_emphasis_score = 0.2**: The sole cost-related signal is the 'direct' plan rationale (direct plans carry lower expense ratios than regular plans), indicating slight cost awareness. However, there is no explicit discussion of expense ratios, transaction costs, or tax efficiency as selection criteria, so cost is far from a primary driver.\n\n**research_vs_cost_score = 0.4**: No deep research is evident — no company analysis, sector thesis, PEG ratios, or manager track-record evaluation. However, the plan also doesn't embrace a passive/index philosophy; it picks a single active fund with minimal rationale. The lack of analytical depth pushes it away from the 'deep research' end, but the active fund selection without index justification keeps it from the 'no research, broad market' end.\n\n**time_horizon_alignment_score = 0.6**: No short-term tactical windows, event-driven positioning, or frequent review cycles are mentioned. The lumpsum mode with no rebalancing plan suggests a patient, long-term orientation by default. However, no explicit long-term commitment (e.g., decades-long compounding, goal-based timelines) is stated, capping the score below the fully passive end.\n\n**portfolio_activeness_score = 0.4**: HDFC Large Cap funds under SEBI rules must hold ≥80% in top-100 stocks by market cap, making them prone to closet-indexing behavior (beta ≈ 1.0, modest tracking error). The information ratio of 0.5 does suggest some genuine active skill, pulling this away from a fully passive score. With all other risk metrics null, inference from the large-cap category and the modest IR yields a moderately active score — active mandate but index-like constraints.",
+    "composite_aps": 0.3833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is critically deficient across all dimensions. **Goal alignment (0.05):** The investor has three goals — a 25L wedding fund in 4 years (needs capital preservation, not equity), retirement income in 12 years, and wealth preservation — yet the plan offers a single large-cap equity fund at 60%. None of the goals are served: the short-term wedding goal is actively endangered by equity volatility, and the wealth-preservation goal is contradicted. The ₹75K monthly surplus and existing 80L corpus are not addressed. **Diversification (0.05):** A single fund, single asset class (equity), single category (large cap), single geography — this is essentially zero diversification. The investor's stated preference for conservative hybrid and short-duration debt is entirely ignored. **Risk-return appropriateness (0.05):** A conservative investor is placed 60% into a single volatile equity fund — a wild mismatch. The investor explicitly wants 'stable, predictable returns' and 'conservative hybrid and short-duration debt.' This allocation delivers the opposite. No downside scenario is addressed. **Internal consistency (0.10):** The plan is so sparse it barely exists: one fund, 60% allocation (where's the other 40%?), no rationale, no rebalancing guidelines, no review checkpoints, no projected returns, no risk warnings. The only small mercy is there aren't active contradictions because there's almost no content to contradict itself. **Tax efficiency (0.10):** No tax considerations are mentioned. For a 30% slab investor, 80C headroom should be filled with ELSS — omitted. The conservative allocation could use equity-taxed wrappers like Aggressive Hybrid or arbitrage funds instead of slab-taxed debt — ignored. The one fund chosen does get equity tax treatment, but that's incidental, not by design.",
+    "composite_pqs": 0.06999999999999999
+  },
+  "timestamp": "2026-04-18T16:02:01.642845Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

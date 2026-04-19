@@ -1,0 +1,159 @@
+{
+  "persona_id": "P06",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150346",
+          "name": "WhiteOak Capital Arbitrage Fund",
+          "category": "Arbitrage",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "WhiteOak Capital",
+          "nav": 100.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2010-01-01",
+          "aum_cr": 100000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 12.0,
+          "returns_3y": 15.0,
+          "returns_5y": 18.0,
+          "risk_grade": "low",
+          "volatility_1y": 5.0,
+          "beta": 0.8,
+          "alpha": 0.5,
+          "tracking_error": 2.0,
+          "sharpe_ratio": 1.2,
+          "information_ratio": 0.8
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Arbitrage (equity-taxed) avoids slab tax on short-term gains."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "Hybrid",
+          "sub_category": "Aggressive Hybrid",
+          "fund_house": "ICICI Prudential",
+          "nav": 100.0,
+          "expense_ratio": 1.25,
+          "inception_date": "2008-05-01",
+          "aum_cr": 500000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 15.0,
+          "returns_3y": 18.0,
+          "returns_5y": 22.0,
+          "risk_grade": "moderate",
+          "volatility_1y": 10.0,
+          "beta": 1.0,
+          "alpha": 0.7,
+          "tracking_error": 3.0,
+          "sharpe_ratio": 1.0,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Aggressive hybrid (equity-taxed) outperforms debt funds for 6-year goals."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty 50 Index Fund",
+          "category": "Index",
+          "sub_category": "Nifty 50",
+          "fund_house": "Motilal Oswal",
+          "nav": 100.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2015-03-01",
+          "aum_cr": 1500000000.0,
+          "morningstar_rating": 5,
+          "returns_1y": 12.0,
+          "returns_3y": 14.0,
+          "returns_5y": 16.0,
+          "risk_grade": "low",
+          "volatility_1y": 8.0,
+          "beta": 1.0,
+          "alpha": 0.3,
+          "tracking_error": 1.5,
+          "sharpe_ratio": 1.5,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Index fund (equity-taxed) offers passive growth with minimal fees."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start ₹8,000/month SIPs in the above funds. Step 3: Increase SIP by ₹500 every 6 months to build corpus.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active.",
+      "After 1 year: Check if any fund underperforms its category.",
+      "After 5 years: Rebalance to maintain 20%/30%/50% allocation."
+    ],
+    "rebalancing_guidelines": "Once a year, adjust allocations if any fund grows more than 10% above its target. Move excess to underperforming funds.",
+    "projected_returns": {
+      "Base": 13.8,
+      "Bull": 17.8,
+      "Bear": 9.8
+    },
+    "rationale": "With 30 years ahead, equity funds (index and aggressive hybrid) will grow faster than debt. The 20% in arbitrage covers liquidity needs without slab tax. This mix balances growth and safety for your goals.",
+    "risks": [
+      "Stock markets can drop 20-30% in bad years, but your portfolio will recover over time.",
+      "The emergency fund in arbitrage ensures short-term stability."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 80.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 20.0,
+        "trigger": "After 1 year"
+      },
+      {
+        "year": 5,
+        "equity_pct": 80.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 20.0,
+        "trigger": "After 5 years"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.6,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.7,
+    "reasoning": "Passive Instrument Fraction: 60% of equity allocation (50% index, 20% arbitrage) is passive. Turnover Score: Annual rebalancing and 6-month review suggest moderate turnover. Cost Emphasis: Low expense ratios and focus on minimal fees. Research vs Cost: More cost-focused than research-driven. Time Horizon: Long-term with 30-year perspective. Portfolio Activeness: Index fund is passive, arbitrage and hybrid show some active traits but overall portfolio is a mix.",
+    "composite_aps": 0.6833333333333332
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.7,
+    "reasoning": "Goal alignment: The plan addresses emergency fund, marriage savings, and long-term wealth with equity-focused allocations. Diversification: Limited to 3 funds across 2 categories (arbitrage, aggressive hybrid, index), lacks sector and geographic diversification. Risk-return: Moderate risk with 30-year horizon, projected returns are reasonable. Internal consistency: Rationale and allocations align, rebalancing and risk warnings are coherent. Tax efficiency: Arbitrage and aggressive hybrid are equity-taxed, suitable for new regime; index fund is also equity-taxed, which is optimal for new regime investors.",
+    "composite_pqs": 0.7399999999999999
+  },
+  "timestamp": "2026-04-17T09:59:15.726616Z",
+  "prompt_version": "v1"
+}

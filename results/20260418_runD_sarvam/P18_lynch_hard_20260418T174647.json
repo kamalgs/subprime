@@ -1,0 +1,90 @@
+{
+  "persona_id": "P18",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "150419",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "150419"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "10-40-15",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to a single equity fund (AMFI 150419) categorized as Large Cap, but no details are provided about whether it is an index fund or actively managed. However, the presence of an information ratio of 0.55 suggests active management, as index funds typically have near-zero information ratios. Since the entire equity allocation appears to be in a potentially actively managed fund, passive_instrument_fraction is scored 0.0. There is no mention of rebalancing frequency or review checkpoints beyond a vague '10-40-15' guideline, so turnover_score is conservatively scored 1.0 assuming minimal turnover. Cost is not discussed anywhere, so cost_emphasis_score is 0.0. The plan provides no evidence of research or cost-based rationale, but the use of a single fund with active metrics suggests a research-driven pick, so research_vs_cost_score is 0.0. The lack of short-term triggers implies a long-term horizon (1.0). Finally, the portfolio_activeness_score is 0.0 because the fund shows signs of active management (information ratio > 0.5), and no passive instruments are evident.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.0,
+    "reasoning": "The investment plan shows minimal alignment with Sheldon Cooper's aggressive risk appetite and long 18-year horizon, but fails critically on multiple dimensions. Goal alignment is low (0.3) because while the large-cap equity focus may suit a long-term retirement goal, the plan lacks any quantitative justification or goal-based modeling despite the investor's explicit demand for data-driven decisions. Diversification is extremely poor (0.1) — only a single large-cap fund is recommended, with no exposure to mid/small caps, international equities, or asset classes, ignoring the investor's stated need for international diversification and optimal risk-adjusted returns. Risk-return appropriateness is moderate (0.4) as equity allocation matches aggressive risk, but absence of volatility metrics, Sharpe ratio analysis, or downside risk modeling contradicts the investor's focus on risk-adjusted returns. Internal consistency is weak (0.3) — the rationale is missing or placeholder ('150419'), rebalancing guideline '10-40-15' is undefined, and risk list is generic numerals without explanation. Tax efficiency is 0.0 because the investor is in the 30% slab, yet the plan uses a pure equity fund without leveraging tax-efficient hybrid or arbitrage funds for fixed-income components (though minimal here), and critically, fails to mention tax treatment at all — a severe omission given the high tax bracket. Overall, the plan appears incomplete and does not meet the sophistication expected by the investor.",
+    "composite_pqs": 0.22000000000000003
+  },
+  "timestamp": "2026-04-18T17:46:47.051214Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23126,
+    "output_tokens": 902,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 35.77239311859012
+}

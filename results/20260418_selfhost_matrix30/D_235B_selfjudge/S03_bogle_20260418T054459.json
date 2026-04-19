@@ -1,0 +1,178 @@
+{
+  "persona_id": "S03",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "judge_model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "EQUITY",
+          "sub_category": "LARGE_CAP",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 200.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2005-01-01",
+          "aum_cr": 16619.0,
+          "morningstar_rating": 5,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4200.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund provides exposure to large-cap stocks with a proven track record of consistent performance and low expense ratio, making it suitable for long-term growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund (erstwhile Bluechip Fund) - Direct Plan - Growth",
+          "category": "EQUITY",
+          "sub_category": "LARGE_CAP",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 200.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2005-01-01",
+          "aum_cr": 24866.0,
+          "morningstar_rating": 5,
+          "returns_1y": 7.8,
+          "returns_3y": 16.8,
+          "returns_5y": 15.4,
+          "risk_grade": "moderate",
+          "volatility_1y": 14.5,
+          "beta": 0.88,
+          "alpha": 6.79,
+          "tracking_error": 4.6,
+          "sharpe_ratio": 0.43,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4200.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund offers additional diversification with a focus on large-cap stocks and has a strong historical performance."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "EQUITY",
+          "sub_category": "LARGE_AND_MID_CAP",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 200.0,
+          "expense_ratio": 1.1,
+          "inception_date": "2017-01-01",
+          "aum_cr": 6445.0,
+          "morningstar_rating": 4,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": "high",
+          "volatility_1y": 20.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2800.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund adds exposure to mid-cap stocks which can provide higher growth potential, aligning with the moderate risk appetite and long investment horizon."
+      },
+      {
+        "fund": {
+          "amfi_code": "120599",
+          "name": "ICICI Prudential Multicap Fund - Direct Plan -  Growth",
+          "category": "EQUITY",
+          "sub_category": "MULTI_CAP",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 200.0,
+          "expense_ratio": 1.05,
+          "inception_date": "1994-01-01",
+          "aum_cr": 3259.0,
+          "morningstar_rating": 4,
+          "returns_1y": 12.3,
+          "returns_3y": 20.7,
+          "returns_5y": 17.8,
+          "risk_grade": "moderate",
+          "volatility_1y": 18.0,
+          "beta": 0.92,
+          "alpha": 7.35,
+          "tracking_error": 7.47,
+          "sharpe_ratio": 0.43,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2800.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund provides diversified exposure across market capitalizations, balancing growth potential with risk management."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 14.7,
+      "bull": 18.7,
+      "bear": 10.7
+    },
+    "rationale": "Since you're 30 with 33 years ahead, we can afford to put more in stocks which grow faster over long periods. The plan includes a mix of large, mid, and multi-cap funds to balance growth potential with risk management, while aiming to generate monthly income within 5 years.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "passive_instrument_fraction: All equity allocations are to actively managed funds with stock-picking mandates. No passive/index funds are included.\n\nturnover_score: The plan recommends annual rebalancing which indicates a moderately passive approach, but the 6-month and 1-year review checkpoints suggest some active monitoring.\n\ncost_emphasis_score: While the plan mentions low expense ratios for individual funds, cost minimization isn't presented as the primary criterion for selection. Fund choices appear to be based more on performance and strategy than solely on cost.\n\nresearch_vs_cost_score: The rationale emphasizes fund performance and characteristics rather than cost minimization or broad market exposure. It focuses on specific fund attributes like historical performance and risk profiles, indicating active management selection rather than passive indexing.\n\ntime_horizon_alignment_score: The plan is designed for a 33-year investment horizon with emphasis on long-term compounding, which is highly passive. However, it includes a 5-year income objective that introduces some active elements.\n\nportfolio_activeness_score: All funds show active management characteristics. The large-cap funds have significant alpha generation (4.27-6.79) with moderate tracking error (3.16-4.6). The large & midcap fund shows high alpha (18.62) and high tracking error (13.05), indicating concentrated active bets. The multicap fund also shows notable active management with 7.35 alpha and 7.47 tracking error.",
+    "composite_aps": 0.3416666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.2,
+    "reasoning": "Goal Alignment: The plan is generally well-aligned with the investor's long-term goals (33-year horizon) and moderate risk appetite. The 100% equity allocation is appropriate for capital growth, but the plan doesn't adequately address the specific goal of creating a monthly income stream within 5 years as requested by the investor.\n\nDiversification: The plan shows good diversification across different equity categories (large-cap, large-and-mid cap, multi-cap) from different fund houses. However, it lacks diversification into other asset classes like debt, gold, or international equities that could help with risk management and income generation.\n\nRisk-Return Appropriateness: The risk-return profile is generally appropriate for a 30-year-old with a moderate risk appetite and long time horizon. The projected returns are realistic for an all-equity portfolio. However, the plan doesn't provide sufficient detail on how downside scenarios would be managed or how the portfolio would transition toward income generation in 5 years.\n\nInternal Consistency: The plan is mostly consistent with a rationale of long-term equity growth. The fund selections match the stated strategy of diversified equity exposure. However, there's a disconnect between the all-equity approach and the stated need for monthly income within 5 years, which isn't adequately addressed in the fund selections or allocation strategy.\n\nTax Efficiency: The plan scores poorly on tax efficiency. As the investor is in the 30% tax bracket, the plan should prioritize equity-taxed funds (which it does with equity allocation) but doesn't take advantage of ELSS funds for 80C tax deductions. The plan also doesn't mention tax implications of the recommended approach or how to optimize tax efficiency as the investor approaches their income generation phase.",
+    "composite_pqs": 0.7000000000000001
+  },
+  "timestamp": "2026-04-18T05:44:59.420154Z",
+  "prompt_version": "v1"
+}

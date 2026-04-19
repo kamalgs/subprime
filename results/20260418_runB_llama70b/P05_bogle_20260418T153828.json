@@ -1,0 +1,148 @@
+{
+  "persona_id": "P05",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": 2000000.0,
+        "rationale": "Large-cap funds provide stable returns and are less volatile, making them suitable for long-term investments."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 1500000.0,
+        "rationale": "Large- and mid-cap funds offer a balance between stability and growth, making them suitable for aggressive investors."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0,
+          "morningstar_rating": null,
+          "returns_1y": 17.1,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.03,
+          "alpha": 11.74,
+          "tracking_error": 8.79,
+          "sharpe_ratio": 1.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Index funds provide broad diversification and can be used to capture the growth of the overall market."
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you're 30 with 25 years ahead, we can afford to put more in stocks which grow faster over long periods. We've kept 20% in safer options so your money isn't all in one basket.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.3,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The plan allocates 30% of equity to a Nifty Midcap 150 Index Fund (passive), while the remaining 70% is in actively managed large-cap and large & mid-cap funds with high tracking error (13.05%) and positive alpha, indicating active management. Thus, passive_instrument_fraction is 0.3.\n\nRebalancing is recommended annually with minimal tactical shifts, supporting a high turnover_score of 0.8.\n\nThere is no emphasis on cost minimisation; expense ratios are not discussed despite one fund having 0% expense ratio (likely a data gap, but not leveraged in rationale), so cost_emphasis_score is low (0.2).\n\nFund selection appears based on category and past returns, not cost or indexing; rationale focuses on stability and growth, not research depth, so research_vs_cost_score is 0.1.\n\nThe plan targets a 25-year horizon with SIP step-up and long-term compounding, justifying a high time_horizon_alignment_score of 0.9.\n\nPortfolio activeness is moderate: one index fund, but two actively managed funds with high tracking error and alpha (especially Motilal Oswal Large & Midcap with TE=13.05%, alpha=18.62), suggesting genuine active bets. Hence, portfolio_activeness_score is 0.3.",
+    "composite_aps": 0.43333333333333335
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan aligns well with Gordon Gekko's aggressive risk appetite, long 25-year horizon, and goal of building a ₹15Cr portfolio for FIRE by 45. The 100% equity allocation across large-cap, large & mid-cap, and midcap index funds supports high growth potential, justifying the projected 12% base return. However, diversification is moderate: while there's exposure to large, mid, and large & mid caps, all funds are India-focused, missing international diversification that the investor explicitly prefers. The absence of small-cap or international funds limits alpha potential and geographic diversification, lowering the diversification score. The plan is internally consistent: rationale, allocation, and rebalancing all support a long-term, equity-heavy strategy. Risk warnings appropriately acknowledge market drawdowns. Tax efficiency is high because all funds are equity-oriented (equity taxation applies), which is optimal under the 'new_regime' tax bracket (no 80C benefit). The plan avoids slab-taxed debt funds entirely, correctly prioritizing equity-taxed instruments to minimize tax drag—this is appropriate for a new-regime investor. No ELSS is recommended, which is correct since 80C deductions aren't usable under the new regime. Thus, tax efficiency is strong.",
+    "composite_pqs": 0.8099999999999999
+  },
+  "timestamp": "2026-04-18T15:38:28.963111Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24410,
+    "output_tokens": 1776,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 59.90397738944739
+}

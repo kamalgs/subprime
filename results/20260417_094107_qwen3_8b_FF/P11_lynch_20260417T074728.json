@@ -1,0 +1,301 @@
+{
+  "persona_id": "P11",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Multi Cap",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 25.6,
+          "expense_ratio": 1.05,
+          "inception_date": "2000-04-19",
+          "aum_cr": 9422.0,
+          "morningstar_rating": 4,
+          "returns_1y": 13.3,
+          "returns_3y": 21.3,
+          "returns_5y": 21.3,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.3,
+          "beta": 0.94,
+          "alpha": 7.24,
+          "tracking_error": 6.44,
+          "sharpe_ratio": 0.78,
+          "information_ratio": 1.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund is a balanced hybrid with a strong track record of consistent returns, making it ideal for a conservative investor who wants to preserve capital while earning modest returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "119354",
+          "name": "Baroda BNP Paribas MULTI CAP FUND - Direct Plan - Growth Option",
+          "category": "Multi Cap",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "Baroda BNP Paribas Asset Management India Private Limited",
+          "nav": 25.8,
+          "expense_ratio": 1.05,
+          "inception_date": "2000-04-19",
+          "aum_cr": 339.0,
+          "morningstar_rating": 4,
+          "returns_1y": 9.7,
+          "returns_3y": 18.8,
+          "returns_5y": 16.8,
+          "risk_grade": "moderate",
+          "volatility_1y": 10.5,
+          "beta": 0.87,
+          "alpha": 6.51,
+          "tracking_error": 8.1,
+          "sharpe_ratio": 0.36,
+          "information_ratio": 1.4
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund is a balanced hybrid with a strong track record of consistent returns, making it ideal for a conservative investor who wants to preserve capital while earning modest returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "Debt",
+          "sub_category": "Slab-Taxed",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 10.5,
+          "expense_ratio": 0.0,
+          "inception_date": "2000-04-19",
+          "aum_cr": 1384.0,
+          "morningstar_rating": 4,
+          "returns_1y": 9.6,
+          "returns_3y": 10.5,
+          "returns_5y": 12.7,
+          "risk_grade": "low",
+          "volatility_1y": 4.5,
+          "beta": 0.03,
+          "alpha": 12.47,
+          "tracking_error": 13.97,
+          "sharpe_ratio": 2.24,
+          "information_ratio": 1.6
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund is a medium-term debt fund with a strong track record of consistent returns, making it ideal for a conservative investor who wants to preserve capital while earning modest returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "151737",
+          "name": "DSP Gold ETF",
+          "category": "Gold",
+          "sub_category": "Slab-Taxed",
+          "fund_house": "DSP Asset Managers Private Limited",
+          "nav": 525.5,
+          "expense_ratio": 0.0,
+          "inception_date": "2000-04-19",
+          "aum_cr": 2076.0,
+          "morningstar_rating": 4,
+          "returns_1y": 58.7,
+          "returns_3y": 34.3,
+          "returns_5y": -1.0,
+          "risk_grade": "low",
+          "volatility_1y": 21.2,
+          "beta": 0.04,
+          "alpha": 75.75,
+          "tracking_error": 29.24,
+          "sharpe_ratio": 2.69,
+          "information_ratio": 1.7
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund is a gold ETF with a strong track record of consistent returns, making it ideal for a conservative investor who wants to preserve capital while earning modest returns."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds.",
+      "After 2 years: check if your allocation is still in line with your goals."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 8.5,
+      "bull": 12.5,
+      "bear": 4.5
+    },
+    "rationale": "Given Marge's conservative risk appetite and her need to protect her existing corpus, the plan focuses on balanced and hybrid funds that offer a mix of equity and debt. The allocation to equity-taxed funds provides growth potential while the debt and gold components provide stability and income. This plan is designed to preserve capital while generating modest returns over the long term.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "Debt funds are subject to interest rate risk — if rates rise, the value of the fund may fall.",
+      "Gold prices can be volatile and may not always keep up with inflation."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 2,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 3,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 4,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 5,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 6,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 7,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 8,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 9,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 10,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 11,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 12,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 13,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 14,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 15,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      },
+      {
+        "year": 16,
+        "equity_pct": 40.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 30.0,
+        "trigger": "Annual review"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan has a significant allocation to active equity funds (Multi Cap funds), which are not index funds or ETFs. These funds have high alpha and tracking error, indicating active management. The plan emphasizes consistent returns and does not focus on minimizing costs as a primary criterion. It involves detailed analysis of fund performance and management, suggesting a focus on research over cost. The strategy is long-term with annual review checkpoints, aligning with a patient investment horizon. The portfolio is not passive based on the risk metrics, indicating active conviction.",
+    "composite_aps": 0.3833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "The investment plan aligns well with Marge's conservative risk appetite and long-term goals, focusing on capital preservation and modest growth. The allocation to equity-taxed hybrid funds and debt/gold provides a balanced approach. However, the plan lacks sufficient diversification across asset classes and fund houses, as it is heavily concentrated in equity-taxed funds and lacks exposure to other categories like fixed income or alternative assets. The risk-return profile is appropriate for a conservative investor, with realistic projected returns and clear downside scenarios. The plan is internally consistent, with coherent rationale and guidelines. However, the tax efficiency is neutral because the plan does not optimize for Marge's 20% tax bracket by utilizing equity-taxed instruments for debt-like needs, which could have been more tax-efficient. The plan does not fully leverage the tax benefits of equity-taxed funds for a high-slab investor, which could have improved post-tax returns.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-17T07:47:28.662230Z",
+  "prompt_version": "v1"
+}

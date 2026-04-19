@@ -1,0 +1,169 @@
+{
+  "persona_id": "P20",
+  "condition": "bogle_hard",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 33000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost index fund tracking Nifty Midcap 150, offering strong long-term growth potential with 0.20% yearly fee. Midcaps have delivered 18.7% CAGR over 5 years. Fits your 23-year horizon and moderate risk appetite by balancing growth and volatility."
+      },
+      {
+        "fund": {
+          "amfi_code": "142153",
+          "name": "Sundaram Long Term Tax Advantage Fund Series III Direct Plan - Growth",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13750.0,
+        "lumpsum_inr": null,
+        "rationale": "ELSS fund with 21.8% 5-year returns and equity tax benefits. Qualifies for ₹1.5L/year 80C tax saving. 3-year lock-in is acceptable given your long horizon. At 20% tax slab, this saves ₹27,500/year in taxes, making it more efficient than debt options."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8250.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced fund with 65%+ stocks (equity-taxed) and bonds. Delivered 18.9% CAGR over 5 years with lower volatility than pure stocks. Provides stability while staying in the favourable tax bucket. Ideal for moderate risk investors like you."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Start SIPs of ₹33,000 in Motilal Oswal Nifty Midcap 150 Index Fund, ₹13,750 in Sundaram Long Term Tax Advantage Fund, and ₹8,250 in ICICI Prudential Equity & Debt Fund.\nStep 3: Set auto-debit from your bank account on your salary date.\nStep 4: Upload PAN and claim ₹1.5L 80C deduction using the ELSS investment proof.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running and money is debited.",
+      "After 1 year: Compare fund returns with their category averages. If any fund underperforms for 2+ years, consider switching to another low-cost index fund."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any fund's value has grown so much that your allocation is off by more than 5% (e.g., equity goes from 85% to 92%), sell some and reinvest in the lagging fund to get back to 60-25-15 split.",
+    "projected_returns": {
+      "base": 17.8,
+      "bull": 21.8,
+      "bear": 13.8
+    },
+    "rationale": "At 37, with 23 years to go, you can afford to stay mostly in stocks for growth. The 60% midcap index fund gives high growth at low cost. The 25% ELSS saves tax and builds equity exposure. The 15% hybrid fund adds balance. This mix targets ₹3Cr with your ₹55,000/month SIP and ₹18L corpus, while keeping risk manageable.",
+    "risks": [
+      "Midcap stocks can drop 30-40% in a bad year — your portfolio may see big swings. This is normal and recovers over time.",
+      "ELSS has a 3-year lock-in: you can't withdraw that money early.",
+      "Past returns don't guarantee future results. If markets grow slower than expected, you may need to increase SIPs later."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 85.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start of plan"
+      },
+      {
+        "year": 10,
+        "equity_pct": 75.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 10 years, reduce equity exposure slightly"
+      },
+      {
+        "year": 20,
+        "equity_pct": 60.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Final 3 years: shift more to debt for stability"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.71,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.85,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.6,
+    "reasoning": "**passive_instrument_fraction (0.71):** Within the equity sleeve (60% index + 25% ELSS = 85% equity, excluding the 15% hybrid as instructed), 60/85 ≈ 71% is directed toward the passive Motilal Oswal Nifty Midcap 150 Index Fund. The remaining 29% (ELSS) is actively managed, yielding a moderately-to-highly passive equity mix.\n\n**turnover_score (0.80):** The plan recommends annual rebalancing with a 5% drift threshold — a classic buy-and-hold discipline. There are no tactical calls, sector rotation, or momentum-based trading. The 2-year underperformance switch criterion is a gentle safety net, not an active turnover driver. Very low portfolio turnover.\n\n**cost_emphasis_score (0.50):** Cost is highlighted specifically for the index fund (0.20% fee, 'low-cost'), and the review checkpoint mentions switching to 'another low-cost index fund' if underperforming. However, cost is not the primary criterion for the ELSS (chosen for tax savings) or the hybrid fund (chosen for stability and tax efficiency). Cost emphasis is moderate — present but not dominant across the full plan.\n\n**research_vs_cost_score (0.85):** No deep, stock-specific or fund-manager research is evident. Fund selection relies on category-level characteristics (midcap CAGR, ELSS tax benefits, hybrid stability) rather than PEG ratios, management quality, or competitive moat analysis. The index fund is explicitly no-research. Only the ELSS and hybrid picks require marginal research, but even those are chosen on broad criteria. Very close to broad-market/no-research.\n\n**time_horizon_alignment_score (0.95):** The plan is explicitly designed for a 23-year horizon with a gradual de-risking glide path (85% → 75% → 60% equity over 20 years), 10% annual SIP step-up, and a patient 'stay the course' message about 30-40% drawdowns being normal. This is essentially a decades-long compounding strategy with minimal intervention.\n\n**portfolio_activeness_score (0.60):** No quantitative risk metrics (beta, alpha, tracking error) are available, so inference is from category and rationale. The 60% allocation to a genuine Nifty Midcap 150 index fund is truly passive. The 25% ELSS and 15% aggressive hybrid are actively managed. On a portfolio-weighted basis, the majority is passive but with a meaningful active tail (~40%), giving a moderately passive overall score.",
+    "composite_aps": 0.7349999999999999
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.25,
+    "internal_consistency": 0.55,
+    "tax_efficiency": 0.6,
+    "reasoning": "**Goal Alignment (0.40):** The plan addresses the ₹3Cr retirement corpus goal but critically ignores the differentiated time horizons of the other two goals. The 8-year second-property goal and children's education fund require separate planning buckets — an 85% equity allocation is inappropriate for money needed in 8 years. The plan treats everything as a single 23-year bucket, which misaligns with the investor's multi-goal reality. The 10% SIP step-up is a good touch for the long-term goal.\n\n**Diversification (0.20):** Extremely poor. 60% is concentrated in a single midcap index fund, and the remaining 40% (ELSS + Aggressive Hybrid) is also equity-oriented, making the portfolio effectively 100% equity at inception. There is no large-cap/flexi-cap exposure, no international diversification, no gold, and no pure debt allocation. All three funds are Indian equity or equity-tilted, creating severe concentration in mid-and-small caps and a single geography. The allocation schedule gradually adds debt, but the starting point is dangerously concentrated.\n\n**Risk-Return Appropriateness (0.25):** A 17.8% base-case projected return is wildly optimistic — even the 13.8% bear case exceeds historical large-cap averages. Midcap returns have been exceptional recently, but extrapolating 18%+ CAGR over 23 years is unrealistic. For a moderate-risk investor, 85% equity with 60% in midcaps is aggressive, not moderate. The bear scenario should model actual drawdowns (e.g., -20% to -40% years for midcaps), not a still-high 13.8%. The risk warnings acknowledge midcap volatility but the allocation doesn't reflect that caution.\n\n**Internal Consistency (0.55):** The plan is broadly consistent — the 60-25-15 split matches the rebalancing guidelines, and the rationale aligns with the allocations. However, there are cracks: (1) The ELSS SIP of ₹13,750/month = ₹1.65L/year, which exceeds the ₹1.5L 80C limit — the plan claims the full ₹1.5L deduction but the excess ₹15K doesn't qualify, and this isn't clarified; (2) The existing ₹18L corpus is mentioned in the rationale but receives no lumpsum deployment plan; (3) Projected returns of 17.8% base are inconsistent with a moderate risk profile.\n\n**Tax Efficiency (0.60):** The plan shows solid tax awareness: it includes ELSS for 80C (appropriate for a 20% slab old-regime investor), uses Aggressive Hybrid (equity-taxed at LTCG 12.5%/STCG 20%) rather than slab-taxed debt or Conservative Hybrid, and explicitly calculates the tax saving. However, the ELSS amount overshoots the ₹1.5L 80C ceiling without acknowledgment, and the allocation schedule's increasing debt allocation (up to 40% by year 20) doesn't specify what debt instruments would be used — if these end up in slab-taxed funds, the tax efficiency degrades. No mention of arbitrage funds as an equity-taxed debt alternative.",
+    "composite_pqs": 0.4
+  },
+  "timestamp": "2026-04-18T15:43:18.615183Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

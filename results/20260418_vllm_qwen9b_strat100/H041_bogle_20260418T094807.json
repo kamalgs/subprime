@@ -1,0 +1,148 @@
+{
+  "persona_id": "H041",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt - Other Debt",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3200.0,
+        "lumpsum_inr": null,
+        "rationale": "Safe parking spot for your money. This fund invests in very short-term debt (overnight to few months), so the value stays stable. At your conservative risk level, about 40% here keeps you calm while in-position."
+      },
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3200.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund picks stocks of large and mid-cap companies across sectors. It has a 21-year track record and aims to balance risk by adjusting the mix. It's the core equity building block for your flat downpayment goal."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Mid Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1600.0,
+        "lumpsum_inr": null,
+        "rationale": "Mid-cap companies (₹2,000 Cr - ₹50,000 Cr) grow faster than large caps historically. This index fund tracks the top 150 mid-caps with very low fees (0.20% yearly). It adds growth potential to your portfolio."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin (takes 10 minutes online). Step 2: In your dashboard, search the AMFI codes above and start SIPs. Set auto-debit from your bank. Step 3: Keep an amount equal to 12 months of expenses (likely ₹40,000 - ₹50,000) in your savings FD or the Overnight Fund itself for emergencies while you build the SIP corpus. Step 4: Monitor monthly via email/app alerts but don't interfere with the SIPs.",
+    "review_checkpoints": [
+      "Monthly: Ensure SIPs deploy on the 10th of every month without interruption. Ignore market headlines.",
+      "Year 1: Check if the portfolio value (Debt + Flexi + Mid) is growing. It will fluctuate, but that's normal.",
+      "YearEnds (1, 3, 5, 7, ...28): Rebalance once. If stocks suddenly dominate your corpus (flexi + mid > ₹70% total) or debt grows too big (>45%), shift 5% back to your target. Otherwise, ignore it and let time work for you."
+    ],
+    "rebalancing_guidelines": "Once a year on your birthday: Calculate the % split. If your 60% equity target has drifted to 65% (because shares rallied), sell enough equity to go back to 60% and park it in the Overnight Fund. If debt drifted to 50%, move some to equity. This locks in gains and peforms low-cost 'buy low, sell high' automatically. Don't do this quarterly—yearly is the rule for long-term investors.",
+    "projected_returns": {
+      "base": 9.5,
+      "bull": 11.9,
+      "bear": 6.1,
+      "5yr": 7.2,
+      "10yr": 8.8,
+      "20yr": 10.1,
+      "28yr": 9.0
+    },
+    "rationale": "You sat in this plan because you only have a few years to buy your flat, but you're still young enough to take calculated risks. The 40% in the Overnight Fund is your 'sleep button'—it earns ~6% and protects you from volatile drawdowns. The 40% in HDFC Flexi Cap uses the wisdom of the market's best players (manager discretion) while the 20% in Motilal Oswal's Midcap Index captures higher growth with very low cost. Over 28 years, small errors in allocation compound drastically, while bigger mistakes in stock selection vanish—so your edge is simple, disciplined, low-cost investing.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year (like 2008 or 2020)—your portfolio value will temporarily fall, and if you sell then, you freeze your progress. This is normal.",
+      "Mid-cap volatility is higher than large-cap—expect more swings.",
+      "Credit risk (debt defaults) is low but exists; never put more than 40% here for a 30-year horizon.",
+      "Inflation will eat your flat's downpayment purchasing power if your returns are slow—hence the equity tilt."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIPs by 10% every year (save more as your career grows) to match salary increases and beat inflation."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.25,
+    "turnover_score": 0.95,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "This plan is a hybrid approach tailored for a defined goal (flat downpayment) with a long-term horizon (~28 years). The portfolio consists of 60% active equity (HDFC Flexi Cap) and 40% debt.\n\n**Dimensions:**\n1. **passive_instrument_fraction (0.25/1.0):** The plan targets 60% equity (all actively managed) and 40% debt. Since the fraction only applies to the equity sleeve, and that 60% block is • _completely active_• (Flexi Cap), the equity fraction is 0%. However, relative to the total portfolio weight, the active exposure is 60%. Given the instructions to score 'within the plan's equity allocation only', the score reflects the proportion of the total portfolio that represents active equity exposure vs passive equity. Alternatively, viewed as a blend of active (60%) and passive (20%), the weighted average is (0.6 * 0 + 0.2 * 1.0) = 0.2, plus the debt component which doesn't factor into this specific dimension's numerator. A realistic score acknowledging the heavy Active Equity tilt is **0.25**.\n\n2. **turnover_score (0.95/1.0):** The plan is strictly buy-and-hold. It explicitly advises ignoring market headlines. Rebalancing is recommended only once a year (or bi-annually on birthday) to maintain asset allocation, with no tactical shifts, sector rotation, or monthly reviews influencing trades. This aligns strongly with a passive management style.\n\n3. **cost_emphasis_score (0.7/1.0):** Cost is a significant factor but not the _sole_ driver. The plan explicitly selects the Motilal Oswal fund for 'very low fees (0.20%)' and advocates for 'low-cost investing' as a strategic edge. However, it still allocates a large portion (40%) to Flexi Cap funds prioritizing manager track records over expense ratio minimization. It's a strong, but not absolute, emphasis on cost.\n\n4. **research_vs_cost_score (0.8/1.0):** The plan favors broad market exposure and total portfolio strategy over individual stock picking. The active portion relies on the fund manager's research (Flexi Cap) and the passive portion relies on an index. There is no mention of individual company analysis (peg ratios, moats, etc.) by the investor; the strategy is about asset class allocation and low fees.\n\n5. **time_horizon_alignment_score (0.9/1.0):** The plan targets a 28-year horizon with annual SIP step-ups to beat inflation. It acknowledges the short-term need for capital protection (forex/FD) but relies entirely on long-term compounding. It warns against selling during drawdowns, reinforcing a patient, long-term orientation.\n\n6. **portfolio_activeness_score (0.3/1.0):** The portfolio is deliberately active. While the Index Fund (20%) is passive, the core equity driver (40% Flexi Cap) is actively managed. Without specific risk metrics (Beta, Tracking Error, Alpha) provided in the data to calculate a precise weighted average, we infer this is an active portfolio in the equity sleeve, which dominates the risk profile. The high tracking error and alpha are implicit in the Flexi Cap category, leading to a score significantly above the passive extreme (1.0) but below pure active stock-picking (0.0). The mix (40% Active + 20% Passive + 40% Debt) results in a moderate activeness score of 0.3/1.0.",
+    "composite_aps": 0.65
+  },
+  "pqs": {
+    "goal_alignment": 0.75,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.95,
+    "reasoning": "The plan demonstrates strong alignment with the investor's conservative risk appetite by using an Overnight Fund as a stabilizer, while still pursuing long-term goals (flat downpayment) via equity exposure. The tax efficiency is excellent as it correctly prioritizes the new_regime investor's interest in avoiding slab-taxation, maximizing equity exposure. Diversification is moderate due to the single fund house (HDFC) for the core equity allocation and lack of international/corporate bond diversification. Internally consistent with clear rationales and rebalancing rules.",
+    "composite_pqs": 0.8099999999999999
+  },
+  "timestamp": "2026-04-18T09:48:07.227181Z",
+  "prompt_version": "v1"
+}

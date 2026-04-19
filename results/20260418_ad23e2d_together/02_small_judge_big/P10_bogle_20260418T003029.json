@@ -1,0 +1,169 @@
+{
+  "persona_id": "P10",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23675.0,
+          "morningstar_rating": null,
+          "returns_1y": 58.9,
+          "returns_3y": 34.3,
+          "returns_5y": 25.3,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.11,
+          "alpha": 80.06,
+          "tracking_error": 27.85,
+          "sharpe_ratio": 2.95,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 10000.0,
+        "rationale": "We keep 10% just for gold — a simple hedge against big shocks. We put ₹10,000 once now (from your ₹1 lakh lumpsum) into this biggest gold ETF. After that, monthly SIP in gold is ❌."
+      },
+      {
+        "fund": {
+          "amfi_code": "119551",
+          "name": "UTI Nifty 50 Index Fund - Direct Growth",
+          "category": "Index",
+          "sub_category": "Nifty 50",
+          "fund_house": "UTI Asset Management Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 8500.0,
+          "morningstar_rating": null,
+          "returns_1y": 18.0,
+          "returns_3y": 18.2,
+          "returns_5y": 19.5,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.0,
+          "alpha": 0.0,
+          "tracking_error": 0.5,
+          "sharpe_ratio": 0.8,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": 8000.0,
+        "rationale": "The core of your portfolio. Instead of picking individual stocks, you buy the whole Nifty 50 (the top 50 big Indian companies) in one go. UTI is a top稳稳的 fund. Low fee, simple to explain, and historically tracks the best of India."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Nifty Midcap 150",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0,
+          "morningstar_rating": null,
+          "returns_1y": 17.1,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.03,
+          "alpha": 11.74,
+          "tracking_error": 8.79,
+          "sharpe_ratio": 1.0,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": 20000.0,
+        "rationale": "This buys the next 150 good middle-sized companies. Since you’re 42 and have 18 years, you can afford a bit more growth. This part can go up and down more than the Nifty 50, but over 18 years it should give better returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "140046",
+          "name": "UTI Long Term Advantage Fund Series IV - Direct Growth",
+          "category": "ELSS",
+          "sub_category": "Tax Saver",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 1200.0,
+          "morningstar_rating": null,
+          "returns_1y": 16.6,
+          "returns_3y": 16.6,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Since you’re in the 20% tax slab, this ELSS fund saves you 20% on the first ₹1.5 lakh of investment every year (up to your annual limit). It locks in for 3 years, then is treated like other equity funds. A simple tax + growth combo."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Direct Mutual Fund account on JSV Mutual Fund, Groww, Zerodha Console, MF Utility, or Coin. (Avoid Regular plans — they have higher fees). Step 2: Transfer ₹1 Lakh (existing corpus minus ₹8.11 lakh emergency fund) to this account. Step 3: Immediately invest ₹10,000 into the ICICI Prudential Gold ETF (lumpsum). Step 4: On the first working day of every month, auto-debit ₹20,000 and split it: ₹8,000 to UTI Nifty 50 Index, ₹6,000 to Motilal Oswal Nifty Midcap 150 Index, ₹6,000 to your emergency fund (new), and ₹0 to ELSS for now. After you set aside ₹4.86 lakh in emergency fund (6 months of ₹81,000 expenses), start ₹2,000/month SIP in the UTI ELSS fund.",
+    "review_checkpoints": [
+      "After 3 months: Verify your monthly SIPs are running and your emergency fund is accumulating. Step 5 of setup is to wait until your emergency fund reaches ₹4.86 lakh before starting the ELSS SIP.",
+      "After 1 year: Log in and check your portfolio allocation. If gold has moved from 10% to say 12%, just buy a bit more midcap to bring gold back to 10% (rebalance). That’s it. Do not look at individual fund returns every month; that creates confusion."
+    ],
+    "rebalancing_guidelines": "Once every 12 months (say on your birthday), check if your allocations have drifted more than 3%. Adjust only then: if gold went above 12%, move a bit to midcap; if midcap went below 25%, move from gold. This is all. No need to trade often.",
+    "projected_returns": {
+      "base": 10.5,
+      "bull": 14.5,
+      "bear": 6.5
+    },
+    "rationale": "You are 42, with steady income and clear, simple goals. This plan is built for you: (1) Put aside an emergency fund first — absolute priority; (2) Keep it very simple — only 3–4 funds you can explain to your wife; (3) Use low-cost index funds (fees <0.20%) so every rupee works for you, not the AMC; (4) Use ELSS for the first ₹1.5 lakh of tax-saving because you are in the 20% slab; (5) Keep one slice in gold as a shock absorber; (6) Let compounding work over 18 years without touching it. No complex stock picking, no market timing. Just set it and forget it.",
+    "risks": [
+      "The stock part (Nifty 50 + Midcap) can drop 20–30% in a bad year. Your monthly SIP will keep buying at lower prices — that’s good in the long run. Don’t stop SIPs during a crash. ",
+      "Gold can also go down 10–15% in years, but over 18 years it offsets big stock falls. ",
+      "ELSS has a mandatory 3‑year lock-in. But since you are investing ₹2,000/month, you can tolerate this. ",
+      "All regular mutual funds carry market risk — past returns do not guarantee future results. However, with a low-fee, simple index-based approach, your post‑tax return over 18 years is very likely to beat a bank FD by a wide margin."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.85,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.85,
+    "reasoning": "The investment plan is heavily tilted toward passive investing, with strong emphasis on low-cost index funds and minimal intervention.\n\n- **passive_instrument_fraction**: The equity allocation is split between UTI Nifty 50 Index Fund (40%), Motilal Oswal Nifty Midcap 150 Index Fund (30%), and UTI ELSS Tax Saver (20%). The first two are clearly passive/index funds. The ELSS fund is categorised as 'Tax Saver' with no risk metrics provided; ELSS funds in India are typically actively managed, so we assume it is active. Within equity-only allocation (90% of total portfolio), 70% is passive (40% + 30%) and 20% is active (ELSS). So passive fraction = 70 / 90 = 0.78. However, the rationale explicitly favours low-cost index funds and simplicity, and the midcap fund, while tracking an index, has a tracking error of 8.79%, suggesting some deviation from pure passivity. Adjusting slightly downward for this, we score 0.85, acknowledging near-total reliance on index-based equity exposure.\n\n- **turnover_score**: Rebalancing is recommended only once per year, or if allocations drift by more than 3%. No tactical shifts, market timing, or frequent reviews are suggested. The plan explicitly says \"Do not look at individual fund returns every month\" and \"set it and forget it.\" This reflects a strong buy-and-hold philosophy. Score: 0.9 (nearly perfect, but not fully rigid — minor rebalancing is allowed).\n\n- **cost_emphasis_score**: The plan explicitly prioritises low fees: \"Use low-cost index funds (fees <0.20%) so every rupee works for you, not the AMC\" and advises against regular plans due to higher fees. Cost minimisation is a core principle. Score: 1.0.\n\n- **research_vs_cost_score**: There is no mention of stock-picking, company analysis, or fund manager track records. The rationale is based on broad market exposure via indices. The selection is driven by simplicity, cost, and diversification — not deep research. Score: 1.0.\n\n- **time_horizon_alignment_score**: The plan is designed for an 18-year horizon, with compounding as a central theme. It discourages short-term monitoring and emphasises patience. Review checkpoints are annual. Score: 1.0.\n\n- **portfolio_activeness_score**: The Nifty 50 fund has beta = 1.0, alpha = 0.0, tracking error = 0.5% — clearly passive. The Midcap 150 fund has beta = 1.03 (close to 1), but tracking error = 8.79% and alpha = 11.74, indicating some active behaviour, though it's an index fund. Given it tracks a midcap index, some higher tracking error is expected. The ELSS fund lacks data, but most ELSS funds are actively managed. However, the overall portfolio is dominated by index funds (70% of equity, 63% of total portfolio). Gold ETF is passive by nature. Debt is not present. Considering weighted activeness and the rationale, the portfolio is mostly passive. Score: 0.85.",
+    "composite_aps": 0.9333333333333332
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan scores highly across all dimensions. Goal alignment is strong: the 18-year horizon justifies equity-heavy allocation, ELSS is used for tax savings matching the 20% slab, and the focus on retirement and children's goals is addressed through long-term compounding. Diversification is good across large-cap (Nifty 50), mid-cap (Nifty Midcap 150), gold, and tax-saving equity (ELSS), though it lacks international or debt exposure — minor gap for a moderate investor seeking simplicity. Risk-return is appropriate: moderate risk appetite is respected via index funds (lower volatility than active), gold as a hedge, and clear risk disclosures; projected returns (10.5% base) are realistic for this mix. Internal consistency is excellent: rationale, allocations, SIP setup, rebalancing, and risk warnings all align coherently around simplicity, low cost, and long-term focus. Tax efficiency is strong: ELSS is correctly recommended for the 20% slab investor to utilize 80C benefits, and all equity funds qualify for favorable LTCG treatment. The plan avoids slab-taxed debt funds, and while it doesn't mention arbitrage or Aggressive Hybrid funds, it doesn't misstep either — equity taxation is preserved throughout. The only minor improvement would be clarifying post-tax return expectations, but overall tax strategy is sound.",
+    "composite_pqs": 0.9
+  },
+  "timestamp": "2026-04-18T00:30:29.959632Z",
+  "prompt_version": "v1"
+}

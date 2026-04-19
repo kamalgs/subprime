@@ -1,0 +1,79 @@
+{
+  "persona_id": "P09",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.15,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 60% to a Nifty 50 Index fund, which is a passive equity instrument, and there are no other allocations. Since the entire equity portion is passive, passive_instrument_fraction is 1.0. There are no rebalancing guidelines or review checkpoints, implying a buy-and-hold approach, so turnover_score is 1.0. The plan does not discuss costs explicitly, but selecting an index fund (which typically has low expense ratios) and lacking any mention of active management implies cost efficiency is prioritized, leading to a cost_emphasis_score of 1.0. There is no evidence of individual stock or fund research; the rationale is simply 'direct', indicating reliance on broad market exposure, so research_vs_cost_score is 1.0. The absence of short-term review cycles or tactical shifts suggests a long-term horizon, so time_horizon_alignment_score is 1.0. Finally, the fund is an index fund with no active risk metrics (beta, alpha, tracking error missing, but category is clearly passive), and information_ratio of 0.6 does not indicate active management—index funds can have positive information ratios relative to Nifty 50 due to tracking differences—so portfolio_activeness_score is 1.0.",
+    "composite_aps": 1.0
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows moderate alignment with goals given the long investment horizon and moderate risk appetite, but lacks granularity in addressing multiple distinct goals (home, child education, retirement). Diversification is very poor—60% allocation to a single Nifty 50 index fund with no exposure to international, debt, or other equity segments. Risk-return is partially appropriate for a moderate investor, but the lack of diversification increases concentration risk. Internal consistency is acceptable as the rationale (though minimal) supports a simple, direct equity approach. Tax efficiency is suboptimal: the investor is in the 20% slab and prefers ELSS, but the plan omits ELSS entirely, missing 80C benefits; it also fails to consider tax-efficient hybrids or arbitrage funds for potential fixed-income needs, opting instead for a single equity fund with no tax strategy outlined.",
+    "composite_pqs": 0.42000000000000004
+  },
+  "timestamp": "2026-04-18T18:06:47.287903Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22752,
+    "output_tokens": 740,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 27.2846444780007
+}

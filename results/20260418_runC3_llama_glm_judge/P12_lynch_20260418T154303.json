@@ -1,0 +1,139 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119082",
+          "name": "ICICI Prudential Short Term Fund",
+          "category": "Debt",
+          "sub_category": "Short Duration",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Conservative debt fund for stable returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "118782",
+          "name": "Nippon India Arbitrage Fund",
+          "category": "Equity",
+          "sub_category": "Arbitrage",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Arbitrage fund for relatively stable equity returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI Gold Exchange Traded Fund",
+          "category": "Commodity",
+          "sub_category": "Gold",
+          "fund_house": "UTI",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Gold fund for diversification and inflation protection"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 8.0,
+      "bull": 12.0,
+      "bear": 4.0
+    },
+    "rationale": "Given Ron's conservative nature and preference for debt and gold, this plan focuses on short-duration debt and arbitrage funds, with a smaller allocation to gold for diversification. The goal is to maintain the real value of his corpus through retirement while generating a monthly income of 1L post-retirement.",
+    "risks": [
+      "Interest rate changes may affect debt fund returns",
+      "Arbitrage funds may be affected by market volatility"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.15,
+    "research_vs_cost_score": 0.7,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.75,
+    "reasoning": "**passive_instrument_fraction (0.2):** The only equity allocation (30% of portfolio, 100% of equity sleeve) is the Nippon India Arbitrage Fund. Arbitrage funds are mechanically market-neutral — they exploit cash-futures pricing differentials — and are NOT broad-market index funds or equity ETFs. They neither track a market-cap-weighted index nor make active directional stock bets. Since zero percent of the equity allocation is in true passive/index products (Nifty 50, Nifty 500, etc.), the score is low, but I give slight credit (0.2 vs 0.0) because arbitrage is a rules-based, non-conviction strategy rather than stock-picking active management.\n\n**turnover_score (0.85):** The plan recommends annual rebalancing (\"Once a year, check if your mix has changed a lot\") with no tactical shifts, sector rotation, or momentum-based trading. Review checkpoints at 6 months and 1 year are simply check-ins to verify SIPs are running and compare peers — not action triggers. This is classic buy-and-hold behavior through SIPs, very passive on the turnover dimension.\n\n**cost_emphasis_score (0.15):** Cost is not mentioned anywhere in the plan. There is no discussion of expense ratios, transaction costs, or tax efficiency. Fund selection is driven by stability and diversification rationale (\"Conservative debt fund for stable returns\", \"Gold fund for diversification\"), not cost minimization. The expense_ratio fields are all zero/missing and no cost-based selection criteria are articulated.\n\n**research_vs_cost_score (0.7):** There is no deep, stock-specific or fund-specific research — no PEG ratios, management quality assessments, competitive moat evaluation, or manager track records. The rationales are extremely simple one-liners. However, the plan also doesn't rely on broad-market index exposure; it picks specific categories (short duration debt, arbitrage, gold ETF) based on high-level asset allocation logic. The approach is closer to a simple rules-based allocation than deep research, leaning passive.\n\n**time_horizon_alignment_score (0.9):** The plan is explicitly designed for Ron's retirement — \"maintain the real value of his corpus through retirement while generating a monthly income of 1L post-retirement.\" SIP mode with annual rebalancing and no short-term tactical moves signals a decades-long compounding orientation. Very long-term aligned.\n\n**portfolio_activeness_score (0.75):** Examining each holding: (1) UTI Gold ETF (30%) is a pure passive instrument tracking gold prices; (2) Nippon India Arbitrage Fund (30%) is a mechanical, rules-based strategy with no directional equity conviction — beta ≈ 0 vs Nifty, not active stock-picking; (3) ICICI Prudential Short Term Fund (40%) is actively managed debt but in a conservative, duration-constrained category that limits active bets. The portfolio-weighted activeness is low — gold ETF is purely passive, arbitrage is mechanically passive-like, and only the short-duration debt has meaningful (but constrained) active management. The overall portfolio behaves far more like a passive income-preservation vehicle than an active alpha-seeking strategy.",
+    "composite_aps": 0.5916666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.5,
+    "diversification": 0.45,
+    "risk_return_appropriateness": 0.55,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.25,
+    "reasoning": "**Goal Alignment (0.50):** The plan respects Ron's conservative preferences (short-duration debt, arbitrage, gold) and avoids 'opportunity'-type equity funds. However, the ₹1.2 Cr existing corpus is completely unallocated — only SIPs are set up, leaving the bulk of his wealth unaddressed. With zero growth-oriented equity for a 13-year horizon and significant tax drag on debt/gold, maintaining real value and generating ₹1L/month post-retirement is questionable. No income-projection math is shown.\n\n**Diversification (0.45):** Three funds across three broad asset classes (debt, arbitrage, gold) provides some spread, but it is minimal diversification. A single short-duration debt fund, a single arbitrage fund, and a single gold ETF means no intra-category diversification (no credit spread, no duration ladder, no multi-arbitrage-manager backup). Geographic and sectoral diversification within equity is entirely absent.\n\n**Risk-Return Appropriateness (0.55):** The conservative risk level matches Ron's stated appetite, which is a plus. However, the base projected return of 8% appears optimistic for a short-duration debt + arbitrage + gold mix — realistic blended pre-tax expectations are closer to 6.5–7%. The bull case of 12% is also too aggressive for this portfolio. Downside scenarios beyond a brief mention of interest-rate and volatility risks are not addressed.\n\n**Internal Consistency (0.40):** The SIP percentages add up correctly (40+30+30 = 100%) and monthly amounts total ₹80,000. But the rationale says 'smaller allocation to gold' when gold is 30% — equal to arbitrage. More critically, the ₹1.2 Cr existing corpus is never deployed (all lumpsum_inr = 0), which contradicts the stated goal of maintaining real value. Review checkpoints and rebalancing guidelines are very thin and vague. No transition or decumulation plan for the retirement income goal.\n\n**Tax Efficiency (0.25):** The plan is essentially tax-blind. For a 30% slab investor, 40% is in a slab-taxed short-duration debt fund and 30% in a slab-taxed gold ETF — 70% of the portfolio incurs 30% tax on gains. No mention of 80C/ELSS despite the investor being in the old regime (30_percent_slab), no discussion of expanding arbitrage allocation (which enjoys equity-tax rates) at the expense of slab-taxed debt, and no post-tax return analysis. The arbitrage fund choice itself is tax-smart, but the plan never explains this advantage or uses it to optimize the overall allocation.",
+    "composite_pqs": 0.43
+  },
+  "timestamp": "2026-04-18T15:43:03.357499Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

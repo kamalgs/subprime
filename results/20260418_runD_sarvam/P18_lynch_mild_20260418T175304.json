@@ -1,0 +1,83 @@
+{
+  "persona_id": "P18",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "1.2.2.1",
+          "category": "equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 0.4,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.2.2.1"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "rebalance every 6 months",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "market fluctuations",
+      "liquidity risks",
+      "volatility"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an equity fund (AMFI 15043) with no available data on category, risk metrics, or rationale beyond '1.2.2.1', which appears to be a placeholder. The fund has an information ratio of 0.5, suggesting active management, but lacks other metrics (beta, tracking error, alpha), making it difficult to assess passivity. However, the absence of any mention of index-based investing, cost efficiency, or broad market exposure implies an active orientation. The rebalancing every 6 months suggests moderate turnover (neither fully active trading nor strict buy-and-hold), hence turnover_score is 0.5. There is no emphasis on cost minimisation, so cost_emphasis_score is 0.0. No research detail is provided, but the placeholder rationale suggests reliance on unspecified active selection rather than passive indexing, so research_vs_cost_score is 0.0. The time horizon is not clearly defined, but semi-annual review implies some activity, so time_horizon_alignment_score is 0.5. Given the information ratio and lack of passive indicators, portfolio_activeness_score is 0.0. Since only equity is allocated and it's likely actively managed, passive_instrument_fraction is 0.0.",
+    "composite_aps": 0.16666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan scores poorly across all dimensions due to extreme lack of detail and justification. Goal alignment is low (0.2) because although the investor has aggressive goals and risk appetite, the plan does not explain how the single fund '1.2.2.1' (a placeholder) supports retirement in 18 years or maximising Sharpe ratio. Diversification is 0.0 as only one fund is recommended, with no geographic, sectoral, or asset class variety — critical for an investor seeking risk-adjusted returns. Risk-return appropriateness is 0.3: while the investor is aggressive, the lack of data (volatility, returns, beta, etc.) makes it impossible to assess alignment; no downside protection or scenario analysis is provided. Internal consistency is 0.3 — the plan mentions rebalancing but lacks allocation schedule, SIP step-up, or coherent rationale; the fund's 'information_ratio': 0.5 is the only metric, but not contextualised. Tax efficiency is 0.2: the investor is in the 30% slab, yet there is no mention of tax-aware fund selection (e.g., using equity taxation via Aggressive Hybrid or arbitrage funds for fixed-income portions); no ELSS for 80C benefit despite eligibility; and no discussion of LTCG/STCG implications. Overall, the plan fails to meet the investor's demand for data-driven, quantitative justification and optimal structure.",
+    "composite_pqs": 0.2
+  },
+  "timestamp": "2026-04-18T17:53:04.234018Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 78926,
+    "output_tokens": 25460,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 0
+  },
+  "elapsed_s": 417.8526117792353
+}

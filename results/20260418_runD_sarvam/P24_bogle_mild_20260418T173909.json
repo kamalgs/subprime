@@ -1,0 +1,111 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.001,
+        "rationale": "15.5% on gains over ₹1.25L/year"
+      },
+      {
+        "fund": {
+          "amfi_code": "142",
+          "name": "ICICI Large Cap Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.45
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.001,
+        "rationale": "15.5% on gains over ₹1.25L/year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Start with large caps for stability and growth, add mid-caps later for diversification",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Start with ₹1,000/month in HDFC Large Cap, add ₹1,000/month in ICICI Large Cap after 4 years. Increase allocation to 60% large caps, 40% mid-caps by Year 4."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 100% of its equity portion to large-cap actively managed funds (HDFC Large Cap and ICICI Large Cap), with no allocation to index funds or ETFs, resulting in a passive_instrument_fraction score of 0.0. The turnover_score is 0.75 because while there is a planned shift toward mid-caps by Year 4, it is a one-time structural evolution rather than frequent rebalancing. There is no mention of cost considerations such as expense ratios or tax efficiency, leading to a cost_emphasis_score of 0.0. The plan emphasizes fund-level selection without discussing cost or indexing, and the rationale focuses on growth and diversification rather than research depth, but the use of large-cap funds suggests some reliance on manager skill, hence research_vs_cost_score is 0.0. The time_horizon_alignment_score is 0.8 due to the multi-year SIP step-up and long-term allocation shift, indicating a long-term orientation despite some tactical evolution. Finally, the portfolio_activeness_score is 0.0 because both funds have positive information ratios (0.6 and 0.45), indicating active management intent, and the strategy involves future active shifts into mid-caps, reinforcing active portfolio construction.",
+    "composite_aps": 0.25833333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan aligns well with Remy's long-term horizon and moderate risk appetite, focusing on large-cap equity funds for stability while acknowledging future diversification into mid-caps. This supports his goals of building a habit and long-term wealth. However, current diversification is limited—only two large-cap funds from different houses, but same sub-category (large cap), leading to concentration risk; hence diversification score is moderate. Risk-return is appropriate for a moderate investor starting out, though slightly tilted toward safety given his age and long horizon; could afford more aggression. The plan is internally consistent: rationale, SIP step-up, and rebalancing guidelines align. Tax efficiency is strong: the investor is in the 'new_regime' tax bracket, so 80C benefits are irrelevant, and the plan correctly uses equity funds (which enjoy favorable LTCG treatment above ₹1.25L) instead of slab-taxed debt funds. No tax inefficiencies are present. The rationale correctly references the 15.5% LTCG tax (actually 12.5% post-Budget 2024, but close), showing tax-awareness. ELSS is rightly omitted since new regime investors can't claim 80C.",
+    "composite_pqs": 0.68
+  },
+  "timestamp": "2026-04-18T17:39:09.707920Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 42017,
+    "output_tokens": 9340,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 235.57413545250893
+}

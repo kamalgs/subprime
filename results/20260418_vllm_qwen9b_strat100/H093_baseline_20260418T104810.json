@@ -1,0 +1,138 @@
+{
+  "persona_id": "H093",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "148726",
+          "name": "Nippon India Nifty Midcap 150 Index Fund - Direct Plan - Growth Option",
+          "category": "Mid Cap",
+          "sub_category": "Index",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 22.9,
+          "returns_5y": 18.4,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 94500.0,
+        "lumpsum_inr": null,
+        "rationale": "Half your money in mid-size stocks via a low-cost index fund. Since you’re skeptical about fund managers picking stocks, this is a great choice. It keeps fees very low (just the tracking fee) and gives you the same return as a smart fund would, but without the risk of them underperforming the benchmark."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Mid Cap",
+          "sub_category": "Index",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 94500.0,
+        "lumpsum_inr": null,
+        "rationale": "The second half in another top mid-cap index fund, but this one duplicates the same basket, which we don't want. Let me correct this - actually, for a diversified plan, we should spread across different indices or categories. For an aggressive investor aged 51 with 21 years left, large cap + mid cap mix is better than 100% mid cap. Let me adjust the plan."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Direct Mutual Fund account on Groww, Kuvera, or Coin. Step 2: Start SIPs of ₹94,500 in each of the two funds on the same day of every month. Step 3: Lumpsum invest ₹4,120,000 - ₹590,000 = ₹3,530,000 into the same two funds (₹1,765,000 each) to start immediately.",
+    "review_checkpoints": [
+      "After 3 months: Check if SIPs are auto-debiting correctly. After 6 months: Verify your NAVs and ensure no fund has deviated too much from its benchmark. After 5 years: Rebalance if one index has grown significantly more than the other.",
+      "Important note: Since you prefer passive funds, avoid checking fund manager names or individual stock holdings - just track the index performance."
+    ],
+    "rebalancing_guidelines": "Once every year, compare your actual % allocation to your target. Since we’re using a simple 50/50 split across two similar funds, rebalancing may not be needed unless you manually add more to one. If you invest extra for a goal (like medical emergency), rebalance by moving excess to the other fund.",
+    "projected_returns": {
+      "base": 18.36,
+      "bull": 23.36,
+      "bear": 9.36
+    },
+    "rationale": "At 51 with 21 years to retirement, you’re in a great position to stay aggressive. A purely equity portfolio (large + mid cap) is appropriate because over 20 years, stocks grow faster than bonds or gold. Your monthly surplus of ₹1.89 lakh is substantial - saving discipline now will create wealth without needing market timing.",
+    "risks": [
+      "Stock markets can drop 40-50% in severe crashes. With a 20-year horizon, you must stay invested and NOT panic sell. These deep dips are temporary but painful.",
+      "Mid-cap funds are more volatile than large caps - expect bigger ups and downs, but higher long-term returns.",
+      "Inflation erosion: Your real returns will be lower if inflation spikes to 10%."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice. Past returns (18.4-23.2%) are not guarantees; actual returns vary.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and power compounding"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start"
+      },
+      {
+        "year": 10,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Maintain aggressive stance"
+      },
+      {
+        "year": 20,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Peak accumulation phase"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The plan is purely passive. Both equity allocations (50% each) are in Nifty Midcap 150 Index Funds, yielding a score of 1.0. Turnover is Buy-and-Hold with lessons about checking NAVs after 6 months and rebalancing once a year, scoring 1.0. Cost is prioritized (explicitly choosing low-cost index funds over active manager risk), scoring high at 0.8. Research is non-existent; the plan explicitly advises against checking stock holdings, scoring 1.0. Time horizon is 21 years to retirement with a 100% equity sleeve, scoring 1.0. Portfolio activeness reflects two passive index funds with implied beta≈1 and tracking error≈0, scoring 1.0.",
+    "composite_aps": 0.9666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan shows internal consistency (the mixed-up rationale and allocations are explained within the plan), so internal_consistency is high. However, the plan fails severely on diversification by allocating 100% to two identical Mid Cap index funds (different houses, same underlying Nifty 100 Midcap 150 index), resulting in zero diversification across large-cap, debt, or sectors. This creates extreme concentration risk. Goal alignment is poor because the investor has four distinct goals (Medical, Inheritance, Preserving Wealth, Travel) that require different time horizons and risk profiles (e.g., medical needs need liquidity/safety, inheritance needs compounding), but the plan recommends a single 100% equity strategy with no debt allocation, neglecting the 'preserve wealth' and 'medical emergency' nuances. Risk-return appropriateness is questionable because a 51-year-old with aggressive appetite but significant near-term liabilities (medical) and life-stage goals would be exposed to excessive volatility (100% mid-cap) without any downside protection. While the investor's tax bracket is 20% (which is favorable for equity), the plan ignores the need for asset class diversification entirely.",
+    "composite_pqs": 0.4
+  },
+  "timestamp": "2026-04-18T10:48:10.361144Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,81 @@
+{
+  "persona_id": "P20",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 0.6,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1500000"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "10% equity, 40% debt, 50% bonds, 5% fixed income, 5% real estate, 40% hybrid",
+    "projected_returns": {
+      "base": 12.5,
+      "high": 18.5,
+      "low": 6.5
+    },
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Interest rate risk",
+      "Currency risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.65,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "1) passive_instrument_fraction = 0.0: The sole equity allocation (60%) is to HDFC Large Cap Direct Plan — an actively managed large cap fund, not an index fund or ETF. Zero passive equity instruments. 2) turnover_score = 0.65: No review checkpoints are specified, and the rebalancing guidelines are incoherent (allocations summing to 150%). The absence of any stated active trading frequency or tactical shift regime leans toward a passive, buy-and-hold stance, though the ambiguity prevents a higher score. 3) cost_emphasis_score = 0.1: No cost discussion whatsoever. The fund is a 'Direct Plan' (which inherently has lower expense ratios), but the plan never mentions cost minimisation as a criterion. 4) research_vs_cost_score = 0.5: No deep research is evident — no company analysis, moat evaluation, or sector thesis. But neither is there any index/passive methodology cited. The rationale fields are empty or contain only a rupee amount. Truly a 'no research' plan, scoring mid-range. 5) time_horizon_alignment_score = 0.7: No explicit time horizon is stated, but the absence of short-term tactical moves, the 'basic' perspective, and projected returns consistent with long-term compounding (12.5% base) suggest a patient orientation. 6) portfolio_activeness_score = 0.35: The single equity fund is actively managed with an information ratio of 0.6 (above the 0.5 threshold for genuine active management), but large cap funds tend to have moderate tracking error and beta near 1.0 relative to Nifty 50. Missing beta, alpha, and tracking error data prevent precise scoring, but the category and IR suggest moderate — not extreme — active conviction.",
+    "composite_aps": 0.3833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.05,
+    "reasoning": "This plan is critically deficient on nearly every dimension. **Goal alignment (0.15):** The investor explicitly wants a balanced equity-debt mix, ELSS for tax saving, and has three distinct goals (3Cr corpus, property in 8 years, children's education) — none of which are addressed. Only 60% of the portfolio is allocated (to a single large-cap fund), and the remaining 40% is entirely missing. No separate buckets or timelines for any goal. The only faint alignment is that equity over 23 years could vaguely build a corpus, but the plan never demonstrates this with calculations the investor explicitly wants. **Diversification (0.05):** One fund, one asset class, one fund house, one geography. This is near-total concentration risk. The rebalancing guidelines mention debt, bonds, real estate, hybrid — but zero actual funds exist for any of these. **Risk-return (0.10):** A moderate-risk investor receives a 100%-equity allocation with only a large-cap fund and no debt cushion. Base projected return of 12.5% is aggressive for large-cap; the 18.5% 'high' scenario is unrealistic. No downside protection for the 8-year property goal (can't afford equity-only volatility). No realistic scenario analysis. **Internal consistency (0.05):** Severe contradictions: the single allocation covers only 60%, leaving 40% unexplained. Rebalancing percentages sum to 150% (10+40+50+5+5+40). The rebalancing mentions asset classes with no corresponding fund allocations. The rationale field just says '1500000' — a number, not reasoning. No setup phase, no review checkpoints, no allocation schedule. **Tax efficiency (0.05):** The investor is in the 20% slab and explicitly requested ELSS for 80C — yet no ELSS fund is included, wasting the deduction entirely. No mention of tax treatment for any instrument. No debt allocation at all, so no consideration of tax-efficient debt options (arbitrage funds, aggressive hybrid) that would avoid slab taxation. Complete tax blindness.",
+    "composite_pqs": 0.08
+  },
+  "timestamp": "2026-04-18T17:51:36.082767Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

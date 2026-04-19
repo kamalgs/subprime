@@ -1,0 +1,175 @@
+{
+  "persona_id": "P11",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118565",
+          "name": "Franklin India SHORT TERM INCOME PLAN - Direct - GROWTH",
+          "category": "Debt",
+          "sub_category": "Short Term Debt",
+          "fund_house": "Franklin Templeton Asset Management (India) Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": 1.4,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Money needs to be generated quickly to help with monthly expenses and serve as a safety net. This fund keeps your money in very safe short-term bonds."
+      },
+      {
+        "fund": {
+          "amfi_code": "118479",
+          "name": "BANDHAN Large Cap Fund-Direct Plan-Growth",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": 0.62,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 1200000.0,
+        "rationale": "You have a good amount of money in your hand today. Putting a good part of it here is a safe way for your long-term education goals to grow fast over the next 16 years without taking too much risk."
+      },
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund (erstwhile Bluechip Fund) - Direct Plan - Growth",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": 0.43,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Another very safe 'big company' fund that grows steadily. Having it here makes sure you don't put all your money in just one company."
+      }
+    ],
+    "setup_phase": "Step 1: Set up your SIPChase or Groww account. Since this is your first step, set up an auto-debit of ₹9,000 each month in the Franklin and ICICI funds, and ₹9,000 in the Bandhan fund. Step 2: For your existing rupees (after keeping ₹5lakhs aside as an emergency cushion), transfer ₹1.2 million into a Lumpsum investment in the Bandhan fund. Step 3: Keep ₹5 lakhs in your bank account or a liquid fund just in case you need quick money.",
+    "review_checkpoints": [
+      "After 6 months: See if your SIPs are running automatically and if your money has been credited. No need to check daily, just a one-time check.",
+      "After 1 year: See if your monthly returns are sitting in your account. If the market is very shaky, don't make any changes; just stay calm."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the other baskets (the safe ones) to get back to your target mix.",
+    "projected_returns": {
+      "base": 8.2,
+      "bull": 11.2,
+      "bear": 4.2
+    },
+    "rationale": "Since you are 44 with 16 years left, we need your money to be safe, but also able to grow well enough for your child's education. We have put the majority of your new monthly money (40%) in the safest possible options so that your money is protected. We have also kept some of your existing corpus in a fund that will grow faster than the safe space (Bandhan fund) to help long term.",
+    "risks": [
+      "Your stocks/my short term bond can lose some value in a bad year; this is normal and will recover.",
+      "Your baby might just not be born if the stocks perform poorly; you need to think about this carefully.",
+      "Your short term bond may not beat the best of the equity funds; however it will never lose its principal."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 65.0,
+        "debt_pct": 35.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Reinforce equity allocation"
+      },
+      {
+        "year": 10,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 15,
+        "equity_pct": 65.0,
+        "debt_pct": 35.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Reduce equity risk as education date nears"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The plan is entirely active/generic in its equity approach (Large Cap active funds with vague company lists) despite lacking risk metrics that would confirm activeness; the debt portion is active short-term debt. The plan is very passive in its approach to managing the portfolio (buy-and-hold, minimal review), emphasises safety over cost, provides no research rationale beyond generic 'big company' statements, has a generally long-term orientation with a 16-year horizon though it includes safety nets and reactions to market conditions, and the portfolio actsiveness is low because the funds are likely to be closet indexers in the Large Cap category (low alpha, low tracking error implied by the lack of specific active alpha claims and generic 'safe' descriptions).",
+    "composite_aps": 0.5
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.65,
+    "internal_consistency": 0.55,
+    "tax_efficiency": 0.65,
+    "reasoning": "goal_alignment (0.6): The plan partially aligns with the conservative risk appetite by using short-term debt for income and a balanced ratio for the long term. However, it ignores the 'preserve inherited corpus' goal by lumpsumming entire equity funds without a segregated, ultra-safe bucket for wealth preservation. It also fails to explicitly address funding the child's education 8 years down the line versus 16 years.\n\nDiversification (0.4): The plan is not well-diversified. It allocates 70% to two Large Cap funds from the same risk profile but different fund houses, exposing the investor to significant sector/manager concentration risk. There is no mid-cap, small-cap, multi-cap, sectoral, international exposure, or gold allocation despite the long horizon. It lacks broad diversification across asset classes.\n\nRisk_return_appropriateness (0.65): While the overall mix (65% equity) is aggressive for a 'conservative' client, the projected returns (Base: 8.2%) and the heavy reliance on large-cap funds attempt to address growth needs. The downside risk is moderate given the 30% debt portion, but the mismatch between the stated risk appetite and the actual allocation lowers the score.\n\nInternal_consistency (0.55): There is a clear contradiction between the stated risk appetite ('conservative', 'capital safety first') and the allocation schedule which slowly increases equity exposure to 70% at year 5 and 10. A truly conservative plan for a sole earner with short-term education liabilities should likely maintain a lower equity cap or use hybrid funds rather than switching between pure debt and pure equity. The rationale mentions 'safe options' but recommends high-risk large-cap equity lumpsums.\n\nTax_efficiency (0.65): The investor is in the 20% slab. The plan uses Debt funds (taxed at 20% slab? No, Debt funds in India are indexed LTCG but STCG is taxed at full slab for funds <35% equity; however, this is debt so STCG applies). Actually, Debt funds for a 20% slab investor are taxed at 20% (STCG) or LTCG (indexed). Equity funds are taxed at 12.5% (LTCG). The plan misses the opportunity to use Aggressive Hybrid funds which would route the high-growth portion through the beneficiary 12.5% LTCG regime, saving tax compared to if she were in a higher slab, though she is 20%. The omission of ELSS for a 20% slab investor is not a missing deduction (they can use 80C up to 3/4 of their income limit anyway), but the plan doesn't explicitly optimize for her specific tax bracket when selecting instrument categories. It's acceptable but not optimal.",
+    "composite_pqs": 0.5700000000000001
+  },
+  "timestamp": "2026-04-18T03:18:31.609688Z",
+  "prompt_version": "v1"
+}

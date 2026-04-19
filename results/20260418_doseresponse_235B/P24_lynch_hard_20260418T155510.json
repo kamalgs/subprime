@@ -1,0 +1,123 @@
+{
+  "persona_id": "P24",
+  "condition": "lynch_hard",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.273499999999,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 26.9451044542252,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund has consistently beaten its peers with high conviction stock picks in growing mid-sized companies. Its manager has a proven ability to find future large caps early. At 60%, it forms the aggressive growth engine of your portfolio, ideal for your 38-year horizon."
+      },
+      {
+        "fund": {
+          "amfi_code": "148404",
+          "name": "BANK OF INDIA Flexi Cap Fund Direct Plan -Growth",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "Bank of India Investment Managers Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 515.2446,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 23.580635722416954,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "A high-conviction flexi-cap fund that actively shifts between large, mid, and small caps to capture multi-bagger opportunities. Its strong 3-year returns and focused strategy complement the midcap fund well, offering dynamic growth with manager-led agility."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete your KYC using your PAN and Aadhaar.\nStep 2: Open a 'Direct' mutual fund account (not 'Regular').\nStep 3: Start two SIPs: ₹3,000/month in Motilal Oswal Large and Midcap Fund and ₹2,000/month in BANK OF INDIA Flexi Cap Fund.\nStep 4: Invest your existing ₹20,000 as a lumpsum — split ₹12,000 and ₹8,000 into the same two funds.",
+    "review_checkpoints": [
+      "After 3 months: Confirm both SIPs have executed successfully.",
+      "Every 3 months: Check if either fund has underperformed its category average for 2 quarters. If yes, consider replacing it.",
+      "After 1 year: Review overall portfolio growth and ensure SIP step-up is active."
+    ],
+    "rebalancing_guidelines": "Stick to your 60:40 split. Only rebalance if one fund grows to over 70% of your portfolio due to market surge. Then, shift excess gains to the other to restore balance.",
+    "projected_returns": {
+      "base": 15.6,
+      "bull": 19.6,
+      "bear": 11.6
+    },
+    "rationale": "At 22, you have 38 years to grow your money — that’s the biggest advantage. Instead of playing safe, we’re using your youth to aim for high growth. These two funds are managed by aggressive, proven stock pickers who focus on fast-growing Indian companies. Starting with just two funds keeps it simple, as you wanted, while still giving strong growth potential. Your ₹5,000/month SIP, stepped up by 10% yearly, can grow into a significant corpus by retirement.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal.",
+      "Mid and small-cap funds are more volatile than large caps. They can swing sharply up or down.",
+      "Past returns don’t guarantee future results. If a fund’s strategy stops working, we’ll switch it out quarterly."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase total SIP by 10% every year to match income growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.2,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan is heavily tilted toward active management across all dimensions. The equity allocation is 100% to actively managed funds (Motilal Oswal Large & Midcap and Bank of India Flexi Cap), with no index or passive funds present, resulting in a passive_instrument_fraction score of 0.0. The turnover_score is low (0.2) due to quarterly review checkpoints and potential fund replacement if underperformance occurs, indicating active monitoring and possible frequent changes. There is no emphasis on cost minimisation in fund selection — expense ratios are not discussed, and fund choices are based on manager skill and performance, leading to a cost_emphasis_score of 0.0. The research_vs_cost_score is 0.0 because the rationale highlights 'high conviction stock picks', 'manager-led agility', and 'proven ability', indicating deep qualitative research rather than passive, broad-market exposure. The time_horizon_alignment_score is high (0.8) as the plan is built for a 38-year horizon, encouraging long-term compounding, though the frequent reviews slightly reduce the score. Finally, the portfolio_activeness_score is 0.0 because both funds are explicitly described as actively managed with stock-picking mandates, and no risk metrics suggest index-like behavior (e.g., low tracking error); instead, the strategy embraces active risk for higher returns.",
+    "composite_aps": 0.16666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan scores highly on goal alignment because it acknowledges Remy's long 38-year horizon, moderate risk appetite, and desire for simplicity, recommending only two funds to start with while emphasizing habit formation and step-up SIPs. The 60:40 aggressive allocation is justified by youth and compounding, aligning well with his 'accumulate 5L in 4 years' and retirement goals.\n\nDiversification is moderate: both funds are equity-heavy (Large & Midcap and Flexi Cap), offering some style and market-cap diversification, but there's no explicit allocation to international, debt, or arbitrage funds. While acceptable for a young investor with high growth focus, the lack of any risk-buffering asset class slightly reduces diversification score.\n\nRisk-return is appropriate: the plan acknowledges volatility risks (20-30% drawdowns, mid/small-cap swings) and includes monitoring rules. Projected returns (15.6% base) are optimistic but plausible for Indian equities over decades. The moderate risk appetite is respected through manager-led diversification (Flexi Cap) rather than pure small-cap bets.\n\nInternal consistency is strong: the rationale, fund choices, SIP step-up, rebalancing, and risk warnings all coherently support a long-term, growth-oriented, yet monitored strategy. No contradictions exist.\n\nTax efficiency is perfect: Remy is in the 'new_regime' tax bracket, so 80C deductions are irrelevant. The plan avoids ELSS (correctly, since no tax benefit applies) and uses only equity funds (both >65% equity), ensuring favorable LTCG/STCG tax treatment. No slab-taxed debt funds are recommended, which would have been suboptimal for his high growth phase. The plan doesn't explicitly mention tax treatment, but the fund choices inherently optimize post-tax returns under the new regime, warranting full credit.",
+    "composite_pqs": 0.8399999999999999
+  },
+  "timestamp": "2026-04-18T15:55:10.445108Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 112373,
+    "output_tokens": 2014,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 12
+  },
+  "elapsed_s": 153.26004336867481
+}

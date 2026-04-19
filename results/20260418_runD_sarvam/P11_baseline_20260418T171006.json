@@ -1,0 +1,83 @@
+{
+  "persona_id": "P11",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.1,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "lump sum",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "1.00% (direct plan)",
+    "risks": [
+      "Market risks are high but not 40% in 1-3 years",
+      "Equity markets can drop 20-30% in bad years",
+      "Large caps are stable but not as high returns as mid-caps"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to a single equity fund: HDFC Large Cap - Direct Plan - Growth, categorized as a Large Cap equity fund. Since no other funds are listed, and this is an actively managed fund (typical for large cap funds in India unless specified as 'index'), the entire equity allocation is active, leading to a passive_instrument_fraction score of 0.0.\n\nThere are no rebalancing guidelines or review checkpoints specified, implying a static, long-term hold strategy, which results in a turnover_score of 1.0 (fully passive in terms of trading frequency).\n\nThe plan does not emphasize cost minimization (expense ratio is not discussed, nor are low fees a stated rationale), so cost_emphasis_score is 0.0.\n\nThe rationale provided is minimal (\"1.00%\") and does not mention cost or indexing; instead, it focuses on expected returns and risk characteristics, suggesting a research-driven or performance-driven selection rather than a passive, market-weighted philosophy — hence research_vs_cost_score is 0.0.\n\nThe absence of short-term review cycles or tactical shifts, combined with lump-sum setup and no rebalancing rules, indicates a long-term horizon, giving a time_horizon_alignment_score of 1.0.\n\nThe fund has an information ratio of 0.5, which indicates active management (positive skill relative to benchmark), and no risk metrics like beta or tracking error are provided. However, given the category (Large Cap) and fund house (HDFC), it is likely a genuinely actively managed fund. With no passive characteristics evident in risk metrics or rationale, the portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.4,
+    "reasoning": "The investment plan shows very poor quality across most dimensions. \n\n- **goal_alignment (0.3)**: The investor is 44, conservative, and has goals at 8 and 12 years. Despite this, the plan allocates 40% to a single large-cap equity fund with no fixed income or hybrid exposure, which poorly aligns with her capital safety priority and multi-horizon goals. The inherited corpus needs preservation, but this plan exposes it to unnecessary equity risk.\n\n- **diversification (0.1)**: The portfolio is entirely concentrated in one equity fund (HDFC Large Cap), one asset class (equity), one market cap (large cap), and one fund house. There is zero diversification across sectors, geographies, or asset classes. This is extremely risky for a conservative investor.\n\n- **risk_return_appropriateness (0.2)**: The investor is conservative, yet 40% is allocated to equity with no downside protection. The rationale mentions high market risks but does not justify why such exposure is appropriate. Projected returns and risk mitigation strategies are missing. This mismatch severely undermines suitability.\n\n- **internal_consistency (0.3)**: The rationale and risk warnings acknowledge high market risk, yet the allocation remains aggressive. The stated '1.00%' rationale is meaningless. Numbers like 'lumpsum_inr: 0.1' and 'rationale: 1.00%' appear erroneous or placeholder, indicating incoherence.\n\n- **tax_efficiency (0.4)**: The investor is in the 20% tax slab (old regime), so ELSS funds could be used for 80C benefits, but none are included. However, the single fund is equity, so gains will be taxed at 12.5% LTCG (favorable), which is better than slab-taxed debt. But the lack of hybrid or arbitrage funds for fixed-income needs — which could offer equity taxation — reduces tax efficiency. No tax rationale is provided, so partial credit is given only for the equity fund's favorable tax treatment.",
+    "composite_pqs": 0.26000000000000006
+  },
+  "timestamp": "2026-04-18T17:10:06.345487Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 59391,
+    "output_tokens": 2193,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 1
+  },
+  "elapsed_s": 67.95304150879383
+}

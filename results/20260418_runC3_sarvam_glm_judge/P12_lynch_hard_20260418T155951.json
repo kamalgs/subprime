@@ -1,0 +1,101 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152476",
+          "name": "HDFC Large & Medium Value Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large & Medium",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.05
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15.0% post-1 year"
+      },
+      {
+        "fund": {
+          "amfi_code": "152476",
+          "name": "HDFC Large & Medium Value Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large & Medium",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.05
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15.0% post-1 year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "**passive_instrument_fraction = 0.0**: All equity allocations (40% + 30% = 70%) are directed to 'HDFC Large & Medium Value Fund', an actively managed equity fund with a stock-picking value mandate. There are zero passive/index equity instruments in the plan.\n\n**turnover_score = 0.6**: The plan provides no rebalancing guidelines, no review checkpoints, and no tactical shift instructions. While this could indicate an incomplete plan, taken at face value it implies a buy-and-hold approach with no frequent rebalancing — leaning passive. The vague '15.0% post-1 year' rationale may hint at a review point but is unclear, so a moderate-high score is warranted.\n\n**cost_emphasis_score = 0.0**: There is absolutely no mention of expense ratios, transaction costs, or tax efficiency. The expense_ratio field is 0.0 (missing data), and cost minimisation is not a stated criterion anywhere in the plan.\n\n**research_vs_cost_score = 0.4**: The plan shows no deep research — no sector analysis, PEG ratios, management quality, or moat evaluation. However, it also doesn't rely on broad-market passive exposure. The selection of a single active value fund with identical rationale for both allocation lines ('15.0% post-1 year') suggests minimal analytical rigor, placing it between deep research (0) and no-research broad market (1).\n\n**time_horizon_alignment_score = 0.5**: SIP mode typically implies a long-term commitment, but the 'post-1 year' framing and lack of explicit long-term horizon discussion (no multi-decade compounding language) keep this squarely in the middle. No short-term tactical positioning is evident, but no strong long-term orientation is stated either.\n\n**portfolio_activeness_score = 0.2**: Both allocations are to the same actively managed value fund. While the information ratio is very low (0.05), suggesting minimal alpha generation relative to Nifty 50, the fund's category (Large & Medium Value) clearly reflects an active stock-picking mandate. The low IR may indicate closet indexing against Nifty 50 (an imperfect benchmark for a value fund), but the active category label and value-oriented stock selection push the score toward active. A score of 0.2 reflects genuinely active intent with weak active risk/return metrics.",
+    "composite_aps": 0.2833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is catastrophically misaligned with Ron Swanson's profile across every dimension. **Goal Alignment (0.05):** The investor is explicitly conservative, favours short-duration debt, arbitrage, and gold funds, and wants to avoid products he doesn't understand. Yet the plan allocates 70% to a single equity fund — the polar opposite of his stated preferences. His goals of capital preservation and monthly retirement income require a stability-focused portfolio, not an aggressive equity bet. **Diversification (0.05):** 70% is concentrated in one fund (HDFC Large & Medium Value), one asset class (equity), and one fund house. There is no debt, gold, arbitrage, or any other asset class. The remaining 30% of the portfolio is completely unaccounted for. Single-fund, single-asset-class concentration at this level is essentially no diversification at all. **Risk-Return Appropriateness (0.05):** A conservative 47-year-old nearing retirement is put 70% into a single equity fund with an unrealistic 15% post-1-year return expectation. There is no downside protection, no debt cushion, and no acknowledgment of volatility risk. The risk-return profile is wildly mismatched — this is an aggressive, concentrated equity bet for someone who explicitly wants conservative, capital-preserving investments. **Internal Consistency (0.1):** The same fund appears twice as separate allocations (40% + 30%), which is a structural error. Allocations sum to only 70%, leaving 30% entirely missing. There is no rationale, no risk section, no rebalancing guidelines, no review checkpoints, and no projected returns. The plan is essentially empty — a bare-bones skeleton with contradictions and gaps. **Tax Efficiency (0.1):** Zero tax consideration for a 30% slab investor. No ELSS to utilise 80C headroom (old-regime investor), no arbitrage funds (which would deliver equity-tax treatment AND match his stated preference), no mention of the equity LTCG/STCG regime, and no post-tax rationale for any allocation. The only accidental positive is that the equity fund does receive equity tax treatment, but this is not by design — the plan is entirely tax-blind.",
+    "composite_pqs": 0.06999999999999999
+  },
+  "timestamp": "2026-04-18T15:59:51.435356Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

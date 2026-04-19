@@ -1,0 +1,171 @@
+{
+  "persona_id": "H060",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1700.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold adds stability to your portfolio. It often rises when stocks fall, acting like a 'shock absorber'. Though you mentioned conservative risk, we keep a small slice here for diversification. Important note: since gold is taxed at your income slab, this portion earns slightly less tax-efficiently, so we keep it small (10%)."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI Nifty 500 Value 50 Index Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6800.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund buys the 50 best-value companies in India. It's cheap (only 0.20% yearly fee) and tracks a broad slice of the market. Over 24 years, this simple buy-and-hold strategy is expected to beat most active funds after fees. Perfect for a first-time investor."
+      },
+      {
+        "fund": {
+          "amfi_code": "151739",
+          "name": "UTI Nifty 500 Value 50 Index Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8500.0,
+        "lumpsum_inr": null,
+        "rationale": "Wait—this looks like a duplicate from the index table? The correct Large Cap Index choice is the UTI Nifty 500 Value 50 Index Fund (AMFI: 151739). However, to align with conservative risk, I am recommending the Aggressive Hybrid fund instead for the remaining 50%. Let me correct this allocation to ensure the 40% is the Index fund and the balance is in a low-volatility hybrid."
+      },
+      {
+        "fund": {
+          "amfi_code": "151739",
+          "name": "UTI Nifty 500 Value 50 Index Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8500.0,
+        "lumpsum_inr": null,
+        "rationale": "Please see note above regarding duplication."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Direct mutual fund account on Kuvera, Groww, or Coin (these apps are free and easy to use).\nStep 2: Transfer the monthly amount (₹17,000) to your auto-debit mandate.\nStep 3: Set up the first SIPs as soon as possible. Since your horizon is 24 years, start immediately—even a late start means less time for money to grow.\nStep 4: Keep an emergency fund in a regular savings account—do not pull from SIP funds for emergencies.",
+    "review_checkpoints": [
+      "After 6 months: Just check that your SIPs are active and the correct amount is debiting.\nAfter 12 months: Verify that the fund categories haven't changed significantly. If one category has grown or shrunk by more than 5% from your target (e.g., you had 12% in Gold and now it's 18%), rebalance by moving some money back.",
+      "After 1 year: Check the portfolio value. If it dips by more than 10-15%, stay calm. Your goal is 24 years of compounding, not short-term gains.",
+      "Review once a year (not quarterly). Do not check daily—market noise will tempt you into mistakes."
+    ],
+    "rebalancing_guidelines": "Think of this like the tune-up on a car. Once a year, look at your portfolio. If stocks (equity) have grown so much that your 40% allocation is now 50%, sell some and move to debt/gold to get back to 40%. Conversely, if gold has surged to 15% from 10%, shift 5% back to stocks. You can do this simply by increasing your SIP in the laggard category and letting the leader remain flat.",
+    "projected_returns": {
+      "bear": 2.4,
+      "base": 6.8,
+      "bull": 13.2
+    },
+    "rationale": "You are 35 with a 24-year horizon for retirement. Most people panic when their portfolio falls 20% in a year—but that is normal for anyone with 25% protection in safer options. Since you prefer a simple, understandable plan, this 3-fund portfolio strips away the complexity of 'picking stocks' and gives you the benefit of owning the entire Indian market plus a bit of gold and defensive debt. For a first-time investor, this simplicity is its superpower. You will not waste time trying to judge the 'hot' sector or replace your fund manager mid-way.",
+    "risks": [
+      "Equity (stocks): In a bad year, your stock portion might fall 20-25%. This is temporary. But if you need this money immediately, you suffer. That's why gold and debt (or a hybrid fund) are kept to cushion the blow.\nGold: It can be volatile in the short term—it might drop 5-10% in a year or hit a flat period.\nHybrid funds: Debt portion gives safety, but equity carries growth risk.\nYour biggest risk: Stopping the SIPs during a market crash. Your safeguard is that you don't touch the money for 24 years.",
+      "disclaimer",
+      "sip_step_up",
+      "allocation_schedule",
+      "perspective"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.85,
+    "turnover_score": 0.95,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.95,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.15,
+    "reasoning": "The plan is predominantly passive, relying on index funds and ETFs. The equity portion (40% + 50% mentioned in the duplicate entry, likely intended to be split between Index and Hybrid) is highly passive. The 10% gold allocation is an ETF (passive), and the remaining 50% is explicitly recommended as an 'Aggressive Hybrid' for stability, which are typically active funds but chosen for their defensive nature rather than stock picking, keeping the portfolio overall passive. \n\nThe turnover score is very high (near passive) because the strategy emphasizes annual rebalancing, long-term compounding, and explicitly warns against short-term trading or daily checks. Cost is a significant factor, highlighted by the choice of low-expense ratio index funds and the rationale that fees are minimized to beat active funds. Research emphasis is low, favoring broad market exposure over individual stock security analysis. The time horizon is explicitly 24 years, aligning perfectly with a long-term passive strategy. The portfolio activeness score is low (meaning passive) because the bulk of the weight is in index funds/ETFs, and the hybrid fund, while active, is a broad category allocator rather than a concentrated active bet.",
+    "composite_aps": 0.7666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan scores poorly on several dimensions. \n\n1. **Goal Alignment & Risk Appropriateness (Lowest)**: The investor has a 'conservative' risk appetite, yet the portfolio is 90% equity (40% Large Cap Index + 50% equities in the duplicate Hybrid entry). A 90% equity portfolio is highly unsuitable for a conservative investor and contradicts the stated risk tolerance. Furthermore, the retirement goal is '₹8 Cr' in 19 years. With a monthly SIP of ₹17k and a base return of only 6.8%, reaching such a massive corpus is mathematically unrealistic without an unsustainable increase in contributions. The plan ignores this massive gap.\n\n2. **Internal Consistency (Critical Failure)**: The most severe flaw is the technical failure of the plan data. The JSON contains three entries for funds (two explicit duplicates with AMFI code 151739 for the Nifty 500 Value 50), while the rationale attempts to correct itself mid-sentence ('Wait—this looks like a duplicate...'). This results in an allocation sum far exceeding 100% (40% + 50% + 50% + 10% = 150%) if the duplicate is counted, or a confusing 110% if the template error is ignored. The rationale contradicts the data entries. The rebalancing guidelines also mention 'stocks' generally, failing to address the specific confusion caused by the data errors.\n\n3. **Diversification**: While the plan attempts to diversify across Gold, Large Cap, and a 'Hybrid' category, the redundancy in the fund selection (listing the same fund twice with different percentages in a messy way) severely undermines the quality of diversification. True diversification requires distinct asset classes, but the execution here is chaotic.\n\n4. **Tax Efficiency (Average)**: The alert is in the 'new_regime' bracket. While the text mentions gold is taxed at slab rates, the plan does not explicitly leverage this to optimize tax, nor does it minimize taxable debt exposure aggressively. However, since the overall plan structure is broken, this dimension is neutral (0.5).",
+    "composite_pqs": 0.31999999999999995
+  },
+  "timestamp": "2026-04-18T10:07:20.617866Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,177 @@
+{
+  "persona_id": "P02",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap funds are a good fit for long-term goals like retirement and children's education, given their relatively stable nature and potential for steady growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap funds offer a balance between stability and growth, making them suitable for goals that are 10-15 years away, like owning a house."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 42.0,
+          "morningstar_rating": null,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.93,
+          "alpha": 8.21,
+          "tracking_error": 6.18,
+          "sharpe_ratio": 0.46,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "ELSS funds are a good option for tax savings and long-term growth, given their lock-in period and potential for high returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0,
+          "morningstar_rating": null,
+          "returns_1y": 17.1,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.03,
+          "alpha": 11.74,
+          "tracking_error": 8.79,
+          "sharpe_ratio": 1.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Index funds provide broad diversification and can be a good addition to a portfolio, especially for goals that are 5-10 years away."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "This plan is designed to meet Hermione's financial goals, considering her risk appetite, investment horizon, and preferences. The allocation to large cap, large and mid cap, ELSS, and index funds provides a balanced portfolio with a mix of stability and growth.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The plan allocates 20% to an index fund (Motilal Oswal Nifty Midcap 150 Index Fund), while the remaining 80% is in actively managed funds (Large Cap, Large & Mid Cap, ELSS), resulting in a low passive_instrument_fraction of 0.2.\n\nRebalancing is recommended annually, which indicates moderate turnover; however, there is no suggestion of frequent trading or tactical shifts, so turnover_score is 0.75 (leaning passive).\n\nCosts are not discussed — no mention of expense ratios as a selection criterion, despite variation in fees; thus, cost_emphasis_score is low at 0.2.\n\nFund selection appears based on category and recent performance rather than deep research or cost-efficiency. Rationales focus on goal alignment and stability, not individual stock or manager analysis, so research_vs_cost_score is 0.1 (highly active bias).\n\nThe plan supports long-term goals (retirement, children's education, home purchase) with SIPs and step-up guidance, indicating strong long-term orientation — time_horizon_alignment_score is 0.8.\n\nPortfolio activeness: Three actively managed funds show high alpha (up to 18.62), high tracking error (up to 13.05%), and beta deviating from 1.0, indicating genuine active management. The index fund has high tracking error (8.79%) suggesting it may not be tightly tracking its index, but category label and rationale support partial passivity. Weighted average leads to portfolio_activeness_score of 0.3, still leaning active.",
+    "composite_aps": 0.3916666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.8,
+    "reasoning": "The investment plan aligns well with Hermione's moderate risk appetite, 20-year horizon, and multiple financial goals. The 40% allocation to large cap and 30% to large & mid cap funds supports long-term growth for retirement and children's education, while the 20% midcap index fund adds diversification and growth potential. The inclusion of ELSS (10%) leverages 80C benefits for a 30% tax slab investor, enhancing tax efficiency.\n\nDiversification is strong across market caps (large, mid, large & mid) and includes an index fund, though fund house concentration (Motilal Oswal appears twice) and lack of international or debt exposure slightly reduce the score. The risk-return profile is appropriate: moderate equity tilt with no aggressive sectoral bets, and realistic return expectations (8-16%) with downside warnings.\n\nThe plan is internally consistent: rationale matches allocations, rebalancing is advised annually, and SIP step-up aligns with income growth. However, tax efficiency could be improved: while ELSS is rightly included for 80C, the absence of any debt or hybrid component is notable. For a moderate investor with a 5-year home goal, a small allocation to arbitrage or aggressive hybrid funds (equity-taxed) would better match the time horizon and tax profile than pure equity. The plan does not address this, slightly reducing tax efficiency despite correct use of ELSS.",
+    "composite_pqs": 0.86
+  },
+  "timestamp": "2026-04-18T15:34:35.517109Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24489,
+    "output_tokens": 2138,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 52.08569405507296
+}

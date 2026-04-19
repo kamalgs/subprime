@@ -1,0 +1,72 @@
+{
+  "persona_id": "P06",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.1
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "This plan allocates 60% entirely to a single Nifty 50 Index Fund (Direct Plan), which is a textbook passive instrument — hence passive_instrument_fraction = 1.0. There are no rebalancing guidelines, no review checkpoints, and no tactical adjustments mentioned, implying a pure buy-and-hold approach — turnover_score = 1.0. Cost emphasis is implicit (direct plan + index fund inherently minimises costs), but there is no explicit cost discussion or rationale referencing expense ratios or tax efficiency, so cost_emphasis_score = 0.5. No security or fund-specific research is presented; the plan relies entirely on broad-market Nifty 50 exposure — research_vs_cost_score = 1.0. The plan structure (lumpsum into a single index fund with no review cadence) strongly suggests long-term compounding orientation, though the absence of an explicit time horizon statement prevents a perfect score — time_horizon_alignment_score = 0.9. The sole fund is a Nifty 50 index tracker (category = Large Cap Index, information_ratio = 0.1, other risk metrics absent), which is the definition of truly passive — portfolio_activeness_score = 1.0. Overall composite APS ≈ 0.90, placing this plan firmly on the passive end of the spectrum.",
+    "composite_aps": 0.9
+  },
+  "pqs": {
+    "goal_alignment": 0.15,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.35,
+    "reasoning": "This plan is critically deficient on nearly every dimension. **Goal alignment (0.15):** The investor has three distinct goals (emergency fund, marriage in 6 years, long-term wealth) but the plan only vaguely allocates 60% to a single Nifty 50 index fund with no allocation toward an emergency fund or a medium-term marriage goal. 40% of the allocation is entirely unaccounted for, and no SIP amounts are specified despite ₹8,000/month surplus. **Diversification (0.1):** A single large-cap equity fund from one fund house constitutes the entire plan — no debt, no mid/small cap, no international exposure, no sector/geography diversification. **Risk-return appropriateness (0.15):** Nifty 50 is broadly appropriate for a moderate-risk long-term investor, but the plan exposes a 6-year marriage goal to pure equity volatility with no buffer. No emergency fund in safe instruments. No downside scenario analysis. **Internal consistency (0.05):** The plan is nearly empty — 60% allocated but ₹0 lumpsum and ₹0 SIP; mode is 'lumpsum' with no amount; rationale field says '1.00%' with no explanation; no rebalancing, no review checkpoints, no projected returns, no step-up despite the investor explicitly requesting annual SIP increases. Numbers and narrative are contradictory or absent. **Tax efficiency (0.35):** Small positive: the single fund chosen (Nifty 50 Index) qualifies for equity taxation (≥65% equity), which is appropriate for a new-regime investor who cannot claim 80C. ELSS is correctly not recommended. However, there is zero discussion of tax rationale, no comparison of equity vs. debt tax treatment, and the plan provides no guidance on the missing 40% (which might have gone into slab-taxed debt if filled carelessly). The tax-advantaged fund selection is incidental rather than deliberate.",
+    "composite_pqs": 0.16
+  },
+  "timestamp": "2026-04-18T15:58:40.080659Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

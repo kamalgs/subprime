@@ -1,0 +1,82 @@
+{
+  "persona_id": "P10",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.15,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1.00% (1.5% tax on gains over ₹1.5L), 20% tax if held <1 year",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risks can drop 20-30% in bad years",
+      "Avoids: 1.00% tax on gains over ₹1.5L in last 3 years"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap), which has an information ratio of 0.6, indicating active management with a focus on generating alpha. There is no mention of passive/index instruments in the equity allocation, so passive_instrument_fraction is 0.0. The rebalancing guidelines mention tax implications but do not suggest frequent trading or active rebalancing, implying a buy-and-hold approach, hence turnover_score is 1.0. Costs such as expense ratios are not discussed, and fund selection appears based on category rather than cost efficiency, so cost_emphasis_score is 0.0. The plan does not emphasize individual stock or fund research explicitly, but since it picks an active fund with a non-zero information ratio, it leans toward active management rationale, giving research_vs_cost_score 0.0. The absence of short-term tactical moves and focus on long-term tax planning (e.g., avoiding short-term capital gains) suggests a long-term horizon, so time_horizon_alignment_score is 1.0. Finally, the portfolio consists entirely of an actively managed fund with an information ratio of 0.6, indicating genuine active management intent, so portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.3,
+    "reasoning": "The investment plan is extremely underdeveloped and fails on multiple dimensions. \n\n- **goal_alignment (0.3)**: The investor has clear goals (retirement, children's education, emergency fund) and a moderate risk appetite with an 18-year horizon. However, the plan allocates only 40% to a single large-cap equity fund with no allocation to debt, hybrids, or emergency fund instruments. This does not align with a moderate risk profile or comprehensive goal coverage.\n\n- **diversification (0.1)**: The portfolio consists of a single equity fund with no diversification across market caps, sectors, geographies, or asset classes. No debt, hybrid, or international exposure is included. This is extremely concentrated and ignores basic risk management.\n\n- **risk_return_appropriateness (0.3)**: A moderate investor should have a balanced mix of equity and debt. Allocating 40% to a single large-cap fund without any stabilizers (like debt or arbitrage funds) does not suit a moderate risk profile. Also, the rationale mentions tax on gains but not actual risk-return expectations, making the strategy unclear.\n\n- **internal_consistency (0.2)**: The plan is internally contradictory. It cites tax rules (1% STT, 20% STCG) and LTCG exemption, but the allocation doesn't reflect tax-aware construction (e.g., no use of arbitrage or hybrid funds for tax efficiency). The rebalancing guideline incorrectly states '1.00% (1.5% tax on gains over ₹1.5L)', which confuses STT with tax rates. Also, the lumpsum allocation is listed as 0.15 (possibly 15%?) but total allocation is 40%, with no explanation.\n\n- **tax_efficiency (0.3)**: The investor is in the 20% tax slab, so debt fund gains would be taxed at 20%, making equity-taxed instruments (like arbitrage or aggressive hybrid) more efficient for fixed-income exposure. The plan ignores this, offers no ELSS (missed 80C benefit), and provides no tax-aware rationale. Mention of tax rules is superficial and misstated (e.g., LTCG is 12.5% over ₹1.25L, not 1.5L), reducing credibility.",
+    "composite_pqs": 0.24
+  },
+  "timestamp": "2026-04-18T18:09:12.942354Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 41398,
+    "output_tokens": 1276,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 56.5287738610059
+}

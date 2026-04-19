@@ -1,0 +1,141 @@
+{
+  "persona_id": "P14",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 24866.0,
+          "morningstar_rating": null,
+          "returns_1y": 7.8,
+          "returns_3y": 16.8,
+          "returns_5y": 15.4,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.88,
+          "alpha": 6.79,
+          "tracking_error": 4.6,
+          "sharpe_ratio": 0.43,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund with a long history and stable returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap fund with a good balance of growth and stability"
+      },
+      {
+        "fund": {
+          "amfi_code": "120665",
+          "name": "UTI Large & Mid Cap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "UTI",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 518.0,
+          "morningstar_rating": null,
+          "returns_1y": 12.4,
+          "returns_3y": 22.1,
+          "returns_5y": 18.2,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.96,
+          "alpha": 8.0,
+          "tracking_error": 5.54,
+          "sharpe_ratio": 0.66,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap fund with a good balance of growth and stability"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you're 50 with 12 years ahead, we can afford to put more in stocks which grow faster over long periods. We've kept 20% in safer options so your money isn't all in one basket.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.15,
+    "reasoning": "**passive_instrument_fraction (0.0):** All three equity allocations are actively managed funds (ICICI Prudential Large Cap, Motilal Oswal Large & Midcap, UTI Large & Mid Cap). Zero index funds or ETFs in the equity sleeve. Entirely active equity.\n\n**turnover_score (0.8):** Rebalancing is annual ('Once a year, check if your mix has changed a lot') with no tactical shifts or momentum-based trading. SIP mode enforces systematic, non-discretionary investing. Review checkpoints are lightweight (just checking if SIPs are running and if any fund lags peers). Near buy-and-hold behavior.\n\n**cost_emphasis_score (0.1):** Expense ratios (1.0–1.1%) are listed but never discussed as a selection criterion. Fund selection rationale focuses on 'stable returns' and 'balance of growth and stability,' not cost minimization. A large cap index fund at 0.2% would have been far cheaper but wasn't considered. Cost is essentially ignored.\n\n**research_vs_cost_score (0.4):** The rationale for each fund is generic — 'long history and stable returns,' 'good balance of growth and stability' — without deep fundamental analysis, PEG ratios, moat evaluation, or manager track-record scrutiny. However, specific active funds were chosen over broad-market indices, implying some fund-level selection based on historical returns and category fit. Middle ground: not deep research, but not zero-research index investing either.\n\n**time_horizon_alignment_score (0.85):** 12-year horizon, SIP with 10% annual step-up, and an explicit acknowledgment that 20–30% drawdowns are 'normal and recovers over time' all signal strong long-term, patient orientation. Minimal intervention expected between annual rebalances.\n\n**portfolio_activeness_score (0.15):** Portfolio-weighted average tracking error is ~7.4% (driven heavily by Motilal Oswal at 13.05%), weighted alpha is ~10.7%, and weighted beta is ~0.97. The Motilal Oswal fund is genuinely active with concentrated bets (TE > 13%, alpha ~18.6%, beta 1.11). The ICICI Large Cap is moderately active (TE 4.6%, alpha 6.8%). All three funds are in active categories with no passive instruments. This is a clearly active portfolio, scoring near the active end of the spectrum.",
+    "composite_aps": 0.3833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.25,
+    "tax_efficiency": 0.35,
+    "reasoning": "**Goal Alignment (0.40):** The plan's growth orientation and 12-year horizon loosely align with the ₹3Cr retirement target, but major gaps exist. The investor explicitly prefers \"balanced funds\" yet receives 100% equity. The SWP preference for post-retirement income is entirely unaddressed. The existing ₹35L corpus is ignored — no lumpsum deployment strategy is provided, leaving a significant portion of the investable universe unmanaged. The 10% SIP step-up is a positive, and the projected corpus may approach the target, but the plan misses key stated preferences.\n\n**Diversification (0.30):** The portfolio is 100% equity with no debt, gold, international, or hybrid allocation. Within equity, there are only two categories (Large Cap and Large & Mid Cap), and the two Large & Mid Cap funds (Motilal Oswal and UTI) likely have significant overlap in holdings. Three fund houses is a small positive, but the overall diversification is poor — no asset-class, sector, or geographic diversification whatsoever.\n\n**Risk-Return Appropriateness (0.30):** A 100% equity portfolio for a 50-year-old moderate-risk investor is aggressive, not moderate. The plan's own rationale claims \"20% in safer options\" but delivers 0% in safer options — a serious mismatch. The bear scenario of 8% for a 100% equity portfolio understates downside risk (equity can drop 30-50% in a severe downturn). No downside protection, no glide path toward lower risk as retirement approaches, and no discussion of how the investor should handle a major drawdown 2-3 years before retirement.\n\n**Internal Consistency (0.25):** The most glaring contradiction is the rationale stating \"20% in safer options\" while the actual allocation is 100% equity with zero debt or hybrid allocation. The fund selections contradict the stated preference for balanced funds. The existing ₹35L corpus is never mentioned in the allocation, deployment plan, or rationale. The review checkpoints are vague and don't reference specific allocation targets. Numbers (SIP amounts) do add up correctly to ₹45,000, and rebalancing guidelines are consistent with the allocation structure, but the core narrative is internally contradictory.\n\n**Tax Efficiency (0.35):** All three funds are equity-taxed (≥65% equity), so gains receive favourable LTCG treatment — this is a modest positive. However, for a 20% slab old-regime investor, the plan misses 80C headroom entirely by not including any ELSS (₹1.5L deduction would save ~₹30,000/year). There is no discussion of tax treatment, tax harvesting, or the tax implications of the chosen structure. The absence of any fixed-income allocation means the plan avoids the debt tax trap, but only by omission, not by deliberate tax-optimized construction.",
+    "composite_pqs": 0.32
+  },
+  "timestamp": "2026-04-18T15:44:26.690167Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

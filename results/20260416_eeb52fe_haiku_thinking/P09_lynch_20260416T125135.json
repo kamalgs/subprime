@@ -1,0 +1,230 @@
+{
+  "persona_id": "P09",
+  "condition": "lynch",
+  "model": "anthropic:claude-haiku-4-5",
+  "judge_model": "anthropic:claude-haiku-4-5",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "142153",
+          "name": "Sundaram ELSS Series III",
+          "category": "ELSS",
+          "sub_category": "Equity Linked Savings Scheme",
+          "fund_house": "Sundaram Asset Management",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 19.0,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 18.6,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 43.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12500.0,
+        "lumpsum_inr": null,
+        "rationale": "Max out ₹1.5L Section 80C deduction (saves ₹30k tax/year). 3-year lock-in, then equity-taxed. 19% 3yr return, strong alpha (18.6%)."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap",
+          "category": "Large Cap",
+          "sub_category": "Equity",
+          "fund_house": "Nippon India Asset Management",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 16600.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": 0.98,
+          "alpha": 4.3,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 29.0,
+        "mode": "both",
+        "monthly_sip_inr": 8500.0,
+        "lumpsum_inr": 500000.0,
+        "rationale": "Stable, large-cap growth for 5-year home goal. 11.6% 1yr, 18.2% 3yr, low volatility (beta 0.98). Core stability anchor. Strongest alpha (4.3%) among large-cap funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "118989",
+          "name": "HDFC Mid Cap",
+          "category": "Mid Cap",
+          "sub_category": "Equity",
+          "fund_house": "HDFC Asset Management",
+          "nav": 0.0,
+          "expense_ratio": 1.15,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 19.5,
+          "returns_3y": 25.0,
+          "returns_5y": 21.8,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 14.5,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 24.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7000.0,
+        "lumpsum_inr": null,
+        "rationale": "Best-in-class mid-cap alpha (14.5%). 19.5% 1yr, 25% 3yr, 21.8% 5yr returns. Growth engine for 22-year horizon. Where wealth compounds fastest over long term."
+      },
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap",
+          "category": "Flexi Cap",
+          "sub_category": "Equity",
+          "fund_house": "HDFC Asset Management",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 32000.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 21.0,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 24.0,
+        "mode": "both",
+        "monthly_sip_inr": 7000.0,
+        "lumpsum_inr": 300000.0,
+        "rationale": "Flexibility across all cap sizes reduces concentration risk. Established, ₹32k Cr AUM, 21% 5yr return. Simplifies rebalancing. Provides defensiveness near home goal deadline."
+      }
+    ],
+    "setup_phase": "Month 1: (1) Open direct mutual fund account on Groww/Kuvera/MFU. (2) Link bank for recurring SIP mandates. (3) Make lumpsum investment: ₹5L → Nippon India Large Cap (118632), ₹3L → HDFC Flexi Cap (118955); select Growth option (reinvest dividends). (4) Set up 4 monthly SIP mandates totalling ₹35k/month with execution date aligned to salary (e.g., 5th of each month). (5) Claim ₹1.5L Section 80C deduction on ITR for ELSS contributions. Months 2–22+: SIPs run on auto-pilot; verify monthly execution via app; no further action required unless rebalancing triggered.",
+    "review_checkpoints": [
+      "Every 6 months: Log in, verify SIPs executing, note total portfolio value, expect 15–20% drops in bad quarters (normal for equity).",
+      "Every year (March): Document ELSS lock-in maturity dates (e.g., April 2025 purchase unlocks April 2028). Verify all holdings have passed 1-year holding period for long-term tax treatment (12.5% vs. 20%). Rebalance to keep allocations balanced (no single fund >35% of portfolio). Compare fund performance to peer-group benchmarks; flag underperformers for 2+ consecutive quarters.",
+      "Every 2 years: Compare each fund to peer-group competitors (e.g., Nippon Large Cap vs. ICICI Large Cap 120586); if significant underperformance for 6+ months, consider replacement.",
+      "Year 4–5 (Home Goal Window): Shift new SIPs toward HDFC Flexi Cap (lower volatility near deadline) to reduce sequence risk on down payment target."
+    ],
+    "rebalancing_guidelines": "Rebalance once per year (March) to maintain balanced allocation. Target allocation by value: ELSS 43%, Nippon Large Cap 29%, HDFC Mid Cap 24%, HDFC Flexi Cap 24%. After lumpsum growth and SIP accumulation, if any single fund grows to >35% of total portfolio, redirect next month's SIP away from that fund toward underweight funds. Simple monitoring: Use portfolio tracker in app to visualize each fund's value. If Nippon grows from ₹5L to ₹5.5L but ELSS SIPs remain smaller, redirect SIP allocation toward HDFC Mid Cap for 1–2 months to rebalance. Goal: Keep fund values in approximate proportion to target allocation percentages to maintain diversification and reduce concentration risk.",
+    "projected_returns": {
+      "base_case_post_tax_cagr_pct": 10.85,
+      "lumpsum_8l_to_22yr_inr": 11000000.0,
+      "sip_annual_4_2l_to_22yr_inr": 268000000.0,
+      "total_corpus_base_case_22yr_inr": 378000000.0,
+      "bull_case_post_tax_cagr_pct": 14.85,
+      "lumpsum_8l_bull_22yr_inr": 195000000.0,
+      "sip_annual_4_2l_bull_22yr_inr": 452000000.0,
+      "total_corpus_bull_case_22yr_inr": 647000000.0,
+      "bear_case_post_tax_cagr_pct": 6.85,
+      "lumpsum_8l_bear_22yr_inr": 42000000.0,
+      "sip_annual_4_2l_bear_22yr_inr": 132000000.0,
+      "total_corpus_bear_case_22yr_inr": 174000000.0,
+      "home_goal_5yr_projection_inr": 50000000.0,
+      "portfolio_pre_tax_cagr_pct": 12.4
+    },
+    "rationale": "This plan prioritizes tax efficiency for a 20% slab investor through three mechanisms: (1) ELSS section 80C deduction saves ₹30k/year upfront tax; (2) All funds are equity-taxed at 12.5% LTCG (post-1yr) rather than slab-taxed at 20%, generating 10.85% post-tax CAGR vs. ~5.6% for debt; (3) Active fund selection captures alpha (HDFC Mid Cap +14.5%, Nippon Large Cap +4.3%) which compounds significantly over 22 years. Lumpsum deployed conservatively (large-cap focus) for 5-year home goal volatility management. Monthly SIPs run on auto-pilot. Annual rebalancing keeps allocation balanced as individual funds compound at different rates. Pre-tax portfolio CAGR ~12.4%, post-tax ~10.85%, projected to grow ₹8L lumpsum + ₹4.2L/year SIP to ₹3.78Cr (base case) by age 53. Home goal realistic at ₹50L (26% from investments + 74% from additional savings/spouse contributions/loan).",
+    "risks": [
+      "Market volatility: Stock markets can drop 20–30% in bad years (e.g., 2020, 2022). Portfolio may swing from ₹20L to ₹14L. Normal for equity; don't sell during crashes (locks in losses). Expected to recover over 3–5 years.",
+      "Sequence risk (home goal): If markets crash in Year 4–5, down payment target (₹50L) may fall short. Mitigation: In Years 4–5, shift SIPs toward HDFC Flexi Cap (lower volatility) and avoid new lumpsum equity purchases near deadline.",
+      "Interest rate risk: Rising rates compress equity valuations temporarily. Recovery lag of 1–2 years is typical. Inflation typically 5–6%/year; portfolio grows at 10.85% post-tax, netting ~5% real growth, sufficient but not guaranteed.",
+      "Inflation risk: ₹4Cr in 22 years will have lower purchasing power than today. But real growth (10.85% CAGR − 5.5% inflation ≈ 5.35% real) should maintain/grow purchasing power.",
+      "Tax law changes: Section 80C deduction or 12.5% LTCG rate could change per government policy. Unlikely but possible. Recalibrate plan if laws change.",
+      "Fund manager/house risk: Fund underperformance vs. peer benchmarks for 2+ consecutive quarters signals potential alpha deterioration. Solution: Replace with better-performing peer fund (e.g., swap Nippon Large Cap for ICICI Large Cap if underperformance sustained).",
+      "Redemption/liquidity risk: Low for these funds (AUM ₹1.66Cr–₹32k Cr, highly liquid). Unlikely to face delays or penalties.",
+      "Behaviour risk: Panic selling during 20–30% drops locks in losses. Discipline (rebalance annually, stay invested) is critical to success."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice. Consult a registered financial advisor licensed by SEBI before acting. Mutual fund investments subject to market risks; past performance is no guarantee of future results. Projections assume average historical returns and are illustrative; individual results vary based on market conditions, entry/exit timing, and fund performance. Tax treatment (Section 80C, 12.5% LTCG) reflects current Indian tax law as of 2025 and may change. Investors in different tax brackets or life circumstances should seek personalized advice. This plan is tailored to Elizabeth Bennet's specific profile (age 31, ₹35k/month surplus, 20% slab, dual goals) and may not suit all investors.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth. Starting ₹35k/month (₹4.2L/year) can grow to ₹56k/month by year 10 if salary grows at 10%/year. A ₹10k increase from year 10–22 can add ₹50L+ to retirement corpus. Recommended but optional; base plan assumes flat ₹35k."
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation: All equity-taxed funds. Lumpsum ₹8L deployed today (₹5L Nippon Large Cap, ₹3L HDFC Flexi Cap). Monthly SIP ₹35k across 4 funds begins Month 1."
+      },
+      {
+        "year": 1,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "All holdings have passed 1-year mark. Switch from short-term to long-term tax treatment (12.5% LTCG). Rebalance if any fund >35% of portfolio."
+      },
+      {
+        "year": 3,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Sundaram ELSS initial batch (April 2025 purchase) lock-in expires (April 2028). Document maturity; gains now fully equity-taxed at 12.5%. Can redeem or reinvest. SIPs continue."
+      },
+      {
+        "year": 5,
+        "equity_pct": 85.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 15.0,
+        "trigger": "Home down payment goal window (Year 5). Projected corpus: ₹50L. Shift upcoming SIPs toward HDFC Flexi Cap (lower volatility) for remaining 2 years to reduce sequence risk. Lumpsum in Nippon Large Cap can be partially redeemed for down payment; remainder stays invested for retirement growth."
+      },
+      {
+        "year": 22,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Retirement target (age 53). Base case projection: ₹3.78Cr corpus. All holdings remain equity-taxed. Consider gradual rebalancing toward HDFC Flexi Cap (flexibility) in final 5–10 years to reduce volatility near retirement, but avoid debt funds (20% slab makes them inefficient vs. equity at 12.5% LTCG)."
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "This is a HIGHLY ACTIVE investment plan positioned at the conviction-driven end of the APS spectrum. (1) Zero passive instruments: All four equity holdings (Sundaram ELSS, Nippon India Large Cap, HDFC Mid Cap, HDFC Flexi Cap) are actively managed funds with stock-picking mandates; no index funds or ETFs present (passive_instrument_fraction = 0.0). (2) Annual rebalancing discipline: The plan specifies yearly rebalancing to maintain target allocations, monthly SIP auto-execution, and only occasional tactical adjustments (shift toward HDFC Flexi Cap in Years 4-5 for sequence risk); this is buy-and-hold with minimal active trading, scoring 0.75 for turnover (relatively passive on rebalancing frequency, but not dormant). (3) Alpha-driven fund selection, not cost-focused: The plan prioritizes expected alpha generation—explicitly highlighting Sundaram ELSS 18.6% alpha, HDFC Mid Cap 14.5%, Nippon Large Cap 4.3%—and mentions expense ratios only incidentally (1.05–1.15%, typical for active funds); cost minimization is NOT the primary criterion; tax efficiency (Section 80C, 12.5% LTCG treatment) is emphasized instead, scoring 0.2 on cost emphasis. (4) Deep fund research: The plan demonstrates detailed analysis of fund-specific metrics, peer-group benchmarking, manager quality (HDFC, Nippon India reputation), and category-specific mandates (mid-cap growth, large-cap stability, flexibility); no reliance on broad market indices (research_vs_cost_score = 0.1, indicating deep research orientation). (5) Long-term buy-and-hold philosophy: The entire strategy is designed for a 22-year compounding horizon with minimal intervention ('SIPs run on auto-pilot'; 'don't sell during crashes'); rebalancing is annual, not tactical; risk of sequence risk near the 5-year home goal is mitigated by gradual shift toward lower-volatility flexi-cap, not by frequent trading (time_horizon_alignment_score = 0.95, near-maximum long-term orientation). (6) Genuinely active portfolio: Fund metrics show high alpha concentration (Sundaram +18.6%, HDFC Mid Cap +14.5%), no closet indexers (Nippon's beta of 0.98 is offset by +4.3% alpha, still active), and concentrated bets in specific cap-size categories; portfolio is NOT index-like or low-tracking-error, indicating genuine active conviction (portfolio_activeness_score = 0.25, well toward the active end). Overall APS Assessment: This plan reflects a disciplined ACTIVE investor who believes in capturing manager alpha through selective fund selection and holding long-term, while optimizing for taxes and rebalancing annually to maintain diversification. It is NOT a passive indexing strategy; the entire philosophy rests on active fund selection and conviction-based alpha generation. The long time horizon and annual rebalancing provide structure, but the fund choices and expected returns are rooted in active management belief, not market-cap-weighted passive exposure.",
+    "composite_aps": 0.375
+  },
+  "pqs": {
+    "goal_alignment": 0.82,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.78,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.8,
+    "reasoning": "**Strengths:** (1) Goal alignment is strong: home goal projects ₹50L (~83% of ₹60L target, with plan noting 74% from other sources), retirement base case targets ₹3.78Cr (95% of ₹4Cr target), and projections appear realistic (12.4% pre-tax CAGR, 10.85% post-tax). Year 4–5 de-risking sequence-risk mitigation for home goal is well-designed. (2) Tax efficiency is well-executed: ELSS maximized at ₹1.5L/year (₹30k annual tax saving for 20% slab investor), all funds equity-taxed (12.5% LTCG post-1yr) rather than slab-taxed, post-tax CAGR calculated explicitly (10.85%), and rationale for avoiding debt funds is sound. Clear mention of tax treatment. (3) Risk-return projections include bull/bear scenarios; downside scenarios (20–30% drops) acknowledged; monthly SIP automation reduces timing risk. (4) Rebalancing framework is practical and annual with clear % triggers. **Weaknesses:** (1) **Critical mathematical error:** Allocation percentages sum to 120% (43% + 29% + 24% + 24%), not 100%, creating internal inconsistency between stated allocation % and actual SIP weights (₹12.5k + ₹8.5k + ₹7k + ₹7k = ₹35k = 35.7% + 24.3% + 20% + 20%). This undermines internal consistency and plan clarity. (2) **100% equity concentration** for a moderate risk investor, though somewhat justified by 22-year retirement horizon. For a 5-year home goal, concentration in equities is aggressive; though Year 4–5 de-risking and Flexi Cap component provide some mitigation. (3) **Fund house concentration:** HDFC represents 48% of portfolio (Mid Cap 24% + Flexi Cap 24%), increasing single-house risk. (4) **Child's education goal (15-year horizon)** is not explicitly bucketed or tracked separately; plan treats it as part of the general equity portfolio with no dedicated bucketing. (5) Diversification is limited: no gold, debt, international exposure, or sector-level analysis provided. (6) For a 20% slab investor (mid-level, not highest), the marginal tax advantage of equity (12.5%) over debt (20%) is 8%, which is meaningful but less dramatic than for 30% slab investors. Plan could have explored Aggressive Hybrid or arbitrage structures as alternatives for Year 4–5 home goal (same 12.5% LTCG taxation but lower volatility). **Conclusion:** Strong tax framework and realistic projections, but a significant allocation-pct error, 100% equity concentration risk, and lack of explicit education goal bucketing reduce overall quality. The plan is educationally well-reasoned but operationally flawed in its stated structure.",
+    "composite_pqs": 0.74
+  },
+  "timestamp": "2026-04-16T12:51:35.049563Z",
+  "prompt_version": "v1"
+}

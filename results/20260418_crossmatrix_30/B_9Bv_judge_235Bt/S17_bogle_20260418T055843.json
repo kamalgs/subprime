@@ -1,0 +1,111 @@
+{
+  "persona_id": "S17",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "148112",
+          "name": "UTI - Regular Saving Fund (Segregated - 17022020) - Direct Plan - Monthly Payment Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 55.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1650.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you say you are 'conservative', we keep the majority of your money in a low-risk fund that gives steady, anytime-withdrawal returns. This acts as your long-term savings and protects your principal if you ever need money urgently before retirement."
+      },
+      {
+        "fund": {
+          "amfi_code": "152064",
+          "name": "Kotak Multi Asset Allocation Fund - Direct Plan - Growth Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 450.0,
+        "lumpsum_inr": null,
+        "rationale": "We add a small slice of stocks (around 25%) mixed with debt. This gives you a taste of how markets can grow, but because it holds some safer assets too, the swings are smaller than a pure stock fund. Perfect for someone just starting out."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Demat and Mutual Fund account on Zerodha, Kuvera, Groww, or Coin. This is simple and takes 15 minutes online.\n\nStep 2: Link your bank account and enable auto-debit of ₹2,100 every month on the 5th of the month.\n\nStep 3: The ₹1,650 (₹6 months expenses) stays as your Emergency Fund. Keep this money liquid in your savings account or a High Yield Savings Account for now, separate from mutual funds, until you have 6 months of total expenses as a hard rule.\n\nStep 4: The mutual fund SIPs will start automatically once the funds go live (usually 3-4 days).",
+    "review_checkpoints": [
+      "After 6 months: Check if your SIPs are running automatically and if money is deducted from your bank.",
+      "After 1 year: Check if your Emergency Fund is sitting in cash. If yes, transfer the remaining surplus to the Mutual Fund investable amount to increase SIPs.",
+      "After 3 years: Check if your lifestyle allows saving more. If yes, increase your SIP by 10-15%. Never stop SIPs due to a small market drop. Time is your best friend here.",
+      "After 5 years: If you are planning to buy a flat soon, start keeping a separate set-aside for that goal."
+    ],
+    "rebalancing_guidelines": "Because your goal is retirement and debt-heavy, we won't rebalance often. However, check every 12 months. If your 'stocks' part (the 15%) grows much faster (or slower) than expected, simply increase your monthly SIP entirely into the Mutual Fund until the percentages snap back to 55/15. No panic selling here.",
+    "projected_returns": {
+      "base": 9.8,
+      "bull": 13.8,
+      "bear": 5.8
+    },
+    "rationale": "You are 22 years old — that is a superpower in investing. You have 38 years to make your money grow, which means you can afford small dips in the stock market, which is why we added a little bit of equity (stocks). \n\nHowever, since you told me you are 'conservative' and want a simple plan, and might need money earlier than 38 years (like for the flat or emergencies), we put 55% (most of your money) into a Debt Fund. This is like a bank fixed deposit but slightly smarter — it offers stable returns and you can withdraw anytime.\n\nWe also added 15% into a Multi-Asset fund. This is a mix of stocks and bonds that aims to grow your wealth without the roller-coaster feeling of pure stock funds.\n\nWith ₹3,000/month over 38 years, even at a modest 8% return (after fees and inflation), you could build a corpus of ₹5-6 Crores. That takes you almost halfway to your 5Cr retirement goal! Your biggest weapon right now is TIME, not picking the perfect fund. Just keep sticking to this plan.",
+    "risks": [
+      "Market Risk: Even 'safe' mutual funds are invested in bonds and stocks. If interest rates go up or the global market crashes, debt funds can give lower returns or temporarily dip in value. For the 15% stock part, expect it to fall 20-30% in a bad year.",
+      "Inflation Risk: With 55% in debt funds, you might miss high growth opportunities compared to pure stock funds, but we chose stability over high risk as per your request."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan shows a conservative, long-term orientation with minimal turnover and no emphasis on cost or passive instruments, but the portfolio composition and rationale indicate active management.\n\n- **passive_instrument_fraction**: 0.0 — The equity exposure (15%) is allocated to a multi-asset fund (Kotak Multi Asset Allocation), which typically uses active management to balance stocks, bonds, and sometimes gold. There is no mention of index funds or ETFs in the equity sleeve. The remaining 55% is in a debt fund (UTI Regular Saving Fund), which is not considered in this score as per instructions.\n\n- **turnover_score**: 1.0 — The plan recommends minimal rebalancing: only annual checks with gradual SIP adjustments if allocations drift. No tactical trading, sector rotation, or frequent rebalancing is suggested. The strategy is essentially buy-and-hold with slow rebalancing via SIP redirection.\n\n- **cost_emphasis_score**: 0.0 — There is no discussion of expense ratios, transaction costs, or tax efficiency. Fund selection appears driven by risk profile and simplicity rather than low cost.\n\n- **research_vs_cost_score**: 0.0 — The plan does not advocate for individual stock or fund research based on fundamentals, moats, or manager track records. However, it also does not endorse broad market indexing or passive exposure. Instead, it relies on actively managed funds without explaining why those specific funds were chosen, implying active discretion without deep research transparency.\n\n- **time_horizon_alignment_score**: 1.0 — The plan is explicitly designed for a 38-year horizon (from age 22 to retirement), emphasizes compounding over decades, and discourages panic selling during downturns. Review checkpoints are spaced years apart, aligning with a long-term mindset.\n\n- **portfolio_activeness_score**: 0.0 — Although risk metrics (beta, alpha, tracking error, etc.) are missing, the fund choices suggest active management. The Kotak Multi Asset fund is inherently actively managed, making asset allocation decisions across equities and debt. The UTI debt fund is also likely actively managed. There is no indication of passive/index-based exposure, and the rationale supports active risk management based on investor behavior rather than market efficiency.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows partial goal alignment by acknowledging the investor's conservative risk appetite and long horizon, but misaligns by allocating 55% to a likely debt/liquid fund (UTI Regular Saving Fund) without addressing long-term growth needs for retirement and home purchase. Diversification is poor: only two funds, minimal equity exposure (via 15% multi-asset), and no geographic/sectoral spread. Risk-return is suboptimal: 9.8% projected return is optimistic for a 70% debt-heavy portfolio; true conservative alignment would accept lower returns, but the plan fails to justify this return assumption. Internal consistency is moderate: rationale emphasizes safety and simplicity, which matches the fund choices, but the rebalancing guideline is vague and the emergency fund instruction contradicts the SIP allocation (₹1,650 allocated to SIP but also called emergency fund). Tax efficiency is very low: investor is in 'new_regime' (no 80C benefit), yet the plan uses a debt fund (UTI Regular Saving) that will be taxed at 30% marginal slab on gains, while ignoring equity-taxed alternatives like Arbitrage or Aggressive Hybrid funds that could deliver similar risk with better tax treatment. No mention of tax implications at all, despite high tax drag being critical for post-tax returns.",
+    "composite_pqs": 0.39999999999999997
+  },
+  "timestamp": "2026-04-18T05:58:43.443009Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,176 @@
+{
+  "persona_id": "P13",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 55.0,
+        "mode": "sip",
+        "monthly_sip_inr": 49500.0,
+        "lumpsum_inr": null,
+        "rationale": "Core equity holding with broad market exposure across large, mid, and small caps. HDFC Flexi Cap has delivered consistent 5-year returns with a large AUM, ensuring stability. At 1% expense ratio, it's slightly costlier than index funds but offers active management within a diversified portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost (0.2% expense ratio) exposure to the Nifty Midcap 150 index. Midcaps offer higher growth potential than large caps over long periods. This index fund tracks the segment efficiently with minimal fees, enhancing long-term compounding."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": null,
+        "rationale": "Hybrid fund with ~65-80% in equities and the rest in debt, providing equity taxation benefits. It reduces overall portfolio volatility while staying in the favorable 12.5% LTCG tax regime. Suitable for moderate risk appetite, acting as a stabilizer during market swings."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 23674.7984,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.32641448046573,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a hedge against inflation and market downturns. ICICI Gold ETF is highly liquid, low-cost, and tracks gold prices closely. 10% allocation helps diversify risk without overexposure."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU if you don't have one.\nStep 2: Complete KYC if not already done.\nStep 3: Start SIPs in the four funds with the exact monthly amounts.\nStep 4: Set calendar reminders for SIP dates to ensure timely execution.\nStep 5: Park your ₹25 L existing corpus in a liquid fund temporarily while phasing into equity over 6 months via STP to reduce timing risk.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are running and review account statements.",
+      "After 1 year: Compare fund performance against category averages. No change unless a fund consistently underperforms.",
+      "Every 3 years: Reassess risk appetite and financial goals."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If any category (equity, hybrid, gold) deviates by more than 5% from the target allocation, shift money to bring it back. For example, if equity grows to 80% of the portfolio, sell some and move to hybrid or gold.",
+    "projected_returns": {
+      "base": 14.7,
+      "bull": 18.7,
+      "bear": 10.7
+    },
+    "rationale": "At 36, with a 22-year horizon, you have time to benefit from equity growth. Your moderate risk appetite is balanced by allocating 75% to equities (flexi-cap + midcap index) and 15% to a hybrid fund for stability. The 10% gold allocation hedges against uncertainty. You're in the 30% tax slab, so all funds are equity-taxed (≥65% equity) to avoid slab taxation. Flexi-cap provides core exposure, midcap index adds growth, hybrid reduces volatility, and gold diversifies. This mix aligns with your sharp analytical style — simple, transparent, and tax-smart.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio will fall temporarily. Stay invested.",
+      "Midcap and small-cap funds are more volatile than large caps — they may fall harder in corrections.",
+      "Gold doesn't generate income and can stay flat for years.",
+      "Inflation could erode returns if actual growth is lower than expected.",
+      "Tax rules may change in the future, affecting post-tax returns."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and boost corpus faster"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.27,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.55,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "**passive_instrument_fraction (0.27):** Within the equity sleeve, only the Motilal Oswal Nifty Midcap 150 Index Fund (20% of total allocation) is passive, while the HDFC Flexi Cap (55%) is actively managed. The hybrid and gold allocations are excluded per the dimension definition. Passive equity fraction = 20/(55+20) = 26.7%. **turnover_score (0.85):** The plan prescribes annual rebalancing with a 5% deviation threshold, no tactical shifts, SIP-only mode, and review checkpoints that explicitly advise no changes unless consistent underperformance. This is firmly in buy-and-hold territory. **cost_emphasis_score (0.55):** Cost is mentioned but not dominant — the plan accepts the 1% expense ratio on the flexi cap fund for active management, while highlighting the 0.2% index fund cost. Tax efficiency is emphasized (equity taxation for hybrid). Cost is a consideration, not the primary criterion. **research_vs_cost_score (0.60):** No deep fundamental analysis (no PEG ratios, moat evaluation, management quality deep dives). Fund selection relies on surface-level metrics (5-year returns, AUM size, expense ratios, category fit). The approach favors broad market exposure over concentrated research-driven bets, but the active flexi cap pick reflects some fund-level conviction rather than pure index adoption. **time_horizon_alignment_score (0.95):** 22-year horizon, explicit 'stay invested' guidance through market drops, SIP with 10% annual step-up for long-term compounding, and only 3-year reassessment cycles. Highly long-term oriented. **portfolio_activeness_score (0.30):** The core 55% holding (HDFC Flexi Cap) is genuinely active with stock-picking across market caps. The 15% aggressive hybrid is also actively managed. Only 30% (midcap index + gold ETF) is passive. With 70% actively managed and the largest position reflecting real active conviction, this is meaningfully active, scoring closer to 0 than 1.",
+    "composite_aps": 0.5866666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.5,
+    "risk_return_appropriateness": 0.45,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.35,
+    "reasoning": "**Goal Alignment (0.40):** The plan's equity-heavy tilt suits the 22-year horizon and the flexi-cap preference, but it has three significant goal-alignment gaps: (1) No international diversification fund despite the investor explicitly requesting it; (2) The ₹1Cr emergency buffer goal is listed yet receives zero allocation — there is no liquid or debt fund for liquidity; (3) No goal-specific time-mapping (children's education at 12/15 years vs. retirement at 22 years are all pooled together with no milestone-based de-risking). A savvy investor like Tyrion would notice the absence of goal-wise corpus projections.\n\n**Diversification (0.50):** Market-cap diversification is decent (flexi-cap covers large/mid/small, dedicated midcap index adds growth tilt), and gold provides non-correlated exposure. Two fund houses used for non-ICICI funds. However, the portfolio is entirely domestic — no international equity despite the explicit preference — and there is no standalone debt allocation (the hybrid fund's debt sleeve is incidental, not intentional). The 3-out-of-4 funds being equity-heavy with similar Indian market exposure creates meaningful concentration risk.\n\n**Risk-Return Appropriateness (0.45):** Effective equity exposure is ~85-88% (55% flexi-cap + 20% midcap + ~10% equity from hybrid = ~85%), which is aggressive for a stated \"moderate\" risk appetite. The rationale claims \"75% to equities\" — understating the real risk level. The base projected return of 14.7% is optimistic for a blended portfolio (Indian large-cap averages ~12-13% CAGR long-term). Most critically, the emergency buffer goal is entirely unaddressed, creating a material liquidity risk: an 85% equity portfolio is not where you park emergency funds.\n\n**Internal Consistency (0.60):** The plan is largely coherent — SIP amounts sum to ₹90,000, rebalancing guidelines match the allocation structure, and the phased STP entry for the ₹25L corpus is sensible. The 10% annual step-up is well-integrated. However, the rationale states \"75% to equities\" when the effective equity is ~85-88%, which is a meaningful understatement. The emergency buffer goal appears in the investor profile but is not addressed anywhere in the plan. The Gold ETF's tax treatment is mischaracterized (see tax dimension).\n\n**Tax Efficiency (0.35):** This is the plan's weakest area. The rationale explicitly claims \"all funds are equity-taxed (≥65% equity) to avoid slab taxation,\" but Gold ETFs are NOT equity-taxed — they are treated as non-equity/specified mutual funds and gains are taxed at the investor's slab rate (30% for this investor), not at the favorable 12.5% LTCG rate. This is a factual error that undermines the tax thesis. Additionally, for a 30% slab (old regime) investor, there is no ELSS allocation, missing the ₹1.5L 80C deduction (~₹46,800/year in tax savings over 22 years). On the positive side, the Aggressive Hybrid fund choice is tax-smart (captures equity taxation on the debt sleeve), and the plan correctly avoids pure debt/liquid funds that would be slab-taxed. But the Gold ETF tax misstatement and missing 80C optimization are significant deductions.",
+    "composite_pqs": 0.4600000000000001
+  },
+  "timestamp": "2026-04-18T15:16:24.205941Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

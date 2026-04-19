@@ -1,0 +1,79 @@
+{
+  "persona_id": "P23",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed equity fund (HDFC Large Cap Direct Plan), which is not a passive/index fund, resulting in a passive_instrument_fraction score of 0.0. There is no information on rebalancing frequency or guidelines, but the absence of tactical shifts or review checkpoints suggests a static, long-term approach, warranting a high turnover_score of 1.0. Costs such as expense ratios are not discussed, and the rationale is minimal, so cost_emphasis_score is 0.0. The plan does not mention any research or analysis, but the use of a large-cap fund with an information ratio of 0.6 suggests some active management intent, leading to a research_vs_cost_score of 0.0. The lack of short-term triggers and absence of active trading implies a long-term horizon (time_horizon_alignment_score = 1.0). Finally, the fund has a non-zero information ratio (0.6), indicating active management, and no risk metrics suggest index-like behavior, so portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.6,
+    "reasoning": "The investment plan is extremely minimal and lacks sufficient detail to meet the investor's moderate risk appetite and long-term goals. Only one fund (HDFC Large Cap Direct) is recommended with 40% allocation, offering no diversification across sectors, market caps, or geographies, resulting in a very low diversification score. The rationale provided is just '1.00%', which is meaningless, undermining goal alignment, risk-return appropriateness, and internal consistency. The plan ignores the investor's three clear goals (financial independence, emergency fund, creative venture), with no asset allocation strategy tailored to time horizons or risk needs. While the fund selected is equity-based and thus benefits from favorable long-term capital gains tax (LTCG 12.5% above ₹1.25L after 1 year), and the investor is in the 'new_regime' (where 80C deductions like ELSS are irrelevant), the plan does not address tax-efficiency explicitly, though it avoids major tax pitfalls by not recommending slab-taxed debt funds unnecessarily. However, the lack of any debt or hybrid component for the 8-year creative venture goal or emergency fund reduces tax-efficiency potential. Overall, the plan is incomplete and fails to deliver a coherent, diversified, or goal-based strategy.",
+    "composite_pqs": 0.3
+  },
+  "timestamp": "2026-04-18T17:56:12.989893Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22359,
+    "output_tokens": 802,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 13.25913626793772
+}

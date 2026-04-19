@@ -1,0 +1,140 @@
+{
+  "persona_id": "S10",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "judge_model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large & Mid Cap Fund - Direct Plan - Growth",
+          "category": "equity",
+          "sub_category": "large_and_mid_cap",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 100.0,
+          "expense_ratio": 1.1,
+          "inception_date": "1997-01-01",
+          "aum_cr": 7883.0,
+          "morningstar_rating": 5,
+          "returns_1y": 12.2,
+          "returns_3y": 21.1,
+          "returns_5y": 20.0,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.0,
+          "beta": 0.88,
+          "alpha": 8.55,
+          "tracking_error": 6.39,
+          "sharpe_ratio": 0.53,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund provides a balanced mix of large and mid-cap stocks, offering growth potential while managing risk, suitable for a conservative investor with a long-term horizon."
+      },
+      {
+        "fund": {
+          "amfi_code": "151713",
+          "name": "quant Dynamic Asset Allocation Fund - Growth Option - Direct Plan",
+          "category": "hybrid",
+          "sub_category": "aggressive_hybrid",
+          "fund_house": "quant Money Managers Limited",
+          "nav": 100.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2021-01-01",
+          "aum_cr": 197.0,
+          "morningstar_rating": 4,
+          "returns_1y": 9.6,
+          "returns_3y": 18.3,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.0,
+          "beta": 0.86,
+          "alpha": 1.87,
+          "tracking_error": 7.32,
+          "sharpe_ratio": 0.07,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 36300.0,
+        "lumpsum_inr": null,
+        "rationale": "This aggressive hybrid fund offers a dynamic asset allocation strategy, balancing equity and debt to provide moderate risk with growth potential, aligning with the conservative risk appetite."
+      },
+      {
+        "fund": {
+          "amfi_code": "152135",
+          "name": "Helios Flexi Cap Fund - Direct Plan - Growth Option",
+          "category": "equity",
+          "sub_category": "flexi_cap",
+          "fund_house": "Helios Capital Asset Management (India) Pvt. Ltd.",
+          "nav": 100.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": 3466.0,
+          "morningstar_rating": 4,
+          "returns_1y": 12.0,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": 14.0,
+          "beta": 1.03,
+          "alpha": 11.97,
+          "tracking_error": 8.32,
+          "sharpe_ratio": 0.56,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24200.0,
+        "lumpsum_inr": null,
+        "rationale": "This flexi-cap fund allows for investment across market capitalizations, providing diversification and potential for capital appreciation while maintaining a conservative approach."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.2,
+      "bull": 16.2,
+      "bear": 8.2
+    },
+    "rationale": "Given your age and investment horizon, a mix of large & mid-cap, aggressive hybrid, and flexi-cap funds offers a conservative approach with potential for growth, aligning with your financial goals.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan exclusively allocates to actively managed equity funds (ICICI large & mid-cap, Helios flexi-cap), with no passive/index fund exposure, resulting in a passive_instrument_fraction score of 0.0. Turnover_score is high at 0.8 because the plan recommends annual rebalancing and portfolio checks, indicating minimal tactical shifts. Cost_emphasis_score is low (0.2) since the plan does not highlight expense ratios as a primary selection criterion. The research_vs_cost_score is also 0.0 because the rationale focuses on fund characteristics and strategy rather than passive market exposure. Time_horizon_alignment_score is high (0.8) due to the long-term investment horizon and infrequent review checkpoints. Portfolio_activeness_score is 0.0, as all equity funds exhibit high tracking error, alpha, and active risk metrics, indicating genuine active management.",
+    "composite_aps": 0.3
+  },
+  "pqs": {
+    "goal_alignment": 0.65,
+    "diversification": 0.75,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.4,
+    "reasoning": "Goal Alignment: The plan doesn't specifically address the investor's multiple financial goals with targeted allocations or time horizons. While the overall conservative approach matches the investor's risk appetite, there's no specific allocation for the home upgrade in 6 years vs retirement in 25 years.\n\nDiversification: The plan provides reasonable diversification across different equity categories and a hybrid fund, but could be improved with explicit geographic and sectoral diversification. The three-fund portfolio is adequate but not optimal.\n\nRisk-Return Appropriateness: The plan takes a moderately conservative approach with 80% equity exposure (50% large & mid-cap + 20% flexi-cap) and 30% in an aggressive hybrid fund. This is somewhat appropriate for a conservative investor with a 25-year horizon, though equity exposure might be slightly high.\n\nInternal Consistency: The plan is well-structured with consistent messaging across allocations, rationale, and risk assessment. The recommendations align with the stated strategy throughout the document.\n\nTax Efficiency: The plan scores poorly on tax efficiency for a new regime investor. It recommends pure equity funds instead of considering arbitrage funds which may be more tax-efficient for high slab investors. It also doesn't consider the tax implications of the aggressive hybrid fund versus other hybrid alternatives. For a new regime investor, the plan doesn't optimize fund selection for post-tax returns.",
+    "composite_pqs": 0.6799999999999999
+  },
+  "timestamp": "2026-04-18T05:57:22.352077Z",
+  "prompt_version": "v1"
+}

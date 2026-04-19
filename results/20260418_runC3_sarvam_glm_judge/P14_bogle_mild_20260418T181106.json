@@ -1,0 +1,82 @@
+{
+  "persona_id": "P14",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 0.1,
+        "lumpsum_inr": null,
+        "rationale": "1.25% on gains over 1.25L"
+      }
+    ],
+    "setup_phase": "1. Direct Plan - Growth",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {
+      "base": 10.5,
+      "optimistic": 15.5,
+      "negative": 10.5
+    },
+    "rationale": "1.25% on gains over 1.25L after 3 years",
+    "risks": [
+      "Market can drop 20-30% in bad years",
+      "20% in 1-3 years",
+      "40% in 5 years",
+      "20% in 10-30 years",
+      "40% in 15 years"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.75,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "**passive_instrument_fraction = 0.0**: The sole equity allocation (40%) is HDFC Large Cap Direct Plan — an actively managed fund, not an index fund or ETF. Zero passive/index equity instruments in the portfolio.\n\n**turnover_score = 0.9**: No rebalancing guidelines, no review checkpoints, and a simple SIP structure indicate a near buy-and-hold approach. The investor is expected to set the SIP and let it run with minimal intervention.\n\n**cost_emphasis_score = 0.3**: The plan deliberately selects 'Direct Plan — Growth,' which signals cost awareness (direct plans carry lower expense ratios). However, cost is not discussed as a primary selection criterion — the rationale focuses on tax implications rather than expense ratio minimisation.\n\n**research_vs_cost_score = 0.5**: The plan provides no deep, stock-specific or fund-specific research (no PEG ratios, moat analysis, manager track records). It is labelled 'basic' in perspective. However, it also doesn't use broad-market index funds — it picks a single active large cap fund without analytical justification. Falls in the middle: no deep research, but no passive broad-market approach either.\n\n**time_horizon_alignment_score = 0.75**: The SIP mode, the 3-year+ tax rationale, and the long-term risk framing (10–30 year horizons mentioned) all suggest a patient, long-term orientation. No tactical windows or short-term opportunistic moves are proposed. Slightly below 1.0 because the plan lacks an explicit long-term compounding narrative or multi-decade strategy.\n\n**portfolio_activeness_score = 0.35**: HDFC Large Cap is an actively managed fund with an information ratio of 0.6, suggesting genuine (if modest) active skill. However, large cap funds in India tend to behave closer to the Nifty 50 benchmark (beta ≈ 1.0, moderate tracking error) and can border on closet indexing. The absence of other risk metrics (beta, alpha, tracking error are all null) limits precision, but the category and IR point to moderate activeness — neither truly passive nor aggressively active.",
+    "composite_aps": 0.46666666666666673
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.08,
+    "tax_efficiency": 0.15,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal alignment (0.1):** The investor wants a ₹3Cr retirement corpus in 12 years, prefers balanced funds, and wants SWP planning — none of these are meaningfully addressed. Only 40% of the portfolio is allocated (60% is completely missing), and it's all in a single large-cap equity fund, contradicting the investor's preference for balanced/moderate-risk options. No SWP roadmap exists despite it being a stated priority. **Diversification (0.05):** A single fund, single asset class (equity large-cap), single AMC — this is essentially zero diversification. No debt, no international, no sectoral spread, no multi-AMC coverage. **Risk-return appropriateness (0.1):** A moderate-risk investor is given 100% equity (in the allocated portion) with no debt or balanced component. The 'negative' projected return scenario is identical to the base case (10.5%), which is absurd — a real negative scenario should show downside, not the same return as the base. This means the plan doesn't even acknowledge the possibility of losses. **Internal consistency (0.08):** Allocations total only 40% (not 100%). The 'rationale' fields reference tax rates ('1.25% on gains over 1.25L') — seemingly a garbled version of the 12.5% LTCG rate — rather than any investment logic. Risk warnings are incoherent random percentages. No rebalancing guidelines, no review checkpoints, no step-up SIP despite the investor needing to 'catch up.' **Tax efficiency (0.15):** The one fund chosen is equity-taxed (favourable), and there's a vague awareness of equity LTCG treatment, but it's incorrectly stated (1.25% instead of 12.5%). No ELSS is suggested for 80C headroom (investor is 20% slab, likely old regime and could benefit). No fixed-income allocation uses equity-taxed wrappers. No deliberate tax planning is evident.",
+    "composite_pqs": 0.096
+  },
+  "timestamp": "2026-04-18T18:11:06.500466Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

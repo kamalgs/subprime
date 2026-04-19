@@ -1,0 +1,141 @@
+{
+  "persona_id": "P20",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 22000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund for stable growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16500.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap fund for balanced growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16500.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund for stable growth"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you're 37 with 23 years ahead, we can afford to put more in stocks which grow faster over long periods. We've kept 20% in safer options so your money isn't all in one basket.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "passive_instrument_fraction=0.0: All three equity funds (ICICI Prudential Large Cap 40%, Motilal Oswal Large & Midcap 30%, Nippon India Large Cap 30%) are actively managed — no index funds or ETFs in the equity sleeve. turnover_score=0.8: Annual rebalancing with a buy-and-hold SIP approach; no tactical shifts, sector rotation, or momentum trading. Review checkpoints are gentle (6-month SIP check, 1-year peer comparison). cost_emphasis_score=0.3: Some cost awareness via direct-plan account setup (Kuvera/Groww/MFU), but expense ratios (1.0–1.1%) aren't highlighted as a selection criterion and fund choices aren't driven by cost minimization. research_vs_cost_score=0.6: No deep stock/fund-specific research (no PEG ratios, moat analysis, manager track records); rationales are generic category-level descriptions ('stable growth', 'balanced growth'). However, active funds are still selected rather than broad index exposure, so not purely passive either. time_horizon_alignment_score=0.9: 23-year horizon, SIP with 10% annual step-up, annual rebalancing, and explicit acknowledgement that 20-30% drawdowns are normal and recoverable — strongly long-term orientation. portfolio_activeness_score=0.35: Risk metrics are unavailable (all zeros), but by category, the 70% in Large Cap active funds (which in India often behave as closet indexers with beta≈1.0, tracking error 2-5%) and 30% in Large & Midcap (moderate active tilt) suggest a portfolio that is actively mandated but relatively close to index behavior — mild active, not concentrated high-conviction active.",
+    "composite_aps": 0.4916666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.35,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.25,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.2,
+    "reasoning": "**Goal Alignment (0.35):** The plan puts 100% equity toward all three goals indiscriminately, ignoring that the second-property goal (8 years) and children's education fund have shorter timelines requiring different risk profiles. The investor explicitly wants a 'balanced equity-debt mix' but receives none. No goal-specific allocation, no mention of the ₹18L existing corpus or ₹20L liabilities, and no timeline-matching. Only the long-term 23-year ₹3Cr corpus goal is loosely served by the equity tilt.\n\n**Diversification (0.20):** Extremely poor diversification. All three funds are equity (100%), with no debt, gold, international, or hybrid allocation. Two of three funds (ICICI Large Cap + Nippon Large Cap = 70%) are in the same Large Cap category, creating redundancy rather than diversification. Fund-house diversification is the only bright spot (ICICI, Motilal, Nippon). Sector, geography, and asset-class diversification are absent.\n\n**Risk-Return Appropriateness (0.25):** A moderate-risk investor receiving a 100% equity portfolio is a significant mismatch. The investor's stated preference for a 'balanced equity-debt mix' is ignored entirely. Return projections (12% base, 16% bull, 8% bear) are within reasonable ranges for equity, but the risk exposure is too concentrated for 'moderate' appetite. No downside mitigation strategy for the 8-year property goal is provided.\n\n**Internal Consistency (0.30):** The most glaring contradiction: the rationale states 'we've kept 20% in safer options' but there is 0% allocated to any debt or safe instrument. All three allocations are 100% equity. This is a direct falsehood in the plan narrative. SIP amounts do sum to ₹55,000 (matching surplus) and percentages to 100%, so arithmetic is correct, but the rationale-implementation disconnect is severe.\n\n**Tax Efficiency (0.20):** The investor is in the 20% old-regime slab and explicitly requests ELSS for tax saving — yet no ELSS fund is included. This leaves the entire ₹1.5L 80C headroom unused, costing ~₹30,000/year in tax savings. While all chosen funds qualify for equity taxation (favorable), the complete omission of ELSS for an old-regime investor who asked for it is a major tax-planning failure. No discussion of tax treatment appears anywhere in the plan.",
+    "composite_pqs": 0.26
+  },
+  "timestamp": "2026-04-18T15:48:16.251394Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

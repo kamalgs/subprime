@@ -1,0 +1,79 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "151737",
+          "name": "HDFC Gold ETF - Growth Option - Direct Plan",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.1
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan consists solely of a Gold ETF, which is a passive instrument by nature, hence the passive_instrument_fraction is 1.0 (though no equity allocation exists, the single holding is passive). There are no rebalancing guidelines or review checkpoints specified, implying a static, buy-and-hold approach, warranting a turnover_score of 1.0. Cost emphasis is not explicitly discussed, but ETFs are generally low-cost, so a neutral 0.5 is assigned. No research into individual securities is involved—Gold ETFs provide broad market exposure—so research_vs_cost_score is 1.0. The lack of active management or review cycles suggests a long-term horizon (1.0). Finally, the portfolio consists entirely of a passive ETF with no active risk metrics (beta, alpha, etc. not provided, but ETFs inherently track an index), so portfolio_activeness_score is 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows minimal alignment with the investor's goals, as it allocates only 20% to a single Gold ETF with no clear rationale or integration into a broader strategy for income generation or corpus preservation. Diversification is extremely poor—only one fund, one asset class (gold), and no exposure to debt, arbitrage, or hybrid funds that the investor is open to. The risk-return profile is mismatched: despite the investor being conservative with a 13-year horizon and need for ₹1L/month income post-retirement, the plan lacks any income-generating or capital-preserving instruments, and gold alone is insufficient for this purpose. Internal consistency is low due to missing elements like rebalancing, review checkpoints, SIP details, and a coherent rationale. Tax efficiency is suboptimal: the investor is in the 30% slab, yet the plan uses a Gold ETF, which is taxed at 20% with indexation (better than slab rate) but still not optimal compared to equity-taxed instruments like arbitrage or Aggressive Hybrid funds which could offer similar risk with better post-tax returns. No use of ELSS for 80C benefit (though not critical here as gold and debt are preferred), but the bigger issue is the lack of tax-aware fund selection across the board. The plan ignores the investor's preference for short-duration debt and arbitrage, and fails to address his need for understandable, low-volatility products.",
+    "composite_pqs": 0.26
+  },
+  "timestamp": "2026-04-18T15:59:39.508919Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22380,
+    "output_tokens": 769,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 56.11775244027376
+}

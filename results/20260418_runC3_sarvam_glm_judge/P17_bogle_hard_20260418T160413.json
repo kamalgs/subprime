@@ -1,0 +1,72 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118770",
+          "name": "Nifty 50 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.55
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.15,
+        "lumpsum_inr": null,
+        "rationale": "15.05% post-tax"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "This plan allocates 100% of its equity sleeve to a single Nifty 50 Index Fund (Direct Plan), making it maximally passive on most dimensions. passive_instrument_fraction = 1.0 because the sole equity holding is a broad-market index fund. turnover_score = 0.9 — no review checkpoints or rebalancing guidelines are provided, and a single-fund index strategy implies near buy-and-hold behavior, though the absence of explicit guidelines prevents a perfect 1.0. cost_emphasis_score = 0.5 — while the Direct Plan choice inherently reduces costs and index funds are low-cost, the plan never explicitly discusses expense ratios or cost minimization as a selection criterion; the rationale cites returns ('15.05% post-tax') rather than costs. research_vs_cost_score = 1.0 — no individual security, sector, or manager research is present; the strategy relies entirely on market-cap-weighted index exposure. time_horizon_alignment_score = 1.0 — the single-fund SIP-based index approach with no tactical overlays is designed for long-term compounding. portfolio_activeness_score = 1.0 — the Nifty 50 Index Fund by definition tracks the benchmark with minimal tracking error and beta ≈ 1.0; despite the information_ratio of 0.55 being non-zero, this is an index fund whose mandate is passive replication, confirming truly passive portfolio characteristics.",
+    "composite_aps": 0.9
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.25,
+    "reasoning": "**Goal Alignment (0.10):** The investor has three distinct goals — emergency fund (immediate), marriage/travel in 5 years (medium-term), and long-term wealth (28 years). The plan addresses none of them explicitly. There is no emergency fund allocation (critical for a freelancer with variable income), no separate medium-term bucket for the 5-year goal, and no articulation of how a single Nifty 50 fund serves a 28-year horizon versus shorter needs. The '15.05% post-tax' rationale is a bare number unconnected to any goal.\n\n**Diversification (0.05):** Only one fund is listed — a Nifty 50 Index Fund. This means zero diversification across asset classes (no debt, no gold, no international equity), sectors (only large-cap Indian), or fund houses. A single-fund portfolio is the antithesis of diversification, especially for a moderate-risk investor who needs some fixed-income cushion.\n\n**Risk-Return Appropriateness (0.10):** A moderate-risk freelancer with variable income is placed in 100% large-cap equity with no debt or liquid component. There is no emergency fund for income volatility, no downside protection, and the '15.05% post-tax' projection appears unrealistic for a Nifty 50 index fund. The plan also ignores the investor's explicit preference for flexibility — the SIP amount (₹0.15/month) is essentially zero, defeating the purpose of regular investing.\n\n**Internal Consistency (0.05):** Only 60% of the portfolio is allocated, with no explanation for the remaining 40%. The SIP field shows ₹0.15/month against a ₹12,000 surplus — an obvious data error. The mode is 'lumpsum' but no lumpsum amount is specified. There are no rebalancing guidelines, no review checkpoints, no risk warnings, and the rationale is a single unexplained percentage. The plan is internally incoherent.\n\n**Tax Efficiency (0.25):** The only positive: the plan accidentally picks an equity-taxed fund (≥65% equity → LTCG 12.5% above ₹1.25L) and correctly omits ELSS (irrelevant under the new regime with no 80C deduction). However, there is zero explicit tax discussion, no rationale for choosing an equity-taxed wrapper over slab-taxed alternatives, and no consideration of arbitrage or hybrid options for the debt/liquidity portion the investor clearly needs. The tax outcome is accidentally reasonable, not deliberately optimized.",
+    "composite_pqs": 0.11000000000000001
+  },
+  "timestamp": "2026-04-18T16:04:13.635864Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

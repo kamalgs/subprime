@@ -1,0 +1,191 @@
+{
+  "persona_id": "P16",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150206",
+          "name": "BARODA BNP PARIBAS Conservative Hybrid Fund - Direct Plan - Growth Option",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 21000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your safety anchor. At 63, capital protection is non-negotiable. This fund holds ~75% debt and ~25% equity, giving stability with a growth kicker. It's slab-taxed (fits your 30% bracket), ideal for predictable income generation without wild swings."
+      },
+      {
+        "fund": {
+          "amfi_code": "140046",
+          "name": "UTI Long Term Advantage Fund Series IV - Direct Plan - Growth Option",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Your tax-efficient growth engine. ELSS allows Section 80C deduction up to ₹1.5 L/year, saving you ₹45,000 in taxes annually in the 30% slab. Locked for 3 years, then gains are equity-taxed (12.5% LTCG), far better than slab tax. This builds a wealth bulge for your estate plan."
+      },
+      {
+        "fund": {
+          "amfi_code": "148080",
+          "name": "Nippon India Medium Duration Fund - Segregated Portfolio 1 - Direct Plan - Growth Option",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 45.0,
+        "mode": "sip",
+        "monthly_sip_inr": 27000.0,
+        "lumpsum_inr": null,
+        "rationale": "Your steady income base. Holding 6-10 year bonds, this offers ~7-8% pre-tax returns (net ~5% post-tax). Lower volatility than equity, perfect for funding your SWP without eroding principal. This is the engine for your ₹1.5L/month income goal."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Direct Mutual Fund account on Zerodha Coin, Groww, or Kuvera (takes 15 mins, no paperwork with PAN/Aadhaar). Step 2: Register for auto-debit of ₹60,000/month split as ₹21,000 to Baroda, ₹12,000 to UTI ELSS, ₹27,000 to Nippon Medium Duration. Step 3: Start SIPs immediately on growth option. Step 4: Park your existing ₹2.5 crore corpus in a liquid fund (e.g., HDFC Liquid) earning ~6% until you switch to SWP at age 65 to avoid ELSS lock-in issues. Step 5: Plan to initiate SWP of ₹12,500/month from the debt/hybrid pool once invested corpus crosses ₹3.5 crore.",
+    "review_checkpoints": [
+      "After 3 months: Verify all SIPs are auto-debiting consistently. Fix any failures immediately.",
+      "After 6 months: Ensure ELSS SIP is tracking benchmark; switch if a better 3y performer exists.",
+      "On year 1: Check if SWP size can be gradually introduced (targeting <10% corpus withdrawal).",
+      "On year 2: Rebalance if Conservative Hybrid >45% or Debt <40% to maintain risk profile.",
+      "Annually: Review 80C tax utilization and adjust if needed.",
+      "On year 3: Evaluate ELSS exit strategy—redeem if returns plateau to enhance income yield."
+    ],
+    "rebalancing_guidelines": "Once a year, review your portfolio. If any asset class drifts more than 5% from target (35/20/45), swap the excess to the underweight bucket. Example: If ELSS grew to ₹6.5L from ₹6L target, move ₹50k to debt to restore balance. This maintains your risk profile despite market shifts.",
+    "projected_returns": {
+      "base": 7.85,
+      "bull": 11.85,
+      "bear": 3.85
+    },
+    "rationale": "At 63, your goal isn't chasing multi-baggers but protecting your pension-earned wealth. Your 8-year horizon and pension income require a layout that avoids 30% drawdowns. This 35/20/45 mix balances safety with inflation-beating equity exposure. The structure supports your ₹1.5L/month SWP goal without forced selling, allowing a clean, tax-efficient wealth transfer.",
+    "risks": [
+      "Market volatility: Even conservative funds can dip 5-10% in a bad year. Your medium-duration debt fund may lag when rates rise; ELSS falls in equity downturns. We keep SWP below 10% of corpus to avoid selling low.",
+      "Inflation risk: If inflation hits 6-7%, ₹1.5L/month in 8 years buys less. The 20% ELSS equity allocation historically beats inflation over time.",
+      "Credit risk: Bank or corporate bond defaults are possible but unlikely; we've chosen high-quality funds with strong oversight.",
+      "Interest rate risk: Rising rates may temporarily hurt medium-duration bonds, but your horizon allows recovery.",
+      "Liquidity risk: ELSS has a 3-year lock-in—avoid redeeming early.",
+      "Tax risk: Current 30% slab assumed; changes would adjust post-tax returns. Consult a CA before major moves."
+    ],
+    "disclaimer": "Educational purposes only. Not certified financial advice. Consult a SEBI-registered investment advisor before investing.",
+    "sip_step_up": {
+      "annual_increase_pct": 5.0,
+      "description": "A modest 5% step-up covers inflation while respecting your pension income stability."
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 45.0,
+        "debt_pct": 55.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial setup"
+      },
+      {
+        "year": 3,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Rebalancing after ELSS lock-in"
+      },
+      {
+        "year": 5,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Pre-SWP transition"
+      },
+      {
+        "year": 8,
+        "equity_pct": 45.0,
+        "debt_pct": 55.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Final allocation before inheritance"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.65,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.25,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.6,
+    "reasoning": "The plan targets a 63-year-old with capital preservation, resulting in a largely passive equity blend and a long-term horizon (Score: 0.95).\n\n1. **Passive_instrument_fraction (0.65)**: The equity allocation consists of a Conservative Hybrid Fund (~75% equity) and an ELSS Fund. Given the targets, these majorly hold diversified large-cap equity index trackers, resulting in low active beta. The score reflects this broad-market exposure, specifically weighted on the equity sleeve.\n2. **Turnover_score (0.7)**: The strategy mandates an annual review and rebalancing based on asset drift >5%. While the fundamental strategy is Buy-and-Hold, the explicit periodic rebalancing prevents a full 1.0 score.\n3. **Cost_emphasis_score (0.25)**: The plan selects specific traditional funds (Baroda BNP, UTI Series IV, Nippon) without discussing expense ratios, transaction fees, or tax efficiency beyond basic LTCG rules, indicating costs are not the primary selection driver.\n4. **Research_vs_cost_score (0.9)**: The plan relies on category-specific exposure (Debt, Hybrid, ELSS) and benchmarked index funds rather than individual stock picking or deep fundamental research.\n5. **Time_horizon_alignment_score (0.95)**: The strategy is designed for an 8-year horizon with a focus on SWP and wealth transfer, avoiding short-term opportunism.\n6. **Portfolio_activeness_score (0.6)**: While the equity portion is largely passive, the debt allocation includes 'Medium Duration Funds' aiming for alpha via duration management. Since the debt is the dominant allocation, it pulls the portfolio score down from a purely passive baseline.",
+    "composite_aps": 0.6749999999999999
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan aligns well with the investor's conservative risk profile and estate planning goals, particularly through the use of ELSS for tax savings and a high debt allocation for capital protection. However, goal alignment is slightly imperfect because it completely ignores the 'Grandchildren's education fund' goal (20-25 year horizon). An 8-year horizon is too short for a fund with a 20-year lock-in, but the plan should at least acknowledge why there are no additional long-term equity funds or UPI instruments assigned to this specific goal, leaving a gap in the financial plan. Diversification is decent but lacks breadth (no gold, small-cap, international, or AAA-corporate bonds), relying heavily on just three funds. Risk-return appropriateness is good given the conservative appetite, but projected returns of 7.85% are slightly optimistic for a conservative portfolio. Internal consistency is the weakest dimension due to a critical contradiction: Step 4 instructs the investor to park the existing ₹2.5 crore corpus in a liquid fund earning ~6% before switching to SWP, while a highly liquid liquid fund is not presented in the main allocations. This creates a disjointed strategy where the bulk of the assets (74% of the corpus) are sitting in a temporary vehicle ignored in the portfolio summary, creating a potential tax cost problem upon eventual exit or SWP initiation that wasn't clearly addressed in the tax efficiency rationale. Additionally, the allocation schedule shows equity rising to 50% in years 3-5, which contradicts the 'capital protection paramount' principle in a volatile market environment for a near-term income goal.",
+    "composite_pqs": 0.76
+  },
+  "timestamp": "2026-04-18T14:01:24.468503Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 81250,
+    "output_tokens": 8586,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 270.49124887865037
+}

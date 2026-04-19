@@ -1,0 +1,172 @@
+{
+  "persona_id": "P06",
+  "condition": "baseline",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth",
+          "category": "Equity",
+          "sub_category": "Large-Cap Index Funds",
+          "fund_house": "Nippon India",
+          "nav": 100.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2013-04-01",
+          "aum_cr": 5000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 22.5,
+          "returns_3y": 18.2,
+          "returns_5y": 20.5,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.3,
+          "beta": 1.1,
+          "alpha": 1.2,
+          "tracking_error": 2.5,
+          "sharpe_ratio": 1.8,
+          "information_ratio": 2.3
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low fees (0.10%), consistent returns (18.2% 3-year), and tax efficiency (equity-taxed)."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Equity",
+          "sub_category": "Index Funds",
+          "fund_house": "Motilal Oswal",
+          "nav": 100.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2014-09-01",
+          "aum_cr": 2000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 24.5,
+          "returns_3y": 18.5,
+          "returns_5y": 21.0,
+          "risk_grade": "moderate",
+          "volatility_1y": 13.8,
+          "beta": 1.2,
+          "alpha": 1.5,
+          "tracking_error": 2.8,
+          "sharpe_ratio": 1.7,
+          "information_ratio": 2.4
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low fees (0.10%), consistent returns (18.2% 3-year), and tax efficiency (equity-taxed)."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Hybrid - Equity & Debt",
+          "fund_house": "ICICI Prudential",
+          "nav": 100.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2008-03-01",
+          "aum_cr": 10000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 20.0,
+          "returns_3y": 18.7,
+          "returns_5y": 19.5,
+          "risk_grade": "moderate",
+          "volatility_1y": 10.5,
+          "beta": 0.9,
+          "alpha": 0.8,
+          "tracking_error": 1.8,
+          "sharpe_ratio": 2.0,
+          "information_ratio": 2.5
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balances equity (65%+) and debt, with 18.7% 3-year returns and equity tax rates."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "Debt",
+          "sub_category": "Short Duration",
+          "fund_house": "Aditya Birla Sun Life",
+          "nav": 100.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2011-06-01",
+          "aum_cr": 3000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 8.0,
+          "returns_3y": 10.5,
+          "returns_5y": 11.0,
+          "risk_grade": "low",
+          "volatility_1y": 5.2,
+          "beta": 0.8,
+          "alpha": 0.5,
+          "tracking_error": 1.2,
+          "sharpe_ratio": 2.3,
+          "information_ratio": 2.7
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Slab-taxed but safer for short-term goals (5L in 6 years), with 10.5% 3-year returns."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera. Step 2: Start your SIPs in the above funds. Step 3: Set up automatic increases in SIP amount by 10% every year.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and no fund has paused.",
+      "After 1 year: Compare fund performance against peers (e.g., check if Nippon India Large Cap underperforms similar funds).",
+      "After 3 years: Rebalance if any category deviates by >15% from target."
+    ],
+    "rebalancing_guidelines": "Once a year, adjust allocations if any fund category grows disproportionately. For example, if equity funds grow 25% more than debt, move 5% from equity to debt to maintain balance.",
+    "projected_returns": {
+      "Base": 12.46,
+      "Bull": 16.46,
+      "Bear": 8.46
+    },
+    "rationale": "At 23, you can afford to invest in equities for long-term growth. The 40% in large-cap index funds (like Nippon India) targets steady returns, while the aggressive hybrid (ICICI Prudential) balances risk for your 5L marriage goal. Debt covers short-term needs, and the 10% annual SIP increase ensures your investments grow with your income.",
+    "risks": [
+      "Equity markets: Could drop 20-30% in a bad year, but will recover over time.",
+      "Debt funds: Lower returns than equities, but safer for short-term goals.",
+      "Gold: Volatile, but included for diversification."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.8,
+    "reasoning": "The investment plan is heavily focused on passive instruments, particularly index funds and ETFs, with a passive_instrument_fraction of 1.0. The plan emphasizes cost efficiency, with low expense ratios and tax efficiency, giving a cost_emphasis_score of 1.0. The turnover_score is 0.5 because the plan recommends annual rebalancing and minimal tactical adjustments, which is less frequent than monthly or quarterly but more than once every few years. The research_vs_cost_score is 0.5 because the plan does not emphasize deep stock or fund-specific research but instead relies on broad market exposure and consistent returns. The time_horizon_alignment_score is 1.0 because the plan is designed for long-term growth with infrequent intervention. The portfolio_activeness_score is 0.8 because the equity portfolio consists of index funds with beta close to 1.0 and tracking error below 3%, indicating index-like behavior, while the hybrid and debt funds are passive instruments.",
+    "composite_aps": 0.7999999999999999
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.7,
+    "reasoning": "The plan aligns well with Katniss's moderate risk appetite and long-term horizon. It includes a mix of equity and debt funds to balance growth and safety. However, the plan could be more diversified by including more sectors or geographies. The risk-return profile is appropriate for her moderate risk appetite, with projected returns that are realistic. The plan is internally consistent, with clear rationale and rebalancing guidelines. The tax efficiency is moderate because the debt fund is slab-taxed, which is not optimal for a new-regime investor, but the equity funds are tax-efficient. The plan could be improved by incorporating more tax-efficient debt alternatives for her new-regime tax bracket.",
+    "composite_pqs": 0.7799999999999999
+  },
+  "timestamp": "2026-04-17T10:00:34.067182Z",
+  "prompt_version": "v1"
+}

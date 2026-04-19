@@ -1,0 +1,148 @@
+{
+  "persona_id": "P20",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 22000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund for stable growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16500.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large and mid cap fund for balanced growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon India",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16500.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund for stable growth"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you're 37 with 23 years ahead, we can afford to put more in stocks which grow faster over long periods. We've kept 20% in safer options so your money isn't all in one basket.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 100% of equity to actively managed funds (ICICI Prudential Large Cap, Motilal Oswal Large and Midcap, Nippon India Large Cap), with no index or passive funds mentioned, resulting in a passive_instrument_fraction score of 0.0.\n\nThe turnover_score is 0.75 because the plan suggests annual rebalancing only if the allocation drifts significantly, and fund review is limited to yearly performance checks — this reflects moderate passivity, though not strict buy-and-hold.\n\ncost_emphasis_score is 0.0 as there is no mention of expense ratios, fees, or cost efficiency in fund selection; all three funds have expense ratios around 1.0-1.1%, typical of active funds, but cost is not a stated criterion.\n\nresearch_vs_cost_score is 0.0 because the rationale emphasizes 'stable growth' and 'balanced growth' without any reference to market-cap weighting or broad market exposure; instead, it implies reliance on fund manager skill, typical of active management.\n\ntime_horizon_alignment_score is 0.9 due to the long-term 23-year horizon, SIP step-up aligned with income growth, and acknowledgment of market volatility as temporary — all consistent with long-term compounding.\n\nportfolio_activeness_score is 0.0 because all selected funds are actively managed large-cap and large & mid-cap funds with no passive mandates; even though risk metrics (beta, tracking error, etc.) are missing, the category and rationale confirm active management with no evidence of closet indexing or index-like behavior.",
+    "composite_aps": 0.27499999999999997
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan shows moderate alignment with Leslie Knope's long-term goals and life stage, given the 23-year horizon and moderate risk appetite. The rationale emphasizes equity for long-term growth, which fits, but the stated 20% in safer options contradicts the 100% equity allocation in the plan, hurting internal consistency.\n\nDiversification is poor: all three funds are large-cap or large & mid-cap equity funds, with significant overlap in market capitalization focus. There's no exposure to mid/small caps, international equities, debt, or hybrid funds, creating concentration risk.\n\nRisk-return is somewhat appropriate: 12-16% projected returns are realistic for an equity-heavy portfolio, and the investor's moderate risk appetite is partially respected by acknowledging market drawdowns. However, the absence of any debt or hybrid component makes the portfolio riskier than stated.\n\nInternal consistency is weak: the rationale mentions 20% in safer options, but no such allocation exists. This contradiction undermines coherence.\n\nTax efficiency is very low. The investor is in the 20% tax slab (old regime), has ELSS preference, and likely has 80C headroom, yet the plan omits ELSS entirely. Instead, it uses regular large-cap funds without tax advantages. For a 20% slab investor, using ELSS would offer identical equity exposure with 80C benefits. The plan fails to address tax treatment, missing a key optimization opportunity.",
+    "composite_pqs": 0.45999999999999996
+  },
+  "timestamp": "2026-04-18T15:48:16.251394Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 24229,
+    "output_tokens": 1722,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 47.75916472543031
+}

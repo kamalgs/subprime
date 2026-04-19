@@ -1,0 +1,217 @@
+{
+  "persona_id": "P12",
+  "condition": "bogle",
+  "model": "together:zai-org/GLM-5.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "151060",
+          "name": "HSBC Equity Savings Fund - Direct Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Equity Savings",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 247.45,
+          "morningstar_rating": null,
+          "returns_1y": 13.62,
+          "returns_3y": 14.42,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "both",
+        "monthly_sip_inr": 28000.0,
+        "lumpsum_inr": 4200000.0,
+        "rationale": "This is your core fund. It invests in stocks but protects most of them using hedging (like insurance against market drops), plus some debt and arbitrage. Think of it as 'stocks with a safety net.' It qualifies for equity tax rates (12.5% on long-term gains) which is far better than paying 30% on debt fund gains. 1-year volatility is just 6.4% — far calmer than regular stock funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Aggressive Hybrid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.31,
+          "morningstar_rating": null,
+          "returns_1y": 9.98,
+          "returns_3y": 18.66,
+          "returns_5y": 18.88,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": 3000000.0,
+        "rationale": "A classic balanced fund — roughly 65-70% stocks, 30-35% debt. Large ₹12,500 crore AUM means it's stable and well-established. The debt portion cushions against market drops, while stocks provide growth. Also equity-taxed, so gains above ₹1.25 lakh held over 1 year are taxed at just 12.5% instead of your 30% slab rate."
+      },
+      {
+        "fund": {
+          "amfi_code": "140088",
+          "name": "Nippon India ETF Gold BeES",
+          "category": "Gold",
+          "sub_category": "Gold ETF",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 53346.31,
+          "morningstar_rating": null,
+          "returns_1y": 58.39,
+          "returns_3y": 33.78,
+          "returns_5y": 25.03,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": 2400000.0,
+        "rationale": "Gold — the asset you already know and trust. This is India's largest gold ETF (₹53,000+ crore AUM), and it simply tracks the price of gold. No fund manager making bets, just pure gold price exposure. Note: gold funds are taxed at your slab rate (30%), so this is best held long-term as an inflation hedge rather than for trading."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Medium Duration Fund",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 1383.74,
+          "morningstar_rating": null,
+          "returns_1y": 9.59,
+          "returns_3y": 10.55,
+          "returns_5y": 12.69,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": 2400000.0,
+        "rationale": "Your preferred territory — short-to-medium duration debt. This fund lends to quality companies and government entities for 3-4 year periods. Steady ~9-10% returns with very low volatility. Honest warning: at your 30% tax slab, all gains are taxed at 30% with no concession. A 10% pre-tax return becomes ~7% post-tax. That's why we've kept this at 20% — enough for stability, but the bulk is in equity-taxed funds."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU (MFCentral). 'Direct' plans charge lower fees — never buy through a bank or agent.\n\nStep 2: For the Gold ETF, you'll need a demat account (Zerodha, Groww, or your existing brokerage). Buy it like a stock on the exchange.\n\nStep 3: Invest the ₹1.2 crore lumpsum across the four funds as shown. Don't try to time the market — split it into 2-3 installments over 2-3 weeks if the idea of investing it all at once makes you uncomfortable.\n\nStep 4: Set up monthly SIPs: ₹28,000 → Equity Savings, ₹20,000 → Equity & Debt, ₹16,000 → Gold BeES, ₹16,000 → Medium Term Debt. Automate these so you don't have to think about them.\n\nStep 5: Bookmark your platform's dashboard. Check it once a year — not more.",
+    "review_checkpoints": [
+      "After 6 months: Just verify all 4 SIPs are running correctly. Don't check returns yet — 6 months tells you nothing.",
+      "After 1 year: Check if any fund has consistently underperformed similar funds by a wide margin (more than 3-4% behind peers). If yes, consider switching. If not, do nothing.",
+      "Every year: Compare your overall portfolio value against the projected base case. If significantly behind, don't panic — markets go through cycles.",
+      "At age 55 (5 years before retirement): Start planning how to shift some equity-heavy funds toward debt to reduce volatility as you approach 60.",
+      "At age 58-59: Begin building a 2-3 year expense buffer in the debt fund so you're not forced to sell equity funds during a market dip in the first years of retirement."
+    ],
+    "rebalancing_guidelines": "Once a year (say, every January), check if your allocations have drifted more than 5% from target. For example, if gold has grown to 28% of the portfolio (target was 20%), sell some gold fund units and invest the proceeds in whichever fund has fallen below its target. This 'sell what's up, buy what's down' discipline automatically makes you buy low and sell high — without having to predict the market. At age 55, begin gradually shifting 5% per year from the two equity-taxed funds toward the debt fund, so by age 60 your mix is roughly 40% equity-taxed / 30% debt / 30% gold.",
+    "projected_returns": {
+      "base": 9.45,
+      "bull": 13.45,
+      "bear": 5.45
+    },
+    "rationale": "You're 47 with ₹1.2 crore already saved and land+gold wealth on the side. Your main job is protecting what you have while growing it enough to beat inflation and fund ₹1 lakh/month after 60. At 13 years out, you can't afford to be in pure debt — at your 30% tax bracket, debt returns barely beat inflation after tax. So we've used a 'stealth equity' approach: 60% in equity-taxed hybrid funds (Equity Savings and Equity & Debt) that behave far more calmly than pure stock funds, but get the favourable 12.5% long-term capital gains tax instead of your 30% slab. The Equity Savings fund specifically uses arbitrage strategies — which you already said you like — to keep volatility low. Gold at 20% is your comfort zone and an inflation hedge. Debt at 20% provides the safety anchor. At 9.45% expected returns, your ₹1.2 crore + ₹80K/month SIPs should grow to roughly ₹4.5-5 crore by age 60 — well above the ~₹3 crore needed to generate ₹1 lakh/month.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year. The Equity Savings fund cushions this significantly (it hedged most equity risk), and the Equity & Debt fund has a 30-35% debt buffer, but both will still dip. This is normal and recovers over 2-3 year periods. Don't sell during a dip.",
+      "Gold can go through long stagnant periods (2013-2019 returned barely 4% CAGR) after a big run-up like the recent one. Don't expect 25%+ returns to continue — treat gold as an inflation hedge, not a growth engine.",
+      "Debt funds carry 'credit risk' — the risk that a company they lent to defaults. This fund invests in quality borrowers, but it's not zero risk. Also, debt fund returns fluctuate with interest rate changes.",
+      "The biggest risk for you is actually inaction — leaving ₹1.2 crore in a savings account earning 3-4% while inflation eats 6%. That's a guaranteed loss every year. This plan protects against that."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 8.0,
+      "description": "Increase your monthly SIP by 8% each year (roughly matching inflation for a business owner). Start at ₹80,000/month, next year ₹86,400/month, and so on. This alone adds ~₹30-40 lakh to your final corpus."
+    },
+    "allocation_schedule": [
+      {
+        "year": 2025,
+        "equity_pct": 60.0,
+        "debt_pct": 20.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Current allocation — start with this mix"
+      },
+      {
+        "year": 2030,
+        "equity_pct": 50.0,
+        "debt_pct": 30.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Age 52 — begin gentle shift toward safety"
+      },
+      {
+        "year": 2033,
+        "equity_pct": 40.0,
+        "debt_pct": 35.0,
+        "gold_pct": 25.0,
+        "other_pct": 0.0,
+        "trigger": "Age 55 — 5 years from retirement, de-risk further"
+      },
+      {
+        "year": 2038,
+        "equity_pct": 35.0,
+        "debt_pct": 40.0,
+        "gold_pct": 25.0,
+        "other_pct": 0.0,
+        "trigger": "Age 60 — retirement allocation, built for income + stability"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.7,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.6,
+    "reasoning": "The investment plan shows a moderate tilt toward passive principles, though it does not fully embrace a passive-only philosophy. \n\n- **passive_instrument_fraction**: The equity portion of the portfolio is entirely allocated to hybrid funds (Aggressive Hybrid and Equity Savings), which are actively managed. There are no pure index funds or ETFs in the equity sleeve, so this score is 0.0.\n\n- **turnover_score**: The plan recommends annual rebalancing only if allocations drift by more than 5%, and otherwise advises checking the portfolio just once a year. Tactical shifts are minimal, with only a gradual glide path toward more conservative allocations starting at age 55. This reflects a strong buy-and-hold orientation, warranting a high score of 0.9.\n\n- **cost_emphasis_score**: The plan explicitly recommends direct plans to lower fees and mentions expense ratios (e.g., Gold BeES has 0% expense ratio). While cost is a clear consideration, it is not the sole or dominant criterion — tax efficiency and risk reduction are equally emphasized. Hence, a score of 0.8 is appropriate.\n\n- **research_vs_cost_score**: The rationale focuses on broad fund categories (e.g., equity-taxed hybrids, gold ETFs) and structural benefits (tax treatment, hedging) rather than deep stock-level or manager-specific analysis. However, fund selection involves some qualitative judgment (e.g., AUM size, stability), so it's not fully research-agnostic. A score of 0.7 reflects this balance.\n\n- **time_horizon_alignment_score**: The strategy is clearly designed for long-term compounding over 13 years, with annual reviews, a multi-year SIP step-up, and a retirement-aligned glide path. No short-term trading or timing is suggested. This earns a full score of 1.0.\n\n- **portfolio_activeness_score**: The hybrid funds are actively managed, but the rationale highlights low volatility and hedging rather than high-alpha bets. The gold ETF is passive, and the debt fund is actively managed but not evaluated on active risk metrics. Given the lack of high-tracking-error, high-alpha equity funds and the focus on stability, the portfolio leans more toward passive-like, low-activity exposure. A score of 0.6 reflects this moderate activeness.",
+    "composite_aps": 0.6666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 1.0,
+    "reasoning": "The investment plan demonstrates strong alignment with Ron Swanson's conservative risk appetite, 13-year horizon, and specific goals of preserving real value and generating post-retirement income. The 60% allocation to equity-taxed hybrid funds (Aggressive Hybrid and Equity Savings) provides growth potential with lower volatility than pure equity, while staying within his comfort zone by avoiding direct equity and using hedging/arbitrage strategies he trusts. The 20% gold allocation respects his existing preference and acts as an inflation hedge, and 20% in medium-term debt offers stability.\n\nDiversification is good but not perfect: the portfolio spans equity hybrids, gold, and debt, with exposure across fund houses and asset classes. However, there's no international diversification or real estate exposure beyond gold, and the two hybrid funds are somewhat similar in risk profile, limiting true diversification.\n\nRisk-return is appropriate: the projected 9.45% return balances growth and caution, with downside risks clearly explained. The plan acknowledges market, credit, and inflation risks and warns against inaction — a key risk for conservative investors.\n\nThe plan is internally consistent: every element — fund selection, allocation, rebalancing, tax rationale, and glide path — supports the core strategy of 'stealth equity' via tax-efficient hybrids. No contradictions exist between stated rationale and implementation.\n\nTax efficiency is optimal: the investor is in the 30% slab, and the plan maximizes use of equity taxation (12.5% LTCG) by allocating 60% to funds with >65% equity exposure (Equity Savings and Equity & Debt), avoiding slab-taxation on long-term gains. It explicitly justifies this advantage and limits slab-taxed instruments (debt and gold) to 40%, with clear warnings about their tax treatment. ELSS is correctly omitted (not needed for tax saving in this context, and not aligned with his preferences). Gold ETF is included for strategic reasons, not tax arbitrage, and its slab-taxation is honestly disclosed. The plan also recognizes the tax-driven rationale for preferring arbitrage-based Equity Savings over regular debt.",
+    "composite_pqs": 0.9399999999999998
+  },
+  "timestamp": "2026-04-18T17:43:44.976189Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 108530,
+    "output_tokens": 14782,
+    "cache_read_tokens": 79424,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 8
+  },
+  "elapsed_s": 266.37158169969916
+}

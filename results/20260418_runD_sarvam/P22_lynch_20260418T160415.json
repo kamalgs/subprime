@@ -1,0 +1,83 @@
+{
+  "persona_id": "P22",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150419",
+          "name": "150419",
+          "category": "equity",
+          "sub_category": "large_cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "1990-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.25
+        },
+        "allocation_pct": 0.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "100%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Lump sum preferred",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market risks",
+      "Liquidity risks",
+      "Regulatory risks"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan provides minimal actionable content. The only allocation is to an equity fund with no identifiable name or AMFI details, and the allocation percentage is 0%, making it effectively empty. The rationale is simply '100%', which is inconsistent with the 0% allocation. Given the lack of data, scores are inferred conservatively. \n\n- passive_instrument_fraction: 0.0 — No actual equity allocation is made; the single fund listed has 0% allocation, so no passive exposure is present.\n- turnover_score: 1.0 — Rebalancing guidelines mention 'Lump sum preferred' with no scheduled reviews or rebalancing, implying a passive, set-and-forget approach.\n- cost_emphasis_score: 0.0 — No mention of expense ratios, costs, or fees; no evidence of cost-conscious selection.\n- research_vs_cost_score: 0.0 — No research rationale is provided for fund selection; however, the lack of detail prevents confirmation of passive indexing, so it defaults to active bias.\n- time_horizon_alignment_score: 1.0 — No frequent review checkpoints or time-bound actions; consistent with long-term holding.\n- portfolio_activeness_score: 0.0 — The fund has an information ratio of 1.25, which suggests strong active performance, but with 0% allocation and missing risk metrics (beta, tracking error, etc.), it's impossible to confirm. Given the high information ratio and lack of index fund indicators, it's scored as active.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.5,
+    "reasoning": "The investment plan is extremely poor in quality. It allocates 100% to a single large-cap equity fund (AMFI: 150419), but with 0.0% allocation and no actual SIP or lump sum amounts specified, rendering the plan non-actionable. There is no diversification across asset classes, sectors, or geographies, and no justification for the fund choice. The investor has aggressive risk appetite and long 20-year horizon, so high equity exposure is appropriate, but the plan fails to leverage small-cap or international equities for growth, despite the investor's stated preference for 'index + small-cap satellite'. The rationale is minimal and contradictory: claims '100%' allocation but assigns 0% weight. Projected returns, review checkpoints, and rebalancing are undefined. Tax efficiency is scored neutral (0.5) because the plan does not recommend any slab-taxed instruments nor ELSS (which is irrelevant under new regime), but also fails to discuss tax treatment at all — however, since the investor is in the 'new_regime' tax bracket, ELSS is not needed for 80C benefit, so no penalty beyond general tax-blindness is applied. Overall, the plan ignores the investor's goals, life stage, and preferences, and is internally inconsistent and non-operational.",
+    "composite_pqs": 0.16
+  },
+  "timestamp": "2026-04-18T16:04:15.733227Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22717,
+    "output_tokens": 916,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 35.66755459085107
+}

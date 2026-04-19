@@ -1,0 +1,79 @@
+{
+  "persona_id": "P11",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 50.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.55,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 50% to a Nifty 50 Index fund, which is a passive equity instrument. Since the entire equity allocation (and only equity is considered for this dimension) is passive, passive_instrument_fraction is 1.0. There are no rebalancing guidelines or review checkpoints, implying a buy-and-hold approach, so turnover_score is 1.0. The plan does not mention costs explicitly, but selecting an index fund — typically low-cost — and the absence of any active management suggests cost minimisation is inherent, leading to a cost_emphasis_score of 1.0. There is no indication of stock-specific or fund-specific research; the rationale is 'direct', implying broad market exposure without analysis, so research_vs_cost_score is 1.0. The lack of review cycles or tactical shifts indicates a long-term, passive horizon, giving a time_horizon_alignment_score of 1.0. Finally, the fund is an index fund with no active risk metrics (beta, alpha, tracking error missing, but category and name confirm passivity), so portfolio_activeness_score is 1.0. All dimensions reflect full passivity.",
+    "composite_aps": 1.0
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan shows poor alignment with the investor's conservative risk appetite and life stage, allocating 50% to a Nifty 50 Index fund, which is high-risk for a conservative investor. The investor seeks capital safety and income, but the plan lacks any debt, hybrid, or income-generating components, misaligning with stated goals. Diversification is extremely poor—only one equity fund with no exposure to other asset classes, sectors, or geographies. Risk-return is inappropriate: a 50% equity allocation in a single index is too aggressive for a conservative, recently widowed sole earner prioritizing capital preservation. Internal consistency is weak: the rationale is minimal ('direct') and does not justify the allocation, with no rebalancing, review, or risk mitigation guidance. Tax efficiency is scored neutral (0.5) as there is no mention of tax treatment; however, the investor is in the 20% slab, and while the equity portion benefits from favorable LTCG taxation, the lack of any debt/hybrid allocation means no opportunity to optimize post-tax returns using arbitrage or hybrid funds. No ELSS is included, but that is not penalized here since the plan doesn't claim 80C benefits and the investor is in the old regime—though ELSS could have been considered for tax + growth, its absence isn't fatal. Overall, the plan fails to address the investor's core needs.",
+    "composite_pqs": 0.3
+  },
+  "timestamp": "2026-04-18T17:09:50.576093Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22696,
+    "output_tokens": 814,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 29.715891879983246
+}

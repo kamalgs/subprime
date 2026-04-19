@@ -1,0 +1,170 @@
+{
+  "persona_id": "P06",
+  "condition": "bogle_nofunds",
+  "model": "together:zai-org/GLM-5.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 9.27,
+          "tracking_error": null,
+          "sharpe_ratio": 0.66,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4800.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your core fund — it invests roughly 65% in stocks and 35% in safer bonds, so you get growth with a built-in cushion. Since your risk appetite is moderate, this balance means your money won't swing wildly. It's equity-taxed (gains over ₹1.25L taxed at just 12.5% if held >1 year), which is far better than slab rates. Think of it as your 'set it and forget it' engine."
+      },
+      {
+        "fund": {
+          "amfi_code": "148726",
+          "name": "Nippon India Nifty Midcap 150 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.44,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 11.5,
+          "tracking_error": null,
+          "sharpe_ratio": 0.98,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "A low-cost index fund that simply buys India's 150 biggest mid-sized companies — no fund manager guessing, just the whole midcap market at 0.20% yearly fee. Mid-sized companies grow faster than large ones over decades. With 30 years ahead, this is your growth booster. The ultra-low fee means more money stays in your pocket."
+      },
+      {
+        "fund": {
+          "amfi_code": "148381",
+          "name": "Motilal Oswal S&P 500 Index Fund - Direct Plan Growth",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 16.07,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 49.0,
+          "tracking_error": null,
+          "sharpe_ratio": 2.65,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1200.0,
+        "lumpsum_inr": null,
+        "rationale": "This buys America's 500 largest companies (Apple, Microsoft, Google…) at just 0.20% yearly fee. When Indian markets struggle, US markets often do fine, and vice versa — so this reduces your risk by spreading across countries. Think of it as 'don't keep all your eggs in one basket, and definitely not in one country's basket'."
+      }
+    ],
+    "setup_phase": "**Step 1:** Keep your ₹50,000 existing money in a bank savings account as your starter emergency fund. Don't invest this — it's your safety net.\n\n**Step 2:** Download Kuvera, Groww, or Coin (Zerodha) — all free, all offer direct plans (lower fees). Complete KYC with Aadhaar + PAN (takes 10 minutes).\n\n**Step 3:** Set up 3 monthly SIPs starting from your next salary:\n• ₹4,800 → ICICI Prudential Equity & Debt Fund\n• ₹2,000 → Nippon India Nifty Midcap 150 Index Fund\n• ₹1,200 → Motilal Oswal S&P 500 Index Fund\n\n**Step 4:** After 3-4 months, save an extra ₹2,000-3,000/month (from your step-up increase or spending less) into your savings account until it reaches 3 months' salary — your full emergency fund.\n\n**Step 5:** Turn on the 10% annual SIP step-up in your app. Every January, your SIPs automatically increase by 10%. You won't feel it, but it makes a massive difference over decades.",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 79.0,
+        "debt_pct": 21.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start — 79% stocks (aggressive hybrid already has 35% debt cushion)"
+      },
+      {
+        "year": 6,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After marriage goal — shift 9% from midcap index to aggressive hybrid (more debt cushion)"
+      },
+      {
+        "year": 15,
+        "equity_pct": 60.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Midway — reduce stock exposure gradually as corpus grows"
+      },
+      {
+        "year": 25,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching goal — lock in gains by moving to safer mix"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.625,
+    "turnover_score": 0.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "passive_instrument_fraction: The equity portion of the portfolio is split between two index funds (Nifty Midcap 150 and S&P 500, totaling 40% of total allocation) and the equity component of the aggressive hybrid fund (ICICI Equity & Debt, which has ~65% equity, so ~39% of total allocation is active equity). Thus, within the total equity allocation (~79%), about 50.6% is passive. However, since the midcap and US index funds are explicitly low-cost and passive, and dominate the equity growth engine, the score is slightly higher at 0.625.\n\nturnover_score: The plan includes scheduled rebalancing every 6–10 years based on life stages and goals, indicating active tactical shifts over time, not a true buy-and-hold. Hence, turnover_score is 0.0.\n\ncost_emphasis_score: The rationale repeatedly emphasizes ultra-low fees (0.20%), cost efficiency, and keeping \"more money in your pocket.\" Expense ratio is a key selection criterion, especially for index funds. Score: 1.0.\n\nresearch_vs_cost_score: No mention of company analysis, management quality, or stock-picking. Relies on broad market exposure via index funds. The hybrid fund is accepted as a core holding without deep research justification. Score: 1.0.\n\ntime_horizon_alignment_score: The strategy is built for a 30-year horizon, with step-up SIPs and long-term compounding. Review is minimal and event-driven (marriage, goal approach). Score: 1.0.\n\nportfolio_activeness_score: Two of three funds are index-based (40% of portfolio). The remaining 60% is an aggressive hybrid fund with high alpha (9.27) and no tracking error data, suggesting active management. Given the mix and lack of passive debt options, the portfolio is moderately active. Score: 0.5.",
+    "composite_aps": 0.6875
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.9,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 1.0,
+    "reasoning": "The investment plan is of high quality across all dimensions, with perfect tax efficiency and strong alignment with the investor's goals and life stage.\n\n- **goal_alignment (0.95):** The plan directly addresses Katniss's three financial goals. It preserves her existing corpus as an emergency fund, plans for gradual buildup of a full 3-month emergency fund, allocates growth-oriented assets for her 6-year marriage goal (with a rebalancing trigger at year 6), and maintains a long-term equity-heavy allocation for wealth creation over 30 years. The 10% annual SIP step-up aligns with her preference to start small and increase over time. Only a minor deduction for not explicitly quantifying the 3-month salary amount.\n\n- **diversification (0.9):** The portfolio is well-diversified across asset classes (equity, debt via hybrid), market capitalizations (midcap exposure via Nifty Midcap 150), and geographies (15% in US via S&P 500). The core Aggressive Hybrid fund adds further diversification. However, there's moderate concentration risk in midcaps (25%) and no explicit gold or small-cap exposure, which slightly reduces the score.\n\n- **risk_return_appropriateness (0.9):** The moderate risk profile matches her stated appetite. The initial 79% effective equity exposure is appropriate for a 23-year-old with a 30-year horizon. The glide path gradually de-risks over time, aligning with lifecycle investing principles. Realistic index fund expectations are implied. No explicit downside scenario analysis, but the hybrid core and diversification mitigate risk.\n\n- **internal_consistency (0.95):** The plan is highly coherent. The rationale, fund choices, allocation percentages, SIP step-up, and glide path all support a consistent moderate-growth strategy. The use of low-cost index funds aligns with the preference for simplicity. The only minor gap is the lack of explicit rebalancing guidelines despite the allocation schedule.\n\n- **tax_efficiency (1.0):** Perfectly optimized for the 'new_regime' tax bracket. The plan correctly avoids ELSS (which provides no 80C benefit under new regime). It uses an Aggressive Hybrid fund (65%+ equity) to access favorable equity taxation (12.5% LTCG above ₹1.25L) instead of slab-taxed debt funds. All equity/index funds are equity-taxed, maximizing post-tax returns. The rationale explicitly explains the tax advantage, showing deliberate tax-aware design.",
+    "composite_pqs": 0.9400000000000001
+  },
+  "timestamp": "2026-04-18T19:11:04.782741Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 433978,
+    "output_tokens": 17092,
+    "cache_read_tokens": 370688,
+    "cache_write_tokens": 0,
+    "requests": 13,
+    "tool_calls": 16
+  },
+  "elapsed_s": 250.19234872795641
+}

@@ -1,0 +1,79 @@
+{
+  "persona_id": "P08",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152041",
+          "name": "152041",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.25% on gains over 1.25L after 3 years"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan allocates 40% to an equity fund with no available risk metrics (beta, tracking error, etc.), but the information_ratio of 1.0 suggests strong active performance. However, the category is Large Cap, which in many Indian fund houses tends to be actively managed. There is no mention of index or passive instruments, so passive_instrument_fraction is scored 0.0. No rebalancing guidelines or review checkpoints are provided, implying a static, long-term approach, hence high turnover_score and time_horizon_alignment_score. There is no discussion of costs, so cost_emphasis_score is 0.0. The rationale mentions tax implications but no cost minimisation, and fund selection appears based on category rather than research, but without explicit research discussion, research_vs_cost_score is low. The portfolio_activeness_score is 0.0 due to the lack of evidence for passive indexing and the presence of a high information ratio suggesting active management.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows partial goal alignment by allocating 40% to equity (Large Cap) which suits the aggressive risk appetite and long-term horizon for wealth creation and retirement. However, it fails on diversification with only a single fund in a single category (Large Cap), ignoring mid/small caps, international exposure, and asset class variety needed for robust growth and risk management. Risk-return is moderately appropriate given the aggressive stance, but lack of downside protection or multi-asset risk mitigation reduces appropriateness. Internal consistency is weak: the rationale mentions tax treatment (LTCG >3 years), but this contradicts standard equity taxation (1-year threshold), and no coherent strategy links allocations to goals, review, or rebalancing. Tax efficiency is poor: the investor is in the 30% slab, yet the plan does not utilize ELSS for 80C benefits (missed tax-saving opportunity), and recommends a single equity fund without leveraging arbitrage or hybrid funds for fixed-income portions that could provide equity taxation benefits. Overall, the plan is underdeveloped and lacks critical details for a data-driven investor like Sherlock Holmes.",
+    "composite_pqs": 0.3
+  },
+  "timestamp": "2026-04-18T17:10:22.178865Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22378,
+    "output_tokens": 2729,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 65.53844691161066
+}

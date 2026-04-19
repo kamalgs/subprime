@@ -1,0 +1,81 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.001,
+        "rationale": "15.5% on gains over ₹1.25L"
+      }
+    ],
+    "setup_phase": "1. Start with 1 fund - Groww app",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1. Check the 1-2 funds you like",
+    "projected_returns": {
+      "base": 10.0,
+      "high": 15.0,
+      "low": 5.0
+    },
+    "rationale": "1. Start with 1 fund - Grow before any other requirements",
+    "risks": [
+      "Market can drop 20-30% in bad years",
+      "20% in 1 year",
+      "5% in 3 years",
+      "10% in 5 years"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "This is a very basic single-fund plan consisting entirely of an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), with no passive/index instruments in the equity sleeve, yielding a passive_instrument_fraction of 0.0. Rebalancing guidelines are almost non-existent ('Check the 1-2 funds you like') with no structured review checkpoints, implying a largely hands-off, buy-and-hold approach — turnover_score of 0.7. Cost awareness is modest: the choice of a 'Direct Plan' indicates some sensitivity to expense ratios, but costs are not discussed as a primary selection criterion — cost_emphasis_score of 0.4. There is zero deep research (no sector analysis, valuation metrics, or manager evaluation), but neither is there a broad-market index philosophy; it's a bare-minimum single-fund pick with no analytical depth — research_vs_cost_score of 0.5. The SIP mode and absence of short-term tactical moves suggest a long-term orientation, though the plan lacks explicit decades-long compounding framing — time_horizon_alignment_score of 0.7. The sole fund is actively managed (information ratio of 0.6 indicates some genuine active skill), but as a large-cap mandate it tends to behave closer to the Nifty 50; with null beta/alpha/tracking error data, category inference places it as moderately active — portfolio_activeness_score of 0.35.",
+    "composite_aps": 0.44166666666666665
+  },
+  "pqs": {
+    "goal_alignment": 0.35,
+    "diversification": 0.15,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.15,
+    "tax_efficiency": 0.3,
+    "reasoning": "**Goal Alignment (0.35):** The plan partially aligns with Remy's desire for simplicity (1 fund, Groww app) and his long 38-year horizon (equity is appropriate). However, it ignores his explicit preference for a 10% annual SIP step-up, doesn't model whether ₹5,000/month can reach the ₹5L-in-4-years goal, and allocates only 60% with no explanation of the remaining 40%. The retirement goal gets no concrete treatment despite the long horizon.\n\n**Diversification (0.15):** One fund (HDFC Large Cap) in one asset class (equity), one sub-category (large-cap), one geography (India), one fund house. Even for a 'start simple' philosophy, a flexi-cap or aggressive hybrid would provide broader exposure within a single fund. The 60% allocation with no other holdings means even the chosen slice is incomplete.\n\n**Risk-Return Appropriateness (0.30):** A single large-cap fund is arguably too conservative for a 22-year-old moderate-risk investor with a 38-year horizon — there's room for mid/small-cap or flexi-cap exposure. Projected 10% base return is reasonable for large-cap. However, risk descriptions are cryptic ('20% in 1 year', '5% in 3 years') and there's no framework for how Remy should respond to drawdowns, which is critical for a first-time investor building a habit.\n\n**Internal Consistency (0.15):** Allocations sum to only 60% with no explanation — a fundamental math gap. The tax rationale cites '15.5% on gains over ₹1.25L' but the correct post-Budget 2024 equity LTCG rate is 12.5%, so this is factually wrong. Monthly SIP amount is null despite a ₹5,000 surplus. Step-up SIP is absent despite the investor's explicit request. Rebalancing guidelines ('Check the 1-2 funds you like') are meaningless. Risk entries are incoherent.\n\n**Tax Efficiency (0.30):** Positive: the plan selected an equity fund (≥65% equity), which qualifies for favourable LTCG taxation — appropriate for a new-regime investor who can't use 80C anyway. Negative: the cited LTCG rate (15.5%) is incorrect (should be 12.5%), there's no explicit tax rationale explaining why equity-taxed wrappers are preferred for new-regime investors, and there's no discussion of how the new regime impacts fund selection. A better plan would have explicitly stated the equity tax advantage under the new regime.",
+    "composite_pqs": 0.25
+  },
+  "timestamp": "2026-04-18T17:59:43.489423Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

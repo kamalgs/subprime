@@ -1,0 +1,81 @@
+{
+  "persona_id": "P09",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150000",
+          "name": "HDFC Large Cap Direct Plan Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.2
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "2024-01-01"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "2024-01-01",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "2024-01-01"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 60% to an actively managed equity fund (HDFC Large Cap Direct Plan Growth), which has an information ratio of 1.2, suggesting a focus on active management with potential outperformance. Since the entire equity allocation is to an active fund and no passive/index instruments are included, the passive_instrument_fraction is 0.0. There is no specified rebalancing frequency or review checkpoints, but the minimal guidance suggests a static, long-term approach, leading to a high turnover_score of 1.0. Costs are not discussed, so cost_emphasis_score is 0.0. The plan does not mention individual stock research, but the use of a high-information-ratio active fund implies reliance on fund-level research rather than broad market exposure, hence research_vs_cost_score is 0.0. The lack of active trading signals and presence of long-term rationale supports a long-term horizon (time_horizon_alignment_score = 1.0). Finally, the portfolio_activeness_score is 0.0 due to the high information ratio and active fund mandate, indicating genuine active management intent.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.3,
+    "reasoning": "The investment plan is extremely underdeveloped and lacks meaningful content to support its recommendations. Nearly all fields (e.g., rationale, projected returns, review checkpoints, risks) are filled with '2024-01-01' or null, suggesting placeholder data. Only one fund is recommended (HDFC Large Cap) with 60% allocation, but no justification is provided. There is no alignment with the investor's multiple goals (home, child education, retirement) across different time horizons. Diversification is poor—only large-cap equity is included, with no exposure to mid/small caps, debt, international, or hybrid funds. For a moderate risk investor with a 22-year horizon, 60% in a single equity fund may be acceptable in theory, but without risk-adjusted return metrics or diversification, the risk-return profile is questionable. The plan ignores tax efficiency: the investor is in the 20% slab and would benefit from ELSS for 80C benefits, but no ELSS is included, nor is tax treatment discussed. The plan lacks internal consistency—dates are used as text in rationale and risks, making it incoherent. Overall, the plan appears incomplete or corrupted, severely limiting its quality across all dimensions.",
+    "composite_pqs": 0.3
+  },
+  "timestamp": "2026-04-18T18:08:16.409512Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22449,
+    "output_tokens": 811,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 22.569937406107783
+}

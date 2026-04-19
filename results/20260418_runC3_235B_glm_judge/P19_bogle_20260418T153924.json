@@ -1,0 +1,199 @@
+{
+  "persona_id": "P19",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16618.7596,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 17.660092596665432,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 120000.0,
+        "lumpsum_inr": null,
+        "rationale": "Large-cap stocks offer stability and steady growth. This fund has consistently delivered strong long-term returns with moderate volatility, making it ideal for wealth preservation at your stage."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": null,
+        "rationale": "This hybrid fund balances stocks and bonds, reducing overall risk. It's equity-taxed (better for your 30% slab) and has delivered solid returns with lower swings than pure equity funds."
+      },
+      {
+        "fund": {
+          "amfi_code": "148519",
+          "name": "Nippon India Nifty Smallcap 250 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2031.8304,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 16.628696270483843,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Small-cap index fund adds growth potential at very low cost (0.2% fee). It’s diversified and tax-efficient, helping beat inflation over 10 years without speculation."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 10577.451299999999,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 6.279485763002324,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Overnight fund is safe and liquid. But since you're in the 30% tax slab, we’ll shift this to an arbitrage fund (equity-taxed) to save tax. This is just for setup; we’ll swap it soon."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera.\nStep 2: Start SIPs of ₹1.2L (Large Cap), ₹40k (Hybrid), ₹20k (Small-cap Index), and ₹20k (Overnight) monthly.\nStep 3: We’ll soon replace the ₹20k overnight SIP with an arbitrage fund for better post-tax returns.",
+    "review_checkpoints": [
+      "After 3 months: Confirm all SIPs are running.",
+      "After 1 year: Check if any fund has underperformed its category for 2 quarters.",
+      "Every 2 years: Review tax efficiency and succession setup."
+    ],
+    "rebalancing_guidelines": "Once a year, check your mix. If any category is more than 5% away from target (e.g., equity grows to 70%), shift money back to bring it in line. Do this in April to align with financial year.",
+    "projected_returns": {
+      "base": 13.5,
+      "bull": 17.5,
+      "bear": 9.5
+    },
+    "rationale": "At 58, with a 10-year horizon and conservative style, we focus on preserving ₹5Cr while growing it steadily. Most goes to large caps for stability. Hybrid fund reduces risk. Small-cap index adds inflation-beating growth at low cost. We avoid speculation and keep everything simple and transferable.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal.",
+      "Small-cap funds are more volatile — they can swing widely but help beat inflation over time.",
+      "Tax rules can change. We use equity-taxed funds (like arbitrage) to save tax now, but future changes are possible."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to grow corpus faster, matching typical business income growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 90.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start portfolio"
+      },
+      {
+        "year": 5,
+        "equity_pct": 75.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Rebalance at midpoint"
+      },
+      {
+        "year": 10,
+        "equity_pct": 60.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Shift to income-generating assets"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.14,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.65,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "1) passive_instrument_fraction=0.14: The equity sleeve (excluding hybrid & debt per instructions) consists of 60% active Large Cap + 10% Nifty Smallcap 250 Index Fund. Passive fraction = 10/70 ≈ 14%. The dominant active large-cap fund drives this low score. 2) turnover_score=0.75: Annual rebalancing with a 5% drift threshold is standard buy-and-hold practice. No tactical shifts or sector rotation. The one-time overnight→arbitrage swap is a setup tweak, not active trading. 3) cost_emphasis_score=0.4: Cost is mentioned for the index fund ('0.2% fee') and tax efficiency is discussed, but the plan's largest holding (60% in an active large-cap fund at 1.0% ER) shows cost is not the primary selection criterion. Moderate cost awareness. 4) research_vs_cost_score=0.65: No deep fundamental research, PEG ratios, moat analysis, or manager track-record evaluation. Fund rationales are broad and category-level ('stability,' 'solid returns'). Small-cap selection is purely index-based. Closer to broad-market exposure than deep research. 5) time_horizon_alignment_score=0.85: 10-year horizon with a gradual glide path (90→75→60 equity), annual rebalancing, 10% SIP step-up, and explicit avoidance of speculation. Strongly long-term oriented. 6) portfolio_activeness_score=0.25: 80% of the portfolio is in actively managed funds (large cap + aggressive hybrid), 10% in a passive small-cap index fund, and 10% in overnight debt. No risk metrics are provided, but category labels confirm the active nature of the two dominant holdings. The portfolio reflects genuine active management conviction for the majority of assets.",
+    "composite_aps": 0.5066666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.25,
+    "diversification": 0.35,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.25,
+    "tax_efficiency": 0.35,
+    "reasoning": "**Goal Alignment (0.25):** The plan nearly ignores the investor's two most critical goals. There is no strategy for tax-efficient transfer of ₹5Cr each to three children (no mention of succession structures, HUF, trust, or gifting). There is no income generation plan — no SWP, no dividend-oriented allocation, no explanation of how ₹2L/month will be produced. The existing ₹5Cr corpus is unaddressed entirely; only the ₹2L/month SIP is allocated. Inflation protection is partially served by the equity tilt, but that's incidental rather than designed.\n\n**Diversification (0.35):** Only two fund houses (Nippon, ICICI Prudential) — significant counterparty concentration. No gold, no international equity, and no meaningful fixed-income diversification (the 10% 'debt' is an overnight fund). The investor specifically wants arbitrage and short-duration debt, but neither is actually included. Small-cap index adds category breadth, but the overall geographic and asset-class spread is thin.\n\n**Risk-Return Appropriateness (0.2):** A 90% equity allocation for a 58-year-old conservative investor is a severe mismatch. Including 10% small-cap contradicts the 'no speculation' mandate. Projected base return of 13.5% is optimistic for a large-cap-heavy conservative portfolio. The bear case of 9.5% is also unrealistically high for a true bear scenario. No downside protection mechanism (no gold, no proper debt buffer) is provided for a conservative investor who prioritises wealth preservation.\n\n**Internal Consistency (0.25):** Multiple contradictions: 'conservative' profile vs 90% equity; 'no speculation' vs 10% small-cap; 'wealth preservation' rationale vs aggressive allocation; overnight fund allocated but rationale says it will be switched to arbitrage (why not allocate arbitrage directly?). The allocation schedule shows de-risking over time but provides no mechanism or fund selections for increasing debt exposure. The ₹5Cr corpus goes entirely unmentioned despite being the investor's primary asset.\n\n**Tax Efficiency (0.35):** Some positive signals: correctly identifies Aggressive Hybrid as equity-taxed (beneficial for 30% slab), and acknowledges arbitrage is superior to overnight for tax. However, no ELSS is included for this 30% slab old-regime investor (missing 80C headroom). The overnight fund — a slab-taxed instrument — is still in the actual allocation with only a vague promise to switch. No mention of tax-efficient succession/transfer strategies, which is the investor's primary goal. Capital gains implications of SWP for income are unaddressed.",
+    "composite_pqs": 0.27999999999999997
+  },
+  "timestamp": "2026-04-18T15:39:24.396570Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

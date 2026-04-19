@@ -1,0 +1,236 @@
+{
+  "persona_id": "P10",
+  "condition": "lynch",
+  "model": "anthropic:claude-haiku-4-5",
+  "judge_model": "anthropic:claude-sonnet-4-6",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119018",
+          "name": "HDFC Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 14.5,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 4000.0,
+        "lumpsum_inr": 40000.0,
+        "rationale": "Stability. The boring choice—the kind of fund that's been quietly doing its job since 1996. Not flashy, but steady."
+      },
+      {
+        "fund": {
+          "amfi_code": "118989",
+          "name": "HDFC Mid Cap Fund",
+          "category": "Mid Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.15,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 21.8,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": 50000.0,
+        "rationale": "Growth engine. This is where wealth actually builds. Strong track record of finding undervalued mid-sized companies."
+      },
+      {
+        "fund": {
+          "amfi_code": "118778",
+          "name": "Nippon India Small Cap Fund",
+          "category": "Small Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 22.3,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 4000.0,
+        "lumpsum_inr": 40000.0,
+        "rationale": "Long-term wealth creation. Small caps are volatile (10-20% swings per year are normal), but over 18 years, this drives significant returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large & Mid Cap",
+          "category": "Large & Mid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 20.0,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 4000.0,
+        "lumpsum_inr": 40000.0,
+        "rationale": "Diversifier. Blends stability with growth. Reduces concentration risk."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund",
+          "category": "Debt/Cash",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.55,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 5.5,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "both",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": 30000.0,
+        "rationale": "Your safety buffer. Ultra-stable. Think of this as your financial shock absorber—when markets drop 20%, this doesn't. Perfect for emergency fund."
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Once a year in January: Log into app and check portfolio breakdown. If debt/cash allocation (ICICI Overnight) has dropped below 12% from target 15%, rebalance by selling profits from best performers (typically HDFC Mid Cap or Nippon Small Cap) and moving to ICICI Overnight to maintain 85/15 equity-debt split. Example: If Overnight is ₹25,000 instead of ₹30,000 target, sell ₹5,000 from HDFC Mid Cap and shift to Overnight. Note: Portfolio drifting to 88/12 is acceptable; perfection not required. The key is staying invested and adding money monthly.\",\n<parameter name=\"review_checkpoints\">[\n  \"Every 6 months: Log in, verify balance growing. If markets show red (losses), do nothing—markets are temporary.\",\n  \"Once a year (January): Check if any fund has significantly lagged peers by >5% for 2 consecutive quarters. If yes, seek app support guidance on potential switches. Most likely outcome: stay put.\",\n  \"Every 5 years (age 47, 52, 57): Reality check projections—verify if portfolio is still on track for ₹80 lakh goal or if SIP increase is needed to hit ₹2 crore target.\",\n  \"Age 60 (18 years): Final transition checkpoint for retirement planning.\"\n]",
+    "projected_returns": {
+      "base_case_cagr_pct": 10.0,
+      "base_case_corpus_at_60_inr_lakhs": 81.0,
+      "bull_case_cagr_pct": 12.0,
+      "bull_case_corpus_at_60_inr_lakhs": 115.0,
+      "bear_case_cagr_pct": 6.0,
+      "bear_case_corpus_at_60_inr_lakhs": 52.0
+    },
+    "rationale": "",
+    "risks": [
+      "Stock market downturns: Equity funds can drop 20–30% in a bad year (2008, 2020 precedent). Portfolio volatility ~10–12% annually. Recovery historically takes 2–3 years. Mitigation: Avoid panic selling; stay invested; 15% overnight fund softens blows.",
+      "Small-cap volatility: Nippon India Small Cap Fund experiences 20%+ annual swings; normal but psychologically challenging. Mitigated by 5-fund diversification and long 18-year horizon.",
+      "Interest-rate risk: Rising rates could reduce overnight fund attractiveness, but equity growth typically offsets over long horizons.",
+      "Goal shortfall: ₹2 crore target requires ~14% CAGR; plan targets 10% post-tax CAGR. Likely outcome: ₹80–100 lakhs + separate savings + continued lower-intensity work post-60 = comfortable, not lavish, retirement.",
+      "Job loss or salary cut: Pause SIP for 6 months; do not sell holdings. Resume when stable.",
+      "Inflation erosion: 10% nominal returns minus ~5% inflation = 5% real returns. Adequate but tight for aspirational ₹2Cr goal."
+    ],
+    "disclaimer": "For research and educational purposes only. Not certified financial advice. Investors should consult a licensed financial advisor if personal circumstances change significantly. Tax treatment assumes 20% income-tax slab and 18-month LTCG holding period; actual liability depends on individual tax residency and slab. Past performance is not indicative of future results. Market returns and fund performance are subject to market risks.\"",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Optional: Increase ₹20,000 monthly SIP by 10% annually to match salary growth and accelerate goal achievement. Not mandatory but recommended if household cash flow allows."
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 85.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial setup with lumpsum ₹2 lakh + monthly SIP ₹20,000"
+      },
+      {
+        "year": 5,
+        "equity_pct": 85.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "5-year checkpoint: Verify progress toward ₹80 lakh goal"
+      },
+      {
+        "year": 10,
+        "equity_pct": 85.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "10-year checkpoint: Mid-point review, adjust SIP if needed"
+      },
+      {
+        "year": 18,
+        "equity_pct": 85.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Final year (age 60): Transition planning for retirement"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.35,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "passive_instrument_fraction: The entire equity sleeve (85% of portfolio) is invested in four actively managed funds — HDFC Large Cap, HDFC Mid Cap, Nippon Small Cap, and ICICI Large & Mid Cap. There are no index funds or ETFs anywhere in the equity allocation, scoring 0.0. turnover_score: Rebalancing is explicitly annual (January), the plan tolerates drift (88/12 is 'acceptable'), and 6-month check-ins are passive observation only. This is close to buy-and-hold, scoring ~0.8. cost_emphasis_score: Expense ratios (1.0–1.2%) are listed but never used as a selection criterion. Fund selection is driven by track record, category role, and stability narrative — costs are not even mentioned as a factor, scoring ~0.1. research_vs_cost_score: There is superficial fund-level rationale (track record, category, 'finding undervalued mid-sized companies') but no deep stock-specific analysis, PEG ratios, competitive moat evaluation, or manager deep-dives. It is fund-selection-by-category rather than true fundamental research, scoring ~0.35. time_horizon_alignment_score: The plan is explicitly designed for 18 years, includes 'do nothing when markets are red' guidance, 5-year milestone reviews, and long-term compounding as the core thesis — strongly long-term, scoring ~0.9. portfolio_activeness_score: All four equity funds are actively managed with stock-picking mandates across large, mid, small, and blended cap categories. No risk metrics (beta, alpha, tracking error) are available, but the category labels clearly indicate genuine active management. The overnight fund is essentially passive-like but is debt. Overall portfolio is solidly active, scoring ~0.1.",
+    "composite_aps": 0.375
+  },
+  "pqs": {
+    "goal_alignment": 0.5,
+    "diversification": 0.5,
+    "risk_return_appropriateness": 0.55,
+    "internal_consistency": 0.45,
+    "tax_efficiency": 0.4,
+    "reasoning": "GOAL ALIGNMENT (0.50): The plan explicitly acknowledges the ₹2Cr target requires ~14% CAGR but projects only 10% base-case, producing ₹81L — a ~60% shortfall from the stated goal. The review checkpoints even reference an '₹80 lakh goal' rather than ₹2Cr, which signals the plan has quietly abandoned the investor's primary objective without an adequate remediation path. Children's education is listed as a goal but receives zero dedicated allocation or separate SIP. The emergency fund is addressed via the overnight fund but building it through monthly SIP rather than a lump-sum allocation is odd since emergency funds need to exist immediately. Critically, only ₹2L of the ₹10L existing corpus is deployed as lumpsum — the remaining ₹8L is unaccounted for, representing a large missed opportunity. The SIP step-up suggestion partially redeems goal tracking. DIVERSIFICATION (0.50): Equity market-cap diversification is reasonable (large/mid/small spread), and two fund houses reduce single-AMC risk. However, 100% of equity is domestic India — no international allocation at all. Fixed income is entirely in a single overnight fund with no duration exposure or debt variety. Gold is absent. The large-cap + large&mid overlap (~40% in overlapping large-cap territory) reduces effective diversification. RISK-RETURN APPROPRIATENESS (0.55): 85% equity over 18 years is defensible for a moderate-risk investor with this horizon. However, 20% in small-cap specifically conflicts with the investor's stated moderate risk appetite and explicit preference for simple, stable, set-and-forget. No glide path to reduce equity exposure as the investor approaches 60 is a meaningful gap — staying at 85/15 equity/debt at age 58-60 is inappropriate for retirement transition. Downside scenarios are honestly and clearly communicated, which is a positive. INTERNAL CONSISTENCY (0.45): Multiple inconsistencies undermine the plan. The stated goal is ₹2Cr but projections and review language anchor on ₹80L. Only ₹2L of ₹10L corpus is deployed with no explanation for remaining ₹8L. The allocation schedule remains flat at 85/15 from year 0 through year 18 (retirement), with no glide path, yet risks section warns about market volatility near retirement. The rebalancing section contains raw JSON escape artifacts suggesting copy-paste errors. These contradictions reduce confidence in the plan's coherence. TAX EFFICIENCY (0.40): The investor is in the 20% slab (old regime implied). The plan omits any mention of ELSS for 80C utilisation — at ₹1.5L annual limit, this could save ₹30,000/year in taxes for this investor. The overnight fund (15%) is taxed at the full 20% marginal slab rate, whereas arbitrage funds or aggressive hybrid would attract equity taxation (12.5% LTCG), a 7.5% gap. The disclaimer briefly mentions tax treatment but there is no proactive tax-optimisation in fund selection or allocation design. No ELSS for an old-regime 20%-slab investor is a meaningful omission.",
+    "composite_pqs": 0.48
+  },
+  "timestamp": "2026-04-16T12:52:01.640309Z",
+  "prompt_version": "v1"
+}

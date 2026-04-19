@@ -1,0 +1,72 @@
+{
+  "persona_id": "P16",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "1990-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.35,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "This is a minimal, single-fund plan allocating 40% to HDFC Large Cap Direct Plan-Growth via a lumpsum, with no other funds, no rebalancing guidelines, no review checkpoints, and no stated rationale beyond 'direct.' **passive_instrument_fraction = 0.0:** The sole equity allocation is an actively managed large-cap fund — there are zero passive/index instruments in the equity sleeve. **turnover_score = 0.8:** No rebalancing rules, no review checkpoints, and a one-time lumpsum imply an essentially buy-and-hold posture with virtually no planned activity. **cost_emphasis_score = 0.35:** The choice of a Direct plan (lower expense ratio than Regular) signals some cost awareness, but there is no broader cost discussion, no expense-ratio comparison, and cost is not framed as a primary criterion. **research_vs_cost_score = 0.55:** No deep fundamental research (no sector analysis, PEG ratios, moat evaluation) is presented, yet the fund selection is an active pick rather than a deliberate index-tracking choice — the absence of research feels more like an omission than a conscious passive philosophy. **time_horizon_alignment_score = 0.6:** No explicit time horizon is stated; the lumpsum-and-forget structure with no review dates leans long-term by default, but the absence of a stated multi-decade goal or compounding narrative keeps the score moderate. **portfolio_activeness_score = 0.25:** The only holding is an active large-cap fund (IR = 0.5 suggests some active conviction); while large-cap funds tend to be closer to their benchmark (beta ≈ 1.0, moderate tracking error), this remains a genuinely active mandate rather than a closet indexer or index fund, pushing the score away from fully passive.",
+    "composite_aps": 0.425
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is catastrophically inadequate for the investor's profile. **Goal Alignment (0.05):** The investor needs ₹1.5L/month systematic income, a grandchildren's education fund, and estate planning. The plan allocates only 40% to a single large-cap equity fund with no SWP setup, no income-generation mechanism, no goal-based bucketing, and no estate-planning angle whatsoever. 60% of the corpus is entirely unallocated. **Diversification (0.05):** A single fund in a single asset class (large-cap equity) from a single fund house — this is near-zero diversification. No debt, no hybrid, no international, no multi-cap or mid/small-cap. The 60% unallocated corpus makes this even worse. **Risk-Return Appropriateness (0.05):** A conservative 63-year-old retiree whose paramount concern is capital protection is placed 40% in a single equity fund with no downside protection, no debt cushion, no SWP logic. The risk level is mismatched and there are no projected returns or downside scenarios at all. **Internal Consistency (0.05):** The plan is almost empty — no rationale, no rebalancing guidelines, no review checkpoints, no projected returns, no risk warnings. The lumpsum_inr value of 0.5 is nonsensical. Only 40% is allocated with no explanation of the remaining 60%. The plan is incoherent. **Tax Efficiency (0.0):** Absolutely tax-blind. For a 30% slab investor, there is no mention of ELSS for 80C, no consideration of equity-taxed wrappers (arbitrage/hybrid) over slab-taxed debt funds, no discussion of SWP tax efficiency, and no estate-planning tax considerations. The plan completely ignores taxation.",
+    "composite_pqs": 0.04
+  },
+  "timestamp": "2026-04-18T17:19:37.333374Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

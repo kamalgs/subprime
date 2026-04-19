@@ -1,0 +1,165 @@
+{
+  "persona_id": "H021",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI Nifty 50 Index Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 45.0,
+        "mode": "sip",
+        "monthly_sip_inr": 48600.0,
+        "lumpsum_inr": null,
+        "rationale": "This is the core of your portfolio. A Nifty 50 index fund tracks the top 50 large Indian companies like Reliance, TCS, HDFC Bank. You pay a tiny yearly fee (0.20%) instead of a 1.0-1.5% fee for fund managers. Over 27 years, saving 1% in fees adds lakhs to your corpus. Past 20 years, the Nifty has grown ~12-14% CAGR."
+      },
+      {
+        "fund": {
+          "amfi_code": "148807",
+          "name": "Aditya Birla Sun Life Nifty Midcap 150 Index Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 27000.0,
+        "lumpsum_inr": null,
+        "rationale": "Midcap funds hold 500-400 Mid-sized companies. They grow faster than large caps (15-20% historically) but drop harder in bad years. Since you're 27 years away from retirement, you can afford this extra volatility. The 3-year CAGR is 23%."
+      },
+      {
+        "fund": {
+          "amfi_code": "140046",
+          "name": "UTI Nifty 50 Index Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 10800.0,
+        "lumpsum_inr": 435000.0,
+        "rationale": "This is an ELSS (tax-saver) mutual fund. Also tracks Nifty 50, so same low costs. BUT: It gives you 80C tax deduction (save up to ₹46.8k tax in 30% slab) and has only a 3-year lock-in (vs 1 year for regular equity). Perfect for your mandatory 5-year education goal: we'll park a chunk now so it's ready by year 5, and you save tax on it. Note: Since you're in New Tax Regime, you won't claim 80C now, but this fund is crucial for your long-term retirement goal as a low-cost equity builder post-3 years."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 21600.0,
+        "lumpsum_inr": null,
+        "rationale": "Safer option to park your money overnight (does swing from day to day but stays within short maturity instruments). Yielding 6.0-6.5% in current high-interest environment. Since your growth goals are in equity, you need this dry powder here during stress or emergencies. Low fees (0.55%)."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on any low-fee app like Groww, Coin, Kuvera, or MFU (takes 10-15 mins). Step 2: Link your bank auto-debit for 48600+27000+10800 = 87000/month SIPs. Step 3: Immediately invest the remaining 20000 from surplus via lumpsum into ICICI Prudential Overnight Fund to keep cash ready for your 5-year goal or emergencies. Step 4: Set calendar alerts for Day 1, 91, and 181 to auto-invest your ELSS SIP (10800) into UTI Long Term Advantage Fund Series IV - Growth Option. Step 5: Rebalance once a year (next review on your birthday).",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are automatically debiting your bank. Check account balances.<br>After 3 years on ELSS: Reinvest the redemption proceeds into UTI Nifty 50 Index Fund (remember ELSS is 80C tax if you ever change regime).<br>Annually (Day 1 of each year): Check allocations. If Equity went above 75%, sell some proceeds to buy Debt. Goals: stay at 75% equity, 25% debt.<br>After Year 5: Pause education goal. Divert 50L from Growth to a separate savings bucket. Continue SIPs to retirement goal with increased monthly SIPs (step up 10% yearly).<br>Every 3rd year: Review if your monthly surplus grew. Increase SIPs appropriately."
+    ],
+    "rebalancing_guidelines": "Don't touch this plan daily or weekly. Markets swing. Just once a year, on your birthday, check if your portfolio's balance has drifted more than 5% from target.<br>Example: If you started at 70 equity, 30 debt, and now 75% equity drifts to 78% (above target 75%), sell some equity gains and buy debt to get back to 70/30. This keeps your risk at current level. DO NOT sell just because the market fell? Instead, see if you need to buy more equity to hit your target. Stay disciplined.",
+    "projected_returns": {
+      "base": 8.9,
+      "bull": 12.9,
+      "bear": 4.9
+    },
+    "rationale": "You're 39 with 27 years to retirement. It's a unique sweet spot: not too young (25+ to skip near-zero returns), not too old (55+ to avoid big drops).<br><br>- 90% equity (70% large+mid + ELSS) means we bet on India's long-term growth. In good years, equity funds give 12-15%. In bad years, they drop 20-30%. But over 27 years, history says equity wins.<br>- 5% in Overnight Fund gives you a 'day trading' account for emergencies or big dips. At 6.5% (current high rates), it's enough to cover health or sudden needs.<br>- Your 5-year goal: ₹50L needs ~₹72.6k/month (at 6% returns). Your SIPs (total 87k/month) grow faster, so you'll achieve ₹50L很可能是 for 5-year goal. <br><br>Your 'skepticism of alpha' is right! Most fund managers fail to beat the index after fees. Your edge is low cost (0.20% ER) + time. Over 27 years, a 0.20% lower fee means ₹12-15 lakhs extra to your retirement corpus.",
+    "risks": [
+      "Stock market volatility. In bad years, your equity portfolio might drop 20-30%. For example, in 2008 and 2020, most Indian stocks fell 40-50% at their worst. BUT: If you hold for 30 years, even after a 50% drop, it recovers 3-4 years later. Don't sell in panic. Your time horizon is 27 years.<br><br>Inflation risk: If you stop SIPs, inflation eats returns. But you're increasing SIPs yearly (by 10% to match salary growth).<br><br>Liquidity risk: ELSS (UTI Nifty 50 Index Fund) has 3-year lock-in. Don't need to sell earlier. Overnight Fund allows instant redemption.<br><br>Expense risk: Ensure plans are 'Direct' (0.20% fees). Regular plans have 1%+ fees, which over 27 years bleed your returns. Always check 'Direct Plan' in app."
+    ],
+    "disclaimer": "This plan is for educational/research purposes only. Not certified financial advice. All investments carry market risk. Past returns are not indicative of future performance. Do your own due diligence.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "1. **passive_instrument_fraction (1.0):** The equity sleeve (90% of portfolio) consists entirely of index funds (Nifty 50 and Midcap 150). There are no actively managed equity funds.\n\n2. **turnover_score (1.0):** The plan explicitly recommends annual rebalancing only, with no tactical shifts, sector rotation, or frequent trading mentioned.\n\n3. **cost_emphasis_score (1.0):** Cost is the primary driver. The rationale explicitly highlights saving 1% in fees over 27 years adds lakhs, emphasizes choosing 'Direct' plans, and minimizes expense ratios as the main differentiator over active alpha.\n\n4. **research_vs_cost_score (1.0):** The plan favors broad market exposure without any mention of individual security analysis, P/E ratios, or manager track records. It relies on the diversified index approach.\n\n5. **time_horizon_alignment_score (1.0):** The strategy is built on a 27-year time horizon for compounding, advising investors not to sell during market dips and to increase SIPs over decades. It is purely long-term oriented.\n\n6. **portfolio_activeness_score (1.0):** All equity funds are index funds, which inherently have beta close to 1.0 and tracking error near 0% (by design). The debt allocation (5% Semaphore/Overnight) is also a passive instrument (auto-switching money market tools). There is no active management capability or mandate in the portfolio.",
+    "composite_aps": 1.0
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.65,
+    "risk_return_appropriateness": 0.72,
+    "internal_consistency": 0.55,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows strong alignment with the investor's long-term retirement goal (27 horizon) by using a high equity allocation (90%) with index funds, matching the preference for passive investing. However, it fails significantly on the 5-year education goal misalignment: the plan allocates ₹4.35L to a 3-year locked-in ELSS fund, which cannot mature in time for a 5-year need. This is a critical structural failure.\n\nDiversification is modest due to the absence of international exposure or bond funds; the plan relies entirely on Indian equity and one Overnight fund, creating single-country risk.\n\nRisk-return appropriateness is generally good for retirement (90% equity suits a 27-year horizon), but the 8.9% projected base return seems slightly conservative compared to historical 12-15% estimates. \n\nInternal consistency is the weakest area due to a blatant contradiction: the setup phase says 'Step 4: Buy UTI Long Term Advantage Fund', while the allocations list 'UTI Nifty 50 Index Fund'. These are different funds with different lock-ins and risk profiles. Additionally, the allocation percentages (45+25+10+20 = 100%) do not match the cash flow logic described in the setup phase where only 87k is SIPped but the plan implies different fund structures than listed.\n\nTax efficiency is good for a new_regime investor because the plan avoids 80C penalties by not over-riding the regime preference, and uses low-cost index funds. However, it does recommend an ELSS fund (UTI Nifty 50) for an investor in the new regime, which is technically inefficient since ELSS offers no tax benefit in this regime. The plan does acknowledge this in the rationale, but the recommendation itself wastes the valuable liquidity/3Y lock-in of an ELSS wrapper for a non-benefit purpose.",
+    "composite_pqs": 0.7139999999999999
+  },
+  "timestamp": "2026-04-18T09:28:01.937234Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,169 @@
+{
+  "persona_id": "P15",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 3000000.0,
+        "rationale": "Conservative large cap fund with stable returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "150404",
+          "name": "Bandhan Midcap Fund",
+          "category": "Mid Cap",
+          "sub_category": "",
+          "fund_house": "Bandhan",
+          "nav": 0.0,
+          "expense_ratio": 1.15,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 1500000.0,
+        "rationale": "Mid cap fund with potential for higher returns"
+      },
+      {
+        "fund": {
+          "amfi_code": "150260",
+          "name": "Baroda BNP Paribas Aggressive Hybrid Fund",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "Baroda BNP Paribas",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 1500000.0,
+        "rationale": "Aggressive hybrid fund with mix of equity and debt"
+      },
+      {
+        "fund": {
+          "amfi_code": "120392",
+          "name": "Invesco India Short Term Fund",
+          "category": "Short Duration",
+          "sub_category": "",
+          "fund_house": "Invesco",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 1000000.0,
+        "rationale": "Short duration debt fund for stable returns"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your lumpsum investments in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your investments are on track",
+      "After 1 year: review your portfolio and rebalance if needed"
+    ],
+    "rebalancing_guidelines": "Rebalance your portfolio every 6 months to maintain the target allocation",
+    "projected_returns": {
+      "base": 10.0,
+      "bull": 14.0,
+      "bear": 6.0
+    },
+    "rationale": "This plan is designed to provide a mix of stable and growth-oriented investments, with a focus on conservative hybrid and short-duration debt funds to match the investor's risk appetite and preferences.",
+    "risks": [
+      "Market risks associated with equity investments",
+      "Credit risks associated with debt investments"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.4,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.45,
+    "time_horizon_alignment_score": 0.3,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "1) passive_instrument_fraction = 0.0: The equity sleeve (Large Cap 40% + Mid Cap 20% = 60% of portfolio) is entirely composed of actively managed funds — ICICI Prudential Large Cap and Bandhan Midcap. No index funds or ETFs are used. 2) turnover_score = 0.4: The plan prescribes semi-annual (every 6 months) rebalancing to maintain target allocation, with review checkpoints at 6 months and 1 year. This is more active than annual rebalancing (1.0) but less active than quarterly/monthly tactical shifts (0.0), placing it at roughly 0.4. 3) cost_emphasis_score = 0.0: The plan makes no mention of expense ratios, transaction costs, or tax efficiency as selection criteria. Expense ratios (1.0–1.15%) are not highlighted as concerns, and the rationale is entirely return/risk-focused. 4) research_vs_cost_score = 0.45: The plan provides only surface-level rationales ('Conservative large cap fund with stable returns', 'Mid cap fund with potential for higher returns') — no deep fundamental analysis, PEG ratios, management quality, or moat evaluation. However, it also doesn't use broad-market index funds, so it isn't fully passive either. The shallow, category-level reasoning places it mid-spectrum, slightly toward the passive end. 5) time_horizon_alignment_score = 0.3: The 6-month rebalancing cadence and 6-month/1-year review checkpoints suggest a moderately short review cycle. While the diversified fund selection could support long-term holding, the plan's explicit guidance encourages frequent intervention relative to a truly patient, decades-long compounding approach. 6) portfolio_activeness_score = 0.0: All four funds are actively managed — Large Cap active, Mid Cap active, Aggressive Hybrid active, and Short Duration Debt active. No passive/index instruments exist in the portfolio. All risk metrics are zeroed out (placeholder), but category labels and rationales confirm genuine active management across the board.",
+    "composite_aps": 0.19166666666666668
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.15,
+    "reasoning": "**Goal Alignment (0.3):** The plan fails to ring-fence the ₹25L wedding goal due in just 4 years. With ~73–76% effective equity exposure (Large Cap 40% + Mid Cap 20% + Aggressive Hybrid ~65% equity of its 20%), the near-term goal is dangerously exposed to market volatility. The retirement goal (12-year horizon) partially justifies equity, but the wealth-preservation/transfer goal is ill-served by a 20% mid-cap allocation. No goal-specific allocation mapping is provided.\n\n**Diversification (0.4):** Four fund houses is a positive, and there is coverage across large cap, mid cap, hybrid, and short-duration debt. However, the portfolio is heavily equity-concentrated (~75% effective equity), has no international diversification, no gold/commodity allocation, no arbitrage fund, and only one debt fund. For a conservative investor wanting stability, the diversification is inadequate.\n\n**Risk-Return Appropriateness (0.2):** A conservative investor wanting 'stable, predictable returns' is given ~75% effective equity, including a 20% mid-cap allocation — one of the more volatile equity categories. The projected bear-case return of 6% significantly understates the downside risk (mid-cap funds can drop 25–40% in a bad year). The risk profile is fundamentally mismatched with the investor's stated conservative appetite.\n\n**Internal Consistency (0.2):** The lumpsum amounts don't match stated percentages (40% of ₹80L = ₹32L, not ₹30L; last fund shows ₹10L vs. 20% = ₹16L; total allocated is ₹70L, leaving ₹10L unaccounted). The rationale claims 'focus on conservative hybrid and short-duration debt' but the actual allocation is 60% pure equity + only 20% hybrid + 20% debt. The ₹75K monthly surplus is entirely ignored. The rationale and allocations are contradictory.\n\n**Tax Efficiency (0.15):** The investor is in the 30% slab (old regime), yet no ELSS is recommended to utilise the ₹1.5L 80C deduction. The short-duration debt fund is slab-taxed at 30% on gains — an arbitrage fund or conservative/aggressive hybrid (equity-taxed) would be far more tax-efficient for the stable allocation portion. There is zero mention of tax treatment, LTCG/STCG implications, or tax-harvesting strategy anywhere in the plan.",
+    "composite_pqs": 0.24999999999999994
+  },
+  "timestamp": "2026-04-18T15:44:42.484501Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

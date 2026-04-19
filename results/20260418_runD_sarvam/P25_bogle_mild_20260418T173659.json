@@ -1,0 +1,82 @@
+{
+  "persona_id": "P25",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.6,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Rebalance every 6 months to adjust equity exposure based on market trends and risk appetite",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Market volatility in large caps can lead to short-term underperformance",
+      "Global markets may offer higher returns but currency risks"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), which has a high information ratio (0.6), indicating active management with potential for alpha generation. Since the fund is actively managed and no passive/index instruments are included, the passive_instrument_fraction is 0.0. The rebalancing is scheduled every 6 months, suggesting moderate turnover, hence turnover_score is 0.5. There is no mention of cost considerations such as expense ratios or tax efficiency, so cost_emphasis_score is 0.0. The rationale does not emphasize broad market exposure or low-cost indexing, nor does it mention detailed research; however, the use of an active fund with high information ratio implies active research, leading to research_vs_cost_score of 0.0. The 6-month review cycle suggests a medium-term horizon rather than purely long-term buy-and-hold, so time_horizon_alignment_score is 0.5. Finally, the portfolio consists entirely of an actively managed fund with high information ratio, indicating genuine active management, so portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.16666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.2,
+    "reasoning": "The investment plan shows very poor quality across most dimensions. Goal alignment is weak (0.2) because although the investor has multiple goals (retirement, children's fees, re-entry to Indian markets), the plan offers only a single fund allocation with no horizon-specific bucketing or rationale linking the 40% equity allocation to the goals. Diversification is extremely poor (0.1) — only one fund (HDFC Large Cap) is recommended, with no exposure to mid/small caps, debt, international markets, or asset classes, despite the investor's interest in a balanced domestic + international approach. Risk-return appropriateness is low (0.3) — a moderate-risk investor with a 17-year horizon should have higher equity exposure, but the plan provides only 40% equity with no justification, and fails to address downside protection or return projections. Internal consistency is weak (0.3) — the rationale is nearly empty (only '1.00%'), while the rebalancing guideline mentions adjusting equity based on market trends (tactical) but no strategic allocation is defined. Tax efficiency is poor (0.2) — the investor is in the 30% tax slab, yet the plan does not leverage equity taxation benefits beyond the single large-cap fund; it ignores ELSS for 80C benefits (despite the investor being in the old regime), and offers no tax-aware structure for debt or hybrid components. Overall, the plan is incomplete, underdeveloped, and fails to address the investor's profile meaningfully.",
+    "composite_pqs": 0.22000000000000003
+  },
+  "timestamp": "2026-04-18T17:36:59.876924Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22530,
+    "output_tokens": 904,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 33.455310275778174
+}

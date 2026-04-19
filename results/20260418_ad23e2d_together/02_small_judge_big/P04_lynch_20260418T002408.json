@@ -1,0 +1,225 @@
+{
+  "persona_id": "P04",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "153324",
+          "name": "PGIM India Ultra Short Term Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Ultra Short Duration",
+          "fund_house": "PGIM India Asset Management Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "sip",
+        "monthly_sip_inr": 35000.0,
+        "lumpsum_inr": null,
+        "rationale": "Your priority is capital preservation. This fund holds very short-term debt (like 3-4 month CDs) for maximum safety while earning ~6.5% Yearly fee. It's safer than a savings account and tax-efficient since we'll use arbitrage for the rest of your debt needs."
+      },
+      {
+        "fund": {
+          "amfi_code": "112793",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Equity & Debt",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "A 65%+ equity hybrid, so it grows faster than pure debt but with less swing than stocks. Over 10 years, it usually gaps 8-10% CAGR. With 30 years left, it lets your capital work harder without the anxiety of pure stocks."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "Gold Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold protects against inflation and sudden stock crashes. Historically it moves only 6-7% Yearly fee and adds stability. We keep 15% here like an insurance policy—it won't push your portfolio to retirement targets but will soften blows."
+      },
+      {
+        "fund": {
+          "amfi_code": "133868",
+          "name": "Bank of India Credit Risk Fund - Direct Plan",
+          "category": "Debt",
+          "sub_category": "Credit Risk",
+          "fund_house": "Bank of India Investment Managers Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "For the 2Cr you want to build before retirement, this holds slightly longer debt (2-3 years) to earn ~7.5%. It's safer than equity and better than pure debt for your income goals. It will mature around year 8-9 with a nice lump sum."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or Coin (takes 15 minutes digitally). Step 2: Link your bank account and set up auto-debit for ₹1,00,000 on the 1st of every month. Step 3: Immediately start with the allocations above via SIP. Since you have ₹2Cr, we treat it as your base, then let SIPs add to it every month.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are auto-debitting without issues. Step 2: After 2 years: Revisit targets—does your coverage align with inflation? Step 3: After every 5 years: Rebalance to ensure you're still at the intended allocation since large debt/Gold portions will grow faster.",
+      "rebalancing_guidelines",
+      "Once a year, check if any category has grown or fallen too much. Dividend from stocks usually grows faster, pushing your portfolio toward 40% equity automatically. If it moves beyond 45%, sell a little and move to debt/Gold to get back to 35/30/15/20. This keeps your risk steady and avoids emotional decisions.",
+      "projected_returns",
+      "base: 6% (weighted: 35%*6 + 30%*8.5 + 15%*9.5 + 20%*7.5 = 7.4%), bull: 11.4%, bear: 1.4%",
+      "risks",
+      "Stocks can drop 20-25% in bad years; pure debt funds rarely fall below ₹1000 in crashes, but inflation erodes ₹20L to ₹18L over 8 years. Gold can range 0-15% any given year; your overall portfolio risk is moderate due to the heavy debt/Gold base. Inflation is your silent enemy, not market dips.",
+      "disclaimer",
+      "For research/educational purposes only. Not certified financial advice.",
+      "sip_step_up",
+      "Increase SIP by 5% every 2 years to match inflation and jump toward your ₹2Cr inheritance target faster.",
+      "allocation_schedule",
+      "Year 1: 35% Debt, 30% Aggressive Hybrid, 15% Gold, 20% Credit Risk, Year 2-8: Same, Year 9-10: shift 10% Hybrid to Debt (70/20/15/20), Year 10: 80% Debt, 15% Hybrid, 5% Gold",
+      "perspective",
+      "Because you're 55, we're front-loading capital preservation: 75% in safe debt/Gold. This cushions against market drops, and the 30% hybrid keeps compounding. No small-cap risk—that's for 25-year-olds, not nearing retirement. We signified your goals: steady income via debt/Gold, inheritance via hybrid growth, and healthcare via liquid cash flow. This plan is boring because it works.",
+      "rationale",
+      "Since capital preservation is your priority, we've put 75% in debt/gold which rarely falls below ₹10k in any year. The 30% hybrid is still equity (stocks) but diversified so you're not riding on one company. You're at 55 with 10 years left—no wild swings, just steady 6-8% growth from now on."
+    ],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "Stock markets can drop 20-25% in a bad year and take years to recover.",
+      "Inflation can quietly erode your ₹2Cr to ₹18L over 5-6 years if invested safely.",
+      "Gold can range 0-15% any given year.",
+      "Debt funds may yield slightly less than retirement accounts in high-rate environments.",
+      "Hybrid funds still have 30-35% equity risk, not just cash-like stability."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 5.0,
+      "description": "Increase SIP by 5% every 2 years to match inflation and jump toward your ₹2Cr inheritance target faster"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 35.0,
+        "gold_pct": 15.0,
+        "other_pct": 20.0,
+        "trigger": "Initial setup"
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 35.0,
+        "gold_pct": 15.0,
+        "other_pct": 20.0,
+        "trigger": "SIP accumulation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 0.0,
+        "debt_pct": 45.0,
+        "gold_pct": 15.0,
+        "other_pct": 15.0,
+        "trigger": "Shift toward income"
+      },
+      {
+        "year": 8,
+        "equity_pct": 0.0,
+        "debt_pct": 65.0,
+        "gold_pct": 15.0,
+        "other_pct": 15.0,
+        "trigger": "Pre-retirement safety net"
+      },
+      {
+        "year": 10,
+        "equity_pct": 0.0,
+        "debt_pct": 75.0,
+        "gold_pct": 15.0,
+        "other_pct": 10.0,
+        "trigger": "Final retirement drawdown"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "passive_instrument_fraction: 0.0 — The equity exposure comes entirely through the ICICI Prudential Equity & Debt Fund, an actively managed aggressive hybrid fund. There are no index funds or ETFs in the equity sleeve (which is embedded in the hybrid). Thus, the equity allocation is fully active.\n\nturnover_score: 0.75 — The plan recommends annual rebalancing only if allocations drift beyond thresholds (e.g., equity >45%), and major shifts occur only at predefined long-term milestones (e.g., year 9–10). This is infrequent intervention, leaning passive, but not fully buy-and-hold due to the explicit annual check and step-up in SIPs every 2 years.\n\ncost_emphasis_score: 0.0 — There is no mention of expense ratios, fees, or cost efficiency in fund selection. The rationale focuses on returns, safety, and time horizon, not cost minimisation.\n\nresearch_vs_cost_score: 0.0 — The plan does not discuss any stock-level or fund-level research (e.g., management quality, valuation, or portfolio holdings). However, it also doesn't advocate for broad market indexing. Instead, it selects specific active funds without justification based on research or cost, implying reliance on fund reputation or category-level logic. Still, since it avoids any indexing or market-cap-weighted exposure, and picks active funds without cost focus, this leans active.\n\ntime_horizon_alignment_score: 0.8 — The strategy is clearly designed for a 10-year horizon with gradual de-risking toward retirement. It emphasizes long-term compounding and stability, though the SIP step-up every 2 years and 5-year rebalancing checkpoints introduce minor short-term elements.\n\nportfolio_activeness_score: 0.0 — All selected funds are actively managed: PGIM Ultra Short (active duration/credit management), ICICI Equity & Debt (active asset allocation and stock picking), Bank of India Credit Risk (active credit risk taking), and ICICI Gold ETF (though gold ETFs are passive by nature, they are a small portion and not equity). The core equity exposure is via an aggressive hybrid fund with discretionary management, indicating active intent. No index funds or low-tracking-error strategies are used. Even though risk metrics are missing, the category and rationale confirm active management.",
+    "composite_aps": 0.25833333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.75,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan scores highly on goal alignment because it prioritizes capital preservation and income for a pre-retiree with conservative risk appetite, aligning with the investor's stated goals of inheritance, healthcare, and retirement income. The allocation schedule gradually shifts from moderate growth to safety, which matches the 10-year horizon and life stage. Diversification is strong across debt, hybrid, and gold, though equity exposure is indirect and limited to aggressive hybrid funds; no concentration in a single fund house or sector, but lacks explicit international or multi-asset class diversification beyond gold. Risk-return is appropriate: projected returns (6-8%) match conservative expectations, with clear articulation of downside risks like inflation and market drops. However, internal consistency has issues: the allocation schedule in the JSON shows 0% equity every year, but the rationale references 30% in aggressive hybrid (which has 65%+ equity), creating confusion. Also, the review checkpoints mention dividend from stocks pushing equity to 45%, but no pure equity fund is present. The plan incorrectly treats 'Credit Risk' debt fund (slab-taxed) and Ultra Short Term (slab-taxed) as tax-efficient, while ignoring that Aggressive Hybrid (65%+ equity) qualifies for favorable equity taxation. For a 30% tax slab investor, debt fund gains are taxed at 30%, whereas Aggressive Hybrid gains (held >1 year) are taxed at 12.5% on LTCG above ₹1.25L. The plan should have minimized slab-taxed debt allocations and used more equity-taxed hybrids or arbitrage funds. It also fails to mention ELSS despite the investor being in the old regime with 80C benefits available — a missed tax-saving opportunity. Thus, tax efficiency is poor, dragging down the overall score.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-18T00:24:08.285194Z",
+  "prompt_version": "v1"
+}

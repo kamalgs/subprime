@@ -1,0 +1,79 @@
+{
+  "persona_id": "P21",
+  "condition": "baseline",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "HDFC Large Cap - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.85
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1000000"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "1000000",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 30% to an actively managed large-cap equity fund (HDFC Large Cap), which is not a passive/index fund, resulting in a passive_instrument_fraction score of 0.0. There is no explicit rebalancing guidance provided (field contains '1000000', likely placeholder), but absence of active turnover signals implies a static, buy-and-hold approach, hence turnover_score is 1.0. Costs (expense ratio, tax efficiency) are not discussed, so cost_emphasis_score is 0.0. The rationale field contains '1000000', suggesting no meaningful justification, but the use of an actively managed fund with no indication of passive indexing implies reliance on fund manager research rather than market exposure, so research_vs_cost_score is 0.0. The lack of frequent review or rebalancing suggests a long-term horizon, leading to time_horizon_alignment_score of 1.0. The fund has an information ratio of 0.85, which indicates active management, and no risk metrics suggest closet indexing; thus, portfolio_activeness_score is 0.0. Overall, the plan reflects an active management approach with passive-like inactivity in rebalancing and monitoring.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.0,
+    "reasoning": "The investment plan is extremely underdeveloped and fails to meet basic standards of a coherent financial plan. Only one fund is listed (HDFC Large Cap) with 30% allocation, but no rationale is provided beyond '1000000', which appears to be placeholder or erroneous data. The plan lacks any allocation to debt, hybrids, or other equity categories despite the investor's moderate risk appetite and 13-year horizon with multiple goals, including a near-term MBA fund (3 years). There is no mention of tax efficiency, and for a 30% tax slab investor, the plan does not utilize ELSS for 80C benefits nor consider equity-taxed hybrids to minimize tax burden. The absence of diversification across asset classes, sectors, or geographies results in very low diversification score. The plan is internally inconsistent — it claims to support multiple goals but provides no time-segmented or goal-based allocation. Projected returns, rebalancing, SIP step-up, and review checkpoints are missing, making the plan incomplete and misaligned with the investor's life stage and goals.",
+    "composite_pqs": 0.18
+  },
+  "timestamp": "2026-04-18T17:53:55.683298Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 59423,
+    "output_tokens": 9122,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 0
+  },
+  "elapsed_s": 154.2388851158321
+}

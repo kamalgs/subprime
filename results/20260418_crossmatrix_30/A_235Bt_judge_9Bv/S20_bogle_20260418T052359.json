@@ -1,0 +1,169 @@
+{
+  "persona_id": "S20",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": 17.094146825697987,
+          "returns_3y": 23.18993139340053,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": 17.42528588877694,
+          "beta": 1.0340706693083053,
+          "alpha": 11.743982302492952,
+          "tracking_error": 8.792440315620462,
+          "sharpe_ratio": 0.9984136156270631,
+          "information_ratio": 1.3356908754477235
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks the Nifty Midcap 150 index with very low yearly fee (0.2%), giving you pure exposure to 150 growing mid-sized Indian companies. Midcaps have historically delivered higher growth than large caps over long periods, which fits your aggressive risk appetite and 32-year horizon."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "Equity Scheme - Large & Mid Cap Fund",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": "2019-09-27",
+          "aum_cr": 6445.273499999999,
+          "morningstar_rating": null,
+          "returns_1y": 24.339115962302316,
+          "returns_3y": 26.9451044542252,
+          "returns_5y": 21.678864282036624,
+          "risk_grade": null,
+          "volatility_1y": 20.744829734262737,
+          "beta": 1.1136306244965353,
+          "alpha": 18.61797699186368,
+          "tracking_error": 13.049816073788815,
+          "sharpe_ratio": 1.2169390003975957,
+          "information_ratio": 1.4266850112361955
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "An actively managed large & midcap fund with strong 3-year returns (26.9%) and consistent performance. It balances large-cap stability with mid-cap growth, managed by a proven team. Slightly higher yearly fee (1.1%) is justified by its track record."
+      },
+      {
+        "fund": {
+          "amfi_code": "142153",
+          "name": "Sundaram Long Term Tax Advantage Fund Series III Direct Plan - Growth",
+          "category": "ELSS",
+          "sub_category": "ELSS",
+          "fund_house": "Sundaram Asset Management Company Ltd",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": "2017-12-27",
+          "aum_cr": 1.6341999999999999,
+          "morningstar_rating": null,
+          "returns_1y": 16.252351707068556,
+          "returns_3y": 19.023326130403497,
+          "returns_5y": 21.836483467790103,
+          "risk_grade": null,
+          "volatility_1y": 17.579353505725596,
+          "beta": 0.8581555484518398,
+          "alpha": 18.61631990707246,
+          "tracking_error": 12.299121666988283,
+          "sharpe_ratio": 0.9163060723074359,
+          "information_ratio": 1.5136300307557722
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4000.0,
+        "lumpsum_inr": null,
+        "rationale": "ELSS fund offering 3-year lock-in and tax saving under Section 80C. You're in the 30% tax slab, so investing ₹4,000/month (₹48,000/year) saves ₹14,400 in taxes annually. It grows your wealth while reducing tax outflow, making it highly efficient."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Start SIPs of ₹10,000 in Motilal Oswal Nifty Midcap 150 Index Fund, ₹6,000 in Motilal Oswal Large and Midcap Fund, and ₹4,000 in Sundaram Long Term Tax Advantage Fund Series III.\nStep 4: Set auto-debit from your bank account to ensure timely investments.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Compare each fund's performance with its category average. If any fund underperforms for 2 consecutive years, consider replacing it.",
+      "Every 3 years: Review your overall portfolio growth toward your ₹20 Cr goal."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If due to market movements, your allocation shifts by more than 5% from the original plan (e.g., midcap grows to 58%), sell some from the overweight fund and buy the underweight ones to restore 50:30:20 split.",
+    "projected_returns": {
+      "base": 18.2,
+      "bull": 22.2,
+      "bear": 14.2
+    },
+    "rationale": "At 36, with a 32-year horizon and aggressive risk appetite, you can afford to stay heavily invested in equities. The plan uses a low-cost index fund for core midcap exposure, an actively managed large & midcap fund for growth, and an ELSS fund to save tax and boost post-tax returns. Your ₹20 Cr retirement goal is ambitious but achievable with consistent investing and market growth.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal and recovers over time.",
+      "Midcap and small-cap funds are more volatile than large caps. They can swing widely in value.",
+      "The ELSS fund has a 3-year lock-in: you cannot withdraw that money during this period.",
+      "Inflation can erode purchasing power if returns don't beat it over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and accelerate corpus building"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start of investment"
+      },
+      {
+        "year": 15,
+        "equity_pct": 85.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "When investor turns 51"
+      },
+      {
+        "year": 20,
+        "equity_pct": 70.0,
+        "debt_pct": 25.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": "When investor turns 56"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.8,
+    "turnover_score": 0.95,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.75,
+    "reasoning": "The plan is heavily skewed towards active strategies in equity while using passive for fixed income. The equity portion is 100% (₹20k into Midcap Index + ₹6k into Large/Mid Active), with 0% debt/gold currently. The Midcap allocation (50%) is purely passive (Index), contributing to the equity sleeve score of 0.8 (80% passive). The remaining 50% of equity allocation is in an active Large & Mid cap fund. Cost is considered with a 0.7 score as the rationale explicitly mentions low fees for the index fund vs justified alpha for the active one, but doesn't obsess over expense ratios like a pure passive plan. The turnover/rebalancing guidelines are very passive (annual review, only if >5% drift), fitting a 32-year horizon (0.95). The plan does not mention deep stock research (0.3 research score). Finally, the portfolio activeness (0.75) reflects a genuine active core (Midcap) combined with a strong active satellite (Large/Mid with high tracking error and alpha), making it a hybrid active portfolio despite the significant index component.",
+    "composite_aps": 0.7416666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.35,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.95,
+    "reasoning": "The plan shows strong alignment with the investor's aggressive risk profile and long 32-year horizon, correctly identifying equity as the primary vehicle for wealth creation. The inclusion of an ELSS fund is highly appropriate given the investor is in the 30% tax slab, as it optimizes post-tax returns via LTCG taxation on equity-gained funds while utilizing the 80C deduction; this directly addresses the tax efficiency dimension excellently. The plan is internally consistent, with clear rationale, a sensible SIP strategy, and a rebalancing guideline that matches the long-term nature of the investments.\n\nHowever, the diversification score is low. The entire portfolio (100%) is allocated to just three funds, all from different fund houses but largely concentrated in the Indian mid-large cap segment. There is zero exposure to debt, gold, international assets, or small-cap funds (which would further diversify against large/mid-cap specific risks). Given a 32-year horizon, relying solely on a subset of the Indian equity market without any asset-class diversification exposes the plan to significant idiosyncratic and market-specific risks. A truly robust plan for an aggressive investor might include international diversification or strategic debt allocation even in early years, but the current lack of breadth across asset classes penalizes this dimension.",
+    "composite_pqs": 0.8
+  },
+  "timestamp": "2026-04-18T05:23:59.631630Z",
+  "prompt_version": "v1"
+}

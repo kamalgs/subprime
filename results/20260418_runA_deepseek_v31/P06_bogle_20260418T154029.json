@@ -1,0 +1,139 @@
+{
+  "persona_id": "P06",
+  "condition": "bogle",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2019-08-19",
+          "aum_cr": 2450.0781,
+          "morningstar_rating": null,
+          "returns_1y": 17.094146825697987,
+          "returns_3y": 23.18993139340053,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": 17.42528588877694,
+          "beta": 1.0340706693083053,
+          "alpha": 11.743982302492952,
+          "tracking_error": 8.792440315620462,
+          "sharpe_ratio": 0.9984136156270631,
+          "information_ratio": 1.3356908754477235
+        },
+        "allocation_pct": 80.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6400.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost midcap index fund for long-term growth. With 30-year horizon, this gives exposure to faster-growing mid-sized companies at just 0.20% yearly fee."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Debt Scheme - Overnight Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2018-11-14",
+          "aum_cr": 10577.451299999999,
+          "morningstar_rating": null,
+          "returns_1y": 5.453418154772471,
+          "returns_3y": 6.279485763002324,
+          "returns_5y": 67.25002048586663,
+          "risk_grade": null,
+          "volatility_1y": 0.16340422930475892,
+          "beta": -0.0004108097044910859,
+          "alpha": 4.8710955684585455,
+          "tracking_error": 13.621247043904022,
+          "sharpe_ratio": -13.072785210666003,
+          "information_ratio": 0.357610103741458
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1600.0,
+        "lumpsum_inr": null,
+        "rationale": "Safe overnight fund for emergency fund building and marriage goal. Very stable with low risk, perfect for your 6-year marriage savings goal."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera or MFU\nStep 2: Set up SIPs - ₹6,400/month in Motilal Oswal Midcap Index Fund and ₹1,600/month in ICICI Prudential Overnight Fund\nStep 3: Invest your ₹50,000 existing corpus in the same 80:20 ratio\nStep 4: Increase your SIP by 10% every year as your salary grows",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running smoothly",
+      "After 1 year: Review if both funds are performing as expected",
+      "After 3 years: Rebalance to maintain 80:20 ratio if needed"
+    ],
+    "rebalancing_guidelines": "Rebalance once a year to maintain 80% stocks / 20% safe funds. If stock portion grows beyond 85%, move some money back to debt fund. If debt portion grows beyond 25%, move some to stocks.",
+    "projected_returns": {
+      "base": 15.0,
+      "bull": 19.0,
+      "bear": 11.0
+    },
+    "rationale": "At 23 with 30 years ahead, you can afford to take smart risks. This 80:20 mix gives you strong growth potential while keeping 20% safe for your marriage goal in 6 years. The index fund approach keeps costs ultra-low at just 0.20% yearly fee - this saves you thousands over decades compared to regular funds.",
+    "risks": [
+      "Stock markets can drop 20-30% in bad years - your portfolio value will go down temporarily but recovers over time",
+      "Midcap funds are more volatile than largecap funds but offer higher growth potential over long periods"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 6,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After marriage goal achieved, move fully to equity for long-term growth"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.85,
+    "reasoning": "The plan allocates 80% to a Nifty Midcap 150 Index Fund, which is a passive/index instrument, and 20% to an overnight debt fund. Since only the equity portion is considered for passive_instrument_fraction, and it is fully in an index fund, the score is 1.0. Turnover is low, with annual rebalancing recommended and only minor adjustments if allocations drift beyond thresholds; review is every year or three years, supporting a high turnover_score of 0.8. The plan explicitly emphasizes low cost (0.20% expense ratio) as a key benefit, giving a full 1.0 to cost_emphasis_score. There is no stock-specific or fund-specific research mentioned; the rationale is based on broad market exposure and cost efficiency, so research_vs_cost_score is 1.0. The time horizon is 30 years, with a long-term compounding focus, though a tactical shift at year 6 (moving to 100% equity) slightly reduces the score to 0.9. For portfolio_activeness_score, the equity fund has a beta of 1.03 (close to 1), but tracking error is 8.79% and information ratio is high (1.34), suggesting some active behavior; however, it's still an index fund, so the portfolio is largely passive. Debt fund metrics are not meaningful against Nifty 50, but it's an overnight fund with passive management style. Overall, a score of 0.85 is appropriate.",
+    "composite_aps": 0.9249999999999999
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows strong goal alignment by allocating 20% to a low-volatility overnight fund to meet the 6-year marriage goal, while the 80% midcap index allocation supports long-term wealth creation for a 30-year horizon. However, diversification is weak—overweighting midcaps via a single index fund creates sector and style concentration risk, with no exposure to largecaps, smallcaps, or international equities. The risk-return profile is mostly appropriate for a moderate investor, though 80% equities (especially midcaps) leans aggressive; this is partially justified by the long horizon. The plan is internally consistent—the rationale, allocation, rebalancing, and step-up SIP all align logically. Tax efficiency is moderate: the investor is in the 'new_regime' (so no 80C benefit), and the plan avoids ELSS appropriately. However, it uses a slab-taxed debt fund (overnight) for the 20% allocation, which will be taxed at the marginal rate (likely 20% or 30%) on short-term gains. A better tax-efficient alternative for this portion could have been an arbitrage fund or aggressive hybrid fund, which are equity-taxed (STCG 20%, LTCG 12.5% after ₹1.25L) and would reduce tax outgo for a high-income earner—even under new regime, where effective rates matter. No mention of tax implications weakens the tax-efficiency score.",
+    "composite_pqs": 0.67
+  },
+  "timestamp": "2026-04-18T15:40:29.548636Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 48311,
+    "output_tokens": 2162,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 2
+  },
+  "elapsed_s": 88.72450789250433
+}

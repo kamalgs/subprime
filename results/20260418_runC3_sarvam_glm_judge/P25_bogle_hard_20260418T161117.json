@@ -1,0 +1,132 @@
+{
+  "persona_id": "P25",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 500 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 50.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "1000000"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Rebuild every 6 months",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "1. Start with a diversified equity-heavy portfolio with large-cap and mid-cap funds. 2. Gradually increase equity allocation as markets improve. 3. Maintain 20% in debt for stability. 4. Avoid sector-specific bets. 5. Monitor large-cap performance closely."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 80.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 0.0,
+        "debt_pct": 70.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 0.0,
+        "debt_pct": 60.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 0.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 0.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 6,
+        "equity_pct": 0.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 7,
+        "equity_pct": 0.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.15,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.55,
+    "portfolio_activeness_score": 0.95,
+    "reasoning": "**passive_instrument_fraction = 1.0:** The sole equity fund is the Nifty 500 Index Fund — a broad-market passive index fund. The entire equity sleeve is 100% passive.\n\n**turnover_score = 0.3:** The plan states 'Rebuild every 6 months,' which is considerably more active than a typical passive buy-and-hold approach (annual or less). 'Rebuild' implies significant restructuring rather than simple rebalancing, placing this in the moderately active range — not monthly momentum trading but far from a set-and-forget strategy.\n\n**cost_emphasis_score = 0.15:** Costs are not discussed anywhere in the plan — no mention of expense ratios, transaction costs, or tax efficiency as selection criteria. The implicit choice of an index fund and direct plan does suggest some cost awareness, but without any explicit cost emphasis, the score remains low.\n\n**research_vs_cost_score = 1.0:** No security-specific or fund-specific research is presented. The Nifty 500 Index Fund provides broad market-cap-weighted exposure with zero individual security analysis. The rationale field contains no analytical content (just a number likely representing a lumpsum amount). This is purely a broad-market, no-research approach.\n\n**time_horizon_alignment_score = 0.55:** The 7-year allocation schedule with gradually declining debt (80% → 20%) suggests a patient, multi-year orientation. However, the 6-month 'rebuild' cycles introduce more frequent intervention than ideal for a truly passive, decades-long compounding strategy. The SIP step-up (10% annual) supports long-term accumulation, but the semi-annual rebuilding partially undermines it, pulling the score to a moderate level.\n\n**portfolio_activeness_score = 0.95:** The only specified fund is a pure Nifty 500 index fund — beta ≈ 1.0, tracking error near zero, alpha ≈ 0 by design. The information_ratio of 1.05 is likely a data anomaly for an index fund and should not override the clear passive nature of the instrument. The portfolio is essentially a single broad-market index exposure with no active management characteristics.",
+    "composite_aps": 0.6583333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.0,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is severely deficient across every dimension. **Goal alignment (0.1):** The ₹5Cr retirement target is not modelled or linked to any projection; children's school fees over 8 years receive no dedicated allocation; the investor's preference for an international + domestic balance is entirely ignored; and the cautious re-entry timing is nominally acknowledged via a gradual schedule but contradicted in implementation. **Diversification (0.05):** Only one fund (Nifty 500 Index Fund) is specified, representing a single asset class, single geography, and single fund house. The allocation schedule references 80–20% debt but names zero debt funds. No gold, no international, no multi-asset — extreme concentration. **Risk-return appropriateness (0.1):** A moderate-risk investor with a 17-year horizon is directed into 80% debt in year 1, tapering to 20% debt by year 7, yet with 0% equity in every year of the schedule — a wildly mismatched risk profile that cannot achieve the stated ₹5Cr goal. No projected returns, no downside scenarios, no realistic return assessment. **Internal consistency (0.0):** The plan is self-contradictory at every turn: (a) the allocations section shows 50% in a Nifty 500 equity fund, but the allocation schedule shows 0% equity for all 7 years; (b) the SIP step-up description says 'equity-heavy portfolio' while the schedule is overwhelmingly debt-heavy; (c) the mode is lumpsum for the only fund, yet the investor has a ₹40K monthly surplus with no SIP route defined; (d) the rationale field contains the number '1000000' instead of text; (e) only 50% of the portfolio is allocated, leaving the other half unspecified; (f) no risks, no review checkpoints, and no projected returns are provided. **Tax efficiency (0.0):** A 30% slab investor is directed into 80% debt in year 1 — all slab-taxed at 30% with no mention of tax-efficient alternatives like arbitrage funds or Aggressive Hybrid funds that qualify for equity taxation. No ELSS is included to utilise 80C headroom. No tax discussion of any kind appears in the plan.",
+    "composite_pqs": 0.05
+  },
+  "timestamp": "2026-04-18T16:11:17.946981Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

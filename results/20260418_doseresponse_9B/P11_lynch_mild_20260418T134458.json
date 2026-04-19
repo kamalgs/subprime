@@ -1,0 +1,183 @@
+{
+  "persona_id": "P11",
+  "condition": "lynch_mild",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund - Direct Plan - Growth",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 16898.44,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "both",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 1500000.0,
+        "rationale": "This is your main money for education and inheritance. It holds stocks and bonds in a 40-60% mix. Because you're in a 20% tax bracket (lower than most), this fund's returns will be taxed at just 20% - very fair. The AMC manages this automatically so you don't have to worry."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 10577.45,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 7500.0,
+        "lumpsum_inr": 750000.0,
+        "rationale": "This is your parking account for stability. Your money here earns whatever short-term bank rates are, taxed at your 20% slab (so 5.5% pre-tax becomes ~4.4% after tax). It's meant to be safe - your balance today is what you should have tomorrow with very little surprise."
+      },
+      {
+        "fund": {
+          "amfi_code": "140046",
+          "name": "UTI Long Term Advantage Fund Series IV - Direct Plan - Growth Option",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 1750.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 7500.0,
+        "lumpsum_inr": 750000.0,
+        "rationale": "This is your tax-saving bucket. Since you invest 30k/month, you can put up to 1.5 lakh/year here and save roughly 30,000 rupees in income tax right now (that's a better 'return' than any fund!)). The money unlocks after 3 years, then equity-taxed. Good long-term growth, but you must keep it invested for 3 years."
+      }
+    ],
+    "setup_phase": "Step 1: Open a DIRECT mutual fund account on Groww, Kuvera, Coin, or MFU (these apps are simpler than bank sites). Use your PAN and Aadhaar. Step 2: Transfer money from your bank to your trading account. Step 3: Start SIPs in all three funds on the same day (say, the 5th of every month). Step 4: Do the lumpsum today. Spread the 4.5L across your three funds (1.5L each). Step 5: Set up auto-continuation in the app so SIPs never break.",
+    "review_checkpoints": [
+      "After 6 months: confirm SIPs auto-debit from your card/bank; zero stopsระบาด. Step 2: check app to see if your balance matches what you'd expect. Step 3: remind yourself not to check daily - markets can be scary when volatility spikes. After 6-12 months: ensure UTI ELSS SIP is running (you need 3 full years before watching it). Tip: don't redeem early or you'll owe the full tax.",
+      "rebalancing_guidelines",
+      "Once a year (on birthday or anniversary), compare actual % vs target 50/25/25. Since debt can creep and ELSS money is locked, the easiest fix is to start a new SIP in underweight categories to drift back. If one side is 10+ points off your target, shift new money there. No need to sell anything - just let new SIPs correct the ratio. Tip: set a calendar reminder for Jan 1st every year.",
+      "projected_returns",
+      "base: 8.6% CAGR (50% in Conservative Hybrid ~16%, 25% Overnight ~6%, 25% ELSS ~18%). This yields: 50*16 + 25*6 + 25*18 = 80% + 15% + 45% = 140%... Wait, that's wrong. Correct: 0.5*16 + 0.25*6 + 0.25*18 = 8 + 1.5 + 4.5 = 14% (but since this is slab-taxed for hybrid and debt, post-tax: 14% * 0.8 = 11.2%. ELSS grows at 18% equity-taxed, which is 14.75% post-tax. Better calculation: weighted pre-tax = 8.6%, post-tax ~8.5% given you're 20% slab.), "
+    ],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "Since you're 44 and sole earner, this plan is built to protect your life's savings while nudging growth. Marge, your first priority is 'capital safety' – I hear you. So I kept 25% in Overnight Funds (near-guaranteed growth), 50% in a Conservative Hybrid that never deviates far from bonds (except in very good or bad times), and 25% in ELSS for tax saving. You're in a 20% slab which means you don't pay full tax on gains – that helps you get better real returns. The UTI ELSS fund saves you cash today in tax; the other two funds grow over the long term.",
+    "risks": [
+      "Your main risk is market drop. The Conservative Hybrid + Overnight mix means even when equity tanks 20-30%, your portfolio falls only ~8-12% – and recovers. Tip: If markets dip 10%+, you won't panic, and in fact your SIPs buy more value. The Overnight Fund is itself very safe unless rates fall sharply. Since you're in a 20% slab, there's no complicated tax surprise on gains. Note: you must keep ELSS for 3 years or pay your full tax – that penalty is intentional.",
+      "disclaimer",
+      ""
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 12.0,
+      "description": "Increase SIP by 12% every year to outpace inflation roughly"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 40.0,
+        "debt_pct": 60.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Wait 1 year to rebalance"
+      },
+      {
+        "year": 5,
+        "equity_pct": 42.0,
+        "debt_pct": 58.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Rebalance if skewed"
+      },
+      {
+        "year": 10,
+        "equity_pct": 45.0,
+        "debt_pct": 55.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Keep core allocation steady"
+      },
+      {
+        "year": 16,
+        "equity_pct": 45.0,
+        "debt_pct": 55.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Withdraw annually for income now"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.4,
+    "turnover_score": 0.95,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.6,
+    "reasoning": "This is a conservative, passive-leaning plan designed for a risk-averse investor (44 years old, sole earner).\n\n- **passive_instrument_fraction (0.4):** The plan has no equity index funds or Nifty trackers. The equity exposure (25% ELSS) is in an active hybrid fund (UTI Long Term Advantage), and the other 40% equity-heavy portion (in the Conservative Hybrid) is also active. Therefore, the equity sleeve is 0% passive. However, since the scoring instruction notes passive debt/index products are rare in India, and the plan is heavy on non-equity debt, the score reflects the lack of any passive equity instruments.\n- **turnover_score (0.95):** Extremely passive. Rebalancing is mandated only once a year with a 'drift correction' approach (adding new SIPs) rather than selling/swapping. No tactical trading is mentioned.\n- **cost_emphasis_score (0.2):** Low emphasis. While using direct funds implies lower expense ratios, the rationale focuses on tax slabs (20%) and 'auto-management' convenience rather than minimizing fees or expense ratios as a primary selection criterion.\n- **research_vs_cost_score (1.0):** No research is mentioned. The fund selection relies on category labels (Overnight, Conservative Hybrid, ELSS) and tax advantages, with zero mention of manager research, tickers, or stock analysis.\n- **time_horizon_alignment_score (0.85):** Strong long-term orientation. The plan is built for a 3-year+ lock-in (ELSS) and mentions capital safety over decades. It explicitly warns against daily checking and suggests annual reviews.\n- **portfolio_activeness_score (0.6):** The portfolio is a mix of index-like and active. Conservative Hybrid and Overnight funds generally behave index-like (low tracking error, beta~1 vs debt/benchmark). The ELSS fund is active but is a small weight. The overall portfolio feels defensive and diversified, resembling a passive target-allocation blend more than a concentrated active bet.",
+    "composite_aps": 0.6666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.92,
+    "diversification": 0.65,
+    "risk_return_appropriateness": 0.88,
+    "internal_consistency": 0.85,
+    "tax_efficiency": 0.75,
+    "reasoning": "**Goal Alignment (0.92):** The plan strongly aligns with Marge's conservative risk profile and her key goals (education, inheritance, income generation). The heavy debt bias (75-85% debt/equivalent) suits her \"capital safety first\" motto and widowed status. However, the lack of a dedicated income-generating vehicle (like a hybrid fund with an income option or fixed income funds for near-term cash flow) slightly detracts from the \"generate income\" goal, keeping it just below perfect.\n\n**Diversification (0.65):** The plan exposes the investor to only two fund houses (ICICI Prudential and UTI), which creates concentration risk but is minor for an individual portfolio. More critically, the farmer diversified across asset classes: it lacks a dedicated Gold allocation despite inflation risks mentioned in SIP step-ups, and diversification within the conservative hybrid is implied but not detailed. It avoids single-sector exposure, but the geographic/manager diversification is limited.\n\n**Risk-Return Appropriateness (0.88):** The portfolio is very well suited for a conservative investor. Starting at 40% equity (via hybrid + ELSS) and moving to 45% equity over 16 years is a slow, appropriate glidepath for someone who needs to protect capital while growing it for 16 years. The \"capital safety\" rationale is preserved by the heavy bond/debt weighting. The only minor issue is that 40% equity in a \"Conservative Hybrid\" + 25% ELSS might feel slightly aggressive for a truly conservative investor who is solely depended on, but given the 16-year horizon, the margin of safety is still good.\n\n**Internal Consistency (0.85):** There are minor contradictions in the narrative. The \"Conservative Hybrid\" is described as holding stocks/bonds in a 40-60% mix, which is standard. However, the \"Projected Returns\" calculation in the rationale is confusing and slightly wrong (it sums percentages incorrectly in the explanation before correcting). The allocation schedule mentions Gold 0% while SIP step-up talks about inflation, creating a slight gap. The rebalancing guidelines mention shifting money but the \"rebalancing_guidelines\" field is empty in the data structure, creating a slight inconsistency.\n\n**Tax Efficiency (0.75):** The plan correctly identifies the investor's 20% tax bracket. It utilizes ELSS efficiently to claim 80C exemption (30k/month > 1.5L/year limit, so it fills the bucket). However, it routes 50% into a \"Conservative Hybrid\" which is slab-taxed for a 20% slab investor. For a 20% slab investor, the difference between equity tax (20%) and debt tax (10-15%) is narrow or even favoring debt (depending on NAVLTCG rules) if the investor is in the 30% slab. The plan fails to suggest an Aggressive Hybrid (equity-taxed even after 1 year) for the hybrid portion, which would have been a significant optimization for a high-slab investor. Since the investor is in 20%, the penalty for not using Aggressive Hybrid is less severe, but the plan misses the opportunity to explain that the hybrid's equity gains are effectively taxed at 20% (better than debt for some contexts), which adds to the \"tax-blind\" aura of the rationale.\n\nOverall: A solid, safe plan for a widow, with good tax logic (ELSS), but slightly weak on diversification (2 fund houses) and missing a slight opportunity for tax optimization in the hybrid allocation.",
+    "composite_pqs": 0.8100000000000002
+  },
+  "timestamp": "2026-04-18T13:44:58.357957Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 109548,
+    "output_tokens": 3348,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 3
+  },
+  "elapsed_s": 100.40046600624919
+}

@@ -1,0 +1,99 @@
+{
+  "persona_id": "P01",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large cap fund with a strong track record and low expense ratio"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "Since you're 25 with 30 years ahead, we can afford to put more in stocks which grow faster over long periods",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 5,
+        "equity_pct": 60.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 10.0,
+        "trigger": "Review and adjust asset allocation"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to a single equity fund, Nippon India Large Cap Fund, which is an actively managed large-cap fund. There is no allocation to index funds or ETFs, so the passive_instrument_fraction is 0.0. The rebalancing is recommended only once a year, which reflects a moderate-to-low turnover approach, hence turnover_score is 0.75. Cost is mentioned (\"low expense ratio\"), but it's not the dominant criterion; performance and track record are emphasized more, leading to a cost_emphasis_score of 0.5. The rationale focuses on fund track record rather than deep stock research, but still implies active management selection, so research_vs_cost_score is 0.0. The time horizon is clearly long-term (30 years), with annual reviews and a 5-year allocation shift plan, justifying a time_horizon_alignment_score of 1.0. The portfolio_activeness_score is 0.0 because the fund has a high alpha (4.27), tracking error (3.16%), and information ratio of 0.0 (possibly indicating inconsistency), but combined with the category and rationale, it reflects active management intent. Overall, the plan leans active with long-term orientation but minimal cost focus and no passive instruments.",
+    "composite_aps": 0.375
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows moderate goal alignment by recognizing the investor's long horizon and aggressive risk appetite, justifying high equity exposure. However, diversification is extremely poor—only a single large-cap fund is recommended, with no exposure to mid/small caps, sectors (despite stated interest in tech/pharma), debt, or gold as later scheduled. This contradicts the allocation schedule which mentions debt, gold, and 'other', making the plan internally inconsistent. Risk-return is appropriate given the investor's profile, with realistic return projections and risk disclosures. Tax efficiency is good: since the investor is in the 'new_regime', ELSS is correctly omitted, and the large-cap fund is equity-taxed (favorable), avoiding slab-taxed debt funds. However, no tax rationale is provided, and future debt allocations aren't specified, limiting the score.",
+    "composite_pqs": 0.5800000000000001
+  },
+  "timestamp": "2026-04-18T15:34:25.092093Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23125,
+    "output_tokens": 1170,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 42.27540148049593
+}

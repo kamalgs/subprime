@@ -1,0 +1,221 @@
+{
+  "persona_id": "P16",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118988",
+          "name": "Nippon India Multi Asset Allocation Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is your workhorse fund. It splits your money across stocks, bonds, and sometimes gold (usually in a 40-60-20 mix). Because it holds less than 65% in stocks, the profits are taxed at your 30% income tax rate. But it’s great for generating steady returns with far less volatility than pure stocks."
+      },
+      {
+        "fund": {
+          "amfi_code": "113049",
+          "name": "HDFC Gold ETF - Growth Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold is your insurance against sudden drops in the stock market. It usually doesn’t fall when many other assets do. Gains are taxed at 30%. Think of this as your ‘panic button’—it helps keep the portfolio steady in bad times."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 7500000.0,
+        "rationale": "This is where your large lump sum goes. It invests in medium-term government and corporate bonds. These are much safer than direct stocks. With 8 years to go, you can’t afford a big shock to your monthly income, so this bond core is critical. Think of it as your ‘bedrock’ for your Systematic Withdrawal Plan."
+      },
+      {
+        "fund": {
+          "amfi_code": "119456",
+          "name": "HDFC Balanced Advantage Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund automatically shifts between stocks and bonds based on market prices. When stocks are expensive, it puts more in bonds; when they’re cheap, it adds stocks. It’s a ‘self-correcting’ portfolio that tends to be smoother than a straight equity fund. It’s equity-taxed, which is better for your 30% slab."
+      }
+    ],
+    "setup_phase": "Step 1: Use your ₹2.5 crore corpus to buy the entire ₹75 lakh in the Aditya Birla Sun Life Medium Term Plan (AMFI: 119539). This is your safe core for generating income. Step 2: For your monthly ₹60,000 surplus, start three separate SIPs on the 1st of every month: ₹30,000 in Nippon India Multi Asset Allocation, ₹6,000 in HDFC Gold ETF, and ₹6,000 in HDFC Balanced Advantage Fund. Step 3: Open a Demat account for the Gold ETF and a mutual fund account for the rest. Use apps like Groww or Kuvera—they make this easy.",
+    "review_checkpoints": [
+      "Within 3 months: Confirm all SIPs are running correctly and no money is missing. Check your statement to ensure the lump sum in the Medium Term Plan is fully invested.\n\nAfter 1 year: Review if the Multi Asset fund still fits your risk profile. Check if the rebalancing target for Gold has drifted significantly.\nAfter every 4 years: Since you’re targeting grandchildren’s education in 20-25 years, assess whether a small portion needs to be moved into a Large Cap fund. For now, stay simple.",
+      "rebalancing_guidelines",
+      "Once a year, check if any portion has grown or shrunk more than 5% from its original percentage (50% Multi Asset, 10% Gold, 30% Medium Term, 10% Balanced Advantage). If, for example, stocks have performed well and the Balanced Advantage fund now represents 13% of your portfolio, sell a little of it and buy the Medium Term Plan to get back to 30%. This keeps your risk steady and prevents you from accidentally taking on too much risk.",
+      "projected_returns",
+      "base_cagr_cagr_percent_vs_initial_corpus_and_inflation_adjusted_returns_illustrative_percent_around_relevant_mutual fund_categories_medium term debt 7, long duration debt 8, hybrid 11, gold 9, multi asset 10, note that multi asset is your largest allocation so it pulls the average base return to 10.1%",
+      "base_cagr_percent_10.1",
+      "bull_cagr_percent_14.1",
+      "bear_cagr_percent_6.1",
+      "rationale",
+      "You’re retired, Albus, but your mind is—let’s say—still sharp enough to look 20 years ahead. With a 30% tax slab, you need the portfolio to generate real, after-tax income. That’s why I’ve given you a massive core in safe bonds and a Multi Asset fund that’s ‘tax-efficient’ but not gambling.\n\nThe 60% in Multi Asset and Balanced Advantage is your growth engine. They’ve historically given 11-14% before fees. After your 30% tax, you’d still see around 7.7-9.8%. With 60% of your weight there, that lifts your whole portfolio.\n\nBut safety is your priority, so 30% is locked in the Medium Term Plan. This section is almost like ‘buying a fixed deposit that moves slightly with markets’. It’s your engine for the ₹1.5 lakh you want to withdraw monthly later. It’s also tax-neutral for you because gains come off your current income.\n\nFinally, 10% in Gold and 10% in equity-heavy Balanced Advantage give you a buffer. If the market crashes 25%, this mix will probably only dip 10-12%, giving you time to recover without panicking.",
+      "risks",
+      "Even with this conservative mix, there’s no guarantee. The bond core can drop 5% in a bad year, and the Multi Asset fund can fall 10-12% in a crash. Your Median monthly withdrawal from the corpus in 8 years might be slightly less than 1.5L if markets perform poorly.\n\nAlso, the ±5% rebalancing rule means you might have to sell some gains to buy assets that haven’t done well yet. That feels like a tax drag, but it’s actually essential to keep your portfolio balanced. In your 30% earning year, tax on mutual fund gains is straightforward—equity gains are capped, but bond gains are taxed at your full marginal rate.",
+      "risks_note",
+      "Important: For your 30% income-tax slab, ‘safe’ isn’t just about low volatility—it’s about low taxes. Multi Asset and Balanced Advantage funds are equity-taxed, which is friendlier than pure bond funds. Stick with this logic even if the market screams about ‘safe bonds’."
+    ],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "Final result for research/educational purposes only, not liquid assets audit.",
+    "sip_step_up": null,
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 20.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 20.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 20.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 6,
+        "equity_pct": 20.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 7,
+        "equity_pct": 20.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 8,
+        "equity_pct": 20.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "The investment plan shows minimal use of passive/index instruments in the equity sleeve. The Nippon India Multi Asset Allocation Fund and HDFC Balanced Advantage Fund are actively managed dynamic asset allocation funds, and the equity portion within them is likely actively managed. There is no mention of index funds or ETFs in equity, resulting in a passive_instrument_fraction score of 0.0.\n\nThe turnover_score is 0.75 because the plan recommends only annual rebalancing when allocations drift by more than ±5%, which is relatively infrequent. However, the Balanced Advantage Fund itself dynamically shifts between stocks and bonds based on valuations, introducing some active turnover at the fund level, so it's not fully buy-and-hold.\n\nThe cost_emphasis_score is 0.0 because there is no discussion of expense ratios, fees, or cost minimisation as a selection criterion. Fund choices are based on strategy and tax efficiency, not cost.\n\nThe research_vs_cost_score is 0.0 because the rationale focuses on strategic asset allocation, tax treatment, and risk management rather than advocating for broad market indexing or minimising research effort. The use of actively managed funds with dynamic strategies implies reliance on fund-level research and active management expertise.\n\nThe time_horizon_alignment_score is 0.9 because the plan is designed for a 20–25 year horizon (grandchildren's education) and recommends a long-term, stable structure with minimal changes, only reviewing every 4 years. The 8-year income planning horizon also supports a long-term view.\n\nThe portfolio_activeness_score is 0.1 (nearly fully active) because all equity exposure comes through actively managed funds — Multi Asset Allocation and Balanced Advantage — which make tactical asset allocation decisions. These funds have high tracking error and active risk by design. The debt and gold allocations are also in active funds (no index bond funds used), and there is no indication of passive indexing at the portfolio level. Even though risk metrics are missing, the fund types and rationales confirm active management.",
+    "composite_aps": 0.2916666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.75,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.85,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows strong goal alignment by prioritizing capital protection and income stability for a retired conservative investor, with a 30% allocation to a medium-term debt fund as a bedrock for SWP. The inclusion of gold (10%) and balanced advantage (10%) provides modest growth and diversification, supporting long-term goals like grandchildren's education. Diversification is adequate across asset classes (debt, equity, gold, multi-asset), though geographic and sectoral concentration risks are unaddressed. Risk-return is mostly appropriate for a conservative investor, though the 50% allocation to the Multi Asset fund—which can fall 10-12% in a crash—may stretch the risk envelope slightly. The plan is internally consistent: rationale, allocations, and rebalancing logic align coherently. However, tax efficiency is poor. The 50% allocation to Nippon India Multi Asset Allocation is taxed at the investor's 30% slab (as it holds <65% equity), despite the availability of Aggressive Hybrid or arbitrage funds that offer equity taxation (12.5% LTCG) and similar risk. The plan incorrectly labels this as 'tax-efficient' for a 30% slab investor, which is a critical error. While the HDFC Balanced Advantage Fund (equity-taxed) is correctly used, the large slab-taxed allocation undermines overall tax efficiency. ELSS is not recommended, but the investor is in the old regime and could benefit from 80C—though this is not a major issue as the primary goal isn't tax saving. The plan's tax rationale contradicts its recommendations, significantly lowering the tax_efficiency score.",
+    "composite_pqs": 0.7
+  },
+  "timestamp": "2026-04-18T08:19:19.405895Z",
+  "prompt_version": "v1"
+}

@@ -1,0 +1,75 @@
+{
+  "persona_id": "P08",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "Reinforce the 80% rule for equity",
+    "projected_returns": {},
+    "rationale": "1.00% for 1-20% tax bracket",
+    "risks": [
+      "Market risks can drop 20-30% in bad years",
+      "Sector-specific risks: IT and Pharma can underperform"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "**passive_instrument_fraction = 1.0**: The sole equity allocation (40%) is a Nifty 50 Index fund — a quintessential passive/index product. 100% of the equity sleeve is passive.\n\n**turnover_score = 0.8**: Rebalancing guidance is minimal ('Reinforce the 80% rule for equity'), no review checkpoints are listed, and the 'basic' perspective implies a set-and-forget approach. Slightly below 1.0 because the 'reinforce' language suggests some periodic monitoring, but no active trading or tactical rotation is implied.\n\n**cost_emphasis_score = 0.7**: The choice of a Nifty 50 index fund inherently reflects cost consciousness (index funds are low-cost), and the rationale references a 1.00% expense ratio in the context of a tax bracket analysis. However, cost is not explicitly stated as the primary selection criterion — it's implied by the instrument choice rather than prominently argued.\n\n**research_vs_cost_score = 1.0**: Zero stock-specific or fund-specific research is presented. No PEG ratios, moat analysis, sector deep-dives, or manager track records. The entire plan rests on broad-market index exposure — the definition of no-research, broad-market investing.\n\n**time_horizon_alignment_score = 0.8**: The plan acknowledges that 'Market risks can drop 20-30% in bad years,' implying the investor should tolerate short-to-medium-term drawdowns — a long-term mindset. No tactical windows or event-driven positioning. Slightly below 1.0 because no explicit multi-decade horizon or compounding narrative is articulated.\n\n**portfolio_activeness_score = 1.0**: The only holding is a Nifty 50 Index fund. While risk metrics (beta, alpha, tracking error) are null, the fund's name and category unambiguously identify it as a passive index tracker. The information ratio of 0.5 is provided but for an index fund this likely reflects tracking rather than active skill. The portfolio is truly passive.",
+    "composite_aps": 0.8833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.05,
+    "reasoning": "This plan is severely deficient across all dimensions. **Goal alignment (0.1):** Only 40% of capital is allocated (to a single Nifty 50 Index fund), leaving 60% completely unaddressed. There is no goal-based planning — the daughter's 10-year education goal and the 20-year ₹8Cr retirement goal are not separately strategized. The aggressive risk appetite is loosely reflected in equity preference, but the allocation is incomplete and unsubstantiated. **Diversification (0.05):** A single fund in a single asset class (Indian large-cap equity) with no international exposure, no sectoral spread beyond what Nifty 50 inherently provides, no fixed income or alternative allocation, and no fund-house diversification. This is near-zero diversification. **Risk-return appropriateness (0.15):** While Nifty 50 is a reasonable equity holding for an aggressive investor, the plan provides no projected returns, no downside scenario analysis beyond generic warnings, and the 40% allocation is far too conservative for an aggressive profile (the rebalancing guideline bizarrely mentions an '80% rule for equity' while only allocating 40%). **Internal consistency (0.05):** The plan is riddled with contradictions: allocations sum to only 40% with no explanation for the missing 60%; the rationale field reads '1.00%' which is nonsensical; the lumpsum amount is ₹0.5; the rebalancing guideline references an 80% equity rule inconsistent with the 40% allocation; and the risk warnings cite IT/Pharma sector risks irrelevant to a broad Nifty 50 fund. **Tax efficiency (0.05):** No tax consideration whatsoever for a 30% slab investor. No ELSS to utilise 80C headroom, no discussion of equity vs. debt fund taxation, no preference for equity-taxed wrappers over slab-taxed instruments, and the rationale text ('1.00% for 1-20% tax bracket') is incoherent and irrelevant to this investor's tax situation.",
+    "composite_pqs": 0.08
+  },
+  "timestamp": "2026-04-18T17:06:49.596811Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

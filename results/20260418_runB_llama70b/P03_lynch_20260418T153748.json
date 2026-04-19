@@ -1,0 +1,215 @@
+{
+  "persona_id": "P03",
+  "condition": "lynch",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16619.0,
+          "morningstar_rating": null,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap fund with a strong track record and moderate risk"
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Flexi-cap fund with a strong track record and moderate to high risk"
+      },
+      {
+        "fund": {
+          "amfi_code": "118778",
+          "name": "Nippon India Small Cap Fund",
+          "category": "Small Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": 20172.0,
+          "morningstar_rating": null,
+          "returns_1y": 9.3,
+          "returns_3y": 21.1,
+          "returns_5y": 22.3,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.91,
+          "alpha": 6.39,
+          "tracking_error": 9.53,
+          "sharpe_ratio": 0.65,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 22500.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Small-cap fund with a strong track record and high risk"
+      },
+      {
+        "fund": {
+          "amfi_code": "120665",
+          "name": "UTI Nifty Index Fund",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "UTI Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 518.0,
+          "morningstar_rating": null,
+          "returns_1y": 12.4,
+          "returns_3y": 22.1,
+          "returns_5y": 18.2,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.96,
+          "alpha": 8.0,
+          "tracking_error": 5.54,
+          "sharpe_ratio": 0.66,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Index fund with a low expense ratio and moderate risk"
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 42.0,
+          "morningstar_rating": null,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.93,
+          "alpha": 8.21,
+          "tracking_error": 6.18,
+          "sharpe_ratio": 0.46,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 5.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 750000.0,
+        "rationale": "ELSS fund with a strong track record and moderate risk"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "The investment plan is designed to meet the investor's financial goals while considering their risk appetite and investment horizon. The allocation to large-cap, flexi-cap, small-cap, and index funds provides a mix of growth and stability. The ELSS fund is included to take advantage of the tax benefits.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 5,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Review and adjust the allocation based on the investor's risk appetite and market conditions"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "passive_instrument_fraction: Only 10% of the equity allocation is in a passive index fund (UTI Nifty Index Fund), while the remaining 90% is in actively managed funds (large-cap, large & mid-cap, small-cap, ELSS). Since the score is based only on the equity sleeve, and equity is 100% of the allocation here, the passive fraction is 10/100 = 0.1. However, rounding up slightly due to the presence of the index fund and its explicit low-cost rationale, score is 0.2.\n\nturnover_score: Rebalancing is recommended annually ('once a year'), and review is suggested every 6-12 months. No frequent trading or tactical shifts are advised. This aligns with a mostly buy-and-hold approach, hence a high score of 0.75. Not a perfect 1.0 due to annual rebalancing and performance monitoring.\n\ncost_emphasis_score: The only mention of cost is for the index fund ('low expense ratio'). Other fund selections are based on track record and risk, not cost. Expense ratios are not a dominant theme, so cost is not a primary criterion. Score: 0.4.\n\nresearch_vs_cost_score: Fund rationales emphasize 'strong track record' and 'risk', implying manager skill and performance evaluation rather than broad market exposure. No mention of avoiding stock picking or favoring market-cap weighting. The high tracking errors and alphas in most funds suggest active management based on research. Score: 0.1.\n\ntime_horizon_alignment_score: The plan includes long-term elements like annual SIP step-up, 5-year allocation schedule, and acknowledgment of market recovery over time. Review and rebalancing are infrequent. However, the 5-year trigger to 'adjust based on market conditions' introduces some tactical flexibility. Overall, strongly long-term oriented: 0.8.\n\nportfolio_activeness_score: Risk metrics show high tracking error (>9%) and positive alpha in most funds (especially Motilal Oswal at 13.05 TE, 18.62 alpha), indicating genuine active management. UTI Nifty Index Fund is passive (TE=5.54, beta=0.96), but it's only 10%. Nippon Large Cap has low tracking error (3.16) and moderate alpha, suggesting closet indexing, but others are clearly active. Weighted, the portfolio is predominantly active. Score: 0.2.",
+    "composite_aps": 0.4083333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.75,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.6,
+    "reasoning": "The investment plan shows reasonable alignment with Atticus Finch's financial goals and life stage. At age 45 with a 15-year horizon and moderate risk appetite, the 85% equity-heavy allocation (Large Cap, Large & Mid Cap, Small Cap, Index, ELSS) is justifiable for long-term growth, especially targeting retirement and children's goals. However, the plan lacks explicit linkage between fund allocations and specific goals (e.g., no earmarking for daughter's wedding or son's education), which limits perfect alignment. Diversification is decent across market caps and fund houses, but the absence of debt or hybrid funds for near-term goals (e.g., son's education in 5 years) introduces unnecessary risk. The 10% index fund adds low-cost exposure, but small-cap at 15% may be aggressive for a moderate investor. Risk-return is appropriate overall, with realistic return projections (12% base) and acknowledgment of market volatility. Internal consistency is strong: the rationale supports equity growth, SIP step-up matches income growth, and annual rebalancing maintains discipline. However, the allocation schedule at year 5 suggests a future shift to 30% debt, but no current debt exposure or glide path is defined, creating a mild inconsistency. Tax efficiency is suboptimal: while the investor is in the 30% tax slab and benefits from ELSS (5% allocation, ₹7.5L lumpsum), the plan misses opportunities to use Aggressive Hybrid or arbitrage funds for potential debt-like exposure under equity taxation. No tax rationale is provided for fund choices, and the lack of debt funds ignores the chance to optimize post-tax returns. ELSS inclusion is correct for 80C utilization under the old regime, but the small allocation (only ₹7.5L lumpsum) may not fully utilize the annual 80C limit (₹1.5L/yr over time). No mention is made of tax treatment for non-ELSS funds, despite high relevance for a 30% slab investor.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-18T15:37:48.738530Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 25657,
+    "output_tokens": 2655,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 193.21727382950485
+}

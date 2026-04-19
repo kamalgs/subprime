@@ -1,0 +1,83 @@
+{
+  "persona_id": "P12",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Conservative hybrid fund with a mix of equity and debt to balance risk and returns"
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 9.5,
+      "bull": 13.5,
+      "bear": 5.5
+    },
+    "rationale": "Given Ron's conservative risk appetite and preference for avoiding complex products, we have chosen a mix of short-duration debt, arbitrage, and gold funds to balance risk and returns.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.45,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.15,
+    "reasoning": "1) passive_instrument_fraction = 0.0: The sole fund (ICICI Prudential Equity & Debt, Aggressive Hybrid) has an actively managed equity sleeve — 0% of the equity allocation is in passive/index instruments. 2) turnover_score = 0.85: The plan prescribes annual rebalancing only ('once a year, check if your mix has changed a lot'), with no tactical shifts or momentum-based trading — nearly buy-and-hold. 3) cost_emphasis_score = 0.0: Cost (expense ratio, transaction fees, tax efficiency) is not mentioned anywhere in the rationale, fund selection criteria, or guidelines. 4) research_vs_cost_score = 0.45: No deep security-level or fund-level research is provided — the rationale is generic ('balance risk and returns'). However, the plan also doesn't use broad-market index funds; it's a single actively managed hybrid fund chosen with minimal analysis, placing it between the two poles. 5) time_horizon_alignment_score = 0.85: The plan is clearly long-term oriented — SIP mode with 10% annual step-up, acceptance of 20-30% drawdowns as 'normal and recovers over time', and only infrequent annual reviews. 6) portfolio_activeness_score = 0.15: The Aggressive Hybrid fund is actively managed (stock selection on the equity side, duration/credit management on the debt side). Risk metrics are unavailable (all zeros), but the category and 1.0% expense ratio confirm active management. The hybrid structure provides some built-in diversification, but it is far from passive/index-like.",
+    "composite_aps": 0.3833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.3,
+    "reasoning": "This plan is severely deficient on nearly every dimension:\n\n**Goal alignment (0.2):** Only 40% of the ₹80K monthly surplus is allocated (₹32K), with no explanation for the remaining ₹48K. The existing ₹1.2 crore corpus is completely unaddressed. The investor's goals—maintaining real value and generating ₹1L/month retirement income—require a comprehensive strategy covering both the corpus and the full surplus. The investor explicitly prefers short-duration debt, arbitrage, and gold; the plan delivers none of these. The single Aggressive Hybrid fund (65-80% equity) contradicts his conservative appetite and preference for simple, understandable products.\n\n**Diversification (0.1):** One fund, one fund house, one category. No debt, no gold, no arbitrage—despite the investor specifically favouring all three. An Aggressive Hybrid fund provides some internal equity+debt mix, which is the only reason this isn't 0.0.\n\n**Risk-return appropriateness (0.15):** A conservative investor who explicitly favours short-duration debt and arbitrage is placed in a 65-80% equity Aggressive Hybrid. The rationale even mislabels it as 'Conservative hybrid.' The projected base return of 9.5% may be realistic for Aggressive Hybrid, but the risk profile is grossly mismatched. No downside scenario planning for a conservative retiree.\n\n**Internal consistency (0.1):** The rationale says 'short-duration debt, arbitrage, and gold funds' but allocates 100% to an Aggressive Hybrid equity fund. The rationale calls it a 'Conservative hybrid fund' when it is categorised as 'Aggressive Hybrid.' The SIP step-up mentions 'salary growth' for a business owner. 60% of the surplus is unaccounted for. The risk warning about 20-30% equity drops contradicts the stated conservative posture.\n\n**Tax efficiency (0.3):** The one silver lining: Aggressive Hybrid funds (≥65% equity) qualify for equity taxation (LTCG 12.5%, STCG 20%), which benefits a 30% slab investor compared to slab-taxed debt funds. However, the plan never mentions this. No ELSS is included to utilise 80C headroom for this 30% slab investor. No arbitrage fund (also equity-taxed and investor-preferred) is included. Tax efficiency is accidentally present but never articulated or optimised.",
+    "composite_pqs": 0.17
+  },
+  "timestamp": "2026-04-18T15:42:19.806070Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

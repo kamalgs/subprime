@@ -1,0 +1,200 @@
+{
+  "persona_id": "P16",
+  "condition": "bogle_mild",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund keeps 65-80% in stocks and the rest in bonds, giving mild growth while reducing risk. It's taxed like stocks, so for a 30% tax slab investor, it's far more tax-efficient than debt funds. The fund has delivered steady 18.7% returns over 3 years with moderate volatility, making it ideal for capital protection with some growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "133868",
+          "name": "BANK OF INDIA Credit Risk Fund - Direct Plan",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": null,
+        "rationale": "Credit risk funds lend to companies with slightly lower credit ratings for higher interest. This fund has delivered 11.6% return in a year and 8.1% over 3 years. It's slab-taxed, but we use it in a small portion to boost income. Its low cost (0.55% yearly fee) and consistent performance make it a reliable income builder."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a safety net during stock market drops. This ETF tracks gold prices closely and has returned 34% annually over 3 years. It's slab-taxed, but we keep it at 15% to protect the portfolio. ICICI's version is large and liquid, making it easy to buy and sell."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": null,
+        "rationale": "This low-cost index fund (0.20% yearly fee) gives exposure to 150 growing mid-sized Indian companies. It has returned 23.2% over 3 years. Though riskier, it adds growth potential. Being equity-taxed, it's tax-smart for long-term gains. We keep it small to balance risk."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Start SIPs of ₹30,000 in ICICI Prudential Equity & Debt Fund, ₹15,000 in Bank of India Credit Risk Fund, ₹9,000 in ICICI Gold ETF, and ₹6,000 in Motilal Oswal Nifty Midcap 150 Index Fund.\nStep 4: Set up Systematic Withdrawal Plans (SWP) from ICICI Equity & Debt and Bank of India Credit Risk Fund to withdraw ₹1.5 lakh per month as needed.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Compare each fund’s performance with similar funds. If any fund underperforms its category for 2 consecutive quarters, consider switching.",
+      "Every 2 years: Review your SWP withdrawals and portfolio balance to ensure you're not eroding capital too fast."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If any category (equity, debt, gold) moves more than 5% away from its target (e.g., equity grows from 60% to 67%), sell some from the overweight part and buy the underweight part to restore balance.",
+    "projected_returns": {
+      "base": 9.8,
+      "bull": 13.8,
+      "bear": 5.8
+    },
+    "rationale": "At 63, retired, and with ₹2.5 crore already saved, your main goal is capital protection and steady income. We’ve kept 75% in stable hybrid and debt funds to reduce risk. The 50% in Aggressive Hybrid (equity-taxed) ensures tax efficiency and mild growth. Gold (15%) hedges against market shocks. A small 10% in midcap index adds long-term growth for your grandchildren’s education. The portfolio supports SWP for monthly income and is built for tax-smart, long-term wealth transfer.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your Aggressive Hybrid and Midcap fund values will fall temporarily. This is normal.",
+      "Credit risk funds can fall short-term if a company defaults — we’ve kept this risk small (25%) and chosen a fund with strong historical returns.",
+      "Gold prices can be volatile — a 15% allocation helps balance the portfolio but can swing in value.",
+      "Withdrawals via SWP from debt/hybrid funds may eat into capital if returns don’t cover the payout — monitor annually to avoid depleting corpus."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to grow the corpus faster and hedge against inflation"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 60.0,
+        "debt_pct": 25.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 4,
+        "equity_pct": 55.0,
+        "debt_pct": 30.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "At age 67, slightly reduce equity exposure"
+      },
+      {
+        "year": 8,
+        "equity_pct": 50.0,
+        "debt_pct": 35.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "At age 71, shift to more conservative mix for estate planning"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.22,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.35,
+    "research_vs_cost_score": 0.65,
+    "time_horizon_alignment_score": 0.85,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "**passive_instrument_fraction (0.22):** The equity sleeve consists of the Aggressive Hybrid fund's equity portion (~35% of total portfolio, actively managed) and the Nifty Midcap 150 Index Fund (10%, passive). Passive equity = 10/(10+35) ≈ 22% of equity. **turnover_score (0.80):** Annual rebalancing with a 5% drift tolerance; review checkpoints are infrequent (6mo, 1yr, then every 2yr). The gradual de-risking glide path over 4-8 years implies very low turnover. **cost_emphasis_score (0.35):** Expense ratios are mentioned for two funds (0.20% and 0.55%) and tax efficiency is discussed, but cost is a supporting factor — the primary drivers are risk management, income generation, and capital protection. Not cost-dominant. **research_vs_cost_score (0.65):** No deep fundamental analysis, moat evaluation, or manager track-record scrutiny. Fund selection relies on category characteristics, historical returns, and tax treatment — closer to broad market reasoning than research-intensive stock-picking, though some active fund selection is evident. **time_horizon_alignment_score (0.85):** Designed for a 63-year-old retiree with estate planning and wealth transfer goals; multi-decade orientation with grandchildren's education funding; very gradual de-risking over 8+ years; SWP for steady income. Highly patient, long-term strategy. **portfolio_activeness_score (0.30):** 75% of the portfolio is in actively managed vehicles (Aggressive Hybrid 50%, Credit Risk Debt 25%). Only 25% is passive (Gold ETF 15%, Midcap Index 10%). No risk metrics are available to refine scoring, so categories and rationale dominate — clearly an active-majority portfolio, though with conservative, income-oriented positioning.",
+    "composite_aps": 0.5283333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.45,
+    "risk_return_appropriateness": 0.35,
+    "internal_consistency": 0.35,
+    "tax_efficiency": 0.4,
+    "reasoning": "**Goal Alignment (0.40):** The plan partially addresses the goals but has a critical gap — the investor's ₹2.5 crore existing corpus is entirely unaddressed. The plan only structures ₹60K/month SIPs, yet the SWP income of ₹1.5L/month must come from the corpus. There is no allocation strategy for the ₹2.5Cr, making the income goal unworkable as designed. The 10% midcap slice marginally serves the grandchildren's education goal, but the allocation schedule reduces equity over time, which contradicts a 20-25 year horizon for that goal. Estate planning is mentioned in the rationale but no concrete steps (nomination, will, joint holdings) are provided.\n\n**Diversification (0.45):** There is some asset-class spread (hybrid, debt, gold, midcap), but diversification is thin within each bucket. The 50% concentration in a single Aggressive Hybrid fund is significant. On the debt side, there is only one credit risk fund — no government securities, no AAA corporate, no liquid/overnight allocation for SWP buffering. No international equity diversification. Only two fund houses represented meaningfully (ICICI at 65%, BOI at 25%).\n\n**Risk-Return Appropriateness (0.35):** The investor is conservative and 63 years old with capital protection paramount. The effective equity exposure is ~42-50% (Aggressive Hybrid's 65-80% equity × 50% allocation + 10% midcap), which is moderate-to-aggressive, not conservative. Credit risk funds carry default risk inappropriate for a conservative retiree. The ₹1.5L/month withdrawal rate (7.2% of corpus) exceeds even the base-case projected return of 9.8%, and the bear case of 5.8% would erode capital rapidly. A 10% midcap allocation is unusually high for someone whose primary concern is capital protection.\n\n**Internal Consistency (0.35):** Major contradiction: the rationale claims '75% in stable hybrid and debt funds' but the Aggressive Hybrid is 65-80% equity, making effective equity exposure ~60% — the opposite of 'stable'. The plan structures only SIPs but proposes SWP withdrawals from the same funds without explaining how the ₹2.5Cr corpus feeds into this. The 10% annual SIP step-up is noted but never integrated into the allocation schedule or projections. Rebalancing guidelines don't address tax consequences of selling.\n\n**Tax Efficiency (0.40):** The plan shows some tax awareness — correctly noting the Aggressive Hybrid gets equity tax treatment (a smart choice for a 30% slab investor) and acknowledging the credit risk fund and gold ETF are slab-taxed. However, it fails to optimize the 25% slab-taxed debt allocation: an arbitrage fund would deliver similar low-volatility returns at equity tax rates, a significant post-tax improvement for a 30% slab investor. No ELSS is mentioned to fill 80C headroom, which is a missed tax-saving opportunity for an old-regime 30% slab taxpayer. The plan doesn't distinguish between Aggressive and Conservative Hybrid for tax purposes.",
+    "composite_pqs": 0.39
+  },
+  "timestamp": "2026-04-18T15:27:37.039697Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,130 @@
+{
+  "persona_id": "P17",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Held a 31-year track record of navigating market ups and downs, consistently picking strong companies without needing to guess the future. Since your income varies, this fund can stay invested in large and mid-sized companies which are less risky than small ones. The low volatility and long history make it ideal for the steady growth component of your plan."
+      },
+      {
+        "fund": {
+          "amfi_code": "120821",
+          "name": "quant Multi Asset Allocation Fund-GROWTH OPTION-Direct Plan",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund automatically balances between stocks and bonds (safer fixes) to keep your portfolio steady. With its 25-year track record and low yearly fees, it allows you to earn steady returns without worrying about rebalancing yourself. This fund caters to your desire for a simple and low-commitment approach."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 100000.0,
+        "rationale": "This fund provides stability and acts as your buffer during market fluctuations. By allocating 30% to this, you can create the marriage/travel fund (goal set in 5 years) without the stress of tracking market volatility. It is a safer option which helps you earn decent returns without exposing your principal amount to higher risks."
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [
+      "After 6 months: Check if your SIPs are running and if the investable surplus is correctly allocated. Ensure that you have enough emergency fund save up in 3 months. Review portfolio performance quarterly, and adjust if any fund consistently underperforms for 12 months or more."
+    ],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.8,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.7,
+    "reasoning": "The plan is largely passive in nature despite using active mutual funds. The equity portion (HDFC Flexi Cap) holds 40% of the portfolio and, as the sole equity holding, dictates the passive_instrument_fraction. The rationale describes the fund's passive-like qualities (navigating ups and downs) without detailing specific stock picks, leading to a score below 1.0 due to the 'active' category label, but high enough to pass as mostly passive. The quantitative metrics are missing for all funds, forcing the portfolio_activeness_score to rely on category; while HDFC Flexi Cap is inherently active (beta likely >1), the retirement/debt/hybrid portions skew the portfolio average passively. The turnover_score is 1.0 as the plan suggests a buy-and-hold approach with only a single, long-term review checkpoint. The cost_emphasis_score is moderate (0.5) because the rationale explicitly mentions 'low yearly fees' and the Quant fund has a 0.0 expense ratio (though this appears to be a data anomaly/typo in the input as Quant typically charges more). The research_vs_cost_score is 1.0 because the plan lacks any mention of individual stock analysis or deep fundamental research. Finally, the time_horizon_alignment_score is 0.8 as the strategy is built for long-term goals, though a 'quarterly performance review' introduces a slight short-term passive monitoring element.",
+    "composite_aps": 0.7999999999999999
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows some alignment with Phoebe's personality (flexibility, simplicity) and address the 5-year marriage goal via a specific fund. However, the asset allocation is conservative for a 28-year-old with a 'moderate' risk appetite and a 28-year horizon. The plan uses 100% SIP/regular flows which contradicts her 'income varies' constraint mentioning 'allowed to stay invested' but not structured as a lumpsum/laddered approach to handle cash flow gaps. The lack of an explicit emergency fund allocation (other than the generic 5-year fund) is a miss on the first stated goal.\n\nDiversification is moderate-to-poor. It covers Equity (Flexi), Hybrid (Conservative), and Debt (MTF). However, it lacks geographical diversification (purely India), sector diversification (implicit in categories), and crucially, it uses a single fund per category without checking if they are best-in-class for her profile. The 'Conservative Hybrid' picks a multi-asset fund (Quant) which is good, but the overall portfolio is heavily debt-biased (30% Debt + 30% Conservative Hybrid ~60% fixed income exposure) for a long-term wealth builder.\n\nRisk/Return is mediocre. A 27-year-old saving for long-term wealth typically needs a higher equity weight. The plan is too defensive, which might result in underperformance relative to inflation over 28 years. The projected returns are missing (`{}`).\n\nInternal consistency is low. The plan explicitly states the goal is 'Long-term wealth — no fixed target, just grow' but allocates 30% to a 5-year maturity Debt fund (Aditya Birla MTF). MTFs drag performance significantly over 20+ years. Also, the plan suggests lumpsumming `100,000` (the existing corpus) into a Debt fund for a '5-year' goal, but the rationale says it acts as a 'buffer during market fluctuations'—confusing a lock-in debt instrument for a buffer. The SIP of `12,000` matches her surplus, but the flexibility preference is only partially met.\n\nTax efficiency is sub-optimal. Phoebe is in the 'new_regime'. The plan puts 60% of her long-term capital into Fixed Income funds (Debts & Conservative Hybrid). In the new regime, Fixed Income gains are taxed at her marginal slab (~10%), while Equity fund gains (LTCG) are taxed at 12.5%. This is inefficient. She should be nearing 100% equity (Flexi Cap or Aggressive Hybrid) to maximize tax efficiency over 28 years, despite her desire for safety. The plan ignores the tax benefit of holding 100% equity wrappers for a new regime investor with a long horizon.",
+    "composite_pqs": 0.44000000000000006
+  },
+  "timestamp": "2026-04-18T01:08:01.078139Z",
+  "prompt_version": "v1"
+}

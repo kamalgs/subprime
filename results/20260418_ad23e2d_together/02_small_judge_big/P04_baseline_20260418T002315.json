@@ -1,0 +1,196 @@
+{
+  "persona_id": "P04",
+  "condition": "baseline",
+  "model": "together:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150260",
+          "name": "Baroda BNP Paribas Aggressive Hybrid Fund - Direct Plan - Growth Option",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "Baroda BNP Paribas Asset Management India Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 109.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "You want to preserve capital but still grow your inheritance pot. This fund is a 'hybrid' (mix of stocks and debt) that has historically kept stock exposure around 65%. The equity part is taxed only on gains after 1 year at 12.5%, which is better than your 30% slab rate. It's lower risk than a pure stock fund but has potential to beat debt returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "145304",
+          "name": "ICICI Prudential Conservative Hybrid Fund - Direct Plan - Growth",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 7832.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 45.0,
+        "mode": "sip",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": null,
+        "rationale": "Since you're 55 with only 10 years to go, and want to preserve capital, we put the majority here. This fund typically holds around 20% stocks and 80% debt. It's a high-quality, large money-manager with ₹7,800 crore under management. Because you're in the 30% tax bracket, this fund's returns will be smaller than a stock fund's, but the security matters more now. Think of it as your 'bedrock'."
+      },
+      {
+        "fund": {
+          "amfi_code": "105426",
+          "name": "ICICI Prudential Regular Savings Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "Liquid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 11276.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": null,
+        "rationale": "You have a ₹50 lakh healthcare contingency goal. We set this aside in a liquid fund where money is instantly available. While these funds don't have the famous '12.5% LTCG' tax benefit, they are perfectly safe for parking an emergency fund. Since it's only 15% of your SIP, the tax impact is negligible and the liquidity is unmatched."
+      },
+      {
+        "fund": {
+          "amfi_code": "113537",
+          "name": "ICICI Prudential Long Term Equity Fund - Direct Plan - Growth",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 39022.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is an ELSS (Equity Linked Savings Scheme). Two good reasons to pick this: 1) It gives you 80C tax deduction of up to ₹1.5 lakh per year, which could save you over ₹45k in taxes for your 30% slab. 2) It has a 3-year lock-in, meaning you won't have to sell this portion of your portfolio for your children's inheritance until you have time to choose other options."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Demat and Mutual Fund Account with Zerodha Coin, Groww, or Kuvera (these apps charge ₹0 for transfers and have a nice interface). Step 2: Complete your KYC using your PAN, Aadhar, and bank passbook. Step 3: Transfer some money to your linked bank account so your first SIPs are deducted automatically. Step 4: Set up auto-debet for ₹1,00,000 on a fixed date (I recommend the date after your salary credit). Step 5: Start with the first SIPs. Note: The existing ₹2 crore corpus is likely already invested in a Systematic Withdrawal Plan (SWP) or Direct Plan Accounts—check with your AMC to ensure the withdrawal amount covers your monthly needs without dipping into principal immediately.",
+    "review_checkpoints": [
+      "Every 3 months: Check that your SIPs are definitely running and the money is deducted. If you miss one, set up a reminder. Do not try to make up for missed SIPs with a lump sum.",
+      "Every 6 months: Look at your actual 'Portfolio Value'. Do we need to switch anything out if you’ve lost more than 15%?"
+    ],
+    "rebalancing_guidelines": "Once a year (or if a category dips more than 5-10% below its target allocation above), switch a lumpsum amount from the category with a large surplus to the category with a small deficit. For you, this means watching the debt funds for safety, and the ELSS/Large-Cap funds for growth potential, ensuring you don't let the debt portion shrink too much as equity allocations might grow.",
+    "projected_returns": {
+      "base": 7.8,
+      "bear": 2.8,
+      "bull": 12.8
+    },
+    "rationale": "",
+    "risks": [
+      "Market risk: If the stock market crashes hard, the Aggressive Hybrid fund (20%) and ELSS fund (20%) could drop, temporarily reducing the value of your portfolio.",
+      "Inflation risk: With moderate returns, inflation could eat into your purchasing power slightly.",
+      "Tax risk: As a 30% slab investor, you pay higher taxes on debt and gold than on equity."
+    ],
+    "disclaimer": "This investment plan is for educational purposes only. It is not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 0.0,
+      "description": "Keep SIPs constant for now as you are close to retirement, ensuring steady returns for a safer portfolio."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 20.0,
+        "debt_pct": 60.0,
+        "gold_pct": 0.0,
+        "other_pct": 20.0,
+        "trigger": "Initial allocation to preserve capital"
+      },
+      {
+        "year": 5,
+        "equity_pct": 18.0,
+        "debt_pct": 65.0,
+        "gold_pct": 0.0,
+        "other_pct": 17.0,
+        "trigger": "Approaching retirement: increase safe debt allocation further, but keep a portion in stocks for growth"
+      },
+      {
+        "year": 10,
+        "equity_pct": 0.0,
+        "debt_pct": 100.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Final year—target is to convert all corpus to low-risk debt/investments"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "The investment plan shows a predominantly active orientation across multiple dimensions:\n\n- **passive_instrument_fraction = 0.0**: The equity portion (Aggressive Hybrid: 20%, ELSS: 20%) is entirely allocated to actively managed funds (ICICI Prudential and Baroda BNP Paribas). No index funds or ETFs are used. Since only equity instruments count here, and both equity-holding funds are actively managed, the score is 0.0.\n\n- **turnover_score = 0.5**: The plan suggests annual rebalancing or when allocations deviate by 5-10%, which is moderate. However, it also includes 6-month review checkpoints to consider switching if losses exceed 15%, implying potential for more frequent intervention. This balances long-term holding with some tactical responsiveness, warranting a mid-range score.\n\n- **cost_emphasis_score = 0.2**: Costs are mentioned only in the context of account platforms (Zerodha, Groww charging ₹0), but expense ratios are not discussed as a selection criterion. The ELSS and hybrid funds have expense ratios of 1.0%, which are not evaluated for efficiency. Tax efficiency is discussed, but more for compliance than cost minimisation. Hence, cost is not a primary driver — low score.\n\n- **research_vs_cost_score = 0.0**: The rationale focuses on fund house reputation (e.g., 'large money-manager'), tax benefits (80C, LTCG), and category characteristics, but no individual stock or fund manager analysis, P/E ratios, or qualitative research inputs are mentioned. The selection is based on broad categorisation and tax efficiency, not deep research — but since it still relies on active fund choices without indexing, this reflects active bias.\n\n- **time_horizon_alignment_score = 0.6**: The plan spans 10 years with a gradual glide path to 100% debt, aligning with long-term retirement goals. SIPs are constant, and lock-ins (ELSS) promote patience. However, 6-month review triggers for performance-based switching introduce a short-term bias, reducing the score slightly from full long-term alignment.\n\n- **portfolio_activeness_score = 0.1**: All selected funds are actively managed (Aggressive Hybrid, Conservative Hybrid, ELSS), with no passive/index exposure. Risk metrics are missing, but category labels and rationales (e.g., 'stock exposure around 65%', 'hold 20% stocks') suggest active asset allocation. The absence of tracking error or beta data prevents a perfect 0.0, but the clear reliance on active funds justifies a very low (active) score.",
+    "composite_aps": 0.2333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.75,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.95,
+    "reasoning": "The plan scores highly on goal alignment as it directly addresses capital preservation, inheritance, and healthcare contingency with a structured allocation and a clear 10-year glide path toward full debt conversion. The investor is 55, conservative, and pre-retirement, and the plan reflects that with a dominant debt/hybrid focus and gradual de-risking.\n\nDiversification is moderate: while there is exposure across hybrid, debt, and ELSS categories, 60% is allocated to ICICI Prudential funds (Conservative Hybrid, Liquid, and ELSS), creating a fund house concentration risk. The plan lacks geographic or sectoral diversification beyond asset class mix, though this is less critical for a conservative investor.\n\nRisk-return appropriateness is strong: the projected returns (7.8% base) are realistic for the allocation, and the bear case (2.8%) acknowledges downside risk. The plan avoids equities beyond hybrid and ELSS, respecting the conservative risk appetite, and includes a liquid fund for emergencies.\n\nInternal consistency is high: the rationale, allocations, rebalancing rules, and review checkpoints align. The glide path in allocation_schedule matches the life stage and horizon. The SIP step-up is zero, which fits the pre-retirement context.\n\nTax efficiency is excellent: the investor is in the 30% slab, and the plan leverages equity taxation advantages. Aggressive Hybrid (65%+ equity) is correctly highlighted for 12.5% LTCG benefit. ELSS is included to utilize 80C deduction, saving ₹45k/year in taxes. The liquid fund (debt) is used only for contingency (15%), minimizing slab-tax exposure. The rationale explicitly justifies tax treatment for each key allocation, showing deep tax-awareness.",
+    "composite_pqs": 0.8699999999999999
+  },
+  "timestamp": "2026-04-18T00:23:15.621995Z",
+  "prompt_version": "v1"
+}

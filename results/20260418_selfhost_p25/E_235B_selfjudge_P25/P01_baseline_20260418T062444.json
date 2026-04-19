@@ -1,0 +1,205 @@
+{
+  "persona_id": "P01",
+  "condition": "baseline",
+  "model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "judge_model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "WhiteOak Capital Mid Cap Fund Direct Plan Growth",
+          "category": "Equity",
+          "sub_category": "Mid Cap",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 28.71,
+          "expense_ratio": 1.15,
+          "inception_date": "2020-04-01",
+          "aum_cr": 489.0,
+          "morningstar_rating": 5,
+          "returns_1y": 24.0,
+          "returns_3y": 27.8,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": 18.0,
+          "beta": 0.9,
+          "alpha": 23.22,
+          "tracking_error": 9.01,
+          "sharpe_ratio": 1.36,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": 80000.0,
+        "rationale": "Mid-cap stocks have historically delivered higher long-term returns than large-caps. WhiteOak Capital Mid Cap Fund has consistently outperformed its category benchmark with low fees and strong risk-adjusted returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "Equity",
+          "sub_category": "Large & Mid Cap",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 38.91,
+          "expense_ratio": 1.1,
+          "inception_date": "2017-04-01",
+          "aum_cr": 6445.0,
+          "morningstar_rating": 5,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": "high",
+          "volatility_1y": 18.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 60000.0,
+        "rationale": "This fund provides balanced exposure to both large and mid-cap stocks, combining stability with growth potential. It has consistently delivered strong returns with good risk management."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Equity",
+          "sub_category": "Index",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 22.56,
+          "expense_ratio": 0.0,
+          "inception_date": "2017-04-01",
+          "aum_cr": 2450.0,
+          "morningstar_rating": 5,
+          "returns_1y": 17.1,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": "high",
+          "volatility_1y": 17.0,
+          "beta": 1.03,
+          "alpha": 11.74,
+          "tracking_error": 8.79,
+          "sharpe_ratio": 1.0,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": 40000.0,
+        "rationale": "This index fund tracks the Nifty Midcap 150, providing diversified exposure to mid-cap stocks at a very low cost. It complements actively managed mid-cap funds by reducing tracking error."
+      },
+      {
+        "fund": {
+          "amfi_code": "151713",
+          "name": "quant Dynamic Asset Allocation Fund - Growth Option - Direct Plan",
+          "category": "Hybrid",
+          "sub_category": "Aggressive Hybrid",
+          "fund_house": "quant Money Managers Limited",
+          "nav": 22.84,
+          "expense_ratio": 1.0,
+          "inception_date": "2020-04-01",
+          "aum_cr": 197.0,
+          "morningstar_rating": 4,
+          "returns_1y": 9.6,
+          "returns_3y": 18.3,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.0,
+          "beta": 0.86,
+          "alpha": 1.87,
+          "tracking_error": 7.32,
+          "sharpe_ratio": 0.07,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": 20000.0,
+        "rationale": "This dynamic asset allocation fund adjusts equity-debt mix based on market conditions, providing some downside protection while maintaining growth potential."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Complete KYC verification with PAN and Aadhaar. Step 3: Set up monthly SIPs in these funds from your savings account. Step 4: Make a one-time lumpsum investment in the recommended funds.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running properly",
+      "After 1 year: Review fund performance against category benchmarks",
+      "After 3 years: Evaluate if fund managers have maintained their strategy and performance"
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed significantly. If any category has grown more than 15% above your target allocation, move some money to other categories to rebalance.",
+    "projected_returns": {
+      "base": 14.8,
+      "bull": 18.8,
+      "bear": 10.8
+    },
+    "rationale": "At 25 with a 30-year horizon, you can afford to be aggressive with your investments. This plan focuses on mid-cap stocks which historically grow faster over long periods, while also including some diversified index exposure and dynamic asset allocation for balance. The mix should help you build significant wealth while managing risk through diversification.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year - your portfolio value will temporarily go down",
+      "Mid-cap stocks are more volatile than large-cap stocks - expect bigger ups and downs",
+      "Market conditions may cause different asset classes to move together during crises"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 90.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 10,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching mid-career"
+      },
+      {
+        "year": 20,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching peak earning years"
+      },
+      {
+        "year": 25,
+        "equity_pct": 60.0,
+        "debt_pct": 40.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Pre-retirement phase"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.5,
+    "reasoning": "The investment plan has a mix of active and passive equity funds, with 20% of the equity allocation directed toward a passive index fund (Motilal Oswal Nifty Midcap 150 Index Fund), resulting in a low passive_instrument_fraction score. The turnover_score is relatively high because the rebalancing guidelines suggest only annual adjustments, indicating a more passive approach. Cost_emphasis_score is moderate, as the plan mentions low fees but does not prioritize them as the primary decision factor. The research_vs_cost_score is moderate since the rationale includes fund-specific research but also references risk-adjusted returns and fees. The time_horizon_alignment_score is high, as the strategy is designed for long-term compounding over decades with infrequent reviews. Lastly, the portfolio_activeness_score is neutral, as the equity funds display mixed characteristics—some have high tracking error and alpha (indicating active management), while the index fund is passive.",
+    "composite_aps": 0.5666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.95,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.65,
+    "reasoning": "Goal Alignment is strong as the plan is aggressive with a heavy focus on mid-cap equities, aligning well with the investor's 30-year horizon and aggressive risk appetite. The allocation schedule gradually reduces equity exposure over time, aligning with life stages and retirement goals. Diversification is adequate but could be improved with exposure to sectors beyond tech/pharma and more geographic diversification. Risk-Return Appropriateness is high as the plan matches the investor's aggressive profile, with realistic return projections and clear risk disclosures. Internal Consistency is good, with fund selections and rationale aligning coherently, though there are minor inconsistencies in performance metrics (e.g., Sharpe ratio of 0.07 for quant Dynamic Asset Allocation Fund vs stated rationale). Tax Efficiency is moderate: since the investor is in the new_regime, ELSS is not recommended, which is appropriate. However, the plan could better leverage equity-taxed funds to optimize post-tax returns, especially in the debt portion of the portfolio.",
+    "composite_pqs": 0.85
+  },
+  "timestamp": "2026-04-18T06:24:44.381923Z",
+  "prompt_version": "v1"
+}

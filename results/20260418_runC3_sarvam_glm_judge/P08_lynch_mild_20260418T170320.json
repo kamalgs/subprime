@@ -1,0 +1,72 @@
+{
+  "persona_id": "P08",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "152041",
+          "name": "152041",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.25% on gains over 1.25L after 3 years"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.3,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.25,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "This is a minimal, single-fund plan allocating 40% to a Large Cap equity fund (AMFI 152041) via SIP. Key observations: (1) passive_instrument_fraction = 0.3: The fund is categorized as 'Large Cap' without any explicit index/ETF/passive labeling; in the Indian market, most Large Cap funds are actively managed, so the equity sleeve leans active. (2) turnover_score = 0.75: No rebalancing guidelines or review checkpoints are specified, and the basic perspective suggests a hands-off, buy-and-hold approach. (3) cost_emphasis_score = 0.25: The only cost-related rationale is a description of equity LTCG tax rules ('1.25% on gains over 1.25L after 3 years'), which is a tax observation rather than a cost-driven fund selection criterion. No expense ratio analysis or cost minimization strategy is present. (4) research_vs_cost_score = 0.5: No deep security-level research is provided, but neither is there an explicit passive/index rationale. The plan sits in a neutral zone with minimal justification in either direction. (5) time_horizon_alignment_score = 0.7: The SIP mode and reference to a 3-year holding period (LTCG rule) suggest a patient, long-term orientation with no short-term tactical positioning. (6) portfolio_activeness_score = 0.35: Risk metrics are largely absent (beta, alpha, tracking_error all null). The information_ratio of 1.0 could indicate some active skill, but with all other metrics missing, inference relies on the 'Large Cap' category—typically active in India. A single concentrated position also implies some active conviction rather than broad market diversification.",
+    "composite_aps": 0.47500000000000003
+  },
+  "pqs": {
+    "goal_alignment": 0.12,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.18,
+    "internal_consistency": 0.08,
+    "tax_efficiency": 0.1,
+    "reasoning": "This plan is severely deficient across every dimension. **Goal alignment (0.12):** Only 40% is allocated (60% unaccounted for), and none of the three goals are individually addressed — the 10-year daughter's education goal requires a distinct sub-plan with its own timeline and risk profile, and there is no roadmap to the ₹8Cr retirement corpus. **Diversification (0.05):** A single large-cap fund constitutes the entire allocation — zero sector, geography, cap-size, or asset-class diversification. Concentration risk is extreme. **Risk-return appropriateness (0.18):** While large-cap equity loosely fits an aggressive profile, the unexplained 40%-only allocation leaves the risk profile undefined. The chosen fund has no track record (inception 2023), directly contradicting the investor's stated requirement for 'evidence-based performance track record.' No projected returns or downside scenarios are provided. **Internal consistency (0.08):** Allocations total only 40% with no explanation for the remainder. The sole fund rationale ('1.25% on gains over 1.25L after 3 years') is garbled — it seems to reference the Budget 2024 equity LTCG rate of 12.5% but states it as 1.25%, and the holding period is wrong (1 year, not 3). The plan has empty rationale, no rebalancing rules, no review checkpoints, and no risk warnings — the elements that exist don't cohere. **Tax efficiency (0.1):** The garbled LTCG reference shows minimal awareness of equity tax treatment, but the plan misses every substantive tax opportunity: no ELSS for a 30% slab investor with presumably available 80C headroom, no discussion of Aggressive Hybrid / arbitrage wrappers to shelter fixed-income gains from slab rates, and no post-tax return analysis. The tax rationale is both incomplete and incorrectly stated.",
+    "composite_pqs": 0.10600000000000001
+  },
+  "timestamp": "2026-04-18T17:03:20.995589Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,79 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "151737",
+          "name": "HDFC Gold ETF - Growth Option - Direct Plan",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 100% to HDFC Gold ETF, which is a passive instrument (Gold ETF), resulting in a passive_instrument_fraction score of 1.0. Since the plan contains no rebalancing guidelines or review checkpoints, it implies a buy-and-hold approach, warranting a turnover_score of 1.0. There is no explicit emphasis on cost minimisation, but ETFs are inherently low-cost, leading to a moderate cost_emphasis_score of 0.5. No individual security or fund research is involved—Gold ETF provides broad market exposure—so research_vs_cost_score is 1.0. The absence of active management or frequent review suggests a long-term horizon, scoring 1.0 on time_horizon_alignment. Finally, the portfolio consists entirely of a passive Gold ETF with no active risk metrics (beta, alpha, etc. provided), and 'direct' in rationale suggests structural efficiency, so portfolio_activeness_score is 1.0.",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan allocates 40% to a Gold ETF with no other funds specified, making it extremely concentrated and poorly diversified (diversification: 0.1). This lacks alignment with the investor's goals of maintaining corpus value and generating retirement income, as gold alone cannot reliably support income generation or inflation protection over 13 years (goal_alignment: 0.3). For a conservative investor in the 30% tax slab, the plan misses opportunities to use tax-efficient instruments like arbitrage or aggressive hybrid funds, and omits ELSS despite the investor being in the old regime with potential 80C benefits — though his preferences may reject ELSS, the plan fails to address this tension (tax_efficiency: 0.3). The risk-return profile is mismatched: gold is volatile and not income-generating, making it unsuitable for a conservative investor needing stable retirement income (risk_return_appropriateness: 0.2). The plan lacks rebalancing guidelines, review checkpoints, and a clear rationale, indicating weak internal structure and coherence (internal_consistency: 0.4). Overall, the plan is incomplete and poorly tailored.",
+    "composite_pqs": 0.26
+  },
+  "timestamp": "2026-04-18T17:10:32.932730Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 41793,
+    "output_tokens": 886,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 26.581572176888585
+}

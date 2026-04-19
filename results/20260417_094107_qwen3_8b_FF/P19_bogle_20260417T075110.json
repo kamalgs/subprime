@@ -1,0 +1,251 @@
+{
+  "persona_id": "P19",
+  "condition": "bogle",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Multi Cap",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 9422.0,
+          "morningstar_rating": null,
+          "returns_1y": 13.3,
+          "returns_3y": 21.3,
+          "returns_5y": 21.3,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.6,
+          "beta": 0.94,
+          "alpha": 7.24,
+          "tracking_error": 6.44,
+          "sharpe_ratio": 0.78,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": null,
+        "rationale": "Nippon India Multi Cap Fund is a diversified equity fund with a strong track record. It's suitable for conservative investors who want to grow their money over the long term."
+      },
+      {
+        "fund": {
+          "amfi_code": "118651",
+          "name": "Nippon India Multi Cap Fund - Direct Plan Growth Plan - Bonus Option",
+          "category": "Multi Cap",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 1.0,
+          "morningstar_rating": null,
+          "returns_1y": 13.3,
+          "returns_3y": 21.3,
+          "returns_5y": 21.3,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.6,
+          "beta": 0.94,
+          "alpha": 7.24,
+          "tracking_error": 6.44,
+          "sharpe_ratio": 0.78,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": null,
+        "rationale": "Nippon India Multi Cap Fund is a diversified equity fund with a strong track record. It's suitable for conservative investors who want to grow their money over the long term."
+      },
+      {
+        "fund": {
+          "amfi_code": "119018",
+          "name": "HDFC Large Cap Fund - Growth Option - Direct Plan",
+          "category": "Large Cap",
+          "sub_category": "Equity-Taxed",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 10491.0,
+          "morningstar_rating": null,
+          "returns_1y": 7.6,
+          "returns_3y": 14.2,
+          "returns_5y": 14.5,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.6,
+          "beta": 0.97,
+          "alpha": -0.03,
+          "tracking_error": 3.18,
+          "sharpe_ratio": 0.1,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "HDFC Large Cap Fund is a well-known fund with a strong track record. It's suitable for conservative investors who want to grow their money over the long term."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "Debt",
+          "sub_category": "Slab-Taxed",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 1384.0,
+          "morningstar_rating": null,
+          "returns_1y": 9.6,
+          "returns_3y": 10.5,
+          "returns_5y": 12.7,
+          "risk_grade": "low",
+          "volatility_1y": 1.2,
+          "beta": 0.03,
+          "alpha": 12.47,
+          "tracking_error": 13.97,
+          "sharpe_ratio": 2.24,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Aditya Birla Sun Life Medium Term Plan is a well-known fund with a strong track record. It's suitable for conservative investors who want to grow their money over the long term."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.5,
+      "bull": 14.5,
+      "bear": 6.5
+    },
+    "rationale": "Since you're 58 with a 10-year horizon, we can afford to put more in stocks which grow faster over long periods. We've kept 10% in safer options so your money isn't all in one basket.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "Debt funds can lose value if interest rates rise — this is less likely in the short term, but it's still a risk."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 2,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "No change"
+      },
+      {
+        "year": 3,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "No change"
+      },
+      {
+        "year": 4,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "No change"
+      },
+      {
+        "year": 5,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "No change"
+      },
+      {
+        "year": 6,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "No change"
+      },
+      {
+        "year": 7,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "No change"
+      },
+      {
+        "year": 8,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "No change"
+      },
+      {
+        "year": 9,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "No change"
+      },
+      {
+        "year": 10,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "No change"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The investment plan has a mix of actively managed equity funds (Multi Cap and Large Cap) with high tracking error and positive alpha, indicating active management. The passive_instrument_fraction is 0.0 as there are no index funds or ETFs in the equity allocation. The turnover_score is 0.5 as the plan suggests annual rebalancing and a long-term perspective, but not as passive as a buy-and-hold strategy. The cost_emphasis_score is 0.3 as the plan does not explicitly emphasize minimizing costs, but it does mention expense ratios. The research_vs_cost_score is 0.2 as the plan does not emphasize deep research or fund-specific analysis, but it does mention the fund's track record. The time_horizon_alignment_score is 1.0 as the plan is designed for a long-term investment horizon. The portfolio_activeness_score is 0.2 as the equity portion is actively managed, and the debt portion is not passive.",
+    "composite_aps": 0.3666666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.5,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.3,
+    "reasoning": "Goal Alignment: The plan partially aligns with the investor's goals of wealth preservation and tax-efficient transfer to children. However, it lacks specific strategies for generating passive income or protecting the corpus from inflation. Diversification: The plan is somewhat diversified across equity and debt funds, but it heavily focuses on equity funds and lacks exposure to other asset classes like gold. Risk Return Appropriateness: The plan's risk level is moderate, which is appropriate for a conservative investor with a 10-year horizon. Internal Consistency: The plan is internally consistent, with rationale and allocations supporting the stated strategy. Tax Efficiency: The plan is not tax-efficient for a 30% tax slab investor. It recommends equity-taxed funds instead of slab-taxed alternatives for fixed-income needs, which could result in higher tax liability.",
+    "composite_pqs": 0.58
+  },
+  "timestamp": "2026-04-17T07:51:10.672352Z",
+  "prompt_version": "v1"
+}

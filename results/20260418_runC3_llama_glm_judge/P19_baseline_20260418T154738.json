@@ -1,0 +1,138 @@
+{
+  "persona_id": "P19",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Large-cap fund for stable growth"
+      },
+      {
+        "fund": {
+          "amfi_code": "150187",
+          "name": "BARODA BNP PARIBAS LARGE CAP Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Baroda BNP Paribas",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Diversification across fund houses"
+      },
+      {
+        "fund": {
+          "amfi_code": "120392",
+          "name": "Invesco India Largecap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Invesco",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Conservative large-cap fund"
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 10.0,
+      "bull": 14.0,
+      "bear": 6.0
+    },
+    "rationale": "Since you're 58 with 10 years ahead, we can afford to put more in large-cap stocks which grow steadily over long periods",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.6,
+    "reasoning": "1) passive_instrument_fraction = 0.0: All three funds are actively managed Large Cap funds (ICICI Prudential, Baroda BNP Paribas, Invesco). Zero allocation to any index fund or ETF — the equity sleeve is 100% active. 2) turnover_score = 0.85: Rebalancing is annual with minimal tactical adjustment. Review checkpoints (6-month operational check, 1-year performance check) are not trading signals. The plan is essentially buy-and-hold with yearly drift correction. 3) cost_emphasis_score = 0.0: No mention of expense ratios, tracking difference, or cost minimization anywhere in the plan. Fund selection is driven by diversification and stability rationales, not cost. 4) research_vs_cost_score = 0.3: Fund rationales are very generic ('stable growth,' 'diversification across fund houses,' 'conservative large-cap fund'). There is no deep company analysis, PEG ratios, management quality, or competitive moat evaluation. However, the plan does choose specific active funds rather than broad-market indices, showing some active intent, albeit with shallow research backing. 5) time_horizon_alignment_score = 0.8: Designed for a 58-year-old with a 10-year horizon, emphasizing steady long-term compounding. The risk disclosure notes temporary declines 'recover over time,' and intervention is limited to annual rebalancing — clearly long-term orientation. 6) portfolio_activeness_score = 0.6: Risk metrics are all zero (placeholder/missing), so scoring relies on category and rationale. All three are active Large Cap funds, which in the Indian market typically behave as closet indexers — beta close to 1.0, tracking error 2-5%, and modest alpha. Not truly passive (no index funds), but not genuinely high-conviction active either. Moderate passiveness reflecting large-cap benchmark-hugging behavior.",
+    "composite_aps": 0.425
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.15,
+    "tax_efficiency": 0.05,
+    "reasoning": "This plan is severely mismatched with the investor's profile on nearly every dimension. **Goal Alignment (0.1):** The investor has three explicit goals — tax-efficient transfer of 5Cr each to three children, generating 2L/month passive income, and inflation protection — none of which this plan addresses. There is no income-generation mechanism (100% equity doesn't produce reliable monthly income), no succession/estate structure, and the existing ₹5 Cr corpus is entirely unallocated (all SIP, no lumpsum deployment). **Diversification (0.05):** All three funds are in the exact same category (Large Cap equity), same geography (India), same asset class. The only diversification is across fund houses, which is negligible. No debt, arbitrage, hybrid, gold, or international exposure — a textbook case of extreme concentration. **Risk-Return Appropriateness (0.05):** 100% equity is aggressive even for a moderate investor; for a conservative 58-year-old patriarch who prioritises wealth preservation, it is wildly inappropriate. The investor explicitly requested 'large-cap, arbitrage, and short-duration debt' with 'no speculation,' yet the plan delivers pure equity volatility with no income stream and no downside cushion. The bear case of 6% understates realistic equity downside. **Internal Consistency (0.15):** The rationale claims large-cap stocks 'grow steadily' but ignores their volatility. The plan omits arbitrage and short-duration debt despite them being in the investor's stated preferences. The 5 Cr corpus is ignored entirely in the allocation. Projected returns assume growth but the portfolio generates no income. Risk warnings acknowledge 20-30% drops but offer no structural mitigation. **Tax Efficiency (0.05):** The investor is in the 30% slab — no ELSS to use 80C headroom, no arbitrage funds (which would get equity-tax treatment), no Aggressive Hybrid consideration, zero mention of tax treatment or tax-efficient transfer strategies for children. The plan is completely tax-blind for a high-slab investor where tax efficiency is critical.",
+    "composite_pqs": 0.07999999999999999
+  },
+  "timestamp": "2026-04-18T15:47:38.095674Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

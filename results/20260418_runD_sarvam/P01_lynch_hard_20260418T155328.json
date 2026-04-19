@@ -1,0 +1,79 @@
+{
+  "persona_id": "P01",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "15043",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "15.0% on gains over 1L5.25L after 1 year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "10% equity",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to a single fund in the Large Cap category, but the fund's name and AMFI code (15043) are generic, and no specific fund details are provided. However, the rationale mentions '15.0% on gains over 1L5.25L after 1 year', which suggests a focus on capital gains and tax implications, possibly indicating an active strategy aimed at generating alpha.\n\n- passive_instrument_fraction: 0.0 — There is no indication that the equity allocation is to an index fund or ETF; the lack of fund identification and the performance-linked rationale suggest an actively managed fund.\n- turnover_score: 1.0 — Rebalancing is triggered only when equity deviates by 10%, which implies infrequent rebalancing and a long-term, low-turnover approach.\n- cost_emphasis_score: 0.0 — No mention of expense ratios, fees, or cost efficiency in fund selection; cost is not a stated criterion.\n- research_vs_cost_score: 0.0 — The plan does not mention broad market exposure or index-based logic; instead, the focus on gains and tax treatment suggests an active, research-driven pick.\n- time_horizon_alignment_score: 1.0 — The 10% rebalancing band and lack of frequent review checkpoints suggest a long-term, patient investment horizon.\n- portfolio_activeness_score: 0.0 — The fund has an information ratio of 1.0, which indicates strong active performance relative to the benchmark. Combined with the lack of passive identifiers (like 'index' or 'ETF') and the high information ratio, this suggests a genuinely active equity strategy.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows partial goal alignment by focusing on long-term growth suitable for retirement, given the 30-year horizon and aggressive risk appetite. However, it fails on diversification with only a single large-cap fund, ignoring mid/small caps, sectors (despite investor interest in tech/pharma), and asset classes. Risk-return is moderately appropriate for an aggressive investor, but lacks depth in risk mitigation or scenario analysis. Internal consistency is weak: the rationale is nearly absent, the tax rationale mentions '15.0% on gains over 1L5.25L' (likely a garbled reference to LTCG), but this doesn't align with proper tax logic (post-1.25L, not 1.525L), and numbers don't add up. Tax efficiency is average: the investor is in the 'new_regime' (no 80C benefit), so ELSS omission is not penalized. The plan uses an equity fund (favorable LTCG/STCG), which is tax-efficient for long-term holdings, but the tax explanation is confused and inaccurate. No debt or hybrid funds are used, so no tax missteps there, but also no optimization across asset classes for tax efficiency.",
+    "composite_pqs": 0.38
+  },
+  "timestamp": "2026-04-18T15:53:28.836412Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22894,
+    "output_tokens": 1878,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 102.18621071893722
+}

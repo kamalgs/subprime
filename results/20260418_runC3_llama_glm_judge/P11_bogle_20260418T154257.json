@@ -1,0 +1,172 @@
+{
+  "persona_id": "P11",
+  "condition": "bogle",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Conservative investor with a need for capital preservation and some income. Aggressive hybrid funds offer a balance of equity and debt."
+      },
+      {
+        "fund": {
+          "amfi_code": "119843",
+          "name": "SBI MULTI ASSET ALLOCATION FUND",
+          "category": "Multi Asset Allocation",
+          "sub_category": "",
+          "fund_house": "SBI",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "To diversify the portfolio and reduce risk, a multi-asset allocation fund is added."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "A small allocation to gold to hedge against inflation and market volatility."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund",
+          "category": "Debt",
+          "sub_category": "Overnight",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 0.0,
+          "morningstar_rating": null,
+          "returns_1y": 0.0,
+          "returns_3y": 0.0,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 0.0,
+          "alpha": 0.0,
+          "tracking_error": 0.0,
+          "sharpe_ratio": 0.0,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 300000.0,
+        "rationale": "To provide liquidity and preserve capital, a small allocation to an overnight debt fund."
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 9.5,
+      "bull": 13.5,
+      "bear": 5.5
+    },
+    "rationale": "Given the investor's conservative risk appetite and need for capital preservation, a balanced portfolio with a mix of aggressive hybrid, multi-asset allocation, gold, and debt funds is recommended. This portfolio aims to provide a balance of growth and income while minimizing risk.",
+    "risks": [
+      "Market risks associated with equity investments",
+      "Credit risks associated with debt investments",
+      "Liquidity risks associated with certain debt investments"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.75,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "**passive_instrument_fraction (0.0):** The entire equity exposure (via the Aggressive Hybrid fund at 60% and the Multi Asset Allocation fund at 20%) is through actively managed funds. There are no index funds or equity ETFs in the portfolio. The Gold ETF and Overnight fund are excluded from this dimension as they are non-equity instruments.**turnover_score (0.8):** The plan recommends annual rebalancing only — 'once a year, check if your mix has changed a lot.' Review checkpoints are minimal (6-month administrative check, 1-year peer comparison). No tactical shifts, sector rotation, or momentum-based trading is mentioned. This is close to buy-and-hold behavior.**cost_emphasis_score (0.3):** The plan suggests using direct mutual fund platforms (Kuvera, Groww, MFU), which implies some cost awareness since direct plans carry lower expense ratios. However, cost is never explicitly discussed as a selection criterion, expense ratios are not compared, and no fund was chosen specifically for its low cost. Cost awareness is incidental, not primary.**research_vs_cost_score (0.6):** There is no deep stock-specific or fund-specific research — no PEG ratios, management quality analysis, competitive moat evaluation, or detailed manager track record assessment. Fund selection is based on broad asset-class categories (hybrid, multi-asset, gold, overnight). However, the plan also doesn't rely on market-cap-weighted indices; it picks actively managed funds by category. This places it in a middle ground — not research-intensive but not purely index-driven either.**time_horizon_alignment_score (0.75):** The plan uses SIP mode with a 10% annual step-up, indicating a long-term compounding orientation. The 6-month review is purely administrative (checking if SIPs are running). However, the 1-year review includes peer comparison which could prompt fund switching, slightly reducing the long-term patience signal. Overall, the strategy is designed for patient, decades-long investing.**portfolio_activeness_score (0.2):** The core equity exposure comes from ICICI Prudential Equity & Debt (Aggressive Hybrid) and SBI Multi Asset Allocation — both are genuinely actively managed funds with stock selection and tactical asset allocation mandates. Risk metrics are unavailable (all zeros), but category labels confirm active management. The Gold ETF is passive and the Overnight fund is quasi-passive, but they are small allocations (10% each) and non-equity. The portfolio is predominantly active.",
+    "composite_aps": 0.4416666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.45,
+    "diversification": 0.45,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.35,
+    "tax_efficiency": 0.2,
+    "reasoning": "**Goal Alignment (0.45):** The plan captures the conservative preference and hybrid comfort reasonably, but fails to map specific goals to specific allocations. There is no separate planning for the two children's education timelines (8 vs 12 years), no dedicated income-generation mechanism despite the stated goal of supplementing salary, no mention of the ₹5L liability, and the ₹30L existing corpus deployment is largely unexplained (only ₹3L is explicitly allocated as lumpsum; the rest is unaddressed). Monthly SIPs total ₹27,000 vs. the ₹30,000 surplus, leaving ₹3,000/month unaccounted for.\n\n**Diversification (0.45):** The plan covers four asset categories (equity via hybrid, multi-asset, gold, debt/overnight), which is a reasonable start. However, fund-house concentration is high — ICICI Prudential holds 70% of the portfolio (60% + 10%). There is no international diversification, only four funds total, and no discussion of sector spread within the equity portion. The gold ETF also requires a demat account, which is not mentioned.\n\n**Risk-Return Appropriateness (0.50):** Aggressive Hybrid funds hold 65–80% equity, so the effective equity exposure through the 60% allocation alone is roughly 39–48%, pushing the total portfolio equity exposure toward 45–55%. For a recently widowed, conservative sole earner who says 'capital safety first,' this is somewhat aggressive — a Conservative Hybrid or balanced allocation might have been more appropriate. Projected base return of 9.5% is on the optimistic side for this mix. The 10% annual SIP step-up is also aggressive for a single-earner school teacher. Bear case at 5.5% is positive, which is good, but there is no discussion of downside-protection mechanisms.\n\n**Internal Consistency (0.35):** There are notable contradictions: the rationale says 'capital preservation' and 'minimize risk' yet 60% goes to an Aggressive Hybrid (majority equity). SIPs total only ₹27,000 against a ₹30,000 surplus with no explanation for the gap. The ₹30L corpus deployment is mostly unexplained. No allocation schedule or goal-based mapping is provided, making the plan feel generic rather than tailored. The review checkpoints and rebalancing guidelines are very thin.\n\n**Tax Efficiency (0.20):** The plan is essentially tax-blind. It makes no mention of tax treatment for any fund. For a 20% slab old-regime investor, the plan misses the opportunity to use ELSS for 80C deduction (up to ₹1.5L). The overnight fund (10%, ₹3L lumpsum) is fully slab-taxed at the investor's marginal rate — an arbitrage fund would deliver similar risk with equity-tax treatment. The plan does not distinguish between Aggressive Hybrid (equity-taxed) and the debt/gold components (slab-taxed). No post-tax rationale is provided for any allocation choice.",
+    "composite_pqs": 0.39
+  },
+  "timestamp": "2026-04-18T15:42:57.645218Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

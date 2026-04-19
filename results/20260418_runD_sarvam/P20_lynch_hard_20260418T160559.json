@@ -1,0 +1,79 @@
+{
+  "persona_id": "P20",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.85
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), which is categorised as an active fund. There is no indication of passive/index instruments in the equity allocation, resulting in a passive_instrument_fraction score of 0.0. No rebalancing guidelines or review checkpoints are specified, implying a static, long-term approach, hence a turnover_score of 1.0. The rationale simply states 'direct' with no mention of cost considerations like expense ratios or tax efficiency, leading to a cost_emphasis_score of 0.0. There is no evidence of cost-driven decisions or research-based analysis; however, the use of a single active fund without detailed justification suggests reliance on fund house reputation rather than deep research, but still not favouring broad market exposure — thus research_vs_cost_score is 0.0. The lack of active trading signals and review cycles suggests a long-term horizon (time_horizon_alignment_score = 1.0). Finally, the fund has a high information ratio (0.85), which typically indicates strong active management, and no risk metrics suggesting index-like behaviour (e.g., beta or tracking error); combined with the category and lack of passive intent, the portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.4,
+    "reasoning": "The investment plan is extremely limited in scope, consisting of only a single equity fund (HDFC Large Cap) with 40% allocation, and lacks any meaningful structure or rationale. \n\n- **goal_alignment**: The investor has multiple long-term goals (pension corpus, property, children's education) and a 23-year horizon, which justifies equity exposure, but the plan does not map allocations to goals or explain how this single fund contributes to them. Partial credit for long-term equity orientation.\n\n- **diversification**: Very poor. Only one fund in one sub-category (Large Cap) with no exposure to mid/small caps, debt, international, or hybrid funds. No risk mitigation through diversification across asset classes or sectors.\n\n- **risk_return_appropriateness**: Moderate risk appetite should imply a balanced equity-debt mix. This plan is 40% equity-only with no debt component, but since it's not fully allocated, the actual risk is ambiguous. However, lack of debt contradicts moderate risk profile. Returns and risk metrics are missing, weakening justification.\n\n- **internal_consistency**: The plan is incomplete: no SIP amounts, no lump sum, no rebalancing, no review checkpoints, no projected returns, and minimal rationale. While not contradictory per se, it lacks coherence due to missing components.\n\n- **tax_efficiency**: Investor is in 20% tax slab (old regime likely, given preference for ELSS), and prefers ELSS for tax saving. But the plan uses a regular large-cap fund, not ELSS, missing 80C opportunity. No mention of tax treatment. However, equity funds are still better taxed than debt for this slab, so partial credit for equity orientation, but significant deduction for ignoring ELSS preference and 80C headroom.",
+    "composite_pqs": 0.34
+  },
+  "timestamp": "2026-04-18T16:05:59.196303Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 61673,
+    "output_tokens": 1378,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 0
+  },
+  "elapsed_s": 50.46902892831713
+}

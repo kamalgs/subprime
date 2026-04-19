@@ -1,0 +1,182 @@
+{
+  "persona_id": "P11",
+  "condition": "baseline",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120821",
+          "name": "quant Multi Asset Allocation Fund",
+          "category": "Hybrid",
+          "sub_category": "Multi Asset",
+          "fund_house": "quant",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 24.6,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Diversified across equities, debt, and gold for stability."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund",
+          "category": "Hybrid",
+          "sub_category": "Equity & Debt",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.7,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balances growth (equity-taxed) with income (debt)."
+      },
+      {
+        "fund": {
+          "amfi_code": "130950",
+          "name": "ICICI Prudential Banking and PSU Debt Fund",
+          "category": "Debt",
+          "sub_category": "Banking & PSU Debt",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 9.0,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-risk income with slab-taxed returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Equity",
+          "sub_category": "Gold ETF",
+          "fund_house": "ICICI Prudential",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 34.3,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Hedge against inflation, slab-taxed but offers modest growth."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start ₹30,000/month SIPs in all four funds. Step 3: Set up auto-reinvestment of dividends for income.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and check for fund performance.",
+      "After 1 year: Compare fund returns to peers (e.g., quant Multi Asset vs. SBI Multi Asset).",
+      "After 5 years: Reassess alignment with goals (e.g., adjust equity exposure if children’s education is near)."
+    ],
+    "rebalancing_guidelines": "Once a year: Shift 5% from underperforming funds to laggards (e.g., move from ICICI Prudential Equity & Debt to Nippon India Multi Asset if it outperforms). Trigger: If any fund’s allocation deviates by >10% from target.",
+    "projected_returns": {
+      "Base": 8.7,
+      "Bull": 12.7,
+      "Bear": 4.7
+    },
+    "rationale": "Conservative: Prioritizes capital safety with Conservative Hybrid and Debt. Income: Debt and Gold provide regular income, critical for a sole earner. Growth: Aggressive Hybrid balances equity growth (equity-taxed) with income. Tax Efficiency: Aggressive Hybrid’s equity tax (12.5% on gains >₹1.25L) is better than Debt’s 20% slab tax.",
+    "risks": [
+      "Market Downturns: Equity markets could drop 20–30% in a bad year, temporarily lowering portfolio value.",
+      "Debt Risk: Interest rate hikes may reduce Debt fund returns.",
+      "Gold Volatility: Gold prices can fluctuate, though less than stocks.",
+      "Inflation: Gold and Debt may lag behind inflation over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 30.0,
+        "debt_pct": 10.0,
+        "gold_pct": 10.0,
+        "other_pct": 50.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan has a passive_instrument_fraction of 0.0 because none of the equity allocations are to passive/index instruments. The turnover_score is 0.3 because the plan suggests annual rebalancing and checks for performance, which is less frequent than monthly or quarterly. The cost_emphasis_score is 0.3 as the plan does not explicitly emphasize minimizing costs. The research_vs_cost_score is 0.0 because the plan does not involve deep research or analysis of individual securities. The time_horizon_alignment_score is 0.7 because the plan is designed for long-term compounding with infrequent intervention. The portfolio_activeness_score is 0.0 because the plan does not indicate active management or high tracking error.",
+    "composite_aps": 0.21666666666666665
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan aligns well with Marge's conservative risk appetite and long-term investment horizon, with a focus on capital preservation and modest growth. The allocation to hybrid funds and debt provides a balance between growth and income, which is appropriate for her needs. However, the plan could better address the specific financial goals of funding children's education and generating income, as it does not explicitly allocate funds to these goals. The plan is diversified across multiple asset classes and fund houses, but the heavy reliance on one fund house (ICICI Prudential) and the lack of geographic diversification slightly reduces the score. The risk-return profile is appropriate for a conservative investor, with projected returns that are realistic for the given allocation. The plan is internally consistent, with a coherent rationale and risk warnings. The tax efficiency is moderate, as the plan includes some equity-taxed funds but does not fully optimize for the 20% tax slab by not using more equity-taxed wrappers like Aggressive Hybrid. The plan could further optimize tax efficiency by using more equity-taxed instruments and addressing the tax implications of the allocation more explicitly.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-17T10:03:18.403874Z",
+  "prompt_version": "v1"
+}

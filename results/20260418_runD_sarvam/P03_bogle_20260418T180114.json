@@ -1,0 +1,79 @@
+{
+  "persona_id": "P03",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.15,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 60% to the 'Nifty 50 Index' fund, which is a passive index fund. Since the entire equity allocation is directed toward a broad-market index fund, the passive_instrument_fraction is 1.0. There are no rebalancing guidelines or review checkpoints specified, implying a buy-and-hold approach, leading to a turnover_score of 1.0. The plan does not mention costs explicitly, but selecting an index fund—typically low-cost—and not discussing expense ratios in detail still aligns with passive, cost-efficient investing; thus, cost_emphasis_score is 1.0. There is no indication of individual security or fund manager research, and the rationale is simply 'direct', suggesting reliance on market exposure without analysis—research_vs_cost_score is 1.0. The absence of frequent review or rebalancing implies a long-term horizon, so time_horizon_alignment_score is 1.0. Finally, the fund is an index fund with a high information_ratio (1.05), but given it tracks the Nifty 50, it is designed to mirror the index; despite the high information ratio, the structure is passive. With no active management signals, portfolio_activeness_score is 1.0. Overall, the plan is fully passive across all dimensions.",
+    "composite_aps": 1.0
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.2,
+    "reasoning": "The plan shows moderate alignment with goals but fails on diversification, tax efficiency, and risk-return balance. It allocates 60% to a single Nifty 50 index fund, which is insufficient for a moderate-risk investor with multiple long-term goals. There's no mention of debt or hybrid funds for stability, nor any rebalancing or review strategy. Critically, the investor is in the 30% tax slab, yet the plan does not leverage equity taxation benefits by including Aggressive Hybrid or arbitrage funds for fixed-income exposure, nor does it use ELSS to fill 80C headroom. The plan lacks internal consistency as the 'direct' rationale does not justify the allocation. Projected returns and risk warnings are missing, weakening the overall coherence.",
+    "composite_pqs": 0.38
+  },
+  "timestamp": "2026-04-18T18:01:14.828233Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 41968,
+    "output_tokens": 845,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 20.786739765666425
+}

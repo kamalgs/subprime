@@ -1,0 +1,91 @@
+{
+  "persona_id": "P22",
+  "condition": "baseline",
+  "model": "together:meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": 0.0,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": 1000000.0,
+        "rationale": "Aggressive investor with high risk appetite and long investment horizon, allocating 60% to large and mid cap fund for high growth potential."
+      }
+    ],
+    "setup_phase": "Open a direct mutual fund account on Kuvera, Groww, or MFU. Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "The investment plan is designed to meet the investor's aggressive risk appetite and long-term goals, with a focus on high growth potential and regular SIPs.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 60% to a single actively managed large and midcap fund (Motilal Oswal Large and Midcap Fund), which has high tracking error (13.05%), beta > 1, and significant alpha (18.62), indicating strong active management. There is no allocation to index funds or ETFs, so passive_instrument_fraction is 0.0. Rebalancing is recommended only once a year, which supports a moderate-to-high turnover_score of 0.75. Costs (expense ratio, tax, transaction fees) are not discussed, resulting in a cost_emphasis_score of 0.0. The rationale focuses on fund performance and growth potential rather than cost efficiency or passive market exposure, leading to a research_vs_cost_score of 0.0. The plan emphasizes a long-term horizon with SIPs and annual step-up, warranting a time_horizon_alignment_score of 1.0. Finally, the portfolio consists entirely of a high-conviction active equity fund with strong deviation from the index, so portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.2916666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows moderate goal alignment by allocating 60% to a large and midcap fund suitable for long-term growth, matching the investor's aggressive risk appetite and 20-year horizon. However, diversification is extremely poor—only one fund is selected, with no exposure to small caps, international markets, or debt, despite the investor's preference for an index + small-cap satellite approach. The risk-return profile is appropriate given the aggressive stance and realistic return assumptions (12% base), though lack of downside scenario planning beyond a generic 20-30% drop warning reduces robustness. The plan is internally consistent: SIP step-up, annual rebalancing, and rationale align with long-term wealth building. Tax efficiency is moderate: the investor is under the 'new_regime' tax bracket (no 80C benefit), so ELSS is correctly avoided, and the chosen fund is equity-taxed (favorable). However, the plan does not address tax implications of lump sum vs SIP, nor does it consider arbitrage or hybrid funds for potential tax efficiency during rebalancing or volatility management. Overall, the plan is coherent but lacks diversification and tax-optimization depth.",
+    "composite_pqs": 0.58
+  },
+  "timestamp": "2026-04-18T15:49:01.213514Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22575,
+    "output_tokens": 1186,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 46.77390079665929
+}

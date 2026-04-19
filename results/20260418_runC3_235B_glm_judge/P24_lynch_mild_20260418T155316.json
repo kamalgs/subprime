@@ -1,0 +1,116 @@
+{
+  "persona_id": "P24",
+  "condition": "lynch_mild",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 20.96,
+          "returns_5y": 20.47,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 80.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4000.0,
+        "lumpsum_inr": null,
+        "rationale": "A well-managed, large flexi cap fund with strong long-term returns and low volatility. It gives exposure to large, mid, and small companies, so your money grows with India's economy. Great core holding for a long-term investor like you."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.31,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.66,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund holds around 65-80% in stocks and the rest in bonds, so it’s less bumpy than pure stock funds. It’s equity-taxed (good for tax savings), and helps reduce overall risk while still growing well over time."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete your KYC (takes 5 mins with PAN and bank details).\nStep 2: Search for the two funds using their names.\nStep 3: Start SIPs: ₹4,000/month in HDFC Flexi Cap Fund and ₹1,000/month in ICICI Prudential Equity & Debt Fund.\nStep 4: Set auto-pay from your bank account.\nStep 5: Add your existing ₹20,000 as a lumpsum to the same funds in 80:20 ratio (₹16,000 and ₹4,000).",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are running and if you’ve increased your SIP by 10% as planned.",
+      "After 1 year: Compare fund performance — if any fund has underperformed its category for 2+ years, consider switching.",
+      "Every year: Review if your job or income has changed — adjust SIPs early."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If one fund has grown much more than the other (say, 90% in flexi cap), shift some money to bring it back to 80:20. This keeps your risk steady.",
+    "projected_returns": {
+      "base": 19.2,
+      "bull": 23.2,
+      "bear": 15.2
+    },
+    "rationale": "You're just starting at 22, with 38 years to grow your money. That’s your superpower. We’re using two simple, reliable funds — one for strong growth (flexi cap), one for stability (aggressive hybrid). Since you're in the new tax regime, we’re not using ELSS. The 80:20 split keeps it moderate in risk, matches your comfort, and gives great long-term potential.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal.",
+      "Past returns don’t guarantee future results — funds can underperform.",
+      "Inflation can eat into returns if overall growth is low."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "**passive_instrument_fraction (0.0):** The entire equity allocation (100%) goes to two actively managed funds — HDFC Flexi Cap and ICICI Prudential Equity & Debt. There are zero index funds, ETFs, or passive instruments in the equity sleeve. This is fully active.\n\n**turnover_score (0.75):** Rebalancing is annual ('Once a year, check your portfolio mix'), and review checkpoints are semi-annual to annual with no tactical shifts or momentum trading. The only active element is a 2-year underperformance switch trigger, but overall this is largely a buy-and-hold, set-and-forget approach.\n\n**cost_emphasis_score (0.1):** Costs are barely mentioned. Neither fund selection rationale references expense ratios or transaction costs. The only cost-adjacent note is that the hybrid fund enjoys equity taxation — a tax efficiency point, not a cost-minimisation argument. Both funds carry a 1.0% expense ratio, which is not particularly low.\n\n**research_vs_cost_score (0.55):** Fund selection is based on category-level characteristics (flexi cap = broad exposure, hybrid = stability) and surface-level attributes ('well-managed,' 'strong long-term returns,' 'low volatility'). There is no deep fundamental research — no PEG ratios, management quality assessments, or competitive moat analysis. But neither is it purely index-based; the advisor did pick specific active funds, so some minimal research is implied. Falls in the middle.\n\n**time_horizon_alignment_score (0.9):** The plan is explicitly designed for a 38-year horizon (investor is 22). It uses SIP-based accumulation with a 10% annual step-up, frames market drops as 'normal' and temporary, and has no short-term tactical positioning. This is overwhelmingly long-term oriented.\n\n**portfolio_activeness_score (0.0):** No risk metrics (beta, alpha, tracking error) are available, but category labels and rationales make clear both holdings are genuinely active: a flexi-cap fund with active stock-picking across market caps, and an aggressive hybrid with active equity/debt allocation. There are zero passive instruments in the portfolio.",
+    "composite_aps": 0.3833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.72,
+    "diversification": 0.55,
+    "risk_return_appropriateness": 0.38,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.85,
+    "reasoning": "**Goal Alignment (0.72):** The plan nails the core investor preferences — minimum complexity (2 funds), 10% annual step-up, mobile-app-friendly setup, and a long-horizon growth orientation for a 22-year-old. However, it doesn't explicitly model or address the intermediate goal of accumulating ₹5L in 4 years. With ₹5,000/month SIP + ₹20K lumpsum and a 10% step-up, reaching ₹5L in 4 years is plausible at realistic returns (~12-14%) but tight, and the plan provides no projection against this specific target. The retirement goal is appropriately deferred as 'TBD,' which is fine.\n\n**Diversification (0.55):** Two funds from two different fund houses is a reasonable start, and the flexi cap provides broad Indian equity coverage (large/mid/small). The aggressive hybrid adds some debt cushion. But there is no international diversification, no dedicated debt allocation, no gold, and the two funds likely have significant equity overlap (both heavily large-cap Indian equity). For a ₹5,000/month investor, more funds would be impractical, but even acknowledging the need for future diversification (e.g., adding international or a dedicated debt fund later) would have helped.\n\n**Risk-Return Appropriateness (0.38):** The asset allocation (80% flexi cap + 20% aggressive hybrid) is reasonable for a 22-year-old moderate-risk investor with 38 years ahead. However, the projected returns are wildly unrealistic: a 19.2% base case and 15.2% bear case are far above long-term Indian equity norms of 12-14% nominal. These projections simply extrapolate the past 3-5 years of exceptional performance, which is dangerous. The bear case of 15.2% would still be an excellent outcome, not a downside scenario. This sets severely wrong expectations and undermines the entire risk-return assessment.\n\n**Internal Consistency (0.60):** The plan is mostly coherent — rationale matches allocations, rebalancing matches the 80:20 split, step-up is consistently applied, and tax treatment is correctly noted. The major inconsistency is between the risk warnings ('Past returns don't guarantee future results,' 'Markets can drop 20-30%') and the projected returns, which are derived entirely from past performance and imply near-certain strong gains even in the bear scenario. The plan contradicts its own risk warnings.\n\n**Tax Efficiency (0.85):** Strong tax awareness for a new-regime investor. The plan correctly skips ELSS (since 80C is unavailable), uses an Aggressive Hybrid fund (≥65% equity → equity tax rates) for the debt-adjacent allocation instead of slab-taxed pure debt funds, and explicitly mentions the equity-tax advantage. The rationale clearly states the new-regime reasoning. A small deduction for not mentioning that the flexi cap also enjoys equity tax treatment and for not exploring arbitrage funds as an even lower-volatility equity-taxed option, but overall this is well-handled.",
+    "composite_pqs": 0.62
+  },
+  "timestamp": "2026-04-18T15:53:16.894545Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

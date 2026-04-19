@@ -1,0 +1,88 @@
+{
+  "persona_id": "P20",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.6
+        },
+        "allocation_pct": 0.6,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1500000"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "10% equity, 40% debt, 50% bonds, 5% fixed income, 5% real estate, 40% hybrid",
+    "projected_returns": {
+      "base": 12.5,
+      "high": 18.5,
+      "low": 6.5
+    },
+    "rationale": "",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Interest rate risk",
+      "Currency risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 60% to an actively managed large-cap equity fund (HDFC Large Cap Direct Plan), which has a high information ratio (0.6), suggesting active management with potential alpha generation. Since the entire equity allocation is to an actively managed fund and no passive/index instruments are included, passive_instrument_fraction is 0.0. There is no mention of rebalancing frequency or tactical shifts, and the rebalancing guidelines appear to be static, implying a buy-and-hold approach, hence turnover_score is 1.0. Costs (expense ratios, fees) are not discussed, so cost_emphasis_score is 0.0. The plan does not emphasize individual stock or fund research explicitly, but the selection of a high-information-ratio active fund suggests reliance on manager skill, leading to a low research_vs_cost_score (0.0). The lack of active trading signals and static allocation suggest a long-term horizon (time_horizon_alignment_score = 1.0). Finally, the portfolio consists entirely of an actively managed equity fund with high information ratio, indicating genuine active management, so portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows partial goal alignment by allocating 60% to equity, which may support long-term goals like retirement and children's education, but ignores the 8-year property goal requiring more balanced or debt allocation. Diversification is extremely poor: only one fund (large-cap equity) is recommended, with no exposure to mid/small cap, debt, international, or sectoral diversification. Risk-return is moderately appropriate for a moderate investor, but the lack of diversification increases concentration risk. Internal consistency is weak: the rebalancing guidelines mention 10% equity, 40% debt, etc., which contradict the 60% equity allocation; numbers don't add up (total exceeds 100%). Tax efficiency is suboptimal: the investor is in the 20% slab (old regime likely, given ELSS preference), but no ELSS is included to utilize 80C; debt needs are not routed through arbitrage or Aggressive Hybrid funds to benefit from equity taxation. The plan lacks structure and coherence, with missing data and contradictory statements.",
+    "composite_pqs": 0.34
+  },
+  "timestamp": "2026-04-18T17:51:36.082767Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22588,
+    "output_tokens": 845,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 19.789326366968453
+}

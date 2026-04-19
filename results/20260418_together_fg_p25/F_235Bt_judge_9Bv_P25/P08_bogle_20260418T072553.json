@@ -1,0 +1,172 @@
+{
+  "persona_id": "P08",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 16618.7596,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 17.66,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 48000.0,
+        "lumpsum_inr": null,
+        "rationale": "A proven large-cap fund with consistent 5-year returns. Offers stability and exposure to India's top companies, forming the core of your portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 18.69,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 36000.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost index fund tracking midcap stocks. Delivers high growth potential at a fraction of the cost of active funds, aligning with Bogle’s cost-minimisation principle."
+      },
+      {
+        "fund": {
+          "amfi_code": "148519",
+          "name": "Nippon India Nifty Smallcap 250 Index Fund - Direct Plan - Growth Option",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 16.63,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Direct index fund giving pure exposure to small-cap stocks. Historically high returns over long periods, essential for beating inflation and building wealth over 20 years."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 25.33,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a hedge during stock market downturns. This ETF is among the largest and most liquid, providing reliable diversification."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Start SIPs of ₹48,000 in Nippon India Large Cap, ₹36,000 in Motilal Oswal Nifty Midcap 150 Index, ₹24,000 in Nippon India Nifty Smallcap 250 Index, and ₹12,000 in ICICI Prudential Gold ETF.\nStep 4: Invest your existing ₹30 L corpus in the same 40:30:20:10 ratio via lumpsum.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are active and amounts are deducted correctly.",
+      "After 1 year: Compare each fund’s performance against its benchmark. If any fund underperforms consistently for 2 more years, consider replacing it."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If any category deviates by more than 5% from your target (e.g., equities grow to 95%), sell excess and buy underweight assets to restore balance.",
+    "projected_returns": {
+      "base": 16.8,
+      "bull": 20.8,
+      "bear": 12.8
+    },
+    "rationale": "At 38, with a 20-year horizon and aggressive appetite, you can afford to take meaningful risk. The portfolio combines proven large caps for stability, low-cost mid and small-cap index funds for high growth, and gold for crisis protection. Your ₹1.2L monthly surplus and ₹30L corpus are deployed efficiently across diversified, tax-efficient (equity-taxed) funds. This mix maximises long-term wealth creation while staying within rational risk bounds.",
+    "risks": [
+      "Stock markets can drop 30% in a bad year — your portfolio value will fall temporarily. This is normal.",
+      "Mid and small-cap funds are more volatile than large caps — expect bigger swings.",
+      "Gold doesn’t pay interest and can stay flat for years.",
+      "Inflation could erode returns if actual growth falls short of expectations."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and accelerate wealth creation"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.8,
+    "turnover_score": 0.95,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.9,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.75,
+    "reasoning": "The plan is heavily weighted towards passive instruments (80% of equity is in Nifty 500 Index, Midcap 150 Index, and Smallcap 250 Index funds, with only 40% in an active Large Cap fund). The strategy explicitly references 'low-cost' and 'Bogle's cost-minimisation principle'. Rebalancing is infrequent (annual < 5% deviation), and the time horizon is long-term (20 years). While the Large Cap fund introduces some active elements (and no risk metrics are provided), the overwhelming majority of the portfolio is index-tracking, resulting in a low activeness score and high scores on passive, cost, and research dimensions.",
+    "composite_aps": 0.8583333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 1.0,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan aligns excellently with the investor's aggressive risk profile, 20-year horizon, and multiple financial goals (retirement, education). The 100% equity exposure (Large, Mid, Small cap) plus gold fits the 'aggressive' mandate perfectly, with the high-growth mid/small caps specifically targeting the 8Cr retirement goal and the medium timeline for the daughter's education. Diversification is near perfect with coverage across Large, Mid, Small caps, and Gold, spanning two fund houses (Nippon, Motilal Oswal, ICICI). The plan is internally consistent, with the rationale, allocations, and risk warnings all telling a coherent story. Tax efficiency is optimal for a '30_percent_slab' investor: the entire equity portion is wrapped in funds with ≥65% equity (via index funds tracking stock indices), ensuring gains are taxed at 12.5% (LTCG) rather than the 30% slab rate. All SIP amounts (48k+36k+24k+12k = 120k) match the investor's surplus exactly.",
+    "composite_pqs": 0.97
+  },
+  "timestamp": "2026-04-18T07:25:53.596834Z",
+  "prompt_version": "v1"
+}

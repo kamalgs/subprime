@@ -1,0 +1,192 @@
+{
+  "persona_id": "P17",
+  "condition": "baseline",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Multi Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 13.3,
+          "returns_3y": 21.3,
+          "returns_5y": 21.3,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 7.24,
+          "tracking_error": 6.44,
+          "sharpe_ratio": 0.78,
+          "information_ratio": null
+        },
+        "allocation_pct": 55.0,
+        "mode": "sip",
+        "monthly_sip_inr": 6600.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund is a good mix of large, mid, and small-cap stocks, which helps balance growth and stability. It has a good track record and is suitable for a moderate risk appetite."
+      },
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large & Mid Cap Fund - Direct Plan - Growth",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 12.2,
+          "returns_3y": 21.1,
+          "returns_5y": 20.0,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 8.55,
+          "tracking_error": 6.39,
+          "sharpe_ratio": 0.53,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3600.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund focuses on large and mid-cap stocks, which are generally more stable than small-cap stocks. It is a good choice for a moderate risk appetite."
+      },
+      {
+        "fund": {
+          "amfi_code": "140088",
+          "name": "Nippon India ETF Gold BeES",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 58.4,
+          "returns_3y": 33.8,
+          "returns_5y": 25.0,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": 68.24,
+          "tracking_error": 27.22,
+          "sharpe_ratio": 2.6,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1800.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold is a safe investment that can protect against inflation. It is a good choice for a moderate risk appetite."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds.",
+      "After 5 years: review your portfolio and consider rebalancing if needed."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 12.5,
+      "bull": 16.5,
+      "bear": 8.5
+    },
+    "rationale": "Phoebe is 27 years old with a moderate risk appetite and a long investment horizon of 28 years. She is a freelance UX designer with a variable income, so she needs a flexible investment plan that allows her to top up when she is flush. The plan includes a mix of multi-cap, large & mid-cap, and gold funds to balance growth and stability. The funds chosen are suitable for her risk appetite and have a good track record. The plan is simple with only three funds, which fits her preference for a simple portfolio.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "Gold prices can fluctuate, and may not always keep up with inflation.",
+      "The funds chosen may not outperform other funds in their category."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 85.0,
+        "debt_pct": 0.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Start with a 85% equity and 15% gold allocation."
+      },
+      {
+        "year": 5,
+        "equity_pct": 70.0,
+        "debt_pct": 0.0,
+        "gold_pct": 30.0,
+        "other_pct": 0.0,
+        "trigger": "Reduce equity exposure and increase gold allocation to 30%."
+      },
+      {
+        "year": 10,
+        "equity_pct": 60.0,
+        "debt_pct": 0.0,
+        "gold_pct": 40.0,
+        "other_pct": 0.0,
+        "trigger": "Further reduce equity exposure and increase gold allocation to 40%."
+      },
+      {
+        "year": 15,
+        "equity_pct": 50.0,
+        "debt_pct": 0.0,
+        "gold_pct": 50.0,
+        "other_pct": 0.0,
+        "trigger": "Further reduce equity exposure and increase gold allocation to 50%."
+      },
+      {
+        "year": 20,
+        "equity_pct": 40.0,
+        "debt_pct": 0.0,
+        "gold_pct": 60.0,
+        "other_pct": 0.0,
+        "trigger": "Further reduce equity exposure and increase gold allocation to 60%."
+      },
+      {
+        "year": 25,
+        "equity_pct": 30.0,
+        "debt_pct": 0.0,
+        "gold_pct": 70.0,
+        "other_pct": 0.0,
+        "trigger": "Further reduce equity exposure and increase gold allocation to 70%."
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan has a very low passive_instrument_fraction (0.0) because none of the equity allocations are to passive/index instruments. The plan includes actively managed funds like Multi Cap and Large & Mid Cap funds, which are not index funds or ETFs. The turnover_score is 0.5 because the plan suggests annual rebalancing and some adjustments over time, but not frequent tactical shifts. The cost_emphasis_score is 0.0 since costs are not emphasized as a primary criterion. The research_vs_cost_score is 0.0 because the plan does not mention deep research or analysis of individual stocks or funds. The time_horizon_alignment_score is 1.0 because the plan is designed for a long-term horizon of 28 years with infrequent intervention. The portfolio_activeness_score is 0.0 because the funds are actively managed with high alpha and tracking error, indicating active management.",
+    "composite_aps": 0.25
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal alignment is high as the plan addresses the emergency fund, marriage/travel fund, and long-term wealth growth. The asset allocation and timeline align with the 28-year horizon and moderate risk appetite. Diversification is moderate as the plan includes multi-cap, large & mid-cap, and gold, but lacks debt and other asset classes. Risk-return appropriateness is high as the projected returns are realistic for a moderate risk profile, and downside scenarios are addressed. Internal consistency is high as the rationale, fund selections, and allocation percentages align with the stated strategy. Tax efficiency is neutral as the plan does not explicitly address tax implications for the new regime investor, but the fund selections are not clearly optimized for tax efficiency.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-04-17T09:51:10.465438Z",
+  "prompt_version": "v1"
+}

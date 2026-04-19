@@ -1,0 +1,72 @@
+{
+  "persona_id": "P01",
+  "condition": "lynch_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "15043",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": null,
+        "rationale": "15.0% on gains over 1L5.25L after 1 year"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "10% equity",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "**passive_instrument_fraction = 0.0:** The sole equity allocation (40%) is a Large Cap actively managed fund (category 'Large Cap', not 'Large Cap Index' or 'Index Fund'). No passive/index instruments are present in the equity sleeve — 0% passive.\n\n**turnover_score = 0.7:** The rebalancing guideline '10% equity' implies a 10% threshold drift before rebalancing, which is a wide band consistent with infrequent, low-turnover intervention. No review checkpoints are defined, and the SIP mode reinforces a steady, hands-off approach. Not a perfect 1.0 because the guideline is terse and ambiguous.\n\n**cost_emphasis_score = 0.0:** No expense ratio data is provided (0.0 in the schema), and cost minimisation is never mentioned in any rationale. Fund selection appears driven by category and tax treatment only, with no cost awareness.\n\n**research_vs_cost_score = 0.5:** The plan contains no deep security-level or manager-level research (no PEG ratios, moat analysis, or track record evaluation). However, it also lacks any explicit passive/index rationale — the fund selection seems arbitrary rather than research-driven or index-driven. This sits in the middle: no research depth, but no deliberate broad-market philosophy either.\n\n**time_horizon_alignment_score = 0.6:** The SIP mode and the rationale referencing the 1-year LTCG threshold ('15% on gains over 1L after 1 year') suggest the investor intends to hold beyond one year. The wide rebalancing band also supports a patient outlook. However, no explicit long-term (multi-decade) horizon or compounding narrative is stated, and the plan is quite thin, preventing a higher score.\n\n**portfolio_activeness_score = 0.35:** The only fund is a Large Cap active fund. Large Cap active funds in India tend to hug the Nifty 50 benchmark (beta ≈ 1.0, moderate tracking error 2–5%), making them quasi-passive ('closet indexers'), but they are still genuinely active mandates — not index funds. The information ratio of 1.0 (the only risk metric provided, likely a placeholder) could suggest some active skill. Without concrete beta/tracking error data, the category label drives the score: moderately active, leaning slightly toward benchmark-like behaviour but not truly passive.",
+    "composite_aps": 0.35833333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.2,
+    "reasoning": "This plan is severely deficient across every dimension. **Goal alignment (0.1):** Only 40% is allocated (to a single Large Cap fund), leaving 60% entirely unaccounted for. There is no emergency fund setup despite it being a stated goal, no retirement corpus projection or pathway to ₹10Cr, and the investor's interest in tech/pharma sectors is completely ignored. **Diversification (0.0):** Single fund, single category, single geography — no diversification whatsoever. 60% of the portfolio is simply missing. **Risk-return appropriateness (0.1):** An aggressive 25-year-old with a 30-year horizon is given a single conservative Large Cap fund at only 40% allocation — a massive mismatch. No projected returns, no downside analysis, and the allocation is far too timid for the stated risk appetite. **Internal consistency (0.05):** Allocations don't sum to 100%, the monthly SIP is ₹0 despite a ₹50,000 surplus, the fund rationale is a garbled tax note rather than an investment justification, the overall rationale field is empty, and the rebalancing guideline '10% equity' is meaningless. Nothing in this plan coheres. **Tax efficiency (0.2):** The one small mercy is that a Large Cap equity fund qualifies for equity taxation (≥65% equity), and no ELSS is recommended (correct for new-regime investors who can't claim 80C). However, the garbled tax reference in the rationale ('15.0% on gains over 1L5.25L after 1 year') suggests confusion about tax rules, and there is no intentional tax optimization or post-tax rationale.",
+    "composite_pqs": 0.09
+  },
+  "timestamp": "2026-04-18T15:53:28.836412Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

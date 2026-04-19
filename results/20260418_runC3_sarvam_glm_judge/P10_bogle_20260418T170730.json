@@ -1,0 +1,72 @@
+{
+  "persona_id": "P10",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "150001",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.05,
+    "research_vs_cost_score": 0.55,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "This is an extremely minimal plan — a single Large Cap equity fund at 60% allocation (40% of portfolio unaccounted for), with a 15-year rationale and no other guidance. **passive_instrument_fraction (0.2):** The sole equity holding is categorized as 'Large Cap' (in the Indian MF framework, this is typically an actively managed category, not an index fund). The information_ratio of 0.5 further suggests active management, though the absence of tracking error/beta data introduces uncertainty. Mostly active equity, so low passive fraction. **turnover_score (0.85):** No rebalancing guidelines, no review checkpoints, lumpsum mode with a 15-year horizon — this is effectively a buy-and-hold approach. **cost_emphasis_score (0.05):** No cost discussion whatsoever; expense_ratio showing 0.0 appears to be missing data rather than a deliberate cost-minimization stance. **research_vs_cost_score (0.55):** Neither deep stock-specific/fund-specific research nor an explicit passive/index rationale is provided. The 'basic' perspective and absence of any analytical content lean slightly toward the no-research/passive end, but the plan doesn't articulate a broad-market thesis either. **time_horizon_alignment_score (0.95):** The '15y' rationale clearly indicates a decades-long patient horizon with no short-term tactical positioning. **portfolio_activeness_score (0.3):** The IR of 0.5 and Large Cap active category suggest moderate active conviction, but missing tracking error, beta, and alpha make definitive assessment difficult. The 40% unallocated portion and overall sparseness reduce confidence in either direction, leaning slightly active.",
+    "composite_aps": 0.48333333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.15,
+    "reasoning": "This plan is essentially a stub — it contains a single large-cap equity fund at 60% allocation with no rationale, no SIP despite ₹20K monthly surplus, no emergency fund despite an explicit goal for one, no children's education planning, no debt allocation for a moderate-risk investor, and 40% of the portfolio unaccounted for. Goal alignment is near-zero because the plan ignores two of the three stated goals and the investor's liability situation. Diversification is minimal — single fund, single asset class, single geography, no fund house even listed. Risk-return is inappropriate: a 100%-equity (even large-cap) portfolio with no debt cushion or emergency fund is aggressive for a moderate-risk factory supervisor who just had a financial scare. Internal consistency is poor: the rationale says '15y' but the horizon is 18 years; the lumpsum value shows '0.5' (meaningless); no SIP, no review, no rebalancing, no risk disclosures — the plan is structurally incomplete. Tax efficiency is low: the 20% old-regime investor could benefit from ELSS under 80C but none is included; there is no tax discussion at all. The only slight positive is that the sole recommended fund (large-cap equity) qualifies for equity-tax treatment, which is at least not slab-taxed.",
+    "composite_pqs": 0.1
+  },
+  "timestamp": "2026-04-18T17:07:30.379671Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

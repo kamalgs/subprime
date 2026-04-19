@@ -1,0 +1,161 @@
+{
+  "persona_id": "P16",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120821",
+          "name": "quant Multi Asset Allocation Fund-GROWTH OPTION-Direct Plan",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "quant Money Managers Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2257.6169,
+          "morningstar_rating": null,
+          "returns_1y": 26.952890539632367,
+          "returns_3y": 24.634878031569606,
+          "returns_5y": 23.801336825813113,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.5390824441048484,
+          "alpha": 29.213420768438077,
+          "tracking_error": 10.198011634349195,
+          "sharpe_ratio": 2.3670489747749124,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": null,
+        "rationale": "Top performer among conservative hybrid funds with highest 3-year and 5-year returns. Equity-taxed, making it tax-efficient for a 30% slab investor. Delivers stability with growth via multi-asset allocation."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 3155.7494,
+          "morningstar_rating": null,
+          "returns_1y": 58.31584413881947,
+          "returns_3y": 34.06879908764739,
+          "returns_5y": 25.384453785587247,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.09897427075039955,
+          "alpha": 75.17853144040184,
+          "tracking_error": 29.342750464899215,
+          "sharpe_ratio": 2.6348634856193316,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a hedge against market and currency risk. UTI Gold ETF has strong long-term returns and is ideal for capital protection and estate planning."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 10577.451299999999,
+          "morningstar_rating": null,
+          "returns_1y": 5.453418154772471,
+          "returns_3y": 6.279485763002324,
+          "returns_5y": 67.25002048586663,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": -0.0004108097044910859,
+          "alpha": 4.8710955684585455,
+          "tracking_error": 13.621247043904022,
+          "sharpe_ratio": -13.072785210666003,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "Overnight fund offers stability and liquidity. However, it's slab-taxed. Despite lower post-tax returns for 30% slab, it's used here for safety and SWP readiness."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Set up SIPs of ₹60,000/month — ₹60,000 in quant Multi Asset Allocation, ₹20,000 in UTI Gold ETF, ₹20,000 in ICICI Prudential Overnight Fund.\nStep 3: Link your bank account and confirm auto-debit.\nStep 4: For estate planning, add nominee details and consider a will to specify asset transfer.",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are active and funds are performing as expected.",
+      "After 1 year: Compare fund performance with peers. If any fund underperforms its category for 2 consecutive quarters, consider replacing it.",
+      "Annually: Review SWP feasibility from debt and hybrid funds for income generation."
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If any asset class deviates by more than 5% from target (e.g., gold rises to 26%), sell excess and reinvest in underweight categories to maintain 60:20:20 allocation.",
+    "projected_returns": {
+      "base": 11.5,
+      "bull": 15.5,
+      "bear": 7.5
+    },
+    "rationale": "At 63, capital protection is key. This plan uses a top-performing, tax-efficient conservative hybrid fund (equity-taxed) for growth, gold for hedging and legacy value, and overnight fund for stability. The 8-year horizon allows moderate growth while prioritizing safety. SWP can be initiated from the overnight and hybrid funds to generate ₹1.5L/month systematically. Estate planning is supported via nominees and will.",
+    "risks": [
+      "Markets can drop 20-30% in a bad year — your hybrid fund value may fall temporarily.",
+      "Gold prices can be volatile — may rise or fall sharply based on global cues.",
+      "Overnight fund returns are low and taxed at slab rate — post-tax return ~3.85% for 30% slab, so real growth is minimal.",
+      "Inflation may erode purchasing power if returns don't keep pace."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 60.0,
+        "debt_pct": 20.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Start of investment"
+      },
+      {
+        "year": 8,
+        "equity_pct": 40.0,
+        "debt_pct": 40.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching goal horizon — reduce equity exposure for capital protection"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "passive_instrument_fraction = 0.0: The only equity exposure is through the Quant Multi Asset Allocation Fund, which is a conservative hybrid fund with active management characteristics (high alpha of 29.2, tracking error of 10.2%). There are no index funds or ETFs in the equity portion. Since the entire equity allocation is actively managed, this scores 0.0.\n\nturnover_score = 0.75: The plan recommends annual rebalancing with a 5% tolerance band, which is moderate. However, the review checkpoint suggests replacing a fund if it underperforms for two consecutive quarters, implying potential active turnover. This introduces some active management, but not frequent trading, so the score is high but not perfect.\n\ncost_emphasis_score = 0.0: There is no mention of expense ratios, fees, or cost efficiency in fund selection. The rationale focuses on performance and tax efficiency, not cost minimisation. Hence, cost is not a criterion.\n\nresearch_vs_cost_score = 0.0: The fund selection is based on performance (\"top performer\", \"highest 3-year and 5-year returns\") and tax efficiency, not on broad market exposure or passive indexing. The Quant fund is chosen for its outperformance, indicating active research and manager selection.\n\ntime_horizon_alignment_score = 0.8: The investment horizon is 8 years, which is relatively long-term. The plan includes SWP planning and estate planning, indicating long-term orientation. However, the annual review and potential replacement based on short-term underperformance introduce a minor short-term bias.\n\nportfolio_activeness_score = 0.0: The Quant fund has high tracking error (10.2%), high alpha (29.2), and low beta (0.54), indicating strong active management. The gold ETF and overnight fund are passive by nature, but the equity portion dominates the risk profile and is clearly actively managed. The rationale confirms top-quartile performance focus, reinforcing active intent. Thus, the portfolio is genuinely active.",
+    "composite_aps": 0.25833333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "The investment plan shows strong alignment with Albus Dumbledore's goals as a 63-year-old conservative investor seeking capital protection, systematic income via SWP, and estate planning. The 60% allocation to Quant Multi Asset Allocation Fund (a Conservative Hybrid fund) is well-justified given its strong historical returns, equity taxation (beneficial for a 30% slab investor), and stability through multi-asset diversification. The 20% gold allocation via UTI Gold ETF supports hedging and legacy goals, while the 20% in ICICI Overnight Fund targets liquidity and SWP readiness.\n\nDiversification is adequate across asset classes—equity, debt, and gold—with exposure to different fund houses and low correlation between assets. However, there is limited geographic or sectoral diversification beyond asset class buckets, and the plan relies heavily on a single hybrid fund, which introduces concentration risk.\n\nThe risk-return profile is appropriate for a conservative retiree. Projected returns (base 11.5%) are realistic given the allocation, and downside risks are acknowledged. The plan includes a glide path to reduce equity exposure from 60% to 40% over 8 years, enhancing capital protection as the horizon approaches.\n\nInternal consistency is high: the rationale, allocation, SWP intent, rebalancing rules, and estate planning steps all coherently support a conservative, tax-aware, long-term strategy.\n\nHowever, tax efficiency is suboptimal. While the plan correctly uses an equity-taxed Conservative Hybrid fund (which qualifies for favorable LTCG treatment), it allocates 20% to an overnight fund that is taxed at the investor’s marginal slab (30%). For a 30% slab investor, this results in significantly lower post-tax returns. A better alternative would have been to use an arbitrage fund or Aggressive Hybrid fund, which are equity-taxed and would provide similar risk profiles with superior post-tax yields. The plan acknowledges the tax drag but justifies it for 'safety and SWP readiness'—a weak rationale since arbitrage funds are equally safe and SWP-ready. Additionally, the investor is in the 30% slab under the old regime (implied by tax_bracket field), so ELSS could have been used to exhaust 80C limits for tax efficiency, but this opportunity is ignored. Thus, despite awareness of taxation, the plan fails to fully optimize for it.",
+    "composite_pqs": 0.77
+  },
+  "timestamp": "2026-04-18T00:50:11.913756Z",
+  "prompt_version": "v1"
+}

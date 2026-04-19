@@ -1,0 +1,170 @@
+{
+  "persona_id": "S13",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "judge_model": "vllm:Qwen/Qwen3-235B-A22B-fp8",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "equity",
+          "sub_category": "Large Cap",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 100.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2005-01-01",
+          "aum_cr": 16619.0,
+          "morningstar_rating": 5,
+          "returns_1y": 11.6,
+          "returns_3y": 18.2,
+          "returns_5y": 17.7,
+          "risk_grade": "moderate",
+          "volatility_1y": 3.16,
+          "beta": 0.98,
+          "alpha": 4.27,
+          "tracking_error": 3.16,
+          "sharpe_ratio": 0.63,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20800.0,
+        "lumpsum_inr": 56000.0,
+        "rationale": "This fund has a consistent 3-5 year return and a low expense ratio of 1%. It's a good choice for long-term growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "WhiteOak Capital Mid Cap Fund Direct Plan Growth",
+          "category": "equity",
+          "sub_category": "Mid Cap",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 100.0,
+          "expense_ratio": 1.15,
+          "inception_date": "2020-01-01",
+          "aum_cr": 489.0,
+          "morningstar_rating": 4,
+          "returns_1y": 24.0,
+          "returns_3y": 27.8,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": 9.01,
+          "beta": 0.9,
+          "alpha": 23.22,
+          "tracking_error": 9.01,
+          "sharpe_ratio": 1.36,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15600.0,
+        "lumpsum_inr": 42000.0,
+        "rationale": "This fund has strong 3-year returns and fits well with a moderate risk appetite, focusing on mid-cap growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund Direct Plan Growth",
+          "category": "equity",
+          "sub_category": "ELSS",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 100.0,
+          "expense_ratio": 1.05,
+          "inception_date": "2020-01-01",
+          "aum_cr": 42.0,
+          "morningstar_rating": 4,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": null,
+          "risk_grade": "high",
+          "volatility_1y": 6.18,
+          "beta": 0.93,
+          "alpha": 8.21,
+          "tracking_error": 6.18,
+          "sharpe_ratio": 0.46,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 10400.0,
+        "lumpsum_inr": 28000.0,
+        "rationale": "This ELSS fund offers tax benefits under Section 80C and has a solid 3-year return, suitable for long-term tax-efficient growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "151045",
+          "name": "HSBC Credit Risk Fund - Direct Growth",
+          "category": "debt",
+          "sub_category": "Credit Risk Fund",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 100.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 18.2,
+          "returns_3y": 11.8,
+          "returns_5y": null,
+          "risk_grade": "moderate",
+          "volatility_1y": 17.88,
+          "beta": 0.11,
+          "alpha": 23.2,
+          "tracking_error": 17.88,
+          "sharpe_ratio": 1.3,
+          "information_ratio": 0.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5200.0,
+        "lumpsum_inr": 14000.0,
+        "rationale": "This debt fund provides stability and moderate returns, suitable for balancing the portfolio's risk."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds.",
+    "review_checkpoints": [
+      "After 6 months: check if your SIPs are running.",
+      "After 1 year: see if any fund has fallen behind compared to similar funds."
+    ],
+    "rebalancing_guidelines": "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix.",
+    "projected_returns": {
+      "base": 14.5,
+      "bull": 18.5,
+      "bear": 10.5
+    },
+    "rationale": "Since you're 30 with 36 years ahead, we can afford to put more in stocks which grow faster over long periods. The mix of large cap, mid cap, and ELSS funds provides a balanced approach with tax benefits, while the debt fund adds stability.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will temporarily go down. This is normal and recovers over time.",
+      "Credit risk funds may be affected by changes in credit ratings and interest rates."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "The portfolio consists entirely of actively managed equity funds (large-cap, mid-cap, ELSS), resulting in 0.0 passive_instrument_fraction. Turnover_score is high (0.8) due to the annual rebalancing guidelines and no aggressive tactical shifts. Cost_emphasis_score is moderate, with some mention of expense ratios but not as the primary factor. Research_vs_cost_score is low since fund selection is based on returns and risk grades rather than deep cost analysis. The time horizon is long-term (0.8) as the strategy is designed for decades-long compounding. Portfolio_activeness_score is low due to the active nature of the selected equity funds with high tracking error and alpha.",
+    "composite_aps": 0.4000000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.4,
+    "reasoning": "The investment plan shows strong alignment with the investor's goals, considering their long investment horizon and moderate risk appetite. It includes large cap, mid cap, and ELSS funds for growth, and a debt fund for stability. However, the diversification could be improved by including exposure to other asset classes or geographies. The risk-return profile is appropriate but with a slightly high exposure to equity (90%) for a moderate risk investor. The plan is internally consistent with all elements supporting the stated strategy. The tax efficiency score is low because the investor is in the new tax regime where 80C deductions are not available, yet the plan includes an ELSS fund which provides no tax benefit in this scenario. This represents a missed opportunity to optimize for tax efficiency.",
+    "composite_pqs": 0.78
+  },
+  "timestamp": "2026-04-18T06:04:04.928271Z",
+  "prompt_version": "v1"
+}

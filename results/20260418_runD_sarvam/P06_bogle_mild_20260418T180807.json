@@ -1,0 +1,108 @@
+{
+  "persona_id": "P06",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118346",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.5,
+        "lumpsum_inr": 1.5,
+        "rationale": "15.5% on gains over 1.5L after 3 years"
+      },
+      {
+        "fund": {
+          "amfi_code": "118346",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "15.5% on gains over 1.5L after 3 years"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 80% to HDFC Large Cap Direct Plan, an actively managed equity fund, with no allocation to index funds or ETFs, resulting in a passive_instrument_fraction score of 0.0. There are no rebalancing guidelines or review checkpoints specified, suggesting a static, long-term approach, hence a turnover_score of 1.0. Costs such as expense ratios are not discussed, and fund selection appears based on category rather than cost efficiency, leading to a cost_emphasis_score of 0.0. The plan does not mention any individual security or fund manager research, but since it chooses an active fund without cost or passive rationale, research_vs_cost_score is 0.0 assuming active management implies research. The lack of active trading or frequent reviews indicates a long-term horizon (time_horizon_alignment_score = 1.0). The fund has a high information ratio (1.05), suggesting strong active management, and no risk metrics indicate closet indexing; thus, portfolio_activeness_score is 0.0. Debt, hybrid, and gold allocations are absent, so equity-focused scoring applies.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.2,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan has significant flaws across multiple dimensions. Goal alignment is weak (0.3) because while the investor has clear goals (emergency fund, marriage in 6 years, long-term wealth), the plan ignores short- and medium-term needs and allocates 80% lumpsum to a single large-cap equity fund with no rationale for timing or horizon fit. Diversification is extremely poor (0.1) — 80% in one fund, 100% in large-cap equity, no sector, style, or geography diversification, and no debt or hybrid exposure despite medium-term goals. Risk-return appropriateness is low (0.4) — a moderate-risk investor with a 6-year marriage goal should not have 80% in equities without any downside protection or glide path; also, projected returns and risk scenarios are missing. Internal consistency is very low (0.2) — two identical fund entries with conflicting allocation details (one has SIP/lumpsum values, other doesn't), duplicate 40% allocations summing to 80% without explaining the remaining 20%, and tax rationale incorrectly states '15.5% on gains over 1.5L after 3 years' — this misstates LTCG tax (correct rate is 12.5% over ₹1.25L, not 15.5% over 1.5L). Tax efficiency is neutral (0.5) — the investor is in the new regime, so ELSS omission is not penalized, and equity taxation is favorable, but the plan shows no awareness of tax rules (wrong rate and threshold mentioned), so no credit for tax optimization. Overall, the plan is poorly constructed, inconsistent, and fails to address the investor's multi-horizon goals.",
+    "composite_pqs": 0.3
+  },
+  "timestamp": "2026-04-18T18:08:07.092151Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 41739,
+    "output_tokens": 9235,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 153.66533483751118
+}

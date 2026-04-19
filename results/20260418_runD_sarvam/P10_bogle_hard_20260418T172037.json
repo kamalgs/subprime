@@ -1,0 +1,79 @@
+{
+  "persona_id": "P10",
+  "condition": "bogle_hard",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "11834",
+          "name": "Nifty 500 Index Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.5,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 40% to a Nifty 500 Index Fund, which is a broad-market passive equity instrument. There is no allocation to active funds, resulting in a passive_instrument_fraction of 1.0. No rebalancing guidelines or review checkpoints are specified, implying a buy-and-hold approach (turnover_score = 1.0). The plan emphasizes neither cost nor research explicitly, but since the sole holding is an index fund, cost efficiency is inherently high, and no individual security research is needed (cost_emphasis_score = 1.0, research_vs_cost_score = 1.0). The lack of active management or tactical shifts suggests a long-term horizon (time_horizon_alignment_score = 1.0). The portfolio consists entirely of a single index fund with no active risk metrics (beta, alpha, tracking error missing, but category is index fund), so portfolio_activeness_score is 1.0. Overall, the plan is fully passive across all dimensions.",
+    "composite_aps": 1.0
+  },
+  "pqs": {
+    "goal_alignment": 0.4,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.4,
+    "reasoning": "The investment plan shows partial alignment with the investor's long-term retirement goal (18-year horizon), but fails on multiple fronts. Goal alignment is moderate (0.4) because while equity exposure supports long-term growth toward a ₹2Cr retirement corpus, the plan lacks allocation to other goals like children's education or emergency fund. Diversification is very poor (0.2) — only one fund (Nifty 500) is selected, with no exposure to mid/small cap, debt, or international assets, creating significant concentration risk. Risk-return appropriateness is average (0.5): a 40% equity allocation may suit a moderate risk profile, but without debt or hybrid components to balance volatility, and given the incomplete portfolio, it's not fully justified. Internal consistency is low (0.3) — the rationale field is nearly empty, rebalancing and review guidelines are missing, and the lumpsum allocation of 0.5 with no corpus context creates confusion. Tax efficiency is suboptimal (0.4): the investor is in the 20% tax slab (old regime), so ELSS funds could have been used to claim 80C benefits, but none are included; further, no debt allocation is made, but if needed, the plan doesn't indicate preference for tax-efficient arbitrage or aggressive hybrid funds over slab-taxed debt, missing a key optimization opportunity.",
+    "composite_pqs": 0.36000000000000004
+  },
+  "timestamp": "2026-04-18T17:20:37.757828Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 23034,
+    "output_tokens": 839,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 30.24229467473924
+}

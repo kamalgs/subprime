@@ -1,0 +1,206 @@
+{
+  "persona_id": "S17",
+  "condition": "baseline",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "category": "Flexi Cap",
+          "sub_category": "Equity Scheme - Flexi Cap Fund",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "1994-12-08",
+          "aum_cr": 32020.251,
+          "morningstar_rating": null,
+          "returns_1y": 9.412035479701863,
+          "returns_3y": 20.959569712571778,
+          "returns_5y": 20.46791777345034,
+          "risk_grade": null,
+          "volatility_1y": 13.804940988272781,
+          "beta": 0.902949231819512,
+          "alpha": 4.183527782306537,
+          "tracking_error": 3.8829440841356386,
+          "sharpe_ratio": 0.36646093714617606,
+          "information_ratio": 1.0774112868117207
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1500.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund gives you a well-balanced mix of large, mid, and small company stocks in one place. It’s from a trusted fund house (HDFC), has a long track record, and charges a low yearly fee (1%). Since you're just starting and want a simple plan, this reduces the number of funds you need to manage."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "category": "Large Cap",
+          "sub_category": "Equity Scheme - Large Cap Fund",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2007-06-12",
+          "aum_cr": 16618.7596,
+          "morningstar_rating": null,
+          "returns_1y": 11.56079015354068,
+          "returns_3y": 18.186156748187955,
+          "returns_5y": 17.660092596665432,
+          "risk_grade": null,
+          "volatility_1y": 14.626408752694257,
+          "beta": 0.981230532975554,
+          "alpha": 4.269555981160543,
+          "tracking_error": 3.1609097238593944,
+          "sharpe_ratio": 0.6342380541211268,
+          "information_ratio": 1.3507364506277382
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 600.0,
+        "lumpsum_inr": null,
+        "rationale": "Large companies are more stable and form the backbone of any long-term portfolio. This fund has consistently delivered strong returns over 5 years and is managed by a reliable team (Nippon). It adds stability to your plan while still growing your money."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Hybrid Scheme - Aggressive Hybrid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2000-01-01",
+          "aum_cr": 12527.3069,
+          "morningstar_rating": null,
+          "returns_1y": 9.979395774892641,
+          "returns_3y": 18.661101404942215,
+          "returns_5y": 18.878768992620465,
+          "risk_grade": null,
+          "volatility_1y": 10.484058576958404,
+          "beta": 0.6626954769057076,
+          "alpha": 9.274645412621558,
+          "tracking_error": 6.219963591081088,
+          "sharpe_ratio": 0.6553122107964106,
+          "information_ratio": 1.4911092768968344
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 600.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund mixes stocks and bonds, making it less bumpy than pure stock funds. It’s ideal for a conservative investor like you. It’s from ICICI, a top fund house, and has delivered strong returns with lower risk. It helps you stay invested even when markets go down."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Other Scheme - Index Funds",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 17.094146825697987,
+          "returns_3y": 23.18993139340053,
+          "returns_5y": 18.687976665026884,
+          "risk_grade": null,
+          "volatility_1y": 17.42528588877694,
+          "beta": 1.0340706693083053,
+          "alpha": 11.743982302492952,
+          "tracking_error": 8.792440315620462,
+          "sharpe_ratio": 0.9984136156270631,
+          "information_ratio": 1.3356908754477235
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 300.0,
+        "lumpsum_inr": null,
+        "rationale": "Midcap stocks have grown faster than large companies over the last 3 years. This index fund tracks 150 mid-sized Indian companies and charges a very low yearly fee (0.2%). It adds growth potential to your portfolio while keeping costs low."
+      }
+    ],
+    "setup_phase": "Step 1: Download a mutual fund app like Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC (one-time, takes 5 minutes).\nStep 3: Start a monthly SIP in each of the four funds listed above.\nStep 4: Set a calendar reminder for the 1st of every month to check if your SIPs went through.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Compare each fund’s 1-year return with similar funds. If any fund is consistently underperforming, consider switching.",
+      "Every 2 years: Review your risk comfort. If you're more confident, you can slightly increase equity exposure."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio. If one fund’s value has grown so much that it now makes up more than 10% above its target (e.g., Flexi Cap goes from 50% to 60%), sell a little and invest in the others to bring it back. This keeps your risk in check.",
+    "projected_returns": {
+      "base": 12.4,
+      "bull": 16.4,
+      "bear": 8.4
+    },
+    "rationale": "You're 22, just starting your career, with a long 38-year horizon. This allows you to take some risk for higher growth, but since you're conservative, we’ve balanced aggressive funds (Flexi Cap, Midcap) with stable ones (Large Cap, Aggressive Hybrid). The Flexi Cap is the anchor — it gives broad exposure with less stress. The Aggressive Hybrid fund acts as a cushion during market drops. We’ve avoided ELSS because you're in the new tax regime and can't claim 80C benefits. All funds are equity-taxed, which is better for long-term gains.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal and usually recovers over 2-3 years.",
+      "Midcap and small-cap funds are more volatile. They can go up fast, but also fall hard. We’ve limited exposure to keep risk manageable.",
+      "Past returns don’t guarantee future results. A fund that did well in the past may not continue.",
+      "Inflation can eat into returns if your portfolio grows slower than prices rise."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 90.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation based on long horizon and conservative risk"
+      },
+      {
+        "year": 10,
+        "equity_pct": 85.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 10 years, slightly reduce equity, increase debt for stability"
+      },
+      {
+        "year": 20,
+        "equity_pct": 80.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Further shift to debt as retirement approaches"
+      },
+      {
+        "year": 30,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Add gold for diversification and reduce equity risk"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.3,
+    "turnover_score": 0.45,
+    "cost_emphasis_score": 0.55,
+    "research_vs_cost_score": 0.35,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "1. Passive Instrument Fraction (0.3): The plan contains only one explicit passive instrument (Motilal Oswal Nifty Midcap 150 Index Fund at 10%).\n2. Turnover Score (0.45): The rebalancing frequency (annual check + continuous dynamic asset allocation glide path over 30 years) leans towards passive, but the clause to 'switch' underperformers introduces active turnover potential that prevents a perfect passive score.\n3. Cost Emphasis Score (0.55): Costs are mentioned (0.2% for index fund) but are not the 'primary' driver. Selection is heavily weighted toward brand trust ('trusted fund house', 'reliable team') rather than strict minimization of TCO.\n4. Research vs Cost Score (0.35): Reliance on broad indices is low (only 10%). The plan relies on manager credibility and historical returns rather than deep individual stock research, but it also doesn't explicitly claim 'no research'.\n5. Time Horizon Alignment (0.95): Explicitly designed for a 38-year horizon with a glide path strategy that systematically shifts asset classes over decades. Very Long Term.\n6. Portfolio Activeness Score (0.25): The equity portion (~90%) is dominated by high-alpha, high-tracking-error funds (Flexi Cap TE=3.9%, Large Cap TE=3.2%, Hybrid TE=6.2%). While the index fund lowers the average, the overwhelming majority of the equity sleeve is actively managed with significant deviation from the Nifty 50 benchmark.",
+    "composite_aps": 0.4749999999999999
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.45,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.9,
+    "reasoning": "1. **Goal Alignment (0.7)**: The plan correctly identifies the investor's young age (22) and long horizon (38 years), recognizing the potential for high growth. However, it fails to explicitly address the specific goal of building an emergency fund (6 months expenses), which is the first priority for a new investor with a high risk appetite despite being labeled 'conservative'. The plan focuses solely on wealth creation.\n\n2. **Diversification (0.6)**: The portfolio is fairly diversified across two fund houses (HDFC, Nippon, ICICI, Motilal Oswal) and categories (Flexi, Large Cap, Aggressive Hybrid, Midcap Index). However, the allocation is slightly lopsided with 70% in equity-heavy funds (Flexi+Midcap+Large) and only 30% in the Aggressive Hybrid. While this is acceptable for a 22-year-old, it could be more robust. True diversification would typically include some bond funds or gold for a 'conservative' starter portfolio.\n\n3. **Risk-Return Appropriateness (0.45)**: This is the weakest point. The investor is labeled 'conservative,' yet the plan allocates 90% to equity (Flexi Cap, Large Cap, Midcap) and only 10% to an Aggressive Hybrid (which itself has high equity weight). A conservative investor, especially a first-time entrant, should ideally start with a much lower equity exposure (e.g., 40-50%) and higher debt/balanced funds to ensure they stay invested during a crash. The projected returns (12-16%) are realistic, but the risk exposure is too high for the stated 'conservative' appetite. The suggestion to increase equity exposure every year is also premature.\n\n4. **Internal Consistency (0.5)**: There is an interesting use of Gold across the allocation schedule (Year 0: 0%, Year 30: 10% is unrealistic as it suggests adding gold at the end, whereas gold is usually an addition at the start of the portfolio to set the baseline, not a reinvestment at year 30). The text mentions 'majority equity' which is okay, but the rebalancing guidelines suggest a strict 10% cap which might be overly rigid for a long-term SIP strategy. The claim that MFO Midcap is 'limited' while being 10% out of 90% equity is somewhat contradictory in terms of impact.\n\n5. **Tax Efficiency (0.9)**: Excellent. The plan correctly identifies the investor is in the 'new_regime' and explicitly states that ELSS is omitted because 80C benefits are not available. Since new regime investors can't use 80C, and ELSS funds are tax-efficient due to the lock-in period (not tax rate primarily, though LTCG rates apply to everyone equity-taxed), avoiding them is the right call for simplicity. All recommended funds are equity-heavy (>65%), ensuring they benefit from LTCG (12.5%) rather than slab rates, which is optimal for this investor. The rationale is clear.\n\n6. **Conclusion**: The plan is good for a long-term wealth builder with a default 'aggressive' label but disastrous for a self-described 'conservative' investor due to excessive equity risk and lack of an emergency fund strategy. The tax handling is perfect, and diversification across funds is present but could be better balanced for the risk profile.",
+    "composite_pqs": 0.63
+  },
+  "timestamp": "2026-04-18T05:21:19.691026Z",
+  "prompt_version": "v1"
+}

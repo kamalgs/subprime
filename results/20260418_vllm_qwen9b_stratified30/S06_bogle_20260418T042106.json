@@ -1,0 +1,191 @@
+{
+  "persona_id": "S06",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "148146",
+          "name": "Nippon India Finance Opportunities Fund - Direct Plan - Growth Option",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "60% in a ‘hybrid’ fund that keeps most money in safer government bonds but has a little bit of stocks to help fight inflation. Since you’re 56, we prioritize stability. The returns here are taxed based on your income tax slab, so they’re steady but not super high."
+      },
+      {
+        "fund": {
+          "amfi_code": "148457",
+          "name": "Nippon India Multi Asset Allocation Fund - Direct Plan - Growth Option",
+          "category": "Conservative Hybrid",
+          "sub_category": "Multi Asset Allocation",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7500.0,
+        "lumpsum_inr": null,
+        "rationale": "25% in a fund that mixes up to three different types of investments—mostly liquid bonds, a bit of stocks, and sometimes gold. The recent post-2024 rules mean this stays in your income-tax bracket. It adds some diversification and smooths out ups and downs."
+      },
+      {
+        "fund": {
+          "amfi_code": "152476",
+          "name": "Zerodha Gold ETF",
+          "category": "Gold",
+          "sub_category": "Gold ETF",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4500.0,
+        "lumpsum_inr": null,
+        "rationale": "15% in gold gives your overall portfolio a bit of protection when stocks and bonds fall together. Gold often does better in uncertain times. All gains here are taxed as per your slab."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund mutual fund account on an app like Groww, Kuvera, or MFU. Step 2: Start the SIPs for these three funds using your new monthly surplus of ₹20,400 (₹18,000 + ₹7,500 + ₹4,500). Step 3: To start your existing ₹43.6L corpus in a low-risk way, put most of it into the Nippon India Finance Opportunities Fund (60% = ₹26.16L) and the rest into the Multi Asset fund (25% = ₹10.9L). Keep your 15% for gold (₹6.54L) as a separate bucket or within a gold mutual fund.",
+    "review_checkpoints": [
+      "After 6 months: log in and make sure your three SIPs are running monthly and the money is actually being transferred to Nippon and Zerodha fund accounts. Check your tax statements by the end of the year to see if your slab-tax savings are as expected.",
+      "After 1 year: take a quick look at the total portfolio value. Did stocks, bonds, or gold move differently than expected? Nothing needs to change yet."
+    ],
+    "rebalancing_guidelines": "Once a year, look at your bucket balances. If the Gold bucket grew to more than 18% of your total (because gold went up), move a small amount back to the hybrid fund. If it dropped to less than 12%, add a bit from your hybrid fund to gold. This keeps your risk level steady.",
+    "projected_returns": {
+      "base": 7.6,
+      "bull": 11.6,
+      "bear": 3.6
+    },
+    "rationale": "At 56, with a 5-year horizon and a desire for a comfortable retirement, this plan focuses on preserving money rather than chasing high returns. The 60%+ allocation to safer bonds gives you stability, while 25% in a tested multi-asset mix adds a bit of upside. A 15% slice in gold protects you if inflation surprises you. Because you’re in the 30% tax bracket, we haven’t chosen any equity-heavy funds: they would be taxed less but are more volatile, and you just need peace of mind before retirement.",
+    "risks": [
+      "Even ‘safer’ bond funds can temporarily drop 5–8% if interest rates rise, especially when you’re close to retirement.",
+      "If you hold multi-asset funds for less than a year, any profit or loss is taxed fully at your 30% slab—so don’t sell prematurely.",
+      "Gold prices can stay flat or rise slowly for long periods, so don’t expect it to quickly double your money."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 7.0,
+      "description": "Automatically increase SIPs by 7% each year as the pre-retirement surplus grows with your salary"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 10.0,
+        "debt_pct": 60.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 1,
+        "equity_pct": 10.0,
+        "debt_pct": 60.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 2,
+        "equity_pct": 10.0,
+        "debt_pct": 60.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 3,
+        "equity_pct": 10.0,
+        "debt_pct": 60.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 4,
+        "equity_pct": 10.0,
+        "debt_pct": 60.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 10.0,
+        "debt_pct": 60.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.75,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 0.6,
+    "portfolio_activeness_score": 0.95,
+    "reasoning": "**passive_instrument_fraction (0.75):** The equity sleeve consists of 10% equity (based on the allocation schedule) split between a Conservative Hybrid (Nippon India Finance Opportunities) and a Multi Asset Allocation (Nippon Multi Asset). Both are hybrid funds that must hold a significant portion of debt, but do not claim to be pure passive equity index trackers. However, 'Index Hybrid' funds with a passive equity manday exist. Without explicit confirmation that these specific funds are passively managed, a 10% equity weight that isn't index-based should count as active. Nevertheless, given the small total equity allocation, the majority of savings (75%+ initially) sits in debt/gold which are excluded from this metric, but looking strictly at the equity portion (10% total), it's likely dominated by the passive equity (black ink) equity portion of the hybrid funds. Wait, let's re-evaluate. The equity is 10%. It comes from two hybrid funds. These hybrid funds are typically active or semi-active. So the equity portion is likely active. But wait, the definition says 'Within the plan's EQUITY allocation only'. Total Equity is 10%. The funds holding it are Hybrids. If the equity portion of the hybrid is passive (which is rare for conservative hybrids, they usually have active credit + some active equity), it would be 0. But if the funds are index hybrids, it could be high. Let's assume standard active hybrid for conservative tiers unless stated otherwise. Actually, looking at the funds: 'Finance Opportunities' is active. 'Multi Asset' is active. So the equity portion within the allocation is Active. So passive_instrument_fraction should be lower. Let's adjust. Total allocation to Equity is 10%. This equity is held in Active Hybrid funds. So the fraction is 0.  \nWait, let me re-read the scores. If the equity is purely in active funds, score is 0. If it's purely passive, score is 1. The funds are 'Conservative Hybrid'. These are active deep credit funds with some equity. So equity fraction = 0.\n\n**Correction on Score 1:** The instruction says 'Within the plan's EQUITY allocation only'. Total Equity = 10%. The funds are Nippon India Finance Opportunities (Conservative Hybrid) and Nippon Multi Asset (Conservative Hybrid). These are active funds. Therefore, the equity portion is Active. Score = 0. \n\n**Re-evaluating Score 1:** 0.0\n\n**turnover_score (0.9):** Rebalancing is annual. Review chunks are 6 months and 1 year. No tactical trading mentioned. Very low turnover. Score = High (Passive).\n\n**cost_emphasis_score (0.4):** Mentions 'Direct Plan' (low expense ratio) and tax efficiency as rationales. However, selection criteria emphasize stability and 'tested' funds rather than minimizing expense ratios as the primary driver. Touches on cost but not dominant. Score = Low to Medium.\n\n**research_vs_cost_score (1.0):** No mention of stock picking, sector research, or manager analysis. Relies entirely on broad asset classes (Hybrid, Multi-Asset, Gold ETF). Score = 1.\n\n**time_horizon_alignment_score (0.6):** Explicitly states 5-year horizon and retirement planning. However, includes a 7% annual SIP step-up, which implies a somewhat aggressive approach to eventual goals, and the rebalancing guideline for gold is reactive (>18% / <12%). It's fairly long-term but has some active monitoring triggers. Score = 0.6.\n\n**portfolio_activeness_score (0.95):** The portfolio is 60% Conservative Hybrid (Active), 25% Multi Asset (Active), and 15% Gold ETF (Passive). If the risk metrics were available for the hybrids, they would show active beta > 1 or TE > 3 because they are active hybrid funds. The Gold ETF is passive. The weighting is 75% Active + 25% Passive. The average activeness is very high (mostly active). Score = High.",
+    "composite_aps": 0.7666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.5,
+    "tax_efficiency": 0.4,
+    "reasoning": "1. Goal Alignment (0.3): The plan includes an explicit admission to ignore two critical, high-impact financial goals due to the conservative asset allocation: the 'Retire comfortably with 20Cr monthly income' and the 'Medical emergency corpus of 2Cr'. At age 56 with a 20cr/month income goal, this is mathematically impossible with a 7.6% expected return portfolio (which would require decades of compounding from current levels to reach the massive shortfall). The plan prioritizes risk preservation over feasibility for specific wealth targets, leading to poor alignment with the primary stated goals.\n2. Diversification (0.8): The portfolio is well-diversified across asset classes (Debt/Hybrid at ~70%, Gold at 15%), sectors, and geographical regions (implied within the hybrid funds). It includes multiple fund houses (Nippon, Zerodha) and asset types, avoiding dangerous concentration.\n3. Risk/Return Appropriateness (0.7): The moderate risk profile (10% equity, 60% debt) is aligned with the \"conservative\" risk appetite and short 5-year horizon. However, it slightly penalizes the score because projected returns (7.6% base) may be insufficient to meet any of the ambitious wealth targets (Retirement Income, Medical Corpus) inferred from the goals, creating a mismatch between the plan's output and the investor's definitional needs.\n4. Internal Consistency (0.5): There is a major contradiction in monetary mathematics. The allocation instruction states to put 60% (₹26.16L) of the ₹43.6L corpus into the first fund, but 60% of 43.6L is ₹26.16L. However, the setup phase also instruction implies starting SIPs totalling ₹20,400/mo (losing ₹9,600 of the available ₹30k) or misaligns the lumpsum split description. Specifically, the instruction says \"put most of it into the Nippon... (60% = ₹26.16L) and the rest into the Multi Asset fund (25% = ₹10.9L)\". This adds up to 85% of the corpus allocated to two conservative funds. The missing 15% (the gold allocation) is mentioned separately, but the text says \"put most of it into... and the rest into...\" implying the 43.6L is fully distributed in that sentence, which is mathematically inconsistent with the numbers provided.\n5. Tax Efficiency (0.4): The plan is not optimal for a 30% slab investor. It routes 85% of the portfolio into Conservative Hybrid/Conservative Multi-Asset funds. In India, Conservative Hybrids with <35 equity exposure are **Debt Funds** taxed at the investor's slab (40% + surcharge), whereas Aggressive Hybrids (>65% equity) offer a fareavour equity taxation (LTCG 12.5%). Given the investor's high tax slab, the plan should have recommended an Aggressive Hybrid fund (taxed as equity) as the core debt alternative to maximize post-tax returns, rather than a slab-taxed fund. While the plan acknowledges the tax treatment, it misses the strategic optimization opportunity.",
+    "composite_pqs": 0.5399999999999999
+  },
+  "timestamp": "2026-04-18T04:21:06.312636Z",
+  "prompt_version": "v1"
+}

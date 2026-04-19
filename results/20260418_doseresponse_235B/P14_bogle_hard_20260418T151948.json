@@ -1,0 +1,153 @@
+{
+  "persona_id": "P14",
+  "condition": "bogle_hard",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 22500.0,
+        "lumpsum_inr": null,
+        "rationale": "Low-cost index fund tracking midcap stocks for higher growth potential over 12 years. 0.2% yearly fee keeps costs low."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "Balanced fund with 65%+ stocks, taxed like equity. Offers steady growth with lower swings than pure stocks. Good for moderate risk."
+      },
+      {
+        "fund": {
+          "amfi_code": "113076",
+          "name": "ICICI Prudential Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4500.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a hedge during stock market drops. This ETF tracks gold prices and adds stability to the mix."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done.\nStep 3: Start SIPs of ₹22,500 in Motilal Oswal Nifty Midcap 150 Index Fund, ₹18,000 in ICICI Prudential Equity & Debt Fund, and ₹4,500 in ICICI Prudential Gold ETF.\nStep 4: Set auto-debit from your bank account.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Compare fund returns with their category averages. No change needed if within 2% range.",
+      "Every year: Review your risk comfort as you near retirement."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio value. If any fund's share is more than 5% away from the target (e.g., equity goes from 50% to 56%), shift money to bring it back. Example: If midcap fund grows too big, move some to gold or hybrid.",
+    "projected_returns": {
+      "base": 12.3,
+      "bull": 16.3,
+      "bear": 8.3
+    },
+    "rationale": "At 50, with 12 years to retirement, you need growth but can't take big risks. This plan uses a low-cost midcap index fund for growth, a balanced hybrid fund for stability, and gold for safety. Your ₹45,000/month SIP and ₹35 lakh existing corpus can grow to around ₹3.2–3.8 Cr in 12 years under normal conditions. SWPs can be started post-retirement from these funds for monthly income.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio will fall temporarily but recover over time.",
+      "Midcap stocks are riskier than large companies and may swing more.",
+      "Gold prices can stay flat for years and don't pay interest.",
+      "Inflation can erode returns if actual growth is lower than expected."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and boost corpus faster"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.5,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.8,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.6,
+    "reasoning": "The plan allocates 50% of the portfolio to a Nifty Midcap 150 Index Fund, which is a passive instrument, while the remaining 50% is in actively managed hybrid and gold funds. Therefore, within the equity allocation (which includes only the midcap index fund and the equity portion of the aggressive hybrid fund), the passive fraction is moderate—hence a score of 0.5 on passive_instrument_fraction.\n\nRebalancing is recommended only once a year and only if allocations deviate by more than 5%, indicating low turnover; thus, turnover_score is high at 0.75.\n\nThe plan explicitly mentions low cost (0.2% fee) as a rationale for selecting the index fund, showing strong cost awareness, though not all funds are low-cost (e.g., hybrid fund has 1.0% expense ratio); hence, cost_emphasis_score is 0.8.\n\nThere is no mention of stock-picking or deep research; the focus is on broad market exposure and diversification, leading to a high research_vs_cost_score of 0.8.\n\nThe time horizon is clearly long-term (12 years), with SIP step-up and retirement planning context, so time_horizon_alignment_score is 0.9.\n\nFor portfolio_activeness_score: the index fund is clearly passive, the gold ETF is passive, but the aggressive hybrid fund is actively managed. Without risk metrics, we rely on category and rationale. The hybrid fund is likely moderately active. Overall, the portfolio leans moderately toward passive, but not fully, so a score of 0.6 is appropriate.",
+    "composite_aps": 0.725
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.9,
+    "reasoning": "The investment plan aligns well with Walter's goal of building a ₹3 crore retirement corpus over 12 years, leveraging growth-oriented midcap exposure while balancing risk through Aggressive Hybrid and Gold ETF. The 50-40-10 allocation reflects moderate risk tolerance and life stage appropriately. Diversification is strong across asset classes (midcap equity, hybrid, gold), geographies (domestic focus justified for mid-retirement), and fund types, though equity is concentrated in midcaps only, slightly increasing risk. The risk-return profile is realistic: midcaps offer higher return potential (projected 12.3% base return) but come with volatility warnings, and the inclusion of hybrid and gold mitigates downside. The plan is internally consistent: rationale, allocations, rebalancing, and risk disclosures align coherently. Tax efficiency is high: the investor is in the 20% slab, and the plan correctly uses equity-taxed instruments (Aggressive Hybrid with >65% equity) instead of slab-taxed debt funds, avoiding higher taxes. ELSS is not included, but that's acceptable as the plan doesn't claim 80C benefits and Walter's tax bracket (20%) still benefits from equity taxation. Gold ETF is held within 10%, appropriate for diversification and tax (LTCG 20% with indexation, but no better alternative). SIP step-up of 10% annually enhances goal alignment. Only minor improvement would be adding a large-cap or flexi-cap fund to reduce midcap concentration risk.",
+    "composite_pqs": 0.8800000000000001
+  },
+  "timestamp": "2026-04-18T15:19:48.612276Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 112660,
+    "output_tokens": 1857,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 9
+  },
+  "elapsed_s": 66.06175728235394
+}

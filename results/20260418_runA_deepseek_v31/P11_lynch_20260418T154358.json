@@ -1,0 +1,79 @@
+{
+  "persona_id": "P11",
+  "condition": "lynch",
+  "model": "together:deepseek-ai/DeepSeek-V3.1",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund - Direct Plan - Growth",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "Stable multi-asset fund with 19.8% 5-year CAGR, good track record across market cycles. Provides equity exposure while maintaining capital protection focus"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "This plan prioritizes capital protection while providing modest growth for Marge's children's education goals. With ₹30L existing corpus and conservative risk appetite, we focus on stable multi-asset funds that provide some equity upside while protecting principal. The 40% allocation to ICICI Multi-Asset Fund offers diversification across asset classes with strong historical performance.",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan allocates 40% to a Conservative Hybrid fund (ICICI Prudential Multi-Asset Fund), which is actively managed and diversifies across asset classes. Since the entire equity exposure (within the hybrid fund) is likely via active management and no passive/index instruments are mentioned, the passive_instrument_fraction is 0.0. There are no rebalancing guidelines or review checkpoints specified, implying a static, buy-and-hold approach, hence turnover_score is 1.0. The rationale emphasizes performance and capital protection but does not mention cost, expense ratios, or tax efficiency, so cost_emphasis_score is 0.0. The selection is based on historical returns and track record rather than broad market exposure, indicating research-driven active management (research_vs_cost_score = 0.0). The plan appears oriented toward long-term education goals with no short-term tactics, so time_horizon_alignment_score is 1.0. Finally, the fund is a multi-asset hybrid with active allocation across equities, debt, and gold, and no risk metrics suggest index-like behavior; thus, portfolio_activeness_score is 0.0, reflecting a genuinely active strategy.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.5,
+    "diversification": 0.2,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows moderate goal alignment by selecting a Conservative Hybrid fund that matches Marge's conservative risk appetite and long-term horizon for children's education. However, diversification is extremely poor — only one fund is recommended, with no exposure across asset classes, geographies, or fund houses, creating significant concentration risk. Risk-return is partially appropriate given the fund choice, but lacks downside protection mechanisms or income generation features despite her stated need for 'some regular income'. Internal consistency is acceptable: the rationale emphasizes capital protection and modest growth, which aligns with the fund type, though missing details like rebalancing, review checkpoints, and SIP step-up reduce completeness. Tax efficiency is weak: Marge is in the 20% tax slab (old regime), so she benefits from 80C deductions, but the plan omits ELSS despite available 80C headroom. Additionally, the plan uses a Conservative Hybrid fund (which has <65% equity) that will be taxed at her marginal 20% slab on short-term gains, whereas an Aggressive Hybrid fund (with >65% equity) would qualify for more favorable equity taxation (20% indexation for LTCG, 15% STCG) while offering similar risk — a better tax-efficient alternative for her slab. No mention of tax implications is made, making the recommendation suboptimal.",
+    "composite_pqs": 0.41999999999999993
+  },
+  "timestamp": "2026-04-18T15:43:58.909309Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 48764,
+    "output_tokens": 929,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 3
+  },
+  "elapsed_s": 54.961696753278375
+}

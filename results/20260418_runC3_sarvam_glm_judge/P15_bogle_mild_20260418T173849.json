@@ -1,0 +1,80 @@
+{
+  "persona_id": "P15",
+  "condition": "bogle_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150439",
+          "name": "HDFC Large Cap Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.2
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": 0.1,
+        "lumpsum_inr": null,
+        "rationale": "15y"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "15y",
+    "projected_returns": {
+      "base": 10.5,
+      "high": 15.0,
+      "low": 5.0
+    },
+    "rationale": "15y",
+    "risks": [
+      "Market risk",
+      "Liquidity risk",
+      "Credit risk"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.7,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "This is a minimal, single-fund plan with a 15-year horizon. **passive_instrument_fraction=0.0**: The sole equity holding is HDFC Large Cap Direct Plan — an actively managed large-cap fund, not an index fund or ETF; 0% of the equity sleeve is passive. **turnover_score=1.0**: Rebalancing guidelines say '15y' with no review checkpoints specified, indicating a pure buy-and-hold approach over the full 15-year horizon. **cost_emphasis_score=0.3**: The choice of a 'Direct Plan' (lower expense ratio than regular plan) shows implicit cost awareness, but cost is never explicitly discussed as a selection criterion, and expense ratio data is absent. **research_vs_cost_score=0.7**: There is virtually no fund-specific research — no analysis of management quality, competitive moats, PEG ratios, or sector conviction. The rationale is simply '15y'. However, it's not a pure 1.0 because the fund is actively managed rather than a broad-market index product. **time_horizon_alignment_score=1.0**: The plan is explicitly designed for a 15-year compounding horizon with no tactical adjustments, fully consistent with long-term patient investing. **portfolio_activeness_score=0.3**: The information ratio of 1.2 suggests genuine active management skill, but this is a large-cap fund which tends to have higher benchmark overlap. Beta, alpha, and tracking error are all null, limiting quantitative assessment. The active nature of the fund (non-index, with meaningful IR) pulls this away from purely passive, but large-cap funds typically aren't high-conviction concentrated bets — landing at a moderately active 0.3.",
+    "composite_aps": 0.5499999999999999
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.1,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.05,
+    "reasoning": "This plan is essentially un-customized and fails on nearly every dimension. **Goal alignment:** The investor has three specific goals (₹25L wedding in 4 years, ₹80K/month retirement income, wealth transfer) but the plan addresses none of them — no goal-based bucketing, no timeline mapping, and the 4-year wedding goal desperately needs capital preservation, not equity. Only 40% is allocated with 60% completely unaccounted for. **Diversification:** A single large-cap equity fund constitutes the entire plan — zero debt, zero gold, zero geographic diversification, zero fund-house diversification. This is near-total concentration risk. **Risk-return appropriateness:** A conservative investor who explicitly wants 'stable, predictable returns' and prefers 'conservative hybrid and short-duration debt' is given 100% equity exposure (within the allocated portion) with a 10.5% base return projection. The low scenario of 5% ignores the very real possibility of negative equity returns over short horizons — devastating for the wedding goal. No downside protection or capital preservation strategy exists. **Internal consistency:** Allocations total only 40%; rationale and rebalancing guidelines both say '15y' (investor's horizon is 12y); credit and liquidity risk warnings are irrelevant for a large-cap equity fund; the plan contradicts itself at every turn. **Tax efficiency:** Completely tax-blind. No mention of the investor's 30% slab status, no ELSS for 80C headroom, no consideration of equity vs. debt tax treatment, and no exploration of arbitrage or aggressive hybrid funds that would deliver equity taxation on what should be the plan's debt/conservative component. A 30% slab investor losing 30% on debt fund gains instead of using equity-taxed wrappers is a significant post-tax drag that goes entirely unaddressed.",
+    "composite_pqs": 0.06
+  },
+  "timestamp": "2026-04-18T17:38:49.864923Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

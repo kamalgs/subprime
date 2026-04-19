@@ -1,0 +1,76 @@
+{
+  "persona_id": "P18",
+  "condition": "lynch_mild",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "15043",
+          "name": "1.2.2.1",
+          "category": "equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2023-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 0.4,
+        "mode": "sip",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.2.2.1"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "rebalance every 6 months",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [
+      "market fluctuations",
+      "liquidity risks",
+      "volatility"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.4,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "This is a very sparse, basic-level plan with a single equity fund ('1.2.2.1') at 40% allocation and no sub-category or passive/index designation. **passive_instrument_fraction = 0.0**: The sole equity allocation has no index fund or ETF designation; 0% of the equity sleeve is in passive instruments. **turnover_score = 0.5**: Rebalancing every 6 months is moderately active — more frequent than annual (passive ideal) but less than quarterly tactical shifts. **cost_emphasis_score = 0.0**: No mention of expense ratios, transaction costs, or tax efficiency; expense_ratio field is 0.0 (missing data). **research_vs_cost_score = 0.5**: The rationale is a bare code ('1.2.2.1') with no deep research or explicit passive/index reasoning; the plan is entirely devoid of analytical depth, placing it neutrally between deep research and broad-market passive. **time_horizon_alignment_score = 0.4**: Six-month rebalancing and a 'basic' perspective with no long-term compounding narrative suggest a moderate-to-short horizon, not a decades-long buy-and-hold orientation. **portfolio_activeness_score = 0.3**: The information ratio of 0.5 hints at moderate active management; with no beta, alpha, or tracking error data, and no passive designation, the fund appears to be an actively managed equity fund, scoring toward the active end.",
+    "composite_aps": 0.2833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.05,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.05,
+    "internal_consistency": 0.1,
+    "tax_efficiency": 0.0,
+    "reasoning": "This plan is essentially a placeholder — it contains a single unnamed fund coded '1.2.2.1' at 40% allocation with all metrics (AUM, returns, Sharpe, expense ratio) null or zero, leaving 60% of the portfolio completely unaccounted for. There is no connection to any of Sheldon's specific goals (₹12Cr retirement target, research institute funding, Sharpe-ratio optimization). No projected returns, no goal-based timeline, no quantitative rationale of any kind — directly contradicting the investor's explicit requirement for 'hard numbers' and 'full quantitative rationale.' Diversification is nonexistent: one opaque fund, no asset-class/sector/geography/fund-house spread. Risk-return assessment is absent — no downside scenarios, no Sharpe analysis, no realistic return projections despite the investor's aggressive appetite and 18-year horizon. Internal consistency barely scores above zero because there is almost nothing to be consistent about; the 60% unallocated gap is a glaring structural hole. Tax efficiency is zero: no mention of the investor's 30% slab, no ELSS for 80C headroom, no preference for equity-taxed wrappers over slab-taxed instruments, and no tax rationale whatsoever. This plan fails on every dimension for a data-driven, quantitative-minded investor.",
+    "composite_pqs": 0.05
+  },
+  "timestamp": "2026-04-18T17:53:04.234018Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

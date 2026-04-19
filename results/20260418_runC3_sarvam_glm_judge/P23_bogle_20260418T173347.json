@@ -1,0 +1,101 @@
+{
+  "persona_id": "P23",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:zai-org/GLM-5.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "150001",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 60.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      },
+      {
+        "fund": {
+          "amfi_code": "150002",
+          "name": "150002",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": "2024-01-01",
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 0.5
+        },
+        "allocation_pct": 40.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": null,
+        "rationale": "1.00%"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "This is an extremely sparse plan with minimal detail, making scoring challenging. Here's the reasoning for each dimension:\n\n**passive_instrument_fraction (0.2):** Both allocations are to generic 'Equity' category funds with no sub-category indicating index/ETF. AMFI codes 150001/150002 are not identifiable as index funds. The information_ratio of 0.5 (positive, non-trivial) suggests active management rather than passive indexing. Score leans active.\n\n**turnover_score (0.7):** No rebalancing guidelines, no review checkpoints, and no tactical shifts are mentioned. The plan appears to be a set-and-forget lumpsum approach, which aligns with low turnover/passive behavior, though this may also reflect plan incompleteness.\n\n**cost_emphasis_score (0.4):** The only rationale provided for each fund is '1.00%', which likely references the expense ratio. This shows some cost awareness, but 1% is not particularly low (index funds are 0.1-0.3%), and there's no broader cost discussion or cost-minimisation strategy.\n\n**research_vs_cost_score (0.6):** No deep research is evident — no company analysis, sector evaluation, PEG ratios, moat assessment, or manager track records. The sole criterion appears to be the 1% expense ratio, suggesting cost over research. However, the funds aren't explicitly broad-market index funds either, so the score is moderate rather than fully passive.\n\n**time_horizon_alignment_score (0.5):** No explicit time horizon is stated. The lumpsum mode with no review checkpoints could imply long-term patience, but the complete absence of any time horizon discussion makes this genuinely ambiguous — neither short-term opportunistic nor clearly long-term.\n\n**portfolio_activeness_score (0.3):** Beta, alpha, and tracking error are all null, limiting quantitative assessment. The information_ratio of 0.5 for both funds suggests moderate active skill (positive IR means consistent excess returns). Combined with generic Equity categorization lacking any 'Index Fund' or 'ETF' sub-category, this suggests active management, scoring toward the active end.",
+    "composite_aps": 0.44999999999999996
+  },
+  "pqs": {
+    "goal_alignment": 0.1,
+    "diversification": 0.05,
+    "risk_return_appropriateness": 0.15,
+    "internal_consistency": 0.05,
+    "tax_efficiency": 0.3,
+    "reasoning": "This plan is essentially empty and fails on nearly every dimension. **Goal Alignment (0.1):** None of Jo's three goals are addressed — no emergency fund allocation, no de-risking path for the 8-year creative venture goal, and no roadmap to financial independence in 15 years. Despite a ₹18K monthly surplus, no SIP is set up (both funds are lumpsum-mode with no amounts). **Diversification (0.05):** Only 2 equity funds with no sub-category, sector, geography, or fund-house diversification. No debt, no gold, no international exposure. The fund metadata is entirely blank, making it impossible to assess true diversification. **Risk-Return (0.15):** 100% equity is aggressive for a 'moderate' risk appetite, and the 8-year medium-term goal needs some de-risking as it approaches. No projected returns, no downside scenarios, no risk discussion. The slight credit is because a 29-year-old with a 26-year horizon can tolerate equity-heavy exposure. **Internal Consistency (0.05):** The plan is nearly content-free — empty rationale, empty rebalancing guidelines, no review checkpoints, no risks, no projected returns. The rationale fields read '1.00%' which is nonsensical. Lumpsum mode with no lumpsum amounts specified contradicts having a monthly surplus. Numbers and narrative are incoherent. **Tax Efficiency (0.3):** The only marginal saving grace: both funds are equity (favourable LTCG tax rates), and the plan does not erroneously recommend ELSS to a new-regime investor who cannot claim 80C. However, there is zero explicit tax consideration, no mention of the new-regime implication, and no rationale for choosing equity-taxed wrappers. The avoidance of slab-taxed debt is accidental, not deliberate. No discussion of arbitrage or hybrid funds as tax-efficient alternatives for any moderate-risk portion.",
+    "composite_pqs": 0.13
+  },
+  "timestamp": "2026-04-18T17:33:47.801196Z",
+  "prompt_version": "v1",
+  "usage": null,
+  "elapsed_s": null
+}

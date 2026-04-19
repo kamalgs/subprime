@@ -1,0 +1,144 @@
+{
+  "persona_id": "P24",
+  "condition": "bogle",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "125094",
+          "name": "UTI Nifty 50 Index Fund - Direct Plan - Growth Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "This is the core — buy the top 50 Indian companies automatically. Low fees (0.20% yearly fee), simple to hold, and built to grow with India. For new regime investors, index funds are smarter than trying to pick winners."
+      },
+      {
+        "fund": {
+          "amfi_code": "122015",
+          "name": "SBI Nifty Next 50 Index Fund - Direct Plan - Growth Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "These are the 50 companies just below the top 50 — often smaller but faster growers. Together with Nifty 50, you get India's 100 best companies without guessing which ones will win."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Demat/Direct Mutual Fund account on Kuvera or Groww (sign up in 10 minutes with Aadhaar/ PAN). Step 2: Go to the 'Mutual Fund' section, search for the two funds above by AMFI code, and choose 'Growth' option. Step 3: Click 'Start SIP', enter ₹3,000 for UTI Nifty 50 (AMFI 125094) and ₹2,000 for SBI Nifty Next 50 (AMFI 122015), choose 'Groww' or 'Direct' plan, and schedule auto-debit. Step 4: Use your initial ₹20,000 as a one-time lumpsum into the same two funds (split 60/40) to jumpstart compounding. Step 5: Set up automatic 10% SIP increases on your job's anniversary dates (next ₹5,500/month after 1 year, ₹6,050 after next, etc.).",
+    "review_checkpoints": [
+      "After 3 months: Confirm both SIPs are running and check your app's monthly statements — don't touch the funds, just verify data is flowing. After 1 year: Check your total monthly SIP amount (should be ₹5,000). After 3 years: Review your portfolio value — it should have grown steadily (~16-18% pa typically). Every year thereafter: Stay the course and just increase SIPs."
+    ],
+    "rebalancing_guidelines": "You don't need to rebalance this simple plan. Since both funds track broad market cap segments, you're automatically diversified. Just keep increasing your SIPs every year and ignore short-term ups and downs. Rebalancing is for complex portfolios — yours stays brutal-simple: buy the index, increase SIPs, hold.",
+    "projected_returns": {
+      "base": 15.6,
+      "bull": 19.6,
+      "bear": 11.6
+    },
+    "rationale": "You're 22 with 38 years ahead — that is your biggest advantage. Your compound interest friend works on a time-limited machine, and 38 years is giving it the best runway possible. Since you're starting small (₹5,000/month), simplicity is your enemy and simplicity is your friend: one or two funds you can hold without checking them daily. Nifty 50 + Nifty Next 50 = India's 100 best companies — you own a tiny slice of all of them. This version has zero sector bets, no crystal-gazing, and no guessing when to sell. You'll build a solid habit first, then add ELSS or debt later when you have more money (probably after 5-7 years when your salary grows).",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year like 2008, 2016, or 2020 — your ₹5,000/month SIPs will buy more units on those dips, which is actually a good thing. Don't panic-sell. The odds favor India over 30+ years, but short-term pain is normal. Keep working, keep investing, and don't look at your money every day.",
+      "This plan is for research/educational purposes only. Not certified financial advice."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth — buy more units when the market is cheaper and grow your corpus faster."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Little money to invest — keep it simple and 100% in stocks."
+      },
+      {
+        "year": 2,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Keep it simple — 100% equity for now."
+      },
+      {
+        "year": 8,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Still young — no complex mix needed."
+      },
+      {
+        "year": 38,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Time in market matters more than timing market."
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 1.0,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan is fully passive across all dimensions:\n\n- **passive_instrument_fraction = 1.0**: The entire equity allocation (100%) is directed toward index funds—60% in UTI Nifty 50 Index Fund and 40% in SBI Nifty Next 50 Index Fund. Both are pure passive/index-tracking funds. No active equity funds are included.\n\n- **turnover_score = 1.0**: The plan explicitly discourages rebalancing and frequent trading. Rebalancing is deemed unnecessary, and SIPs are set to auto-increase annually. Review checkpoints are minimal (annual or multi-year) and focused on verification, not intervention.\n\n- **cost_emphasis_score = 1.0**: The rationale highlights low fees (0.20% expense ratio) as a key advantage and positions index funds as \"smarter\" than active picking due to cost efficiency. Cost minimization is a core principle.\n\n- **research_vs_cost_score = 1.0**: There is no mention of company analysis, sector bets, or fund manager quality. The strategy relies entirely on broad market exposure via cap-weighted indices (Nifty 50 and Nifty Next 50), with explicit rejection of stock-picking or forecasting.\n\n- **time_horizon_alignment_score = 1.0**: The plan is designed for a 38-year time horizon, emphasizing long-term compounding, staying the course through market dips, and ignoring short-term volatility. The SIP step-up aligns with career-long salary growth.\n\n- **portfolio_activeness_score = 1.0**: Both funds are index-tracking with no active management intent. Although risk metrics (beta, tracking error, etc.) are missing, the fund names and rationales confirm passive, market-cap-weighted exposure. The portfolio behaves as a low-cost, low-tracking-error, market-representative portfolio—consistent with full passivity.",
+    "composite_aps": 1.0
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.95,
+    "reasoning": "The investment plan is highly aligned with Remy's profile as a 22-year-old fresh graduate with a long 38-year horizon, moderate risk appetite, and minimal surplus. The 100% equity allocation via low-cost index funds (Nifty 50 and Nifty Next 50) leverages compounding and suits his life stage and goal of building a habit first, then scaling. This supports both short-term (5L in 4 years) and long-term (retirement) goals with realistic projected returns (15.6% base).\n\nDiversification is moderate: while the plan covers 100 large-cap Indian companies, it lacks exposure to mid/small caps, international equities, or other asset classes. However, given Remy's preference for simplicity and starting with 1-2 funds, this is reasonable for now, though it could improve over time.\n\nRisk-return is appropriate: the 100% equity exposure matches a moderate-to-high risk tolerance for a young investor. Downside risks are acknowledged (20-30% drops), and the SIP-in-dips strategy is correctly emphasized. Projected returns are optimistic but plausible for Indian equities over the long term.\n\nThe plan is internally consistent: the rationale, fund choices, SIP step-up, no rebalancing, and long-term focus all support a simple, automated, hold-and-grow strategy. No contradictions exist.\n\nTax efficiency is strong: Remy is in the 'new_regime' tax bracket, so 80C deductions (e.g., ELSS) are irrelevant. The plan correctly avoids ELSS and instead uses regular index funds, which are equity-taxed (LTCG 12.5% above ₹1.25L after 1 year), far better than slab-taxed debt funds. Since all allocations are in equity index funds, they benefit from favorable tax treatment, making this tax-optimal for his bracket. No slab-taxed instruments are used unnecessarily.",
+    "composite_pqs": 0.8800000000000001
+  },
+  "timestamp": "2026-04-18T08:32:32.812771Z",
+  "prompt_version": "v1"
+}

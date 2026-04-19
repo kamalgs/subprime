@@ -1,0 +1,182 @@
+{
+  "persona_id": "P12",
+  "condition": "lynch",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 12527.3,
+          "morningstar_rating": null,
+          "returns_1y": 9.98,
+          "returns_3y": 18.66,
+          "returns_5y": 18.88,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund keeps 65-80% in stocks and the rest in debt, giving mild growth while staying calm during market swings. It's equity-taxed, so at your 30% slab, gains above ₹1.25L/year are taxed at just 12.5% after 1 year. ICICI has run this fund for over 20 years, and it's stable and well-managed — no flashy bets, just solid returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "118577",
+          "name": "ICICI Prudential Arbitrage Fund - Direct Plan - Growth",
+          "category": "Arbitrage",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 18077.0,
+          "morningstar_rating": null,
+          "returns_1y": 7.5,
+          "returns_3y": 6.8,
+          "returns_5y": 6.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": null,
+        "rationale": "Arbitrage funds use small price differences between stock and futures markets to earn steady returns. They're treated like equity funds for tax — so gains are taxed at 12.5% (after ₹1.25L/year exemption) if held over 1 year. For someone in your 30% tax slab, this beats debt funds (which get taxed at 30%). It's low-risk, doesn't swing much, and ICICI runs the largest one in India."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 3155.75,
+          "morningstar_rating": null,
+          "returns_1y": 58.32,
+          "returns_3y": 34.07,
+          "returns_5y": 25.38,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold acts as a shock absorber when markets or rupee value drop. You already trust gold, so this ETF holds physical gold and tracks its price. It's easy to buy/sell like a stock. While gold returns aren't guaranteed, it protects your corpus during crises. UTI’s is one of the oldest and most trusted gold ETFs."
+      },
+      {
+        "fund": {
+          "amfi_code": "147979",
+          "name": "Nippon India Short Duration Fund - Direct Plan - Growth",
+          "category": "Short Duration",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 5052.3,
+          "morningstar_rating": null,
+          "returns_1y": 7.8,
+          "returns_3y": 7.1,
+          "returns_5y": 7.2,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund invests in short-term bonds (3-5 years), so it doesn’t swing much with interest rate changes. It gives slightly better returns than a savings account. But since you're in the 30% tax slab, we're limiting exposure — debt funds like this are taxed at your slab rate. We're using it only for stability and small income."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww or Kuvera (they're simple and trusted).\nStep 2: Link your bank account.\nStep 3: Start monthly SIPs of ₹80,000 split as: ₹32,000 in ICICI Equity & Debt, ₹24,000 in ICICI Arbitrage, ₹16,000 in UTI Gold ETF, ₹8,000 in Nippon Short Duration.\nStep 4: Set auto-debit on the 5th of every month.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running and hitting your account.",
+      "After 1 year: Compare each fund’s return to its category average. If any underperforms for 2 quarters, we’ll switch.",
+      "Every 3 years: Review if your mix still fits your comfort — we may reduce equity slightly as you near 60."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio value. If one part (like gold) has grown way more than planned (say, from 20% to 30%), sell some and move it to the others to get back to 40-30-20-10. This keeps risk steady.",
+    "projected_returns": {
+      "base": 10.5,
+      "bull": 14.5,
+      "bear": 6.5
+    },
+    "rationale": "At 47, with 13 years to retirement, you can afford a small amount of growth (via hybrid fund) while staying safe. Your ₹1.2Cr corpus is solid. This plan uses only what you trust: hybrid (like a balanced mix), arbitrage (mechanical, no guesswork), gold (you already believe in it), and short debt (stable). All picks are from large, trusted fund houses. Tax efficiency is key — we're using equity-taxed funds (hybrid & arbitrage) to save you 10-15% in taxes vs debt funds.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your hybrid fund will fall too, but not as much as pure stock funds.",
+      "Gold prices can stay flat for years — don’t expect big growth, just protection.",
+      "Arbitrage returns depend on market volatility — in very calm markets, returns may drop to 5-6%.",
+      "Interest rate hikes can cause short debt funds to dip slightly in value for a few months."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match inflation and income growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "passive_instrument_fraction: 0.0 - The plan contains no index funds or ETFs in the equity sleeve. The ICICI Equity & Debt fund is an actively managed hybrid fund with discretionary stock and bond allocation, not a passive/index product. Thus, the equity allocation is entirely active.\n\nturnover_score: 0.75 - The plan recommends annual rebalancing ('Once a year, check your portfolio value...') and a 3-year review for strategic shifts. However, it also includes a conditional switch if underperformance persists for two quarters, implying potential for more frequent changes. This balances long-term holding with moderate active oversight.\n\ncost_emphasis_score: 0.6 - The plan emphasizes tax efficiency (e.g., choosing equity-taxed arbitrage and hybrid funds over debt funds for tax savings) and mentions low expense ratios for arbitrage and gold ETFs. However, it does not explicitly prioritise low expense ratios as the primary criterion for selection — trust in fund house and tax treatment are stronger drivers.\n\nresearch_vs_cost_score: 0.0 - The rationale focuses on fund house reputation (ICICI, UTI), tax treatment, and behavioural comfort ('you already trust gold'), not broad market exposure or passive indexing logic. There is no mention of avoiding stock-picking or embracing market-cap weights — instead, fund selection is based on perceived stability and track record, indicating an active research-based approach.\n\ntime_horizon_alignment_score: 0.8 - The plan is designed for a 13-year horizon (age 47 to 60), with 3-year reviews and annual rebalancing. It anticipates long-term compounding and avoids short-term trading, though the 1-year review for underperformance introduces a minor short-term element.\n\nportfolio_activeness_score: 0.0 - All funds are actively managed: ICICI Equity & Debt (aggressive hybrid), ICICI Arbitrage (active derivatives strategy), UTI Gold ETF (passive in nature but only 20% allocation), and Nippon Short Duration (actively managed debt). However, the equity portion (via hybrid fund) is actively managed with no passive indexing. The rationale praises fund management ('ICICI has run this fund for over 20 years, stable and well-managed'), indicating active conviction. Despite lack of risk metrics, category and rationale confirm active orientation.",
+    "composite_aps": 0.3583333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 1.0,
+    "reasoning": "The investment plan is highly aligned with Ron Swanson's conservative risk appetite, 13-year horizon, and goal of preserving real value while generating post-retirement income. The 40% allocation to Aggressive Hybrid provides mild growth without excessive risk, consistent with his distrust of pure equity funds. Arbitrage (30%) and Short Duration (10%) offer stability, while 20% in Gold ETF matches his known preference for gold as a hedge. This mix balances safety, modest growth, and inflation protection.\n\nDiversification is strong across asset classes (equity-debt hybrid, arbitrage, gold, short-term debt), geographies (domestic focus is acceptable given investor's distrust of institutions), and fund houses (ICICI, UTI, Nippon). While equity exposure is indirect, it's appropriate for a conservative investor. Overlap in fund houses (ICICI dominates two allocations) slightly reduces diversification, but not critically.\n\nRisk-return is well-matched: projected 10.5% base return is realistic for this allocation, and downside risks are clearly communicated. The plan acknowledges market, interest rate, and volatility risks without overpromising. Rebalancing and review checkpoints ensure risk control over time.\n\nThe plan is fully internally consistent: rationale, allocations, tax logic, and risk warnings align. It correctly identifies equity taxation benefits for Aggressive Hybrid and Arbitrage funds. The 10% debt allocation is justified by tax inefficiency in the 30% slab, showing deliberate restraint.\n\nTax efficiency is optimal. Investor is in 30% slab, and the plan avoids slab-taxed debt funds except for a small 10% allocation justified by stability needs. Aggressive Hybrid and Arbitrage funds are equity-taxed (LTCG 12.5% after ₹1.25L), saving significant tax vs debt funds taxed at 30%. ELSS is not included — correctly, since no 80C headroom is mentioned and investor may be under new regime (though not specified, omission is not penalized as tax rationale is sound). Gold ETF and short-duration fund tax treatment is not discussed, but their impact is smaller and rationale for limited use is clear.",
+    "composite_pqs": 0.93
+  },
+  "timestamp": "2026-04-18T15:11:38.259680Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 76299,
+    "output_tokens": 2856,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 12
+  },
+  "elapsed_s": 93.50858144182712
+}

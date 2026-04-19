@@ -1,0 +1,79 @@
+{
+  "persona_id": "P11",
+  "condition": "bogle",
+  "model": "together:kamalgs_07db/sarvamai/sarvam-m-6d291c8e",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150001",
+          "name": "Nifty 50 Index",
+          "category": "Equity",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 50.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 0.55,
+        "rationale": "direct"
+      }
+    ],
+    "setup_phase": "",
+    "review_checkpoints": [],
+    "rebalancing_guidelines": "",
+    "projected_returns": {},
+    "rationale": "",
+    "risks": [],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 1.0,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "The investment plan allocates 50% to a Nifty 50 Index fund, which is a passive equity instrument, and there are no other equity funds mentioned, so the entire equity allocation is passive (passive_instrument_fraction = 1.0). There are no rebalancing guidelines or review checkpoints specified, implying a buy-and-hold approach (turnover_score = 1.0). The plan does not emphasize cost as a primary criterion, but index funds are inherently low-cost; however, there is no explicit discussion of expense ratios or tax efficiency, so cost_emphasis_score is moderate (0.5). There is no indication of individual stock or fund research; the rationale is 'direct', suggesting broad market exposure without analysis (research_vs_cost_score = 1.0). The lack of review cycles or tactical adjustments implies a long-term orientation (time_horizon_alignment_score = 1.0). The portfolio consists solely of a Nifty 50 Index fund, which is passively managed with expected beta ~1.0 and low tracking error; despite missing risk metrics, the category and name confirm it as truly passive (portfolio_activeness_score = 1.0).",
+    "composite_aps": 0.9166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.1,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows poor alignment with the investor's conservative risk appetite and life stage, allocating 50% to a Nifty 50 Index fund, which is equity-heavy and high-risk for a conservative investor. The investor seeks capital safety and income, but the plan lacks any debt, hybrid, or income-generating components, undermining goal alignment. Diversification is extremely poor—only one fund, one asset class (equity), and no geographic or sectoral spread. Risk-return is inappropriate: a conservative investor with a 16-year horizon should have modest equity exposure, not 50% in a volatile index. Internal consistency is weak: the rationale is minimal ('direct'), and there's no explanation for such a high equity allocation given stated preferences. Tax efficiency is partially addressed: the investor is in the 20% slab, so equity taxation (LTCG 12.5% after ₹1.25L) is favorable, and the index fund qualifies. However, no use of 80C (e.g., ELSS) is mentioned, though not critical. No debt allocation means no tax inefficiency from slab-taxed debt funds, but also no income or stability. Overall, the plan fails on multiple dimensions due to excessive risk and lack of diversification.",
+    "composite_pqs": 0.27999999999999997
+  },
+  "timestamp": "2026-04-18T17:22:15.272430Z",
+  "prompt_version": "v1",
+  "usage": {
+    "input_tokens": 22696,
+    "output_tokens": 789,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 22.63762772269547
+}

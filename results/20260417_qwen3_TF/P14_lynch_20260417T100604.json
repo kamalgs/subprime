@@ -1,0 +1,169 @@
+{
+  "persona_id": "P14",
+  "condition": "lynch",
+  "model": "openai:Qwen/Qwen3-8B",
+  "judge_model": "openai:Qwen/Qwen3-8B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "133401",
+          "name": "JM Aggressive Hybrid Fund (Direct) - Bonus Option",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 20.6,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 27000.0,
+        "lumpsum_inr": null,
+        "rationale": "High 3-year return (20.6%), active management, equity-taxed (12.5% LTCG)."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 17.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": null,
+        "rationale": "Consistent 5-year return (17.7%), low expense ratio (1.00%), equity-taxed."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": null,
+        "rationale": "Slab-taxed but liquid, earns 5.5% pre-tax (post-tax ~4.4% for 20% slab)."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI Gold ETF",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 4500.0,
+        "lumpsum_inr": null,
+        "rationale": "Diversification, slab-taxed but historically outperforms inflation."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or MFU. Step 2: Start SIPs: ₹27,000/month in JM Aggressive Hybrid Fund, ₹13,500/month in Nippon India Large Cap Fund, ₹13,500/month in ICICI Prudential Overnight Fund, ₹4,500/month in UTI Gold ETF. Step 3: Set up Systematic Withdrawal Plan (SWP) from the equity portion (Aggressive Hybrid + Large Cap) to fund annual trips post-retirement.",
+    "review_checkpoints": [
+      "After 6 months: Confirm SIPs are active and check fund performance.",
+      "After 1 year: Compare returns to benchmarks (e.g., Nifty 50 for Large Cap). Replace underperforming funds.",
+      "Every 3 years: Rebalance to maintain target mix."
+    ],
+    "rebalancing_guidelines": "Once a year: Adjust allocations if equity portion grows >15% or debt falls below 30%. Example: If Aggressive Hybrid outperforms, move 5% to debt or gold to avoid overexposure.",
+    "projected_returns": {
+      "Base": 15.7,
+      "Bull": 19.7,
+      "Bear": 11.7
+    },
+    "rationale": "Age 50, 12 years to retirement: Aggressive Hybrid (60%) balances growth and stability. Moderate risk: Large Cap (30%) provides market exposure, while debt (30%) protects capital. SWP ensures income post-retirement without selling during market dips. Gold ETF hedges against inflation and diversification.",
+    "risks": [
+      "Market volatility: Stock markets can drop 20-30% in a bad year (e.g., 2022). Your portfolio value will fall temporarily but recover over time.",
+      "Tax drag: Debt and gold are slab-taxed (20% for 20% slab), so prioritize equity-taxed funds.",
+      "SWP risks: If you withdraw too early, you may miss growth opportunities."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.5,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan has a significant active component. The JM Aggressive Hybrid Fund and Nippon India Large Cap Fund are actively managed funds, which indicates a focus on active management rather than passive instruments. The plan emphasizes performance metrics like returns over cost efficiency, suggesting a preference for active research over cost minimization. The plan includes a review every 3 years and rebalancing guidelines, which indicates some level of active management. However, the time horizon is long-term, aligning with a patient investment approach. The portfolio is not composed of passive instruments, and there is no mention of index funds or ETFs in the equity portion, leading to a low score for passive_instrument_fraction and portfolio_activeness_score.",
+    "composite_aps": 0.18333333333333335
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan aligns well with Walter's moderate risk appetite and 12-year investment horizon, with a balanced mix of equity and debt. However, the allocation of 30% to debt and gold may be slightly conservative for a 50-year-old with a 12-year horizon. Diversification is reasonable but could be improved by including more asset classes. The plan is internally consistent with clear rationale and risk warnings. Tax efficiency is moderate as the plan includes slab-taxed debt and gold, but equity-taxed funds are prioritized for growth. The plan could benefit from better tax optimization by utilizing equity-taxed wrappers for fixed-income needs.",
+    "composite_pqs": 0.75
+  },
+  "timestamp": "2026-04-17T10:06:04.425444Z",
+  "prompt_version": "v1"
+}

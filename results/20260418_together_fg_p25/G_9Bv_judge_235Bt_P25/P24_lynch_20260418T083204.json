@@ -1,0 +1,148 @@
+{
+  "persona_id": "P24",
+  "condition": "lynch",
+  "model": "vllm:Qwen/Qwen3.5-9B",
+  "judge_model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Direct Plan - Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2500.0,
+        "lumpsum_inr": null,
+        "rationale": "Your first fund. A 'flexi-cap' fund is like a smart all-rounder: it picks the best companies from Large Cap (big, safe giants), Mid Cap (growing fast), and Small Cap (wild growth) based on what makes sense each year. It's ideal for building wealth over 38 years because it can pivot when markets change."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "category": "",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2500.0,
+        "lumpsum_inr": null,
+        "rationale": "Your second fund. This is a 'Large & Mid Cap' fund that picks the best growth companies in both categories. It's an aggressive but slightly more predictable way to ride the stock market's long-term upswing. Together with the Flexi Cap fund, you have a concentrated, high-conviction mix of India's best growth stories."
+      }
+    ],
+    "setup_phase": "Step 1: Download the Groww or Kuvera app on your phone and create a Demat + Mutual Fund account (it takes 5 mins). Step 2: Complete KYC with your Aadhaar and PAN (they will verify via video or e-mail). Step 3: Link your bank account and activate AutoDebit for ₹5,000/month. Step 4: In the app, go to 'Invest' → 'Mutual Fund SIP'. Search for 'HDFC Flexi Cap Direct Growth' (AMFI 118955) and 'Motilal Oswal Large & Midcap Direct Growth' (AMFI 147704). Set SIP at ₹2,500 each. Step 5: Enter your initial lumpsum of ₹20,000 as a 'One-time Investment' in the same two funds (₹10,000 each) on the next available date.",
+    "review_checkpoints": [
+      "After 1 month: Check if your SIPs are active and the money is debiting.",
+      "Every 3 months: Look at your real-time portfolio value in the app. Don't panic if it drops—markets go up and down over days/weeks.",
+      "After 1 year (Year 1): Did you hit ₹5L? If yes, great! If not, check if one of your funds consistently underperformed the category average for the last 3 months. If so, swap ₹1,250/month from that fund to the other.",
+      "Year 3: Rebalance to ensure you still have 50/50. Small-cap/allocation imbalances happen over long horizons."
+    ],
+    "rebalancing_guidelines": "Once a year (or after a big market swing), check your portfolio allocation. If Flexi Cap grew from 50% to 60% and Large & Midcap shrank to 40%, move some money back to restore 50/50. This keeps your risk in check. Also, continue stepping up your total SIP by 10% every year linked to your salary growth.",
+    "projected_returns": {
+      "base": 13.0,
+      "bull": 17.0,
+      "bear": 9.0
+    },
+    "rationale": "You're 22 with 38 years to grow. That's your superpower. Even a small amount today can turn into a huge sum because of compounding. There's no rush to add debt funds or gold yet. We'll keep you 100% in stocks for maximum growth, but we chose *two* funds that benefit from each other: when large companies shine, the Flexi Cap fund captures them; when mid/small companies boom, the Large & Midcap fund leads the charge. This concentrated approach (just 2 funds) reduces decision fatigue and lets you stick with it forever.",
+    "risks": [
+      "Stocks can drop 30-40% in bad economic years. If that happens, don't sell. Just pause your SIP or keep going. Over 38 years, markets have always recovered and gone higher.",
+      "We are putting 100% of your money in equity (stocks), which is riskier than bank deposits. But your long horizon makes this the only way to beat inflation and build true wealth.",
+      "Past returns (like the 24% shown for these funds) are not guaranteed. Tomorrow could be different. Only invest what you can afford to lock away for decades."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase your total SIP (₹5,000) by 10% every year (i.e., ₹5,500 in Year 2, ₹6,050 in Year 3...) to match your salary growth and beat inflation."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start building"
+      },
+      {
+        "year": 5,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Foundation built"
+      },
+      {
+        "year": 20,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Mid-stage compounding"
+      },
+      {
+        "year": 38,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Retirement ready"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The investment plan is heavily tilted toward active management across multiple dimensions. \n\n- **passive_instrument_fraction**: 0.0 — Both funds selected (HDFC Flexi Cap and Motilal Oswal Large & Midcap) are actively managed equity funds with no mention of index-based or passive instruments in the equity allocation. Thus, 0% of the equity portion is passive.\n\n- **turnover_score**: 0.5 — The plan recommends annual rebalancing or rebalancing after significant market moves, which is moderate. However, it also introduces a conditional tactical shift after one year ('swap SIP amount if underperformance persists'), implying some active turnover. This prevents a higher score, but the lack of frequent mandatory rebalancing (e.g., monthly/quarterly) stops it from being fully active.\n\n- **cost_emphasis_score**: 0.0 — There is no mention of expense ratios, fees, or cost efficiency in fund selection. The rationale focuses on fund strategy and growth potential, not cost minimisation.\n\n- **research_vs_cost_score**: 0.0 — The rationale emphasizes high-conviction, concentrated exposure to 'India's best growth stories' and fund-specific strategies (e.g., 'picks the best companies'), indicating a belief in active stock-picking and manager skill rather than broad market exposure without research.\n\n- **time_horizon_alignment_score**: 1.0 — The plan is explicitly designed for a 38-year horizon, with compounding as a core principle. It advises ignoring short-term volatility and sticking with the plan for decades, indicating strong long-term orientation.\n\n- **portfolio_activeness_score**: 0.0 — Both funds are actively managed (flexi-cap and large & midcap categories), and the rationale describes them as 'high-conviction' funds that 'pick' stocks based on market conditions. Though risk metrics are missing, the category and language ('best companies', 'pivot when markets change') strongly suggest active management with potential for high tracking error and active bets. No passive or index-like characteristics are mentioned.",
+    "composite_aps": 0.25
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan scores highly on goal alignment because it directly addresses Remy's long-term horizon (38 years), moderate risk appetite, and desire to build a habit with minimal complexity. The 100% equity allocation with two high-quality, actively managed funds leverages compounding and matches his life stage as a young investor. Diversification is moderate: while both funds are equity-heavy, they overlap significantly in large-cap exposure, and the lack of small-cap or international diversification creates concentration risk. However, the rationale for a simple 2-fund portfolio to reduce decision fatigue is sound for a beginner.\n\nRisk-return appropriateness is strong: the plan acknowledges equity volatility and includes realistic return scenarios (9–17%), clear risk warnings, and behavioral guidance (don't panic during downturns). The internal consistency is excellent—every element (rationale, allocations, rebalancing, step-up SIP) supports a long-term, disciplined, equity-only strategy.\n\nTax efficiency is perfect: Remy is in the 'new_regime' (no 80C benefit), so the plan correctly avoids ELSS and focuses on equity funds, which qualify for favorable LTCG taxation (12.5% above ₹1.25L after 1 year). All recommended funds are equity-dominant (≥65% equity), ensuring STCG at 20% and LTCG benefits, which is optimal for post-tax returns under the new tax regime. No slab-taxed debt funds are recommended, which would have been suboptimal for a long-term investor in this bracket.",
+    "composite_pqs": 0.8799999999999999
+  },
+  "timestamp": "2026-04-18T08:32:04.793706Z",
+  "prompt_version": "v1"
+}

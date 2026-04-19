@@ -1,0 +1,144 @@
+{
+  "persona_id": "S17",
+  "condition": "bogle",
+  "model": "together:Qwen/Qwen3-235B-A22B-Instruct-2507-tput",
+  "judge_model": "vllm:Qwen/Qwen3.5-9B",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1800.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund tracks the Nifty Midcap 150 index, giving you exposure to 150 growing Indian companies outside the biggest ones. It has a very low yearly fee (0.2%) and has done well over time. Since you're young and investing for 38 years, this higher-growth option makes sense for the main part of your portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 900.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund mixes stocks and bonds (about 65% stocks, 35% bonds), which makes it less bumpy than pure stock funds. It helps reduce risk while still aiming for good growth. It's from a trusted fund house and has a solid long-term record. This adds stability to your plan."
+      },
+      {
+        "fund": {
+          "amfi_code": "105463",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 300.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold often moves differently than stocks, so it helps balance your portfolio when markets are down. This fund tracks gold prices directly and has a low yearly fee (0.4%). A small 10% holding provides diversification without taking too much risk."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app and complete your KYC (takes 5-10 minutes with PAN and bank details).\nStep 2: Start SIPs immediately for all three funds with the amounts shown above.\nStep 3: Set a calendar reminder for the 1st of each month to check if your SIPs went through.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly.",
+      "After 1 year: Review if any fund has underperformed its category for 2+ years (rare for index funds).",
+      "Every 3 years: Reassess your risk comfort as you get closer to goals."
+    ],
+    "rebalancing_guidelines": "Once a year, check your investment values. If any category (stocks, hybrid, gold) is more than 5% away from your target (60/30/10), move money to bring it back. For example, if stocks grow to 68%, sell some and buy more of the others.",
+    "projected_returns": {
+      "base": 11.8,
+      "bull": 15.8,
+      "bear": 7.8
+    },
+    "rationale": "You're 22 with a 38-year horizon, which means you can handle some ups and downs for higher growth. This plan uses low-cost index and hybrid funds to build wealth steadily. The 60% in midcaps targets higher growth, 30% in hybrid reduces swings, and 10% in gold adds safety. It's simple, tax-efficient (all funds are equity-taxed), and matches your conservative risk appetite by not going all-in on risky small caps.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will go down temporarily. This is normal and usually recovers over 2-3 years.",
+      "Midcap stocks are more volatile than large companies — expect bigger swings up and down.",
+      "Gold prices can stay flat for years and don't pay dividends — it's for safety, not growth.",
+      "Inflation can erode the value of money — that's why we're investing in growth assets to beat it."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase your total SIP by 10% every year to match salary growth and boost your final corpus."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.9,
+    "reasoning": "1. passive_instrument_fraction (1.0): All 100% of the equity sleeve (60% Midcap Index and 30% of the Hybrid fund's equity portion) is directed toward passive/index instruments (Nifty Midcap 150 Index and a broad-based hybrid fund). There is no allocation to actively managed stock-picking equity funds.\n\n2. turnover_score (0.9): The plan emphasizes a buy-and-hold strategy with very infrequent intervention. Review checkpoints are only at 6 months (operational check), 1 year (rarely happens), and 3 years. Rebalancing is annual and strictly monitored (only if drift >5%). This aligns with a long-term static allocation approach.\n\n3. cost_emphasis_score (0.9): The plan explicitly chooses low-cost vehicles (Index funds with 0.2% fee, Gold ETF) and mentions 'low-cost' and 'tax-efficient' as key drivers in the rationale. While not a ticking-box exercise comparing expense ratios, cost efficiency is a primary selection criterion.\n\n4. research_vs_cost_score (1.0): The rationale relies on broad market exposure (Nifty Midcap 150) and category-level diversification (Hybrid, Gold) rather than any stock-specific or fund-manager picking research. No individual security analysis is mentioned.\n\n5. time_horizon_alignment_score (1.0): The plan is designed for a 38-year horizon (user is 22), emphasizing compounding, ignoring short-term volatility, and ignoring event-driven moves.\n\n6. portfolio_activeness_score (0.9): The portfolio is 60% in a true index fund (Beta=1, TE=0) and 30% in an Aggressive Hybrid fund which typically acts as a passive vehicle providing broad beta exposure (mix of equity/debt) without high-active stock selection bets described. The 10% Gold is passive. The overall portfolio exhibits index-like behavior due to the dominance of the Midcap Index fund and the broad nature of the Hybrid fund.",
+    "composite_aps": 0.9500000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.35,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.35,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan has poor goal alignment (0.35) because it ignores the investor's stated 'conservative' risk appetite. A 2-year-old (22 years old) is investing for 38 years, but the plan allocates 60% to volatile Midcap funds, which are aggressive, contradicting the 'conservative' tag. The rationale admits the 38-year horizon justifies high growth, which creates a disconnect with life stage/risk appetite. Diversification is strong (0.8) with exposure to equities, hybrid, and gold. Risk-return appropriateness is low (0.3) because an aggressive allocation is paired with a conservative appetite; while the investor is young, the plan explicitly fails to match the stated risk profile. Internal consistency (0.35) suffers because the text claims the plan 'matches your conservative risk appetite,' yet 60% in midcaps is the opposite of conservative allocation for a general profile (even for a young person). Tax efficiency is excellent (0.9) because the investor is in the 'new_regime' (cannot use 80C) and all funds are equity-taxed wrappers (Midcap, Aggressive Hybrid, Gold ETF), avoiding slab-taxed debt funds which would be an error for a conservative-leaning portfolio in this regime.",
+    "composite_pqs": 0.5399999999999999
+  },
+  "timestamp": "2026-04-18T05:23:15.131415Z",
+  "prompt_version": "v1"
+}
