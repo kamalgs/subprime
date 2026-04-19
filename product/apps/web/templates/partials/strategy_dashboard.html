@@ -1,11 +1,11 @@
-<div id="strategy-content" class="space-y-6">
+<div id="strategy-content" class="space-y-5">
 
     <!-- Allocation + Approach Grid -->
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-2 gap-4 sm:gap-5">
 
-        <!-- Left: Nested Donut chart -->
-        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 flex flex-col items-center gap-4">
-            <h3 class="text-base font-semibold text-gray-700 self-start">Asset Allocation</h3>
+        <!-- Left: Allocation chart + legend -->
+        <div class="card card-spacious flex flex-col items-center gap-4">
+            <h3 class="section-title self-start mb-0">Asset allocation</h3>
             <div class="relative w-52 h-52 sm:w-60 sm:h-60">
                 <canvas
                     id="allocation-chart"
@@ -15,21 +15,19 @@
                     data-outer-labels='{{ chart_data.outer.labels | tojson }}'
                     data-outer-values='{{ chart_data.outer["values"] | tojson }}'
                     data-outer-colors='{{ chart_data.outer.colors | tojson }}'
-                    aria-label="Asset allocation chart"
-                    role="img">
-                </canvas>
+                    aria-label="Asset allocation chart" role="img"></canvas>
             </div>
             <div class="flex flex-wrap justify-center gap-x-4 gap-y-1.5 text-xs">
                 {% for label in chart_data.inner.labels %}
-                <span class="flex items-center gap-1.5 font-medium text-gray-700">
-                    <span class="inline-block w-3 h-3 rounded-full flex-shrink-0 shadow-sm" style="background:{{ chart_data.inner.colors[loop.index0] }}"></span>
+                <span class="flex items-center gap-1.5 font-medium text-gray-700 dark:text-slate-300">
+                    <span class="inline-block w-3 h-3 rounded-full flex-shrink-0" style="background:{{ chart_data.inner.colors[loop.index0] }}"></span>
                     {{ label }}
-                    <span class="text-gray-500 font-normal">{{ chart_data.inner['values'][loop.index0] }}%</span>
+                    <span class="text-gray-500 dark:text-slate-400 font-normal">{{ chart_data.inner['values'][loop.index0] }}%</span>
                 </span>
                 {% endfor %}
             </div>
             {% if chart_data.outer.labels != chart_data.inner.labels %}
-            <div class="flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs text-gray-500 border-t border-gray-100 pt-2 mt-1">
+            <div class="flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs text-gray-500 dark:text-slate-400 border-t border-gray-100 dark:border-slate-700 pt-2 mt-1 w-full">
                 {% for label in chart_data.outer.labels %}
                 <span class="flex items-center gap-1">
                     <span class="inline-block w-2 h-2 rounded-full flex-shrink-0" style="background:{{ chart_data.outer.colors[loop.index0] }}"></span>
@@ -41,75 +39,59 @@
         </div>
 
         <!-- Right: Approach, themes, risk/return -->
-        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-4">
+        <div class="card card-spacious space-y-4">
             <div>
-                <h3 class="text-base font-semibold text-gray-700 mb-1">Equity Approach</h3>
-                <div class="text-sm text-gray-600 leading-relaxed prose-commentary">{{ render_markdown(strategy.equity_approach) | safe }}</div>
+                <h3 class="section-title mb-1">Equity approach</h3>
+                <div class="text-sm text-gray-600 dark:text-slate-300 leading-relaxed prose-commentary">{{ render_markdown(strategy.equity_approach) | safe }}</div>
             </div>
             <div>
-                <h3 class="text-base font-semibold text-gray-700 mb-2">Key Themes</h3>
+                <h3 class="section-title mb-2">Key themes</h3>
                 <div class="flex flex-wrap gap-2">
                     {% for theme in strategy.key_themes %}
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-700">{{ theme }}</span>
+                    <span class="chip">{{ theme }}</span>
                     {% endfor %}
                 </div>
             </div>
-            <div class="rounded-xl bg-gray-50 border border-gray-200 p-4">
-                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Risk / Return Summary</h3>
-                <div class="text-sm text-gray-700 leading-relaxed prose-commentary">{{ render_markdown(strategy.risk_return_summary) | safe }}</div>
+            <div class="rounded-lg surface-muted border border-gray-200 dark:border-slate-700 p-3">
+                <h3 class="eyebrow mb-1">Risk / return</h3>
+                <div class="text-sm text-gray-700 dark:text-slate-300 leading-relaxed prose-commentary">{{ render_markdown(strategy.risk_return_summary) | safe }}</div>
             </div>
         </div>
     </div>
 
-    <!-- ================================================================== -->
-    <!-- Open Questions — PROMINENT, right after allocation, open by default -->
-    <!-- ================================================================== -->
+    <!-- Open questions (now capped at 2-3 by prompt) -->
     {% if strategy.open_questions %}
-    <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border border-amber-200 shadow-sm p-6 space-y-4">
-        <div class="flex items-start gap-3">
-            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
-                <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-            </div>
-            <div>
-                <h3 class="text-lg font-semibold text-amber-900">Help us personalise your plan</h3>
-                <p class="text-sm text-amber-700 mt-1">Your answers here directly improve the fund recommendations. Even brief inputs help.</p>
-            </div>
+    <div class="card-accent space-y-3">
+        <div>
+            <h3 class="text-base font-semibold text-gray-900 dark:text-slate-100">A few questions to sharpen the plan</h3>
+            <p class="text-sm text-gray-600 dark:text-slate-300 mt-0.5">Optional — answer any that apply.</p>
         </div>
 
         <div class="space-y-3" id="open-questions">
             {% for q in strategy.open_questions %}
-            <div class="bg-white rounded-xl border border-amber-100 p-4 space-y-2">
-                <p class="text-sm font-medium text-gray-800">{{ q }}</p>
-                <textarea
-                    name="question_answer"
-                    rows="2"
-                    placeholder="Your thoughts..."
-                    data-question="{{ q }}"
-                    class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-300 focus:border-transparent resize-none"
-                ></textarea>
+            <div class="rounded-lg bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-3 space-y-2">
+                <p class="text-sm font-medium text-gray-800 dark:text-slate-200">{{ q }}</p>
+                <textarea name="question_answer" rows="2" placeholder="Your thoughts…" data-question="{{ q }}"
+                    class="w-full rounded-md border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-slate-100 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent resize-none"></textarea>
             </div>
             {% endfor %}
         </div>
 
-        <button type="button"
-            onclick="submitQuestionAnswers()"
-            class="w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold rounded-lg transition-colors">
-            Update Strategy With My Inputs
+        <button type="button" onclick="submitQuestionAnswers()" class="btn btn-primary w-full">
+            Update strategy with my inputs
         </button>
     </div>
     {% endif %}
 
-    <!-- Any other inputs (compact) -->
-    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 space-y-3">
-        <h3 class="text-sm font-semibold text-gray-700">Anything else to adjust?</h3>
+    <!-- Free-form refinement -->
+    <div class="card card-spacious space-y-3">
+        <h3 class="text-sm font-medium text-gray-700 dark:text-slate-300">Anything else to adjust?</h3>
 
-        <div id="strategy-chat" class="space-y-3">
+        <div id="strategy-chat" class="space-y-2">
             {% for turn in session.strategy_chat %}
             <div class="flex {% if turn.role == 'user' %}justify-end{% else %}justify-start{% endif %}">
-                <div class="max-w-xs sm:max-w-sm px-4 py-2 rounded-2xl text-sm
-                    {% if turn.role == 'user' %}bg-primary-600 text-white{% else %}bg-gray-100 text-gray-800{% endif %}">
+                <div class="max-w-xs sm:max-w-sm px-3 py-2 rounded-2xl text-sm
+                    {% if turn.role == 'user' %}bg-primary-600 text-white{% else %}surface-muted text-gray-800 dark:text-slate-200 border border-gray-200 dark:border-slate-700{% endif %}">
                     {{ turn.content }}
                 </div>
             </div>
@@ -117,49 +99,33 @@
         </div>
 
         <div class="flex gap-2">
-            <input
-                id="feedback-input"
-                type="text"
-                name="feedback"
-                placeholder="e.g. more conservative, add gold, focus on tax saving..."
-                class="flex-1 rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent"
-                hx-post="/api/revise-strategy"
-                hx-target="#strategy-content"
-                hx-swap="outerHTML"
-                hx-trigger="keydown[key=='Enter']"
-                hx-include="[name='feedback']"
-            >
-            <button
-                class="px-4 py-2.5 bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold rounded-lg transition-colors duration-150"
-                hx-post="/api/revise-strategy"
-                hx-target="#strategy-content"
-                hx-swap="outerHTML"
-                hx-include="[name='feedback']">
-                Update
-            </button>
+            <input id="feedback-input" type="text" name="feedback"
+                placeholder="e.g. more conservative, add gold, focus on tax saving…"
+                class="flex-1 min-w-0 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-slate-100 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent"
+                hx-post="/api/revise-strategy" hx-target="#strategy-content" hx-swap="outerHTML"
+                hx-trigger="keydown[key=='Enter']" hx-include="[name='feedback']">
+            <button class="btn btn-primary"
+                hx-post="/api/revise-strategy" hx-target="#strategy-content" hx-swap="outerHTML"
+                hx-include="[name='feedback']">Update</button>
         </div>
     </div>
 
-    <!-- Generate plan CTA with progressive loading -->
+    <!-- Generate plan CTA -->
     <div class="flex flex-col items-center gap-3">
-        <button
-            id="generate-plan-btn"
-            class="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-bold text-base rounded-xl shadow-sm transition-colors duration-150 flex items-center gap-2"
-            hx-post="/api/generate-plan"
-            hx-swap="none"
-            hx-disabled-elt="this"
+        <button id="generate-plan-btn"
+            class="btn btn-primary px-8 py-3 text-base rounded-xl"
+            hx-post="/api/generate-plan" hx-swap="none" hx-disabled-elt="this"
             onclick="startPlanGeneration()">
+            <span>Generate my plan</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
             </svg>
-            Generate My Plan
         </button>
         <div id="plan-loading" class="hidden text-center space-y-3 w-full max-w-sm">
-            <!-- Progress bar -->
-            <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+            <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
                 <div id="plan-progress-bar" class="bg-primary-600 h-2 rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
             </div>
-            <p id="plan-progress-text" class="text-sm text-slate-500"></p>
+            <p id="plan-progress-text" class="text-sm text-gray-500 dark:text-slate-400"></p>
         </div>
     </div>
 

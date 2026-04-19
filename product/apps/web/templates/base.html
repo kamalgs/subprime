@@ -10,17 +10,15 @@
     <link rel="manifest" href="/static/manifest.json">
     <title>{% block title %}Benji{% endblock %}</title>
 
-    <!-- Theme bootstrap — runs BEFORE Tailwind to avoid flash -->
+    {# Theme bootstrap — must run BEFORE Tailwind paints to avoid flash #}
     <script>
     (function() {
         var saved = localStorage.getItem('theme');
         var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        var useDark = saved === 'dark' || (!saved && prefersDark);
-        if (useDark) document.documentElement.classList.add('dark');
+        if (saved === 'dark' || (!saved && prefersDark)) document.documentElement.classList.add('dark');
     })();
     </script>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -29,171 +27,54 @@
                 extend: {
                     colors: {
                         primary: {
-                            50:  '#eef2ff',
-                            100: '#e0e7ff',
-                            200: '#c7d2fe',
-                            300: '#a5b4fc',
-                            400: '#818cf8',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
-                            800: '#3730a3',
-                            900: '#312e81',
+                            50:  '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc',
+                            400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca',
+                            800: '#3730a3', 900: '#312e81',
                         },
-                        bear: '#ef4444',
-                        base: '#f59e0b',
-                        bull: '#22c55e',
+                        bear: '#ef4444', base: '#f59e0b', bull: '#22c55e',
                     },
                 },
             },
         };
     </script>
-    <style>
-        /* prevent horizontal overflow on mobile */
-        html, body { overflow-x: hidden; max-width: 100vw; }
-    </style>
+    <style>html, body { overflow-x: hidden; max-width: 100vw; }</style>
 
-    <!-- HTMX -->
     <script src="https://unpkg.com/htmx.org@2.0.4" defer></script>
-
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="/static/app.css" />
 </head>
 <body class="h-full bg-gray-50 text-gray-900 dark:bg-slate-900 dark:text-slate-100">
 
-    <!-- Header -->
-    <header class="bg-white border-b border-gray-200 dark:bg-slate-800 dark:border-slate-700 shadow-sm">
-        <div class="max-w-4xl mx-auto px-4 py-4">
-            <div class="flex items-center gap-3">
-                <img src="/static/icon-192.svg" alt="Benji" class="w-10 h-10 rounded-full flex-shrink-0">
-                <div class="flex flex-col gap-0.5 min-w-0 flex-1">
-                    <h1 class="text-2xl font-bold text-primary-700 dark:text-primary-300">Benji</h1>
-                    <p class="text-sm text-gray-500 dark:text-slate-400 truncate">Your personal mutual fund advisor for Indian investors</p>
-                </div>
-                <button id="theme-toggle" type="button"
-                    aria-label="Toggle theme"
-                    class="flex-shrink-0 w-9 h-9 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 flex items-center justify-center transition-colors">
-                    <!-- Sun (shown in dark mode) -->
-                    <svg class="w-4 h-4 text-amber-400 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-                    </svg>
-                    <!-- Moon (shown in light mode) -->
-                    <svg class="w-4 h-4 text-slate-600 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </header>
+    {% include "partials/components/app_header.html" %}
+    {% include "partials/components/sebi_modal.html" %}
+    {% include "partials/components/step_indicator.html" %}
 
-    <!-- SEBI disclaimer modal — shown on first visit, dismissed with cookie -->
-    <div id="sebi-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 px-4">
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-2xl max-w-md w-full p-6">
-            <div class="flex items-start gap-3">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-red-50 dark:bg-red-900/30 flex items-center justify-center">
-                    <span class="text-red-600 dark:text-red-400 text-xl">⚠</span>
-                </div>
-                <div class="flex-1 min-w-0">
-                    <h2 class="text-lg font-semibold text-gray-900 dark:text-slate-100 mb-2">Before you continue</h2>
-                    <p class="text-sm text-gray-600 dark:text-slate-300 leading-relaxed">
-                        This tool is for <span class="font-medium text-gray-900 dark:text-slate-100">research and educational purposes only</span>. It is not registered with SEBI and does not constitute financial advice. Consult a SEBI-registered investment advisor before making any investment decisions.
-                    </p>
-                </div>
-            </div>
-            <button id="sebi-ack" class="mt-5 w-full btn btn-primary">
-                I understand
-            </button>
-        </div>
-    </div>
-
-    <!-- Step indicator -->
-    <div class="bg-white dark:bg-slate-800 border-b border-gray-100 dark:border-slate-700">
-        <div class="max-w-4xl mx-auto px-4 py-4">
-            <ol class="flex items-center gap-0">
-                {% set steps = [
-                    (1, "Choose Plan"),
-                    (2, "Your Profile"),
-                    (3, "Strategy"),
-                    (4, "Your Plan"),
-                ] %}
-                {% for step_num, step_label in steps %}
-                {% set is_completed = current_step is defined and step_num < current_step %}
-                {% set is_current   = current_step is defined and step_num == current_step %}
-                <li class="flex items-center {% if not loop.last %}flex-1{% endif %} min-w-0">
-                    <!-- Circle / checkmark -->
-                    {% if is_completed %}
-                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                        </svg>
-                    </div>
-                    {% elif is_current %}
-                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center">
-                        <span class="text-white text-sm font-semibold">{{ step_num }}</span>
-                    </div>
-                    {% else %}
-                    <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-gray-300 dark:border-slate-600 flex items-center justify-center">
-                        <span class="text-gray-500 dark:text-slate-400 text-sm">{{ step_num }}</span>
-                    </div>
-                    {% endif %}
-
-                    <!-- Label (hidden on small screens) -->
-                    <span class="ml-2 text-sm font-medium hidden sm:inline
-                        {% if is_completed or is_current %}text-primary-700 dark:text-primary-300{% else %}text-gray-500 dark:text-slate-400{% endif %}">
-                        {{ step_label }}
-                    </span>
-
-                    <!-- Connector line (not after last step) -->
-                    {% if not loop.last %}
-                    <div class="flex-1 h-px mx-2 sm:mx-3
-                        {% if is_completed %}bg-primary-400{% else %}bg-gray-200 dark:bg-slate-700{% endif %}">
-                    </div>
-                    {% endif %}
-                </li>
-                {% endfor %}
-            </ol>
-        </div>
-    </div>
-
-    <!-- Main content -->
     <main class="max-w-4xl mx-auto px-4 py-8">
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 mt-auto">
-        <div class="max-w-4xl mx-auto px-4 py-4">
-            <p class="text-xs text-gray-500 dark:text-slate-400 text-center">
-                Benji — part of the <span class="font-medium">Subprime</span> research project
-            </p>
-        </div>
-    </footer>
+    {% include "partials/components/app_footer.html" %}
 
     {% block scripts %}{% endblock %}
     <script>
+    // Service worker
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/static/sw.js').catch(function() {});
     }
+    // SEBI modal: show on first visit, dismiss with 1-year cookie
     (function() {
         var modal = document.getElementById('sebi-modal');
         var btn = document.getElementById('sebi-ack');
         if (!modal || !btn) return;
         var ack = document.cookie.split('; ').some(function(c) { return c.indexOf('sebi_ack=1') === 0; });
-        if (!ack) {
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
+        if (!ack) { modal.classList.remove('hidden'); modal.classList.add('flex'); }
         btn.addEventListener('click', function() {
-            var exp = new Date();
-            exp.setFullYear(exp.getFullYear() + 1);
+            var exp = new Date(); exp.setFullYear(exp.getFullYear() + 1);
             document.cookie = 'sebi_ack=1; expires=' + exp.toUTCString() + '; path=/; SameSite=Lax';
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
+            modal.classList.add('hidden'); modal.classList.remove('flex');
         });
     })();
+    // Theme toggle
     (function() {
         var toggle = document.getElementById('theme-toggle');
         if (!toggle) return;

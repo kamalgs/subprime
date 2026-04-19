@@ -928,7 +928,7 @@ class TestStep4PlanResult:
 
         assert resp.status_code == 200
         # Corpus projection section
-        assert "Corpus Projection" in resp.text
+        assert "Corpus projection" in resp.text
         # Scenario labels
         assert "Bear" in resp.text
         assert "Base" in resp.text
@@ -957,7 +957,7 @@ class TestStep4PlanResult:
             resp = await client.get("/step/4")
 
         assert resp.status_code == 200
-        assert "Risks to Consider" in resp.text
+        assert "Risks to consider" in resp.text
         assert "Market drops" in resp.text
 
     @pytest.mark.asyncio
@@ -982,7 +982,7 @@ class TestStep4PlanResult:
 
         assert resp.status_code == 200
         # Rationale section heading
-        assert "Why This Plan" in resp.text
+        assert "Why this plan" in resp.text
         # The mock plan rationale text rendered inside a <p> tag
         assert "balances growth and stability" in resp.text
         assert "<p>" in resp.text

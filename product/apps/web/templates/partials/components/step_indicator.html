@@ -1,0 +1,45 @@
+{# 4-step wizard indicator. Expects `current_step` in context (may be undefined on landing pages). #}
+<div class="bg-white dark:bg-slate-800 border-b border-gray-100 dark:border-slate-700">
+    <div class="max-w-4xl mx-auto px-4 py-4">
+        <ol class="flex items-center gap-0">
+            {% set steps = [
+                (1, "Choose Plan"),
+                (2, "Your Profile"),
+                (3, "Strategy"),
+                (4, "Your Plan"),
+            ] %}
+            {% for step_num, step_label in steps %}
+            {% set is_completed = current_step is defined and step_num < current_step %}
+            {% set is_current   = current_step is defined and step_num == current_step %}
+            <li class="flex items-center {% if not loop.last %}flex-1{% endif %} min-w-0">
+                {% if is_completed %}
+                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                {% elif is_current %}
+                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-600 flex items-center justify-center">
+                    <span class="text-white text-sm font-semibold">{{ step_num }}</span>
+                </div>
+                {% else %}
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border-2 border-gray-300 dark:border-slate-600 flex items-center justify-center">
+                    <span class="text-gray-500 dark:text-slate-400 text-sm">{{ step_num }}</span>
+                </div>
+                {% endif %}
+
+                <span class="ml-2 text-sm font-medium hidden sm:inline
+                    {% if is_completed or is_current %}text-primary-700 dark:text-primary-300{% else %}text-gray-500 dark:text-slate-400{% endif %}">
+                    {{ step_label }}
+                </span>
+
+                {% if not loop.last %}
+                <div class="flex-1 h-px mx-2 sm:mx-3
+                    {% if is_completed %}bg-primary-400{% else %}bg-gray-200 dark:bg-slate-700{% endif %}">
+                </div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>

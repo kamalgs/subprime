@@ -1,0 +1,74 @@
+{# ============================================================================
+   Shared Jinja macros — import with:
+     {% from "partials/_macros.html" import stat_card, collapsible, chevron %}
+   ============================================================================ #}
+
+{# Generic chevron icon used in expanders #}
+{% macro chevron() %}
+<svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+</svg>
+{% endmacro %}
+
+{# Stat card — value + label, tone drives accent colour
+   tone ∈ {primary, bear, base, bull, neutral} #}
+{% macro stat_card(value, label, tone='primary') %}
+<div class="card card-compact flex flex-col items-center text-center">
+    <span class="metric
+        {% if tone == 'bear' %}!text-red-500
+        {% elif tone == 'base' %}!text-amber-500
+        {% elif tone == 'bull' %}!text-green-500
+        {% elif tone == 'neutral' %}!text-gray-700 dark:!text-slate-200
+        {% else %}!text-primary-600 dark:!text-primary-300
+        {% endif %}">{{ value }}</span>
+    <span class="eyebrow mt-1">{{ label }}</span>
+</div>
+{% endmacro %}
+
+{# Collapsible section with icon + title. Body goes in the `caller()` block.
+   Usage:
+     {% call collapsible('Risks to consider', icon='warn', open=true) %}
+         …body content…
+     {% endcall %}
+   icon ∈ {warn, setup, check, cycle} #}
+{% macro collapsible(title, icon='check', open=false) %}
+<details {% if open %}open{% endif %} class="group card overflow-hidden p-0">
+    <summary class="flex items-center gap-2 cursor-pointer px-5 py-3.5 hover:surface-muted transition-colors list-none">
+        {% if icon == 'warn' %}
+        <svg class="w-5 h-5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+        </svg>
+        {% elif icon == 'setup' %}
+        <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+        </svg>
+        {% elif icon == 'cycle' %}
+        <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+        </svg>
+        {% else %}
+        <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+        {% endif %}
+        <span class="font-semibold text-gray-800 dark:text-slate-200 text-sm">{{ title }}</span>
+        {{ chevron() }}
+    </summary>
+    <div class="px-5 pb-4 pt-1 border-t border-gray-100 dark:border-slate-700 text-sm text-gray-700 dark:text-slate-300 leading-relaxed">
+        {{ caller() }}
+    </div>
+</details>
+{% endmacro %}
+
+{# Bulleted list for inside collapsible sections (risks, checkpoints).
+   Pass items (list of strings). Each bullet renders as markdown. #}
+{% macro bullet_list(items, accent='primary', render_markdown=None) %}
+<ul class="space-y-2">
+    {% for item in items %}
+    <li class="flex items-start gap-2">
+        <span class="{% if accent == 'bear' %}text-red-400{% else %}text-primary-400{% endif %} mt-0.5 flex-shrink-0">&#8227;</span>
+        <span class="prose-commentary">{% if render_markdown %}{{ render_markdown(item) | safe }}{% else %}{{ item }}{% endif %}</span>
+    </li>
+    {% endfor %}
+</ul>
+{% endmacro %}

@@ -512,7 +512,7 @@ class TestOTPEndpoints:
             resp = await client.get("/step/1")
             assert resp.status_code == 200
             assert "otp-section" in resp.text
-            assert "Send me a code" in resp.text
+            assert "Send code" in resp.text
 
     @pytest.mark.asyncio
     async def test_conversation_saved_on_plan_generation(self):
