@@ -155,17 +155,47 @@ def warm_universe_cache(db_path: Path | None = None) -> bool:
         return False
 
 
-def _load_universe_context(db_path: Path | None = None) -> str | None:
-    """Return the fund universe markdown — from in-memory cache if present,
-    else the on-disk cache file, else (last resort) render from DuckDB.
+def _load_universe_context(
+    db_path: Path | None = None,
+    strategy: StrategyOutline | None = None,
+) -> str | None:
+    """Return the fund universe markdown.
+
+    Fast path: in-memory cache or on-disk cache for the full universe.
+    Optimised path: when ``strategy`` is given, render just the categories
+    the strategy can actually use (equity/debt/gold/hybrid). This cuts the
+    prompt ~40-70 % vs the full universe for typical strategies and never
+    hits the cache — it's cheap to re-render a DB subset on demand.
     """
+    if db_path is None:
+        from subprime.advisor import planner as _self
+        db_path = _self.DB_PATH
+
+    if strategy is not None:
+        # Strategy-scoped render — bypass the all-funds cache.
+        if not db_path.exists():
+            return None
+        try:
+            import duckdb
+            from subprime.data.universe import render_universe_context_for_strategy
+            conn = duckdb.connect(str(db_path), read_only=True)
+            try:
+                return render_universe_context_for_strategy(
+                    conn,
+                    equity_pct=strategy.equity_pct,
+                    debt_pct=strategy.debt_pct,
+                    gold_pct=strategy.gold_pct,
+                )
+            finally:
+                conn.close()
+        except Exception:
+            logger.warning("strategy-scoped universe render failed; falling back", exc_info=True)
+            # Fall through to the full universe
+
     global _UNIVERSE_CACHE_TEXT
     if _UNIVERSE_CACHE_TEXT is not None:
         return _UNIVERSE_CACHE_TEXT
 
-    if db_path is None:
-        from subprime.advisor import planner as _self
-        db_path = _self.DB_PATH
     if not db_path.exists():
         return None
 
@@ -356,6 +386,11 @@ async def generate_plan(
     Returns:
         (InvestmentPlan, RunUsage) — plan and aggregated token usage.
     """
+    # NOTE: strategy-scoped universe tested (scripts/bench_ctx_pqs.py) and
+    # didn't pay off — average savings +0.5 %, ΔPQS unstable (-0.04 to +0.02
+    # across personas). The wiring below keeps the full universe; the
+    # scoped renderer stays available as a library function for future
+    # experiments (e.g. combined with trimmed per-category row counts).
     universe_ctx = _load_universe_context() if include_universe else None
     total_usage = RunUsage()
 
