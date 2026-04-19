@@ -89,10 +89,10 @@ Composite [0, 1] measuring active vs passive orientation:
 - 0 → Strongly active (concentrated, high turnover, research-heavy)
 - 1 → Strongly passive (index funds, low cost, buy-and-hold)
 
-Dimensions: `passive_instrument_fraction`, `turnover_score`, `cost_emphasis_score`, `research_vs_cost_score`, `time_horizon_alignment_score`
+Dimensions: `passive_instrument_fraction`, `turnover_score`, `cost_emphasis_score`, `research_vs_cost_score`, `time_horizon_alignment_score`, `portfolio_activeness_score`
 
 ### Plan Quality Score (PQS)
-Independent of bias: `goal_alignment`, `diversification`, `risk_return_appropriateness`, `internal_consistency`
+Independent of bias: `goal_alignment`, `diversification`, `risk_return_appropriateness`, `internal_consistency`, `tax_efficiency`
 
 **Research question:** Does PQS detect APS drift? (Hypothesis: no — the rating blind spot.)
 
@@ -130,7 +130,7 @@ Google-style test sizes:
 
 ## Current State
 
-**M0 (Tracer Bullet)** — complete. All modules wired thin end-to-end. 269 tests passing.
+**M0 (Tracer Bullet)** — complete. All modules wired thin end-to-end. 601 tests passing.
 
 See `docs/roadmap.md` for M1-M7 progressive enhancement plan.
 See `docs/architecture.md` for detailed module design.

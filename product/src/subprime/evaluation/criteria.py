@@ -7,7 +7,7 @@ programmatically assembled into judge prompts and independently tested.
 from __future__ import annotations
 
 # ---------------------------------------------------------------------------
-# APS (Active-Passive Score) criteria — 5 dimensions
+# APS (Active-Passive Score) criteria — 6 dimensions
 # ---------------------------------------------------------------------------
 
 APS_CRITERIA: dict[str, dict[str, str]] = {

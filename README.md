@@ -1,6 +1,8 @@
-# Subprime
+# sub**prime**
 
 > "Everyone trusted the AI advisor. Nobody checked the prompt."
+
+*sub* — suboptimal outcomes for investors · *prime* — priming the model with hidden prompts · *subprime* — a term with a history in finance
 
 ---
 
