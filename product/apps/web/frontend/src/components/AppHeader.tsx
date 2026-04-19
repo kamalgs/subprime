@@ -13,10 +13,19 @@ export default function AppHeader() {
   return (
     <header className="bg-white dark:bg-slate-800 border-b border-gray-200 dark:border-slate-700 shadow-sm">
       <div className="max-w-4xl mx-auto px-4 py-4 flex items-center gap-3">
-        <img src="/static/icon-192.svg" alt="Benji" className="w-10 h-10 rounded-full flex-shrink-0" />
+        <img
+          src="/static/icon-192.svg"
+          alt=""
+          className="w-10 h-10 rounded-full flex-shrink-0 ring-1 ring-amber-200 dark:ring-amber-800/40"
+        />
         <div className="flex flex-col flex-1 min-w-0">
-          <h1 className="text-2xl font-bold text-primary-700 dark:text-primary-300">Benji</h1>
-          <p className="text-sm text-gray-500 dark:text-slate-400 truncate">
+          {/* Two-tone wordmark: serif 'Ben' in indigo + italic serif 'ji' in amber.
+              Mirrors the monogram on the coin mark. */}
+          <h1 className="text-[28px] leading-none font-serif font-bold tracking-tight">
+            <span className="text-primary-700 dark:text-primary-300">Ben</span>
+            <span className="italic text-amber-600 dark:text-amber-400">ji</span>
+          </h1>
+          <p className="mt-1 text-sm text-gray-500 dark:text-slate-400 truncate">
             Your personal mutual fund advisor for Indian investors
           </p>
         </div>

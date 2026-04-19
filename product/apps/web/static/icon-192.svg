@@ -1,15 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
   <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4f46e5"/>
-      <stop offset="100%" stop-color="#1e1b4b"/>
+    <!-- Soft cream → gold gradient so the mark reads as a coin, not a tech logo -->
+    <linearGradient id="coin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#fffbeb"/>
+      <stop offset="55%"  stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
     </linearGradient>
+    <radialGradient id="highlight" cx="35%" cy="30%" r="50%">
+      <stop offset="0%"  stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <!-- Coin-shaped circle -->
-  <circle cx="96" cy="96" r="92" fill="url(#grad)"/>
-  <circle cx="96" cy="96" r="83" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.7"/>
-  <!-- B in white serif -->
-  <text x="80" y="124" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="104" fill="white">B</text>
-  <!-- ji in gold, bottom-right of B -->
-  <text x="138" y="140" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="40" fill="#f59e0b">ji</text>
+
+  <!-- Coin body -->
+  <circle cx="96" cy="96" r="92" fill="url(#coin)"/>
+  <!-- Inset ring for a minted feel -->
+  <circle cx="96" cy="96" r="82" fill="none" stroke="#b45309" stroke-width="2" opacity="0.35"/>
+  <circle cx="96" cy="96" r="79" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Monogram -->
+  <!-- "B" in indigo — primary brand colour, heavy serif for authority -->
+  <text x="78" y="130"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-weight="700"
+        font-size="112"
+        fill="#4338ca">B</text>
+  <!-- "ji" in warm amber, smaller and italic — playful counterpoint -->
+  <text x="140" y="146"
+        text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-style="italic"
+        font-weight="700"
+        font-size="44"
+        fill="#b45309">ji</text>
+
+  <!-- Specular highlight so the coin feels dimensional -->
+  <circle cx="96" cy="96" r="92" fill="url(#highlight)"/>
 </svg>

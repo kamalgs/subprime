@@ -1,5 +1,5 @@
 import ReactECharts from "echarts-for-react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface Scenario {
   label: string;
@@ -110,49 +110,73 @@ function buildOption(
   };
 }
 
+type View = "future" | "today";
+
 export default function CorpusChart({
   monthlySip, years, bear, base, bull,
 }: { monthlySip: number; years: number; bear: number; base: number; bull: number }) {
   const dark = useIsDark();
-  if (!monthlySip || !years || !bear || !base || !bull) return null;
+  const [view, setView] = useState<View>("future");
 
-  const fv = (cagr: number) => {
-    const r = cagr / 100 / 12, n = years * 12;
-    return monthlySip * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
-  };
-  const pv = (future: number) => future / Math.pow(1 + 0.06, years);
+  const scenarios: Scenario[] | null = useMemo(() => {
+    if (!monthlySip || !years || !bear || !base || !bull) return null;
+    const fv = (cagr: number) => {
+      const r = cagr / 100 / 12, n = years * 12;
+      return monthlySip * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
+    };
+    const pv = (future: number) => future / Math.pow(1 + 0.06, years);
+    return [
+      { label: "Bear", cagr: bear, future_value: fv(bear), present_value: pv(fv(bear)), color: "#ef4444" },
+      { label: "Base", cagr: base, future_value: fv(base), present_value: pv(fv(base)), color: "#f59e0b" },
+      { label: "Bull", cagr: bull, future_value: fv(bull), present_value: pv(fv(bull)), color: "#22c55e" },
+    ];
+  }, [monthlySip, years, bear, base, bull]);
 
-  const scenarios: Scenario[] = [
-    { label: "Bear", cagr: bear, future_value: fv(bear), present_value: pv(fv(bear)), color: "#ef4444" },
-    { label: "Base", cagr: base, future_value: fv(base), present_value: pv(fv(base)), color: "#f59e0b" },
-    { label: "Bull", cagr: bull, future_value: fv(bull), present_value: pv(fv(bull)), color: "#22c55e" },
-  ];
+  if (!scenarios) return null;
+
+  const activeKey: "future_value" | "present_value" = view === "future" ? "future_value" : "present_value";
+  const activeTitle = view === "future" ? "Future value" : "In today's \u20B9";
 
   return (
     <div className="card card-spacious space-y-4">
-      <div>
-        <h3 className="section-title mb-0">Corpus projection</h3>
-        <p className="text-sm text-gray-500 dark:text-slate-400 mt-0.5">
-          {fmt(monthlySip)}/mo SIP &middot; {years}-year horizon &middot; inflation discounted at 6%
-        </p>
+      <div className="flex items-start justify-between gap-3 flex-wrap">
+        <div>
+          <h3 className="section-title mb-0">Corpus projection</h3>
+          <p className="text-sm text-gray-500 dark:text-slate-400 mt-0.5">
+            {fmt(monthlySip)}/mo SIP &middot; {years}-year horizon &middot; inflation discounted at 6%
+          </p>
+        </div>
+        {/* Segmented control — single chart, two views */}
+        <div role="tablist" aria-label="Value view"
+             className="inline-flex rounded-lg border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900/40 p-0.5">
+          {([
+            ["future", "Future value"],
+            ["today",  "Today's \u20B9"],
+          ] as const).map(([v, label]) => (
+            <button
+              key={v}
+              role="tab"
+              aria-selected={view === v}
+              onClick={() => setView(v)}
+              className={
+                "px-3 py-1.5 text-xs font-semibold rounded-md transition-colors " +
+                (view === v
+                  ? "bg-white dark:bg-slate-700 text-primary-700 dark:text-primary-300 shadow-sm"
+                  : "text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-200")
+              }
+            >
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div style={{ height: 230 }}>
-          <ReactECharts
-            option={buildOption(scenarios, "future_value", "Future value", dark)}
-            style={{ height: "100%" }}
-            notMerge
-            opts={{ renderer: "svg" }}
-          />
-        </div>
-        <div style={{ height: 230 }}>
-          <ReactECharts
-            option={buildOption(scenarios, "present_value", "In today's \u20B9", dark)}
-            style={{ height: "100%" }}
-            notMerge
-            opts={{ renderer: "svg" }}
-          />
-        </div>
+      <div style={{ height: 260 }}>
+        <ReactECharts
+          option={buildOption(scenarios, activeKey, activeTitle, dark)}
+          style={{ height: "100%" }}
+          notMerge
+          opts={{ renderer: "svg" }}
+        />
       </div>
       <table className="min-w-full text-sm">
         <thead>

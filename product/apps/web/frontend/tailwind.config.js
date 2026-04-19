@@ -4,6 +4,9 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        serif: ['Georgia', '"Times New Roman"', 'serif'],
+      },
       colors: {
         primary: {
           50: "#eef2ff", 100: "#e0e7ff", 200: "#c7d2fe", 300: "#a5b4fc",

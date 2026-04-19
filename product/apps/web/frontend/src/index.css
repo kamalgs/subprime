@@ -50,7 +50,13 @@
   @apply text-sm text-gray-700 dark:text-slate-300 leading-relaxed;
 }
 .prose-compact > * + * { margin-top: 0.75rem; }
-.prose-compact p { @apply leading-relaxed; }
+.prose-compact p {
+  @apply leading-relaxed;
+  /* honour plain-text line breaks even when the LLM forgets markdown */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.prose-compact br + br { display: none; }  /* collapse double blank lines */
 .prose-compact strong { @apply font-semibold text-gray-900 dark:text-slate-100; }
 .prose-compact em { @apply italic; }
 .prose-compact h1, .prose-compact h2, .prose-compact h3, .prose-compact h4 {
