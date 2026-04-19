@@ -111,6 +111,7 @@ async def lifespan(app: FastAPI):
 def create_app() -> FastAPI:
     """Create and configure the FastAPI application."""
     from apps.web import api, routes
+    from apps.web.api_v2 import router as api_v2_router
 
     app = FastAPI(title="Benji", description="Your personal mutual fund advisor", lifespan=lifespan)
 
@@ -121,6 +122,7 @@ def create_app() -> FastAPI:
 
     app.include_router(routes.router)
     app.include_router(api.router)
+    app.include_router(api_v2_router)
 
     @app.get("/", include_in_schema=False)
     async def root() -> RedirectResponse:
