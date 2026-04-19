@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { getPlan, getPlanStatus, getSession } from "../api/client";
+import { getPlan, getPlanStatus } from "../api/client";
 import type { Plan, InvestorProfile } from "../api/types";
 import CorpusChart from "../components/CorpusChart";
 import PlanRevealModal from "../components/PlanRevealModal";
@@ -71,19 +71,16 @@ export default function Step4Plan() {
 }
 
 function PlanView({ plan, profile }: { plan: Plan; profile: InvestorProfile }) {
-  const session = useQuery({ queryKey: ["session"], queryFn: getSession });
-  const [revealed, setRevealed] = useState(
-    () => !!sessionStorage.getItem("plan_revealed:" + (session.data?.id ?? "")),
-  );
+  // Reveal gate resets on every mount — no sessionStorage, no cookie.
+  // Users see the disclaimer each time they land on the plan screen.
+  const [revealed, setRevealed] = useState(false);
   const totalSip = plan.allocations.reduce((a, x) => a + (x.monthly_sip_inr ?? 0), 0);
   const houses = new Set(plan.allocations.map((a) => a.fund.fund_house).filter(Boolean));
   const pr = plan.projected_returns;
 
   return (
     <>
-      {session.data && !revealed && (
-        <PlanRevealModal id={session.data.id} onAck={() => setRevealed(true)} />
-      )}
+      {!revealed && <PlanRevealModal onAck={() => setRevealed(true)} />}
       <div className={"space-y-6 " + (!revealed ? "blur-sm pointer-events-none select-none" : "")} aria-hidden={!revealed}>
         <div>
           <Link to="/step/3" className="text-sm text-gray-500 dark:text-slate-400 hover:text-primary-600">← Back to strategy</Link>
