@@ -33,6 +33,9 @@ export default function Step2Profile() {
     onSuccess: () => nav("/step/3"),
   });
 
+  /** Prefill the custom form with an archetype's defaults and switch to the
+   *  Custom tab. The user can review/edit before submitting — e.g. fill in
+   *  their real name instead of 'Early career'. */
   const apply = (a: Archetype) => {
     setTab("custom");
     setForm({

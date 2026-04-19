@@ -47,8 +47,17 @@ async def set_tier(
     response: Response,
     benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
 ) -> SessionSummaryResponse:
+    """Switch between basic/premium tier.
+
+    Picking the basic tier also drops the ``is_demo`` flag — tier selection
+    is the user declaring intent to start a fresh consumer flow, so we don't
+    carry over the 25-persona research bank from an earlier demo unlock.
+    The cheat-code → demo-mode unlock has to be re-done (which is fine).
+    """
     s = await get_or_create(request, benji_session)
     s.mode = body.mode
+    if body.mode == "basic":
+        s.is_demo = False
     if s.current_step < 2:
         s.current_step = 2
     await request.app.state.session_store.save(s)
