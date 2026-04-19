@@ -164,7 +164,7 @@ def build_model_settings(
         # full InvestmentPlan JSON plus any retry commentary.
         settings["max_tokens"] = 24000 if thinking else 6000
     if not thinking and "max_tokens" not in settings:
-        settings["max_tokens"] = 8192
+        settings["max_tokens"] = 16384
     return settings
 
 # Web advisor model config — override via env vars.

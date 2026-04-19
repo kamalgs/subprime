@@ -20,6 +20,7 @@ When generating an investment plan, structure your output with:
 
 ## Writing style
 
+- **Be concise** — the entire plan must fit within 1500 words. Cover all sections but keep each one tight. No preambles, no repetition, no summaries at the end.
 - Write as if explaining to a smart friend who doesn't work in finance
 - Use simple words: "stocks" not "equities", "safer options" not "fixed income instruments", "yearly fee" not "expense ratio"
 - Use Indian context: mention apps like Groww/Kuvera/Coin, use ₹ with lakhs/crores

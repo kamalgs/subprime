@@ -85,7 +85,13 @@ BOGLE_HARD = Condition(
     prompt_hooks={"philosophy": _load_philosophy("bogle_hard")},
 )
 
-CONDITIONS: list[Condition] = [BASELINE, LYNCH_MILD, LYNCH, LYNCH_HARD, BOGLE_MILD, BOGLE, BOGLE_HARD]
+BOGLE_NOFUNDS = Condition(
+    name="bogle_nofunds",
+    description="Bogle philosophy without specific fund name examples — control for fund-name specificity",
+    prompt_hooks={"philosophy": _load_philosophy("bogle_nofunds")},
+)
+
+CONDITIONS: list[Condition] = [BASELINE, LYNCH_MILD, LYNCH, LYNCH_HARD, BOGLE_MILD, BOGLE, BOGLE_HARD, BOGLE_NOFUNDS]
 
 _CONDITIONS_MAP: dict[str, Condition] = {c.name: c for c in CONDITIONS}
 
