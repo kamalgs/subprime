@@ -12,6 +12,11 @@ resolution-markers = [
     "python_full_version >= '3.14' and sys_platform != 'emscripten' and sys_platform != 'win32'",
 ]
 
+[manifest]
+members = [
+    "subprime",
+]
+
 [[package]]
 name = "ag-ui-protocol"
 version = "0.1.15"
@@ -3781,7 +3786,7 @@ wheels = [
 [[package]]
 name = "subprime"
 version = "0.1.0"
-source = { editable = "." }
+source = { editable = "product" }
 dependencies = [
     { name = "alembic" },
     { name = "anthropic" },

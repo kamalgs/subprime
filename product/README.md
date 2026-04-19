@@ -6,7 +6,7 @@
 
 ```bash
 uv sync
-cp ../.env.example ../.env   # add ANTHROPIC_API_KEY
+cp .env.example .env   # add ANTHROPIC_API_KEY
 
 # Start the web advisor
 uv run uvicorn "apps.web.main:create_app" --factory --host 0.0.0.0 --port 8000
