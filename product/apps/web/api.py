@@ -23,6 +23,16 @@ def _multi_perspective_enabled() -> bool:
     return os.environ.get("SUBPRIME_MULTI_PERSPECTIVE", "").strip().lower() in ("1", "true", "on", "yes")
 
 
+def _refine_enabled() -> bool:
+    """Feature gate for the senior-advisor refine pass.
+
+    Disabled by default — doubles plan-gen latency (second full LLM call)
+    and occasionally hangs on structured-output validation. Set
+    SUBPRIME_REFINE=1 to re-enable.
+    """
+    return os.environ.get("SUBPRIME_REFINE", "").strip().lower() in ("1", "true", "on", "yes")
+
+
 # Bound concurrent plan generations so a burst of requests can't pile up
 # multiple 108K-token prompts + agent loops and starve the event loop.
 # Value 2 gives some headroom; override via SUBPRIME_MAX_CONCURRENT_PLANS.
@@ -350,6 +360,7 @@ async def _generate_plan_task(app, session_id: str) -> None:
         session.strategy is not None,
     )
     t0 = _time.time()
+    refine_model = REFINE_MODEL if _refine_enabled() else None
     try:
         async with sem:
             plan, usage = await generate_plan(
@@ -358,7 +369,7 @@ async def _generate_plan_task(app, session_id: str) -> None:
                 mode=effective_mode,
                 n_perspectives=3,
                 model=ADVISOR_MODEL,
-                refine_model=REFINE_MODEL,
+                refine_model=refine_model,
             )
         dt = _time.time() - t0
         logger.info(
