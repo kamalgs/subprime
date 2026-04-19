@@ -146,14 +146,29 @@ async def step4(
     if session.plan is None and not session.plan_generating:
         return RedirectResponse(url="/step/3", status_code=302)
 
-    # Plan is still being generated — render the loading page (it polls itself).
+    # Plan is still being generated — render the loading page (meta-refresh).
     if session.plan is None:
+        import random
+        wisdoms = [
+            "Wealth, to those who wait, it comes.",
+            "Consistency, beat genius it does.",
+            "A molehill today. A mountain tomorrow. Compound, it must.",
+            "Lead the horse to water, you can. Drink for him, you cannot.",
+            "Time in the market, beat timing the market it does.",
+            "Slow, the tortoise is. Finish the race, still he does.",
+            "Greedy when fearful, be. Fearful when greedy, be.",
+            "Plant the tree today. Shade tomorrow, your children enjoy.",
+            "Small sips daily. Mighty cups yearly. The way of the SIP, this is.",
+            "The best plan, a boring one it is. Flashy, the losing one is.",
+            "Forecast the market, no one can. Prepare for it, everyone should.",
+        ]
         return _render(
             request,
             "step_plan_loading.html",
             {
                 "current_step": 4, "session": session,
                 "error": session.plan_error,
+                "wisdom": random.choice(wisdoms),
             },
         )
 

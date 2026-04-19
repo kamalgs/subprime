@@ -835,7 +835,7 @@ class TestStep3Strategy:
 
     @pytest.mark.asyncio
     async def test_generate_plan_redirects_to_step4(self):
-        """POST /api/generate-plan returns HX-Redirect to /step/4."""
+        """POST /api/generate-plan returns a 303 redirect to /step/4."""
         from apps.web.main import create_app
         app = create_app()
         with patch("apps.web.api.generate_plan", new=AsyncMock(return_value=(_mock_plan(), RunUsage()))):
@@ -851,10 +851,10 @@ class TestStep3Strategy:
                         await store.save(s)
                         break
 
-                resp = await client.post("/api/generate-plan")
+                resp = await client.post("/api/generate-plan", follow_redirects=False)
 
-        assert resp.status_code == 200
-        assert resp.headers["HX-Redirect"] == "/step/4"
+        assert resp.status_code == 303
+        assert resp.headers["location"] == "/step/4"
 
     @pytest.mark.asyncio
     async def test_generate_plan_saves_plan(self):
@@ -1057,9 +1057,10 @@ class TestStep4PlanResult:
                 assert strategy_resp.status_code == 200
                 assert "Equity" in strategy_resp.text
 
-                # Step 3 — generate plan
-                plan_resp = await client.post("/api/generate-plan")
-                assert plan_resp.headers["HX-Redirect"] == "/step/4"
+                # Step 3 — generate plan (plain 303 redirect; no HTMX)
+                plan_resp = await client.post("/api/generate-plan", follow_redirects=False)
+                assert plan_resp.status_code == 303
+                assert plan_resp.headers["location"] == "/step/4"
 
                 # Step 4 — render results page
                 result_resp = await client.get("/step/4")

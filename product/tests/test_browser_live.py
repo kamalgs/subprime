@@ -141,12 +141,9 @@ async def test_full_flow_strategy_to_plan(page):
     # Strategy is generated on load — wait for it to render
     await page.wait_for_selector("text=Asset allocation", timeout=90000)
 
-    # Click Generate my plan
+    # Click Generate my plan — plain form submit → 303 → /step/4
     btn = page.locator("#generate-plan-btn")
     await btn.wait_for(state="visible", timeout=5000)
-    assert not await btn.is_disabled(), "Generate plan button was pre-disabled"
-
-    # Listen for the POST to confirm the click fired the request
     plan_request_seen = {"value": False}
 
     def on_request(request):
@@ -156,12 +153,10 @@ async def test_full_flow_strategy_to_plan(page):
     page.on("request", on_request)
     await btn.click()
 
-    # Either we move to /step/4 (HX-Redirect) or the button shows progress
     await page.wait_for_url(re.compile(r"/step/4"), timeout=15000)
-
     assert plan_request_seen["value"], "Clicking Generate Plan did not POST /api/generate-plan"
 
-    # Loading page should render
+    # Loading page should render while the background task runs
     await page.wait_for_selector("text=Building your plan", timeout=5000)
 
     # Wait for the final plan to render. The loading page polls /api/plan-status

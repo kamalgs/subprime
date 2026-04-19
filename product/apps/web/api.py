@@ -425,17 +425,19 @@ async def api_plan_status(
 @router.post("/generate-plan")
 async def api_generate_plan(
     request: Request,
-    response: Response,
     background: BackgroundTasks,
     benji_session: str | None = Cookie(default=None),
 ) -> Response:
-    """Kick off plan generation in the background, redirect to step 4 now."""
+    """Plain HTML-form POST: kick off plan generation in the background and
+    redirect (HTTP 303) to /step/4. Browser follows the redirect natively —
+    no HTMX, no JS."""
+    from fastapi.responses import RedirectResponse
+
     store = request.app.state.session_store
     session = await _get_or_create_session(request, benji_session)
     if session.profile is None:
         return Response(status_code=400, content="No profile in session")
 
-    # Reset any prior error, mark as generating, move to step 4.
     session.plan = None
     session.plan_generating = True
     session.plan_error = None
@@ -448,14 +450,12 @@ async def api_generate_plan(
         session.profile.id if session.profile else "?",
     )
 
-    # BackgroundTasks run *after* the response is flushed, so the browser
-    # follows the redirect while the LLM call proceeds server-side.
     background.add_task(_generate_plan_task, request.app, session.id)
 
-    response.status_code = 200
-    response.headers["HX-Redirect"] = "/step/4"
-    response.set_cookie("benji_session", session.id, httponly=True, samesite="lax")
-    return response
+    # 303 See Other: browser does a GET on /step/4 even after a POST.
+    resp = RedirectResponse(url="/step/4", status_code=303)
+    resp.set_cookie("benji_session", session.id, httponly=True, samesite="lax")
+    return resp
 
 
 # ---------------------------------------------------------------------------

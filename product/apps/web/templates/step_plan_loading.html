@@ -2,6 +2,15 @@
 
 {% block title %}Generating your plan — Benji{% endblock %}
 
+{% block head_extra %}
+{% if not error %}
+{# Server-side state machine: every 3s the browser GETs /step/4 again.
+   Route returns this loading page while plan_generating=True, and the real
+   step_result.html once session.plan is set. No JS polling, no HTMX events. #}
+<meta http-equiv="refresh" content="3">
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <div class="max-w-md mx-auto card card-spacious text-center space-y-5 mt-8">
     {% if error %}
@@ -18,102 +27,19 @@
         <div class="w-12 h-12 border-4 border-primary-200 dark:border-slate-700 border-t-primary-600 rounded-full animate-spin mx-auto"></div>
         <div>
             <h2 class="text-lg font-semibold text-gray-900 dark:text-slate-100">Building your plan</h2>
-            <p id="plan-progress-text" class="mt-1 text-sm text-gray-500 dark:text-slate-400">Analysing your profile…</p>
-        </div>
-        <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
-            <div id="plan-progress-bar" class="bg-primary-600 h-2 rounded-full transition-all duration-1000 ease-out" style="width: 8%"></div>
+            <p class="mt-1 text-sm text-gray-500 dark:text-slate-400">Selecting funds and computing projections&hellip;</p>
         </div>
 
-        {# Rotating Yoda-like wisdoms while the LLM does its thing #}
+        {# Yoda-style wisdom — picked server-side per refresh so it rotates too. #}
         <div class="pt-2">
-            <p id="plan-wisdom" class="text-sm italic text-primary-700 dark:text-primary-300 min-h-[2.5rem] transition-opacity duration-500">
-                &ldquo;Wealth, to those who wait, it comes.&rdquo;
+            <p class="text-sm italic text-primary-700 dark:text-primary-300">
+                &ldquo;{{ wisdom }}&rdquo;
             </p>
             <p class="text-xs text-gray-400 dark:text-slate-500 mt-1">— Benji</p>
         </div>
 
-        <p class="text-xs text-gray-400 dark:text-slate-500">This usually takes 30–60 seconds.</p>
-
-        {# Poller implemented below in plain JS — simpler and HTMX-version-agnostic. #}
+        <p class="text-xs text-gray-400 dark:text-slate-500">This usually takes 30–60 seconds. Page refreshes automatically.</p>
     </div>
     {% endif %}
 </div>
-
-<script>
-(function() {
-    var steps = [
-        { pct: 15, text: "Analysing your profile…",          delay: 0 },
-        { pct: 30, text: "Matching fund categories…",        delay: 5000 },
-        { pct: 48, text: "Selecting specific funds…",        delay: 12000 },
-        { pct: 65, text: "Computing projections…",           delay: 22000 },
-        { pct: 80, text: "Refining the plan…",               delay: 35000 },
-        { pct: 92, text: "Almost there…",                    delay: 55000 },
-    ];
-    var bar = document.getElementById('plan-progress-bar');
-    var text = document.getElementById('plan-progress-text');
-    if (!bar || !text) return;
-    steps.forEach(function(s) {
-        setTimeout(function() {
-            bar.style.width = s.pct + '%';
-            text.textContent = s.text;
-        }, s.delay);
-    });
-
-    // Rotating wisdoms — keep the user company while the LLM thinks.
-    var wisdoms = [
-        '\u201CWealth, to those who wait, it comes.\u201D',
-        '\u201CConsistency, beat genius it does.\u201D',
-        '\u201CA molehill today. A mountain tomorrow. Compound, it must.\u201D',
-        '\u201CLead the horse to water, you can. Drink for him, you cannot.\u201D',
-        '\u201CTime in the market, beat timing the market it does.\u201D',
-        '\u201CSlow, the tortoise is. Finish the race, still he does.\u201D',
-        '\u201CGreedy when fearful, be. Fearful when greedy, be.\u201D',
-        '\u201CPlant the tree today. Shade tomorrow, your children enjoy.\u201D',
-        '\u201CSmall sips daily. Mighty cups yearly. The way of the SIP, this is.\u201D',
-        '\u201CThe best plan, a boring one it is. Flashy, the losing one is.\u201D',
-        '\u201CForecast the market, no one can. Prepare for it, everyone should.\u201D',
-        '\u201CNeither the rupee saved, nor the rupee earned, remembers the wait. But your future self, it will.\u201D',
-    ];
-    var wisdomEl = document.getElementById('plan-wisdom');
-    var wi = 1;
-    setInterval(function() {
-        if (!wisdomEl) return;
-        wisdomEl.style.opacity = '0';
-        setTimeout(function() {
-            wisdomEl.textContent = wisdoms[wi % wisdoms.length];
-            wisdomEl.style.opacity = '1';
-            wi++;
-        }, 500);
-    }, 6000);
-
-    // Poll /api/plan-status with fetch. When the plan is ready (or failed),
-    // navigate to /step/4.
-    var pollTimer = null;
-    var navigated = false;
-    function poll() {
-        fetch('/api/plan-status', { cache: 'no-store', credentials: 'same-origin' })
-            .then(function (r) { return r.json(); })
-            .then(function (data) {
-                console.log('[plan-status]', data);
-                if (navigated) return;
-                if (data.ready || data.error) {
-                    navigated = true;
-                    if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
-                    bar.style.width = '100%';
-                    text.textContent = data.ready ? 'Ready!' : 'Failed.';
-                    // Hard navigate — force a server-side render of /step/4.
-                    setTimeout(function () {
-                        window.location.replace('/step/4');
-                    }, 400);
-                }
-            })
-            .catch(function (err) {
-                console.warn('[plan-status] fetch failed', err);
-            });
-    }
-    // First poll immediately, then every 3s.
-    poll();
-    pollTimer = setInterval(poll, 3000);
-})();
-</script>
 {% endblock %}

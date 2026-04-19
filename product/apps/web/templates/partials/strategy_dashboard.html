@@ -105,24 +105,17 @@
         </div>
     </div>
 
-    <!-- Generate plan CTA -->
-    <div class="flex flex-col items-center gap-3">
-        <button id="generate-plan-btn"
-            type="button"
-            class="btn btn-primary px-8 py-3 text-base rounded-xl"
-            onclick="triggerPlanGeneration()">
+    <!-- Generate plan — plain HTML form POST → 303 → /step/4 (loading page
+         with meta-refresh). No HTMX, no client JS polling; browser-native. -->
+    <form method="POST" action="/api/generate-plan" class="flex justify-center">
+        <button id="generate-plan-btn" type="submit"
+            class="btn btn-primary px-8 py-3 text-base rounded-xl">
             <span>Generate my plan</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
             </svg>
         </button>
-        <div id="plan-loading" class="hidden text-center space-y-3 w-full max-w-sm">
-            <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
-                <div id="plan-progress-bar" class="bg-primary-600 h-2 rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-            </div>
-            <p id="plan-progress-text" class="text-sm text-gray-500 dark:text-slate-400"></p>
-        </div>
-    </div>
+    </form>
 
 </div>
 
