@@ -2,64 +2,65 @@
 
 > "Everyone trusted the AI advisor. Nobody checked the prompt."
 
-Measuring how post-training priming creates hidden bias in LLM financial advisors. Like subprime mortgages that carried AAA ratings while being toxic, a primed LLM advisor produces plans that score well on quality metrics but are systematically biased underneath.
+Hidden system-prompt injections shift an LLM financial advisor's investment philosophy by a large, measurable amount — while plan quality scores stay flat. The quality judge cannot see the bias. This is the **rating blind spot**.
 
-## Quick Start
+**Course:** [LLMs — A Hands-on Approach](https://cce.iisc.ac.in/cce-proficience/large-language-modelsa-hands-on-approach-jm-2026/), CCE IISc (2026)
 
-```bash
-uv sync
+---
 
-# Set your Anthropic API key
-cp .env.example .env   # then edit with your ANTHROPIC_API_KEY
+## Product
 
-# Run an experiment (single persona, baseline + Lynch conditions)
-subprime experiment-run --persona P01 --conditions baseline,lynch
+Benji is an AI financial advisor for Indian mutual fund planning — built to demonstrate and study the bias.
 
-# Analyse results
-subprime experiment-analyze --results-dir results/
+<video src="product/finadvisor-demo-product.mp4" controls width="390"></video>
 
-# Run tests
-uv run pytest
-```
+→ [product/](product/) — web app, shared library, tests
 
-## Project Structure
+---
 
-```
-src/subprime/
-  core/             Pydantic models, config, Rich display helpers
-  data/             mfdata.in API client and PydanticAI tool functions
-  advisor/          FinAdvisor agent factory + prompt templates
-  evaluation/       APS + PQS judge agents, scoring criteria, persona bank
-  experiments/      Conditions (baseline/lynch/bogle), runner, analysis
-  cli.py            Typer CLI entry point
-```
+## Research
 
-## How It Works
+5 advisor models · 1,974 plans · 7 conditions · 25 personas
 
-1. **Advise** -- FinAdvisor (the LLM advisor agent) generates a mutual fund plan for an investor profile, using live fund data via tool calls
-2. **Evaluate** -- Two independent LLM judges score the plan: APS (active-passive bias) and PQS (plan quality)
-3. **Analyse** -- Statistical comparison across conditions reveals the subprime spread (bias shift) and whether the quality judge detects it (rating blind spot)
+A hidden system prompt steers the advisor toward active or passive investing. APS (Active-Passive Score) shifts by +0.07 to +0.24 across models. Plan Quality Score (PQS) stays flat — spread < 0.03. The rating blind spot holds across all models where APS shifts.
 
-## Key Metrics
+<video src="research/finadvisor-demo-research.mp4" controls width="390"></video>
 
-- **APS (Active-Passive Score)** -- [0, 1] composite measuring active-vs-passive investment philosophy. 0 = fully active, 1 = fully passive.
-- **PQS (Plan Quality Score)** -- [0, 1] composite measuring plan quality independent of philosophy.
-- **Subprime spread** -- Delta-APS between baseline and spiked conditions. The bias signal.
-- **Rating blind spot** -- PQS failing to move while APS shifts. The paper's punchline.
+### Key Results
 
-## Documentation
+| Model | Baseline APS | Bogle APS | Lynch APS | ΔAPS | Cohen's d | PQS |
+|-------|-------------|-----------|-----------|------|-----------|-----|
+| GLM-5.1 | 0.457 | 0.695 | 0.336 | +0.238 | **1.18** | 0.942 |
+| Sonnet 4.6 | 0.488 | 0.630 | 0.371 | +0.143 | **1.01** | 0.940 |
+| DeepSeek-V3.1 | 0.353 | 0.519 | 0.279 | +0.166 | 0.88 | 0.876 |
+| Haiku 4.5 | 0.608 | 0.682 | 0.491 | +0.074 | 0.63 | 0.818 |
+| Llama-3.3-70B | 0.317 | 0.357 | 0.367 | +0.040 | 0.28 | 0.628 |
 
-- [Overview](docs/overview.md) -- Analogy, terminology, scoring dimensions
-- [Architecture](docs/architecture.md) -- Module map, dependency flow, key interfaces
-- [Data Flow](docs/data-flow.md) -- End-to-end pipeline, experiment matrix
-- [Roadmap](docs/roadmap.md) -- Milestones M0 through M7
-- [ADRs](docs/adr/) -- Architecture decision records
+Dose-response (7-condition intensity scaling): APS scales monotonically from 0.168 → 0.783. The prompt is the bias.
 
-## Disclaimer
+### Reports
 
-All outputs are for academic research purposes only. Nothing in this project constitutes financial advice.
+- [Overall Findings](research/results/reports/01_overall_findings.md) — cross-model summary, effect sizes, rating blind spot
+- [Core Experiment](research/results/reports/02_core_experiment.md) — 3-condition breakdown, exemplar plans, methodology control
+- [Dose-Response](research/results/reports/03_dose_response.md) — 7-condition intensity scaling
 
-**Course**: LLMs -- A Hands-on Approach, CCE IISc (2026)
+→ [research/](research/) — scripts, results, run data
+
+---
+
+## Motivation
+
+In India, mutual fund distributors earn trail commissions on AUM. Regular-plan actively managed funds pay 0.5–1.5% annually; direct-plan index funds pay near-zero. A distributor deploying an AI advisor has a financial incentive to configure that advisor toward active fund recommendations — without the client knowing. The configuration surface is a text field. The output looks identical to an unmodified advisor: structured, personalised, well-reasoned. Standard quality evaluation does not flag the shift.
+
+This project measures how large the steering effect is and whether existing quality benchmarks catch it.
+
+---
+
+## Docs
+
+- [Architecture](docs/architecture.md)
+- [Data Flow](docs/data-flow.md)
+- [Roadmap](docs/roadmap.md)
 
 ## License
 
