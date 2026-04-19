@@ -58,13 +58,15 @@ Dose-response (7 conditions, varying prompt intensity): APS scales monotonically
 
 ## Built With
 
-*Cheap tools. Expensive taste.*
+Fully vibe engineered.
 
-Fully vibe engineered. Refurbished ThinkPad T14 at ₹25k. Contabo VPS, 4 cores, $10/month. Claude Max subscription. A few hours a day.
+Refurbished ThinkPad T14: ₹25,000
+Contabo VPS, 4 cores: $10/month
+Claude Max: $100/month
 
-The coding agent handles all the grunt work. The human provides imagination, intuition, judgment, and taste — built up over years of deep, cross-functional experience and genuine curiosity about how things work. Complex products and rigorous research, with minimal overhead.
+Decades of cross-functional experience, good taste, judgment, and curiosity: **Priceless**
 
-The bottleneck was never compute.
+The coding agent handles the grunt work. The human provides the imagination and intuition. Complex products and rigorous research, minimal overhead. There are some things money can't buy.
 
 ---
 
