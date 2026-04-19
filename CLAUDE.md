@@ -10,10 +10,30 @@ We build a financial advisor agent for Indian mutual funds, systematically prime
 
 Course: "LLMs — A Hands-on Approach", CCE IISc (2026)
 
+## Repository Layout
+
+```
+product/               # Web app, shared library, tests
+  src/subprime/        # Core library (shared by web + experiments)
+  apps/web/            # FastAPI + HTMX advisor UI
+  tests/               # All test suites
+  migrations/          # Alembic DB migrations
+  Dockerfile
+
+research/              # Experiment artifacts
+  scripts/             # Demo production, analysis scripts
+  results/             # Run data (JSON), reports (Markdown)
+  notebooks/
+  data/
+
+docs/                  # Architecture docs, ADRs, roadmap
+pyproject.toml         # Python packaging (stays at root for tooling)
+```
+
 ## Architecture
 
 ```
-src/subprime/
+product/src/subprime/
 ├── core/                  # Shared types, config, Rich display
 │   ├── models.py          # All Pydantic models
 │   ├── config.py          # Settings (pydantic-settings)

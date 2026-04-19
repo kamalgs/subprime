@@ -7,8 +7,8 @@ WORKDIR /app
 
 # Copy project files
 COPY pyproject.toml uv.lock README.md ./
-COPY src/ ./src/
-COPY apps/ ./apps/
+COPY product/src/ ./src/
+COPY product/apps/ ./apps/
 
 # Install dependencies into system python (no venv inside container)
 RUN uv pip install --system --no-cache .

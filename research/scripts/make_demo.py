@@ -507,7 +507,7 @@ def main():
 
     v1_out = OUTPUT_DIR / "finadvisor-demo-product.mp4"
     frames_to_video(pframes, v1_out, happy_wav, music_volume=0.75)
-    shutil.copy(v1_out, OUTPUT_DIR / "apps/web/static/finadvisor-demo-product.mp4")
+    shutil.copy(v1_out, OUTPUT_DIR / "product/apps/web/static/finadvisor-demo-product.mp4")
 
     # ── Video 2: Research + Product interleaved ────────────────────────────────
     # Structure: stat card → product clip → stat card → product clip → ...
@@ -636,7 +636,7 @@ def main():
 
     v2_out = OUTPUT_DIR / "finadvisor-demo-research.mp4"
     frames_to_video(r2_frames, v2_out, mixed_wav, music_volume=1.0)
-    shutil.copy(v2_out, OUTPUT_DIR / "apps/web/static/finadvisor-demo-research.mp4")
+    shutil.copy(v2_out, OUTPUT_DIR / "product/apps/web/static/finadvisor-demo-research.mp4")
 
     print(f"\n{'='*50}")
     print(f"Video 1 (product):  {v1_out}")
