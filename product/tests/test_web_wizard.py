@@ -1,11 +1,26 @@
 """Tests for apps/web/session.py — Session Store."""
 
+from pathlib import Path
+
 import pytest
 from datetime import datetime, timezone
 from pydantic_ai.usage import RunUsage
 
 from apps.web.session import InMemorySessionStore, Session, SessionSummary
 from subprime.core.models import InvestorProfile
+
+
+# When the React SPA is built, the legacy Jinja /step/* routes are unmounted
+# and everything below /step/* returns the SPA's index.html. Tests that drive
+# the Jinja wizard directly are retired in favour of test_frontend_e2e.py.
+_LEGACY_JINJA_AVAILABLE = not (
+    Path(__file__).resolve().parents[1] / "apps" / "web" / "static" / "dist" / "index.html"
+).exists()
+
+skip_when_spa_built = pytest.mark.skipif(
+    not _LEGACY_JINJA_AVAILABLE,
+    reason="Legacy Jinja wizard not mounted when SPA is built; see test_frontend_e2e.py",
+)
 
 
 # ---------------------------------------------------------------------------
@@ -434,6 +449,7 @@ class TestAppFactory:
 # ---------------------------------------------------------------------------
 
 
+@skip_when_spa_built
 class TestStep1TierSelection:
     @pytest.mark.asyncio
     async def test_step1_renders(self):
@@ -506,6 +522,7 @@ class TestStep1TierSelection:
 # ---------------------------------------------------------------------------
 
 
+@skip_when_spa_built
 class TestStep2Profile:
     @pytest.mark.asyncio
     async def test_step2_renders_archetype_cards_for_regular_session(self):
@@ -743,6 +760,7 @@ def _mock_plan():
     )
 
 
+@skip_when_spa_built
 class TestStep3Strategy:
 
     @pytest.mark.asyncio
@@ -911,6 +929,7 @@ class TestStep3Strategy:
 # ---------------------------------------------------------------------------
 
 
+@skip_when_spa_built
 class TestStep4PlanResult:
 
     @pytest.mark.asyncio

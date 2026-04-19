@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { getPlan, getPlanStatus } from "../api/client";
-import type { Plan } from "../api/types";
+import type { Plan, InvestorProfile } from "../api/types";
+import CorpusChart from "../components/CorpusChart";
 
 const WISDOMS = [
   "Wealth, to those who wait, it comes.",
@@ -63,10 +64,10 @@ export default function Step4Plan() {
     );
   }
 
-  return <PlanView plan={plan.data.plan} />;
+  return <PlanView plan={plan.data.plan} profile={plan.data.profile} />;
 }
 
-function PlanView({ plan }: { plan: Plan }) {
+function PlanView({ plan, profile }: { plan: Plan; profile: InvestorProfile }) {
   const totalSip = plan.allocations.reduce((a, x) => a + (x.monthly_sip_inr ?? 0), 0);
   const houses = new Set(plan.allocations.map((a) => a.fund.fund_house).filter(Boolean));
   const pr = plan.projected_returns;
@@ -86,6 +87,16 @@ function PlanView({ plan }: { plan: Plan }) {
         {pr.base !== undefined && <Stat value={`${pr.base}%`} label="Base CAGR" tone="base" />}
         {pr.bull !== undefined && <Stat value={`${pr.bull}%`} label="Bull CAGR" tone="bull" />}
       </div>
+
+      {pr.bear !== undefined && pr.base !== undefined && pr.bull !== undefined && totalSip > 0 && (
+        <CorpusChart
+          monthlySip={totalSip}
+          years={profile.investment_horizon_years}
+          bear={pr.bear}
+          base={pr.base}
+          bull={pr.bull}
+        />
+      )}
 
       <div className="card card-spacious space-y-3">
         <h3 className="section-title mb-0">Fund allocations</h3>

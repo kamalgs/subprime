@@ -26,7 +26,7 @@ try:
 except (AttributeError, ValueError):
     pass  # SIGUSR1 not available (Windows) — silently skip
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -111,7 +111,7 @@ async def lifespan(app: FastAPI):
 
 def create_app() -> FastAPI:
     """Create and configure the FastAPI application."""
-    from apps.web import api, routes
+    from apps.web import api
     from apps.web.api_v2 import router as api_v2_router
     from fastapi.responses import FileResponse
 
@@ -122,30 +122,33 @@ def create_app() -> FastAPI:
     app.state.templates = Jinja2Templates(directory=str(_TEMPLATES_DIR))
     app.mount("/static", StaticFiles(directory=str(_STATIC_DIR)), name="static")
 
-    app.include_router(routes.router)
+    # APIs always first (highest specificity)
     app.include_router(api.router)
     app.include_router(api_v2_router)
 
-    # If the React SPA is present (built via `make frontend`), serve it as the
-    # catch-all for non-API routes: /, /step/*, and any unknown client route.
-    # API routes (/api/*) are matched first by the routers above.
     spa_index = _SPA_DIST_DIR / "index.html"
     if spa_index.exists():
+        # SPA mode: serve React for / and /step/* — the legacy Jinja wizard
+        # is NOT mounted. /api/* routes above still win because they're more
+        # specific than the catch-all below.
         logger.info("Serving React SPA from %s", _SPA_DIST_DIR)
 
-        @app.get("/", include_in_schema=False)
-        async def spa_root() -> FileResponse:
+        # Vite build outputs assets with absolute /assets/* paths in index.html
+        assets_dir = _SPA_DIST_DIR / "assets"
+        if assets_dir.exists():
+            app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="spa-assets")
+
+        async def _serve_index(request: Request) -> FileResponse:  # noqa: ARG001
             return FileResponse(spa_index)
 
-        @app.get("/app/{path:path}", include_in_schema=False)
-        async def spa_client_route(path: str) -> FileResponse:  # noqa: ARG001
-            # React Router owns the rendered view. Every unknown path returns
-            # the SPA's index.html; client JS then routes based on window.location.
-            return FileResponse(spa_index)
-
+        app.get("/", include_in_schema=False)(_serve_index)
+        app.get("/step/{path:path}", include_in_schema=False)(_serve_index)
+        app.get("/app/{path:path}", include_in_schema=False)(_serve_index)
     else:
-        # No SPA build present — fall back to the legacy Jinja wizard at /
+        # No SPA build — fall back to the legacy Jinja wizard routes.
         logger.info("No SPA build at %s — serving legacy Jinja templates", _SPA_DIST_DIR)
+        from apps.web import routes
+        app.include_router(routes.router)
 
         @app.get("/", include_in_schema=False)
         async def root() -> RedirectResponse:

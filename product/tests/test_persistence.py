@@ -521,6 +521,11 @@ class TestOTPEndpoints:
 
     @pytest.mark.asyncio
     async def test_step1_shows_otp_form(self):
+        """Legacy Jinja test — skipped when the React SPA is built."""
+        from pathlib import Path
+        spa = Path(__file__).resolve().parents[1] / "apps" / "web" / "static" / "dist" / "index.html"
+        if spa.exists():
+            pytest.skip("SPA build present — legacy Jinja otp-section not served")
         from apps.web.main import create_app
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
