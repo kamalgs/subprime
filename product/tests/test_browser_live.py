@@ -48,10 +48,15 @@ async def page():
 
 
 async def _dismiss_sebi(page) -> None:
+    """Wait for the SEBI modal (which appears after JS runs, not immediately
+    on DOM load) and dismiss it. Safe to call if modal never shows."""
     modal = page.locator("#sebi-modal")
-    if await modal.is_visible():
+    try:
+        await modal.wait_for(state="visible", timeout=2000)
         await page.locator("#sebi-ack").click()
         await modal.wait_for(state="hidden", timeout=3000)
+    except Exception:
+        pass  # cookie may already be set or modal not rendered
 
 
 async def _unlock_demo(page) -> None:
@@ -143,16 +148,20 @@ async def test_full_flow_strategy_to_plan(page):
     # Loading page should render
     await page.wait_for_selector("text=Building your plan", timeout=5000)
 
-    # Wait until the reveal overlay appears (plan generated + loading redirected us
-    # to the real step 4 with the plan content).
-    # The overlay lives in step_result.html; the loading page doesn't contain it.
+    # Wait for the final plan to render. The loading page polls /api/plan-status
+    # and navigates to /step/4 when ready; step 4 shows 'Fund allocations'.
     # Budget generously — basic plan on Qwen3-235B runs ~50-90s.
-    await page.wait_for_selector("#reveal-overlay", timeout=180000)
+    try:
+        await page.wait_for_selector("text=Fund allocations", timeout=180000)
+    except Exception:
+        url = page.url
+        body_text = (await page.locator("body").text_content() or "")[:400]
+        print(f"\n[DIAG] url={url}")
+        print(f"[DIAG] first-400-chars: {body_text}")
+        await page.screenshot(path="/tmp/plan-timeout.png", full_page=True)
+        print("[DIAG] screenshot saved to /tmp/plan-timeout.png")
+        raise
 
-    # Dismiss the reveal
-    await page.get_by_role("button", name=re.compile("Show my plan", re.I)).click()
-    # Plan content visible
-    await page.wait_for_selector("text=Fund allocations", timeout=5000)
     await page.wait_for_selector("text=Corpus projection", timeout=2000)
 
 
