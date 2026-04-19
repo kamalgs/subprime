@@ -1,34 +1,22 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import confetti from "canvas-confetti";
 
 interface Props {
-  /** Unique key — e.g. plan/session id. Modal shown once per key per tab. */
-  id: string;
-  /** Fires after the user clicks the acknowledge button and confetti runs. */
+  /** Fires after the user clicks acknowledge and confetti runs. */
   onAck: () => void;
 }
 
-/** Shown over a newly-ready investment plan. Different wording from the
- *  first-visit SEBI modal — this one's plan-specific (AI, not certified,
- *  consult an advisor before investing). Fires canvas-confetti on dismiss. */
-export default function PlanRevealModal({ id, onAck }: Props) {
-  const [open, setOpen] = useState(false);
+/** Shown every time a user lands on the plan screen (no persistence).
+ *  Different wording from the first-visit SEBI modal — this one's plan-
+ *  specific (AI, not certified, consult an advisor). Fires canvas-confetti
+ *  on dismiss. */
+export default function PlanRevealModal({ onAck }: Props) {
   const hasRun = useRef(false);
-
-  useEffect(() => {
-    const key = "plan_revealed:" + id;
-    if (sessionStorage.getItem(key)) return;
-    setOpen(true);
-  }, [id]);
-
-  if (!open) return null;
 
   const dismiss = () => {
     if (hasRun.current) return;
     hasRun.current = true;
-    sessionStorage.setItem("plan_revealed:" + id, "1");
-    setOpen(false);
-    // Fire a few confetti bursts from different origins for a fuller effect.
+    // A few confetti bursts from different origins for a fuller effect.
     const opts = { particleCount: 80, spread: 70, origin: { y: 0.4 } };
     confetti(opts);
     setTimeout(() => confetti({ ...opts, particleCount: 50, angle: 60 }), 150);
