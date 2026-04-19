@@ -96,7 +96,7 @@
             <section class="card card-spacious space-y-5">
                 <div>
                     <h3 class="section-title">About you</h3>
-                    <p class="text-sm text-gray-500 -mt-2">The basics we need to shape a plan.</p>
+                    <p class="text-sm text-gray-500 dark:text-slate-400 -mt-2">The basics we need to shape a plan.</p>
                 </div>
 
                 <div class="grid sm:grid-cols-2 gap-4">
@@ -132,9 +132,9 @@
                         ] %}
                         <label class="relative cursor-pointer">
                             <input type="radio" name="risk_appetite" value="{{ val }}" class="peer sr-only" {% if val == 'conservative' %}required{% endif %}>
-                            <div class="rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-center transition-all peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:border-gray-300">
-                                <div class="text-sm font-medium text-gray-800">{{ label }}</div>
-                                <div class="text-xs text-gray-500 mt-0.5">{{ hint }}</div>
+                            <div class="rounded-lg border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2.5 text-center transition-all peer-checked:border-primary-500 peer-checked:bg-primary-50 dark:peer-checked:bg-primary-900/40 hover:border-gray-300 dark:hover:border-slate-500">
+                                <div class="text-sm font-medium text-gray-800 dark:text-slate-100">{{ label }}</div>
+                                <div class="text-xs text-gray-500 dark:text-slate-400 mt-0.5">{{ hint }}</div>
                             </div>
                         </label>
                         {% endfor %}
@@ -181,17 +181,17 @@
                             ('emergency_fund', 'Emergency fund'),
                             ('other', 'Other'),
                         ] %}
-                        <label class="flex items-center gap-2 cursor-pointer rounded-md px-2 py-1.5 hover:bg-gray-50">
-                            <input type="checkbox" name="goals" value="{{ val }}" class="rounded border-gray-300 text-primary-600 focus:ring-primary-400">
-                            <span class="text-sm text-gray-700">{{ label }}</span>
+                        <label class="flex items-center gap-2 cursor-pointer rounded-md px-2 py-1.5 hover:bg-gray-50 dark:hover:bg-slate-700/50">
+                            <input type="checkbox" name="goals" value="{{ val }}" class="rounded border-gray-300 dark:border-slate-500 text-primary-600 focus:ring-primary-400">
+                            <span class="text-sm text-gray-700 dark:text-slate-200">{{ label }}</span>
                         </label>
                         {% endfor %}
                     </div>
                 </div>
 
                 <!-- Preferences (demoted to a subtle expander — easy to ignore, easy to use if needed) -->
-                <details class="group border-t border-gray-100 pt-4">
-                    <summary class="flex items-center gap-2 cursor-pointer text-sm text-gray-500 hover:text-gray-700 select-none list-none">
+                <details class="group border-t border-gray-100 dark:border-slate-700 pt-4">
+                    <summary class="flex items-center gap-2 cursor-pointer text-sm text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-200 select-none list-none">
                         <svg class="w-4 h-4 transition-transform group-open:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>
