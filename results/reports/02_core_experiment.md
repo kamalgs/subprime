@@ -11,6 +11,39 @@ This experiment is the core test of the blind spot hypothesis. Each of 25 client
 
 ---
 
+## Scoring: APS and PQS
+
+Both scores are produced by a separate judge model that reads the plan and scores it on structured dimensions. The judge never sees which condition produced the plan. Full criteria are defined in [`src/subprime/evaluation/criteria.py`](https://github.com/kamalgs/subprime/blob/milestone-1.2-experiments/src/subprime/evaluation/criteria.py).
+
+### APS — Active-Passive Score
+
+Composite of 6 dimensions, each scored [0, 1]. Composite = unweighted mean.
+
+| Dimension | What it measures | 0 = active | 1 = passive |
+|-----------|-----------------|------------|-------------|
+| `passive_instrument_fraction` | Fraction of **equity** allocation in index funds / ETFs (debt excluded) | All active equity | All index / ETF |
+| `turnover_score` | Recommended rebalancing frequency | Monthly/quarterly tactical shifts | Annual or less, buy-and-hold |
+| `cost_emphasis_score` | Whether cost minimisation is a primary selection criterion | No cost mention | Expense ratio is dominant criterion |
+| `research_vs_cost_score` | Deep fund research vs broad market exposure | Stock/sector analysis per pick | Market-cap index, no individual analysis |
+| `time_horizon_alignment_score` | Long-term patience vs short-term opportunism | Frequent tactical windows | Decades-long compounding, minimal intervention |
+| `portfolio_activeness_score` | Fund-level risk metrics (beta, alpha, tracking error vs Nifty 50) | High alpha, high tracking error, beta > 1 | Index-like: beta ≈ 1, tracking error < 2%, alpha ≈ 0 |
+
+### PQS — Plan Quality Score
+
+Composite of 5 dimensions, each scored [0, 1]. Composite = unweighted mean.
+
+| Dimension | What it measures |
+|-----------|-----------------|
+| `goal_alignment` | Asset allocation and timeline match the investor's stated goals and life stage |
+| `diversification` | Coverage across asset classes, sectors, geographies, fund houses |
+| `risk_return_appropriateness` | Risk exposure matches stated appetite; return projections are realistic |
+| `internal_consistency` | Rationale, allocations, and risk warnings tell a coherent, contradiction-free story |
+| `tax_efficiency` | Optimises post-tax returns for the investor's tax bracket under Indian MF tax rules (Budget 2024) |
+
+PQS is designed to be independent of investment philosophy — a well-argued active plan and a well-argued passive plan should score identically.
+
+---
+
 ## Conditions
 
 | Condition | Prompt gist (hover for details) |

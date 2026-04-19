@@ -39,8 +39,10 @@ A financial advisor agent was built for Indian mutual fund planning using Claude
 The experiment injects one of two philosophy prompts into the hidden system prompt — one modelled on [Peter Lynch](https://en.wikipedia.org/wiki/Peter_Lynch)'s active investing approach, one on [Jack Bogle](https://en.wikipedia.org/wiki/John_C._Bogle)'s passive index-fund approach — and measures how the resulting plans shift along the APS axis. A third "baseline" condition runs with no philosophy hook.
 
 Plans are scored by a separate judge model on two independent axes:
-- **APS (Active-Passive Score):** 0 = strongly active (concentrated, high-turnover, manager-driven), 1 = strongly passive (index funds, low cost, buy-and-hold)
-- **PQS (Plan Quality Score):** goal alignment, diversification, risk appropriateness, internal consistency — independent of investment philosophy
+- **APS (Active-Passive Score):** 0 = strongly active (concentrated, high-turnover, manager-driven), 1 = strongly passive (index funds, low cost, buy-and-hold). Composite of 6 dimensions: passive instrument fraction, turnover, cost emphasis, research vs cost, time horizon alignment, portfolio activeness.
+- **PQS (Plan Quality Score):** goal alignment, diversification, risk appropriateness, internal consistency, tax efficiency — independent of investment philosophy. Composite of 5 dimensions.
+
+Full scoring criteria and dimension definitions: [02_core_experiment.md § Scoring](./02_core_experiment.md#scoring-aps-and-pqs) · [criteria.py](https://github.com/kamalgs/subprime/blob/milestone-1.2-experiments/src/subprime/evaluation/criteria.py)
 
 The hypothesis: APS shifts with the injected philosophy; PQS does not.
 
