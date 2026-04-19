@@ -208,6 +208,21 @@ class TestPostgresSessionStore:
         assert retrieved.profile.name == "Test User"
 
     @pytest.mark.asyncio
+    async def test_is_demo_roundtrip(self, postgres_store):
+        """is_demo flag must persist through save/get — OTP cheat sessions rely on it."""
+        session = Session(mode="premium", is_demo=True)
+        await postgres_store.save(session)
+        retrieved = await postgres_store.get(session.id)
+        assert retrieved.is_demo is True
+
+    @pytest.mark.asyncio
+    async def test_is_demo_default_false(self, postgres_store):
+        session = Session()
+        await postgres_store.save(session)
+        retrieved = await postgres_store.get(session.id)
+        assert retrieved.is_demo is False
+
+    @pytest.mark.asyncio
     async def test_save_updates(self, postgres_store):
         session = Session()
         await postgres_store.save(session)
@@ -506,13 +521,18 @@ class TestOTPEndpoints:
 
     @pytest.mark.asyncio
     async def test_step1_shows_otp_form(self):
+        """Legacy Jinja test — skipped when the React SPA is built."""
+        from pathlib import Path
+        spa = Path(__file__).resolve().parents[1] / "apps" / "web" / "static" / "dist" / "index.html"
+        if spa.exists():
+            pytest.skip("SPA build present — legacy Jinja otp-section not served")
         from apps.web.main import create_app
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.get("/step/1")
             assert resp.status_code == 200
             assert "otp-section" in resp.text
-            assert "Send me a code" in resp.text
+            assert "Send code" in resp.text
 
     @pytest.mark.asyncio
     async def test_conversation_saved_on_plan_generation(self):

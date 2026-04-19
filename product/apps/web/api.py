@@ -3,7 +3,48 @@
 import re
 from typing import Annotated
 
-from fastapi import APIRouter, Cookie, Form, Request, Response
+import asyncio
+import logging
+import os
+
+from fastapi import APIRouter, BackgroundTasks, Cookie, Form, Request, Response
+
+logger = logging.getLogger(__name__)
+
+
+def _multi_perspective_enabled() -> bool:
+    """Feature gate for premium multi-perspective plan generation.
+
+    Disabled by default while we stabilise. Set SUBPRIME_MULTI_PERSPECTIVE=1
+    to re-enable the 3-perspective + evaluator + refiner flow. When disabled
+    every plan is generated via the single-perspective 'basic' path,
+    regardless of session.mode.
+    """
+    return os.environ.get("SUBPRIME_MULTI_PERSPECTIVE", "").strip().lower() in ("1", "true", "on", "yes")
+
+
+def _refine_enabled() -> bool:
+    """Feature gate for the senior-advisor refine pass.
+
+    Disabled by default — doubles plan-gen latency (second full LLM call)
+    and occasionally hangs on structured-output validation. Set
+    SUBPRIME_REFINE=1 to re-enable.
+    """
+    return os.environ.get("SUBPRIME_REFINE", "").strip().lower() in ("1", "true", "on", "yes")
+
+
+# Bound concurrent plan generations so a burst of requests can't pile up
+# multiple 108K-token prompts + agent loops and starve the event loop.
+# Value 2 gives some headroom; override via SUBPRIME_MAX_CONCURRENT_PLANS.
+_PLAN_SEMAPHORE: asyncio.Semaphore | None = None
+
+
+def _plan_semaphore() -> asyncio.Semaphore:
+    global _PLAN_SEMAPHORE
+    if _PLAN_SEMAPHORE is None:
+        limit = int(os.environ.get("SUBPRIME_MAX_CONCURRENT_PLANS", "2") or "2")
+        _PLAN_SEMAPHORE = asyncio.Semaphore(limit)
+    return _PLAN_SEMAPHORE
 
 from subprime.evaluation.personas import get_persona
 from apps.web.session import Session
@@ -194,7 +235,7 @@ async def api_generate_strategy(
     if session.profile is None:
         return Response(status_code=400, content="No profile in session")
 
-    strategy, _ = await generate_strategy(session.profile)
+    strategy, _ = await generate_strategy(session.profile, model=ADVISOR_MODEL)
     session.strategy = strategy
     await store.save(session)
 
@@ -220,33 +261,38 @@ async def api_generate_strategy(
 # ---------------------------------------------------------------------------
 
 
-@router.post("/revise-strategy")
-async def api_revise_strategy(
+async def _revise_and_render(
     request: Request,
-    feedback: Annotated[str, Form()],
-    benji_session: str | None = Cookie(default=None),
+    feedback: str,
+    benji_session: str | None,
+    *,
+    track_in_chat: bool,
 ):
-    """Revise the current strategy based on user feedback."""
+    """Shared handler: revise strategy + re-render the dashboard partial.
+
+    Set ``track_in_chat=False`` for silent revisions (e.g. answering open
+    questions) — they should not appear in the free-form chat log.
+    """
     store = request.app.state.session_store
     session = await _get_or_create_session(request, benji_session)
     if session.profile is None:
         return Response(status_code=400, content="No profile in session")
 
-    # Append user feedback to chat history
-    session.strategy_chat.append(ConversationTurn(role="user", content=feedback))
+    if track_in_chat:
+        session.strategy_chat.append(ConversationTurn(role="user", content=feedback))
 
-    # Generate revised strategy
     strategy, _ = await generate_strategy(
         session.profile,
         feedback=feedback,
         current_strategy=session.strategy,
+        model=ADVISOR_MODEL,
     )
     session.strategy = strategy
 
-    # Append advisor acknowledgement to chat
-    session.strategy_chat.append(
-        ConversationTurn(role="advisor", content="Strategy updated based on your feedback.")
-    )
+    if track_in_chat:
+        session.strategy_chat.append(
+            ConversationTurn(role="advisor", content="Strategy updated based on your feedback.")
+        )
     await store.save(session)
 
     chart_data = chart_data_donut(
@@ -266,44 +312,150 @@ async def api_revise_strategy(
     )
 
 
+@router.post("/revise-strategy")
+async def api_revise_strategy(
+    request: Request,
+    feedback: Annotated[str, Form()],
+    benji_session: str | None = Cookie(default=None),
+):
+    """Revise strategy via free-form chat (appears in the chat log)."""
+    return await _revise_and_render(request, feedback, benji_session, track_in_chat=True)
+
+
+@router.post("/answer-questions")
+async def api_answer_questions(
+    request: Request,
+    feedback: Annotated[str, Form()],
+    benji_session: str | None = Cookie(default=None),
+):
+    """Silently revise strategy using answers to the open questions.
+
+    Does NOT append to the strategy chat log — open-questions and the chat
+    are independent input channels from the user's point of view.
+    """
+    return await _revise_and_render(request, feedback, benji_session, track_in_chat=False)
+
+
 # ---------------------------------------------------------------------------
 # POST /api/generate-plan
 # ---------------------------------------------------------------------------
 
 
+async def _generate_plan_task(app, session_id: str) -> None:
+    """Runs in the background — generate the plan, save it to the session."""
+    import time as _time
+    store = app.state.session_store
+    session = await store.get(session_id)
+    if session is None or session.profile is None:
+        logger.warning("[plan %s] skipped — no session/profile", session_id[:8])
+        return
+
+    effective_mode = session.mode if _multi_perspective_enabled() else "basic"
+    sem = _plan_semaphore()
+    logger.info(
+        "[plan %s] START mode=%s multi=%s sem_avail=%s model=%s persona=%s has_strategy=%s",
+        session_id[:8], effective_mode, _multi_perspective_enabled(),
+        sem._value if hasattr(sem, '_value') else '?',
+        ADVISOR_MODEL, session.profile.id if session.profile else "?",
+        session.strategy is not None,
+    )
+    t0 = _time.time()
+    refine_model = REFINE_MODEL if _refine_enabled() else None
+    try:
+        async with sem:
+            plan, usage = await generate_plan(
+                session.profile,
+                strategy=session.strategy,
+                mode=effective_mode,
+                n_perspectives=3,
+                model=ADVISOR_MODEL,
+                refine_model=refine_model,
+            )
+        dt = _time.time() - t0
+        logger.info(
+            "[plan %s] DONE in %.1fs — allocations=%d returns=%s tokens=(in=%s,out=%s)",
+            session_id[:8], dt, len(plan.allocations), plan.projected_returns,
+            getattr(usage, "input_tokens", "?"),
+            getattr(usage, "output_tokens", "?"),
+        )
+
+        # Re-fetch in case another request updated it concurrently.
+        session = await store.get(session_id) or session
+        session.plan = plan
+        session.plan_generating = False
+        session.plan_error = None
+        session.current_step = 4
+        await store.save(session)
+        logger.info("[plan %s] SAVED", session_id[:8])
+
+        from subprime.core.conversations import save_conversation
+        from subprime.core.db import get_pool as _get_pool
+        await save_conversation(session=session, pool=_get_pool())
+    except Exception as exc:
+        dt = _time.time() - t0
+        logger.exception(
+            "[plan %s] FAILED after %.1fs: %s", session_id[:8], dt, exc,
+        )
+        session = await store.get(session_id) or session
+        session.plan_generating = False
+        session.plan_error = str(exc)[:200]
+        await store.save(session)
+
+
+@router.get("/plan-status")
+async def api_plan_status(
+    request: Request,
+    benji_session: str | None = Cookie(default=None),
+):
+    """JSON status for the loading screen poller."""
+    from fastapi.responses import JSONResponse
+    store = request.app.state.session_store
+    if not benji_session:
+        return JSONResponse({"ready": False, "error": "no-session"})
+    session = await store.get(benji_session)
+    if not session:
+        return JSONResponse({"ready": False, "error": "no-session"})
+    return JSONResponse({
+        "ready": session.plan is not None,
+        "generating": session.plan_generating,
+        "error": session.plan_error,
+    })
+
+
 @router.post("/generate-plan")
 async def api_generate_plan(
     request: Request,
-    response: Response,
+    background: BackgroundTasks,
     benji_session: str | None = Cookie(default=None),
 ) -> Response:
-    """Generate a detailed investment plan and redirect to step 4."""
+    """Plain HTML-form POST: kick off plan generation in the background and
+    redirect (HTTP 303) to /step/4. Browser follows the redirect natively —
+    no HTMX, no JS."""
+    from fastapi.responses import RedirectResponse
+
     store = request.app.state.session_store
     session = await _get_or_create_session(request, benji_session)
     if session.profile is None:
         return Response(status_code=400, content="No profile in session")
 
-    plan, _ = await generate_plan(
-        session.profile,
-        strategy=session.strategy,
-        mode=session.mode,
-        n_perspectives=3,
-        model=ADVISOR_MODEL,
-        refine_model=REFINE_MODEL,
-    )
-    session.plan = plan
+    session.plan = None
+    session.plan_generating = True
+    session.plan_error = None
     session.current_step = 4
     await store.save(session)
 
-    # Save conversation log
-    from subprime.core.conversations import save_conversation
-    from subprime.core.db import get_pool as _get_pool
-    await save_conversation(session=session, pool=_get_pool())
+    logger.info(
+        "[plan %s] QUEUED mode=%s profile=%s",
+        session.id[:8], session.mode,
+        session.profile.id if session.profile else "?",
+    )
 
-    response.status_code = 200
-    response.headers["HX-Redirect"] = "/step/4"
-    response.set_cookie("benji_session", session.id, httponly=True, samesite="lax")
-    return response
+    background.add_task(_generate_plan_task, request.app, session.id)
+
+    # 303 See Other: browser does a GET on /step/4 even after a POST.
+    resp = RedirectResponse(url="/step/4", status_code=303)
+    resp.set_cookie("benji_session", session.id, httponly=True, samesite="lax")
+    return resp
 
 
 # ---------------------------------------------------------------------------
@@ -386,10 +538,14 @@ async def api_verify_otp(
     benji_session: str | None = Cookie(default=None),
 ):
     """Verify an OTP and grant premium access."""
+    import os
     templates = request.app.state.templates
     pool = get_pool()
 
-    if not pool:
+    cheat = os.environ.get("SUBPRIME_OTP_CHEAT", "").strip()
+    is_cheat = bool(cheat) and code.strip() == cheat
+
+    if not pool and not is_cheat:
         return templates.TemplateResponse(request, "partials/otp_error.html", {
             "message": "Premium is not available right now.",
             "show_retry": False, "email": email,
@@ -398,7 +554,7 @@ async def api_verify_otp(
     store = request.app.state.session_store
     session = await _get_or_create_session(request, benji_session)
 
-    verified = await verify_otp(pool, email.strip().lower(), code.strip())
+    verified = is_cheat or await verify_otp(pool, email.strip().lower(), code.strip())
     if not verified:
         return templates.TemplateResponse(request, "partials/otp_error.html", {
             "message": "Invalid or expired code. Please request a new one.",
@@ -407,6 +563,8 @@ async def api_verify_otp(
 
     session.mode = "premium"
     session.current_step = 2
+    if is_cheat:
+        session.is_demo = True
     await store.save(session)
 
     response = Response(status_code=200)

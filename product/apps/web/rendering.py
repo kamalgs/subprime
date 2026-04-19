@@ -39,6 +39,53 @@ def format_inr(amount: float) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Fund name compression — strips noise words for small-screen display.
+# Full name should still be shown as a tooltip via the title attribute.
+# ---------------------------------------------------------------------------
+
+# Tokens that add no information once the user knows the category + AMC.
+# Matched case-insensitively as whole words; order doesn't matter.
+_FUND_NAME_NOISE = (
+    "Direct", "Regular", "Reg", "Plan",
+    "Growth", "IDCW", "Dividend",
+    "Option", "Scheme", "Fund",
+    "Payout", "Reinvestment",
+    "-", "–",  # stray separators left behind after stripping
+)
+
+
+def short_fund_name(name: str, max_len: int = 32) -> str:
+    """Return a compact version of a fund name suitable for narrow columns.
+
+    Strategy:
+      1. Drop common noise words (Direct, Growth, Fund, Plan, Regular, IDCW…).
+      2. Collapse any leftover whitespace.
+      3. If still too long, truncate with an ellipsis.
+
+    Examples:
+        "HDFC Index Fund - NIFTY 50 Plan - Direct Plan - Growth Option"
+            -> "HDFC Index NIFTY 50"
+        "Mirae Asset Large Cap Fund Direct Growth"
+            -> "Mirae Asset Large Cap"
+    """
+    if not name:
+        return ""
+    tokens = name.split()
+    noise_lower = {w.lower() for w in _FUND_NAME_NOISE}
+    kept = [t for t in tokens if t.lower().strip(".,-") not in noise_lower]
+    result = " ".join(kept).strip()
+    # Collapse doubled separators left behind (e.g. "NIFTY 50  -  Plan")
+    while "  " in result:
+        result = result.replace("  ", " ")
+    for sep in (" - ", " – "):
+        while sep.strip() + " " in result or " " + sep.strip() in result:
+            result = result.replace(sep, " ").strip()
+    if len(result) > max_len:
+        result = result[: max_len - 1].rstrip() + "…"
+    return result or name  # fall back to full name if stripping emptied it
+
+
+# ---------------------------------------------------------------------------
 # Markdown to safe HTML
 # ---------------------------------------------------------------------------
 

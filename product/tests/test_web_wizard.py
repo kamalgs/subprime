@@ -1,11 +1,26 @@
 """Tests for apps/web/session.py — Session Store."""
 
+from pathlib import Path
+
 import pytest
 from datetime import datetime, timezone
 from pydantic_ai.usage import RunUsage
 
 from apps.web.session import InMemorySessionStore, Session, SessionSummary
 from subprime.core.models import InvestorProfile
+
+
+# When the React SPA is built, the legacy Jinja /step/* routes are unmounted
+# and everything below /step/* returns the SPA's index.html. Tests that drive
+# the Jinja wizard directly are retired in favour of test_frontend_e2e.py.
+_LEGACY_JINJA_AVAILABLE = not (
+    Path(__file__).resolve().parents[1] / "apps" / "web" / "static" / "dist" / "index.html"
+).exists()
+
+skip_when_spa_built = pytest.mark.skipif(
+    not _LEGACY_JINJA_AVAILABLE,
+    reason="Legacy Jinja wizard not mounted when SPA is built; see test_frontend_e2e.py",
+)
 
 
 # ---------------------------------------------------------------------------
@@ -177,7 +192,34 @@ from apps.web.rendering import (
     inflation_adjusted,
     chart_data_donut,
     chart_data_corpus,
+    short_fund_name,
 )
+
+
+class TestShortFundName:
+    def test_strips_direct_growth(self):
+        assert short_fund_name("Mirae Asset Large Cap Fund Direct Growth") == "Mirae Asset Large Cap"
+
+    def test_strips_plan_and_option(self):
+        assert short_fund_name("HDFC Index Fund NIFTY 50 Plan Direct Growth Option") == "HDFC Index NIFTY 50"
+
+    def test_strips_regular_and_idcw(self):
+        assert short_fund_name("Axis Bluechip Fund Regular IDCW") == "Axis Bluechip"
+
+    def test_preserves_when_already_short(self):
+        assert short_fund_name("UTI Nifty 50") == "UTI Nifty 50"
+
+    def test_truncates_if_still_too_long(self):
+        result = short_fund_name("A Very Long Name That Cannot Be Compressed By Token Stripping Alone", max_len=20)
+        assert len(result) <= 20
+        assert result.endswith("…")
+
+    def test_empty_name(self):
+        assert short_fund_name("") == ""
+
+    def test_falls_back_if_stripping_empties(self):
+        # All-noise input should return original rather than empty string
+        assert short_fund_name("Direct Growth Plan") == "Direct Growth Plan"
 
 
 class TestFormatInr:
@@ -378,13 +420,19 @@ class TestAppFactory:
         assert app is not None
 
     @pytest.mark.asyncio
-    async def test_root_redirects_to_step1(self):
+    async def test_root_serves_app(self):
+        """Root / either redirects to /step/1 (legacy) or serves the SPA index."""
         from apps.web.main import create_app
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.get("/", follow_redirects=False)
-            assert resp.status_code == 307
-            assert resp.headers["location"] == "/step/1"
+            # When the SPA is built the route returns 200 with index.html;
+            # otherwise it falls back to a 307 redirect to /step/1.
+            if resp.status_code == 200:
+                assert "<div id=\"root\"" in resp.text or "<html" in resp.text.lower()
+            else:
+                assert resp.status_code == 307
+                assert resp.headers["location"] == "/step/1"
 
     @pytest.mark.asyncio
     async def test_static_files_served(self):
@@ -401,6 +449,7 @@ class TestAppFactory:
 # ---------------------------------------------------------------------------
 
 
+@skip_when_spa_built
 class TestStep1TierSelection:
     @pytest.mark.asyncio
     async def test_step1_renders(self):
@@ -473,16 +522,35 @@ class TestStep1TierSelection:
 # ---------------------------------------------------------------------------
 
 
+@skip_when_spa_built
 class TestStep2Profile:
     @pytest.mark.asyncio
-    async def test_step2_renders_persona_cards(self):
-        """GET /step/2 after tier selection shows persona cards including Tony Stark."""
+    async def test_step2_renders_archetype_cards_for_regular_session(self):
+        """Regular sessions see 3 archetype starting points (not the full persona bank)."""
         from apps.web.main import create_app
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
-            # First select a tier to get a valid session
             tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
             assert "benji_session" in tier_resp.cookies
+            resp = await client.get("/step/2")
+        assert resp.status_code == 200
+        assert "Early career" in resp.text
+        assert "Mid career" in resp.text
+        assert "Retired" in resp.text
+        assert "Tony Stark" not in resp.text
+
+    @pytest.mark.asyncio
+    async def test_step2_renders_full_persona_bank_for_demo_session(self):
+        """Demo sessions (unlocked via OTP cheat) see the full research persona bank."""
+        from apps.web.main import create_app
+        app = create_app()
+        async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
+            session_id = tier_resp.cookies.get("benji_session")
+            store = app.state.session_store
+            s = next(s for s in store._sessions.values() if s.id == session_id)
+            s.is_demo = True
+            await store.save(s)
             resp = await client.get("/step/2")
         assert resp.status_code == 200
         assert "Tony Stark" in resp.text
@@ -692,6 +760,7 @@ def _mock_plan():
     )
 
 
+@skip_when_spa_built
 class TestStep3Strategy:
 
     @pytest.mark.asyncio
@@ -790,7 +859,7 @@ class TestStep3Strategy:
 
     @pytest.mark.asyncio
     async def test_generate_plan_redirects_to_step4(self):
-        """POST /api/generate-plan returns HX-Redirect to /step/4."""
+        """POST /api/generate-plan returns a 303 redirect to /step/4."""
         from apps.web.main import create_app
         app = create_app()
         with patch("apps.web.api.generate_plan", new=AsyncMock(return_value=(_mock_plan(), RunUsage()))):
@@ -806,10 +875,10 @@ class TestStep3Strategy:
                         await store.save(s)
                         break
 
-                resp = await client.post("/api/generate-plan")
+                resp = await client.post("/api/generate-plan", follow_redirects=False)
 
-        assert resp.status_code == 200
-        assert resp.headers["HX-Redirect"] == "/step/4"
+        assert resp.status_code == 303
+        assert resp.headers["location"] == "/step/4"
 
     @pytest.mark.asyncio
     async def test_generate_plan_saves_plan(self):
@@ -860,11 +929,12 @@ class TestStep3Strategy:
 # ---------------------------------------------------------------------------
 
 
+@skip_when_spa_built
 class TestStep4PlanResult:
 
     @pytest.mark.asyncio
     async def test_step4_redirects_without_plan(self):
-        """GET /step/4 without plan redirects to step 1."""
+        """GET /step/4 with no plan and no in-flight generation bounces back."""
         from apps.web.main import create_app
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
@@ -872,7 +942,8 @@ class TestStep4PlanResult:
             await client.post("/api/select-tier", data={"mode": "basic"})
             resp = await client.get("/step/4", follow_redirects=False)
         assert resp.status_code == 302
-        assert resp.headers["location"] == "/step/1"
+        # No plan, no generation in flight → bounced to strategy or start
+        assert resp.headers["location"] in ("/step/1", "/step/3")
 
     @pytest.mark.asyncio
     async def test_step4_renders_plan(self):
@@ -928,7 +999,7 @@ class TestStep4PlanResult:
 
         assert resp.status_code == 200
         # Corpus projection section
-        assert "Corpus Projection" in resp.text
+        assert "Corpus projection" in resp.text
         # Scenario labels
         assert "Bear" in resp.text
         assert "Base" in resp.text
@@ -957,7 +1028,7 @@ class TestStep4PlanResult:
             resp = await client.get("/step/4")
 
         assert resp.status_code == 200
-        assert "Risks to Consider" in resp.text
+        assert "Risks to consider" in resp.text
         assert "Market drops" in resp.text
 
     @pytest.mark.asyncio
@@ -982,7 +1053,7 @@ class TestStep4PlanResult:
 
         assert resp.status_code == 200
         # Rationale section heading
-        assert "Why This Plan" in resp.text
+        assert "Why this plan" in resp.text
         # The mock plan rationale text rendered inside a <p> tag
         assert "balances growth and stability" in resp.text
         assert "<p>" in resp.text
@@ -1011,9 +1082,10 @@ class TestStep4PlanResult:
                 assert strategy_resp.status_code == 200
                 assert "Equity" in strategy_resp.text
 
-                # Step 3 — generate plan
-                plan_resp = await client.post("/api/generate-plan")
-                assert plan_resp.headers["HX-Redirect"] == "/step/4"
+                # Step 3 — generate plan (plain 303 redirect; no HTMX)
+                plan_resp = await client.post("/api/generate-plan", follow_redirects=False)
+                assert plan_resp.status_code == 303
+                assert plan_resp.headers["location"] == "/step/4"
 
                 # Step 4 — render results page
                 result_resp = await client.get("/step/4")

@@ -69,6 +69,12 @@ class PostgresSessionStore(SessionStore):
             data["strategy_chat"] = [
                 json.loads(t.model_dump_json()) for t in session.strategy_chat
             ]
+        if session.is_demo:
+            data["is_demo"] = True
+        if session.plan_generating:
+            data["plan_generating"] = True
+        if session.plan_error:
+            data["plan_error"] = session.plan_error
         return json.dumps(data)
 
     def _row_to_session(self, row) -> Session:
@@ -99,6 +105,9 @@ class PostgresSessionStore(SessionStore):
             strategy=strategy,
             plan=plan,
             strategy_chat=strategy_chat,
+            is_demo=bool(data.get("is_demo", False)),
+            plan_generating=bool(data.get("plan_generating", False)),
+            plan_error=data.get("plan_error"),
         )
 
     async def get(self, session_id: str) -> Optional[Session]:
@@ -133,6 +142,29 @@ class PostgresSessionStore(SessionStore):
                 session.mode,
                 data_json,
             )
+
+    async def clear_stale_plan_flags(self) -> int:
+        """Reset plan_generating=True on every session.
+
+        Any background plan-generation task from a previous process died when
+        the container restarted, but the session still says it's generating.
+        Call this once at startup so users aren't stuck on the loading page
+        forever.
+        """
+        async with self._pool.acquire() as conn:
+            rows = await conn.fetch(
+                """
+                UPDATE sessions
+                SET data = jsonb_set(
+                    COALESCE(data, '{}'::jsonb) - 'plan_generating',
+                    '{plan_error}',
+                    to_jsonb('Plan generation was interrupted — please try again.'::text)
+                )
+                WHERE data->>'plan_generating' = 'true'
+                RETURNING id
+                """,
+            )
+            return len(rows)
 
     async def list_sessions(self, limit: int = 20) -> list[SessionSummary]:
         async with self._pool.acquire() as conn:

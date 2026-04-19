@@ -12,6 +12,7 @@ happen at plan-generation time. Expense ratios are populated once, during
 """
 from __future__ import annotations
 
+import asyncio
 import logging
 from pathlib import Path
 from typing import Optional
@@ -25,6 +26,36 @@ logger = logging.getLogger(__name__)
 def _db_path() -> Path:
     """Return the current DuckDB path. Indirection for test monkeypatching."""
     return DB_PATH
+
+
+def _sync_search(category: Optional[str], limit: int) -> list[MutualFund]:
+    import duckdb
+
+    from subprime.data.universe import search_universe
+
+    path = _db_path()
+    if not path.exists():
+        return []
+    conn = duckdb.connect(str(path), read_only=True)
+    try:
+        return search_universe(conn, category=category, limit=limit)
+    finally:
+        conn.close()
+
+
+def _sync_get_by_code(amfi_code: str) -> MutualFund | None:
+    import duckdb
+
+    from subprime.data.universe import search_universe_by_code
+
+    path = _db_path()
+    if not path.exists():
+        return None
+    conn = duckdb.connect(str(path), read_only=True)
+    try:
+        return search_universe_by_code(conn, amfi_code)
+    finally:
+        conn.close()
 
 
 async def search_funds_universe(
@@ -49,18 +80,9 @@ async def search_funds_universe(
         List of MutualFund objects with computed returns and expense ratio.
         NAV is 0 — the curated universe does not track live NAV.
     """
-    import duckdb
-
-    from subprime.data.universe import search_universe
-
-    path = _db_path()
-    if not path.exists():
-        return []
-    conn = duckdb.connect(str(path), read_only=True)
-    try:
-        return search_universe(conn, category=category, limit=limit)
-    finally:
-        conn.close()
+    # DuckDB calls are synchronous; run in a worker thread so we don't block
+    # uvicorn's single event loop while the query executes.
+    return await asyncio.to_thread(_sync_search, category, limit)
 
 
 async def get_fund_details(amfi_code: str) -> MutualFund | None:
@@ -75,15 +97,4 @@ async def get_fund_details(amfi_code: str) -> MutualFund | None:
     Returns:
         A MutualFund object, or None if the code is not in the curated universe.
     """
-    import duckdb
-
-    from subprime.data.universe import search_universe_by_code
-
-    path = _db_path()
-    if not path.exists():
-        return None
-    conn = duckdb.connect(str(path), read_only=True)
-    try:
-        return search_universe_by_code(conn, amfi_code)
-    finally:
-        conn.close()
+    return await asyncio.to_thread(_sync_get_by_code, amfi_code)

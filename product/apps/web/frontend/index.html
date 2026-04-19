@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/static/icon-192.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4f46e5" />
+    <title>Benji — AI financial advisor</title>
+    <script>
+      // Avoid flash-of-light: flip .dark on <html> before first paint.
+      (function () {
+        var saved = localStorage.getItem("theme");
+        var prefersDark =
+          window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (saved === "dark" || (!saved && prefersDark))
+          document.documentElement.classList.add("dark");
+      })();
+    </script>
+  </head>
+  <body class="h-full bg-gray-50 text-gray-900 dark:bg-slate-900 dark:text-slate-100">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

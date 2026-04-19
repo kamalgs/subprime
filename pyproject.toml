@@ -8,5 +8,7 @@ pythonpath = ["product/src"]
 markers = [
     "e2e: end-to-end tests hitting real APIs (deselect with -m 'not e2e')",
     "calibration: APS/PQS judge calibration tests — make real LLM calls (run with -m calibration)",
+    "smoke: live smoke tests against a deployed URL (run with -m smoke + SUBPRIME_URL env var)",
+    "browser: live Playwright browser tests against a deployed URL (run with -m browser + SUBPRIME_URL)",
 ]
-addopts = "-m 'not e2e and not calibration'"
+addopts = "-m 'not e2e and not calibration and not smoke and not browser'"

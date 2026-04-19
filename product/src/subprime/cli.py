@@ -931,6 +931,33 @@ data_app = typer.Typer(name="data", help="Manage the local fund data store.")
 app.add_typer(data_app, name="data")
 
 
+@data_app.command("migrate")
+def data_migrate() -> None:
+    """Apply DuckDB schema migrations (CREATE TABLE IF NOT EXISTS, ALTER TABLE).
+
+    Idempotent. Run this as a prestart step before the web app boots — the
+    web app only opens read-only connections at runtime.
+    """
+    import duckdb
+    from subprime.data.store import ensure_schema
+
+    if not DB_PATH.exists():
+        _console.print(f"[yellow]{DB_PATH} does not exist — run 'subprime data refresh' to create it.[/yellow]")
+        return
+
+    try:
+        conn = duckdb.connect(str(DB_PATH))  # writable
+        try:
+            ensure_schema(conn)
+            _console.print(f"[green]Schema current in[/green] {DB_PATH}")
+        finally:
+            conn.close()
+    except Exception as exc:
+        logger.exception("data migrate failed")
+        _console.print(f"[bold red]Error:[/bold red] {exc}")
+        raise typer.Exit(1)
+
+
 @data_app.command("refresh")
 def data_refresh() -> None:
     """Download the latest mutual fund dataset and rebuild the local store."""
@@ -964,6 +991,11 @@ def data_refresh() -> None:
             f"{enrichment['fallback']} fallback (category-typical)."
         )
         conn.close()
+
+        # Rebuild the cached markdown on disk so the next web-app start
+        # doesn't serve a stale universe to the advisor.
+        from subprime.advisor.planner import warm_universe_cache
+        warm_universe_cache()
     except KeyboardInterrupt:
         _console.print("\n[dim]Interrupted.[/dim]")
         raise typer.Exit(0)

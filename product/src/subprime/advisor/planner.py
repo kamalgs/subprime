@@ -15,13 +15,91 @@ from subprime.core.models import InvestmentPlan, InvestorProfile, StrategyOutlin
 logger = logging.getLogger(__name__)
 
 
-def _load_universe_context(db_path: Path | None = None) -> str | None:
-    """Load the curated fund universe as markdown text from DuckDB."""
-    if db_path is None:
-        from subprime.advisor import planner as _self
-        db_path = _self.DB_PATH
-    if not db_path.exists():
-        return None
+# Category-typical CAGRs (%) — used to compute fallback projected returns
+# when the LLM leaves plan.projected_returns empty or zero.
+_CATEGORY_CAGR = {
+    "large cap": 11.0, "mid cap": 13.0, "small cap": 15.0,
+    "flexi cap": 12.0, "multi cap": 12.0, "elss": 12.0,
+    "index": 11.0, "nifty": 11.0, "sensex": 11.0,
+    "hybrid": 9.5, "balanced": 9.5, "arbitrage": 6.5,
+    "debt": 7.0, "liquid": 6.0, "overnight": 5.5,
+    "gilt": 7.5, "corporate bond": 7.5, "short duration": 7.0,
+    "gold": 9.0, "international": 10.0,
+}
+
+_RISK_DEFAULTS = {
+    "aggressive":   {"bear": 8.0,  "base": 12.0, "bull": 16.0},
+    "moderate":     {"bear": 6.0,  "base": 10.0, "bull": 14.0},
+    "conservative": {"bear": 5.0,  "base": 8.0,  "bull": 11.0},
+}
+
+
+def _category_cagr(category: str, sub_category: str = "") -> float | None:
+    """Look up category-typical CAGR by matching on category/sub_category substrings."""
+    haystack = f"{category} {sub_category}".lower()
+    for key, cagr in _CATEGORY_CAGR.items():
+        if key in haystack:
+            return cagr
+    return None
+
+
+def fill_projected_returns_fallback(plan: InvestmentPlan, profile: InvestorProfile) -> None:
+    """Populate plan.projected_returns if the LLM left it empty or zero.
+
+    Strategy:
+      1. If existing values already look valid (base > 0), leave them alone.
+      2. Otherwise compute base CAGR as allocation-weighted average of
+         category-typical CAGRs; set bull = base + 4, bear = base - 4.
+      3. If allocation categories can't be matched, fall back to risk-appetite
+         defaults so the returns table always renders.
+    """
+    pr = plan.projected_returns or {}
+    base = pr.get("base", 0.0) or 0.0
+    if base > 0:
+        # Still fill in missing bull/bear so downstream rendering is safe
+        if not pr.get("bull"):
+            plan.projected_returns["bull"] = round(base + 4.0, 2)
+        if not pr.get("bear"):
+            plan.projected_returns["bear"] = round(max(base - 4.0, 1.0), 2)
+        return
+
+    weighted_sum = 0.0
+    matched_pct = 0.0
+    for a in plan.allocations:
+        cagr = _category_cagr(a.fund.category, a.fund.sub_category)
+        if cagr is not None:
+            weighted_sum += cagr * a.allocation_pct
+            matched_pct += a.allocation_pct
+
+    if matched_pct >= 50:
+        base_cagr = round(weighted_sum / matched_pct, 2)
+    else:
+        base_cagr = _RISK_DEFAULTS.get(profile.risk_appetite, _RISK_DEFAULTS["moderate"])["base"]
+
+    plan.projected_returns = {
+        "bear": round(max(base_cagr - 4.0, 1.0), 2),
+        "base": base_cagr,
+        "bull": round(base_cagr + 4.0, 2),
+    }
+    logger.info(
+        "Filled fallback projected_returns for %s: %s (matched_pct=%.1f)",
+        profile.id, plan.projected_returns, matched_pct,
+    )
+
+
+# Universe markdown is cached on disk next to the DuckDB file after the
+# first render, so subsequent processes / requests skip the DuckDB round-trip.
+# The in-process cache is additionally held so hot requests don't even re-read
+# the file. `subprime data refresh` invalidates the cache by deleting the file.
+_UNIVERSE_CACHE_TEXT: str | None = None
+
+
+def _universe_cache_path(db_path: Path) -> Path:
+    return db_path.parent / "universe_context.md"
+
+
+def _render_universe_from_db(db_path: Path) -> str | None:
+    """Open DuckDB read-only and render the universe markdown (slow path)."""
     try:
         import duckdb
         from subprime.data.universe import render_universe_context
@@ -31,8 +109,83 @@ def _load_universe_context(db_path: Path | None = None) -> str | None:
         finally:
             conn.close()
     except Exception:
-        logger.warning("Failed to load fund universe from %s", db_path, exc_info=True)
+        logger.warning("Failed to render fund universe from %s", db_path, exc_info=True)
         return None
+
+
+def warm_universe_cache(db_path: Path | None = None) -> bool:
+    """Build the on-disk universe cache if it's missing or stale.
+
+    Called once at web-app startup (via lifespan) so the first request
+    doesn't pay the DuckDB + markdown rendering cost.
+    Returns True if the cache was (re)built, False if already warm or DB missing.
+    """
+    global _UNIVERSE_CACHE_TEXT
+    if db_path is None:
+        db_path = DB_PATH
+    if not db_path.exists():
+        return False
+
+    cache_path = _universe_cache_path(db_path)
+    try:
+        # Rebuild if cache is missing or older than the DB file.
+        if (
+            not cache_path.exists()
+            or cache_path.stat().st_mtime < db_path.stat().st_mtime
+        ):
+            text = _render_universe_from_db(db_path)
+            if text is None:
+                return False
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            cache_path.write_text(text)
+            _UNIVERSE_CACHE_TEXT = text
+            logger.info(
+                "Universe cache warmed: %d chars → %s", len(text), cache_path,
+            )
+            return True
+
+        _UNIVERSE_CACHE_TEXT = cache_path.read_text()
+        logger.info(
+            "Universe cache hit: %d chars from %s",
+            len(_UNIVERSE_CACHE_TEXT), cache_path,
+        )
+        return False
+    except Exception:
+        logger.exception("warm_universe_cache failed")
+        return False
+
+
+def _load_universe_context(db_path: Path | None = None) -> str | None:
+    """Return the fund universe markdown — from in-memory cache if present,
+    else the on-disk cache file, else (last resort) render from DuckDB.
+    """
+    global _UNIVERSE_CACHE_TEXT
+    if _UNIVERSE_CACHE_TEXT is not None:
+        return _UNIVERSE_CACHE_TEXT
+
+    if db_path is None:
+        from subprime.advisor import planner as _self
+        db_path = _self.DB_PATH
+    if not db_path.exists():
+        return None
+
+    cache_path = _universe_cache_path(db_path)
+    try:
+        if cache_path.exists() and cache_path.stat().st_mtime >= db_path.stat().st_mtime:
+            _UNIVERSE_CACHE_TEXT = cache_path.read_text()
+            return _UNIVERSE_CACHE_TEXT
+    except Exception:
+        logger.warning("Failed reading universe cache %s", cache_path, exc_info=True)
+
+    text = _render_universe_from_db(db_path)
+    if text is not None:
+        _UNIVERSE_CACHE_TEXT = text
+        try:
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            cache_path.write_text(text)
+        except Exception:
+            logger.warning("Could not write universe cache", exc_info=True)
+    return text
 
 
 async def generate_strategy(
@@ -260,6 +413,7 @@ async def generate_plan(
             logger.info("Refining premium plan with %s", refine_model)
             best, refine_usage = await refine_plan(best, profile, model=refine_model)
             total_usage.incr(refine_usage)
+        fill_projected_returns_fallback(best, profile)
         return best, total_usage
 
     # basic mode
@@ -272,4 +426,5 @@ async def generate_plan(
         logger.info("Refining basic plan with %s", refine_model)
         plan, refine_usage = await refine_plan(plan, profile, model=refine_model)
         total_usage.incr(refine_usage)
+    fill_projected_returns_fallback(plan, profile)
     return plan, total_usage

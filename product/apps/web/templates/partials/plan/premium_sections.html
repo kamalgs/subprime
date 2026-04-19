@@ -1,0 +1,47 @@
+{# Premium-only plan sections: SIP step-up + allocation timeline.
+   Expects: plan (InvestmentPlan) #}
+{% if plan.sip_step_up %}
+<div class="card card-spacious">
+    <div class="flex items-center gap-2 mb-2">
+        <h3 class="section-title mb-0">SIP step-up</h3>
+        <span class="chip">Premium</span>
+    </div>
+    <p class="text-sm text-gray-700 dark:text-slate-300 leading-relaxed">{{ plan.sip_step_up.description }}</p>
+    <p class="mt-2 text-sm font-medium text-primary-700 dark:text-primary-300">Annual increase: {{ plan.sip_step_up.annual_increase_pct }}%</p>
+</div>
+{% endif %}
+
+{% if plan.allocation_schedule %}
+<div class="card card-spacious">
+    <div class="flex items-center gap-2 mb-3">
+        <h3 class="section-title mb-0">Allocation timeline</h3>
+        <span class="chip">Premium</span>
+    </div>
+    <div class="overflow-x-auto">
+        <table class="min-w-full text-sm">
+            <thead>
+                <tr class="border-b border-gray-200 dark:border-slate-700 text-left eyebrow">
+                    <th class="py-2 pr-4">Year</th>
+                    <th class="py-2 pr-4">Equity</th>
+                    <th class="py-2 pr-4">Debt</th>
+                    <th class="py-2 pr-4">Gold</th>
+                    <th class="py-2 pr-4">Other</th>
+                    <th class="py-2">Trigger</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for phase in plan.allocation_schedule %}
+                <tr class="border-b border-gray-100 dark:border-slate-700 last:border-0">
+                    <td class="py-2 pr-4 font-medium text-gray-900 dark:text-slate-100">{{ phase.year }}</td>
+                    <td class="py-2 pr-4 text-gray-700 dark:text-slate-300">{{ phase.equity_pct }}%</td>
+                    <td class="py-2 pr-4 text-gray-700 dark:text-slate-300">{{ phase.debt_pct }}%</td>
+                    <td class="py-2 pr-4 text-gray-700 dark:text-slate-300">{{ phase.gold_pct }}%</td>
+                    <td class="py-2 pr-4 text-gray-700 dark:text-slate-300">{{ phase.other_pct }}%</td>
+                    <td class="py-2 text-gray-500 dark:text-slate-400 text-xs">{{ phase.trigger }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
