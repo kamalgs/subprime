@@ -77,6 +77,15 @@ async def lifespan(app: FastAPI):
         pool = await init_pool(DATABASE_URL)
         app.state.session_store = PostgresSessionStore(pool)
         logger.info("Using PostgreSQL session store")
+
+        # Any plan-generation background tasks from a prior process are dead;
+        # reset the flag so users aren't stuck on the loading page.
+        try:
+            cleared = await app.state.session_store.clear_stale_plan_flags()
+            if cleared:
+                logger.info("Cleared stale plan_generating flag on %d session(s)", cleared)
+        except Exception:
+            logger.exception("clear_stale_plan_flags failed")
     else:
         app.state.session_store = InMemorySessionStore()
         logger.info("Using in-memory session store (no DATABASE_URL)")

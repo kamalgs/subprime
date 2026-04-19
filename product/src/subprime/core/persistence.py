@@ -143,6 +143,29 @@ class PostgresSessionStore(SessionStore):
                 data_json,
             )
 
+    async def clear_stale_plan_flags(self) -> int:
+        """Reset plan_generating=True on every session.
+
+        Any background plan-generation task from a previous process died when
+        the container restarted, but the session still says it's generating.
+        Call this once at startup so users aren't stuck on the loading page
+        forever.
+        """
+        async with self._pool.acquire() as conn:
+            rows = await conn.fetch(
+                """
+                UPDATE sessions
+                SET data = jsonb_set(
+                    COALESCE(data, '{}'::jsonb) - 'plan_generating',
+                    '{plan_error}',
+                    to_jsonb('Plan generation was interrupted — please try again.'::text)
+                )
+                WHERE data->>'plan_generating' = 'true'
+                RETURNING id
+                """,
+            )
+            return len(rows)
+
     async def list_sessions(self, limit: int = 20) -> list[SessionSummary]:
         async with self._pool.acquire() as conn:
             rows = await conn.fetch(
