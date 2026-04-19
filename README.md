@@ -2,7 +2,7 @@
 
 > "Everyone trusted the AI advisor. Nobody checked the prompt."
 
-*sub* — suboptimal outcomes · *prime* — prompt priming · *subprime* — a term with a history in finance
+*sub* — subpar outcomes · *prime* — prompt priming · *subprime* — a term with a history in finance
 
 ---
 
