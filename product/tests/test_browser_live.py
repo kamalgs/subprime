@@ -34,14 +34,21 @@ def _require_base():
 async def page():
     _require_base()
     from playwright.async_api import async_playwright
+    from urllib.parse import urlparse
+
+    host = urlparse(BASE_URL).hostname
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         context = await browser.new_context()
+        # Pre-seed the SEBI ack cookie so the modal never appears during tests.
+        await context.add_cookies([{
+            "name": "sebi_ack", "value": "1", "domain": host, "path": "/",
+        }])
         page = await context.new_page()
-        # Surface console errors in the pytest report
         page.on("pageerror", lambda exc: print(f"[PAGE ERROR] {exc}"))
-        page.on("console", lambda msg: print(f"[console.{msg.type}] {msg.text}") if msg.type == "error" else None)
+        page.on("console", lambda msg: print(f"[console.{msg.type}] {msg.text}"))
+        page.on("requestfailed", lambda r: print(f"[REQUEST FAILED] {r.url} → {r.failure}"))
         yield page
         await context.close()
         await browser.close()
@@ -82,11 +89,20 @@ async def _unlock_demo(page) -> None:
 
 
 @pytest.mark.asyncio
-async def test_step1_renders_and_sebi_modal_shows(page):
-    await page.goto(f"{BASE_URL}/step/1", wait_until="domcontentloaded")
-    await page.wait_for_selector("text=Choose your plan", timeout=10000)
-    # Modal visible on first visit
-    assert await page.locator("#sebi-modal").is_visible()
+async def test_step1_renders_and_sebi_modal_shows():
+    """SEBI modal must appear on a fresh (no-cookie) visit."""
+    _require_base()
+    from playwright.async_api import async_playwright
+
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(headless=True)
+        context = await browser.new_context()  # NO cookies
+        page_ = await context.new_page()
+        await page_.goto(f"{BASE_URL}/step/1", wait_until="domcontentloaded")
+        await page_.wait_for_selector("text=Choose your plan", timeout=10000)
+        await page_.locator("#sebi-modal").wait_for(state="visible", timeout=5000)
+        await context.close()
+        await browser.close()
 
 
 @pytest.mark.asyncio

@@ -86,24 +86,33 @@
         }, 500);
     }, 6000);
 
-    // Poll /api/plan-status with fetch — avoids HTMX event-shape drift between
-    // versions. When the plan is ready (or failed), navigate to /step/4.
+    // Poll /api/plan-status with fetch. When the plan is ready (or failed),
+    // navigate to /step/4.
     var pollTimer = null;
+    var navigated = false;
     function poll() {
-        fetch('/api/plan-status', { cache: 'no-store' })
+        fetch('/api/plan-status', { cache: 'no-store', credentials: 'same-origin' })
             .then(function (r) { return r.json(); })
             .then(function (data) {
+                console.log('[plan-status]', data);
+                if (navigated) return;
                 if (data.ready || data.error) {
-                    if (pollTimer) clearInterval(pollTimer);
+                    navigated = true;
+                    if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
                     bar.style.width = '100%';
                     text.textContent = data.ready ? 'Ready!' : 'Failed.';
-                    setTimeout(function () { window.location.href = '/step/4'; }, 500);
+                    // Hard navigate — force a server-side render of /step/4.
+                    setTimeout(function () {
+                        window.location.replace('/step/4');
+                    }, 400);
                 }
             })
-            .catch(function () { /* transient network blip — keep polling */ });
+            .catch(function (err) {
+                console.warn('[plan-status] fetch failed', err);
+            });
     }
-    // First poll after 4s, then every 3s.
-    setTimeout(poll, 4000);
+    // First poll immediately, then every 3s.
+    poll();
     pollTimer = setInterval(poll, 3000);
 })();
 </script>
