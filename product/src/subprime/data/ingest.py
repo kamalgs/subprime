@@ -351,24 +351,36 @@ def compute_risk_metrics(conn: duckdb.DuckDBPyConnection) -> int:
 # --------------------------------------------------------------------------- #
 
 
+async def _stream_to_file(client: httpx.AsyncClient, url: str, dest: Path) -> None:
+    """Stream a remote file to disk in 1MB chunks — never buffers the whole body.
+
+    The NAV parquet is ~500MB, so a non-streaming download would OOM a
+    512MB container. This streams: peak RSS stays at the chunk size.
+    """
+    chunk = 1024 * 1024  # 1 MB
+    tmp = dest.with_suffix(dest.suffix + ".part")
+    async with client.stream("GET", url) as resp:
+        resp.raise_for_status()
+        with tmp.open("wb") as f:
+            async for block in resp.aiter_bytes(chunk_size=chunk):
+                f.write(block)
+    tmp.replace(dest)
+
+
 async def download_dataset(target_dir: Path) -> tuple[Path, Path]:
     """Download the schemes CSV and NAV history parquet into ``target_dir``.
 
-    Uses ``follow_redirects=True`` (GitHub LFS serves a redirect) and a
-    generous 300s timeout.
+    Streams both files to disk so peak memory is bounded regardless of
+    payload size. Uses ``follow_redirects=True`` (GitHub LFS serves a
+    redirect) and a generous 300s timeout.
     """
     target_dir.mkdir(parents=True, exist_ok=True)
     csv_path = target_dir / "mutual_fund_data.csv"
     parquet_path = target_dir / "mutual_fund_nav_history.parquet"
 
     async with httpx.AsyncClient(follow_redirects=True, timeout=300.0) as client:
-        csv_resp = await client.get(SCHEMES_CSV_URL)
-        csv_resp.raise_for_status()
-        csv_path.write_bytes(csv_resp.content)
-
-        nav_resp = await client.get(NAV_PARQUET_URL)
-        nav_resp.raise_for_status()
-        parquet_path.write_bytes(nav_resp.content)
+        await _stream_to_file(client, SCHEMES_CSV_URL, csv_path)
+        await _stream_to_file(client, NAV_PARQUET_URL, parquet_path)
 
     return csv_path, parquet_path
 
