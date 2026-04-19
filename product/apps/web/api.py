@@ -22,6 +22,20 @@ def _multi_perspective_enabled() -> bool:
     """
     return os.environ.get("SUBPRIME_MULTI_PERSPECTIVE", "").strip().lower() in ("1", "true", "on", "yes")
 
+
+# Bound concurrent plan generations so a burst of requests can't pile up
+# multiple 108K-token prompts + agent loops and starve the event loop.
+# Value 2 gives some headroom; override via SUBPRIME_MAX_CONCURRENT_PLANS.
+_PLAN_SEMAPHORE: asyncio.Semaphore | None = None
+
+
+def _plan_semaphore() -> asyncio.Semaphore:
+    global _PLAN_SEMAPHORE
+    if _PLAN_SEMAPHORE is None:
+        limit = int(os.environ.get("SUBPRIME_MAX_CONCURRENT_PLANS", "2") or "2")
+        _PLAN_SEMAPHORE = asyncio.Semaphore(limit)
+    return _PLAN_SEMAPHORE
+
 from subprime.evaluation.personas import get_persona
 from apps.web.session import Session
 from subprime.core.config import ADVISOR_MODEL, REFINE_MODEL
@@ -327,22 +341,25 @@ async def _generate_plan_task(app, session_id: str) -> None:
         return
 
     effective_mode = session.mode if _multi_perspective_enabled() else "basic"
+    sem = _plan_semaphore()
     logger.info(
-        "[plan %s] START mode=%s multi=%s model=%s persona=%s has_strategy=%s",
+        "[plan %s] START mode=%s multi=%s sem_avail=%s model=%s persona=%s has_strategy=%s",
         session_id[:8], effective_mode, _multi_perspective_enabled(),
+        sem._value if hasattr(sem, '_value') else '?',
         ADVISOR_MODEL, session.profile.id if session.profile else "?",
         session.strategy is not None,
     )
     t0 = _time.time()
     try:
-        plan, usage = await generate_plan(
-            session.profile,
-            strategy=session.strategy,
-            mode=effective_mode,
-            n_perspectives=3,
-            model=ADVISOR_MODEL,
-            refine_model=REFINE_MODEL,
-        )
+        async with sem:
+            plan, usage = await generate_plan(
+                session.profile,
+                strategy=session.strategy,
+                mode=effective_mode,
+                n_perspectives=3,
+                model=ADVISOR_MODEL,
+                refine_model=REFINE_MODEL,
+            )
         dt = _time.time() - t0
         logger.info(
             "[plan %s] DONE in %.1fs — allocations=%d returns=%s tokens=(in=%s,out=%s)",
