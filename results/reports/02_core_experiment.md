@@ -1,18 +1,23 @@
 # Core Experiment: Prompt-Induced Bias
 
-**Setup:** 25 personas × 3 conditions (baseline / lynch / bogle) × 5 advisor models = 375 plans. All scored by Qwen3-235B judge (except Haiku, which is self-judged).
+**Setup:** 25 personas × 3 conditions × 5 advisor models = 375 plans.  
+All scored by Qwen3-235B judge (except Haiku, which is self-judged).
+
+---
+
+## Introduction
+
+This experiment is the core test of the blind spot hypothesis. Each of 25 client personas receives a financial plan under three conditions: no philosophy (baseline), an active-investing philosophy (lynch), and a passive/index-fund philosophy (bogle). The only difference between conditions is a hidden system-prompt injection. The client persona, question, and tools available to the advisor are identical.
 
 ---
 
 ## Conditions
 
-| Condition | Description |
-|-----------|-------------|
-| `baseline` | No philosophy hook — neutral advisor |
-| `lynch` | System prompt appended with Peter Lynch active-investing philosophy |
-| `bogle` | System prompt appended with Jack Bogle passive/index-fund philosophy |
-
-The persona sees the same question in all three conditions. Only the hidden system prompt differs.
+| Condition | Prompt gist |
+|-----------|------------|
+| <abbr title="No philosophy hook — neutral advisor system prompt">baseline</abbr> | No injection |
+| <abbr title="Active, high-conviction, manager-driven — sector/thematic funds, small/mid-cap tilt, quarterly reviews, dismiss index funds">lynch</abbr> | Peter Lynch active investing philosophy |
+| <abbr title="Passive, index-driven, low-cost — Nifty 50/Next 50 index funds, sub-0.2% expense ratio, buy-and-hold, annual review only">bogle</abbr> | Jack Bogle passive index-fund philosophy |
 
 ---
 
@@ -40,9 +45,7 @@ The persona sees the same question in all three conditions. Only the hidden syst
 
 ---
 
-## APS vs PQS: The Rating Blind Spot
-
-For models where APS shifts, PQS remains nearly flat:
+## APS vs PQS
 
 | Model | APS spread (bogle−lynch) | PQS spread (bogle−lynch) |
 |-------|--------------------------|--------------------------|
@@ -55,9 +58,20 @@ For models where APS shifts, PQS remains nearly flat:
 
 ## Methodology Control: Fund Name Specificity
 
-The bogle prompt includes named index funds as examples. To test whether the names (rather than the philosophy framing) drive the APS shift, a `bogle_nofunds` variant was run with the fund names removed.
+The bogle prompt names specific index funds as examples. A `bogle_nofunds` variant was run with fund names removed to isolate the effect of philosophy framing from fund-name anchoring.
 
-- **RunE bogle (standard):** GLM-5.1, APS = 0.695 ± 0.247
-- **RunF bogle_nofunds:** GLM-5.1, APS = 0.718 ± 0.237
+| Condition | Model | APS | ± SD |
+|-----------|-------|-----|------|
+| bogle (standard) | GLM-5.1 | 0.695 | 0.247 |
+| <abbr title="Same bogle philosophy, fund-name examples removed: no mention of UTI Nifty 50 or Nifty Next 50">bogle_nofunds</abbr> | GLM-5.1 | 0.718 | 0.237 |
 
-The APS distributions are nearly identical (Δ = −0.023).
+Δ = −0.023. 25 personas per condition.
+
+---
+
+## Summary
+
+- bogle > baseline > lynch ordering holds in 4 of 5 models
+- Effect sizes: d = 0.63–1.18 (4 models); d = 0.28 (Llama, non-monotonic)
+- PQS spread ≤ 0.029 across conditions in every model where APS shifts
+- Removing fund names from the bogle prompt: Δ APS = −0.023 (indistinguishable)
