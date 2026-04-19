@@ -23,6 +23,15 @@
         <div class="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
             <div id="plan-progress-bar" class="bg-primary-600 h-2 rounded-full transition-all duration-1000 ease-out" style="width: 8%"></div>
         </div>
+
+        {# Rotating Yoda-like wisdoms while the LLM does its thing #}
+        <div class="pt-2">
+            <p id="plan-wisdom" class="text-sm italic text-primary-700 dark:text-primary-300 min-h-[2.5rem] transition-opacity duration-500">
+                &ldquo;Wealth, to those who wait, it comes.&rdquo;
+            </p>
+            <p class="text-xs text-gray-400 dark:text-slate-500 mt-1">— Benji</p>
+        </div>
+
         <p class="text-xs text-gray-400 dark:text-slate-500">This usually takes 30–60 seconds.</p>
 
         <div id="plan-poller"
@@ -52,6 +61,33 @@
             text.textContent = s.text;
         }, s.delay);
     });
+
+    // Rotating wisdoms — keep the user company while the LLM thinks.
+    var wisdoms = [
+        '\u201CWealth, to those who wait, it comes.\u201D',
+        '\u201CConsistency, beat genius it does.\u201D',
+        '\u201CA molehill today. A mountain tomorrow. Compound, it must.\u201D',
+        '\u201CLead the horse to water, you can. Drink for him, you cannot.\u201D',
+        '\u201CTime in the market, beat timing the market it does.\u201D',
+        '\u201CSlow, the tortoise is. Finish the race, still he does.\u201D',
+        '\u201CGreedy when fearful, be. Fearful when greedy, be.\u201D',
+        '\u201CPlant the tree today. Shade tomorrow, your children enjoy.\u201D',
+        '\u201CSmall sips daily. Mighty cups yearly. The way of the SIP, this is.\u201D',
+        '\u201CThe best plan, a boring one it is. Flashy, the losing one is.\u201D',
+        '\u201CForecast the market, no one can. Prepare for it, everyone should.\u201D',
+        '\u201CNeither the rupee saved, nor the rupee earned, remembers the wait. But your future self, it will.\u201D',
+    ];
+    var wisdomEl = document.getElementById('plan-wisdom');
+    var wi = 1;
+    setInterval(function() {
+        if (!wisdomEl) return;
+        wisdomEl.style.opacity = '0';
+        setTimeout(function() {
+            wisdomEl.textContent = wisdoms[wi % wisdoms.length];
+            wisdomEl.style.opacity = '1';
+            wi++;
+        }, 500);
+    }, 6000);
 
     // Poll handler: /api/plan-status returns a JSON blob telling us what to do.
     document.body.addEventListener('htmx:afterRequest', function(evt) {
