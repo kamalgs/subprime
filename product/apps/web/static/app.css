@@ -219,27 +219,43 @@ summary:focus-visible,
     margin-top: 0.25rem;
 }
 
-/* Inputs inside cards — style via direct selectors so templates don't need changes */
-.card input[type="text"],
-.card input[type="number"],
-.card input[type="email"],
-.card input[type="tel"],
-.card select,
-.card textarea {
-    background-color: var(--surface);
+/* Inputs are styled globally so every form element is legible regardless of
+   scope. !important is used in .dark mode because Tailwind utility classes
+   (bg-white, text-gray-*) in templates would otherwise win. */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+select,
+textarea {
     color: var(--text);
-    border-color: var(--border-strong);
 }
-.card input::placeholder,
-.card textarea::placeholder { color: var(--text-faint); }
-.dark .card input[type="text"],
-.dark .card input[type="number"],
-.dark .card input[type="email"],
-.dark .card input[type="tel"],
-.dark .card select,
-.dark .card textarea {
-    background-color: var(--surface-muted);
-    border-color: var(--border);
+input::placeholder,
+textarea::placeholder { color: var(--text-faint); }
+
+.dark input[type="text"],
+.dark input[type="number"],
+.dark input[type="email"],
+.dark input[type="tel"],
+.dark input[type="password"],
+.dark input[type="search"],
+.dark input[type="url"],
+.dark select,
+.dark textarea {
+    background-color: #334155 !important;   /* slate-700 */
+    color: #f1f5f9 !important;              /* slate-100 */
+    border-color: #475569 !important;       /* slate-600 */
+}
+.dark input::placeholder,
+.dark textarea::placeholder {
+    color: #94a3b8 !important;              /* slate-400 */
+}
+.dark select option {
+    background-color: #1e293b;              /* slate-800 — dropdown panel */
+    color: #f1f5f9;
 }
 
 /* ==========================================================================
