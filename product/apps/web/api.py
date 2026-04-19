@@ -220,22 +220,26 @@ async def api_generate_strategy(
 # ---------------------------------------------------------------------------
 
 
-@router.post("/revise-strategy")
-async def api_revise_strategy(
+async def _revise_and_render(
     request: Request,
-    feedback: Annotated[str, Form()],
-    benji_session: str | None = Cookie(default=None),
+    feedback: str,
+    benji_session: str | None,
+    *,
+    track_in_chat: bool,
 ):
-    """Revise the current strategy based on user feedback."""
+    """Shared handler: revise strategy + re-render the dashboard partial.
+
+    Set ``track_in_chat=False`` for silent revisions (e.g. answering open
+    questions) — they should not appear in the free-form chat log.
+    """
     store = request.app.state.session_store
     session = await _get_or_create_session(request, benji_session)
     if session.profile is None:
         return Response(status_code=400, content="No profile in session")
 
-    # Append user feedback to chat history
-    session.strategy_chat.append(ConversationTurn(role="user", content=feedback))
+    if track_in_chat:
+        session.strategy_chat.append(ConversationTurn(role="user", content=feedback))
 
-    # Generate revised strategy
     strategy, _ = await generate_strategy(
         session.profile,
         feedback=feedback,
@@ -244,10 +248,10 @@ async def api_revise_strategy(
     )
     session.strategy = strategy
 
-    # Append advisor acknowledgement to chat
-    session.strategy_chat.append(
-        ConversationTurn(role="advisor", content="Strategy updated based on your feedback.")
-    )
+    if track_in_chat:
+        session.strategy_chat.append(
+            ConversationTurn(role="advisor", content="Strategy updated based on your feedback.")
+        )
     await store.save(session)
 
     chart_data = chart_data_donut(
@@ -265,6 +269,30 @@ async def api_revise_strategy(
         "partials/strategy_dashboard.html",
         {"session": session, "strategy": strategy, "chart_data": chart_data, "render_markdown": render_markdown},
     )
+
+
+@router.post("/revise-strategy")
+async def api_revise_strategy(
+    request: Request,
+    feedback: Annotated[str, Form()],
+    benji_session: str | None = Cookie(default=None),
+):
+    """Revise strategy via free-form chat (appears in the chat log)."""
+    return await _revise_and_render(request, feedback, benji_session, track_in_chat=True)
+
+
+@router.post("/answer-questions")
+async def api_answer_questions(
+    request: Request,
+    feedback: Annotated[str, Form()],
+    benji_session: str | None = Cookie(default=None),
+):
+    """Silently revise strategy using answers to the open questions.
+
+    Does NOT append to the strategy chat log — open-questions and the chat
+    are independent input channels from the user's point of view.
+    """
+    return await _revise_and_render(request, feedback, benji_session, track_in_chat=False)
 
 
 # ---------------------------------------------------------------------------

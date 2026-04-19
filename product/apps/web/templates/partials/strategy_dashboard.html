@@ -114,8 +114,12 @@
     <div class="flex flex-col items-center gap-3">
         <button id="generate-plan-btn"
             class="btn btn-primary px-8 py-3 text-base rounded-xl"
-            hx-post="/api/generate-plan" hx-swap="none" hx-disabled-elt="this"
-            onclick="startPlanGeneration()">
+            hx-post="/api/generate-plan"
+            hx-swap="none"
+            hx-disabled-elt="this"
+            hx-on:htmx:before-request="startPlanGeneration()"
+            hx-on:htmx:response-error="resetPlanGeneration()"
+            hx-on:htmx:send-error="resetPlanGeneration()">
             <span>Generate my plan</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
@@ -156,7 +160,8 @@ function submitQuestionAnswers() {
     });
     if (parts.length === 0) return;
     var feedback = 'Answers to open questions:\n' + parts.join('\n');
-    htmx.ajax('POST', '/api/revise-strategy', {
+    // Separate endpoint — keeps the free-form chat log untouched.
+    htmx.ajax('POST', '/api/answer-questions', {
         target: '#strategy-content',
         swap: 'outerHTML',
         values: { feedback: feedback }
@@ -164,31 +169,38 @@ function submitQuestionAnswers() {
 }
 
 var _planSteps = [
-    { pct: 10, text: "Analysing your profile...", delay: 0 },
-    { pct: 25, text: "Matching fund categories...", delay: 3000 },
-    { pct: 45, text: "Selecting specific funds...", delay: 8000 },
-    { pct: 65, text: "Computing projections...", delay: 15000 },
-    { pct: 80, text: "Building your personalised plan...", delay: 22000 },
-    { pct: 90, text: "Almost there...", delay: 35000 },
+    { pct: 10, text: "Analysing your profile…",            delay: 0 },
+    { pct: 25, text: "Matching fund categories…",          delay: 4000 },
+    { pct: 45, text: "Selecting specific funds…",          delay: 10000 },
+    { pct: 65, text: "Computing projections…",             delay: 20000 },
+    { pct: 80, text: "Building your personalised plan…",   delay: 35000 },
+    { pct: 92, text: "Almost there…",                      delay: 55000 },
 ];
-var _planTimers = [];
+window._planTimers = window._planTimers || [];
 
 function startPlanGeneration() {
     var loading = document.getElementById('plan-loading');
     var bar = document.getElementById('plan-progress-bar');
     var text = document.getElementById('plan-progress-text');
+    if (!loading || !bar || !text) return;
     loading.classList.remove('hidden');
-
-    // Clear any existing timers
-    _planTimers.forEach(clearTimeout);
-    _planTimers = [];
-
-    _planSteps.forEach(function(step) {
-        var t = setTimeout(function() {
+    window._planTimers.forEach(clearTimeout);
+    window._planTimers = _planSteps.map(function(step) {
+        return setTimeout(function() {
             bar.style.width = step.pct + '%';
             text.textContent = step.text;
         }, step.delay);
-        _planTimers.push(t);
     });
+}
+
+function resetPlanGeneration() {
+    var loading = document.getElementById('plan-loading');
+    var bar = document.getElementById('plan-progress-bar');
+    var text = document.getElementById('plan-progress-text');
+    (window._planTimers || []).forEach(clearTimeout);
+    window._planTimers = [];
+    if (bar)  bar.style.width = '0%';
+    if (text) text.textContent = 'Something went wrong. Try again.';
+    if (loading) loading.classList.remove('hidden');
 }
 </script>
