@@ -208,6 +208,21 @@ class TestPostgresSessionStore:
         assert retrieved.profile.name == "Test User"
 
     @pytest.mark.asyncio
+    async def test_is_demo_roundtrip(self, postgres_store):
+        """is_demo flag must persist through save/get — OTP cheat sessions rely on it."""
+        session = Session(mode="premium", is_demo=True)
+        await postgres_store.save(session)
+        retrieved = await postgres_store.get(session.id)
+        assert retrieved.is_demo is True
+
+    @pytest.mark.asyncio
+    async def test_is_demo_default_false(self, postgres_store):
+        session = Session()
+        await postgres_store.save(session)
+        retrieved = await postgres_store.get(session.id)
+        assert retrieved.is_demo is False
+
+    @pytest.mark.asyncio
     async def test_save_updates(self, postgres_store):
         session = Session()
         await postgres_store.save(session)

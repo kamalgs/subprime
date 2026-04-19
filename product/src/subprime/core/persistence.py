@@ -69,6 +69,8 @@ class PostgresSessionStore(SessionStore):
             data["strategy_chat"] = [
                 json.loads(t.model_dump_json()) for t in session.strategy_chat
             ]
+        if session.is_demo:
+            data["is_demo"] = True
         return json.dumps(data)
 
     def _row_to_session(self, row) -> Session:
@@ -99,6 +101,7 @@ class PostgresSessionStore(SessionStore):
             strategy=strategy,
             plan=plan,
             strategy_chat=strategy_chat,
+            is_demo=bool(data.get("is_demo", False)),
         )
 
     async def get(self, session_id: str) -> Optional[Session]:
