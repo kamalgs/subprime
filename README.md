@@ -71,7 +71,7 @@ Ubuntu · tmux · mosh · Claude Code
 
 Decades of cross-functional experience, good taste, judgment, and curiosity: **Priceless**
 
-Everything else was automated — GPU provisioning, model deployment, experiment execution, failure tracking, retries. No manual touch. The coding agent handles the grunt work. The human provides the imagination and intuition. Complex products and rigorous research, minimal overhead. There are some things money can't buy.
+Everything else was automated — GPU provisioning, model deployment, experiment execution, failure tracking, retries. No manual touch. → [subprime-infra](https://github.com/kamalgs/subprime-infra) The coding agent handles the grunt work. The human provides the imagination and intuition. Complex products and rigorous research, minimal overhead. There are some things money can't buy.
 
 ---
 
