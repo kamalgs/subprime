@@ -54,10 +54,22 @@ def _migrate_duckdb_schema() -> None:
         logger.exception("DuckDB schema migration failed — continuing anyway")
 
 
+def _warm_universe_cache() -> None:
+    """Render the fund-universe markdown to disk once so per-request
+    plan generation doesn't pay the DuckDB + markdown cost on the hot path."""
+    try:
+        from subprime.advisor.planner import warm_universe_cache
+        warm_universe_cache()
+    except Exception:
+        logger.exception("warm_universe_cache skipped")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Startup: init DB pool if configured. Shutdown: close pool."""
+    """Startup: migrate DuckDB schema, warm universe cache, init DB pool.
+    Shutdown: close pool."""
     _migrate_duckdb_schema()
+    _warm_universe_cache()
 
     if DATABASE_URL:
         from subprime.core.db import init_pool

@@ -964,6 +964,11 @@ def data_refresh() -> None:
             f"{enrichment['fallback']} fallback (category-typical)."
         )
         conn.close()
+
+        # Rebuild the cached markdown on disk so the next web-app start
+        # doesn't serve a stale universe to the advisor.
+        from subprime.advisor.planner import warm_universe_cache
+        warm_universe_cache()
     except KeyboardInterrupt:
         _console.print("\n[dim]Interrupted.[/dim]")
         raise typer.Exit(0)

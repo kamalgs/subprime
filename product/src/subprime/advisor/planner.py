@@ -87,13 +87,19 @@ def fill_projected_returns_fallback(plan: InvestmentPlan, profile: InvestorProfi
     )
 
 
-def _load_universe_context(db_path: Path | None = None) -> str | None:
-    """Load the curated fund universe as markdown text from DuckDB."""
-    if db_path is None:
-        from subprime.advisor import planner as _self
-        db_path = _self.DB_PATH
-    if not db_path.exists():
-        return None
+# Universe markdown is cached on disk next to the DuckDB file after the
+# first render, so subsequent processes / requests skip the DuckDB round-trip.
+# The in-process cache is additionally held so hot requests don't even re-read
+# the file. `subprime data refresh` invalidates the cache by deleting the file.
+_UNIVERSE_CACHE_TEXT: str | None = None
+
+
+def _universe_cache_path(db_path: Path) -> Path:
+    return db_path.parent / "universe_context.md"
+
+
+def _render_universe_from_db(db_path: Path) -> str | None:
+    """Open DuckDB read-only and render the universe markdown (slow path)."""
     try:
         import duckdb
         from subprime.data.universe import render_universe_context
@@ -103,8 +109,83 @@ def _load_universe_context(db_path: Path | None = None) -> str | None:
         finally:
             conn.close()
     except Exception:
-        logger.warning("Failed to load fund universe from %s", db_path, exc_info=True)
+        logger.warning("Failed to render fund universe from %s", db_path, exc_info=True)
         return None
+
+
+def warm_universe_cache(db_path: Path | None = None) -> bool:
+    """Build the on-disk universe cache if it's missing or stale.
+
+    Called once at web-app startup (via lifespan) so the first request
+    doesn't pay the DuckDB + markdown rendering cost.
+    Returns True if the cache was (re)built, False if already warm or DB missing.
+    """
+    global _UNIVERSE_CACHE_TEXT
+    if db_path is None:
+        db_path = DB_PATH
+    if not db_path.exists():
+        return False
+
+    cache_path = _universe_cache_path(db_path)
+    try:
+        # Rebuild if cache is missing or older than the DB file.
+        if (
+            not cache_path.exists()
+            or cache_path.stat().st_mtime < db_path.stat().st_mtime
+        ):
+            text = _render_universe_from_db(db_path)
+            if text is None:
+                return False
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            cache_path.write_text(text)
+            _UNIVERSE_CACHE_TEXT = text
+            logger.info(
+                "Universe cache warmed: %d chars → %s", len(text), cache_path,
+            )
+            return True
+
+        _UNIVERSE_CACHE_TEXT = cache_path.read_text()
+        logger.info(
+            "Universe cache hit: %d chars from %s",
+            len(_UNIVERSE_CACHE_TEXT), cache_path,
+        )
+        return False
+    except Exception:
+        logger.exception("warm_universe_cache failed")
+        return False
+
+
+def _load_universe_context(db_path: Path | None = None) -> str | None:
+    """Return the fund universe markdown — from in-memory cache if present,
+    else the on-disk cache file, else (last resort) render from DuckDB.
+    """
+    global _UNIVERSE_CACHE_TEXT
+    if _UNIVERSE_CACHE_TEXT is not None:
+        return _UNIVERSE_CACHE_TEXT
+
+    if db_path is None:
+        from subprime.advisor import planner as _self
+        db_path = _self.DB_PATH
+    if not db_path.exists():
+        return None
+
+    cache_path = _universe_cache_path(db_path)
+    try:
+        if cache_path.exists() and cache_path.stat().st_mtime >= db_path.stat().st_mtime:
+            _UNIVERSE_CACHE_TEXT = cache_path.read_text()
+            return _UNIVERSE_CACHE_TEXT
+    except Exception:
+        logger.warning("Failed reading universe cache %s", cache_path, exc_info=True)
+
+    text = _render_universe_from_db(db_path)
+    if text is not None:
+        _UNIVERSE_CACHE_TEXT = text
+        try:
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            cache_path.write_text(text)
+        except Exception:
+            logger.warning("Could not write universe cache", exc_info=True)
+    return text
 
 
 async def generate_strategy(
