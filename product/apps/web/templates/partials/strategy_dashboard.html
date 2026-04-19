@@ -108,13 +108,9 @@
     <!-- Generate plan CTA -->
     <div class="flex flex-col items-center gap-3">
         <button id="generate-plan-btn"
+            type="button"
             class="btn btn-primary px-8 py-3 text-base rounded-xl"
-            hx-post="/api/generate-plan"
-            hx-swap="none"
-            hx-disabled-elt="this"
-            hx-on:htmx:before-request="startPlanGeneration()"
-            hx-on:htmx:response-error="resetPlanGeneration()"
-            hx-on:htmx:send-error="resetPlanGeneration()">
+            onclick="triggerPlanGeneration()">
             <span>Generate my plan</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
@@ -197,5 +193,22 @@ function resetPlanGeneration() {
     if (bar)  bar.style.width = '0%';
     if (text) text.textContent = 'Something went wrong. Try again.';
     if (loading) loading.classList.remove('hidden');
+}
+
+// Plain JS click handler — wired via inline onclick for resilience across
+// HTMX partial swaps. Fires the progress bar immediately and kicks off the
+// plan generation via htmx.ajax (which handles HX-Redirect transparently).
+function triggerPlanGeneration() {
+    var btn = document.getElementById('generate-plan-btn');
+    if (btn) btn.disabled = true;
+    startPlanGeneration();
+    htmx.ajax('POST', '/api/generate-plan', {
+        swap: 'none',
+        source: '#generate-plan-btn',
+    }).catch(function(err) {
+        console.error('plan-generation request failed', err);
+        resetPlanGeneration();
+        if (btn) btn.disabled = false;
+    });
 }
 </script>
