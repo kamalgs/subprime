@@ -97,7 +97,7 @@ For models where APS shifts, PQS remains nearly flat:
 
 This work was done as part of [Large Language Models — A Hands-on Approach](https://cce.iisc.ac.in/cce-proficience/large-language-modelsa-hands-on-approach-jm-2026/) offered through [CCE IISc](https://llm-engg.github.io/).
 
-Thanks to **Dr. Negi** and **Bhutesh** for course design, guidance, and feedback throughout the project.
+Thanks to **[Yoginder Negi](https://yknegi.github.io/)** (Senior Scientific Officer, SERC, IISc) and **Bhuthesh R** (Senior Data Scientist, Molecule AI) for course design, guidance, and feedback throughout the project.
 
 ---
 
