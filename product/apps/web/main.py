@@ -42,29 +42,6 @@ _STATIC_DIR = _HERE / "static"
 _SPA_DIST_DIR = _STATIC_DIR / "dist"       # Vite build output
 
 
-def _migrate_duckdb_schema() -> None:
-    """Apply any pending DuckDB schema migrations to the fund universe store.
-
-    Idempotent — safe to run on every startup. No-op if the DB file doesn't
-    exist yet (a `subprime data refresh` will create it).
-    """
-    try:
-        import duckdb
-        from subprime.core.config import DB_PATH
-        from subprime.data.store import ensure_schema
-        if not DB_PATH.exists():
-            logger.info("DuckDB file %s not found — skipping migration", DB_PATH)
-            return
-        conn = duckdb.connect(str(DB_PATH))  # writable
-        try:
-            ensure_schema(conn)
-            logger.info("DuckDB schema migrations applied to %s", DB_PATH)
-        finally:
-            conn.close()
-    except Exception:
-        logger.exception("DuckDB schema migration failed — continuing anyway")
-
-
 def _warm_universe_cache() -> None:
     """Render the fund-universe markdown to disk once so per-request
     plan generation doesn't pay the DuckDB + markdown cost on the hot path."""
@@ -77,9 +54,13 @@ def _warm_universe_cache() -> None:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Startup: migrate DuckDB schema, warm universe cache, init DB pool.
-    Shutdown: close pool."""
-    _migrate_duckdb_schema()
+    """Startup: warm universe cache, init DB pool. Shutdown: close pool.
+
+    Schema migrations are **not** done here anymore — run ``subprime data
+    migrate`` out-of-band (e.g. as a Nomad prestart task) so the web app
+    only holds read-only DuckDB connections at runtime. This avoids lock
+    contention when running multiple uvicorn workers.
+    """
     _warm_universe_cache()
 
     if DATABASE_URL:
