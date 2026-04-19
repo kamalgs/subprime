@@ -108,6 +108,31 @@ async def test_set_tier_premium(client):
 
 
 @pytest.mark.asyncio
+async def test_basic_tier_drops_demo_flag(client):
+    """Picking Basic after unlocking demo mode should reset is_demo.
+
+    Otherwise a user who played with the cheat code earlier still sees the
+    25-persona research bank on the 'free consumer' flow.
+    """
+    # Unlock demo
+    await client.post(
+        "/api/v2/session/otp/verify",
+        json={"email": "x@y.com", "code": CHEAT},
+    )
+    assert (await client.get("/api/v2/session")).json()["is_demo"] is True
+
+    # Basic tier should drop demo
+    r = await client.post("/api/v2/session/tier", json={"mode": "basic"})
+    assert r.json()["is_demo"] is False
+    assert r.json()["mode"] == "basic"
+
+    # Personas endpoint now returns no research bank (only archetypes)
+    p = await client.get("/api/v2/personas")
+    assert p.json()["personas"] is None
+    assert len(p.json()["archetypes"]) == 3
+
+
+@pytest.mark.asyncio
 async def test_reset_generates_new_session(client):
     r1 = await client.get("/api/v2/session")
     sid1 = r1.json()["id"]
