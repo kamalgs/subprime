@@ -159,56 +159,8 @@ function submitQuestionAnswers() {
     });
 }
 
-var _planSteps = [
-    { pct: 10, text: "Analysing your profile…",            delay: 0 },
-    { pct: 25, text: "Matching fund categories…",          delay: 4000 },
-    { pct: 45, text: "Selecting specific funds…",          delay: 10000 },
-    { pct: 65, text: "Computing projections…",             delay: 20000 },
-    { pct: 80, text: "Building your personalised plan…",   delay: 35000 },
-    { pct: 92, text: "Almost there…",                      delay: 55000 },
-];
-window._planTimers = window._planTimers || [];
-
-function startPlanGeneration() {
-    var loading = document.getElementById('plan-loading');
-    var bar = document.getElementById('plan-progress-bar');
-    var text = document.getElementById('plan-progress-text');
-    if (!loading || !bar || !text) return;
-    loading.classList.remove('hidden');
-    window._planTimers.forEach(clearTimeout);
-    window._planTimers = _planSteps.map(function(step) {
-        return setTimeout(function() {
-            bar.style.width = step.pct + '%';
-            text.textContent = step.text;
-        }, step.delay);
-    });
-}
-
-function resetPlanGeneration() {
-    var loading = document.getElementById('plan-loading');
-    var bar = document.getElementById('plan-progress-bar');
-    var text = document.getElementById('plan-progress-text');
-    (window._planTimers || []).forEach(clearTimeout);
-    window._planTimers = [];
-    if (bar)  bar.style.width = '0%';
-    if (text) text.textContent = 'Something went wrong. Try again.';
-    if (loading) loading.classList.remove('hidden');
-}
-
-// Plain JS click handler — wired via inline onclick for resilience across
-// HTMX partial swaps. Fires the progress bar immediately and kicks off the
-// plan generation via htmx.ajax (which handles HX-Redirect transparently).
-function triggerPlanGeneration() {
-    var btn = document.getElementById('generate-plan-btn');
-    if (btn) btn.disabled = true;
-    startPlanGeneration();
-    htmx.ajax('POST', '/api/generate-plan', {
-        swap: 'none',
-        source: '#generate-plan-btn',
-    }).catch(function(err) {
-        console.error('plan-generation request failed', err);
-        resetPlanGeneration();
-        if (btn) btn.disabled = false;
-    });
-}
+// startPlanGeneration / resetPlanGeneration / triggerPlanGeneration are
+// defined in /static/plan-gen.js (loaded from base.html) so they survive
+// HTMX partial re-swaps regardless of whether this inline <script>
+// re-executes after a swap.
 </script>
