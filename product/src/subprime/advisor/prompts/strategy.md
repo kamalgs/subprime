@@ -5,6 +5,6 @@ Output:
 - Equity approach: e.g. "index-heavy", "active mid/small cap tilt", "balanced mix"
 - Key themes: e.g. "tax efficiency under 80C", "low cost", "growth tilt", "capital preservation"
 - One-line risk/return summary
-- Open questions: AT MOST 2-3 questions, and only the HIGHEST-PRIORITY ones — ambiguities that would meaningfully change the asset allocation or fund selection if answered differently. Skip anything that's nice-to-know, phrased as "just checking", or already implied by the profile. If the profile is clear enough, return an empty list. Never return more than 3 questions.
+- Open questions: anything ambiguous about the investor's situation that would change the strategy
 
 Be brief. This is a direction check before selecting specific funds.

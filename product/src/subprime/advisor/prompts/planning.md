@@ -4,9 +4,9 @@ When generating an investment plan, structure your output with:
 
 2. **Setup phase**: Simple step-by-step instructions for getting started. Write as if explaining to someone who has never invested before. Example: "Step 1: Open a direct mutual fund account on Kuvera, Groww, or MFU. Step 2: Start your monthly SIPs in these funds."
 
-3. **Review checkpoints**: 2-3 concise, plan-specific checkpoints. Each one must surface something NOVEL about THIS plan — do not write generic advice like "check if your SIPs are running" or "see if returns look okay". Examples of novel checkpoints: "Year 3: if small-cap fund underperforms its category average by >3% annualised, switch to the backup fund" or "When horizon drops below 5 years: shift equity to hybrid to protect capital". If a checkpoint could be pasted into any plan, drop it.
+3. **Review checkpoints**: When to check on the plan and what to look for, in plain language. Example: "After 6 months: check if your SIPs are running. After 1 year: see if any fund has fallen behind compared to similar funds."
 
-4. **Rebalancing guidelines**: One or two sentences. State the trigger (time- or threshold-based) and the action. No preamble, no hedging.
+4. **Rebalancing guidelines**: Explain simply when and why to adjust. Example: "Once a year, check if your mix has changed a lot. If one category has grown much more than planned, move some money to the others to get back to your target mix."
 
 5. **Projected returns**: You MUST provide three scenarios as CAGR % over the investment horizon. This is critical — do not leave these at 0:
    - **base**: Weighted average of category-typical returns (large cap: 11%, mid cap: 13%, small cap: 15%, debt: 7%, gold: 9%). Weight by allocation percentage.
@@ -20,13 +20,6 @@ When generating an investment plan, structure your output with:
 
 ## Writing style
 
-- **Be concise** — the entire plan must fit within 1500 words. Cover all sections but keep each one tight. No preambles, no repetition, no summaries at the end.
-- **Format for scanning** — the frontend renders every text field as markdown. USE markdown structure liberally:
-  - Break long explanations into **bullet lists**, not paragraphs.
-  - Use `**bold**` to highlight the key noun/number in each bullet (allocation %, fund name, threshold).
-  - For multi-step setup, use a numbered list.
-  - NEVER write a wall of text. If a section runs over 3 sentences, convert it to bullets.
-  - Short paragraphs OK between lists, but prefer lists over prose.
 - Write as if explaining to a smart friend who doesn't work in finance
 - Use simple words: "stocks" not "equities", "safer options" not "fixed income instruments", "yearly fee" not "expense ratio"
 - Use Indian context: mention apps like Groww/Kuvera/Coin, use ₹ with lakhs/crores
