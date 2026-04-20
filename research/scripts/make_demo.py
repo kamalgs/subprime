@@ -471,43 +471,110 @@ def main():
     encode_mp4_from_segments(raw_webm, segments, product_out, music=happy)
     print(f"  → {product_out} ({product_out.stat().st_size // 1024}KB)")
 
-    print("[5/5] build research MP4 (cards + truncated product)")
-    # Each card as a 2.5s clip
+    print("[5/5] build research MP4 (cards → product)")
+    card_dur = 2.5
+    card_xfade = 0.4          # crossfade between cards
+    cards_to_product_xfade = 0.6
+    n_cards = len(cards)
+
+    # 1. Each card as a silent still-MP4 (video-only, no audio track).
     card_clips: list[Path] = []
     for i, card_png in enumerate(cards):
         clip = ASSET_DIR / f"card_{i}.mp4"
-        still_to_mp4(card_png, 2.5, clip)
-        # Attach sinister music (separate mux for each to avoid long filter graph)
-        clip_w_audio = ASSET_DIR / f"card_{i}_audio.mp4"
-        cmd = ["ffmpeg", "-y", "-i", str(clip), "-i", str(sinister),
-               "-c:v", "copy", "-c:a", "aac", "-b:a", "128k", "-ar", "44100",
-               "-filter_complex", f"[1:a]volume=0.7,atrim=duration=2.5,afade=t=in:d=0.3[a]",
-               "-map", "0:v", "-map", "[a]", "-t", "2.5",
-               "-movflags", "+faststart", str(clip_w_audio)]
-        r = subprocess.run(cmd, capture_output=True, text=True)
-        if r.returncode != 0:
-            print(r.stderr[-1500:])
-            raise RuntimeError("card audio mux failed")
-        card_clips.append(clip_w_audio)
+        still_to_mp4(card_png, card_dur, clip)
+        card_clips.append(clip)
 
-    # Slice the plan-reveal portion of the product video for the research
-    # demo — the viewer has just seen the intro + findings, and now we show
-    # what "the prompt" was influencing.
+    # 2. Chain-xfade all card clips into one continuous silent video.
+    cards_video = ASSET_DIR / "cards_video.mp4"
+    filter_parts = []
+    cards_total = card_dur
+    prev = "[0:v]"
+    for i in range(1, n_cards):
+        offset = cards_total - card_xfade
+        out_label = f"[x{i}]"
+        filter_parts.append(
+            f"{prev}[{i}:v]xfade=transition=fade:duration={card_xfade}:"
+            f"offset={offset:.3f}{out_label}"
+        )
+        prev = out_label
+        cards_total += card_dur - card_xfade
+    inputs = []
+    for c in card_clips:
+        inputs += ["-i", str(c)]
+    cmd = ["ffmpeg", "-y", *inputs,
+           "-filter_complex", ";".join(filter_parts),
+           "-map", prev, "-c:v", "libx264", "-profile:v", "baseline",
+           "-level", "3.1", "-preset", "slow", "-crf", "20",
+           "-pix_fmt", "yuv420p", "-r", str(FPS),
+           "-an", "-movflags", "+faststart", str(cards_video)]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(r.stderr[-2000:])
+        raise RuntimeError("card xfade assembly failed")
+
+    # 3. Slice the plan-reveal portion of the product video. Longer this time
+    # since the user asked for more product time in the research video.
     product_slice = ASSET_DIR / "product_slice.mp4"
-    # Product video is ~32s, with the plan section occupying the last ~15s
-    # (see segments print). Grab from ~17s to end.
     probe = subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration",
          "-of", "default=noprint_wrappers=1:nokey=1", str(product_out)],
         check=True, capture_output=True, text=True,
     )
     product_dur = float(probe.stdout.strip())
-    plan_slice_duration = min(15.0, product_dur - 17.0)
+    plan_slice_duration = min(30.0, product_dur - 17.0)
     slice_mp4(product_out, start=max(0.0, product_dur - plan_slice_duration),
               duration=plan_slice_duration, out=product_slice)
 
+    # 4. Continuous sinister-to-happy audio track across the whole research
+    # video (no hard cuts at card boundaries).
+    total_research_dur = cards_total + plan_slice_duration - cards_to_product_xfade
+    sr = 44100
+    sinister_long = ASSET_DIR / "music_sinister_long.wav"
+    make_sinister_music(cards_total + 0.5, sinister_long)
+    happy_long = ASSET_DIR / "music_happy_long.wav"
+    make_happy_music(plan_slice_duration + 1.0, happy_long)
+    music_mix = ASSET_DIR / "music_mix.wav"
+    cmd = [
+        "ffmpeg", "-y",
+        "-i", str(sinister_long), "-i", str(happy_long),
+        "-filter_complex",
+        # Sinister plays full length of cards + xfade; happy starts under the
+        # handoff, running through the rest. acrossfade stitches them smooth.
+        f"[0:a]volume=0.55[s];"
+        f"[1:a]volume=0.55[h];"
+        f"[s][h]acrossfade=d={cards_to_product_xfade}:c1=tri:c2=tri[m];"
+        f"[m]afade=t=in:d=0.6,afade=t=out:st={total_research_dur - 0.8:.3f}:d=0.8[out]",
+        "-map", "[out]", "-t", f"{total_research_dur:.3f}",
+        str(music_mix),
+    ]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(r.stderr[-2000:])
+        raise RuntimeError("audio crossfade failed")
+
+    # 5. xfade the cards video and product video, mux the continuous audio.
     research_out = REPO_ROOT / "research" / "finadvisor-demo.mp4"
-    concat_mp4s(card_clips + [product_slice], research_out)
+    # Video xfade offset = cards_total - cards_to_product_xfade (so product
+    # starts appearing during the handoff)
+    offset = cards_total - cards_to_product_xfade
+    cmd = [
+        "ffmpeg", "-y",
+        "-i", str(cards_video), "-i", str(product_slice), "-i", str(music_mix),
+        "-filter_complex",
+        f"[0:v][1:v]xfade=transition=fade:duration={cards_to_product_xfade}:"
+        f"offset={offset:.3f}[v]",
+        "-map", "[v]", "-map", "2:a",
+        "-c:v", "libx264", "-profile:v", "baseline", "-level", "3.1",
+        "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p", "-r", str(FPS),
+        "-c:a", "aac", "-b:a", "128k", "-ar", "44100",
+        "-t", f"{total_research_dur:.3f}",
+        "-movflags", "+faststart",
+        str(research_out),
+    ]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(r.stderr[-2000:])
+        raise RuntimeError("research assembly failed")
     print(f"  → {research_out} ({research_out.stat().st_size // 1024}KB)")
 
     print("\n" + "=" * 56)
