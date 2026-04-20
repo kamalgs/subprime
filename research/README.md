@@ -24,7 +24,7 @@ research/
 ├── scripts/
 │   ├── make_demo.py        — Playwright + FFmpeg demo video pipeline
 │   └── analysis/           — Statistical analysis scripts
-└── finadvisor-demo-research.mp4   — Research demo video
+└── finadvisor-demo.mp4   — Research demo video
 ```
 
 ## Results at a glance
@@ -40,8 +40,7 @@ research/
 Dose-response (7 conditions): APS scales monotonically from 0.168 → 0.783. The prompt is the bias.
 
 <video controls width="390">
-  <source src="finadvisor-demo-research.webm" type="video/webm">
-  <source src="finadvisor-demo-research.mp4" type="video/mp4">
+  <source src="finadvisor-demo.mp4" type="video/mp4">
 </video>
 
 → [Full reports](results/) · [Run data](results/runs/) · [subprime-infra](https://github.com/kamalgs/subprime-infra) for orchestration

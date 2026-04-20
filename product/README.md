@@ -3,8 +3,7 @@
 > Powered by Subprime research. Built for Indian mutual fund planning.
 
 <video controls width="390">
-  <source src="finadvisor-demo-product.webm" type="video/webm">
-  <source src="finadvisor-demo-product.mp4" type="video/mp4">
+  <source src="finadvisor-demo.mp4" type="video/mp4">
 </video>
 
 ## Quick Start
