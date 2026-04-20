@@ -2,19 +2,19 @@
 """
 Demo video production for Subprime / Benji (React SPA).
 
-Produces two MP4s, both H.264 baseline / yuv420p / AAC — plays on every
-OS and mobile browser without an HTML5 <source> fallback:
+Uses Playwright's native video recording (real animation timing, smooth
+scrolling, natural pacing) instead of frame-by-frame screenshots.
 
-  product/finadvisor-demo.mp4   — full product flow, mobile viewport, ~25s
-  research/finadvisor-demo.mp4  — 4 research stat cards (~10s) prepended to
-                                   a truncated product clip (~12s), ~22s
+Outputs two MP4s, both H.264 baseline / yuv420p / AAC:
+
+  product/finadvisor-demo.mp4   — full product flow, mobile viewport,
+                                   scrolls through profile/strategy/plan
+  research/finadvisor-demo.mp4  — 4 stat cards (~10s) then a 15s slice
+                                   of the product video
 
 Run:
-    make frontend                               # build the SPA (dist/ must exist)
     uv run uvicorn "apps.web.main:create_app" --factory --host 0.0.0.0 --port 8000 &
-    uv run python research/scripts/make_demo.py
-
-Requires ffmpeg on PATH, plus playwright, numpy, pillow, scipy.
+    SUBPRIME_DEMO_URL=http://localhost:8000 uv run python research/scripts/make_demo.py
 """
 from __future__ import annotations
 
@@ -35,28 +35,29 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 ASSET_DIR = Path(__file__).resolve().parent / "demo_assets"
 ASSET_DIR.mkdir(exist_ok=True)
 
-W, H = 390, 844                 # iPhone 14 Pro viewport
-FPS = 24
+W, H = 390, 844
+FPS = 30
 FONT_BOLD = "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"
-FONT_REG  = "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"
+FONT_REG = "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"
+
+INTRO_CARDS = [
+    {"headline": "AI financial\nadvisors",
+     "sub": "LLMs are starting to recommend\nreal investment plans.\nCan you trust the advice?"},
+    {"headline": "Hidden\nincentives",
+     "sub": "In India, distributors earn\ntrail commissions — higher on\nactive funds, zero on index.\nThe prompt is a text field."},
+    {"headline": "The experiment",
+     "sub": "Same persona, same question.\nInject Lynch or Bogle philosophy\ninto the system prompt.\nScore Active-Passive (APS) vs Quality (PQS)."},
+]
 
 STAT_CARDS = [
-    {
-        "headline": "5 models\n1,974 plans",
-        "sub": "Claude · DeepSeek · GLM · Haiku · Llama",
-    },
-    {
-        "headline": "APS shift\n+0.07 → +0.24",
-        "sub": "Hidden prompt moves the advice.\nQuality score barely budges.",
-    },
-    {
-        "headline": "Cohen's d = 1.18",
-        "sub": "Large effect size\nPQS spread < 0.03",
-    },
-    {
-        "headline": "Dose-response\n0.168 → 0.783",
-        "sub": "Monotonic in prompt intensity.\nThe prompt is the bias.",
-    },
+    {"headline": "5 models\n1,974 plans",
+     "sub": "Claude · DeepSeek · GLM · Haiku · Llama"},
+    {"headline": "APS shift\n+0.07 → +0.24",
+     "sub": "Hidden prompt moves the advice.\nQuality score barely budges."},
+    {"headline": "Cohen's d = 1.18",
+     "sub": "Large effect size\nPQS spread < 0.03"},
+    {"headline": "Dose-response\n0.168 → 0.783",
+     "sub": "Monotonic in prompt intensity.\nThe prompt is the bias."},
 ]
 
 
@@ -128,7 +129,7 @@ def make_sinister_music(duration: float, path: Path, sr: int = 44100) -> None:
 
 # ── Stat cards ─────────────────────────────────────────────────────────────────
 
-def make_stat_card(card: dict, path: Path) -> None:
+def make_stat_card(card: dict, path: Path, label: str = "SUBPRIME · RESEARCH") -> None:
     img = Image.new("RGB", (W, H), color=(15, 15, 25))
     draw = ImageDraw.Draw(img)
     accent = (220, 50, 50)
@@ -137,12 +138,11 @@ def make_stat_card(card: dict, path: Path) -> None:
 
     try:
         font_big = ImageFont.truetype(FONT_BOLD, 44)
-        font_sub = ImageFont.truetype(FONT_REG, 22)
         font_label = ImageFont.truetype(FONT_REG, 14)
     except Exception:
-        font_big = font_sub = font_label = ImageFont.load_default()
+        font_big = ImageFont.load_default(); font_label = font_big
 
-    draw.text((W // 2, H // 2 - 150), "SUBPRIME · RESEARCH",
+    draw.text((W // 2, H // 2 - 150), label,
               font=font_label, fill=(180, 60, 60), anchor="mm")
     draw.line([(W // 2 - 90, H // 2 - 120), (W // 2 + 90, H // 2 - 120)],
               fill=(80, 80, 100), width=1)
@@ -164,169 +164,252 @@ def make_stat_card(card: dict, path: Path) -> None:
     img.save(str(path))
 
 
-# ── Playwright capture ─────────────────────────────────────────────────────────
-
-class AppRecorder:
-    def __init__(self, page: Page):
-        self.page = page
-        self.frames: list[Path] = []
-        self._idx = 0
-
-    def _snap(self, tag: str) -> Path:
-        p = ASSET_DIR / f"frame_{self._idx:04d}_{tag}.png"
-        self.page.screenshot(path=str(p), full_page=False)
-        self.frames.append(p); self._idx += 1
-        return p
-
-    def _hold(self, seconds: float, tag: str = "hold"):
-        n = max(1, int(seconds * FPS))
-        last = self.frames[-1]
-        for i in range(n):
-            p = ASSET_DIR / f"frame_{self._idx:04d}_{tag}_{i}.png"
-            shutil.copy(last, p)
-            self.frames.append(p); self._idx += 1
-
-    def _dismiss_sebi(self):
-        """Dismiss the SEBI modal if it pops up — cookie approach is fragile
-        across subdomains, so we just click the button when visible."""
-        try:
-            self.page.wait_for_selector("text=I understand", timeout=5_000)
-            self.page.click("text=I understand")
-            self.page.wait_for_selector("text=I understand",
-                                        state="detached", timeout=3_000)
-        except Exception:
-            pass  # modal already dismissed or not shown
-
-    def capture(self) -> list[Path]:
-        p = self.page
-
-        # Step 1 — landing (tier choice)
-        print("  [capture] step 1: landing")
-        p.goto(BASE_URL, wait_until="networkidle")
-        self._dismiss_sebi()
-        p.wait_for_selector("text=Choose your plan", timeout=10_000)
-        self._snap("step1"); self._hold(1.3, "step1")
-
-        # "Start free plan" is the basic-tier CTA
-        p.click("text=Start free plan")
-        p.wait_for_selector("text=Your investor profile", timeout=10_000)
-        self._snap("step2_enter"); self._hold(0.5, "step2a")
-
-        # Step 2 — persona archetype (Basic tier shows 3 cards)
-        print("  [capture] step 2: persona archetype")
-        p.wait_for_selector("text=Mid career", timeout=5_000)
-        self._snap("step2_personas"); self._hold(1.1, "step2b")
-
-        persona = p.locator("button", has_text="Mid career").first
-        persona.scroll_into_view_if_needed()
-        self._snap("step2_focus"); self._hold(0.5, "step2c")
-        persona.click()
-        time.sleep(0.3)
-
-        # Archetype pre-fills everything except the name — provide one.
-        name_input = p.locator("input[placeholder*='Ravi']").first
-        name_input.fill("Ananya Shetty")
-        self._snap("step2_filled"); self._hold(0.9, "step2d")
-
-        # Submit the profile form — navigates to step 3 (strategy).
-        p.click("text=Build my plan")
-        p.wait_for_url("**/step/3", timeout=15_000)
-        p.wait_for_load_state("networkidle")
-
-        # Step 3 — strategy review + "Generate plan" CTA
-        print("  [capture] step 3: strategy")
-        self._snap("step3_loading"); self._hold(0.7, "step3a")
-        # Strategy API is slow on cold path (Together AI); give it plenty.
-        p.wait_for_selector("button:has-text('Generate my plan')", timeout=180_000)
-        time.sleep(0.4)
-        self._snap("step3_strategy"); self._hold(1.5, "step3b")
-        p.click("button:has-text('Generate my plan')")
-
-        # Step 4 — plan loading then plan view
-        print("  [capture] step 4: plan (may be slow)")
-        # Capture the loading state briefly
-        time.sleep(1.0)
-        self._snap("step4_loading"); self._hold(1.0, "step4a")
-
-        # Allocations section appears when the plan has loaded. The React
-        # route is /step/4; wait for the section header.
-        p.wait_for_url("**/step/4", timeout=240_000)
-        p.wait_for_selector("text=Allocation", timeout=240_000)
-        time.sleep(0.6)
-        self._snap("step4_top"); self._hold(2.0, "step4b")
-        p.evaluate("window.scrollBy(0, 400)")
-        time.sleep(0.3)
-        self._snap("step4_mid"); self._hold(1.8, "step4c")
-        p.evaluate("window.scrollBy(0, 400)")
-        time.sleep(0.3)
-        self._snap("step4_lower"); self._hold(2.4, "step4d")
-
-        return self.frames[:]
-
-
-# ── Video assembly ─────────────────────────────────────────────────────────────
-
-def frames_to_video(frames: list[Path], output: Path, music: Path) -> None:
-    if not frames:
-        raise ValueError("no frames")
-    listf = ASSET_DIR / f"list_{output.stem}.txt"
-    with open(listf, "w") as f:
-        for fr in frames:
-            f.write(f"file '{fr.resolve()}'\n")
-            f.write(f"duration {1.0 / FPS:.6f}\n")
-        f.write(f"file '{frames[-1].resolve()}'\n")
-    total = len(frames) / FPS
-
-    # H.264 baseline profile + yuv420p + faststart = universal playback
+def still_to_mp4(png: Path, seconds: float, out: Path) -> None:
+    """Turn a still PNG into an MP4 clip for concat-demuxer assembly."""
     cmd = [
-        "ffmpeg", "-y",
-        "-f", "concat", "-safe", "0", "-i", str(listf),
-        "-i", str(music),
-        "-vf", f"scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H},format=yuv420p",
-        "-c:v", "libx264",
-        "-profile:v", "baseline", "-level", "3.1",
-        "-preset", "slow", "-crf", "20",
-        "-pix_fmt", "yuv420p",
-        "-c:a", "aac", "-b:a", "128k", "-ar", "44100",
-        "-af", f"afade=t=out:st={max(0.1, total - 1):.2f}:d=1",
-        "-t", str(total),
-        "-movflags", "+faststart",
-        str(output),
+        "ffmpeg", "-y", "-loop", "1", "-i", str(png),
+        "-t", f"{seconds:.2f}", "-r", str(FPS),
+        "-vf", f"scale={W}:{H}:force_original_aspect_ratio=decrease,"
+               f"pad={W}:{H},format=yuv420p",
+        "-c:v", "libx264", "-profile:v", "baseline", "-level", "3.1",
+        "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p",
+        "-an", str(out),
     ]
-    print(f"  [ffmpeg] {output.name} ({total:.1f}s, {len(frames)} frames)")
+    subprocess.run(cmd, check=True, capture_output=True)
+
+
+# ── Playwright video capture ───────────────────────────────────────────────────
+
+def _slow_scroll(p: Page, total_px: int, step_px: int = 40, per_step_ms: int = 40):
+    """Smooth scroll so the recording captures a natural pan instead of a jump."""
+    dispatched = 0
+    while dispatched < total_px:
+        delta = min(step_px, total_px - dispatched)
+        p.mouse.wheel(0, delta)
+        p.wait_for_timeout(per_step_ms)
+        dispatched += delta
+
+
+def capture_product_video(out_webm: Path) -> list[tuple[float, float]]:
+    """Record the full product flow with native Playwright video.
+
+    Returns a list of (start_s, end_s) pairs that mark the interesting
+    segments of the recording — the parts where something is visibly
+    happening. The long waits for strategy/plan API calls get spliced out
+    later so the final demo stays tight.
+    """
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch(headless=True)
+        ctx = browser.new_context(
+            viewport={"width": W, "height": H},
+            device_scale_factor=2,
+            is_mobile=True, has_touch=True,
+            user_agent=("Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) "
+                        "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 "
+                        "Mobile/15E148 Safari/604.1"),
+            record_video_dir=str(ASSET_DIR),
+            record_video_size={"width": W, "height": H},
+        )
+        p = ctx.new_page()
+
+        # Track (start, end) segments of the video we want to keep.
+        t0 = time.monotonic()
+        segments: list[tuple[float, float]] = []
+
+        def mark_start() -> float:
+            return time.monotonic() - t0
+
+        def mark_end(start: float) -> None:
+            segments.append((start, time.monotonic() - t0))
+
+        # ── Step 1: landing ────────────────────────────────────────
+        print("  step 1: landing")
+        p.goto(BASE_URL, wait_until="networkidle")
+        # Dismiss SEBI modal (shows on first visit)
+        try:
+            p.wait_for_selector("text=I understand", timeout=5_000)
+            p.click("text=I understand")
+        except Exception:
+            pass
+        p.wait_for_selector("text=Choose your plan", timeout=10_000)
+        seg_start = mark_start()
+        p.wait_for_timeout(1_800)
+        p.click("text=Start free plan")
+        mark_end(seg_start)
+
+        # ── Step 2: profile — scroll through, then fill + submit ───
+        print("  step 2: profile")
+        p.wait_for_selector("text=Your investor profile", timeout=10_000)
+        seg_start = mark_start()
+        p.wait_for_timeout(1_000)
+        # Select Mid career archetype so the form is pre-filled
+        p.locator("button", has_text="Mid career").first.scroll_into_view_if_needed()
+        p.wait_for_timeout(600)
+        p.locator("button", has_text="Mid career").first.click()
+        p.wait_for_timeout(600)
+
+        # Fill the required name field
+        p.locator("input[placeholder*='Ravi']").first.fill("Ananya Shetty")
+        p.wait_for_timeout(400)
+
+        # Scroll through the profile sections so viewer sees what was pre-filled
+        p.evaluate("window.scrollTo(0, 0)")
+        p.wait_for_timeout(500)
+        _slow_scroll(p, total_px=1200, step_px=30, per_step_ms=35)
+        p.wait_for_timeout(800)
+
+        # Scroll to the submit button, click
+        p.locator("button", has_text="Build my plan").first.scroll_into_view_if_needed()
+        p.wait_for_timeout(600)
+        p.click("text=Build my plan")
+        mark_end(seg_start)
+
+        # ── Step 3: strategy — scroll through it ────────────────────
+        print("  step 3: strategy (may be slow — Together cold start)")
+        p.wait_for_url("**/step/3", timeout=15_000)
+        # Strategy API can take 30-120s on cold path — don't record that.
+        p.wait_for_selector("button:has-text('Generate my plan')", timeout=180_000)
+        seg_start = mark_start()
+        p.evaluate("window.scrollTo(0, 0)")
+        p.wait_for_timeout(1_200)
+        # Slow pan down through asset allocation + equity approach + themes
+        _slow_scroll(p, total_px=1400, step_px=28, per_step_ms=40)
+        p.wait_for_timeout(1_000)
+        p.locator("button", has_text="Generate my plan").first.scroll_into_view_if_needed()
+        p.wait_for_timeout(500)
+        p.click("button:has-text('Generate my plan')")
+        mark_end(seg_start)
+
+        # ── Step 4: plan — dismiss reveal modal, scroll through plan ───
+        print("  step 4: plan (may be slow)")
+        p.wait_for_url("**/step/4", timeout=240_000)
+        # Plan generation is slow — only start marking when the reveal modal
+        # appears (means the plan is ready).
+        p.wait_for_selector("text=I understand — show my plan", timeout=240_000)
+        seg_start = mark_start()
+        p.wait_for_timeout(1_400)   # let viewer see the modal
+        p.click("text=I understand — show my plan")
+        p.wait_for_timeout(1_500)   # confetti / blur fade
+
+        # Scroll from top through the full plan: allocations → setup →
+        # checkpoints → rebalancing → projections → rationale → risks.
+        p.evaluate("window.scrollTo(0, 0)")
+        p.wait_for_timeout(800)
+        _slow_scroll(p, total_px=3000, step_px=22, per_step_ms=50)
+        p.wait_for_timeout(1_500)
+        mark_end(seg_start)
+
+        ctx.close()
+        browser.close()
+
+    # Playwright writes video as <random>.webm in record_video_dir.
+    webms = sorted(ASSET_DIR.glob("*.webm"), key=lambda f: f.stat().st_mtime)
+    if not webms:
+        raise RuntimeError("Playwright did not produce a video")
+    webms[-1].rename(out_webm)
+    for w in webms[:-1]:
+        w.unlink(missing_ok=True)
+
+    print(f"  segments ({len(segments)}): "
+          + ", ".join(f"[{s:.1f}-{e:.1f}]" for s, e in segments))
+    return segments
+
+
+# ── Encoding ───────────────────────────────────────────────────────────────────
+
+def encode_mp4_from_segments(src_webm: Path, segments: list[tuple[float, float]],
+                              out_mp4: Path, music: Path | None = None,
+                              fade_out: float = 0.8) -> None:
+    """Cut the source webm into the given segments, concat, transcode to MP4.
+
+    Each segment is one user-visible flow step; the long API waits between
+    them are dropped. Result is re-encoded to H.264 baseline / yuv420p.
+    """
+    # Build a filter_complex that selects + trims + concats each segment.
+    vparts = []
+    aparts = []
+    for i, (s, e) in enumerate(segments):
+        vparts.append(
+            f"[0:v]trim=start={s:.3f}:end={e:.3f},setpts=PTS-STARTPTS,"
+            f"scale={W}:{H}:force_original_aspect_ratio=decrease,"
+            f"pad={W}:{H},format=yuv420p[v{i}]"
+        )
+        aparts.append(
+            f"[0:a]atrim=start={s:.3f}:end={e:.3f},asetpts=PTS-STARTPTS[a{i}]"
+            if music is None else ""  # we'll mux music separately
+        )
+    vconcat_inputs = "".join(f"[v{i}]" for i in range(len(segments)))
+    filter_complex = ";".join(vparts) + f";{vconcat_inputs}concat=n={len(segments)}:v=1:a=0[vout]"
+
+    total = sum(e - s for s, e in segments)
+
+    cmd = ["ffmpeg", "-y", "-i", str(src_webm)]
+    if music is not None:
+        cmd += ["-i", str(music)]
+
+    # Add music mix to filter
+    if music is not None:
+        filter_complex += (
+            f";[1:a]volume=0.5,afade=t=out:st={max(0.1, total - fade_out):.2f}:"
+            f"d={fade_out},atrim=duration={total:.3f}[aout]"
+        )
+        map_audio = ["-map", "[aout]"]
+    else:
+        map_audio = ["-an"]
+
+    cmd += [
+        "-filter_complex", filter_complex,
+        "-map", "[vout]", *map_audio,
+        "-c:v", "libx264", "-profile:v", "baseline", "-level", "3.1",
+        "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p", "-r", str(FPS),
+    ]
+    if music is not None:
+        cmd += ["-c:a", "aac", "-b:a", "128k", "-ar", "44100"]
+    cmd += ["-movflags", "+faststart", str(out_mp4)]
+
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(r.stderr[-2500:])
+        raise RuntimeError("ffmpeg segment assembly failed")
+
+
+def concat_mp4s(inputs: list[Path], out: Path) -> None:
+    lst = ASSET_DIR / f"concat_{out.stem}.txt"
+    with open(lst, "w") as f:
+        for i in inputs:
+            f.write(f"file '{i.resolve()}'\n")
+    cmd = ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(lst),
+           "-c", "copy", "-movflags", "+faststart", str(out)]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        # Fall back to re-encode if codec copy fails (mismatched params)
+        cmd = ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(lst),
+               "-vf", f"scale={W}:{H}:force_original_aspect_ratio=decrease,"
+                      f"pad={W}:{H},format=yuv420p,fps={FPS}",
+               "-c:v", "libx264", "-profile:v", "baseline", "-level", "3.1",
+               "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p",
+               "-c:a", "aac", "-b:a", "128k", "-ar", "44100",
+               "-movflags", "+faststart", str(out)]
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        if r.returncode != 0:
+            print(r.stderr[-2000:])
+            raise RuntimeError("ffmpeg concat failed")
+
+
+def slice_mp4(src: Path, start: float, duration: float, out: Path) -> None:
+    """Cut a sub-clip; re-encoded so concat with other encoded clips works."""
+    cmd = ["ffmpeg", "-y", "-ss", f"{start:.3f}", "-i", str(src),
+           "-t", f"{duration:.3f}",
+           "-vf", f"scale={W}:{H}:force_original_aspect_ratio=decrease,"
+                  f"pad={W}:{H},format=yuv420p,fps={FPS}",
+           "-c:v", "libx264", "-profile:v", "baseline", "-level", "3.1",
+           "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p",
+           "-c:a", "aac", "-b:a", "128k", "-ar", "44100",
+           "-movflags", "+faststart", str(out)]
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode != 0:
         print(r.stderr[-2000:])
-        raise RuntimeError(f"ffmpeg exit {r.returncode}")
-    print(f"  [done] {output}  {output.stat().st_size // 1024}KB")
-
-
-def blend(a: Path, b: Path, alpha: float) -> Image.Image:
-    ia = Image.open(a).convert("RGB")
-    ib = Image.open(b).convert("RGB").resize(ia.size, Image.LANCZOS)
-    return Image.blend(ia, ib, alpha)
-
-
-def insert_xfade(frames: list[Path], idx: int, n: int = 8) -> list[Path]:
-    if idx <= 0 or idx >= len(frames):
-        return frames
-    out = frames[:idx]
-    for i in range(n):
-        p = ASSET_DIR / f"xf_{idx:04d}_{i:02d}.png"
-        blend(frames[idx - 1], frames[idx], (i + 1) / (n + 1)).save(str(p))
-        out.append(p)
-    out.extend(frames[idx:])
-    return out
-
-
-def card_frames(card_png: Path, seconds: float) -> list[Path]:
-    n = int(seconds * FPS)
-    out: list[Path] = []
-    for i in range(n):
-        p = ASSET_DIR / f"card_{card_png.stem}_{i:04d}.png"
-        shutil.copy(card_png, p)
-        out.append(p)
-    return out
+        raise RuntimeError("ffmpeg slice failed")
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────
@@ -334,108 +417,75 @@ def card_frames(card_png: Path, seconds: float) -> list[Path]:
 def main():
     print("=== Subprime Demo Production ===\n")
 
-    print("[1/4] music tracks")
+    print("[1/5] music tracks")
     happy = ASSET_DIR / "music_happy.wav"
     sinister = ASSET_DIR / "music_sinister.wav"
-    make_happy_music(40, happy)
-    make_sinister_music(14, sinister)
+    make_happy_music(60, happy)
+    make_sinister_music(20, sinister)
 
-    print("[2/4] stat cards")
-    cards: list[Path] = []
+    print("[2/5] intro + stat cards")
+    intro_cards: list[Path] = []
+    for i, c in enumerate(INTRO_CARDS):
+        p = ASSET_DIR / f"intro_{i}.png"
+        make_stat_card(c, p, label="SUBPRIME · INTRO")
+        intro_cards.append(p)
+    stat_cards: list[Path] = []
     for i, c in enumerate(STAT_CARDS):
-        p = ASSET_DIR / f"card_{i}.png"
-        make_stat_card(c, p)
-        cards.append(p)
+        p = ASSET_DIR / f"stat_{i}.png"
+        make_stat_card(c, p, label="SUBPRIME · RESULTS")
+        stat_cards.append(p)
+    cards = intro_cards + stat_cards
 
-    print("[3/4] playwright capture (mobile viewport)")
-    recorder = AppRecorder.__new__(AppRecorder)
-    recorder.frames = []; recorder._idx = 0
-    with sync_playwright() as pw:
-        browser = pw.chromium.launch(headless=True)
-        ctx = browser.new_context(
-            viewport={"width": W, "height": H},
-            device_scale_factor=2,
-            user_agent=("Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) "
-                        "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 "
-                        "Mobile/15E148 Safari/604.1"),
-            is_mobile=True, has_touch=True,
-        )
-        recorder.page = ctx.new_page()
-        product_frames = recorder.capture()
-        browser.close()
-    print(f"  [captured] {len(product_frames)} frames "
-          f"({len(product_frames) / FPS:.1f}s)")
+    print("[3/5] capture product video")
+    raw_webm = ASSET_DIR / "product_raw.webm"
+    raw_webm.unlink(missing_ok=True)
+    segments = capture_product_video(raw_webm)
+    if not segments:
+        raise RuntimeError("no segments captured")
 
-    print("[4/4] assemble videos")
-
-    # ── Video 1: product only ──────────────────────────────────────────────
-    pframes = product_frames[:]
-    # Mild crossfade at major transitions to smooth the cut
-    fade_tags = ("step2_enter", "step3_strategy", "step4_top")
-    offset = 0
-    for i in range(1, len(pframes)):
-        if any(tag in pframes[i].name for tag in fade_tags):
-            pframes = insert_xfade(pframes, i + offset, n=6)
-            offset += 6
-
+    print("[4/5] encode product MP4 (spliced to visible segments)")
     product_out = REPO_ROOT / "product" / "finadvisor-demo.mp4"
-    frames_to_video(pframes, product_out, happy)
+    encode_mp4_from_segments(raw_webm, segments, product_out, music=happy)
+    print(f"  → {product_out} ({product_out.stat().st_size // 1024}KB)")
 
-    # ── Video 2: research cards (~10s) + truncated product clip (~12s) ─────
-    r_frames: list[Path] = []
-    for card in cards:
-        r_frames.extend(card_frames(card, 2.5))
-        # crossfade into the next card
-        r_frames = insert_xfade(r_frames, len(r_frames), n=6) \
-            if len(r_frames) > 0 else r_frames
+    print("[5/5] build research MP4 (cards + truncated product)")
+    # Each card as a 2.5s clip
+    card_clips: list[Path] = []
+    for i, card_png in enumerate(cards):
+        clip = ASSET_DIR / f"card_{i}.mp4"
+        still_to_mp4(card_png, 2.5, clip)
+        # Attach sinister music (separate mux for each to avoid long filter graph)
+        clip_w_audio = ASSET_DIR / f"card_{i}_audio.mp4"
+        cmd = ["ffmpeg", "-y", "-i", str(clip), "-i", str(sinister),
+               "-c:v", "copy", "-c:a", "aac", "-b:a", "128k", "-ar", "44100",
+               "-filter_complex", f"[1:a]volume=0.7,atrim=duration=2.5,afade=t=in:d=0.3[a]",
+               "-map", "0:v", "-map", "[a]", "-t", "2.5",
+               "-movflags", "+faststart", str(clip_w_audio)]
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        if r.returncode != 0:
+            print(r.stderr[-1500:])
+            raise RuntimeError("card audio mux failed")
+        card_clips.append(clip_w_audio)
 
-    # Pick an evocative slice of the product flow — first ~12s after step2
-    # (persona selected) through the first plan view. Helps viewers see
-    # *what* "the prompt" was influencing.
-    product_slice_start = 0
-    for i, f in enumerate(product_frames):
-        if "step2_personas" in f.name:
-            product_slice_start = i; break
-    product_slice = product_frames[product_slice_start:
-                                   product_slice_start + int(12 * FPS)]
-    r_frames.extend(product_slice)
-
-    # Mixed music: sinister while cards play, happy during the product clip.
-    from scipy.ndimage import uniform_filter1d
-    total = len(r_frames)
-    sin_mask = np.zeros(total); hap_mask = np.zeros(total)
-    card_end = int(4 * 2.5 * FPS)   # 4 cards × 2.5s
-    sin_mask[:card_end] = 1.0
-    hap_mask[card_end:] = 1.0
-    sin_mask = uniform_filter1d(sin_mask, size=12)
-    hap_mask = uniform_filter1d(hap_mask, size=12)
-
-    def load_wav(p: Path) -> np.ndarray:
-        with wave.open(str(p), "r") as f:
-            return (np.frombuffer(f.readframes(f.getnframes()), dtype=np.int16)
-                    .astype(np.float32) / 32767.0)
-
-    sr = 44100
-    duration = total / FPS
-    audio_len = int(duration * sr)
-    xs = np.linspace(0, 1, total); xa = np.linspace(0, 1, audio_len)
-    sma = np.interp(xa, xs, sin_mask); hma = np.interp(xa, xs, hap_mask)
-
-    sa = load_wav(sinister); ha = load_wav(happy)
-    # Tile / truncate to audio_len
-    sa = np.tile(sa, math.ceil(audio_len / len(sa)))[:audio_len]
-    ha = np.tile(ha, math.ceil(audio_len / len(ha)))[:audio_len]
-    mixed = sa * sma * 0.75 + ha * hma * 0.80
-    mx = np.max(np.abs(mixed))
-    if mx > 0: mixed /= mx * 1.1
-    fade_s = int(sr * 0.5)
-    mixed[:fade_s] *= np.linspace(0, 1, fade_s)
-    mixed[-fade_s:] *= np.linspace(1, 0, fade_s)
-    mixed_wav = ASSET_DIR / "music_mixed.wav"
-    _write_wav(mixed_wav, mixed, sr)
+    # Slice the plan-reveal portion of the product video for the research
+    # demo — the viewer has just seen the intro + findings, and now we show
+    # what "the prompt" was influencing.
+    product_slice = ASSET_DIR / "product_slice.mp4"
+    # Product video is ~32s, with the plan section occupying the last ~15s
+    # (see segments print). Grab from ~17s to end.
+    probe = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=noprint_wrappers=1:nokey=1", str(product_out)],
+        check=True, capture_output=True, text=True,
+    )
+    product_dur = float(probe.stdout.strip())
+    plan_slice_duration = min(15.0, product_dur - 17.0)
+    slice_mp4(product_out, start=max(0.0, product_dur - plan_slice_duration),
+              duration=plan_slice_duration, out=product_slice)
 
     research_out = REPO_ROOT / "research" / "finadvisor-demo.mp4"
-    frames_to_video(r_frames, research_out, mixed_wav)
+    concat_mp4s(card_clips + [product_slice], research_out)
+    print(f"  → {research_out} ({research_out.stat().st_size // 1024}KB)")
 
     print("\n" + "=" * 56)
     print(f"  product  → {product_out}")
