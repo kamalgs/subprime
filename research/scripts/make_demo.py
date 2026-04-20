@@ -46,18 +46,25 @@ INTRO_CARDS = [
     {"headline": "Hidden\nincentives",
      "sub": "In India, distributors earn\ntrail commissions — higher on\nactive funds, zero on index.\nThe prompt is a text field."},
     {"headline": "The experiment",
-     "sub": "Same persona, same question.\nInject Lynch or Bogle philosophy\ninto the system prompt.\nScore Active-Passive (APS) vs Quality (PQS)."},
+     "sub": "Same persona, same question.\nInject a Lynch (active) or Bogle (passive)\nphilosophy into the hidden system prompt.\nMeasure how the plan shifts."},
+    {"headline": "Two scores",
+     "sub": "APS — Active-Passive Score\n0 = active, 1 = index / passive\n\nPQS — Plan Quality Score\ngoal fit, diversification, risk, taxes"},
 ]
 
 STAT_CARDS = [
     {"headline": "5 models\n1,974 plans",
      "sub": "Claude · DeepSeek · GLM · Haiku · Llama"},
     {"headline": "APS shift\n+0.07 → +0.24",
-     "sub": "Hidden prompt moves the advice.\nQuality score barely budges."},
+     "sub": "Hidden prompt moves the advice.\nPQS (quality) barely budges."},
     {"headline": "Cohen's d = 1.18",
-     "sub": "Large effect size\nPQS spread < 0.03"},
+     "sub": "Large effect size on APS.\nPQS spread < 0.03 across models."},
     {"headline": "Dose-response\n0.168 → 0.783",
-     "sub": "Monotonic in prompt intensity.\nThe prompt is the bias."},
+     "sub": "APS scales monotonically with\nprompt intensity.\nThe prompt is the bias."},
+]
+
+DEMO_CARDS = [
+    {"headline": "The demo",
+     "sub": "Here's what one of those plans\nactually looks like to a user."},
 ]
 
 
@@ -457,7 +464,12 @@ def main():
         p = ASSET_DIR / f"stat_{i}.png"
         make_stat_card(c, p, label="SUBPRIME · RESULTS")
         stat_cards.append(p)
-    cards = intro_cards + stat_cards
+    demo_cards: list[Path] = []
+    for i, c in enumerate(DEMO_CARDS):
+        p = ASSET_DIR / f"demo_{i}.png"
+        make_stat_card(c, p, label="SUBPRIME · DEMO")
+        demo_cards.append(p)
+    cards = intro_cards + stat_cards + demo_cards
 
     print("[3/5] capture product video")
     raw_webm = ASSET_DIR / "product_raw.webm"
@@ -472,9 +484,9 @@ def main():
     print(f"  → {product_out} ({product_out.stat().st_size // 1024}KB)")
 
     print("[5/5] build research MP4 (cards → product)")
-    card_dur = 2.5
-    card_xfade = 0.4          # crossfade between cards
-    cards_to_product_xfade = 0.6
+    card_dur = 4.0            # linger on each card so viewers can read
+    card_xfade = 0.6          # slower crossfade between cards
+    cards_to_product_xfade = 0.8
     n_cards = len(cards)
 
     # 1. Each card as a silent still-MP4 (video-only, no audio track).
