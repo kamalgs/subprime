@@ -14,7 +14,14 @@ from subprime.core.config import (
     is_vllm,
 )
 from subprime.core.models import InvestmentPlan, StrategyOutline
-from subprime.data.tools import get_fund_details, search_funds_universe
+from subprime.data.tools import (
+    get_fund_details,
+    list_fund_categories,
+    run_sql,
+    search_funds,
+    search_funds_bundle,
+    search_funds_universe,  # back-compat — kept for older agent/test paths
+)
 
 _PROMPTS_DIR = Path(__file__).parent / "prompts"
 
@@ -80,7 +87,17 @@ def create_advisor(
     system_prompt = "\n\n---\n\n".join(parts)
 
     settings = build_model_settings(model, cache=True)
-    tools_list = [search_funds_universe, get_fund_details]
+    # Tool set:
+    #   list_fund_categories  — orient on available categories + tax regimes
+    #   search_funds_bundle   — run SEVERAL filter+order buckets in ONE call
+    #                           (preferred — fewer agent loop iterations)
+    #   search_funds          — single-bucket variant when one query suffices
+    #   get_fund_details      — single-fund lookup by AMFI code
+    #   search_funds_universe — back-compat shim; deprecated
+    tools_list = [
+        list_fund_categories, search_funds_bundle, search_funds,
+        get_fund_details, run_sql, search_funds_universe,
+    ]
     if is_anthropic(model):
         settings["anthropic_cache_tool_definitions"] = "1h"
     elif is_vllm(model):
@@ -139,7 +156,10 @@ def create_thinking_advisor(
         build_model(model, role="advisor"),
         system_prompt=system_prompt,
         output_type=str,
-        tools=[search_funds_universe, get_fund_details],
+        tools=[
+            list_fund_categories, search_funds_bundle, search_funds,
+            get_fund_details, run_sql, search_funds_universe,
+        ],
         retries=3,
         defer_model_check=True,
         model_settings=settings,

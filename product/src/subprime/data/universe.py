@@ -536,6 +536,232 @@ def render_universe_context(
     return "\n".join(lines).rstrip() + "\n"
 
 
+def query_universe(
+    conn: duckdb.DuckDBPyConnection,
+    *,
+    categories: list[str] | None = None,
+    max_expense_ratio: float | None = None,
+    min_aum_cr: float | None = None,
+    min_returns_3y: float | None = None,
+    min_returns_5y: float | None = None,
+    max_beta: float | None = None,
+    min_alpha: float | None = None,
+    max_tracking_error: float | None = None,
+    order_by: str = "returns_5y",
+    descending: bool = True,
+    limit: int = 10,
+) -> list[MutualFund]:
+    """Flexible filter + order query against the curated fund universe.
+
+    Any combination of filters can be combined. ``order_by`` picks a column;
+    rows with NULL in that column are placed last. Used by the advisor tool
+    so the LLM can express plan-specific criteria (e.g. low-cost index-tilt,
+    high-alpha active large cap, long-track-record ELSS) instead of relying
+    on a single universal ranking.
+    """
+    allowed_order = {
+        "returns_5y", "returns_3y", "returns_1y",
+        "expense_ratio", "aum_cr",
+        "sharpe_ratio", "alpha", "beta", "tracking_error",
+        "information_ratio", "rank_in_category",
+    }
+    if order_by not in allowed_order:
+        order_by = "returns_5y"
+
+    clauses: list[str] = []
+    params: list = []
+
+    if categories:
+        placeholders = ",".join(["?"] * len(categories))
+        clauses.append(f"category IN ({placeholders})")
+        params.extend(categories)
+    if max_expense_ratio is not None:
+        clauses.append("(expense_ratio IS NULL OR expense_ratio <= ?)")
+        params.append(max_expense_ratio)
+    if min_aum_cr is not None:
+        clauses.append("aum_cr >= ?")
+        params.append(min_aum_cr)
+    if min_returns_3y is not None:
+        clauses.append("returns_3y >= ?")
+        params.append(min_returns_3y)
+    if min_returns_5y is not None:
+        clauses.append("returns_5y >= ?")
+        params.append(min_returns_5y)
+    if max_beta is not None:
+        clauses.append("(beta IS NULL OR beta <= ?)")
+        params.append(max_beta)
+    if min_alpha is not None:
+        clauses.append("alpha >= ?")
+        params.append(min_alpha)
+    if max_tracking_error is not None:
+        clauses.append("(tracking_error IS NULL OR tracking_error <= ?)")
+        params.append(max_tracking_error)
+
+    where = ("WHERE " + " AND ".join(clauses)) if clauses else ""
+    direction = "DESC" if descending else "ASC"
+    params.append(int(limit))
+
+    sql = f"""
+        SELECT amfi_code, name, COALESCE(display_name, '') AS display_name,
+               amc, category, sub_category,
+               launch_date, aum_cr,
+               returns_1y, returns_3y, returns_5y, expense_ratio,
+               volatility_1y, beta, alpha, tracking_error, sharpe_ratio, information_ratio
+        FROM fund_universe
+        {where}
+        ORDER BY {order_by} {direction} NULLS LAST
+        LIMIT ?
+    """
+    rows = conn.execute(sql, params).fetchall()
+
+    funds: list[MutualFund] = []
+    for (amfi_code, name, display_name, amc, cat, sub_cat,
+         launch_date, aum, r1, r3, r5, er,
+         vol, beta, alpha, te, sharpe, ir) in rows:
+        funds.append(
+            MutualFund(
+                amfi_code=str(amfi_code),
+                name=name or "",
+                display_name=display_name or "",
+                category=cat or "",
+                sub_category=sub_cat or "",
+                fund_house=amc or "",
+                nav=0.0,
+                inception_date=launch_date,
+                expense_ratio=er or 0.0,
+                aum_cr=aum,
+                returns_1y=r1,
+                returns_3y=r3,
+                returns_5y=r5,
+                volatility_1y=vol,
+                beta=beta,
+                alpha=alpha,
+                tracking_error=te,
+                sharpe_ratio=sharpe,
+                information_ratio=ir,
+            )
+        )
+    return funds
+
+
+def render_universe_schema(conn: duckdb.DuckDBPyConnection) -> str:
+    """Produce a compact data-dictionary for the curated universe.
+
+    Intended to replace render_universe_context() in the advisor's system
+    prompt. Describes:
+      - each category's canonical name, fund count, and tax regime
+      - the numeric columns, their units, and a min/p25/p50/p75/max spread
+        so the LLM can pick sensible filter thresholds
+
+    Roughly 40× smaller than the full universe dump. The LLM is expected to
+    use ``search_funds_bundle`` to actually fetch fund rows.
+    """
+    total_row = conn.execute("SELECT COUNT(*) FROM fund_universe").fetchone()
+    total = int(total_row[0]) if total_row else 0
+    if total == 0:
+        return (
+            "## Fund universe\n\n"
+            "(empty — run `subprime data refresh` to populate it. "
+            "Falling back to live search is not yet implemented.)\n"
+        )
+
+    lines: list[str] = [
+        "## Fund universe — data shape",
+        "",
+        f"The curated DuckDB universe has **{total}** funds across "
+        f"{len(CURATED_CATEGORIES)} categories. Use `list_fund_categories()` and "
+        f"`search_funds_bundle(...)` to query it — do not assume specific fund "
+        f"names. The metadata below helps you pick sensible filter thresholds.",
+        "",
+        "### Categories",
+        "",
+        "| Category | Funds | Tax regime |",
+        "|---|---|---|",
+    ]
+    for cat in CURATED_CATEGORIES:
+        row = conn.execute(
+            "SELECT COUNT(*) FROM fund_universe WHERE category = ?", [cat]
+        ).fetchone()
+        count = int(row[0]) if row else 0
+        if count == 0:
+            continue
+        regime = tax_regime(cat)
+        # Short tag instead of the long _TAX_LABELS text — 'equity-taxed' / '80C' / 'slab'
+        tag = {
+            "equity": "equity-taxed",
+            "equity-80c": "equity-taxed + 80C",
+            "slab": "slab-taxed",
+        }.get(regime, regime)
+        lines.append(f"| {cat} | {count} | {tag} |")
+
+    lines += [
+        "",
+        "Tax notes:",
+        "- **equity-taxed**: ≥65 % equity — LTCG 12.5 % on gains > ₹1.25 L (held >1y), STCG 20 %",
+        "- **80C**: ELSS only — ₹1.5 L deduction, 3-year lock-in, then equity-taxed",
+        "- **slab-taxed**: gains at investor's income-tax slab, no concession",
+        "",
+        "### Numeric columns and their spread",
+        "",
+        "| Column | Unit | min | p25 | median | p75 | max |",
+        "|---|---|---|---|---|---|---|",
+    ]
+
+    cols = [
+        ("returns_1y",     "%"),
+        ("returns_3y",     "%"),
+        ("returns_5y",     "%"),
+        ("expense_ratio",  "%"),
+        ("aum_cr",         "Cr"),
+        ("sharpe_ratio",   ""),
+        ("alpha",          "%"),
+        ("beta",           ""),
+        ("tracking_error", "%"),
+    ]
+    for col, unit in cols:
+        row = conn.execute(
+            f"""
+            SELECT
+                MIN({col}),
+                approx_quantile({col}, 0.25),
+                approx_quantile({col}, 0.50),
+                approx_quantile({col}, 0.75),
+                MAX({col})
+            FROM fund_universe
+            WHERE {col} IS NOT NULL
+            """
+        ).fetchone()
+        if not row or row[0] is None:
+            continue
+        mn, p25, p50, p75, mx = row
+        def _f(v: float) -> str:
+            if v is None:
+                return "-"
+            if abs(v) >= 1000:
+                return f"{v:,.0f}"
+            if abs(v) >= 10:
+                return f"{v:.1f}"
+            return f"{v:.2f}"
+        lines.append(
+            f"| {col} | {unit or '-'} | {_f(mn)} | {_f(p25)} | {_f(p50)} | {_f(p75)} | {_f(mx)} |"
+        )
+
+    lines += [
+        "",
+        "Filter guidance:",
+        "- `max_expense_ratio=0.30` → index/cheap-tilt slice (roughly bottom quartile)",
+        "- `min_aum_cr ≥ median` → stability tiebreaker",
+        "- `min_alpha > 0` + `max_tracking_error > 3` → genuinely active",
+        "- `beta ≈ 1` and `tracking_error < 2` → closet indexer",
+        "",
+        "Issue ONE `search_funds_bundle` call with named buckets for each sleeve "
+        "your plan needs (core equity / tilt / debt / gold / ELSS, etc.).",
+        "",
+    ]
+
+    return "\n".join(lines).rstrip() + "\n"
+
+
 def render_universe_context_for_strategy(
     conn: duckdb.DuckDBPyConnection,
     equity_pct: float,
