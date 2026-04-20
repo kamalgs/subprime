@@ -190,6 +190,18 @@ def _slow_scroll(p: Page, total_px: int, step_px: int = 40, per_step_ms: int = 4
         dispatched += delta
 
 
+def _scroll_with_lingers(p: Page, chunks: list[tuple[int, float]],
+                         step_px: int = 20, per_step_ms: int = 55) -> None:
+    """Scroll in chunks with a pause after each so the viewer can read.
+
+    Each tuple is (px_to_scroll, seconds_to_linger_after).
+    """
+    for px, linger in chunks:
+        _slow_scroll(p, total_px=px, step_px=step_px, per_step_ms=per_step_ms)
+        if linger > 0:
+            p.wait_for_timeout(int(linger * 1000))
+
+
 def capture_product_video(out_webm: Path) -> list[tuple[float, float]]:
     """Record the full product flow with native Playwright video.
 
@@ -271,12 +283,16 @@ def capture_product_video(out_webm: Path) -> list[tuple[float, float]]:
         p.wait_for_selector("button:has-text('Generate my plan')", timeout=180_000)
         seg_start = mark_start()
         p.evaluate("window.scrollTo(0, 0)")
-        p.wait_for_timeout(1_200)
-        # Slow pan down through asset allocation + equity approach + themes
-        _slow_scroll(p, total_px=1400, step_px=28, per_step_ms=40)
-        p.wait_for_timeout(1_000)
+        p.wait_for_timeout(1_800)
+        # Pan through asset allocation → equity approach → themes → open Qs
+        # with a pause on each so viewers can read the content.
+        _scroll_with_lingers(p, chunks=[
+            (500, 2.0),   # asset allocation
+            (500, 2.0),   # equity approach + key themes
+            (500, 1.8),   # open questions / "Anything else to adjust?"
+        ])
         p.locator("button", has_text="Generate my plan").first.scroll_into_view_if_needed()
-        p.wait_for_timeout(500)
+        p.wait_for_timeout(900)
         p.click("button:has-text('Generate my plan')")
         mark_end(seg_start)
 
@@ -291,12 +307,19 @@ def capture_product_video(out_webm: Path) -> list[tuple[float, float]]:
         p.click("text=I understand — show my plan")
         p.wait_for_timeout(1_500)   # confetti / blur fade
 
-        # Scroll from top through the full plan: allocations → setup →
-        # checkpoints → rebalancing → projections → rationale → risks.
+        # Scroll from top through the full plan with a pause on every major
+        # section: allocations → setup → checkpoints → rebalancing →
+        # projections → rationale → risks.
         p.evaluate("window.scrollTo(0, 0)")
-        p.wait_for_timeout(800)
-        _slow_scroll(p, total_px=3000, step_px=22, per_step_ms=50)
-        p.wait_for_timeout(1_500)
+        p.wait_for_timeout(1_800)   # read allocations
+        _scroll_with_lingers(p, chunks=[
+            (500, 2.2),   # setup phase
+            (500, 2.2),   # review checkpoints
+            (500, 2.2),   # rebalancing guidelines
+            (500, 2.2),   # projected returns
+            (500, 2.2),   # rationale
+            (500, 2.5),   # risks
+        ])
         mark_end(seg_start)
 
         ctx.close()
