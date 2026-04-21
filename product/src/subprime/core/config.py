@@ -93,12 +93,12 @@ def is_google_gla(model: str) -> bool:
 # pass by a small model.
 _TOOL_CALL_RELIABLE = {
     "anthropic",
-    "bedrock",      # Claude on Bedrock — same model family as anthropic
+    "bedrock",  # Claude on Bedrock — same model family as anthropic
     "google-gla",
     "google-vertex",
     "groq",
     "openai",
-    "together",     # generally fine for Qwen3-235B which is what we use
+    "together",  # generally fine for Qwen3-235B which is what we use
 }
 
 
@@ -170,6 +170,7 @@ def _gateway_http_client(extra_headers: dict[str, str] | None = None):
     versioned cache namespace.
     """
     import httpx
+
     hdrs = _default_headers()
     if extra_headers:
         hdrs.update(extra_headers)
@@ -196,25 +197,17 @@ def build_model(model: str, *, role: str | None = None):
     gateway = ai_gateway_base_url()
 
     if is_together(model):
+        # Cloudflare AI Gateway does not support Together AI as a provider
+        # (confirmed: gateway returns {"code": 2008, "message": "Invalid
+        # provider"} for `together`, `together-ai`, `togetherai` slugs).
+        # Always go direct — we lose gateway-side caching for Together calls,
+        # but the alternative is a broken advisor.
         from pydantic_ai.models.openai import OpenAIChatModel
-        from pydantic_ai.providers.openai import OpenAIProvider
         from pydantic_ai.providers.together import TogetherProvider
 
         api_key = os.environ.get("TOGETHER_API_KEY")
         name = together_model_name(model)
-        if gateway:
-            # AI Gateway's Together endpoint is OpenAI-compatible under /v1.
-            return OpenAIChatModel(
-                name,
-                provider=OpenAIProvider(
-                    base_url=f"{gateway.rstrip('/')}/together-ai/v1",
-                    api_key=api_key,
-                    http_client=_gateway_http_client(),
-                ),
-            )
-        return OpenAIChatModel(
-            name, provider=TogetherProvider(api_key=api_key),
-        )
+        return OpenAIChatModel(name, provider=TogetherProvider(api_key=api_key))
 
     if is_groq(model):
         from pydantic_ai.models.openai import OpenAIChatModel
@@ -241,11 +234,10 @@ def build_model(model: str, *, role: str | None = None):
 
     if is_workers_ai(model):
         if not gateway:
-            raise RuntimeError(
-                "workers-ai:* models require AI_GATEWAY_BASE_URL to be set"
-            )
+            raise RuntimeError("workers-ai:* models require AI_GATEWAY_BASE_URL to be set")
         from pydantic_ai.models.openai import OpenAIChatModel
         from pydantic_ai.providers.openai import OpenAIProvider
+
         # Workers AI exposes an OpenAI-compatible endpoint at /v1 under
         # the ai gateway. The model id is the '@cf/...' slug.
         name = together_model_name(model)  # strips "workers-ai:"
@@ -265,6 +257,7 @@ def build_model(model: str, *, role: str | None = None):
         # along on every call.
         from pydantic_ai.models.google import GoogleModel
         from pydantic_ai.providers.google import GoogleProvider
+
         api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
         name = together_model_name(model)  # strips "google-gla:"
         if gateway:
@@ -300,7 +293,9 @@ def build_model(model: str, *, role: str | None = None):
         from pydantic_ai.models.openai import OpenAIChatModel
         from pydantic_ai.providers.openai import OpenAIProvider
 
-        role_env = {"advisor": "VLLM_ADVISOR_BASE_URL", "judge": "VLLM_JUDGE_BASE_URL"}.get(role or "")
+        role_env = {"advisor": "VLLM_ADVISOR_BASE_URL", "judge": "VLLM_JUDGE_BASE_URL"}.get(
+            role or ""
+        )
         base_url = (
             (role_env and os.environ.get(role_env))
             or os.environ.get("VLLM_BASE_URL")
@@ -353,9 +348,7 @@ def build_model_settings(
     elif is_qwen3(model):
         # Qwen chat template accepts enable_thinking via extra_body — works for
         # both vLLM and Together AI OpenAI-compatible endpoints.
-        settings["extra_body"] = {
-            "chat_template_kwargs": {"enable_thinking": bool(thinking)}
-        }
+        settings["extra_body"] = {"chat_template_kwargs": {"enable_thinking": bool(thinking)}}
         # Thinking mode interleaves reasoning before the final answer; give it
         # generous headroom so structured outputs don't truncate mid-JSON.
         # Non-thinking uses a tighter budget that still leaves room for the
@@ -364,6 +357,7 @@ def build_model_settings(
     if not thinking and "max_tokens" not in settings:
         settings["max_tokens"] = 16384
     return settings
+
 
 # Web advisor model config — override via env vars.
 # ADVISOR_MODEL: model used by the junior advisor to draft plans.
@@ -379,15 +373,11 @@ _refine_env = os.environ.get("REFINE_MODEL", "anthropic:claude-sonnet-4-6")
 REFINE_MODEL: str | None = None if _refine_env.lower() == "none" else _refine_env
 
 # Data store paths — override via SUBPRIME_DATA_DIR env var for deployment
-DATA_DIR = Path(
-    os.environ.get("SUBPRIME_DATA_DIR", str(Path.home() / ".subprime" / "data"))
-)
+DATA_DIR = Path(os.environ.get("SUBPRIME_DATA_DIR", str(Path.home() / ".subprime" / "data")))
 DB_PATH = DATA_DIR / "subprime.duckdb"
 
 # Conversations directory (captured advise sessions)
-CONVERSATIONS_DIR = Path(
-    os.environ.get("SUBPRIME_CONVERSATIONS_DIR", "conversations")
-)
+CONVERSATIONS_DIR = Path(os.environ.get("SUBPRIME_CONVERSATIONS_DIR", "conversations"))
 
 # GitHub dataset URLs for the InertExpert2911/Mutual_Fund_Data repository
 GITHUB_RAW_BASE = "https://raw.githubusercontent.com/InertExpert2911/Mutual_Fund_Data/main"
