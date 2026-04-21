@@ -68,6 +68,15 @@ def is_workers_ai(model: str) -> bool:
     return model_provider(model) == "workers-ai"
 
 
+def is_groq(model: str) -> bool:
+    """True when *model* targets Groq (groq: prefix).
+
+    Example: ``groq:llama-3.3-70b-versatile``. Routed through AI Gateway
+    when configured.
+    """
+    return model_provider(model) == "groq"
+
+
 def is_google_gla(model: str) -> bool:
     """True when *model* targets Google AI Studio (Generative Language API).
 
@@ -205,6 +214,29 @@ def build_model(model: str, *, role: str | None = None):
             )
         return OpenAIChatModel(
             name, provider=TogetherProvider(api_key=api_key),
+        )
+
+    if is_groq(model):
+        from pydantic_ai.models.openai import OpenAIChatModel
+        from pydantic_ai.providers.openai import OpenAIProvider
+
+        api_key = os.environ.get("GROQ_API_KEY")
+        name = together_model_name(model)  # strips "groq:"
+        if gateway:
+            return OpenAIChatModel(
+                name,
+                provider=OpenAIProvider(
+                    base_url=f"{gateway.rstrip('/')}/groq/openai/v1",
+                    api_key=api_key,
+                    http_client=_gateway_http_client(),
+                ),
+            )
+        return OpenAIChatModel(
+            name,
+            provider=OpenAIProvider(
+                base_url="https://api.groq.com/openai/v1",
+                api_key=api_key,
+            ),
         )
 
     if is_workers_ai(model):
