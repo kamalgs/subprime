@@ -68,6 +68,16 @@ def is_workers_ai(model: str) -> bool:
     return model_provider(model) == "workers-ai"
 
 
+def is_google_gla(model: str) -> bool:
+    """True when *model* targets Google AI Studio (Generative Language API).
+
+    Example: ``google-gla:gemini-2.5-flash``.
+    Uses the free-tier AI Studio API; not the Vertex AI production path.
+    Routed through AI Gateway when configured.
+    """
+    return model_provider(model) == "google-gla"
+
+
 def ai_gateway_base_url() -> str | None:
     """Return the Cloudflare AI Gateway base URL, e.g.
     'https://gateway.ai.cloudflare.com/v1/<acct>/<gateway>'. None when the
@@ -189,6 +199,26 @@ def build_model(model: str, *, role: str | None = None):
                 http_client=_gateway_http_client(),
             ),
         )
+
+    if is_google_gla(model):
+        # Google AI Studio (free Generative Language API). Route via
+        # AI Gateway when configured — the provider accepts a custom
+        # base_url + http_client so our cf-aig-cache-key header rides
+        # along on every call.
+        from pydantic_ai.models.google import GoogleModel
+        from pydantic_ai.providers.google import GoogleProvider
+        api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+        name = together_model_name(model)  # strips "google-gla:"
+        if gateway:
+            return GoogleModel(
+                name,
+                provider=GoogleProvider(
+                    api_key=api_key,
+                    base_url=f"{gateway.rstrip('/')}/google-ai-studio",
+                    http_client=_gateway_http_client(),
+                ),
+            )
+        return GoogleModel(name, provider=GoogleProvider(api_key=api_key))
     if is_bedrock(model):
         # Bedrock uses cross-region inference profiles for Claude 4.x
         # (e.g. us.anthropic.claude-sonnet-4-6). BEDROCK_REGION explicitly
