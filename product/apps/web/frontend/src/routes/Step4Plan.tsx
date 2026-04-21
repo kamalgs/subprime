@@ -156,9 +156,12 @@ function PlanView({ plan, profile }: { plan: Plan; profile: InvestorProfile }) {
       {plan.review_checkpoints && plan.review_checkpoints.length > 0 && (
         <div className="card card-spacious">
           <h3 className="section-title">Review checkpoints</h3>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-slate-300 list-disc list-inside">
+          <ul className="space-y-2 text-sm text-gray-700 dark:text-slate-300">
             {plan.review_checkpoints.map((c, i) => (
-              <li key={i}><Prose text={c} className="inline" /></li>
+              <li key={i} className="flex gap-2 items-start">
+                <span aria-hidden className="flex-shrink-0 text-primary-500 dark:text-primary-300 font-semibold leading-5 mt-0.5">›</span>
+                <span className="leading-5">{c}</span>
+              </li>
             ))}
           </ul>
         </div>
@@ -174,9 +177,12 @@ function PlanView({ plan, profile }: { plan: Plan; profile: InvestorProfile }) {
       {plan.risks.length > 0 && (
         <div className="card card-spacious">
           <h3 className="section-title">Risks to consider</h3>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-slate-300 list-disc list-inside marker:text-red-500">
+          <ul className="space-y-2 text-sm text-gray-700 dark:text-slate-300">
             {plan.risks.map((r, i) => (
-              <li key={i}><Prose text={r} className="inline" /></li>
+              <li key={i} className="flex gap-2 items-start">
+                <span aria-hidden className="flex-shrink-0 text-red-500 dark:text-red-400 font-semibold leading-5 mt-0.5">⚠</span>
+                <span className="leading-5">{r}</span>
+              </li>
             ))}
           </ul>
         </div>
