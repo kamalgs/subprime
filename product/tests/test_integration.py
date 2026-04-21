@@ -391,7 +391,10 @@ class TestConditionAdvisorWiring:
 
         names = [c.name for c in CONDITIONS]
         assert len(names) == len(set(names))
-        assert set(names) == {"baseline", "lynch", "bogle"}
+        # Core three must always be present; dose-response variants
+        # (lynch_mild, lynch_hard, bogle_mild, bogle_hard, bogle_nofunds)
+        # are additive and get checked separately.
+        assert {"baseline", "lynch", "bogle"}.issubset(set(names))
 
 
 # ===========================================================================

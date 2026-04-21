@@ -87,7 +87,7 @@ class TestSettings:
         # Gemma doesn't — just default max_tokens cap
         s = build_model_settings("together:google/gemma-4-31B-it")
         assert "extra_body" not in s
-        assert s["max_tokens"] == 8192
+        assert s["max_tokens"] == 16384
 
     def test_non_together_model_passes_through_as_string(self):
         from subprime.core.config import build_model

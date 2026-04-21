@@ -67,17 +67,23 @@ class TestConditionConstants:
         content = BOGLE.prompt_hooks["philosophy"].lower()
         assert "index" in content
 
-    def test_conditions_list_has_three(self):
+    def test_conditions_list_includes_core_three(self):
+        """CONDITIONS now bundles the core triad + dose-response variants
+        added in M1.2. The core three must still be present; order is
+        allowed to vary to accommodate new variants."""
         from subprime.experiments.conditions import CONDITIONS
 
-        assert len(CONDITIONS) == 3
+        names = {c.name for c in CONDITIONS}
+        assert {"baseline", "lynch", "bogle"}.issubset(names)
+        # At least the three core + two mild + two hard + bogle_nofunds
+        assert len(CONDITIONS) >= 3
 
-    def test_conditions_list_order(self):
+    def test_conditions_list_starts_with_baseline(self):
+        """Baseline should always be first so plotting and tables key off
+        a stable anchor condition."""
         from subprime.experiments.conditions import CONDITIONS
 
         assert CONDITIONS[0].name == "baseline"
-        assert CONDITIONS[1].name == "lynch"
-        assert CONDITIONS[2].name == "bogle"
 
 
 class TestGetCondition:

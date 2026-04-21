@@ -215,6 +215,18 @@ class TestCLIWeb:
 # ===========================================================================
 
 
+_HAS_GRADIO = False
+try:
+    import gradio as _gradio  # noqa: F401
+    # The gradio-ish module that uv installs transitively has no `Blocks` —
+    # require the real API before treating the extra as present.
+    _HAS_GRADIO = hasattr(_gradio, "Blocks")
+except Exception:
+    pass
+
+
+@pytest.mark.skipif(not _HAS_GRADIO,
+                    reason="Gradio is an optional extra; install with `uv sync --extra gradio`")
 class TestGradioApp:
     """Smoke tests for the Gradio web app — catches import/compat regressions."""
 
@@ -458,6 +470,9 @@ class TestAdvisorWithUniverse:
         monkeypatch.setattr(
             "subprime.advisor.planner.DB_PATH", tmp_path / "nonexistent.duckdb"
         )
+        # planner caches rendered universe at module scope between tests —
+        # clear it so an earlier test's warm cache doesn't leak in here.
+        monkeypatch.setattr("subprime.advisor.planner._UNIVERSE_CACHE_TEXT", None)
 
         captured = {}
 
