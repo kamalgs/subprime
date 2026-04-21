@@ -438,3 +438,79 @@ async def test_full_wizard_flow_end_to_end(client):
     plan_resp = await client.get("/api/v2/plan")
     assert plan_resp.status_code == 200
     assert len(plan_resp.json()["plan"]["allocations"]) > 0
+
+
+# ---------------------------------------------------------------------------
+# Plan — download (PDF / Excel)
+# ---------------------------------------------------------------------------
+
+
+async def _seed_plan(client):
+    """Helper: push a profile + generated plan into the session so the
+    download endpoints have something to serve."""
+    await client.post("/api/v2/session/profile", json=_VALID_PROFILE)
+    mock = AsyncMock(return_value=(_mock_plan(), RunUsage()))
+    with patch("apps.web.api_v2.plan.generate_plan", new=mock):
+        await client.post("/api/v2/plan/generate")
+        for _ in range(30):
+            await asyncio.sleep(0.05)
+            if (await client.get("/api/v2/plan/status")).json()["ready"]:
+                break
+
+
+@pytest.mark.asyncio
+async def test_download_pdf_404_without_plan(client):
+    r = await client.get("/api/v2/plan/download.pdf")
+    assert r.status_code == 404
+
+
+@pytest.mark.asyncio
+async def test_download_xlsx_404_without_plan(client):
+    r = await client.get("/api/v2/plan/download.xlsx")
+    assert r.status_code == 404
+
+
+@pytest.mark.asyncio
+async def test_download_pdf_returns_branded_pdf(client):
+    await _seed_plan(client)
+    r = await client.get("/api/v2/plan/download.pdf")
+    assert r.status_code == 200
+    assert r.headers["content-type"] == "application/pdf"
+    cd = r.headers["content-disposition"]
+    assert cd.startswith("attachment;")
+    assert 'filename="benji-plan-' in cd
+    assert cd.endswith('.pdf"')
+    body = r.content
+    assert body[:5] == b"%PDF-"
+    # Extract rendered text via pypdf — ReportLab compresses content streams
+    # so raw-byte grep is unreliable.
+    from io import BytesIO
+    from pypdf import PdfReader
+    reader = PdfReader(BytesIO(body))
+    text = "\n".join(page.extract_text() or "" for page in reader.pages)
+    assert "Benji" in text
+    assert "Test User" in text
+    assert "research/educational purposes" in text
+
+
+@pytest.mark.asyncio
+async def test_download_xlsx_returns_openable_workbook(client):
+    from io import BytesIO
+    from openpyxl import load_workbook
+
+    await _seed_plan(client)
+    r = await client.get("/api/v2/plan/download.xlsx")
+    assert r.status_code == 200
+    assert r.headers["content-type"] == (
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
+    cd = r.headers["content-disposition"]
+    assert 'filename="benji-plan-' in cd and cd.endswith('.xlsx"')
+    wb = load_workbook(filename=BytesIO(r.content), read_only=True)
+    assert {"Summary", "Allocations", "Disclaimer"}.issubset(set(wb.sheetnames))
+    # First allocation row matches the mocked plan
+    alloc = wb["Allocations"]
+    row = list(alloc.iter_rows(min_row=2, max_row=2, values_only=True))[0]
+    assert row[0] == "119551"                       # AMFI code
+    assert "UTI Nifty 50" in (row[1] or "")          # fund name / display
+    assert row[4] == 40                              # allocation %
