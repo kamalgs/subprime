@@ -1,4 +1,5 @@
 """Conversation logging — saves completed sessions for replay and analysis."""
+
 from __future__ import annotations
 import json
 import logging
@@ -8,7 +9,9 @@ from subprime.core.models import Session
 logger = logging.getLogger(__name__)
 
 
-async def save_conversation(session: Session, pool=None, conversations_dir: Path | None = None) -> Path | None:
+async def save_conversation(
+    session: Session, pool=None, conversations_dir: Path | None = None
+) -> Path | None:
     """Save a completed session. Returns JSON file path (fallback) or None (Postgres)."""
     record = _session_to_record(session)
 
@@ -16,9 +19,13 @@ async def save_conversation(session: Session, pool=None, conversations_dir: Path
         await pool.execute(
             """INSERT INTO conversations (session_id, investor_name, mode, profile, strategy, plan, strategy_chat)
                VALUES ($1, $2, $3, $4::jsonb, $5::jsonb, $6::jsonb, $7::jsonb)""",
-            record["session_id"], record["investor_name"], record["mode"],
-            json.dumps(record["profile"]), json.dumps(record["strategy"]),
-            json.dumps(record["plan"]), json.dumps(record["strategy_chat"]),
+            record["session_id"],
+            record["investor_name"],
+            record["mode"],
+            json.dumps(record["profile"], default=str),
+            json.dumps(record["strategy"], default=str),
+            json.dumps(record["plan"], default=str),
+            json.dumps(record["strategy_chat"], default=str),
         )
         logger.info("Conversation saved to database: session=%s", session.id)
         return None
@@ -26,6 +33,7 @@ async def save_conversation(session: Session, pool=None, conversations_dir: Path
     # Fallback: JSON file
     if conversations_dir is None:
         from subprime.core.config import CONVERSATIONS_DIR
+
         conversations_dir = CONVERSATIONS_DIR
     conversations_dir.mkdir(parents=True, exist_ok=True)
     path = conversations_dir / f"{session.id}.json"
@@ -34,7 +42,9 @@ async def save_conversation(session: Session, pool=None, conversations_dir: Path
     return path
 
 
-async def list_conversations(pool=None, conversations_dir: Path | None = None, limit: int = 50) -> list[dict]:
+async def list_conversations(
+    pool=None, conversations_dir: Path | None = None, limit: int = 50
+) -> list[dict]:
     """List recent conversations."""
     if pool is not None:
         rows = await pool.fetch(
@@ -45,6 +55,7 @@ async def list_conversations(pool=None, conversations_dir: Path | None = None, l
 
     if conversations_dir is None:
         from subprime.core.config import CONVERSATIONS_DIR
+
         conversations_dir = CONVERSATIONS_DIR
     if not conversations_dir.exists():
         return []
