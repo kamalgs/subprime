@@ -81,25 +81,37 @@ async def run_single(
         f"[bold green]{persona.id}[/bold green] — generating plan...",
     )
 
-    t0 = time.monotonic()
-    plan, plan_usage = await generate_plan(
-        profile=persona,
-        prompt_hooks=condition.prompt_hooks,
-        model=model,
-        thinking=thinking,
-    )
-    plan_elapsed = time.monotonic() - t0
+    from opentelemetry import trace
 
-    _console.print(
-        f"  [bold blue]{condition.name}[/bold blue] x "
-        f"[bold green]{persona.id}[/bold green] — scoring plan "
-        f"[dim](judge: {effective_judge.split(':')[-1]})[/dim]...",
-    )
+    from subprime import observability as obs
 
-    t1 = time.monotonic()
-    scored, score_usage = await score_plan(
-        plan=plan, profile=persona, model=model, judge_model=judge_model, thinking=thinking,
-    )
+    tracer = trace.get_tracer("subprime.experiments")
+    span_attrs = {
+        obs.PERSONA_ID: persona.id,
+        obs.CONDITION: condition.name,
+        obs.PROMPT_VERSION: prompt_version,
+        obs.ADVISOR_MODEL: model,
+    }
+    with tracer.start_as_current_span("subprime.experiment.run", attributes=span_attrs):
+        t0 = time.monotonic()
+        plan, plan_usage = await generate_plan(
+            profile=persona,
+            prompt_hooks=condition.prompt_hooks,
+            model=model,
+            thinking=thinking,
+        )
+        plan_elapsed = time.monotonic() - t0
+
+        _console.print(
+            f"  [bold blue]{condition.name}[/bold blue] x "
+            f"[bold green]{persona.id}[/bold green] — scoring plan "
+            f"[dim](judge: {effective_judge.split(':')[-1]})[/dim]...",
+        )
+
+        t1 = time.monotonic()
+        scored, score_usage = await score_plan(
+            plan=plan, profile=persona, model=model, judge_model=judge_model, thinking=thinking,
+        )
     score_elapsed = time.monotonic() - t1
 
     total_usage = plan_usage + score_usage

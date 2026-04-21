@@ -12,3 +12,25 @@ markers = [
     "browser: live Playwright browser tests against a deployed URL (run with -m browser + SUBPRIME_URL)",
 ]
 addopts = "-m 'not e2e and not calibration and not smoke and not browser'"
+
+[dependency-groups]
+dev = [
+    "pypdf>=6.10.2",
+]
+
+# ─── Mutation testing ─────────────────────────────────────────────────────────
+# Run:  make mutate            # mutate focused modules, show survivors
+#       uv run mutmut results  # show stats again later
+# Scoped to modules with strong unit coverage — widening further produces
+# false-positive survivors (lint-style mutations with no observable behaviour).
+[tool.mutmut]
+paths_to_mutate = [
+    "product/src/subprime/core/plan_report.py",
+    "product/src/subprime/observability/__init__.py",
+    "product/apps/web/api_v2/_format.py",
+]
+tests_dir = [
+    "product/tests/test_plan_report.py",
+    "product/tests/test_api_v2_format.py",
+    "product/tests/test_observability.py",
+]

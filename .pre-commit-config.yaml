@@ -1,0 +1,46 @@
+# Subprime pre-commit / pre-push gates.
+#
+# Install once:  uv sync  &&  uv run pre-commit install  &&  uv run pre-commit install -t pre-push
+#
+# What runs:
+#   pre-commit  — lint + format (fast, touches changed files only)
+#   pre-push    — full default pytest suite minus e2e/browser/calibration/smoke
+#                 (≈ 20 s on current repo)
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.9.1
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+        files: ^product/
+      - id: ruff-format
+        files: ^product/
+
+  - repo: local
+    hooks:
+      # Fast unit subset on every commit — only tests that don't spin up a
+      # FastAPI app or hit DuckDB. Typical runtime < 3 s.
+      - id: pytest-fast
+        name: pytest (fast unit subset)
+        entry: uv run --directory product pytest
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+        args:
+          - -q
+          - tests/test_api_v2_format.py
+          - tests/test_plan_report.py
+          - tests/test_observability.py
+          - tests/test_core
+
+      # Full default suite on push — mirrors CI's default matrix.
+      - id: pytest-default
+        name: pytest (default suite, no e2e/browser/smoke)
+        entry: uv run --directory product pytest
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+        args:
+          - -q
+          - -m
+          - "not e2e and not calibration and not smoke and not browser"

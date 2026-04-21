@@ -9,10 +9,15 @@ from typing import Annotated
 
 from fastapi import APIRouter, BackgroundTasks, Cookie, HTTPException, Request, status
 
+from opentelemetry import trace
+
 from apps.web.api_v2._session import COOKIE_NAME, get_or_create
 from apps.web.api_v2.dto import AckResponse, PlanResponse, PlanStatusResponse
+from subprime import observability as obs
 from subprime.advisor.planner import generate_plan
 from subprime.core.config import ADVISOR_MODEL, REFINE_MODEL
+
+_tracer = trace.get_tracer("subprime.web")
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -53,45 +58,75 @@ async def _run_plan_task(app, session_id: str) -> None:
         s.profile.id if s.profile else "?", s.strategy is not None,
     )
     t0 = time.time()
-    try:
-        async with _plan_semaphore():
-            plan, usage = await generate_plan(
-                s.profile,
-                strategy=s.strategy,
-                mode=effective_mode,
-                n_perspectives=3,
-                model=ADVISOR_MODEL,
-                refine_model=refine_model,
+    span_attrs = {
+        obs.SESSION_ID: session_id,
+        obs.PERSONA_ID: s.profile.id,
+        obs.TIER: effective_mode,
+        obs.ADVISOR_MODEL: ADVISOR_MODEL,
+    }
+    if refine_model:
+        span_attrs[obs.REFINE_MODEL] = refine_model
+    with _tracer.start_as_current_span("subprime.plan.generate", attributes=span_attrs) as span:
+        try:
+            async with _plan_semaphore():
+                plan, usage = await generate_plan(
+                    s.profile,
+                    strategy=s.strategy,
+                    mode=effective_mode,
+                    n_perspectives=3,
+                    model=ADVISOR_MODEL,
+                    refine_model=refine_model,
+                )
+            dt = time.time() - t0
+            in_tok = getattr(usage, "input_tokens", 0) or 0
+            out_tok = getattr(usage, "output_tokens", 0) or 0
+            cache_r = getattr(usage, "cache_read_tokens", 0) or 0
+            cache_w = getattr(usage, "cache_write_tokens", 0) or 0
+            span.set_attribute(obs.ELAPSED_S, dt)
+            span.set_attribute(obs.INPUT_TOKENS, in_tok)
+            span.set_attribute(obs.OUTPUT_TOKENS, out_tok)
+            span.set_attribute(obs.CACHE_READ_TOKENS, cache_r)
+            span.set_attribute(obs.CACHE_WRITE_TOKENS, cache_w)
+            span.set_attribute(obs.REQUESTS, getattr(usage, "requests", 0) or 0)
+            span.set_attribute(obs.TOOL_CALLS, getattr(usage, "tool_calls", 0) or 0)
+            denom = cache_r + in_tok
+            if denom > 0:
+                span.set_attribute(obs.CACHE_HIT_RATIO, cache_r / denom)
+            span.set_status(trace.Status(trace.StatusCode.OK))
+            obs.plan_duration.record(dt, {"tier": effective_mode, "model": ADVISOR_MODEL})
+            obs.plan_total.add(1, {"tier": effective_mode, "status": "success"})
+            obs.record_llm_usage(usage, model=ADVISOR_MODEL, op="plan")
+            logger.info(
+                "[plan %s] DONE in %.1fs — allocations=%d tokens=(in=%s,out=%s,cache_r=%s,cache_w=%s)",
+                session_id[:8], dt, len(plan.allocations),
+                in_tok, out_tok, cache_r, cache_w,
             )
-        dt = time.time() - t0
-        logger.info(
-            "[plan %s] DONE in %.1fs — allocations=%d tokens=(in=%s,out=%s)",
-            session_id[:8], dt, len(plan.allocations),
-            getattr(usage, "input_tokens", "?"),
-            getattr(usage, "output_tokens", "?"),
-        )
 
-        # Reshape prose fields into bullets if the model returned walls of text.
-        from apps.web.api_v2._format import format_plan_prose
-        format_plan_prose(plan)
+            # Reshape prose fields into bullets if the model returned walls of text.
+            from apps.web.api_v2._format import format_plan_prose
+            format_plan_prose(plan)
 
-        s = await store.get(session_id) or s
-        s.plan = plan
-        s.plan_generating = False
-        s.plan_error = None
-        s.current_step = 4
-        await store.save(s)
+            s = await store.get(session_id) or s
+            s.plan = plan
+            s.plan_generating = False
+            s.plan_error = None
+            s.current_step = 4
+            await store.save(s)
 
-        from subprime.core.conversations import save_conversation
-        from subprime.core.db import get_pool
-        await save_conversation(session=s, pool=get_pool())
-    except Exception as exc:
-        dt = time.time() - t0
-        logger.exception("[plan %s] FAILED after %.1fs", session_id[:8], dt)
-        s = await store.get(session_id) or s
-        s.plan_generating = False
-        s.plan_error = str(exc)[:200]
-        await store.save(s)
+            from subprime.core.conversations import save_conversation
+            from subprime.core.db import get_pool
+            await save_conversation(session=s, pool=get_pool())
+        except Exception as exc:
+            dt = time.time() - t0
+            span.set_attribute(obs.ELAPSED_S, dt)
+            span.record_exception(exc)
+            span.set_status(trace.Status(trace.StatusCode.ERROR, str(exc)[:200]))
+            obs.plan_total.add(1, {"tier": effective_mode, "status": "error"})
+            logger.exception("[plan %s] FAILED after %.1fs", session_id[:8], dt)
+            s = await store.get(session_id) or s
+            s.plan_generating = False
+            s.plan_error = str(exc)[:200]
+            await store.save(s)
 
 
 @router.post("/plan/generate", status_code=status.HTTP_202_ACCEPTED)

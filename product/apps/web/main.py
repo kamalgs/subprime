@@ -63,6 +63,13 @@ async def lifespan(app: FastAPI):
     """
     _warm_universe_cache()
 
+    # Initialise OpenTelemetry. No-op when OTEL_EXPORTER_OTLP_ENDPOINT is unset.
+    try:
+        from subprime.observability import setup as otel_setup
+        otel_setup()
+    except Exception:
+        logger.exception("OTEL setup failed (continuing without telemetry)")
+
     if DATABASE_URL:
         from subprime.core.db import init_pool
 
@@ -106,6 +113,14 @@ def create_app() -> FastAPI:
     # APIs always first (highest specificity)
     app.include_router(api.router)
     app.include_router(api_v2_router)
+
+    # Wrap with the OTEL ASGI middleware. Safe even when OTEL is unset
+    # (no-op tracer/meter providers).
+    try:
+        from subprime.observability import instrument_fastapi
+        instrument_fastapi(app)
+    except Exception:
+        logger.exception("FastAPI OTEL instrumentation failed")
 
     spa_index = _SPA_DIST_DIR / "index.html"
     if spa_index.exists():
