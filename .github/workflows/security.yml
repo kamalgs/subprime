@@ -21,7 +21,8 @@ jobs:
       - name: Install + pip-audit
         run: |
           uv sync --all-extras --dev
-          uv pip install --system pip-audit
+          # Install into the uv-managed venv; /usr python is externally managed.
+          uv pip install pip-audit
           uv run --directory product pip-audit --strict --progress-spinner=off
 
   # ──────────────────────────────────────────────────────────────
@@ -47,7 +48,7 @@ jobs:
       - name: Build image
         run: docker build -t finadvisor:ci -f product/Dockerfile .
       - name: Trivy FS scan (pyproject + lockfile)
-        uses: aquasecurity/trivy-action@18f2510ee396bbf400402947b394f2dd8c87dbb0 # 0.29.0
+        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
         with:
           scan-type: 'fs'
           scan-ref: 'product'
@@ -55,7 +56,7 @@ jobs:
           ignore-unfixed: true
           exit-code: '1'
       - name: Trivy image scan
-        uses: aquasecurity/trivy-action@18f2510ee396bbf400402947b394f2dd8c87dbb0 # 0.29.0
+        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
         with:
           image-ref: 'finadvisor:ci'
           severity: 'CRITICAL,HIGH'
