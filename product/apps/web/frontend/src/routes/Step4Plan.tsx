@@ -82,9 +82,29 @@ function PlanView({ plan, profile }: { plan: Plan; profile: InvestorProfile }) {
     <>
       {!revealed && <PlanRevealModal onAck={() => setRevealed(true)} />}
       <div className={"space-y-6 " + (!revealed ? "blur-sm pointer-events-none select-none" : "")} aria-hidden={!revealed}>
-        <div>
-          <Link to="/step/3" className="text-sm text-gray-500 dark:text-slate-400 hover:text-primary-600">← Back to strategy</Link>
-          <h2 className="text-2xl font-bold mt-1">Your investment plan</h2>
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <Link to="/step/3" className="text-sm text-gray-500 dark:text-slate-400 hover:text-primary-600">← Back to strategy</Link>
+            <h2 className="text-2xl font-bold mt-1">Your investment plan</h2>
+          </div>
+          <div className="flex gap-2 mt-1 flex-shrink-0">
+            <a
+              href="/api/v2/plan/download.pdf"
+              download
+              className="text-sm px-3 py-1.5 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-200 hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-300 transition-colors"
+              aria-label="Download plan as PDF"
+            >
+              PDF
+            </a>
+            <a
+              href="/api/v2/plan/download.xlsx"
+              download
+              className="text-sm px-3 py-1.5 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-200 hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-300 transition-colors"
+              aria-label="Download plan as Excel"
+            >
+              Excel
+            </a>
+          </div>
         </div>
 
       <div className="grid grid-cols-3 md:grid-cols-6 gap-3">

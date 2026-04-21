@@ -138,3 +138,52 @@ async def get_plan(
     if s.plan is None or s.profile is None:
         raise HTTPException(404, "Plan not available.")
     return PlanResponse(plan=s.plan, profile=s.profile, strategy=s.strategy)
+
+
+def _safe_filename(profile_name: str, extension: str) -> str:
+    """Slugify investor name for Content-Disposition filename."""
+    import re
+    slug = re.sub(r"[^A-Za-z0-9]+", "-", profile_name.strip()).strip("-") or "plan"
+    date = __import__("datetime").datetime.utcnow().strftime("%Y%m%d")
+    return f"benji-plan-{slug.lower()}-{date}.{extension}"
+
+
+@router.get("/plan/download.pdf")
+async def download_pdf(
+    request: Request,
+    benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
+):
+    """Stream the current plan as a branded A4 PDF."""
+    from fastapi.responses import Response
+    from subprime.core.plan_report import build_plan_pdf
+
+    s = await get_or_create(request, benji_session)
+    if s.plan is None or s.profile is None:
+        raise HTTPException(404, "Plan not available.")
+    pdf = await asyncio.to_thread(build_plan_pdf, s.plan, s.profile)
+    filename = _safe_filename(s.profile.name, "pdf")
+    return Response(
+        content=pdf, media_type="application/pdf",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
+@router.get("/plan/download.xlsx")
+async def download_xlsx(
+    request: Request,
+    benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
+):
+    """Stream the current plan as an Excel workbook."""
+    from fastapi.responses import Response
+    from subprime.core.plan_report import build_plan_xlsx
+
+    s = await get_or_create(request, benji_session)
+    if s.plan is None or s.profile is None:
+        raise HTTPException(404, "Plan not available.")
+    xlsx = await asyncio.to_thread(build_plan_xlsx, s.plan, s.profile)
+    filename = _safe_filename(s.profile.name, "xlsx")
+    return Response(
+        content=xlsx,
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
