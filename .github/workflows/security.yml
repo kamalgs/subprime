@@ -1,0 +1,78 @@
+name: security
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Weekly sweep for newly-disclosed CVEs in pinned deps.
+    - cron: "23 4 * * 1"
+
+jobs:
+  # ──────────────────────────────────────────────────────────────
+  # Python dependency audit — CVEs in pinned libraries.
+  # ──────────────────────────────────────────────────────────────
+  pip-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.0
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.9.1
+      - name: Install + pip-audit
+        run: |
+          uv sync --all-extras --dev
+          uv pip install --system pip-audit
+          uv run --directory product pip-audit --strict --progress-spinner=off
+
+  # ──────────────────────────────────────────────────────────────
+  # Container scan — filesystem + image layers via trivy.
+  # Runs on PR (image not pushed to a registry, so scan the built
+  # image by docker-save → trivy image <tar>).
+  # ──────────────────────────────────────────────────────────────
+  trivy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.1
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: product/apps/web/frontend/package-lock.json
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.9.1
+      - name: Build SPA
+        run: make frontend
+      - name: Build image
+        run: docker build -t finadvisor:ci -f product/Dockerfile .
+      - name: Trivy FS scan (pyproject + lockfile)
+        uses: aquasecurity/trivy-action@18f2510ee396bbf400402947b394f2dd8c87dbb0 # 0.29.0
+        with:
+          scan-type: 'fs'
+          scan-ref: 'product'
+          severity: 'CRITICAL,HIGH'
+          ignore-unfixed: true
+          exit-code: '1'
+      - name: Trivy image scan
+        uses: aquasecurity/trivy-action@18f2510ee396bbf400402947b394f2dd8c87dbb0 # 0.29.0
+        with:
+          image-ref: 'finadvisor:ci'
+          severity: 'CRITICAL,HIGH'
+          ignore-unfixed: true
+          exit-code: '1'
+
+  # ──────────────────────────────────────────────────────────────
+  # Static analysis for Python code — CodeQL picks up unsafe patterns.
+  # ──────────────────────────────────────────────────────────────
+  codeql:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.0
+      - uses: github/codeql-action/init@4e828ff8d448a8a6e532957b1811f387a63867e8 # v3.29.4
+        with:
+          languages: python
+      - uses: github/codeql-action/analyze@4e828ff8d448a8a6e532957b1811f387a63867e8 # v3.29.4

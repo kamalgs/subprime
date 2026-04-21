@@ -1,0 +1,31 @@
+# Dependabot — automated PRs for dependency updates.
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates
+version: 2
+updates:
+  # Python deps (pyproject.toml)
+  - package-ecosystem: "pip"
+    directory: "/product"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      # Batch minor / patch updates so we don't get 20 PRs.
+      minor-and-patch:
+        update-types: ["minor", "patch"]
+    ignore:
+      # Pydantic 2.x is mostly stable; let us opt into majors manually.
+      - dependency-name: "pydantic"
+        update-types: ["version-update:semver-major"]
+
+  # GitHub Actions (keeps pinned SHAs + version comments in lockstep)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+
+  # Docker base image (pinned by digest in product/Dockerfile)
+  - package-ecosystem: "docker"
+    directory: "/product"
+    schedule:
+      interval: "weekly"
