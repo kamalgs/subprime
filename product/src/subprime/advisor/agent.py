@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from pydantic_ai import Agent
+from pydantic_ai import Agent, PromptedOutput
 
 from subprime.core.config import (
     DEFAULT_MODEL,
@@ -12,11 +12,29 @@ from subprime.core.config import (
     build_model_settings,
     is_anthropic,
     is_vllm,
+    tool_calls_reliable,
 )
+
+
 from subprime.core.models import InvestmentPlan, StrategyOutline
 from subprime.data.tools import get_fund_details, search_funds_universe
 
 _PROMPTS_DIR = Path(__file__).parent / "prompts"
+
+
+def _output_for(model_id: str, schema_type):
+    """Return the right output_type for this model's capabilities.
+
+    Reliable tool-calling providers (anthropic / google / openai / groq /
+    together Qwen3) get the raw pydantic model — pydantic-ai picks tool
+    output and parses from the tool_call envelope. Everything else
+    (workers-ai OpenAI-compat, unknown providers) gets PromptedOutput so
+    the model emits JSON in text, which we parse client-side and avoid
+    the compat layer's type-mangling entirely.
+    """
+    if tool_calls_reliable(model_id):
+        return schema_type
+    return PromptedOutput(schema_type)
 
 
 def load_prompt(name: str) -> str:
@@ -92,7 +110,7 @@ def create_advisor(
     return Agent(
         build_model(model, role="advisor"),
         system_prompt=system_prompt,
-        output_type=InvestmentPlan,
+        output_type=_output_for(model, InvestmentPlan),
         tools=tools_list,
         retries=3,
         defer_model_check=True,
@@ -159,7 +177,7 @@ def create_plan_structurer(
             "allocations, percentages, and rationale from the source text. "
             "Do not add, remove, or modify any recommendations."
         ),
-        output_type=InvestmentPlan,
+        output_type=_output_for(model, InvestmentPlan),
         tools=[],
         retries=3,
         defer_model_check=True,
@@ -187,7 +205,7 @@ def create_plan_reviewer(
     return Agent(
         build_model(model, role="advisor"),
         system_prompt=review,
-        output_type=InvestmentPlan,
+        output_type=_output_for(model, InvestmentPlan),
         tools=[],         # no tool calls — reviewer works from the draft text
         retries=2,
         defer_model_check=True,
@@ -223,7 +241,7 @@ def create_strategy_advisor(
     return Agent(
         build_model(model, role="advisor"),
         system_prompt=system_prompt,
-        output_type=StrategyOutline,
+        output_type=_output_for(model, StrategyOutline),
         tools=[],
         retries=2,
         defer_model_check=True,

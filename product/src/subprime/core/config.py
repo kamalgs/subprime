@@ -78,6 +78,32 @@ def is_google_gla(model: str) -> bool:
     return model_provider(model) == "google-gla"
 
 
+# Providers whose function-calling implementation preserves nested JSON types
+# reliably enough for pydantic-ai's tool-output mode to work on our schemas.
+# Everything else falls back to prompted output (JSON-in-text) with a repair
+# pass by a small model.
+_TOOL_CALL_RELIABLE = {
+    "anthropic",
+    "bedrock",      # Claude on Bedrock — same model family as anthropic
+    "google-gla",
+    "google-vertex",
+    "groq",
+    "openai",
+    "together",     # generally fine for Qwen3-235B which is what we use
+}
+
+
+def tool_calls_reliable(model: str) -> bool:
+    """True when this provider's function-calling layer is trusted for
+    complex nested schemas (array-of-objects, nested models, etc.).
+
+    When False, agents must use PromptedOutput rather than ToolOutput —
+    otherwise Llama/Qwen on Workers-AI-style compat layers emit arguments
+    as JSON-wrapped strings and parsing fails.
+    """
+    return model_provider(model) in _TOOL_CALL_RELIABLE
+
+
 def ai_gateway_base_url() -> str | None:
     """Return the Cloudflare AI Gateway base URL, e.g.
     'https://gateway.ai.cloudflare.com/v1/<acct>/<gateway>'. None when the
