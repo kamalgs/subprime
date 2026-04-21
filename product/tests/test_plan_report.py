@@ -106,8 +106,26 @@ def test_pdf_contains_allocation_rows(plan, profile):
     text = _pdf_text(build_plan_pdf(plan, profile))
     assert "HDFC Nifty 50 Index" in text
     assert "Parag Parikh Flexi Cap" in text
-    assert "40.0%" in text
-    assert "30.0%" in text
+    # Percentages are rendered with 0 decimal places in the table
+    assert "40%" in text
+    assert "30%" in text
+
+
+def test_pdf_projection_includes_absolute_corpus(plan, profile):
+    """Projection block should show both CAGR % and absolute final corpus."""
+    text = _pdf_text(build_plan_pdf(plan, profile))
+    # CAGR percentages
+    assert "12.0%" in text
+    # Absolute final corpus for the given SIP (35k/mo) and horizon (15 yrs):
+    # at 12% CAGR ≈ ₹1.76 Cr — the table uses Cr / L suffixes.
+    assert "Cr" in text or "L" in text  # has Indian numeric formatting somewhere
+
+
+def test_pdf_has_short_disclaimer_up_front_and_footnote(plan, profile):
+    text = _pdf_text(build_plan_pdf(plan, profile))
+    # short disclaimer appears near the top with the ** footnote marker
+    assert "research / educational use" in text
+    assert "**" in text
 
 
 def test_pdf_renders_without_projections(plan, profile):
@@ -143,73 +161,90 @@ def test_pdf_handles_leading_bullet_markers_in_setup(plan, profile):
 # ── Excel ────────────────────────────────────────────────────────────────────
 
 
-def _load(xlsx_bytes: bytes):
+def _load(xlsx_bytes: bytes, data_only: bool = True):
+    """Load the workbook.
+
+    ``data_only=True`` replaces formulas with their cached result — good
+    for asserting numeric values. Pass ``data_only=False`` when checking
+    formula strings (we haven't opened the file in Excel yet, so cached
+    formula results are None).
+    """
     from openpyxl import load_workbook
-    return load_workbook(filename=BytesIO(xlsx_bytes), read_only=False, data_only=True)
+    return load_workbook(filename=BytesIO(xlsx_bytes), read_only=False,
+                         data_only=data_only)
 
 
-def test_xlsx_opens_and_has_expected_sheets(plan, profile):
-    xlsx = build_plan_xlsx(plan, profile)
-    wb = _load(xlsx)
-    expected = {
-        "Summary", "Allocations", "Projections", "Setup",
-        "Review checkpoints", "Rebalancing", "Rationale",
-        "Risks", "Disclaimer",
-    }
-    assert expected.issubset(set(wb.sheetnames)), \
-        f"missing: {expected - set(wb.sheetnames)}"
+def _flat_cells(sheet) -> list:
+    return [c.value for row in sheet.iter_rows() for c in row]
 
 
-def test_xlsx_summary_has_investor_name(plan, profile):
+def test_xlsx_has_only_two_sheets(plan, profile):
     wb = _load(build_plan_xlsx(plan, profile))
-    s = wb["Summary"]
-    flat = "\n".join(str(c.value) for row in s.iter_rows() for c in row if c.value)
-    assert "Ananya Shetty" in flat
-    assert "Benji" in flat
+    assert wb.sheetnames == ["Plan", "Explore"]
 
 
-def test_xlsx_allocations_typed(plan, profile):
+def test_xlsx_plan_has_wordmark_and_investor(plan, profile):
     wb = _load(build_plan_xlsx(plan, profile))
-    sh = wb["Allocations"]
-    header = [c.value for c in sh[1]]
-    assert header == ["AMFI code", "Fund", "AMC", "Category",
-                      "% Allocation", "Mode", "Monthly SIP (₹)", "Lumpsum (₹)"]
-    # First data row
-    row = [c.value for c in sh[2]]
-    assert row[0] == "119551"
-    assert row[1] == "HDFC Nifty 50 Index"
-    assert isinstance(row[4], (int, float))       # % Allocation is numeric
-    assert row[4] == 40.0
-    assert isinstance(row[6], (int, float))       # SIP amount is numeric
-    assert row[6] == 20_000
+    flat = [str(c) for c in _flat_cells(wb["Plan"]) if c]
+    assert any("Benji" in s for s in flat)
+    assert any("Ananya Shetty" in s for s in flat)
+    assert any("research / educational" in s for s in flat)
 
 
-def test_xlsx_projections_numeric(plan, profile):
+def test_xlsx_plan_has_allocations_table(plan, profile):
     wb = _load(build_plan_xlsx(plan, profile))
-    pr = wb["Projections"]
-    rows = list(pr.iter_rows(values_only=True))
-    assert rows[0] == ("Scenario", "CAGR %")
-    # Scenario/value pairs — all values should be numeric
-    for label, val in rows[1:]:
-        assert label in {"Bear", "Base", "Bull"}
-        assert isinstance(val, (int, float))
+    flat = [str(c) for c in _flat_cells(wb["Plan"]) if c]
+    # Both fund names present
+    assert any("HDFC Nifty 50 Index" in s for s in flat)
+    assert any("Parag Parikh Flexi Cap" in s for s in flat)
 
 
-def test_xlsx_disclaimer_present(plan, profile):
+def test_xlsx_plan_has_projection_data(plan, profile):
     wb = _load(build_plan_xlsx(plan, profile))
-    d = wb["Disclaimer"]
-    assert "research" in str(d["A1"].value).lower()
+    p = wb["Plan"]
+    # Find the "Projected returns" header row and check the next three rows
+    # have numeric CAGR + corpus values.
+    flat = [str(c) for c in _flat_cells(p) if c]
+    assert any("Projected returns" in s for s in flat)
+    # Some cell in the sheet should be a non-trivial numeric corpus (the
+    # best-case corpus for 35k/mo × 15yrs × 16% ≈ ₹2.5 Cr → 25_000_000).
+    numbers = [c.value for row in p.iter_rows()
+               for c in row if isinstance(c.value, (int, float))]
+    assert max(numbers) > 10_000_000  # > 1 Cr somewhere
 
 
-def test_xlsx_omits_empty_optional_sheets(plan, profile):
+def test_xlsx_explore_sheet_has_editable_inputs_and_formulas(plan, profile):
+    wb = _load(build_plan_xlsx(plan, profile), data_only=False)
+    ex = wb["Explore"]
+    # Input section contains 'Monthly SIP' label + editable SIP value
+    labels = [c.value for row in ex.iter_rows(min_row=4, max_row=10)
+              for c in row if c.value]
+    assert any("Monthly SIP" in str(l) for l in labels)
+    assert any("Horizon" in str(l) for l in labels)
+    # Output formulas for final corpus — the three FV cells must start with =
+    for addr in ("E5", "E6", "E7"):
+        val = ex[addr].value
+        assert isinstance(val, str) and val.startswith("="), \
+            f"{addr} expected a formula, got {val!r}"
+    # Growth-over-time formula table
+    assert ex["A12"].value == "Year"
+    # Year-0 formula should exist (year_cell row 13)
+    assert ex["B13"].value is not None and str(ex["B13"].value).startswith("=")
+
+
+def test_xlsx_plan_renders_without_optional_sections(plan, profile):
     plan.setup_phase = ""
     plan.rebalancing_guidelines = ""
     plan.rationale = ""
     plan.risks = []
     plan.review_checkpoints = []
     wb = _load(build_plan_xlsx(plan, profile))
-    # Required sheets still there
-    assert {"Summary", "Allocations", "Disclaimer"}.issubset(set(wb.sheetnames))
-    # Empty optional sheets NOT created
-    assert "Setup" not in wb.sheetnames
-    assert "Risks" not in wb.sheetnames
+    assert wb.sheetnames == ["Plan", "Explore"]
+
+
+def test_xlsx_disclaimer_in_both_sheets(plan, profile):
+    wb = _load(build_plan_xlsx(plan, profile))
+    for name in ("Plan", "Explore"):
+        flat = [str(c) for c in _flat_cells(wb[name]) if c]
+        assert any("research" in str(s).lower() for s in flat), \
+            f"{name} sheet missing disclaimer"

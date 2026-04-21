@@ -506,11 +506,14 @@ async def test_download_xlsx_returns_openable_workbook(client):
     )
     cd = r.headers["content-disposition"]
     assert 'filename="benji-plan-' in cd and cd.endswith('.xlsx"')
-    wb = load_workbook(filename=BytesIO(r.content), read_only=True)
-    assert {"Summary", "Allocations", "Disclaimer"}.issubset(set(wb.sheetnames))
-    # First allocation row matches the mocked plan
-    alloc = wb["Allocations"]
-    row = list(alloc.iter_rows(min_row=2, max_row=2, values_only=True))[0]
-    assert row[0] == "119551"                       # AMFI code
-    assert "UTI Nifty 50" in (row[1] or "")          # fund name / display
-    assert row[4] == 40                              # allocation %
+    wb = load_workbook(filename=BytesIO(r.content))
+    # New consolidated shape: Plan + Explore
+    assert wb.sheetnames == ["Plan", "Explore"]
+    flat = [str(c.value) for row in wb["Plan"].iter_rows()
+            for c in row if c.value is not None]
+    # Mocked plan fund name is 'UTI Nifty 50 Index Fund'
+    assert any("UTI Nifty 50" in s for s in flat)
+    # Allocation percentage (40) should appear as a number somewhere
+    numbers = [c.value for row in wb["Plan"].iter_rows()
+               for c in row if isinstance(c.value, (int, float))]
+    assert 40 in numbers or 40.0 in numbers
