@@ -58,6 +58,41 @@ def is_vllm(model: str) -> bool:
     return model_provider(model) == "vllm"
 
 
+def is_workers_ai(model: str) -> bool:
+    """True when *model* targets Cloudflare Workers AI (workers-ai: prefix).
+
+    Example: ``workers-ai:@cf/meta/llama-3.3-70b-instruct-fp8-fast``.
+    Always routed through AI Gateway — Workers AI direct endpoints aren't
+    supported (the gateway is cheaper to configure than duplicating auth).
+    """
+    return model_provider(model) == "workers-ai"
+
+
+def ai_gateway_base_url() -> str | None:
+    """Return the Cloudflare AI Gateway base URL, e.g.
+    'https://gateway.ai.cloudflare.com/v1/<acct>/<gateway>'. None when the
+    gateway isn't configured — in which case providers go direct."""
+    return os.environ.get("AI_GATEWAY_BASE_URL") or None
+
+
+def _ai_gateway_cache_key() -> str | None:
+    """Value for the ``cf-aig-cache-key`` request header.
+
+    AI Gateway appends this to its auto-generated cache key so bumping it
+    force-invalidates cached responses without manual dashboard work.
+    Defaults to the short git SHA of the deploy (set via env by the
+    container's build step) + a hash of the prompt files so a prompt
+    tweak also bumps the key.
+    """
+    v = os.environ.get("AI_GATEWAY_CACHE_VERSION")
+    if v:
+        return v
+    # Fall back: SUBPRIME_PROMPT_VERSION + commit SHA derived at module
+    # load time. Good enough for invalidation when the image changes.
+    pv = os.environ.get("SUBPRIME_PROMPT_VERSION", "")
+    return f"v{pv}" if pv else None
+
+
 def is_qwen3(model: str) -> bool:
     """True for Qwen3 / Qwen3.5 variants (configurable thinking via chat template)."""
     name = model.split(":", 1)[-1].lower()
@@ -74,28 +109,85 @@ def together_model_name(model: str) -> str:
     return model.split(":", 1)[1] if ":" in model else model
 
 
+def _default_headers() -> dict[str, str]:
+    """HTTP headers added to every outbound LLM call. Currently just the
+    AI Gateway cache-key header when configured."""
+    headers: dict[str, str] = {}
+    key = _ai_gateway_cache_key()
+    if key:
+        headers["cf-aig-cache-key"] = key
+    return headers
+
+
+def _gateway_http_client(extra_headers: dict[str, str] | None = None):
+    """Shared httpx AsyncClient preconfigured with the cf-aig-cache-key
+    header so every call automatically participates in AI Gateway's
+    versioned cache namespace.
+    """
+    import httpx
+    hdrs = _default_headers()
+    if extra_headers:
+        hdrs.update(extra_headers)
+    return httpx.AsyncClient(headers=hdrs, timeout=httpx.Timeout(600.0))
+
+
 def build_model(model: str, *, role: str | None = None):
     """Return either a model string (for native PydanticAI providers) or a
     configured model instance.
 
-    For ``together:`` prefixes, constructs an OpenAI-compatible chat model
-    pointed at Together's endpoint. For ``vllm:`` prefixes, points at a
-    self-hosted endpoint resolved from env vars (see below). Other prefixes
-    (anthropic, openai, groq…) pass through as strings.
-
-    vLLM endpoint resolution (per role):
-        VLLM_ADVISOR_BASE_URL  — when role="advisor"
-        VLLM_JUDGE_BASE_URL    — when role="judge"
-        VLLM_BASE_URL          — fallback for either
+    Providers and how they're routed:
+      together:<hf-id>     — Together AI. Via AI Gateway if AI_GATEWAY_BASE_URL
+                             is set, else direct.
+      anthropic:<id>       — Anthropic. Direct string returned (PydanticAI
+                             instantiates); when AI_GATEWAY_BASE_URL is set
+                             we build an AnthropicModel with a custom base.
+      bedrock:<profile-id> — Claude via AWS Bedrock. Direct — AI Gateway
+                             support requires signed requests we don't bother
+                             with yet.
+      workers-ai:<model>   — Cloudflare Workers AI (via AI Gateway only).
+      vllm:<hf-id>         — Self-hosted vLLM at VLLM_*_BASE_URL.
+      <other prefixes>     — pass through as string.
     """
+    gateway = ai_gateway_base_url()
+
     if is_together(model):
         from pydantic_ai.models.openai import OpenAIChatModel
+        from pydantic_ai.providers.openai import OpenAIProvider
         from pydantic_ai.providers.together import TogetherProvider
 
         api_key = os.environ.get("TOGETHER_API_KEY")
+        name = together_model_name(model)
+        if gateway:
+            # AI Gateway's Together endpoint is OpenAI-compatible under /v1.
+            return OpenAIChatModel(
+                name,
+                provider=OpenAIProvider(
+                    base_url=f"{gateway.rstrip('/')}/together-ai/v1",
+                    api_key=api_key,
+                    http_client=_gateway_http_client(),
+                ),
+            )
         return OpenAIChatModel(
-            together_model_name(model),
-            provider=TogetherProvider(api_key=api_key),
+            name, provider=TogetherProvider(api_key=api_key),
+        )
+
+    if is_workers_ai(model):
+        if not gateway:
+            raise RuntimeError(
+                "workers-ai:* models require AI_GATEWAY_BASE_URL to be set"
+            )
+        from pydantic_ai.models.openai import OpenAIChatModel
+        from pydantic_ai.providers.openai import OpenAIProvider
+        # Workers AI exposes an OpenAI-compatible endpoint at /v1 under
+        # the ai gateway. The model id is the '@cf/...' slug.
+        name = together_model_name(model)  # strips "workers-ai:"
+        return OpenAIChatModel(
+            name,
+            provider=OpenAIProvider(
+                base_url=f"{gateway.rstrip('/')}/workers-ai/v1",
+                api_key=os.environ.get("CLOUDFLARE_API_TOKEN", "EMPTY"),
+                http_client=_gateway_http_client(),
+            ),
         )
     if is_bedrock(model):
         # Bedrock uses cross-region inference profiles for Claude 4.x
@@ -129,6 +221,24 @@ def build_model(model: str, *, role: str | None = None):
         return OpenAIChatModel(
             together_model_name(model),  # strips "vllm:" prefix, returns the HF id
             provider=OpenAIProvider(base_url=base_url, api_key="EMPTY"),
+        )
+
+    if is_anthropic(model) and gateway:
+        # Anthropic through AI Gateway: use the AnthropicModel with a
+        # custom base_url so all calls land in the gateway and participate
+        # in its cache + analytics.
+        from pydantic_ai.models.anthropic import AnthropicModel
+        from pydantic_ai.providers.anthropic import AnthropicProvider
+
+        api_key = os.environ.get("ANTHROPIC_API_KEY")
+        name = together_model_name(model)  # strips "anthropic:"
+        return AnthropicModel(
+            name,
+            provider=AnthropicProvider(
+                api_key=api_key,
+                base_url=f"{gateway.rstrip('/')}/anthropic",
+                http_client=_gateway_http_client(),
+            ),
         )
     return model
 
@@ -172,6 +282,11 @@ def build_model_settings(
 # REFINE_MODEL:  model used by the senior reviewer to polish drafts.
 #                Set to "none" (string) or leave unset to skip refinement.
 ADVISOR_MODEL: str = os.environ.get("ADVISOR_MODEL", "anthropic:claude-haiku-4-5")
+# Basic-tier override. When set, plan + strategy for the free archetype
+# flow route here instead of ADVISOR_MODEL. Intended for a smaller, faster,
+# cheaper model fronted by AI Gateway so repeat archetype selections
+# cache. Empty / unset → everyone uses ADVISOR_MODEL.
+ADVISOR_MODEL_BASIC: str = os.environ.get("ADVISOR_MODEL_BASIC", "")
 _refine_env = os.environ.get("REFINE_MODEL", "anthropic:claude-sonnet-4-6")
 REFINE_MODEL: str | None = None if _refine_env.lower() == "none" else _refine_env
 

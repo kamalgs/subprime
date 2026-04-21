@@ -201,7 +201,7 @@ async def generate_strategy(
         (StrategyOutline, RunUsage) — strategy and token usage.
     """
     agent = create_strategy_advisor(prompt_hooks=prompt_hooks, model=model)
-    parts = [f"Investor profile:\n\n{profile.model_dump_json(indent=2)}"]
+    parts = [f"Investor profile:\n\n{_profile_to_prompt_json(profile, cache_safe=True)}"]
     if current_strategy and feedback:
         parts.append(
             f"\nCurrent strategy:\n\n{current_strategy.model_dump_json(indent=2)}"
@@ -215,6 +215,24 @@ async def generate_strategy(
         )
     result = await agent.run("\n".join(parts))
     return result.output, result.usage()
+
+
+def _profile_to_prompt_json(profile: InvestorProfile, *, cache_safe: bool = False) -> str:
+    """Serialise a profile for the LLM prompt.
+
+    When *cache_safe*, replace identifying fields (name) with a stable
+    placeholder so two users with the same archetype produce the same
+    prompt byte-for-byte. The real name stays in the session for UI
+    rendering; the advisor doesn't need it to plan.
+
+    Intentionally narrow: only swaps the name. Everything else is
+    semantically meaningful to the plan and should survive.
+    """
+    data = profile.model_dump(mode="json")
+    if cache_safe:
+        data["name"] = "Investor"
+    import json
+    return json.dumps(data, indent=2, sort_keys=True)
 
 
 async def _generate_single_plan(
@@ -248,9 +266,13 @@ async def _generate_single_plan(
         else:
             hooks["philosophy"] = perspective_prompt
 
+    # For Basic-tier archetype users the name is the only varying field;
+    # strip it so the cached prompt can be reused across users who pick the
+    # same archetype without editing anything.
+    profile_json = _profile_to_prompt_json(profile, cache_safe=True)
     user_parts = [
         f"Create a detailed mutual fund investment plan for this investor:\n\n"
-        f"{profile.model_dump_json(indent=2)}"
+        f"{profile_json}"
     ]
     if strategy:
         user_parts.append(
@@ -318,7 +340,7 @@ async def refine_plan(
     reviewer = create_plan_reviewer(model=model)
     prompt = (
         "Review and refine the following draft investment plan.\n\n"
-        f"## Client Profile\n{profile.model_dump_json(indent=2)}\n\n"
+        f"## Client Profile\n{_profile_to_prompt_json(profile, cache_safe=True)}\n\n"
         f"## Draft Plan (prepared by associate)\n{draft.model_dump_json(indent=2)}"
     )
     result = await reviewer.run(prompt)

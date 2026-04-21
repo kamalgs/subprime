@@ -1,4 +1,5 @@
 """Plan generation — kicks off a background task and exposes a status poller."""
+
 from __future__ import annotations
 
 import asyncio
@@ -15,7 +16,7 @@ from apps.web.api_v2._session import COOKIE_NAME, get_or_create
 from apps.web.api_v2.dto import AckResponse, PlanResponse, PlanStatusResponse
 from subprime import observability as obs
 from subprime.advisor.planner import generate_plan
-from subprime.core.config import ADVISOR_MODEL, REFINE_MODEL
+from subprime.core.config import ADVISOR_MODEL, ADVISOR_MODEL_BASIC, REFINE_MODEL
 
 _tracer = trace.get_tracer("subprime.web")
 
@@ -24,7 +25,12 @@ router = APIRouter()
 
 
 def _multi_perspective_enabled() -> bool:
-    return os.environ.get("SUBPRIME_MULTI_PERSPECTIVE", "").strip().lower() in ("1", "true", "on", "yes")
+    return os.environ.get("SUBPRIME_MULTI_PERSPECTIVE", "").strip().lower() in (
+        "1",
+        "true",
+        "on",
+        "yes",
+    )
 
 
 def _refine_enabled() -> bool:
@@ -51,18 +57,28 @@ async def _run_plan_task(app, session_id: str) -> None:
         return
     effective_mode = s.mode if _multi_perspective_enabled() else "basic"
     refine_model = REFINE_MODEL if _refine_enabled() else None
+    # Basic tier routes to a smaller model through AI Gateway so repeat
+    # archetype selections hit cache and premium traffic still gets the
+    # larger model.
+    active_model = (ADVISOR_MODEL_BASIC if effective_mode == "basic"
+                    and ADVISOR_MODEL_BASIC
+                    else ADVISOR_MODEL)
     logger.info(
         "[plan %s] START mode=%s multi=%s refine=%s model=%s persona=%s has_strategy=%s",
-        session_id[:8], effective_mode, _multi_perspective_enabled(),
-        bool(refine_model), ADVISOR_MODEL,
-        s.profile.id if s.profile else "?", s.strategy is not None,
+        session_id[:8],
+        effective_mode,
+        _multi_perspective_enabled(),
+        bool(refine_model),
+        active_model,
+        s.profile.id if s.profile else "?",
+        s.strategy is not None,
     )
     t0 = time.time()
     span_attrs = {
         obs.SESSION_ID: session_id,
         obs.PERSONA_ID: s.profile.id,
         obs.TIER: effective_mode,
-        obs.ADVISOR_MODEL: ADVISOR_MODEL,
+        obs.ADVISOR_MODEL: active_model,
     }
     if refine_model:
         span_attrs[obs.REFINE_MODEL] = refine_model
@@ -74,7 +90,7 @@ async def _run_plan_task(app, session_id: str) -> None:
                     strategy=s.strategy,
                     mode=effective_mode,
                     n_perspectives=3,
-                    model=ADVISOR_MODEL,
+                    model=active_model,
                     refine_model=refine_model,
                 )
             dt = time.time() - t0
@@ -93,17 +109,23 @@ async def _run_plan_task(app, session_id: str) -> None:
             if denom > 0:
                 span.set_attribute(obs.CACHE_HIT_RATIO, cache_r / denom)
             span.set_status(trace.Status(trace.StatusCode.OK))
-            obs.plan_duration.record(dt, {"tier": effective_mode, "model": ADVISOR_MODEL})
+            obs.plan_duration.record(dt, {"tier": effective_mode, "model": active_model})
             obs.plan_total.add(1, {"tier": effective_mode, "status": "success"})
-            obs.record_llm_usage(usage, model=ADVISOR_MODEL, op="plan")
+            obs.record_llm_usage(usage, model=active_model, op="plan")
             logger.info(
                 "[plan %s] DONE in %.1fs — allocations=%d tokens=(in=%s,out=%s,cache_r=%s,cache_w=%s)",
-                session_id[:8], dt, len(plan.allocations),
-                in_tok, out_tok, cache_r, cache_w,
+                session_id[:8],
+                dt,
+                len(plan.allocations),
+                in_tok,
+                out_tok,
+                cache_r,
+                cache_w,
             )
 
             # Reshape prose fields into bullets if the model returned walls of text.
             from apps.web.api_v2._format import format_plan_prose
+
             format_plan_prose(plan)
 
             s = await store.get(session_id) or s
@@ -115,6 +137,7 @@ async def _run_plan_task(app, session_id: str) -> None:
 
             from subprime.core.conversations import save_conversation
             from subprime.core.db import get_pool
+
             await save_conversation(session=s, pool=get_pool())
         except Exception as exc:
             dt = time.time() - t0
@@ -144,8 +167,9 @@ async def generate(
     s.plan_error = None
     s.current_step = 4
     await request.app.state.session_store.save(s)
-    logger.info("[plan %s] QUEUED mode=%s persona=%s",
-                s.id[:8], s.mode, s.profile.id if s.profile else "?")
+    logger.info(
+        "[plan %s] QUEUED mode=%s persona=%s", s.id[:8], s.mode, s.profile.id if s.profile else "?"
+    )
     background.add_task(_run_plan_task, request.app, s.id)
     return AckResponse()
 
@@ -178,6 +202,7 @@ async def get_plan(
 def _safe_filename(profile_name: str, extension: str) -> str:
     """Slugify investor name for Content-Disposition filename."""
     import re
+
     slug = re.sub(r"[^A-Za-z0-9]+", "-", profile_name.strip()).strip("-") or "plan"
     date = __import__("datetime").datetime.utcnow().strftime("%Y%m%d")
     return f"benji-plan-{slug.lower()}-{date}.{extension}"
@@ -198,7 +223,8 @@ async def download_pdf(
     pdf = await asyncio.to_thread(build_plan_pdf, s.plan, s.profile)
     filename = _safe_filename(s.profile.name, "pdf")
     return Response(
-        content=pdf, media_type="application/pdf",
+        content=pdf,
+        media_type="application/pdf",
         headers={"Content-Disposition": f'attachment; filename="{filename}"'},
     )
 
