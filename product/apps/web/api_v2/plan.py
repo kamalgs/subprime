@@ -55,14 +55,16 @@ async def _run_plan_task(app, session_id: str) -> None:
     s = await store.get(session_id)
     if s is None or s.profile is None:
         return
-    effective_mode = s.mode if _multi_perspective_enabled() else "basic"
+    # Tier is still used to pick the advisor model + shape the universe context;
+    # multi-perspective is off for both tiers now.
+    tier = s.mode if s.mode in ("basic", "premium") else "basic"
+    slim_universe = tier == "basic"
+    effective_mode = "basic"
     refine_model = REFINE_MODEL if _refine_enabled() else None
     # Basic tier routes to a smaller model through AI Gateway so repeat
     # archetype selections hit cache and premium traffic still gets the
     # larger model.
-    active_model = (ADVISOR_MODEL_BASIC if effective_mode == "basic"
-                    and ADVISOR_MODEL_BASIC
-                    else ADVISOR_MODEL)
+    active_model = ADVISOR_MODEL_BASIC if tier == "basic" and ADVISOR_MODEL_BASIC else ADVISOR_MODEL
     logger.info(
         "[plan %s] START mode=%s multi=%s refine=%s model=%s persona=%s has_strategy=%s",
         session_id[:8],
@@ -77,7 +79,7 @@ async def _run_plan_task(app, session_id: str) -> None:
     span_attrs = {
         obs.SESSION_ID: session_id,
         obs.PERSONA_ID: s.profile.id,
-        obs.TIER: effective_mode,
+        obs.TIER: tier,
         obs.ADVISOR_MODEL: active_model,
     }
     if refine_model:
@@ -92,6 +94,7 @@ async def _run_plan_task(app, session_id: str) -> None:
                     n_perspectives=3,
                     model=active_model,
                     refine_model=refine_model,
+                    slim_universe=slim_universe,
                 )
             dt = time.time() - t0
             in_tok = getattr(usage, "input_tokens", 0) or 0
@@ -109,8 +112,8 @@ async def _run_plan_task(app, session_id: str) -> None:
             if denom > 0:
                 span.set_attribute(obs.CACHE_HIT_RATIO, cache_r / denom)
             span.set_status(trace.Status(trace.StatusCode.OK))
-            obs.plan_duration.record(dt, {"tier": effective_mode, "model": active_model})
-            obs.plan_total.add(1, {"tier": effective_mode, "status": "success"})
+            obs.plan_duration.record(dt, {"tier": tier, "model": active_model})
+            obs.plan_total.add(1, {"tier": tier, "status": "success"})
             obs.record_llm_usage(usage, model=active_model, op="plan")
             logger.info(
                 "[plan %s] DONE in %.1fs — allocations=%d tokens=(in=%s,out=%s,cache_r=%s,cache_w=%s)",
@@ -144,7 +147,7 @@ async def _run_plan_task(app, session_id: str) -> None:
             span.set_attribute(obs.ELAPSED_S, dt)
             span.record_exception(exc)
             span.set_status(trace.Status(trace.StatusCode.ERROR, str(exc)[:200]))
-            obs.plan_total.add(1, {"tier": effective_mode, "status": "error"})
+            obs.plan_total.add(1, {"tier": tier, "status": "error"})
             logger.exception("[plan %s] FAILED after %.1fs", session_id[:8], dt)
             s = await store.get(session_id) or s
             s.plan_generating = False

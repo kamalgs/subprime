@@ -1,4 +1,5 @@
 """Plan generation — strategy outlines and detailed investment plans."""
+
 from __future__ import annotations
 
 import asyncio
@@ -18,19 +19,32 @@ logger = logging.getLogger(__name__)
 # Category-typical CAGRs (%) — used to compute fallback projected returns
 # when the LLM leaves plan.projected_returns empty or zero.
 _CATEGORY_CAGR = {
-    "large cap": 11.0, "mid cap": 13.0, "small cap": 15.0,
-    "flexi cap": 12.0, "multi cap": 12.0, "elss": 12.0,
-    "index": 11.0, "nifty": 11.0, "sensex": 11.0,
-    "hybrid": 9.5, "balanced": 9.5, "arbitrage": 6.5,
-    "debt": 7.0, "liquid": 6.0, "overnight": 5.5,
-    "gilt": 7.5, "corporate bond": 7.5, "short duration": 7.0,
-    "gold": 9.0, "international": 10.0,
+    "large cap": 11.0,
+    "mid cap": 13.0,
+    "small cap": 15.0,
+    "flexi cap": 12.0,
+    "multi cap": 12.0,
+    "elss": 12.0,
+    "index": 11.0,
+    "nifty": 11.0,
+    "sensex": 11.0,
+    "hybrid": 9.5,
+    "balanced": 9.5,
+    "arbitrage": 6.5,
+    "debt": 7.0,
+    "liquid": 6.0,
+    "overnight": 5.5,
+    "gilt": 7.5,
+    "corporate bond": 7.5,
+    "short duration": 7.0,
+    "gold": 9.0,
+    "international": 10.0,
 }
 
 _RISK_DEFAULTS = {
-    "aggressive":   {"bear": 8.0,  "base": 12.0, "bull": 16.0},
-    "moderate":     {"bear": 6.0,  "base": 10.0, "bull": 14.0},
-    "conservative": {"bear": 5.0,  "base": 8.0,  "bull": 11.0},
+    "aggressive": {"bear": 8.0, "base": 12.0, "bull": 16.0},
+    "moderate": {"bear": 6.0, "base": 10.0, "bull": 14.0},
+    "conservative": {"bear": 5.0, "base": 8.0, "bull": 11.0},
 }
 
 
@@ -83,7 +97,9 @@ def fill_projected_returns_fallback(plan: InvestmentPlan, profile: InvestorProfi
     }
     logger.info(
         "Filled fallback projected_returns for %s: %s (matched_pct=%.1f)",
-        profile.id, plan.projected_returns, matched_pct,
+        profile.id,
+        plan.projected_returns,
+        matched_pct,
     )
 
 
@@ -98,19 +114,27 @@ def _universe_cache_path(db_path: Path) -> Path:
     return db_path.parent / "universe_context.md"
 
 
-def _render_universe_from_db(db_path: Path) -> str | None:
-    """Open DuckDB read-only and render the universe markdown (slow path)."""
+def _render_universe_from_db(db_path: Path, max_per_category: int | None = None) -> str | None:
+    """Open DuckDB read-only and render the universe markdown (slow path).
+
+    ``max_per_category`` caps rows per category for the slim variant.
+    """
     try:
         import duckdb
         from subprime.data.universe import render_universe_context
+
         conn = duckdb.connect(str(db_path), read_only=True)
         try:
-            return render_universe_context(conn)
+            return render_universe_context(conn, max_per_category=max_per_category)
         finally:
             conn.close()
     except Exception:
         logger.warning("Failed to render fund universe from %s", db_path, exc_info=True)
         return None
+
+
+_UNIVERSE_SLIM_CACHE: str | None = None
+_SLIM_PER_CATEGORY = 5
 
 
 def warm_universe_cache(db_path: Path | None = None) -> bool:
@@ -129,10 +153,7 @@ def warm_universe_cache(db_path: Path | None = None) -> bool:
     cache_path = _universe_cache_path(db_path)
     try:
         # Rebuild if cache is missing or older than the DB file.
-        if (
-            not cache_path.exists()
-            or cache_path.stat().st_mtime < db_path.stat().st_mtime
-        ):
+        if not cache_path.exists() or cache_path.stat().st_mtime < db_path.stat().st_mtime:
             text = _render_universe_from_db(db_path)
             if text is None:
                 return False
@@ -140,14 +161,17 @@ def warm_universe_cache(db_path: Path | None = None) -> bool:
             cache_path.write_text(text)
             _UNIVERSE_CACHE_TEXT = text
             logger.info(
-                "Universe cache warmed: %d chars → %s", len(text), cache_path,
+                "Universe cache warmed: %d chars → %s",
+                len(text),
+                cache_path,
             )
             return True
 
         _UNIVERSE_CACHE_TEXT = cache_path.read_text()
         logger.info(
             "Universe cache hit: %d chars from %s",
-            len(_UNIVERSE_CACHE_TEXT), cache_path,
+            len(_UNIVERSE_CACHE_TEXT),
+            cache_path,
         )
         return False
     except Exception:
@@ -155,19 +179,33 @@ def warm_universe_cache(db_path: Path | None = None) -> bool:
         return False
 
 
-def _load_universe_context(db_path: Path | None = None) -> str | None:
+def _load_universe_context(db_path: Path | None = None, slim: bool = False) -> str | None:
     """Return the fund universe markdown — from in-memory cache if present,
     else the on-disk cache file, else (last resort) render from DuckDB.
+
+    When ``slim`` is True, returns a reduced version (``_SLIM_PER_CATEGORY``
+    rows per category) cached separately in-process. Used for basic-tier
+    plans to cut input tokens without touching the full-universe cache.
     """
-    global _UNIVERSE_CACHE_TEXT
-    if _UNIVERSE_CACHE_TEXT is not None:
+    global _UNIVERSE_CACHE_TEXT, _UNIVERSE_SLIM_CACHE
+
+    if slim and _UNIVERSE_SLIM_CACHE is not None:
+        return _UNIVERSE_SLIM_CACHE
+    if not slim and _UNIVERSE_CACHE_TEXT is not None:
         return _UNIVERSE_CACHE_TEXT
 
     if db_path is None:
         from subprime.advisor import planner as _self
+
         db_path = _self.DB_PATH
     if not db_path.exists():
         return None
+
+    if slim:
+        text = _render_universe_from_db(db_path, max_per_category=_SLIM_PER_CATEGORY)
+        if text is not None:
+            _UNIVERSE_SLIM_CACHE = text
+        return text
 
     cache_path = _universe_cache_path(db_path)
     try:
@@ -232,6 +270,7 @@ def _profile_to_prompt_json(profile: InvestorProfile, *, cache_safe: bool = Fals
     if cache_safe:
         data["name"] = "Investor"
     import json
+
     return json.dumps(data, indent=2, sort_keys=True)
 
 
@@ -255,7 +294,6 @@ async def _generate_single_plan(
     Returns:
         (InvestmentPlan, RunUsage) — plan and combined token usage.
     """
-    from pydantic_ai.usage import RunUsage as _RU
 
     # Merge perspective prompt into hooks
     hooks = dict(prompt_hooks or {})
@@ -271,8 +309,7 @@ async def _generate_single_plan(
     # same archetype without editing anything.
     profile_json = _profile_to_prompt_json(profile, cache_safe=True)
     user_parts = [
-        f"Create a detailed mutual fund investment plan for this investor:\n\n"
-        f"{profile_json}"
+        f"Create a detailed mutual fund investment plan for this investor:\n\n{profile_json}"
     ]
     if strategy:
         user_parts.append(
@@ -360,6 +397,7 @@ async def generate_plan(
     model: str = DEFAULT_MODEL,
     refine_model: str | None = None,
     thinking: bool = False,
+    slim_universe: bool = False,
 ) -> tuple[InvestmentPlan, RunUsage]:
     """Generate a detailed investment plan.
 
@@ -378,7 +416,7 @@ async def generate_plan(
     Returns:
         (InvestmentPlan, RunUsage) — plan and aggregated token usage.
     """
-    universe_ctx = _load_universe_context() if include_universe else None
+    universe_ctx = _load_universe_context(slim=slim_universe) if include_universe else None
     total_usage = RunUsage()
 
     if mode == "premium":
@@ -403,14 +441,17 @@ async def generate_plan(
         ]
         results = await asyncio.gather(*tasks, return_exceptions=True)
 
-        valid: list[tuple[InvestmentPlan, RunUsage]] = [
-            r for r in results if isinstance(r, tuple)
-        ]
+        valid: list[tuple[InvestmentPlan, RunUsage]] = [r for r in results if isinstance(r, tuple)]
         if not valid:
             logger.error("All premium variants failed, falling back to basic mode")
             plan, usage = await _generate_single_plan(
-                profile, strategy, prompt_hooks, universe_ctx,
-                None, "basic_fallback", model,
+                profile,
+                strategy,
+                prompt_hooks,
+                universe_ctx,
+                None,
+                "basic_fallback",
+                model,
             )
             total_usage.incr(usage)
             return plan, total_usage
@@ -440,8 +481,14 @@ async def generate_plan(
 
     # basic mode
     plan, usage = await _generate_single_plan(
-        profile, strategy, prompt_hooks, universe_ctx,
-        None, "basic", model, thinking=thinking,
+        profile,
+        strategy,
+        prompt_hooks,
+        universe_ctx,
+        None,
+        "basic",
+        model,
+        thinking=thinking,
     )
     total_usage.incr(usage)
     if refine_model:
