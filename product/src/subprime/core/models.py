@@ -44,7 +44,7 @@ class MutualFund(BaseModel):
     fund_house: str = ""
     nav: float = Field(default=0.0, ge=0)
     expense_ratio: float = Field(default=0.0, ge=0)
-    inception_date: Optional[date] = None        # fund launch date (for age context)
+    inception_date: Optional[date] = None  # fund launch date (for age context)
     aum_cr: Optional[float] = None
     morningstar_rating: Optional[int] = Field(default=None, ge=1, le=5)
     returns_1y: Optional[float] = None
@@ -52,11 +52,11 @@ class MutualFund(BaseModel):
     returns_5y: Optional[float] = None
     risk_grade: Optional[Literal["low", "moderate", "high", "very_high"]] = None
     # Risk metrics vs Nifty 50 benchmark (computed from 1-year NAV history)
-    volatility_1y: Optional[float] = None      # annualised volatility (%)
-    beta: Optional[float] = None               # market sensitivity (1.0 = index)
-    alpha: Optional[float] = None              # excess return vs benchmark, annualised (%)
-    tracking_error: Optional[float] = None     # annualised tracking error (%)
-    sharpe_ratio: Optional[float] = None       # risk-adjusted return
+    volatility_1y: Optional[float] = None  # annualised volatility (%)
+    beta: Optional[float] = None  # market sensitivity (1.0 = index)
+    alpha: Optional[float] = None  # excess return vs benchmark, annualised (%)
+    tracking_error: Optional[float] = None  # annualised tracking error (%)
+    sharpe_ratio: Optional[float] = None  # risk-adjusted return
     information_ratio: Optional[float] = None  # alpha per unit of tracking error
 
 
@@ -93,12 +93,14 @@ class StrategyOutline(BaseModel):
 
 class SIPStepUp(BaseModel):
     """SIP step-up schedule — annual increases to monthly SIP."""
+
     annual_increase_pct: float = 10.0  # e.g. 10% yearly increase
     description: str = "Increase SIP by 10% every year to match salary growth"
 
 
 class AllocationPhase(BaseModel):
     """Asset allocation at a specific point in the investment timeline."""
+
     year: int  # e.g. year 0, year 5, year 10
     equity_pct: float = 0.0
     debt_pct: float = 0.0
@@ -122,6 +124,37 @@ class InvestmentPlan(BaseModel):
     sip_step_up: SIPStepUp | None = None
     allocation_schedule: list[AllocationPhase] = []
     perspective: str = ""  # which perspective generated this plan
+
+
+# ---------------------------------------------------------------------------
+# Staged-plan output types — each stage's LLM call yields a subset of the
+# full InvestmentPlan so the web flow can render sections as they arrive.
+# Experiments continue to use the single-shot InvestmentPlan schema.
+# ---------------------------------------------------------------------------
+
+
+class PlanCore(BaseModel):
+    """Stage 1 — the minimum viable plan (allocations + returns + one-line rationale)."""
+
+    allocations: list[Allocation]
+    projected_returns: dict[str, float] = {}
+    rationale: str = ""
+
+
+class PlanRisks(BaseModel):
+    """Stage 2 — risk disclosures, rebalancing guidance, review checkpoints."""
+
+    risks: list[str] = []
+    rebalancing_guidelines: str = ""
+    review_checkpoints: list[str] = []
+
+
+class PlanSetup(BaseModel):
+    """Stage 3 — onboarding steps + SIP step-up schedule + long-form rationale."""
+
+    setup_phase: str = ""
+    sip_step_up: SIPStepUp | None = None
+    rationale: str = ""  # longer narrative that overrides the one-liner from stage 1
 
 
 # ---------------------------------------------------------------------------
@@ -214,6 +247,7 @@ class ConversationLog(BaseModel):
 
 class SessionSummary(BaseModel):
     """Lightweight session info for listing."""
+
     id: str
     investor_name: str | None = None
     mode: str = "basic"
@@ -224,6 +258,7 @@ class SessionSummary(BaseModel):
 
 class Session(BaseModel):
     """Full wizard session state."""
+
     id: str = Field(default_factory=lambda: __import__("uuid").uuid4().hex[:12])
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
@@ -236,6 +271,10 @@ class Session(BaseModel):
     is_demo: bool = False  # True when entered via OTP cheat code — unlocks full persona bank
     plan_generating: bool = False  # True while a background plan-generation task is in flight
     plan_error: str | None = None  # Last plan-generation error message, if any
+    # Names of staged-plan sections populated so far. Values: "core", "risks",
+    # "setup". UI polls until all three are present. Empty list on legacy
+    # single-call flow where ``plan_generating=False`` is the completion signal.
+    plan_stages: list[str] = []
 
     def to_summary(self) -> SessionSummary:
         return SessionSummary(
@@ -258,7 +297,7 @@ class ExperimentResult(BaseModel):
 
     persona_id: str
     condition: str
-    model: str                          # advisor model
+    model: str  # advisor model
     judge_model: Optional[str] = None  # judge model (None = same as model)
     plan: InvestmentPlan
     aps: APSScore

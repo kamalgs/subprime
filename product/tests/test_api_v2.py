@@ -3,6 +3,7 @@
 LLM calls are mocked; everything else (session, routing, persistence,
 background tasks, cheat code) runs real.
 """
+
 from __future__ import annotations
 
 import asyncio
@@ -27,9 +28,31 @@ CHEAT = "123456"
 # ---------------------------------------------------------------------------
 
 
+def _staged_mock(plan: "InvestmentPlan | None" = None):
+    """Build a mock generate_plan_staged that fires on_partial for every stage.
+
+    Mirrors the real staging contract so API-layer tests exercise the same
+    session-state writes the production code performs.
+    """
+    plan_value = plan or _mock_plan()
+
+    async def _fn(profile, strategy=None, **kwargs):
+        cb = kwargs.get("on_partial")
+        if cb is not None:
+            await cb(plan_value, ["core"])
+            await cb(plan_value, ["core", "risks"])
+            await cb(plan_value, ["core", "risks", "setup"])
+        return plan_value, RunUsage()
+
+    return _fn
+
+
 def _mock_strategy() -> StrategyOutline:
     return StrategyOutline(
-        equity_pct=70, debt_pct=20, gold_pct=10, other_pct=0,
+        equity_pct=70,
+        debt_pct=20,
+        gold_pct=10,
+        other_pct=0,
         equity_approach="Balanced mix",
         key_themes=["growth tilt", "low cost"],
         risk_return_summary="Expected 11% CAGR with moderate drawdowns",
@@ -41,8 +64,12 @@ def _mock_plan() -> InvestmentPlan:
     return InvestmentPlan(
         allocations=[
             Allocation(
-                fund=MutualFund(amfi_code="119551", name="UTI Nifty 50 Index Fund", category="Large Cap"),
-                allocation_pct=40, mode="sip", monthly_sip_inr=20000,
+                fund=MutualFund(
+                    amfi_code="119551", name="UTI Nifty 50 Index Fund", category="Large Cap"
+                ),
+                allocation_pct=40,
+                mode="sip",
+                monthly_sip_inr=20000,
                 rationale="Core equity exposure",
             ),
         ],
@@ -60,6 +87,7 @@ def cheat_code_env(monkeypatch):
 @pytest.fixture
 async def client():
     from apps.web.main import create_app
+
     app = create_app()
     async with AsyncClient(
         transport=ASGITransport(app=app),
@@ -147,9 +175,13 @@ async def test_reset_generates_new_session(client):
 
 
 _VALID_PROFILE = {
-    "name": "Test User", "age": 30, "monthly_sip_inr": 25000,
-    "existing_corpus_inr": 500000, "risk_appetite": "moderate",
-    "investment_horizon_years": 15, "life_stage": "mid career",
+    "name": "Test User",
+    "age": 30,
+    "monthly_sip_inr": 25000,
+    "existing_corpus_inr": 500000,
+    "risk_appetite": "moderate",
+    "investment_horizon_years": 15,
+    "life_stage": "mid career",
     "financial_goals": ["Retirement"],
 }
 
@@ -324,8 +356,8 @@ async def test_strategy_answer_questions_does_not_pollute_chat(client):
 @pytest.mark.asyncio
 async def test_plan_generate_returns_202_and_sets_flag(client):
     await client.post("/api/v2/session/profile", json=_VALID_PROFILE)
-    mock_plan = AsyncMock(return_value=(_mock_plan(), RunUsage()))
-    with patch("apps.web.api_v2.plan.generate_plan", new=mock_plan):
+    mock_plan = _staged_mock()
+    with patch("apps.web.api_v2.plan.generate_plan_staged", new=mock_plan):
         r = await client.post("/api/v2/plan/generate")
         assert r.status_code == 202
         # Give the background task a chance to complete
@@ -355,10 +387,26 @@ async def test_plan_get_404_before_ready(client):
 
 
 @pytest.mark.asyncio
+async def test_plan_status_reports_staged_progress(client):
+    """Stages arrive incrementally — status should expose the progress list."""
+    await client.post("/api/v2/session/profile", json=_VALID_PROFILE)
+    with patch("apps.web.api_v2.plan.generate_plan_staged", new=_staged_mock()):
+        await client.post("/api/v2/plan/generate")
+        for _ in range(30):
+            await asyncio.sleep(0.05)
+            status = await client.get("/api/v2/plan/status")
+            if status.json()["generating"] is False:
+                break
+    data = status.json()
+    assert data["ready"] is True
+    assert set(data["stages_done"]) >= {"core", "risks", "setup"}
+
+
+@pytest.mark.asyncio
 async def test_plan_get_returns_full_plan_after_ready(client):
     await client.post("/api/v2/session/profile", json=_VALID_PROFILE)
-    mock_plan = AsyncMock(return_value=(_mock_plan(), RunUsage()))
-    with patch("apps.web.api_v2.plan.generate_plan", new=mock_plan):
+    mock_plan = _staged_mock()
+    with patch("apps.web.api_v2.plan.generate_plan_staged", new=mock_plan):
         await client.post("/api/v2/plan/generate")
         for _ in range(30):
             await asyncio.sleep(0.05)
@@ -383,7 +431,7 @@ async def test_plan_generate_requires_profile(client):
 async def test_plan_error_surfaces_in_status(client):
     await client.post("/api/v2/session/profile", json=_VALID_PROFILE)
     broken = AsyncMock(side_effect=RuntimeError("model hiccup"))
-    with patch("apps.web.api_v2.plan.generate_plan", new=broken):
+    with patch("apps.web.api_v2.plan.generate_plan_staged", new=broken):
         await client.post("/api/v2/plan/generate")
         for _ in range(30):
             await asyncio.sleep(0.05)
@@ -424,8 +472,8 @@ async def test_full_wizard_flow_end_to_end(client):
 
     # 4. Plan
     with patch(
-        "apps.web.api_v2.plan.generate_plan",
-        new=AsyncMock(return_value=(_mock_plan(), RunUsage())),
+        "apps.web.api_v2.plan.generate_plan_staged",
+        new=_staged_mock(),
     ):
         r = await client.post("/api/v2/plan/generate")
         assert r.status_code == 202
@@ -449,8 +497,8 @@ async def _seed_plan(client):
     """Helper: push a profile + generated plan into the session so the
     download endpoints have something to serve."""
     await client.post("/api/v2/session/profile", json=_VALID_PROFILE)
-    mock = AsyncMock(return_value=(_mock_plan(), RunUsage()))
-    with patch("apps.web.api_v2.plan.generate_plan", new=mock):
+    mock = _staged_mock()
+    with patch("apps.web.api_v2.plan.generate_plan_staged", new=mock):
         await client.post("/api/v2/plan/generate")
         for _ in range(30):
             await asyncio.sleep(0.05)
@@ -486,6 +534,7 @@ async def test_download_pdf_returns_branded_pdf(client):
     # so raw-byte grep is unreliable.
     from io import BytesIO
     from pypdf import PdfReader
+
     reader = PdfReader(BytesIO(body))
     text = "\n".join(page.extract_text() or "" for page in reader.pages)
     assert "Benji" in text
@@ -509,11 +558,11 @@ async def test_download_xlsx_returns_openable_workbook(client):
     wb = load_workbook(filename=BytesIO(r.content))
     # New consolidated shape: Plan + Explore
     assert wb.sheetnames == ["Plan", "Explore"]
-    flat = [str(c.value) for row in wb["Plan"].iter_rows()
-            for c in row if c.value is not None]
+    flat = [str(c.value) for row in wb["Plan"].iter_rows() for c in row if c.value is not None]
     # Mocked plan fund name is 'UTI Nifty 50 Index Fund'
     assert any("UTI Nifty 50" in s for s in flat)
     # Allocation percentage (40) should appear as a number somewhere
-    numbers = [c.value for row in wb["Plan"].iter_rows()
-               for c in row if isinstance(c.value, (int, float))]
+    numbers = [
+        c.value for row in wb["Plan"].iter_rows() for c in row if isinstance(c.value, (int, float))
+    ]
     assert 40 in numbers or 40.0 in numbers

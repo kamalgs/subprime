@@ -11,7 +11,14 @@ from pydantic_ai.usage import RunUsage
 
 from subprime.advisor.agent import create_advisor, create_plan_reviewer, create_strategy_advisor
 from subprime.core.config import DB_PATH, DEFAULT_MODEL, is_anthropic, supports_thinking
-from subprime.core.models import InvestmentPlan, InvestorProfile, StrategyOutline
+from subprime.core.models import (
+    InvestmentPlan,
+    InvestorProfile,
+    PlanCore,
+    PlanRisks,
+    PlanSetup,
+    StrategyOutline,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -496,4 +503,241 @@ async def generate_plan(
         plan, refine_usage = await refine_plan(plan, profile, model=refine_model)
         total_usage.incr(refine_usage)
     fill_projected_returns_fallback(plan, profile)
+    return plan, total_usage
+
+
+# ---------------------------------------------------------------------------
+# Staged plan — three smaller LLM calls with a progress callback. Used only
+# by the web flow; experiments/CLI keep calling generate_plan() for parity
+# with historical runs.
+# ---------------------------------------------------------------------------
+
+
+PartialCallback = "typing.Callable[[InvestmentPlan, list[str]], typing.Awaitable[None]] | None"
+
+
+_STAGE2_SYSTEM = (
+    "You write the **risk, rebalancing, and review** section of an Indian "
+    "mutual-fund plan. Given the allocations and the investor profile, emit:\n"
+    " - risks: 4–6 concrete, India-specific risks in plain English. Name actual "
+    "  scenarios (equity drawdowns, interest-rate moves on debt, gold volatility, "
+    "  tax-regime changes) — no generic boilerplate.\n"
+    " - rebalancing_guidelines: 3–5 sentences on when and how to rebalance "
+    "  (threshold %, frequency, tax-aware unit selection).\n"
+    " - review_checkpoints: 3–5 concrete review triggers (time- or event-based).\n"
+    "Do not restate allocations or returns — those are already rendered."
+)
+
+
+_STAGE3_SYSTEM = (
+    "You write the **setup guidance + SIP step-up + long-form rationale** for "
+    "an Indian mutual-fund plan. Given the allocations and investor profile:\n"
+    " - setup_phase: 2–3 paragraphs on what to do in the first 30–90 days "
+    "  (KYC status, folio consolidation, SIP registrations, tax-harvesting setup).\n"
+    " - sip_step_up: annual_increase_pct (typical 8–12 % for salaried) + a one-line "
+    "  description keyed to the investor's income trajectory.\n"
+    " - rationale: 4–6 sentences of narrative tying the allocations to the "
+    "  investor's goals, horizon, and risk appetite. This replaces the short "
+    "  one-liner from stage 1."
+)
+
+
+def _plan_summary_for_stage(plan: InvestmentPlan, profile: InvestorProfile) -> str:
+    """Compact context handed to stages 2 and 3 — keeps input tokens tiny."""
+    lines = ["Investor:"]
+    lines.append(
+        f"- {profile.age} yr, {profile.risk_appetite} risk, horizon "
+        f"{profile.investment_horizon_years} yr, SIP "
+        f"₹{int(profile.monthly_sip_inr):,}/mo, corpus "
+        f"₹{int(profile.existing_corpus_inr):,}, goals: "
+        + ", ".join(profile.financial_goals or ["-"])
+    )
+    lines.append("")
+    lines.append("Plan allocations:")
+    for a in plan.allocations:
+        mode = a.mode
+        amt = ""
+        if a.monthly_sip_inr:
+            amt = f" (₹{int(a.monthly_sip_inr):,}/mo)"
+        elif a.lumpsum_inr:
+            amt = f" (₹{int(a.lumpsum_inr):,} lump)"
+        lines.append(f"- {a.allocation_pct:.0f}% {a.fund.name} [{mode}]{amt}")
+    pr = plan.projected_returns or {}
+    if pr:
+        lines.append("")
+        lines.append(
+            f"Projected CAGR %: base={pr.get('base', '?')} "
+            f"bull={pr.get('bull', '?')} bear={pr.get('bear', '?')}"
+        )
+    return "\n".join(lines)
+
+
+async def _stage1_core(
+    profile: InvestorProfile,
+    strategy: StrategyOutline | None,
+    prompt_hooks: dict[str, str] | None,
+    universe_ctx: str | None,
+    model: str,
+) -> tuple[PlanCore, RunUsage]:
+    from pydantic_ai import Agent
+
+    from subprime.advisor.agent import load_prompt
+    from subprime.core.config import build_model, build_model_settings, is_anthropic
+
+    base = load_prompt("base")
+    planning = load_prompt("planning")
+    philosophy = ""
+    if prompt_hooks and "philosophy" in prompt_hooks:
+        philosophy = prompt_hooks["philosophy"]
+    parts = [base, planning]
+    if philosophy:
+        parts.append(f"## Investment Philosophy\n\n{philosophy}")
+    if universe_ctx:
+        parts.append(universe_ctx)
+    parts.append(
+        "## Stage-1 output contract\n\n"
+        "Return ONLY allocations (with fund, allocation_pct, mode, rationale), "
+        "projected_returns (base/bull/bear CAGR %), and a single-sentence rationale. "
+        "Risks, rebalancing, setup guidance, and SIP step-up are produced in later "
+        "stages — leave them out."
+    )
+    system_prompt = "\n\n---\n\n".join(parts)
+
+    settings = build_model_settings(model, cache=True)
+    if is_anthropic(model):
+        settings["anthropic_cache_tool_definitions"] = "1h"
+
+    agent = Agent(
+        build_model(model, role="advisor"),
+        system_prompt=system_prompt,
+        output_type=PlanCore,
+        tools=[],
+        retries=2,
+        defer_model_check=True,
+        model_settings=settings,
+    )
+
+    profile_json = _profile_to_prompt_json(profile, cache_safe=True)
+    user_parts = [f"Create a mutual fund investment plan for this investor:\n\n{profile_json}"]
+    if strategy:
+        user_parts.append("Approved strategy:\n" + strategy.model_dump_json(indent=2))
+    result = await agent.run("\n\n".join(user_parts))
+    return result.output, result.usage()
+
+
+async def _stage2_risks(
+    plan: InvestmentPlan,
+    profile: InvestorProfile,
+    model: str,
+) -> tuple[PlanRisks, RunUsage]:
+    from pydantic_ai import Agent
+
+    from subprime.core.config import build_model, build_model_settings
+
+    agent = Agent(
+        build_model(model, role="advisor"),
+        system_prompt=_STAGE2_SYSTEM,
+        output_type=PlanRisks,
+        tools=[],
+        retries=2,
+        defer_model_check=True,
+        model_settings=build_model_settings(model, cache=False),
+    )
+    result = await agent.run(_plan_summary_for_stage(plan, profile))
+    return result.output, result.usage()
+
+
+async def _stage3_setup(
+    plan: InvestmentPlan,
+    profile: InvestorProfile,
+    model: str,
+) -> tuple[PlanSetup, RunUsage]:
+    from pydantic_ai import Agent
+
+    from subprime.core.config import build_model, build_model_settings
+
+    agent = Agent(
+        build_model(model, role="advisor"),
+        system_prompt=_STAGE3_SYSTEM,
+        output_type=PlanSetup,
+        tools=[],
+        retries=2,
+        defer_model_check=True,
+        model_settings=build_model_settings(model, cache=False),
+    )
+    result = await agent.run(_plan_summary_for_stage(plan, profile))
+    return result.output, result.usage()
+
+
+async def generate_plan_staged(
+    profile: InvestorProfile,
+    strategy: StrategyOutline | None = None,
+    *,
+    prompt_hooks: dict[str, str] | None = None,
+    model: str = DEFAULT_MODEL,
+    slim_universe: bool = True,
+    on_partial=None,
+) -> tuple[InvestmentPlan, RunUsage]:
+    """Staged plan generation for the web flow.
+
+    Emits a partial InvestmentPlan after each stage completes via the
+    optional ``on_partial(plan, stages_done)`` coroutine callback.
+
+    Stage 1 (allocations + returns + short rationale) runs first. Stages 2
+    (risks/rebalancing/checkpoints) and 3 (setup/step-up/long rationale)
+    run in parallel afterwards — they only need the stage-1 plan summary.
+
+    Experiments and CLI keep using the single-shot ``generate_plan`` for
+    parity with historical runs.
+    """
+    universe_ctx = _load_universe_context(slim=slim_universe)
+    total_usage = RunUsage()
+
+    # Stage 1 — core allocations.
+    core, usage = await _stage1_core(profile, strategy, prompt_hooks, universe_ctx, model)
+    total_usage.incr(usage)
+    plan = InvestmentPlan(
+        allocations=core.allocations,
+        projected_returns=core.projected_returns,
+        rationale=core.rationale,
+    )
+    fill_projected_returns_fallback(plan, profile)
+    if on_partial is not None:
+        await on_partial(plan, ["core"])
+
+    # Stages 2 + 3 in parallel.
+    risks_task = asyncio.create_task(_stage2_risks(plan, profile, model))
+    setup_task = asyncio.create_task(_stage3_setup(plan, profile, model))
+
+    # Merge stage 2 as it finishes, then stage 3 — whichever arrives first
+    # produces an interim partial.
+    remaining = {risks_task, setup_task}
+    stages_done = ["core"]
+    while remaining:
+        done, remaining = await asyncio.wait(remaining, return_when=asyncio.FIRST_COMPLETED)
+        for t in done:
+            try:
+                out, u = t.result()
+            except Exception:
+                logger.exception("stage task failed — continuing with partial plan")
+                continue
+            total_usage.incr(u)
+
+            if isinstance(out, PlanRisks):
+                plan.risks = out.risks or plan.risks
+                plan.rebalancing_guidelines = (
+                    out.rebalancing_guidelines or plan.rebalancing_guidelines
+                )
+                plan.review_checkpoints = out.review_checkpoints or plan.review_checkpoints
+                stages_done.append("risks")
+            elif isinstance(out, PlanSetup):
+                plan.setup_phase = out.setup_phase or plan.setup_phase
+                if out.sip_step_up is not None:
+                    plan.sip_step_up = out.sip_step_up
+                if out.rationale:
+                    plan.rationale = out.rationale
+                stages_done.append("setup")
+            if on_partial is not None:
+                await on_partial(plan, list(stages_done))
+
     return plan, total_usage

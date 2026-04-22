@@ -69,10 +69,16 @@ fi
 [[ -n "$FORCE_COLOR" ]] && target="$FORCE_COLOR"
 log "active=$active   target=$target"
 
-# 2. Build
+# 2. Build — pre-build gate: fast API smoke + SPA build + UI smoke.
+#    Fails here block the deploy before we ever touch Nomad.
 image_tag="$(git -C "$REPO_ROOT" rev-parse --short HEAD)-$(date -u +%Y%m%d%H%M%S)"
-log "building frontend + docker image (tag=$image_tag)"
+log "running API smoke (in-process, stubbed LLM)"
+make -C "$REPO_ROOT" smoke-api >/dev/null || die "smoke-api failed — strategy/plan contract broken"
+log "building frontend"
 make -C "$REPO_ROOT" frontend >/dev/null
+log "running UI smoke (headless Chromium, stubbed LLM)"
+make -C "$REPO_ROOT" smoke-ui >/dev/null || die "smoke-ui failed — strategy/plan page broken"
+log "building docker image (tag=$image_tag)"
 make -C "$REPO_ROOT" docker   >/dev/null
 sudo docker tag finadvisor:local "finadvisor:${target}-${image_tag}"
 

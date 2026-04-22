@@ -15,7 +15,7 @@ from opentelemetry import trace
 from apps.web.api_v2._session import COOKIE_NAME, get_or_create
 from apps.web.api_v2.dto import AckResponse, PlanResponse, PlanStatusResponse
 from subprime import observability as obs
-from subprime.advisor.planner import generate_plan
+from subprime.advisor.planner import generate_plan_staged
 from subprime.core.config import ADVISOR_MODEL, ADVISOR_MODEL_BASIC, REFINE_MODEL
 
 _tracer = trace.get_tracer("subprime.web")
@@ -86,15 +86,39 @@ async def _run_plan_task(app, session_id: str) -> None:
         span_attrs[obs.REFINE_MODEL] = refine_model
     with _tracer.start_as_current_span("subprime.plan.generate", attributes=span_attrs) as span:
         try:
+
+            async def on_partial(partial_plan, stages_done):
+                # Persist each stage to the session so the UI can render as
+                # sections arrive. Re-fetch in case a parallel request touched
+                # the session, then write only the plan-specific fields.
+                try:
+                    from apps.web.api_v2._format import format_plan_prose
+
+                    format_plan_prose(partial_plan)
+                except Exception:
+                    logger.warning("format_plan_prose failed on partial", exc_info=True)
+                cur = await store.get(session_id) or s
+                cur.plan = partial_plan
+                cur.plan_stages = list(stages_done)
+                cur.plan_generating = "setup" not in stages_done or "risks" not in stages_done
+                cur.plan_error = None
+                if "core" in stages_done and cur.current_step < 4:
+                    cur.current_step = 4
+                await store.save(cur)
+                logger.info(
+                    "[plan %s] stage %s persisted (stages=%s)",
+                    session_id[:8],
+                    stages_done[-1] if stages_done else "?",
+                    stages_done,
+                )
+
             async with _plan_semaphore():
-                plan, usage = await generate_plan(
+                plan, usage = await generate_plan_staged(
                     s.profile,
-                    strategy=s.strategy,
-                    mode=effective_mode,
-                    n_perspectives=3,
+                    s.strategy,
                     model=active_model,
-                    refine_model=refine_model,
                     slim_universe=slim_universe,
+                    on_partial=on_partial,
                 )
             dt = time.time() - t0
             in_tok = getattr(usage, "input_tokens", 0) or 0
@@ -126,13 +150,14 @@ async def _run_plan_task(app, session_id: str) -> None:
                 cache_w,
             )
 
-            # Reshape prose fields into bullets if the model returned walls of text.
+            # Final formatting pass on the fully-populated plan.
             from apps.web.api_v2._format import format_plan_prose
 
             format_plan_prose(plan)
 
             s = await store.get(session_id) or s
             s.plan = plan
+            s.plan_stages = ["core", "risks", "setup"]
             s.plan_generating = False
             s.plan_error = None
             s.current_step = 4
@@ -166,6 +191,7 @@ async def generate(
     if s.profile is None:
         raise HTTPException(400, "No profile on session.")
     s.plan = None
+    s.plan_stages = []
     s.plan_generating = True
     s.plan_error = None
     s.current_step = 4
@@ -183,10 +209,14 @@ async def status_(
     benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
 ) -> PlanStatusResponse:
     s = await get_or_create(request, benji_session)
+    # "Ready" now means the core allocations are on the session — UI can
+    # start rendering immediately. Remaining stages land via further polls.
+    stages = list(s.plan_stages or [])
     return PlanStatusResponse(
-        ready=s.plan is not None,
+        ready=s.plan is not None and "core" in stages,
         generating=s.plan_generating,
         error=s.plan_error,
+        stages_done=stages,
     )
 
 
