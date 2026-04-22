@@ -547,8 +547,8 @@ def _plan_summary_for_stage(plan: InvestmentPlan, profile: InvestorProfile) -> s
     lines = ["Investor:"]
     lines.append(
         f"- {profile.age} yr, {profile.risk_appetite} risk, horizon "
-        f"{profile.investment_horizon_years} yr, SIP "
-        f"₹{int(profile.monthly_sip_inr):,}/mo, corpus "
+        f"{profile.investment_horizon_years} yr, investible "
+        f"₹{int(profile.monthly_investible_surplus_inr):,}/mo, corpus "
         f"₹{int(profile.existing_corpus_inr):,}, goals: "
         + ", ".join(profile.financial_goals or ["-"])
     )
