@@ -68,6 +68,15 @@ def is_workers_ai(model: str) -> bool:
     return model_provider(model) == "workers-ai"
 
 
+def is_openrouter(model: str) -> bool:
+    """True when *model* targets OpenRouter (openrouter: prefix).
+
+    Example: ``openrouter:qwen/qwen3-30b-a3b-instruct``. OpenAI-compatible
+    API at https://openrouter.ai/api/v1. Auth: OPENROUTER_API_KEY.
+    """
+    return model_provider(model) == "openrouter"
+
+
 def is_groq(model: str) -> bool:
     """True when *model* targets Groq (groq: prefix).
 
@@ -208,6 +217,31 @@ def build_model(model: str, *, role: str | None = None):
         api_key = os.environ.get("TOGETHER_API_KEY")
         name = together_model_name(model)
         return OpenAIChatModel(name, provider=TogetherProvider(api_key=api_key))
+
+    if is_openrouter(model):
+        from pydantic_ai.models.openai import OpenAIChatModel
+        from pydantic_ai.providers.openai import OpenAIProvider
+
+        api_key = os.environ.get("OPENROUTER_API_KEY")
+        name = together_model_name(model)  # strips "openrouter:"
+        # OpenRouter recommends HTTP-Referer + X-Title headers for attribution.
+        import httpx
+
+        http_client = httpx.AsyncClient(
+            headers={
+                "HTTP-Referer": "https://finadvisor.gkamal.online",
+                "X-Title": "Benji (Subprime)",
+            },
+            timeout=httpx.Timeout(600.0),
+        )
+        return OpenAIChatModel(
+            name,
+            provider=OpenAIProvider(
+                base_url="https://openrouter.ai/api/v1",
+                api_key=api_key,
+                http_client=http_client,
+            ),
+        )
 
     if is_groq(model):
         from pydantic_ai.models.openai import OpenAIChatModel
