@@ -78,6 +78,8 @@ jobs:
         run: uv sync --all-extras --dev
       - name: Install Playwright browsers
         run: uv run --directory product playwright install --with-deps chromium
+      - name: Install frontend deps
+        run: cd product/apps/web/frontend && npm ci
       - name: Build SPA
         run: make frontend
       - name: pytest (browser e2e)

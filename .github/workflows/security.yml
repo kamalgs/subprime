@@ -23,7 +23,13 @@ jobs:
           uv sync --all-extras --dev
           # Install into the uv-managed venv; /usr python is externally managed.
           uv pip install pip-audit
-          uv run --directory product pip-audit --strict --progress-spinner=off
+          # --ignore-vuln-pkg is the wrong shape here; pip-audit has no direct
+          # flag to skip the root package. Audit the resolved lockfile instead
+          # so pip-audit never tries to query PyPI for local 'subprime'.
+          uv export --no-hashes --no-emit-workspace > /tmp/requirements.txt
+          uv run --directory product pip-audit \
+            --requirement /tmp/requirements.txt \
+            --strict --progress-spinner=off
 
   # ──────────────────────────────────────────────────────────────
   # Container scan — filesystem + image layers via trivy.
@@ -43,6 +49,8 @@ jobs:
           cache: npm
           cache-dependency-path: product/apps/web/frontend/package-lock.json
       - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+      - name: Install frontend deps
+        run: cd product/apps/web/frontend && npm ci
       - name: Build SPA
         run: make frontend
       - name: Build image
