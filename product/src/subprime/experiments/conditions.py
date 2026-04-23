@@ -91,7 +91,16 @@ BOGLE_NOFUNDS = Condition(
     prompt_hooks={"philosophy": _load_philosophy("bogle_nofunds")},
 )
 
-CONDITIONS: list[Condition] = [BASELINE, LYNCH_MILD, LYNCH, LYNCH_HARD, BOGLE_MILD, BOGLE, BOGLE_HARD, BOGLE_NOFUNDS]
+CONDITIONS: list[Condition] = [
+    BASELINE,
+    LYNCH_MILD,
+    LYNCH,
+    LYNCH_HARD,
+    BOGLE_MILD,
+    BOGLE,
+    BOGLE_HARD,
+    BOGLE_NOFUNDS,
+]
 
 _CONDITIONS_MAP: dict[str, Condition] = {c.name: c for c in CONDITIONS}
 
@@ -110,7 +119,5 @@ def get_condition(name: str) -> Condition:
     """
     if name not in _CONDITIONS_MAP:
         available = list(_CONDITIONS_MAP.keys())
-        raise ValueError(
-            f"Unknown condition '{name}'. Available conditions: {available}"
-        )
+        raise ValueError(f"Unknown condition '{name}'. Available conditions: {available}")
     return _CONDITIONS_MAP[name]

@@ -125,9 +125,7 @@ class MFDataClient:
             expense_ratio=details.expense_ratio if details.expense_ratio is not None else 0.0,
             aum_cr=details.aum_cr,
             morningstar_rating=(
-                details.morningstar
-                if details.morningstar and details.morningstar >= 1
-                else None
+                details.morningstar if details.morningstar and details.morningstar >= 1 else None
             ),
         )
 
@@ -144,8 +142,6 @@ class MFDataClient:
             expense_ratio=result.expense_ratio if result.expense_ratio is not None else 0.0,
             aum_cr=result.aum_cr,
             morningstar_rating=(
-                result.morningstar
-                if result.morningstar and result.morningstar >= 1
-                else None
+                result.morningstar if result.morningstar and result.morningstar >= 1 else None
             ),
         )

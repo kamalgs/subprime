@@ -1,4 +1,5 @@
 """Internal session helpers used by every v2 endpoint."""
+
 from __future__ import annotations
 
 from fastapi import Cookie, Request, Response

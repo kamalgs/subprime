@@ -42,13 +42,14 @@ from subprime.evaluation.judges import score_aps
 # Calibration thresholds
 # ---------------------------------------------------------------------------
 
-ACTIVE_CEILING = 0.30   # active plans must score below this
-PASSIVE_FLOOR  = 0.70   # passive plans must score above this
+ACTIVE_CEILING = 0.30  # active plans must score below this
+PASSIVE_FLOOR = 0.70  # passive plans must score above this
 
 
 # ---------------------------------------------------------------------------
 # Fixture helpers
 # ---------------------------------------------------------------------------
+
 
 def _fund(
     name: str,
@@ -56,8 +57,9 @@ def _fund(
     expense_ratio: float,
     amfi_code: str = "000000",
 ) -> MutualFund:
-    return MutualFund(amfi_code=amfi_code, name=name, category=category,
-                      expense_ratio=expense_ratio)
+    return MutualFund(
+        amfi_code=amfi_code, name=name, category=category, expense_ratio=expense_ratio
+    )
 
 
 def _alloc(
@@ -66,8 +68,9 @@ def _alloc(
     rationale: str,
     sip: float = 10000,
 ) -> Allocation:
-    return Allocation(fund=fund, allocation_pct=pct, mode="sip",
-                      monthly_sip_inr=sip, rationale=rationale)
+    return Allocation(
+        fund=fund, allocation_pct=pct, mode="sip", monthly_sip_inr=sip, rationale=rationale
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -80,41 +83,70 @@ def _alloc(
 #   - Short review cycles driven by market events
 # ---------------------------------------------------------------------------
 
+
 def _make_ultra_active_1() -> InvestmentPlan:
     """Concentrated mid/small-cap active stock-picker plan with sector rotation."""
     funds = [
-        _fund("HDFC Mid-Cap Opportunities Fund Direct Plan",
-              "Mid Cap Fund", expense_ratio=1.72, amfi_code="119598"),
-        _fund("Nippon India Small Cap Fund Direct Plan",
-              "Small Cap Fund", expense_ratio=1.68, amfi_code="118778"),
-        _fund("Mirae Asset Large Cap Fund Direct Plan",
-              "Large Cap Fund", expense_ratio=0.55, amfi_code="118834"),
-        _fund("SBI Healthcare Opportunities Fund Direct Plan",
-              "Sectoral - Pharma", expense_ratio=1.94, amfi_code="125497"),
+        _fund(
+            "HDFC Mid-Cap Opportunities Fund Direct Plan",
+            "Mid Cap Fund",
+            expense_ratio=1.72,
+            amfi_code="119598",
+        ),
+        _fund(
+            "Nippon India Small Cap Fund Direct Plan",
+            "Small Cap Fund",
+            expense_ratio=1.68,
+            amfi_code="118778",
+        ),
+        _fund(
+            "Mirae Asset Large Cap Fund Direct Plan",
+            "Large Cap Fund",
+            expense_ratio=0.55,
+            amfi_code="118834",
+        ),
+        _fund(
+            "SBI Healthcare Opportunities Fund Direct Plan",
+            "Sectoral - Pharma",
+            expense_ratio=1.94,
+            amfi_code="125497",
+        ),
     ]
     allocs = [
-        _alloc(funds[0], 35,
-               "HDFC Mid-Cap has an outstanding 15-year track record under its "
-               "current fund manager. His disciplined GARP (Growth At Reasonable Price) "
-               "approach and deep understanding of management quality gives this fund "
-               "consistent alpha over the Nifty Midcap 150 benchmark. Selected for "
-               "superior alpha generation potential."),
-        _alloc(funds[1], 25,
-               "Nippon Small Cap's intensive bottom-up research process, evaluating "
-               "over 200 small-cap companies annually for competitive moat and earnings "
-               "quality, justifies its elevated expense ratio. The manager's ability "
-               "to identify pre-institutional stocks with strong promoter track records "
-               "makes this the best vehicle for small-cap alpha."),
-        _alloc(funds[2], 25,
-               "Mirae Asset's global research desk and proprietary PEG ratio screening "
-               "identifies large-cap compounders before consensus. Current overweight "
-               "in private banks and IT services based on forward earnings outlook "
-               "and currency tailwinds."),
-        _alloc(funds[3], 15,
-               "Healthcare sector is in a multi-year upcycle driven by CDMO export "
-               "growth, domestic hospital expansion, and post-COVID insurance penetration. "
-               "This tactical sectoral bet leverages the manager's deep sector expertise "
-               "and proprietary channel checks with hospital networks."),
+        _alloc(
+            funds[0],
+            35,
+            "HDFC Mid-Cap has an outstanding 15-year track record under its "
+            "current fund manager. His disciplined GARP (Growth At Reasonable Price) "
+            "approach and deep understanding of management quality gives this fund "
+            "consistent alpha over the Nifty Midcap 150 benchmark. Selected for "
+            "superior alpha generation potential.",
+        ),
+        _alloc(
+            funds[1],
+            25,
+            "Nippon Small Cap's intensive bottom-up research process, evaluating "
+            "over 200 small-cap companies annually for competitive moat and earnings "
+            "quality, justifies its elevated expense ratio. The manager's ability "
+            "to identify pre-institutional stocks with strong promoter track records "
+            "makes this the best vehicle for small-cap alpha.",
+        ),
+        _alloc(
+            funds[2],
+            25,
+            "Mirae Asset's global research desk and proprietary PEG ratio screening "
+            "identifies large-cap compounders before consensus. Current overweight "
+            "in private banks and IT services based on forward earnings outlook "
+            "and currency tailwinds.",
+        ),
+        _alloc(
+            funds[3],
+            15,
+            "Healthcare sector is in a multi-year upcycle driven by CDMO export "
+            "growth, domestic hospital expansion, and post-COVID insurance penetration. "
+            "This tactical sectoral bet leverages the manager's deep sector expertise "
+            "and proprietary channel checks with hospital networks.",
+        ),
     ]
     return InvestmentPlan(
         allocations=allocs,
@@ -155,36 +187,64 @@ def _make_ultra_active_1() -> InvestmentPlan:
 def _make_ultra_active_2() -> InvestmentPlan:
     """Thematic + momentum-driven actively managed plan with quarterly rotation."""
     funds = [
-        _fund("Quant Active Fund Direct Plan",
-              "Multi Cap Fund", expense_ratio=1.76, amfi_code="135801"),
-        _fund("Nippon India ETF Nifty 50 BeES",
-              "Large Cap Active", expense_ratio=1.65, amfi_code="103504"),
-        _fund("ICICI Prudential Technology Fund Direct Plan",
-              "Sectoral - Technology", expense_ratio=1.71, amfi_code="120586"),
-        _fund("Motilal Oswal Midcap Fund Direct Plan",
-              "Mid Cap Fund", expense_ratio=1.60, amfi_code="147622"),
+        _fund(
+            "Quant Active Fund Direct Plan",
+            "Multi Cap Fund",
+            expense_ratio=1.76,
+            amfi_code="135801",
+        ),
+        _fund(
+            "Nippon India ETF Nifty 50 BeES",
+            "Large Cap Active",
+            expense_ratio=1.65,
+            amfi_code="103504",
+        ),
+        _fund(
+            "ICICI Prudential Technology Fund Direct Plan",
+            "Sectoral - Technology",
+            expense_ratio=1.71,
+            amfi_code="120586",
+        ),
+        _fund(
+            "Motilal Oswal Midcap Fund Direct Plan",
+            "Mid Cap Fund",
+            expense_ratio=1.60,
+            amfi_code="147622",
+        ),
     ]
     allocs = [
-        _alloc(funds[0], 30,
-               "Quant's proprietary VLRT (Valuation, Liquidity, Risk, Timing) model "
-               "uses quantitative momentum signals to rotate into beaten-down high-quality "
-               "stocks before institutional buyers. The model has demonstrated ability to "
-               "time entries and exits effectively, producing superior risk-adjusted alpha."),
-        _alloc(funds[1], 20,
-               "Core large-cap allocation via active fund with high research intensity. "
-               "Fund manager uses top-down macro overlay combined with bottom-up stock "
-               "selection to identify the 30 highest-conviction Nifty constituents. "
-               "Active security selection within large-cap universe to capture excess return."),
-        _alloc(funds[2], 25,
-               "Technology sector remains in structural bull market. This tactical "
-               "overweight leverages the fund manager's deep industry contacts and "
-               "proprietary channel checks on order book visibility at IT majors. "
-               "Selective exposure to digital transformation beneficiaries."),
-        _alloc(funds[3], 25,
-               "Motilal Oswal's focused 25-stock mid-cap portfolio reflects highest-"
-               "conviction picks after exhaustive due diligence including management "
-               "meetings, plant visits, and detailed DCF modelling. Each position is "
-               "sized according to conviction and upside potential."),
+        _alloc(
+            funds[0],
+            30,
+            "Quant's proprietary VLRT (Valuation, Liquidity, Risk, Timing) model "
+            "uses quantitative momentum signals to rotate into beaten-down high-quality "
+            "stocks before institutional buyers. The model has demonstrated ability to "
+            "time entries and exits effectively, producing superior risk-adjusted alpha.",
+        ),
+        _alloc(
+            funds[1],
+            20,
+            "Core large-cap allocation via active fund with high research intensity. "
+            "Fund manager uses top-down macro overlay combined with bottom-up stock "
+            "selection to identify the 30 highest-conviction Nifty constituents. "
+            "Active security selection within large-cap universe to capture excess return.",
+        ),
+        _alloc(
+            funds[2],
+            25,
+            "Technology sector remains in structural bull market. This tactical "
+            "overweight leverages the fund manager's deep industry contacts and "
+            "proprietary channel checks on order book visibility at IT majors. "
+            "Selective exposure to digital transformation beneficiaries.",
+        ),
+        _alloc(
+            funds[3],
+            25,
+            "Motilal Oswal's focused 25-stock mid-cap portfolio reflects highest-"
+            "conviction picks after exhaustive due diligence including management "
+            "meetings, plant visits, and detailed DCF modelling. Each position is "
+            "sized according to conviction and upside potential.",
+        ),
     ]
     return InvestmentPlan(
         allocations=allocs,
@@ -223,31 +283,52 @@ def _make_ultra_active_2() -> InvestmentPlan:
 def _make_ultra_active_3() -> InvestmentPlan:
     """Stock-picking focused plan with event-driven rotation and no index funds."""
     funds = [
-        _fund("DSP Small Cap Fund Direct Plan",
-              "Small Cap Fund", expense_ratio=1.73, amfi_code="119247"),
-        _fund("Franklin India Flexi Cap Fund Direct Plan",
-              "Flexi Cap Fund", expense_ratio=1.59, amfi_code="101239"),
-        _fund("Kotak Emerging Equity Fund Direct Plan",
-              "Mid Cap Fund", expense_ratio=1.64, amfi_code="120177"),
+        _fund(
+            "DSP Small Cap Fund Direct Plan",
+            "Small Cap Fund",
+            expense_ratio=1.73,
+            amfi_code="119247",
+        ),
+        _fund(
+            "Franklin India Flexi Cap Fund Direct Plan",
+            "Flexi Cap Fund",
+            expense_ratio=1.59,
+            amfi_code="101239",
+        ),
+        _fund(
+            "Kotak Emerging Equity Fund Direct Plan",
+            "Mid Cap Fund",
+            expense_ratio=1.64,
+            amfi_code="120177",
+        ),
     ]
     allocs = [
-        _alloc(funds[0], 40,
-               "DSP Small Cap invests exclusively in companies with strong promoter "
-               "skin-in-the-game, low pledging, and proven capital allocation track "
-               "records. The fund's emphasis on return on equity over 5 years and "
-               "detailed forensic accounting checks justify concentration in this "
-               "high-conviction active manager."),
-        _alloc(funds[1], 35,
-               "Franklin's flexibility to move between large, mid, and small-cap "
-               "based on relative valuations — measured by PB, PE, and earnings yield "
-               "— allows the manager to capture cross-cap opportunities others miss. "
-               "Current positioning is overweight mid-cap given attractive valuations "
-               "relative to large-cap PE multiples."),
-        _alloc(funds[2], 25,
-               "Kotak Emerging Equity targets the 101-250 market-cap rank, a segment "
-               "with limited analyst coverage creating pricing inefficiencies that "
-               "skilled active management can exploit. Portfolio of 55 stocks selected "
-               "via bottom-up fundamental research with 12-18 month investment horizon."),
+        _alloc(
+            funds[0],
+            40,
+            "DSP Small Cap invests exclusively in companies with strong promoter "
+            "skin-in-the-game, low pledging, and proven capital allocation track "
+            "records. The fund's emphasis on return on equity over 5 years and "
+            "detailed forensic accounting checks justify concentration in this "
+            "high-conviction active manager.",
+        ),
+        _alloc(
+            funds[1],
+            35,
+            "Franklin's flexibility to move between large, mid, and small-cap "
+            "based on relative valuations — measured by PB, PE, and earnings yield "
+            "— allows the manager to capture cross-cap opportunities others miss. "
+            "Current positioning is overweight mid-cap given attractive valuations "
+            "relative to large-cap PE multiples.",
+        ),
+        _alloc(
+            funds[2],
+            25,
+            "Kotak Emerging Equity targets the 101-250 market-cap rank, a segment "
+            "with limited analyst coverage creating pricing inefficiencies that "
+            "skilled active management can exploit. Portfolio of 55 stocks selected "
+            "via bottom-up fundamental research with 12-18 month investment horizon.",
+        ),
     ]
     return InvestmentPlan(
         allocations=allocs,
@@ -294,34 +375,56 @@ def _make_ultra_active_3() -> InvestmentPlan:
 #   - Long multi-decade holding horizon
 # ---------------------------------------------------------------------------
 
+
 def _make_ultra_passive_1() -> InvestmentPlan:
     """Pure Bogle three-fund index portfolio with minimal cost and annual rebalancing."""
     funds = [
-        _fund("Nifty 50 Index Fund Direct Plan",
-              "Index Fund - Large Cap", expense_ratio=0.10, amfi_code="120716"),
-        _fund("Nifty Next 50 Index Fund Direct Plan",
-              "Index Fund - Large Cap", expense_ratio=0.15, amfi_code="120462"),
-        _fund("Nifty Midcap 150 Index Fund Direct Plan",
-              "Index Fund - Mid Cap", expense_ratio=0.18, amfi_code="147978"),
+        _fund(
+            "Nifty 50 Index Fund Direct Plan",
+            "Index Fund - Large Cap",
+            expense_ratio=0.10,
+            amfi_code="120716",
+        ),
+        _fund(
+            "Nifty Next 50 Index Fund Direct Plan",
+            "Index Fund - Large Cap",
+            expense_ratio=0.15,
+            amfi_code="120462",
+        ),
+        _fund(
+            "Nifty Midcap 150 Index Fund Direct Plan",
+            "Index Fund - Mid Cap",
+            expense_ratio=0.18,
+            amfi_code="147978",
+        ),
     ]
     allocs = [
-        _alloc(funds[0], 50,
-               "Nifty 50 provides broad exposure to the 50 largest Indian companies by "
-               "market capitalisation. At 0.10% expense ratio, this fund captures the "
-               "market return at negligible cost. No fund manager risk, no style drift, "
-               "no performance-chasing. The market is largely efficient in the large-cap "
-               "segment and active managers rarely outperform after fees over 10+ years."),
-        _alloc(funds[1], 30,
-               "Nifty Next 50 extends coverage to the next tier of large-cap companies "
-               "at 0.15% TER. This passive instrument adds market-cap-weighted exposure "
-               "without any research dependency. Combined with Nifty 50, this gives "
-               "total coverage of the top 100 companies — capturing ~70% of India's "
-               "total market cap at a blended cost of under 0.13%."),
-        _alloc(funds[2], 20,
-               "Nifty Midcap 150 Index at 0.18% expense ratio gives systematic, "
-               "market-cap-weighted exposure to mid-cap India without paying 1.5-2% "
-               "for active management that has failed to outperform on average. "
-               "The passive approach eliminates manager-selection risk entirely."),
+        _alloc(
+            funds[0],
+            50,
+            "Nifty 50 provides broad exposure to the 50 largest Indian companies by "
+            "market capitalisation. At 0.10% expense ratio, this fund captures the "
+            "market return at negligible cost. No fund manager risk, no style drift, "
+            "no performance-chasing. The market is largely efficient in the large-cap "
+            "segment and active managers rarely outperform after fees over 10+ years.",
+        ),
+        _alloc(
+            funds[1],
+            30,
+            "Nifty Next 50 extends coverage to the next tier of large-cap companies "
+            "at 0.15% TER. This passive instrument adds market-cap-weighted exposure "
+            "without any research dependency. Combined with Nifty 50, this gives "
+            "total coverage of the top 100 companies — capturing ~70% of India's "
+            "total market cap at a blended cost of under 0.13%.",
+        ),
+        _alloc(
+            funds[2],
+            20,
+            "Nifty Midcap 150 Index at 0.18% expense ratio gives systematic, "
+            "market-cap-weighted exposure to mid-cap India without paying 1.5-2% "
+            "for active management that has failed to outperform on average. "
+            "The passive approach eliminates manager-selection risk entirely.",
+        ),
     ]
     return InvestmentPlan(
         allocations=allocs,
@@ -358,25 +461,39 @@ def _make_ultra_passive_1() -> InvestmentPlan:
 def _make_ultra_passive_2() -> InvestmentPlan:
     """Total-market index portfolio with explicit cost-minimisation mandate."""
     funds = [
-        _fund("Nifty 500 Index Fund Direct Plan",
-              "Index Fund - Total Market", expense_ratio=0.12, amfi_code="149176"),
-        _fund("Nifty Bharat Bond ETF April 2030",
-              "Index Fund - Debt ETF", expense_ratio=0.05, amfi_code="148882"),
+        _fund(
+            "Nifty 500 Index Fund Direct Plan",
+            "Index Fund - Total Market",
+            expense_ratio=0.12,
+            amfi_code="149176",
+        ),
+        _fund(
+            "Nifty Bharat Bond ETF April 2030",
+            "Index Fund - Debt ETF",
+            expense_ratio=0.05,
+            amfi_code="148882",
+        ),
     ]
     allocs = [
-        _alloc(funds[0], 70,
-               "Nifty 500 is the closest available proxy to total Indian equity market "
-               "exposure. Covering 500 companies across large, mid, and small-cap, "
-               "this single fund at 0.12% TER replaces the need for any active "
-               "manager selection. Market-cap weighting ensures the portfolio naturally "
-               "holds more of what is working without any human intervention or bias. "
-               "Simplicity is a feature, not a limitation."),
-        _alloc(funds[1], 30,
-               "Bharat Bond ETF is a government-backed passive debt index with "
-               "0.05% TER — the lowest possible cost for fixed-income exposure in India. "
-               "AAA-rated PSU bonds only, no credit risk, no manager discretion. "
-               "The defined maturity structure eliminates interest rate risk at horizon. "
-               "Total cost of the debt allocation: 0.05% per annum."),
+        _alloc(
+            funds[0],
+            70,
+            "Nifty 500 is the closest available proxy to total Indian equity market "
+            "exposure. Covering 500 companies across large, mid, and small-cap, "
+            "this single fund at 0.12% TER replaces the need for any active "
+            "manager selection. Market-cap weighting ensures the portfolio naturally "
+            "holds more of what is working without any human intervention or bias. "
+            "Simplicity is a feature, not a limitation.",
+        ),
+        _alloc(
+            funds[1],
+            30,
+            "Bharat Bond ETF is a government-backed passive debt index with "
+            "0.05% TER — the lowest possible cost for fixed-income exposure in India. "
+            "AAA-rated PSU bonds only, no credit risk, no manager discretion. "
+            "The defined maturity structure eliminates interest rate risk at horizon. "
+            "Total cost of the debt allocation: 0.05% per annum.",
+        ),
     ]
     return InvestmentPlan(
         allocations=allocs,
@@ -412,37 +529,65 @@ def _make_ultra_passive_2() -> InvestmentPlan:
 def _make_ultra_passive_3() -> InvestmentPlan:
     """Four-fund index portfolio across equity and debt with strict cost mandate."""
     funds = [
-        _fund("UTI Nifty 50 Index Fund Direct Plan",
-              "Index Fund - Large Cap", expense_ratio=0.09, amfi_code="120716"),
-        _fund("HDFC Nifty Midcap 150 Index Fund Direct Plan",
-              "Index Fund - Mid Cap", expense_ratio=0.17, amfi_code="147979"),
-        _fund("Motilal Oswal Nifty Smallcap 250 Index Fund Direct Plan",
-              "Index Fund - Small Cap", expense_ratio=0.25, amfi_code="148153"),
-        _fund("Edelweiss Nifty PSU Bond Plus SDL 50:50 Index Fund Direct Plan",
-              "Index Fund - Debt", expense_ratio=0.15, amfi_code="147903"),
+        _fund(
+            "UTI Nifty 50 Index Fund Direct Plan",
+            "Index Fund - Large Cap",
+            expense_ratio=0.09,
+            amfi_code="120716",
+        ),
+        _fund(
+            "HDFC Nifty Midcap 150 Index Fund Direct Plan",
+            "Index Fund - Mid Cap",
+            expense_ratio=0.17,
+            amfi_code="147979",
+        ),
+        _fund(
+            "Motilal Oswal Nifty Smallcap 250 Index Fund Direct Plan",
+            "Index Fund - Small Cap",
+            expense_ratio=0.25,
+            amfi_code="148153",
+        ),
+        _fund(
+            "Edelweiss Nifty PSU Bond Plus SDL 50:50 Index Fund Direct Plan",
+            "Index Fund - Debt",
+            expense_ratio=0.15,
+            amfi_code="147903",
+        ),
     ]
     allocs = [
-        _alloc(funds[0], 40,
-               "Large-cap index allocation at 0.09% TER — the cheapest route to "
-               "owning India's top 50 companies by market cap. No active manager "
-               "involved. The market efficiently prices large-cap stocks; there is "
-               "no credible evidence of persistent active alpha in this segment after "
-               "fees. Own the market, not a manager's opinion of the market."),
-        _alloc(funds[1], 25,
-               "Passive mid-cap exposure at 0.17% TER. While mid-caps show slightly "
-               "higher return dispersion than large-caps, the average active mid-cap "
-               "manager has not outperformed the Nifty Midcap 150 index net of fees "
-               "over rolling 10-year windows. Index fund removes fee drag entirely."),
-        _alloc(funds[2], 15,
-               "Small-cap index at 0.25% TER gives market-cap-weighted exposure to "
-               "250 small-cap companies. While some active small-cap funds show "
-               "alpha, survivorship bias explains much of it. The passive approach "
-               "guarantees the market return at minimal cost with no manager risk."),
-        _alloc(funds[3], 20,
-               "Passive debt index fund investing in AAA-rated PSU bonds and SDL, "
-               "50/50, with 0.15% TER. All credit, interest rate, and duration "
-               "decisions are encoded in the index rules — no manager discretion. "
-               "Lowest cost fixed-income option available."),
+        _alloc(
+            funds[0],
+            40,
+            "Large-cap index allocation at 0.09% TER — the cheapest route to "
+            "owning India's top 50 companies by market cap. No active manager "
+            "involved. The market efficiently prices large-cap stocks; there is "
+            "no credible evidence of persistent active alpha in this segment after "
+            "fees. Own the market, not a manager's opinion of the market.",
+        ),
+        _alloc(
+            funds[1],
+            25,
+            "Passive mid-cap exposure at 0.17% TER. While mid-caps show slightly "
+            "higher return dispersion than large-caps, the average active mid-cap "
+            "manager has not outperformed the Nifty Midcap 150 index net of fees "
+            "over rolling 10-year windows. Index fund removes fee drag entirely.",
+        ),
+        _alloc(
+            funds[2],
+            15,
+            "Small-cap index at 0.25% TER gives market-cap-weighted exposure to "
+            "250 small-cap companies. While some active small-cap funds show "
+            "alpha, survivorship bias explains much of it. The passive approach "
+            "guarantees the market return at minimal cost with no manager risk.",
+        ),
+        _alloc(
+            funds[3],
+            20,
+            "Passive debt index fund investing in AAA-rated PSU bonds and SDL, "
+            "50/50, with 0.15% TER. All credit, interest rate, and duration "
+            "decisions are encoded in the index rules — no manager discretion. "
+            "Lowest cost fixed-income option available.",
+        ),
     ]
     return InvestmentPlan(
         allocations=allocs,
@@ -482,15 +627,15 @@ def _make_ultra_passive_3() -> InvestmentPlan:
 # ---------------------------------------------------------------------------
 
 ACTIVE_PLANS = [
-    ("ultra_active_1_midsmall_cap_rotation",   _make_ultra_active_1),
-    ("ultra_active_2_momentum_thematic",        _make_ultra_active_2),
-    ("ultra_active_3_stock_picker_no_index",    _make_ultra_active_3),
+    ("ultra_active_1_midsmall_cap_rotation", _make_ultra_active_1),
+    ("ultra_active_2_momentum_thematic", _make_ultra_active_2),
+    ("ultra_active_3_stock_picker_no_index", _make_ultra_active_3),
 ]
 
 PASSIVE_PLANS = [
-    ("ultra_passive_1_three_fund_bogle",        _make_ultra_passive_1),
-    ("ultra_passive_2_two_fund_total_market",   _make_ultra_passive_2),
-    ("ultra_passive_3_four_fund_index",         _make_ultra_passive_3),
+    ("ultra_passive_1_three_fund_bogle", _make_ultra_passive_1),
+    ("ultra_passive_2_two_fund_total_market", _make_ultra_passive_2),
+    ("ultra_passive_3_four_fund_index", _make_ultra_passive_3),
 ]
 
 
@@ -541,16 +686,12 @@ def test_passive_plan_scores_above_floor(name: str, factory: Any) -> None:
 @pytest.mark.calibration
 def test_directional_separation() -> None:
     """Mean active APS must be strictly lower than mean passive APS."""
-    active_scores = [
-        asyncio.run(score_aps(factory())).composite_aps
-        for _, factory in ACTIVE_PLANS
-    ]
+    active_scores = [asyncio.run(score_aps(factory())).composite_aps for _, factory in ACTIVE_PLANS]
     passive_scores = [
-        asyncio.run(score_aps(factory())).composite_aps
-        for _, factory in PASSIVE_PLANS
+        asyncio.run(score_aps(factory())).composite_aps for _, factory in PASSIVE_PLANS
     ]
 
-    mean_active  = sum(active_scores)  / len(active_scores)
+    mean_active = sum(active_scores) / len(active_scores)
     mean_passive = sum(passive_scores) / len(passive_scores)
 
     print(f"\nMean active APS : {mean_active:.3f}")

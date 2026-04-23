@@ -199,9 +199,11 @@ class TestMFDataClientSearch:
         respx.get(
             f"{BASE}/schemes",
             params={"q": "nifty", "category": "Equity"},
-        ).mock(return_value=httpx.Response(200, json={
-            "status": "success", "data": SEARCH_RESPONSE["data"][:1]
-        }))
+        ).mock(
+            return_value=httpx.Response(
+                200, json={"status": "success", "data": SEARCH_RESPONSE["data"][:1]}
+            )
+        )
 
         async with MFDataClient() as client:
             results = await client.search_funds("nifty", category="Equity")
@@ -298,9 +300,9 @@ class TestMFDataClientCustomBaseUrl:
     async def test_custom_base_url(self):
         from subprime.data.client import MFDataClient
 
-        respx.get(
-            "http://localhost:8080/schemes", params={"q": "nifty"}
-        ).mock(return_value=httpx.Response(200, json=SEARCH_RESPONSE))
+        respx.get("http://localhost:8080/schemes", params={"q": "nifty"}).mock(
+            return_value=httpx.Response(200, json=SEARCH_RESPONSE)
+        )
 
         async with MFDataClient(base_url="http://localhost:8080") as client:
             results = await client.search_funds("nifty")

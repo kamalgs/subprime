@@ -1,4 +1,5 @@
 """Alembic migration environment."""
+
 import os
 import sys
 from pathlib import Path
@@ -18,6 +19,7 @@ def run_migrations_offline():
 
 def run_migrations_online():
     from sqlalchemy import create_engine, pool
+
     engine = create_engine(database_url, poolclass=pool.NullPool)
     with engine.connect() as connection:
         context.configure(connection=connection)

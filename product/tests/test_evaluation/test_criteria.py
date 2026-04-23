@@ -41,12 +41,8 @@ class TestAPSCriteria:
 
         for name, dim in APS_CRITERIA.items():
             for key in ("description", "anchor_0", "anchor_1"):
-                assert isinstance(dim[key], str), (
-                    f"APS_CRITERIA['{name}']['{key}'] is not a string"
-                )
-                assert len(dim[key].strip()) > 0, (
-                    f"APS_CRITERIA['{name}']['{key}'] is empty"
-                )
+                assert isinstance(dim[key], str), f"APS_CRITERIA['{name}']['{key}'] is not a string"
+                assert len(dim[key].strip()) > 0, f"APS_CRITERIA['{name}']['{key}'] is empty"
 
     def test_anchor_0_describes_active_end(self):
         """anchor_0 should describe the 0.0 / active end of each dimension."""
@@ -101,9 +97,5 @@ class TestPQSCriteria:
 
         for name, dim in PQS_CRITERIA.items():
             for key in ("description", "anchor_0", "anchor_1"):
-                assert isinstance(dim[key], str), (
-                    f"PQS_CRITERIA['{name}']['{key}'] is not a string"
-                )
-                assert len(dim[key].strip()) > 0, (
-                    f"PQS_CRITERIA['{name}']['{key}'] is empty"
-                )
+                assert isinstance(dim[key], str), f"PQS_CRITERIA['{name}']['{key}'] is not a string"
+                assert len(dim[key].strip()) > 0, f"PQS_CRITERIA['{name}']['{key}'] is empty"

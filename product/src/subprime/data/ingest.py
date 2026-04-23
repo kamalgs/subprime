@@ -189,11 +189,11 @@ def compute_returns(conn: duckdb.DuckDBPyConnection) -> int:
 # Candidate AMFI codes for the Nifty 50 benchmark, in preference order.
 # The first one found in the nav_history table is used.
 _NIFTY50_BENCHMARK_CANDIDATES = [
-    "120716",   # UTI Nifty 50 Index Fund Direct Plan
-    "118834",   # HDFC Index Fund Nifty 50 Plan Direct
-    "120505",   # ICICI Prudential Nifty 50 Index Fund Direct
-    "120842",   # SBI Nifty Index Fund Direct
-    "135781",   # Nippon India Index Fund Nifty 50 Plan Direct
+    "120716",  # UTI Nifty 50 Index Fund Direct Plan
+    "118834",  # HDFC Index Fund Nifty 50 Plan Direct
+    "120505",  # ICICI Prudential Nifty 50 Index Fund Direct
+    "120842",  # SBI Nifty Index Fund Direct
+    "135781",  # Nippon India Index Fund Nifty 50 Plan Direct
 ]
 
 # Indian 10-year gilt proxy for risk-free rate (annualised)
@@ -206,7 +206,7 @@ def _find_benchmark(conn: duckdb.DuckDBPyConnection) -> str | None:
         row = conn.execute(
             "SELECT COUNT(*) FROM nav_history WHERE amfi_code = ?", [code]
         ).fetchone()
-        if row and row[0] > 200:   # at least ~1 year of data
+        if row and row[0] > 200:  # at least ~1 year of data
             return code
 
     # Fall back: find any direct Nifty 50 index fund with sufficient history
@@ -338,9 +338,7 @@ def compute_risk_metrics(conn: duckdb.DuckDBPyConnection) -> int:
         """
     )
 
-    row = conn.execute(
-        "SELECT COUNT(*) FROM fund_returns WHERE beta IS NOT NULL"
-    ).fetchone()
+    row = conn.execute("SELECT COUNT(*) FROM fund_returns WHERE beta IS NOT NULL").fetchone()
     count = int(row[0]) if row else 0
     logger.info("Risk metrics computed for %d schemes", count)
     return count
@@ -430,6 +428,7 @@ async def enrich_universe_with_expense_ratios(
     fallback = 0
 
     async with MFDataClient() as client:
+
         async def _fetch(code: str, category: str) -> tuple[str, float, bool]:
             async with sem:
                 try:

@@ -1,4 +1,5 @@
 """Tests for the plan-text prose formatter."""
+
 from apps.web.api_v2._format import (
     format_as_bullets,
     format_plan_prose,
@@ -74,13 +75,14 @@ def test_normalize_strips_leading_asterisk_and_number():
 
 
 def test_normalize_collapses_internal_newlines():
-    assert normalize_list_item("Stock markets drop.\nYour value goes down.") == \
-        "Stock markets drop. Your value goes down."
+    assert (
+        normalize_list_item("Stock markets drop.\nYour value goes down.")
+        == "Stock markets drop. Your value goes down."
+    )
 
 
 def test_normalize_preserves_plain_text():
-    assert normalize_list_item("Stock markets can drop 20-30%") == \
-        "Stock markets can drop 20-30%"
+    assert normalize_list_item("Stock markets can drop 20-30%") == "Stock markets can drop 20-30%"
 
 
 def test_normalize_empty_or_none_safe():
@@ -90,6 +92,7 @@ def test_normalize_empty_or_none_safe():
 
 class _FakePlan:
     """Duck-typed plan used in prose-format tests — avoids importing Pydantic."""
+
     def __init__(self, **kw):
         self.rationale = kw.get("rationale", "")
         self.setup_phase = kw.get("setup_phase", "")

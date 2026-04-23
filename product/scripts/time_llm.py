@@ -5,6 +5,7 @@ Run:
 
 Isolates LLM latency from everything else in the web stack.
 """
+
 from __future__ import annotations
 
 import asyncio
@@ -23,8 +24,10 @@ async def main() -> None:
 
     profile = get_persona("P01")
     print(f"Probe model: {MODEL}")
-    print(f"Persona: {profile.name}, age {profile.age}, "
-          f"{profile.risk_appetite}, {profile.investment_horizon_years}yr horizon")
+    print(
+        f"Persona: {profile.name}, age {profile.age}, "
+        f"{profile.risk_appetite}, {profile.investment_horizon_years}yr horizon"
+    )
 
     # --- Strategy --- #
     print("\n[strategy] calling...")
@@ -33,7 +36,9 @@ async def main() -> None:
         strategy, usage = await generate_strategy(profile, model=MODEL)
         dt = time.time() - t0
         print(f"[strategy] OK in {dt:.1f}s ")
-        print(f"  equity={strategy.equity_pct}% debt={strategy.debt_pct}% gold={strategy.gold_pct}%")
+        print(
+            f"  equity={strategy.equity_pct}% debt={strategy.debt_pct}% gold={strategy.gold_pct}%"
+        )
         print(f"  themes={strategy.key_themes}")
         print(f"  open_questions={len(strategy.open_questions)}")
         print(f"  tokens: in={usage.input_tokens} out={usage.output_tokens}")
@@ -47,7 +52,10 @@ async def main() -> None:
     t0 = time.time()
     try:
         plan, usage = await generate_plan(
-            profile, strategy=strategy, mode="basic", model=MODEL,
+            profile,
+            strategy=strategy,
+            mode="basic",
+            model=MODEL,
         )
         dt = time.time() - t0
         print(f"[plan-basic] OK in {dt:.1f}s")

@@ -256,7 +256,9 @@ def print_analysis(results: list[ExperimentResult]) -> None:
                 try:
                     cmp = compare_conditions(results, "baseline", spiked_cond)
                     sig_marker = "[bold red]YES[/bold red]" if cmp.significant_at_005 else "no"
-                    wilcoxon_str = f"{cmp.p_value_wilcoxon:.4f}" if cmp.p_value_wilcoxon is not None else "N/A"
+                    wilcoxon_str = (
+                        f"{cmp.p_value_wilcoxon:.4f}" if cmp.p_value_wilcoxon is not None else "N/A"
+                    )
                     cmp_table.add_row(
                         f"baseline vs {spiked_cond}",
                         str(cmp.n_pairs),
@@ -293,9 +295,7 @@ def print_analysis(results: list[ExperimentResult]) -> None:
             cs = condition_stats[cond]
             pqs_diff = cs.mean_pqs - baseline_pqs
             aps_diff = cs.mean_aps - condition_stats["baseline"].mean_aps
-            console.print(
-                f"  {cond}: \u0394APS = {aps_diff:+.3f}, \u0394PQS = {pqs_diff:+.3f}"
-            )
+            console.print(f"  {cond}: \u0394APS = {aps_diff:+.3f}, \u0394PQS = {pqs_diff:+.3f}")
             if abs(aps_diff) > 0.1 and abs(pqs_diff) < 0.1:
                 console.print(
                     f"    [bold red]\u26a0 Rating blind spot detected:[/bold red] "
@@ -305,15 +305,16 @@ def print_analysis(results: list[ExperimentResult]) -> None:
     # --- Time-horizon breakdown ---
     try:
         from subprime.evaluation.personas import load_personas
+
         persona_map = {p.id: p for p in load_personas()}
     except Exception:
         persona_map = {}
 
     if persona_map:
         _GROUPS = [
-            ("short",  "Short  (≤12y)"),
+            ("short", "Short  (≤12y)"),
             ("medium", "Medium (13–20y)"),
-            ("long",   "Long   (>20y)"),
+            ("long", "Long   (>20y)"),
         ]
 
         spiked_conds = [c for c in conditions if c != "baseline"]
@@ -322,7 +323,8 @@ def print_analysis(results: list[ExperimentResult]) -> None:
         group_data: list[tuple[str, int, dict[str, ConditionStats]]] = []
         for group_key, group_label in _GROUPS:
             group_persona_ids = {
-                pid for pid, p in persona_map.items()
+                pid
+                for pid, p in persona_map.items()
                 if _horizon_group(p.investment_horizon_years) == group_key
             }
             group_results = [r for r in results if r.persona_id in group_persona_ids]
@@ -341,8 +343,10 @@ def print_analysis(results: list[ExperimentResult]) -> None:
             for sc in spiked_conds:
                 t.add_column(f"Δ {sc}", justify="right")
             for group_label, n, cstats in group_data:
-                vals = {c: (getattr(cs, f"mean_{metric}") if cs.n > 0 else None)
-                        for c, cs in cstats.items()}
+                vals = {
+                    c: (getattr(cs, f"mean_{metric}") if cs.n > 0 else None)
+                    for c, cs in cstats.items()
+                }
                 row = [group_label, str(n)]
                 for cond in conditions:
                     row.append(f"{vals[cond]:.3f}" if vals[cond] is not None else "—")

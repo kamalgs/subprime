@@ -2,6 +2,7 @@
 
 Used by premium mode after generating plans from different perspectives.
 """
+
 from __future__ import annotations
 
 import logging
@@ -18,6 +19,7 @@ logger = logging.getLogger(__name__)
 
 class PlanEvaluation(BaseModel):
     """Evaluation result for a set of plan variants."""
+
     best_index: int
     rankings: list[int] = []  # ordered indices, best first
     reasoning: str

@@ -403,9 +403,7 @@ class TestAllocation:
     def test_construction_both(self):
         from subprime.core.models import Allocation
 
-        a = Allocation(
-            **_allocation(mode="both", monthly_sip_inr=10_000, lumpsum_inr=100_000)
-        )
+        a = Allocation(**_allocation(mode="both", monthly_sip_inr=10_000, lumpsum_inr=100_000))
         assert a.mode == "both"
 
     @pytest.mark.parametrize("mode", ["sip", "lumpsum", "both"])
@@ -473,17 +471,13 @@ class TestStrategyOutline:
     def test_all_zero_allowed(self):
         from subprime.core.models import StrategyOutline
 
-        s = StrategyOutline(
-            **_strategy(equity_pct=0, debt_pct=0, gold_pct=0, other_pct=0)
-        )
+        s = StrategyOutline(**_strategy(equity_pct=0, debt_pct=0, gold_pct=0, other_pct=0))
         assert s.equity_pct == 0
 
     def test_all_hundred(self):
         from subprime.core.models import StrategyOutline
 
-        s = StrategyOutline(
-            **_strategy(equity_pct=100, debt_pct=100, gold_pct=100, other_pct=100)
-        )
+        s = StrategyOutline(**_strategy(equity_pct=100, debt_pct=100, gold_pct=100, other_pct=100))
         assert s.equity_pct == 100
 
     def test_negative_pct_rejected(self):

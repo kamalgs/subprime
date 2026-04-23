@@ -1,4 +1,5 @@
 """Session persistence layer: InMemory and Postgres-backed stores."""
+
 from __future__ import annotations
 
 import json
@@ -66,9 +67,7 @@ class PostgresSessionStore(SessionStore):
         if session.plan is not None:
             data["plan"] = json.loads(session.plan.model_dump_json())
         if session.strategy_chat:
-            data["strategy_chat"] = [
-                json.loads(t.model_dump_json()) for t in session.strategy_chat
-            ]
+            data["strategy_chat"] = [json.loads(t.model_dump_json()) for t in session.strategy_chat]
         if session.is_demo:
             data["is_demo"] = True
         if session.plan_generating:

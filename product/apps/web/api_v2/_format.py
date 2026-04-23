@@ -12,6 +12,7 @@ Two jobs here:
   bullet/numbered marker and collapse internal newlines so we never end
   up with nested bullets inside an <li>.
 """
+
 from __future__ import annotations
 
 import re
@@ -28,11 +29,11 @@ def _is_already_structured(text: str) -> bool:
     if not text:
         return True
     stripped = text.strip()
-    if re.search(r"(?m)^\s*[-*+]\s+", stripped):         # bullet list
+    if re.search(r"(?m)^\s*[-*+]\s+", stripped):  # bullet list
         return True
-    if re.search(r"(?m)^\s*\d+\.\s+", stripped):         # numbered list
+    if re.search(r"(?m)^\s*\d+\.\s+", stripped):  # numbered list
         return True
-    if re.search(r"(?m)^#{1,6}\s+", stripped):           # heading
+    if re.search(r"(?m)^#{1,6}\s+", stripped):  # heading
         return True
     return False
 
@@ -81,9 +82,7 @@ def format_plan_prose(plan) -> None:
     if plan.rebalancing_guidelines:
         plan.rebalancing_guidelines = format_as_bullets(plan.rebalancing_guidelines)
     plan.risks = [normalize_list_item(r) for r in (plan.risks or []) if r]
-    plan.review_checkpoints = [
-        normalize_list_item(c) for c in (plan.review_checkpoints or []) if c
-    ]
+    plan.review_checkpoints = [normalize_list_item(c) for c in (plan.review_checkpoints or []) if c]
     for alloc in plan.allocations:
         if alloc.rationale:
             alloc.rationale = format_as_bullets(alloc.rationale)

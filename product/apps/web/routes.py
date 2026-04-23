@@ -66,23 +66,38 @@ async def step2(
     # Demo / cheat-unlocked sessions see the full research persona bank.
     archetypes = [
         {
-            "id": "early_career", "name": "Early career", "age": 26,
-            "life_stage": "early career", "risk_appetite": "aggressive",
-            "horizon_years": 25, "monthly_sip_inr": 15000, "existing_corpus_inr": 200000,
+            "id": "early_career",
+            "name": "Early career",
+            "age": 26,
+            "life_stage": "early career",
+            "risk_appetite": "aggressive",
+            "horizon_years": 25,
+            "monthly_sip_inr": 15000,
+            "existing_corpus_inr": 200000,
             "goals": ["wealth_building", "retirement"],
             "blurb": "Late 20s · long runway · high-growth tilt",
         },
         {
-            "id": "mid_career", "name": "Mid career", "age": 38,
-            "life_stage": "mid career", "risk_appetite": "moderate",
-            "horizon_years": 15, "monthly_sip_inr": 50000, "existing_corpus_inr": 2500000,
+            "id": "mid_career",
+            "name": "Mid career",
+            "age": 38,
+            "life_stage": "mid career",
+            "risk_appetite": "moderate",
+            "horizon_years": 15,
+            "monthly_sip_inr": 50000,
+            "existing_corpus_inr": 2500000,
             "goals": ["retirement", "children_education", "house_purchase"],
             "blurb": "Peak earning years · multi-goal balance",
         },
         {
-            "id": "retired", "name": "Retired", "age": 62,
-            "life_stage": "retirement", "risk_appetite": "conservative",
-            "horizon_years": 10, "monthly_sip_inr": 0, "existing_corpus_inr": 8000000,
+            "id": "retired",
+            "name": "Retired",
+            "age": 62,
+            "life_stage": "retirement",
+            "risk_appetite": "conservative",
+            "horizon_years": 10,
+            "monthly_sip_inr": 0,
+            "existing_corpus_inr": 8000000,
             "goals": ["emergency_fund", "wealth_building"],
             "blurb": "Capital preservation · income-focused",
         },
@@ -92,8 +107,10 @@ async def step2(
         request,
         "step_profile.html",
         {
-            "current_step": 2, "session": session,
-            "personas": personas, "archetypes": archetypes,
+            "current_step": 2,
+            "session": session,
+            "personas": personas,
+            "archetypes": archetypes,
             "is_demo": session.is_demo,
         },
     )
@@ -149,6 +166,7 @@ async def step4(
     # Plan is still being generated — render the loading page (meta-refresh).
     if session.plan is None:
         import random
+
         wisdoms = [
             "Wealth, to those who wait, it comes.",
             "Consistency, beat genius it does.",
@@ -166,7 +184,8 @@ async def step4(
             request,
             "step_plan_loading.html",
             {
-                "current_step": 4, "session": session,
+                "current_step": 4,
+                "session": session,
                 "error": session.plan_error,
                 "wisdom": random.choice(wisdoms),
             },

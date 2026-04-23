@@ -1,4 +1,5 @@
 """Strategy generation and revision."""
+
 from __future__ import annotations
 
 import time
@@ -45,8 +46,7 @@ async def generate(
     if s.profile is None:
         raise HTTPException(400, "No profile on session — complete step 2 first.")
 
-    attrs = {obs.SESSION_ID: s.id, obs.PERSONA_ID: s.profile.id,
-             obs.ADVISOR_MODEL: ADVISOR_MODEL}
+    attrs = {obs.SESSION_ID: s.id, obs.PERSONA_ID: s.profile.id, obs.ADVISOR_MODEL: ADVISOR_MODEL}
     with _tracer.start_as_current_span("subprime.strategy.generate", attributes=attrs) as span:
         t0 = time.time()
         strategy, usage = await generate_strategy(s.profile, model=ADVISOR_MODEL)
@@ -72,8 +72,7 @@ async def revise(
     if s.profile is None:
         raise HTTPException(400, "No profile on session.")
     s.strategy_chat.append(ConversationTurn(role="user", content=body.feedback))
-    attrs = {obs.SESSION_ID: s.id, obs.PERSONA_ID: s.profile.id,
-             obs.ADVISOR_MODEL: ADVISOR_MODEL}
+    attrs = {obs.SESSION_ID: s.id, obs.PERSONA_ID: s.profile.id, obs.ADVISOR_MODEL: ADVISOR_MODEL}
     with _tracer.start_as_current_span("subprime.strategy.revise", attributes=attrs) as span:
         t0 = time.time()
         strategy, usage = await generate_strategy(
@@ -107,9 +106,10 @@ async def answer_questions(
     s = await get_or_create(request, benji_session)
     if s.profile is None:
         raise HTTPException(400, "No profile on session.")
-    attrs = {obs.SESSION_ID: s.id, obs.PERSONA_ID: s.profile.id,
-             obs.ADVISOR_MODEL: ADVISOR_MODEL}
-    with _tracer.start_as_current_span("subprime.strategy.answer_questions", attributes=attrs) as span:
+    attrs = {obs.SESSION_ID: s.id, obs.PERSONA_ID: s.profile.id, obs.ADVISOR_MODEL: ADVISOR_MODEL}
+    with _tracer.start_as_current_span(
+        "subprime.strategy.answer_questions", attributes=attrs
+    ) as span:
         t0 = time.time()
         strategy, usage = await generate_strategy(
             s.profile,

@@ -2,6 +2,7 @@
 
 All endpoints mounted under /api/v2.
 """
+
 from __future__ import annotations
 
 from fastapi import APIRouter

@@ -81,9 +81,7 @@ def format_profile_card(profile: InvestorProfile) -> str:
     return buf.getvalue()
 
 
-def format_plan_header(
-    plan: InvestmentPlan, strategy: StrategyOutline | None = None
-) -> str:
+def format_plan_header(plan: InvestmentPlan, strategy: StrategyOutline | None = None) -> str:
     """Compact plan overview shown before the detailed table."""
     buf = StringIO()
     console = Console(file=buf, force_terminal=True, width=120)
@@ -319,14 +317,18 @@ def format_strategy_outline(outline: StrategyOutline) -> str:
     console.print(alloc_table)
 
     # --- Equity approach ---
-    console.print(f"[bold]Equity Approach:[/bold] {escape(outline.equity_approach)}", highlight=False)
+    console.print(
+        f"[bold]Equity Approach:[/bold] {escape(outline.equity_approach)}", highlight=False
+    )
 
     # --- Key themes ---
     themes_str = ", ".join(outline.key_themes)
     console.print(f"[bold]Themes:[/bold] {escape(themes_str)}", highlight=False)
 
     # --- Risk/return summary ---
-    console.print(f"[bold]Risk/Return:[/bold] {escape(outline.risk_return_summary)}", highlight=False)
+    console.print(
+        f"[bold]Risk/Return:[/bold] {escape(outline.risk_return_summary)}", highlight=False
+    )
 
     # --- Open questions ---
     if outline.open_questions:

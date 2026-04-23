@@ -1,4 +1,5 @@
 """Persona & archetype listing — drives the Step 2 UI."""
+
 from __future__ import annotations
 
 from typing import Annotated
@@ -16,24 +17,39 @@ router = APIRouter()
 # the custom form and the user can edit before continuing.
 _ARCHETYPES: list[ArchetypeSummary] = [
     ArchetypeSummary(
-        id="early_career", name="Early career",
+        id="early_career",
+        name="Early career",
         blurb="Late 20s \u00b7 long runway \u00b7 high-growth tilt",
-        age=26, life_stage="early career", risk_appetite="aggressive",
-        investment_horizon_years=25, monthly_sip_inr=15000, existing_corpus_inr=200000,
+        age=26,
+        life_stage="early career",
+        risk_appetite="aggressive",
+        investment_horizon_years=25,
+        monthly_sip_inr=15000,
+        existing_corpus_inr=200000,
         financial_goals=["Wealth Building", "Retirement"],
     ),
     ArchetypeSummary(
-        id="mid_career", name="Mid career",
+        id="mid_career",
+        name="Mid career",
         blurb="Peak earning years \u00b7 multi-goal balance",
-        age=38, life_stage="mid career", risk_appetite="moderate",
-        investment_horizon_years=15, monthly_sip_inr=50000, existing_corpus_inr=2500000,
+        age=38,
+        life_stage="mid career",
+        risk_appetite="moderate",
+        investment_horizon_years=15,
+        monthly_sip_inr=50000,
+        existing_corpus_inr=2500000,
         financial_goals=["Retirement", "Children's Education", "House Purchase"],
     ),
     ArchetypeSummary(
-        id="retired", name="Retired",
+        id="retired",
+        name="Retired",
         blurb="Capital preservation \u00b7 income-focused",
-        age=62, life_stage="retirement", risk_appetite="conservative",
-        investment_horizon_years=10, monthly_sip_inr=0, existing_corpus_inr=8000000,
+        age=62,
+        life_stage="retirement",
+        risk_appetite="conservative",
+        investment_horizon_years=10,
+        monthly_sip_inr=0,
+        existing_corpus_inr=8000000,
         financial_goals=["Emergency Fund", "Wealth Building"],
     ),
 ]
