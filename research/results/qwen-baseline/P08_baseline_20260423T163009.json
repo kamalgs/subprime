@@ -1,0 +1,211 @@
+{
+  "persona_id": "P08",
+  "condition": "baseline",
+  "model": "openrouter:qwen/qwen3-235b-a22b-2507",
+  "judge_model": "openrouter:moonshotai/kimi-k2-0905",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118650",
+          "name": "Nippon India Multi Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "display_name": "",
+          "category": "Multi Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": "2002-04-01",
+          "aum_cr": 9422.0,
+          "morningstar_rating": null,
+          "returns_1y": 13.3,
+          "returns_3y": 21.3,
+          "returns_5y": 21.3,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.94,
+          "alpha": 7.24,
+          "tracking_error": 6.44,
+          "sharpe_ratio": 0.78,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 72000.0,
+        "lumpsum_inr": null,
+        "rationale": "Provides diversified exposure to large, mid, and small-cap stocks with consistent 5-year returns above 21%. Suitable as a core holding for long-term aggressive growth. Equity-taxation benefits this investor in the 30% slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "118778",
+          "name": "Nippon India Small Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "display_name": "",
+          "category": "Small Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": "2008-07-05",
+          "aum_cr": 20288.0,
+          "morningstar_rating": null,
+          "returns_1y": 9.3,
+          "returns_3y": 21.1,
+          "returns_5y": 22.3,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.91,
+          "alpha": 6.39,
+          "tracking_error": 9.53,
+          "sharpe_ratio": 0.65,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 36000.0,
+        "lumpsum_inr": null,
+        "rationale": "Offers high-growth potential through under-the-radar small-cap companies. Historically strong 5-year returns make it ideal for the aggressive investor. Equity-taxed, making it tax-efficient for 30% slab investors."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund Direct Plan Growth",
+          "display_name": "",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": "2020-04-01",
+          "aum_cr": 42.0,
+          "morningstar_rating": null,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.93,
+          "alpha": 8.21,
+          "tracking_error": 6.18,
+          "sharpe_ratio": 0.46,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Combines equity growth with Section 80C tax savings up to ₹1.5L per year. With a 3-year lock-in and equity taxation on gains, it’s the most tax-efficient way for this 30% slab investor to invest in equities. Even though the corpus is already large, maximizing post-tax returns remains critical."
+      },
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "display_name": "",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "1992-02-17",
+          "aum_cr": 32020.0,
+          "morningstar_rating": null,
+          "returns_1y": 9.4,
+          "returns_3y": 21.0,
+          "returns_5y": 20.5,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.9,
+          "alpha": 4.18,
+          "tracking_error": 3.88,
+          "sharpe_ratio": 0.37,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 600000.0,
+        "rationale": "A stable, large-fund with long-term consistency. Flexi cap mandates allow dynamic allocation across market caps, helping capture value wherever it exists. A good anchor for the existing corpus and complements the SIP-heavy portfolio."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha if you don't already have one.\nStep 2: Start monthly SIPs: ₹72,000 in Nippon India Multi Cap, ₹36,000 in Nippon India Small Cap, and ₹12,000 in WhiteOak Capital ELSS Tax Saver.\nStep 3: Make a one-time investment of ₹600,000 in HDFC Flexi Cap Fund from your existing corpus.\nStep 4: Link your bank account and verify KYC if not already done.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs are running smoothly and amounts are debited correctly.",
+      "After 1 year: Compare each fund’s performance against its category average. Look for any underperformer lagging by more than 3% annually.",
+      "After 3 years: Review ELSS lock-ins maturing; consider shifting to other equity funds or rebalancing."
+    ],
+    "rebalancing_guidelines": "Review your portfolio once a year. If one fund category (like small-cap) has grown so much that your actual allocation is more than 10 percentage points away from your target, consider shifting some profits to underweight categories to maintain your 40-20-20-20 split. Avoid frequent changes; stick to the plan unless something fundamental changes.",
+    "projected_returns": {
+      "base": 16.55,
+      "bull": 20.55,
+      "bear": 12.55
+    },
+    "rationale": "At 38, with a 17-year horizon to 55 and high risk appetite, this plan prioritizes aggressive equity growth to beat inflation and reach ₹8Cr. ₹30L existing corpus and ₹1.2L monthly surplus allow both SIPs and lumpsums. Multi-cap and flexi-cap funds offer stability and diversification, while small-cap drives higher long-term growth. WhiteOak ELSS maximizes post-tax returns with 80C savings—critical for a 30% slab investor who still has unused 80C room. This mix balances proven performance, tax efficiency, and strategic diversification across fund houses.",
+    "risks": [
+      "Small-cap funds can fall 30-50% in a market crash; stay invested for recovery.",
+      "ELSS has a 3-year lock-in; money cannot be withdrawn before that.",
+      "Equity markets may remain flat or down for several years; this plan needs patience over 15+ years.",
+      "High allocation to equities means portfolio value will swing widely—don't panic on drops."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP amount by 10% every year to grow investments with income and beat inflation"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation at age 38 with 17-year horizon to retirement"
+      },
+      {
+        "year": 10,
+        "equity_pct": 80.0,
+        "debt_pct": 15.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": "Daughter's education goal nears; reduce equity exposure"
+      },
+      {
+        "year": 15,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 5.0,
+        "other_pct": 5.0,
+        "trigger": "Approaching retirement at 53; increase stability"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.05,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "Passive-instrument: every equity fund is an actively-managed open-end scheme (Multi-cap, Small-cap, ELSS, Flexi-cap); no index funds or ETFs appear. Turnover: the plan contemplates only an annual check and a 10-percentage-point band before re-balancing, plus a 3-year ELSS review, so it is essentially buy-and-hold. Cost-emphasis: expense ratios of 1.0–1.2% are accepted without discussion; selection is justified by past out-performance, not fees. Research-vs-cost: rationales cite 3- and 5-year alpha, fund size, and track record rather than broad-market exposure. Time-horizon: explicitly 17-year, keep-SIPs-running, ignore interim volatility. Portfolio-activeness: all funds show positive alpha vs Nifty-50, tracking errors 3.9–9.5% and betas <1, signalling genuine active mandates rather than closet indexing.",
+    "composite_aps": 0.35000000000000003
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.65,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.9,
+    "reasoning": "goal_alignment: 0.9 – The 100% equity mix, 17-year horizon and stepping-down glide-path map cleanly to the aggressive investor who wants to hit ₹8 Cr by 55 and still fund a 10-y education goal. The only gap is no explicit liquidity bucket for the education pay-out.\ndiversification: 0.65 – Good spread across market-caps and two fund houses, but four funds are still all domestic equity; no debt, international, gold or hybrid sleeve until the glide-path kicks in, so concentration risk exists.\nrisk_return_appropriateness: 0.85 – Projected 16.5% CAGR is at the optimistic edge yet defensible for a 20-y horizon; explicit bear-scenario (12.5%) and step-down schedule show downside awareness. Matches stated aggressive appetite.\ninternal_consistency: 0.9 – Rationale, allocations, taxation comments, rebalancing rule and glide-path tell one coherent story; numbers add up and contradictions are absent.\ntax_efficiency: 0.9 – Recognises 30% slab, routes ₹1.44L pa into ELSS to exhaust 80C and keeps every fund in equity-tax wrapper; no slab-taxed debt mis-step. Minor room to add arbitrage or aggressive hybrid later, but current choices are already tax-optimal.",
+    "composite_pqs": 0.8400000000000001
+  },
+  "timestamp": "2026-04-23T16:30:09.021340Z",
+  "prompt_version": "qwen-baseline",
+  "usage": {
+    "input_tokens": 27256,
+    "output_tokens": 2831,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 384.02055477630347
+}

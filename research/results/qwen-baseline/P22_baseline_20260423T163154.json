@@ -1,0 +1,189 @@
+{
+  "persona_id": "P22",
+  "condition": "baseline",
+  "model": "openrouter:qwen/qwen3-235b-a22b-2507",
+  "judge_model": "openrouter:moonshotai/kimi-k2-0905",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "119018",
+          "name": "HDFC Large Cap Fund - Growth Option - Direct Plan",
+          "display_name": "",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 10491.0,
+          "morningstar_rating": null,
+          "returns_1y": 7.6,
+          "returns_3y": 14.2,
+          "returns_5y": 14.5,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": 800000.0,
+        "rationale": "Acts as the stable core of your portfolio. It invests in India's biggest and most reliable companies like HDFC Bank, Reliance, and Infosys. This fund has consistently grown over the last 5 years and has a low yearly fee. Since you are comfortable with long-term investing, this is a solid base to build on."
+      },
+      {
+        "fund": {
+          "amfi_code": "151739",
+          "name": "UTI Nifty 500 Value 50 Index Fund - Direct Plan - Growth Option",
+          "display_name": "",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": 385.0,
+          "morningstar_rating": null,
+          "returns_1y": 29.8,
+          "returns_3y": 31.1,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 600000.0,
+        "rationale": "This is a smart index fund that picks undervalued large and mid-sized companies. It has delivered strong returns over 3 years with a very low yearly fee of just 0.2%. It diversifies your portfolio beyond standard index funds and gives exposure to potential growth at good prices."
+      },
+      {
+        "fund": {
+          "amfi_code": "147946",
+          "name": "BANDHAN SMALL CAP FUND - DIRECT PLAN GROWTH",
+          "display_name": "",
+          "category": "Small Cap",
+          "sub_category": "",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": 8901.0,
+          "morningstar_rating": null,
+          "returns_1y": 13.7,
+          "returns_3y": 31.3,
+          "returns_5y": 23.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 22000.0,
+        "lumpsum_inr": 600000.0,
+        "rationale": "You're comfortable with risk, and small-cap funds can grow faster over long periods. This fund has a strong 3-year track record and invests in smaller Indian companies that can become big names. It's your growth engine. The fund size is large enough to be stable but focused enough to capture upside."
+      }
+    ],
+    "setup_phase": "Step 1: Download Kuvera, Groww, or Coin by Zerodha app and complete your KYC if not already done.\nStep 2: Transfer ₹20 lakh as a one-time lump sum across the three funds as per allocation (₹8L in HDFC Large Cap, ₹6L in UTI Nifty 500 Value 50, ₹6L in Bandhan Small Cap).\nStep 3: Start monthly SIPs: ₹20,000 in HDFC Large Cap, ₹18,000 in UTI Index, ₹22,000 in Bandhan Small Cap.\nStep 4: When you return from sea, invest additional lump sums in the same 40-30-30 ratio to stay on track.",
+    "review_checkpoints": [
+      "After 6 months: Confirm your SIPs are running and check if any fund is consistently underperforming its peers.",
+      "After 1 year: Review returns of each fund vs. similar funds. If any fund is in bottom 25% for 3 years, consider switching.",
+      "Every 2 years: Check if your portfolio mix has drifted more than 5% from 40-30-30 and rebalance if needed."
+    ],
+    "rebalancing_guidelines": "Once every year, check how much each part of your portfolio has grown. If any fund's share has changed by more than 5% from your plan (e.g., small cap grows to 38%), sell some of that and buy more of the underweight ones to get back to 40-30-30. This keeps your risk level steady.",
+    "projected_returns": {
+      "base": 15.7,
+      "bull": 19.7,
+      "bear": 11.7
+    },
+    "rationale": "You're 40 with a 20-year horizon and high risk appetite — this means we can afford to keep 100% in equities. Your ₹20 lakh existing wealth and ₹60,000/month surplus give us a strong base. The plan uses a core-satellite strategy: 40% in steady large-cap stocks (HDFC), 30% in a smart, low-cost index fund (UTI), and 30% in small caps (Bandhan) for aggressive growth. This mix aims to balance stability and high upside. Since you're in the new tax regime, we avoid ELSS and prefer direct equity funds with tax efficiency. You invest in lump sums when ashore — this plan fully supports that habit.",
+    "risks": [
+      "Stock markets can drop 30-40% in a single year — your portfolio value may fall sharply in bad years. This is normal and usually recovers over 2+ years.",
+      "Small-cap funds like Bandhan are riskier — they can fall more than 50% in downturns. Only long-term investors should hold them.",
+      "Index funds depend on market trends — if value stocks underperform, this part may lag.",
+      "High equity exposure means your corpus can swing widely. Do not panic-sell if values drop."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial investment"
+      },
+      {
+        "year": 10,
+        "equity_pct": 85.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching halfway mark; begin reducing equity exposure"
+      },
+      {
+        "year": 15,
+        "equity_pct": 70.0,
+        "debt_pct": 25.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": "10 years to retirement; shift more to safer options"
+      },
+      {
+        "year": 20,
+        "equity_pct": 50.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Retirement year; preserve capital with balanced mix"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.43,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.5,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "Equity sleeve is 40 % active large-cap, 30 % passive index (Nifty 500 Value 50), 30 % active small-cap ⇒ 30 % passive equity fraction. Rebalancing only if drift > 5 % and review every 2 years, so low turnover. Costs are mentioned (0.2 % vs 1 % expense) but not the primary driver—fund selection rests on past returns & category. Research level is moderate: no deep stock analysis but fund-level peer-checks and peer-group rankings are required. Entire plan is framed for 20-year horizon with phased de-risking, strongly long-term oriented. Portfolio behaviour: large-cap fund is closet-index-like (beta ≈ 1, low TE), small-cap is genuinely active; blended equity activeness is closer to active than passive, hence mid-range activeness score.",
+    "composite_aps": 0.5383333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.95,
+    "reasoning": "Goal alignment is strong: 100 % equity, 20-year horizon, small-cap tilt and lump-sum friendliness all map well to an aggressive investor who needs to grow ₹2 Cr into ₹8 Cr.  Diversification is only fair: three active/index equity funds, all Indian, no debt, gold, global or alternatives; HDFC Large Cap and UTI Value 50 overlap heavily in large-cap space.  Risk-return appropriateness: projected 15.7 % CAGR is realistic for the mix, downside warnings are stated, but zero debt or tactical cash bucket ignores behavioural risk of a 30-50 % draw-down for someone who cannot monitor markets while at sea.  Internal consistency: core-satellite story and rebalancing rules line up, but the glide-path table (equity drops from 100 % to 50 %) is never mentioned in the actionable setup and contradicts the ‘keep 40-30-30 forever’ instructions; no fund-house diversification (all single AMC bets).  Tax efficiency is excellent: recognises new-regime investor, avoids ELSS, uses equity-taxed vehicles only, cites direct plans with low expense ratios, and explicitly justifies choices on post-tax basis.",
+    "composite_pqs": 0.78
+  },
+  "timestamp": "2026-04-23T16:31:54.412835Z",
+  "prompt_version": "qwen-baseline",
+  "usage": {
+    "input_tokens": 26849,
+    "output_tokens": 2346,
+    "cache_read_tokens": 21216,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 77.18416757322848
+}

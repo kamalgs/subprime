@@ -1,23 +1,16 @@
 """OTP email delivery.
 
-Prefers AWS SES when ``SES_FROM_ADDRESS`` is configured — production path.
-Falls back to SMTP (existing ``SMTP_HOST``) when SES isn't available —
-used by local dev against mailpit and in any env where SES hasn't been
-verified yet.
-
-SES setup checklist:
-  1. Verify the sender (domain or address) in the target region.
-     `aws ses verify-domain-identity --domain gkamal.online`
-     `aws ses verify-email-identity --email noreply@finadvisor.gkamal.online`
-  2. Add DKIM CNAMEs printed by `aws ses get-identity-dkim-attributes` to
-     the DNS provider (Cloudflare for gkamal.online).
-  3. Request production access when ready — until then sandbox only lets
-     you send to verified addresses.
+Backend preference order (first configured wins):
+  1. Resend   — RESEND_API_KEY set
+  2. AWS SES  — SES_FROM_ADDRESS set (blocked on production-access review)
+  3. SMTP     — SMTP_HOST set (local dev / mailpit / Brevo-style relays)
 
 Env:
-  SES_FROM_ADDRESS   "Benji <noreply@finadvisor.gkamal.online>" (required for SES path)
+  RESEND_API_KEY     re_xxx... (preferred; Resend is active in prod)
+  RESEND_FROM        "Benji <noreply@finadvisor.gkamal.online>" (default)
+  SES_FROM_ADDRESS   fallback SES sender
   SES_REGION         default "us-east-1"
-  SMTP_*             legacy fallback — see subprime.core.config
+  SMTP_*             local fallback — see subprime.core.config
 """
 
 from __future__ import annotations
@@ -31,6 +24,10 @@ from subprime.core.config import SMTP_FROM, SMTP_HOST, SMTP_PASSWORD, SMTP_PORT,
 
 logger = logging.getLogger(__name__)
 
+RESEND_API_KEY = os.environ.get("RESEND_API_KEY")
+RESEND_FROM = os.environ.get("RESEND_FROM") or os.environ.get(
+    "SES_FROM_ADDRESS", "Benji <noreply@finadvisor.gkamal.online>"
+)
 SES_FROM_ADDRESS = os.environ.get("SES_FROM_ADDRESS")
 SES_REGION = os.environ.get("SES_REGION", "us-east-1")
 
@@ -38,8 +35,13 @@ SES_REGION = os.environ.get("SES_REGION", "us-east-1")
 async def send_otp_email(email: str, code: str) -> bool:
     """Send an OTP code. Returns True on success, False on any failure.
 
-    Dispatches to SES when configured, else SMTP, else no-op with warning.
+    Dispatches to Resend, else SES, else SMTP, else no-op with warning.
     """
+    if RESEND_API_KEY:
+        if await _send_via_resend(email, code):
+            return True
+        logger.warning("Resend send failed for %s; trying SES", email)
+
     if SES_FROM_ADDRESS:
         if await _send_via_ses(email, code):
             return True
@@ -49,10 +51,51 @@ async def send_otp_email(email: str, code: str) -> bool:
         return _send_via_smtp(email, code)
 
     logger.warning(
-        "No email backend configured (set SES_FROM_ADDRESS or SMTP_HOST) — cannot send OTP to %s",
+        "No email backend configured (set RESEND_API_KEY, SES_FROM_ADDRESS, or SMTP_HOST)"
+        " — cannot send OTP to %s",
         email,
     )
     return False
+
+
+# ── Resend (preferred) ────────────────────────────────────────────────────────
+
+
+async def _send_via_resend(to_email: str, code: str) -> bool:
+    """POST to Resend's /emails endpoint.
+
+    Uses httpx directly — a full ``resend`` SDK dependency isn't needed for a
+    single endpoint and their API is trivially JSON-in-JSON-out.
+    """
+    import httpx
+
+    payload = {
+        "from": RESEND_FROM,
+        "to": [to_email],
+        "subject": _OTP_SUBJECT,
+        "text": _OTP_TEXT.format(code=code),
+        "html": _OTP_HTML.format(code=code),
+    }
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            r = await client.post(
+                "https://api.resend.com/emails",
+                headers={
+                    "Authorization": f"Bearer {RESEND_API_KEY}",
+                    "Content-Type": "application/json",
+                },
+                json=payload,
+            )
+        if r.status_code >= 300:
+            logger.warning(
+                "Resend send failed for %s: HTTP %s %s", to_email, r.status_code, r.text[:200]
+            )
+            return False
+        logger.info("Resend OTP sent to %s (id=%s)", to_email, r.json().get("id"))
+        return True
+    except Exception:
+        logger.exception("Resend POST raised for %s", to_email)
+        return False
 
 
 # ── SES (preferred) ───────────────────────────────────────────────────────────

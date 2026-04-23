@@ -105,12 +105,14 @@ _PQS_PROMPT = _build_pqs_prompt()
 
 def create_aps_judge(model: str = DEFAULT_MODEL, *, thinking: bool = True) -> Agent:
     """Return the APS judge agent for *model*, creating it on first call."""
+    from subprime.advisor.agent import _output_for
+
     key = (model, thinking)
     if key not in _aps_agents:
         _aps_agents[key] = Agent(
             build_model(model, role="judge"),
             system_prompt=_APS_PROMPT,
-            output_type=APSScore,
+            output_type=_output_for(model, APSScore),
             retries=2,
             defer_model_check=True,
             model_settings=build_model_settings(model, cache=True, thinking=thinking),
@@ -120,12 +122,14 @@ def create_aps_judge(model: str = DEFAULT_MODEL, *, thinking: bool = True) -> Ag
 
 def create_pqs_judge(model: str = DEFAULT_MODEL, *, thinking: bool = True) -> Agent:
     """Return the PQS judge agent for *model*, creating it on first call."""
+    from subprime.advisor.agent import _output_for
+
     key = (model, thinking)
     if key not in _pqs_agents:
         _pqs_agents[key] = Agent(
             build_model(model, role="judge"),
             system_prompt=_PQS_PROMPT,
-            output_type=PlanQualityScore,
+            output_type=_output_for(model, PlanQualityScore),
             retries=2,
             defer_model_check=True,
             model_settings=build_model_settings(model, cache=True, thinking=thinking),

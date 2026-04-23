@@ -1,0 +1,211 @@
+{
+  "persona_id": "P09",
+  "condition": "baseline",
+  "model": "openrouter:qwen/qwen3-235b-a22b-2507",
+  "judge_model": "openrouter:moonshotai/kimi-k2-0905",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "127042",
+          "name": "Motilal Oswal Midcap Fund-Direct Plan-Growth Option",
+          "display_name": "",
+          "category": "Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.15,
+          "inception_date": null,
+          "aum_cr": 20534.0,
+          "morningstar_rating": null,
+          "returns_1y": 5.2,
+          "returns_3y": 23.7,
+          "returns_5y": 23.8,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.09,
+          "alpha": -3.75,
+          "tracking_error": 11.71,
+          "sharpe_ratio": 0.13,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 14000.0,
+        "lumpsum_inr": null,
+        "rationale": "Mid-cap stocks offer higher growth than large caps over long periods. This fund has consistent 5-year returns and is from a trusted fund house. At 40% allocation, it drives growth while staying within moderate risk."
+      },
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "display_name": "",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.0,
+          "morningstar_rating": null,
+          "returns_1y": 9.4,
+          "returns_3y": 21.0,
+          "returns_5y": 20.5,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.9,
+          "alpha": 4.18,
+          "tracking_error": 3.88,
+          "sharpe_ratio": 0.37,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 4375.0,
+        "lumpsum_inr": 200000.0,
+        "rationale": "Flexi cap funds invest across market sizes, automatically balancing risk. HDFC's fund is large, stable, and has delivered steady returns. 25% allocation ensures diversification. We use your ₹2L lumpsum here to seed the portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "display_name": "",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": 13.05,
+          "sharpe_ratio": 1.22,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7000.0,
+        "lumpsum_inr": null,
+        "rationale": "Combines stability of large companies with growth of mid-caps. This fund has outperformed peers over 3 and 5 years. 20% allocation adds balance and complements the mid-cap fund."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund Direct Plan Growth",
+          "display_name": "",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 42.0,
+          "morningstar_rating": null,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.93,
+          "alpha": 8.21,
+          "tracking_error": 6.18,
+          "sharpe_ratio": 0.46,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5250.0,
+        "lumpsum_inr": null,
+        "rationale": "ELSS funds give tax savings under Section 80C. You're in the 20% tax slab, so you save ₹10,500/year in tax (on ₹52.5k/year investment). This fund has strong 3-year returns and low risk. 15% allocation maxes your 80C benefit efficiently."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha.\nStep 2: Complete your KYC if not already done (takes 5 mins with PAN & Aadhaar).\nStep 3: Start monthly SIPs: ₹14,000 in Motilal Oswal Midcap, ₹7,000 in Motilal Oswal Large & Midcap, ₹5,250 in WhiteOak ELSS.\nStep 4: Invest ₹2 L lumpsum in HDFC Flexi Cap fund.\nStep 5: Set calendar reminders for SIP dates and annual review.",
+    "review_checkpoints": [
+      "After 6 months: check all SIPs are running and funds are reflecting in your account.",
+      "After 1 year: compare each fund’s performance vs category average. If any fund is in bottom 25% for 3 years, consider switching.",
+      "Every 3 years: review if your risk appetite or goals have changed."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio mix. If any category (e.g., mid cap) has grown so much that it’s more than 5% above your target (e.g., above 45% instead of 40%), sell some and move to underweight categories. This keeps risk in check.",
+    "projected_returns": {
+      "base": 16.8,
+      "bull": 20.8,
+      "bear": 12.8
+    },
+    "rationale": "At 31, with a 22-year horizon, you can afford to have 85% in stocks for growth. Your ₹35k/month surplus and ₹8L corpus are enough to target ₹4Cr in 22 years. We used ELSS for 15% to save tax (₹10.5k/year for you), and avoided complex or thematic funds as you prefer simplicity. Mid and large & mid-cap funds drive growth, while flexi cap adds stability. Your joint home loan means we kept risk 'moderate' — not too aggressive.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will go down temporarily. This is normal and recovers over time.",
+      "Mid-cap funds are riskier than large caps — they can fall more in downturns but grow faster over time.",
+      "ELSS has a 3-year lock-in: you can't withdraw that money early.",
+      "Tax rules or fund managers can change — we’ll adjust if needed."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 85.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 15.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 10,
+        "equity_pct": 75.0,
+        "debt_pct": 20.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching child's education goal"
+      },
+      {
+        "year": 18,
+        "equity_pct": 50.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Preparing for retirement corpus drawdown"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.05,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.05,
+    "reasoning": "100 % of the equity sleeve is in actively-managed funds (Mid-cap, Flexi-cap, Large-&-Mid-cap, ELSS); no index funds or ETFs appear → 0.0. Rebalancing is suggested only once a year with a ±5 %-band and 3-year goal review → high turnover_score (0.85). Expense ratios (1–1.15 %) are acknowledged but never used to screen or prefer lower-cost options; the rationale cites past returns and manager pedigree → cost_emphasis_score 0.05. Every rationale is built on fund-specific research (past alpha, peer ranking, fund-house reputation) with no mention of broad-market indices → research_vs_cost_score 0.0. The plan is explicitly framed for a 22-year horizon, kids' college and retirement, with gradual derisking decades away → time_horizon_alignment 0.95. Portfolio-weighted metrics show beta≈1.0 but very high tracking error (11 %-plus) and strong positive alpha, indicating genuine active stock-picking rather than closet-index behaviour → portfolio_activeness_score 0.05.",
+    "composite_aps": 0.3166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.55,
+    "diversification": 0.45,
+    "risk_return_appropriateness": 0.35,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.75,
+    "reasoning": "goal_alignment: 85 % equity for a 22-year horizon sounds growth-oriented, but the portfolio ignores the 5-year home-down-payment goal that needs capital safety; no debt or arbitrage sleeve is provided for that short horizon. The glide-path begins only at year 10, leaving the 60-L need in 5 years unaddressed.\ndiversification: All four funds are equity-oriented, three from the same fund house (Motilal Oswal) and two in the mid-cap space (Mid-cap & Large-&-Mid); zero exposure to large-cap index, debt, arbitrage, gold, or other fund houses, creating concentration risk.\nrisk_return_appropriateness: Projected 16.8 % CAGR is optimistic for a moderate-risk 20 % slab investor, especially with 65 % in mid-cap segments; no stress test or linkage to the imminent home-loan payout; 0 % debt makes the plan aggressive rather than moderate.\ninternal_consistency: Claims \"moderate\" risk yet allocates 65 % to mid-cap funds and 0 % to debt; lumpsum is routed to Flexi-cap but rationale cites \"stability\", while the mid-cap sleeve is larger; glide-path shown but not implemented in current allocation.\ntax_efficiency: Correctly uses ELSS (15 %) to exhaust 80C for a 20 % slab investor; all holdings are equity-oriented so gains will enjoy favourable 12.5 % LTCG instead of slab taxation, meeting the investor’s preference for tax-efficient instruments.",
+    "composite_pqs": 0.54
+  },
+  "timestamp": "2026-04-23T16:25:16.211083Z",
+  "prompt_version": "qwen-baseline",
+  "usage": {
+    "input_tokens": 27126,
+    "output_tokens": 2584,
+    "cache_read_tokens": 1024,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 89.19534012116492
+}

@@ -1,0 +1,180 @@
+{
+  "persona_id": "P17",
+  "condition": "baseline",
+  "model": "openrouter:qwen/qwen3-235b-a22b-2507",
+  "judge_model": "openrouter:moonshotai/kimi-k2-0905",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "display_name": "",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.0,
+          "morningstar_rating": null,
+          "returns_1y": 9.4,
+          "returns_3y": 21.0,
+          "returns_5y": 20.5,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 7200.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund spreads money across large, mid, and small companies, helping your money grow steadily over the long term. It’s from a well-known fund house and has delivered strong returns consistently with a low yearly fee."
+      },
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large & Mid Cap Fund - Direct Plan - Growth",
+          "display_name": "",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 7883.0,
+          "morningstar_rating": null,
+          "returns_1y": 12.2,
+          "returns_3y": 21.1,
+          "returns_5y": 20.0,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3600.0,
+        "lumpsum_inr": null,
+        "rationale": "Focused on growing your money by investing in strong mid-sized companies along with dependable large ones. It adds extra growth potential while staying balanced. ICICI is a trusted name, and the fund has performed well over time."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund Direct Plan Growth",
+          "display_name": "",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 42.0,
+          "morningstar_rating": null,
+          "returns_1y": 10.4,
+          "returns_3y": 21.0,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1200.0,
+        "lumpsum_inr": null,
+        "rationale": "Even though you’re in the new tax regime, this fund works like any other equity fund for growth. It’s being included in small amount to keep your portfolio simple and diversified. It locks in for 3 years, so it encourages long-term thinking."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww, Kuvera, or Coin by Zerodha and complete your KYC (takes 5–10 minutes).\nStep 2: Open a direct mutual fund account. Choose the direct plan and growth option for all funds.\nStep 3: Start monthly SIPs: ₹7,200 in HDFC Flexi Cap, ₹3,600 in ICICI Large & Mid Cap, ₹1,200 in WhiteOak ELSS.\nStep 4: Set calendar reminders for SIP dates. If a month is tight, skip it — no penalty. Top up extra when income is good.",
+    "review_checkpoints": [
+      "After 6 months: Check if all SIPs have gone through. See if any fund has had major underperformance (e.g., down over 10% compared to peers).",
+      "After 1 year: Review if your income pattern allows regular investing. Consider increasing SIPs if possible.",
+      "After 3 years: The ELSS fund will unlock. You can stay invested or move the money elsewhere based on your needs."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio. If one fund has grown to more than 10 percentage points above its target (e.g., Flexi Cap grows from 60% to 72%), move some profits to the underweight fund. This keeps your risk balanced.",
+    "projected_returns": {
+      "base": 17.7,
+      "bull": 21.7,
+      "bear": 13.7
+    },
+    "rationale": "At 27, with a 28-year horizon, you can afford moderate risk for higher growth. Your income varies, so instead of stretching for fixed SIPs, we've kept a simple 3-fund plan that allows skipping months. The Flexi Cap and Large & Mid Cap funds aim to grow your wealth over decades. The small ELSS portion keeps tax options open and encourages long-term holding. Since you prefer simplicity, we avoided complex allocations and focused on consistent performers from reliable fund houses.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your portfolio value will fall temporarily. This is normal and usually recovers over time.",
+      "Your income is variable, so some SIPs might miss. That’s okay — investing consistently when possible still builds wealth.",
+      "The ELSS fund locks in for 3 years. You cannot take money out during that time, so only invest what you won’t need."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match income growth when possible"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Start with 100% in diversified equity funds for long-term growth."
+      },
+      {
+        "year": 15,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 15 years, slightly reduce equity risk and add debt for stability as you approach middle age."
+      },
+      {
+        "year": 25,
+        "equity_pct": 60.0,
+        "debt_pct": 35.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": "Closer to retirement, shift more to safer options to protect your wealth."
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan is fundamentally active: 100% of the equity sleeve is in actively-managed funds (Flexi Cap, Large & Mid Cap, ELSS) with no index funds or ETFs. Fund selection is driven by past performance and brand trust, not by expense minimisation (1.0–1.1% TER). Rationales cite ‘strong returns’ and ‘trusted name’ rather than cost or tax efficiency. There is no mention of expense ratios as a primary criterion and no comparison with passive alternatives. Research effort is implied through category and past-return selection, not through index mechanics. Horizon attitude is long-term (28 y,允许跳过SIP, 3-year ELSS lock-in), so time_horizon is rated high. Turnover is tempered: only a light annual rebalance trigger is given, no monthly or quarterly trading. Portfolio activeness is high—Flexi Cap and ELSS categories mandate active stock-picking; no passive vehicles are present, and risk metrics are absent, so category drives the score.",
+    "composite_aps": 0.2833333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.72,
+    "diversification": 0.45,
+    "risk_return_appropriateness": 0.55,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.25,
+    "reasoning": "Goal alignment: The plan is growth-oriented which matches the 28-year horizon, but it ignores the near-term 5-year marriage/travel goal and the emergency-fund goal; no bucket is earmarked for either and the entire corpus is 100 % equity with no liquidity buffer. Diversification is weak: three funds but all are equity, same geography, and two have heavy overlap (Flexi Cap already includes large & mid caps). Risk-return appropriateness: projected 17.7 % CAGR is optimistic for a moderate-risk investor in Indian equity; no downside modelling beyond mentioning 20-30 % falls; 100 % equity with irregular income raises sequence-risk. Internal consistency: the glide-path proposed later (shifting to 60 % equity at year 25) contradicts the current 100 % equity allocation without guidance on when/where to introduce debt, but the immediate rationale and rebalancing rule are internally coherent. Tax efficiency: includes 10 % ELSS for a new-regime investor who explicitly cannot use 80C, locking money for three years with no tax benefit; fails to mention equity taxation rules or suggest arbitrage/hybrid alternatives for better post-tax outcomes.",
+    "composite_pqs": 0.534
+  },
+  "timestamp": "2026-04-23T16:29:19.689687Z",
+  "prompt_version": "qwen-baseline",
+  "usage": {
+    "input_tokens": 26428,
+    "output_tokens": 2080,
+    "cache_read_tokens": 1024,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 61.933865138329566
+}

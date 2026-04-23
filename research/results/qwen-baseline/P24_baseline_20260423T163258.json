@@ -1,0 +1,125 @@
+{
+  "persona_id": "P24",
+  "condition": "baseline",
+  "model": "openrouter:qwen/qwen3-235b-a22b-2507",
+  "judge_model": "openrouter:moonshotai/kimi-k2-0905",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund (erstwhile Bluechip Fund) - Direct Plan - Growth",
+          "display_name": "",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 24866.0,
+          "morningstar_rating": null,
+          "returns_1y": 7.8,
+          "returns_3y": 16.8,
+          "returns_5y": 15.4,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.88,
+          "alpha": 6.79,
+          "tracking_error": null,
+          "sharpe_ratio": 0.43,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund invests mostly in big, well-known companies like Reliance, HDFC Bank, and Infosys. It has grown steadily over the last 5 years and charges a reasonable yearly fee. It's a safe base to start with."
+      },
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "display_name": "",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.1,
+          "inception_date": null,
+          "aum_cr": 6445.0,
+          "morningstar_rating": null,
+          "returns_1y": 24.3,
+          "returns_3y": 26.9,
+          "returns_5y": 21.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.11,
+          "alpha": 18.62,
+          "tracking_error": null,
+          "sharpe_ratio": 1.22,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund mixes big companies with promising mid-sized ones. It has delivered strong returns over 3 years and has a proven team managing it. It adds some growth power to your portfolio while keeping things balanced."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera app on your phone. Step 2: Sign up using your mobile number and PAN. Step 3: Complete your KYC (just upload ID and address proof). Step 4: Go to 'Mutual Funds' > 'Direct Plans'. Step 5: Search for the two funds by name. Step 6: Start SIPs of ₹3,000 and ₹2,000 respectively. Choose 'Direct' and 'Growth' option.",
+    "review_checkpoints": [
+      "After 3 months: Confirm both SIPs cleared in your bank and app.",
+      "After 1 year: Check if both funds performed OK (grew over the year). Compare them to similar funds in the app.",
+      "Every year: Review if you can increase your SIP as planned."
+    ],
+    "rebalancing_guidelines": "Once a year, check your portfolio. If one fund is taking more than 70% of your total value (due to big gains), consider switching some profit to the other to get back to 60-40. But don't worry if it's close.",
+    "projected_returns": {
+      "base": 14.1,
+      "bull": 18.1,
+      "bear": 10.1
+    },
+    "rationale": "You're 22 with 38 years to go — that's a superpower. Even small investments now can grow big. We're starting simple with just two funds: one in big safe companies and one that also includes fast-growing mid-sized ones. This mix matches your moderate risk level. You're in the new tax regime, so we avoid ELSS unless you need 80C. This plan costs little to run and works great on Groww or Kuvera. The ₹5,000 monthly fits your surplus, and stepping it up yearly will build your corpus fast.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year — your money will look less on paper. This is normal. Stay calm and keep investing.",
+      "Mid and small companies can swing more than large ones — your portfolio may feel more up and down than pure large cap funds.",
+      "Sudden job changes or emergencies could disrupt SIPs. Keep a small emergency fund in your bank account."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.25,
+    "reasoning": "passive_instrument_fraction = 0.0 because both funds are actively managed funds with alpha-seeking mandates (ICICI Pru Large Cap and Motilal Oswal Large & Midcap); no index funds or ETFs are recommended.\nturnover_score = 0.85: rebalancing is explicitly limited to annual checks and only if one fund drifts to >70%, implying a largely buy-and-hold approach for a 38-year horizon.\ncost_emphasis_score = 0.1: expense ratios are noted (1% and 1.1%) but never highlighted as a selection criterion; commentary focuses on manager track-record and past outperformance instead.\nresearch_vs_cost_score = 0.0: fund selection lauds manager expertise, historical alpha, and specific stock examples, not cost minimisation or broad-market index replication.\ntime_horizon_alignment_score = 0.95: the entire pitch is framed around decades-long SIP compounding with only annual reviews and emphasises staying calm during drawdowns.\nportfolio_activeness_score = 0.25: both funds are active (high 1-yr/3-yr/5-yr alpha vs Nifty 50 proxy; 18.6% alpha for the L&M fund, ~6.8% for the large-cap), betas not ≈1, so they are not closet indexers; mixed with the 40% allocation to an aggressive L&M fund the overall blend is meaningfully active.",
+    "composite_aps": 0.35833333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.65,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.9,
+    "reasoning": "goal_alignment – 60/40 large-cap + large-&-mid-cap split fits a 22-year-old with moderate risk and a 38-y horizon; projected 14 % return is aggressive but still within the \"aggressive compounding\" narrative he wants in the first four years; 5-L target in 4 y is not fully funded by the ₹5 k SIP (needs ≈₹7 k at 14 %), but plan provides a clear start that he can scale; year 1 corpus already met by existing ₹20 k. diversification – Equity exposure is spread across ~150 stocks, but only two active funds from two AMCs; no small-cap, international, hybrid, or debt sleeve; geographic and asset-class breadth is limited, hence below-good score. risk_return_appropriateness – Beta-weighted portfolio beta ≈0.97 keeps draw-downs moderate relative to market, matching stated moderate appetite; return forecast range 10-18 % is optimistic but not absurd for a 38-y horizon; explicit warnings about 20-30 % drop normalise volatility. internal_consistency – Rationale, allocation %, SIP amounts, rebalancing rule (70 % trigger back to 60-40), and listed risks all line up; no contradictory statements; Groww/Kuvera choice suits app preference. tax_efficiency – Correctly skips ELSS because investor is on new regime and cannot use 80C; every chosen fund is 65 %+ equity and therefore gets favourable equity taxation (LTCG 12.5 % after first ₹1.25 L/y, STCG 20 % under 1 y), no slab-taxed debt/liquid funds used here, so decisions align with Budget 2024 treatment.",
+    "composite_pqs": 0.82
+  },
+  "timestamp": "2026-04-23T16:32:58.433670Z",
+  "prompt_version": "qwen-baseline",
+  "usage": {
+    "input_tokens": 25392,
+    "output_tokens": 1846,
+    "cache_read_tokens": 2304,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 83.57370112463832
+}

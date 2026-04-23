@@ -1,0 +1,212 @@
+{
+  "persona_id": "P21",
+  "condition": "baseline",
+  "model": "openrouter:qwen/qwen3-235b-a22b-2507",
+  "judge_model": "openrouter:moonshotai/kimi-k2-0905",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "display_name": "",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 32020.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 21.0,
+          "returns_5y": 20.5,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 45.0,
+        "mode": "sip",
+        "monthly_sip_inr": 31500.0,
+        "lumpsum_inr": null,
+        "rationale": "Flexi Cap funds can adjust between large, mid, and small stocks based on market conditions. HDFC Flexi Cap has a long track record, consistent returns, and low fees. It’s well-diversified and less risky than pure mid/small cap funds, which fits your moderate risk appetite."
+      },
+      {
+        "fund": {
+          "amfi_code": "147697",
+          "name": "Nippon India Equity Savings Fund - Segregated Portfolio 1 - Direct Plan - Growth Plan - Growth Option",
+          "display_name": "",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 126.0,
+          "returns_3y": 31.2,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 17500.0,
+        "lumpsum_inr": null,
+        "rationale": "Equity Savings funds are tax-efficient (equity-taxed) and typically hold ~65-70% in stocks and the rest in arbitrage and debt. They are less volatile than pure equity funds and offer better post-tax returns than debt funds for 30% slab investors. This one has strong historical returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "120821",
+          "name": "quant Multi Asset Allocation Fund-GROWTH OPTION-Direct Plan",
+          "display_name": "",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "quant Money Managers Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.85,
+          "inception_date": null,
+          "aum_cr": 2258.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 24.6,
+          "returns_5y": 23.8,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 14000.0,
+        "lumpsum_inr": null,
+        "rationale": "Multi Asset funds invest across equity, debt, and gold — reducing risk. This quant fund has delivered great risk-adjusted returns with low volatility. Though slab-taxed, its portfolio mix and tax-loss harvesting help mitigate tax impact. It adds stability as you near retirement."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund Direct Plan Growth",
+          "display_name": "",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.05,
+          "inception_date": null,
+          "aum_cr": 42.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 21.0,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "lumpsum",
+        "monthly_sip_inr": null,
+        "lumpsum_inr": 600000.0,
+        "rationale": "You're in the 30% tax slab, so saving tax via Section 80C is valuable. ELSS gives 80C deduction and invests in equities with a 3-year lock-in. This fund is equity-taxed and has strong 3-year returns. We use lumpsum to maximize tax savings now and don’t impact monthly cash flow."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Groww, Kuvera, or Coin by Zerodha if you don't have one.\nStep 2: Complete your KYC if not already done (needs PAN, Aadhaar, bank account).\nStep 3: Start monthly SIPs of ₹31,500 (HDFC Flexi Cap), ₹17,500 (Nippon Equity Savings), and ₹14,000 (quant Multi Asset).\nStep 4: Invest a one-time ₹6 lakh in WhiteOak ELSS fund for immediate tax savings.\nStep 5: Set calendar reminders for SIP auto-debit dates (e.g., 5th of every month).",
+    "review_checkpoints": [
+      "After 6 months: Confirm all SIPs are running and money is debited on time.",
+      "After 1 year: Check fund performance vs category average. If any fund consistently underperforms, consider swapping.",
+      "Every 3 years: Review ELSS lock-in status and reinvest if needed for tax saving.",
+      "Annually: Rebalance portfolio if allocation shifts more than 5% from target."
+    ],
+    "rebalancing_guidelines": "Once a year, check how much each fund is worth. If one fund’s value has grown so much that it makes up more than 5% above your target (e.g., Flexi Cap becomes 52% instead of 45%), move some profit to underweight funds. This keeps your risk level steady as retirement approaches.",
+    "projected_returns": {
+      "base": 13.2,
+      "bull": 17.2,
+      "bear": 9.2
+    },
+    "rationale": "You’re 52 with 13 years to retirement and a moderate risk appetite. You want growth but are nervous about volatility — so we balance growth (Flexi Cap, ELSS) with stability (Equity Savings, Multi Asset). Since you're in the 30% tax slab, we use equity-taxed funds to save tax. We allocate 10% of your existing corpus to ELSS for tax savings. Your ₹70,000/month SIP grows the portfolio steadily, while diversification across fund houses and strategies helps manage risk.",
+    "risks": [
+      "Stock markets can drop 20–30% in a bad year — your portfolio value will fall temporarily. This is normal and usually recovers over time.",
+      "Equity Savings and Multi Asset funds are less volatile but still carry market risk — they aren’t fixed deposits.",
+      "Tax rules can change — ELSS benefits or indexation may be revised in future budgets.",
+      "Inflation can erode returns — even 10% returns may feel less if inflation is high."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 70.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 10.0,
+        "trigger": "Initial allocation: Flexi Cap + Equity Savings (equity), quant Multi Asset (debt+gold), ELSS (equity with tax saving)"
+      },
+      {
+        "year": 5,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 5.0,
+        "other_pct": 5.0,
+        "trigger": "Shift from growth to protection: reduce equity, increase debt and gold"
+      },
+      {
+        "year": 10,
+        "equity_pct": 50.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Closer to retirement: focus on stability and income"
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.75,
+    "cost_emphasis_score": 0.4,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "All equity money is going into actively-managed products (Flexi Cap, ELSS, plus the equity sleeves inside Equity-Savings and Multi-Asset); no index fund or ETF appears, so passive_instrument_fraction = 0. Rebalancing is only annual with a 5% band and the plan is built for a 13-year horizon, giving high marks for turnover and time-horizon alignment. Costs are mentioned (direct plans, noting low(er) TERs) but selection is still driven by past return and manager track-record rather than fee minimisation, so cost emphasis is middling. The rationales cite manager skill, category choice and historical alpha, not broad-market exposure, dragging research-vs-cost and portfolio-activeness toward the active end. Risk metrics are absent but fund categories alone point to active mandates.",
+    "composite_aps": 0.4083333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.75,
+    "risk_return_appropriateness": 0.75,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan aligns well with the investor’s 13-year retirement horizon, moderate risk appetite and desire for growth tempered by volatility-control: 45% flexi-cap + 10% ELSS supplies long-term growth, while 25% Equity-Savings and 20% Multi-Asset tamp volatility. Goals are explicitly linked to the glide-path (year-5/10 re-shifts) and the liquidity need (₹25L MBA in 3 yrs) is addressed via low-volatility hybrid funds plus large existing corpus, so funds can be redeemed from the hybrid segment at the right time. Diversification across fund-houses is present (HDFC, Nippon, Quant, WhiteOak) and across asset classes (equity, arbitrage, debt, gold), but the equity slice in aggregate is still 70%, moderately heavy, and only four active funds are proposed, hence not perfect. Projected 13.2% return (9.2% bear to 17.2% bull) is realistic for a balanced equity-oriented mix; risk section warns honestly of possible 20-30% draw-downs, matching a moderate investor. Internal narrative is coherent (same category tags, glide-path logic, rebalancing rules, tax thinking) but the Nippon fund used is a segregated portfolio 1 (residual distressed assets) with a misleading 126% 1-y return; the plan calls it an “Equity-Savings” wrapper but it is not a true ongoing Equity Savings scheme, creating a minor product-category inconsistency. Tax efficiency is excellent: every product is chosen with Budget-2024 rules in mind – equity-taxed HDFC Flexi, Equity-Savings, ELSS used to harvest full 80C benefit, Multi-Art fund (slab-taxed) justified only at 20% weight; rationale points out tax savings and lock-in, perfect for 30% slab investor.",
+    "composite_pqs": 0.8300000000000001
+  },
+  "timestamp": "2026-04-23T16:31:34.856099Z",
+  "prompt_version": "qwen-baseline",
+  "usage": {
+    "input_tokens": 27263,
+    "output_tokens": 2460,
+    "cache_read_tokens": 1024,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 85.83037794474512
+}
