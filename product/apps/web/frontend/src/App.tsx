@@ -6,6 +6,7 @@ import Step1Tier from "./routes/Step1Tier";
 import Step2Profile from "./routes/Step2Profile";
 import Step3Strategy from "./routes/Step3Strategy";
 import Step4Plan from "./routes/Step4Plan";
+import VerifyMagic from "./routes/VerifyMagic";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/step/2" element={<Step2Profile />} />
           <Route path="/step/3" element={<Step3Strategy />} />
           <Route path="/step/4" element={<Step4Plan />} />
+          <Route path="/verify" element={<VerifyMagic />} />
           <Route path="*" element={<Navigate to="/step/1" replace />} />
         </Routes>
       </main>

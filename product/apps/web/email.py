@@ -69,12 +69,13 @@ async def _send_via_resend(to_email: str, code: str) -> bool:
     """
     import httpx
 
+    text, html = _format_email(code, to_email)
     payload = {
         "from": RESEND_FROM,
         "to": [to_email],
         "subject": _OTP_SUBJECT,
-        "text": _OTP_TEXT.format(code=code),
-        "html": _OTP_HTML.format(code=code),
+        "text": text,
+        "html": html,
     }
     try:
         async with httpx.AsyncClient(timeout=10.0) as client:
@@ -100,21 +101,42 @@ async def _send_via_resend(to_email: str, code: str) -> bool:
 
 # ── SES (preferred) ───────────────────────────────────────────────────────────
 
+APP_URL = os.environ.get("APP_URL", "https://finadvisor.gkamal.online")
 _OTP_SUBJECT = "Your Benji Premium Code"
 _OTP_TEXT = (
     "Your one-time code: {code}\n\n"
-    "Enter it at https://finadvisor.gkamal.online to unlock Premium.\n"
-    "Code expires in 10 minutes.\n\n"
+    "Click to continue: {link}\n\n"
+    "Or enter the code at {app} to unlock Premium.\n"
+    "Expires in 10 minutes.\n\n"
     "— Benji"
 )
 _OTP_HTML = (
-    "<p>Your one-time code:</p>"
-    "<p style='font-size:28px;letter-spacing:6px;font-family:ui-monospace,monospace;"
-    "color:#dc2626;font-weight:700'>{code}</p>"
-    "<p>Enter it at <a href='https://finadvisor.gkamal.online'>"
-    "finadvisor.gkamal.online</a> to unlock Premium. Expires in 10 minutes.</p>"
-    "<p style='color:#64748b;font-size:12px'>— Benji</p>"
+    "<div style='font-family:system-ui,-apple-system,sans-serif;max-width:480px'>"
+    "<p style='color:#0f172a;margin:0 0 4px'>Your one-time code:</p>"
+    "<p style='font-size:32px;letter-spacing:8px;font-family:ui-monospace,monospace;"
+    "color:#dc2626;font-weight:700;margin:4px 0 20px'>{code}</p>"
+    "<p style='margin:0 0 20px'>"
+    "<a href='{link}' style='display:inline-block;background:#dc2626;color:#fff;"
+    "text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;"
+    "font-size:15px'>Click to continue →</a>"
+    "</p>"
+    "<p style='color:#64748b;font-size:13px;margin:0 0 4px'>"
+    "Or paste the code at <a href='{app}' style='color:#dc2626'>{app_host}</a> "
+    "— expires in 10 minutes.</p>"
+    "<p style='color:#94a3b8;font-size:12px;margin-top:24px'>— Benji</p>"
+    "</div>"
 )
+
+
+def _format_email(code: str, email: str) -> tuple[str, str]:
+    """Return (text, html) with code + magic link filled in."""
+    from urllib.parse import quote
+
+    link = f"{APP_URL}/verify?email={quote(email)}&code={quote(code)}"
+    app_host = APP_URL.replace("https://", "").replace("http://", "").rstrip("/")
+    text = _OTP_TEXT.format(code=code, link=link, app=APP_URL)
+    html = _OTP_HTML.format(code=code, link=link, app=APP_URL, app_host=app_host)
+    return text, html
 
 
 async def _send_via_ses(to_email: str, code: str) -> bool:
@@ -130,14 +152,15 @@ async def _send_via_ses(to_email: str, code: str) -> bool:
             return False
         try:
             client = boto3.client("ses", region_name=SES_REGION)
+            text, html = _format_email(code, to_email)
             client.send_email(
                 Source=SES_FROM_ADDRESS,
                 Destination={"ToAddresses": [to_email]},
                 Message={
                     "Subject": {"Charset": "UTF-8", "Data": _OTP_SUBJECT},
                     "Body": {
-                        "Text": {"Charset": "UTF-8", "Data": _OTP_TEXT.format(code=code)},
-                        "Html": {"Charset": "UTF-8", "Data": _OTP_HTML.format(code=code)},
+                        "Text": {"Charset": "UTF-8", "Data": text},
+                        "Html": {"Charset": "UTF-8", "Data": html},
                     },
                 },
             )
@@ -158,8 +181,9 @@ def _send_via_smtp(to_email: str, code: str) -> bool:
     msg["Subject"] = _OTP_SUBJECT
     msg["From"] = SMTP_FROM
     msg["To"] = to_email
-    msg.set_content(_OTP_TEXT.format(code=code))
-    msg.add_alternative(_OTP_HTML.format(code=code), subtype="html")
+    text, html = _format_email(code, to_email)
+    msg.set_content(text)
+    msg.add_alternative(html, subtype="html")
 
     try:
         with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=10) as server:

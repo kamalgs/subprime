@@ -100,7 +100,7 @@ export default function Step1Tier() {
                 disabled={!email || send.isPending}
                 onClick={() => send.mutate()}
               >
-                {send.isPending ? "…" : "Send code"}
+                {send.isPending ? "Sending…" : "Email me the link"}
               </button>
             </div>
           ) : (
@@ -126,7 +126,7 @@ export default function Step1Tier() {
           {error && <p className="text-xs text-red-600 mt-2">{error}</p>}
           {sent && !error && (
             <p className="text-xs text-gray-500 dark:text-slate-400 mt-2">
-              Code sent — check your inbox.
+              Check your inbox — click the link or paste the 6-digit code.
             </p>
           )}
         </div>

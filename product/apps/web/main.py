@@ -117,5 +117,6 @@ def create_app() -> FastAPI:
     app.get("/", include_in_schema=False)(_serve_index)
     app.get("/step/{path:path}", include_in_schema=False)(_serve_index)
     app.get("/app/{path:path}", include_in_schema=False)(_serve_index)
+    app.get("/verify", include_in_schema=False)(_serve_index)
 
     return app
