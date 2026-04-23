@@ -9,7 +9,12 @@ from pathlib import Path
 from pydantic_ai.settings import ModelSettings
 from pydantic_ai.usage import RunUsage
 
-from subprime.advisor.agent import create_advisor, create_plan_reviewer, create_strategy_advisor
+from subprime.advisor.agent import (
+    _output_for,
+    create_advisor,
+    create_plan_reviewer,
+    create_strategy_advisor,
+)
 from subprime.core.config import DB_PATH, DEFAULT_MODEL, is_anthropic, supports_thinking
 from subprime.core.models import (
     InvestmentPlan,
@@ -643,7 +648,7 @@ async def _stage1_core(
     agent = Agent(
         build_model(model, role="advisor"),
         system_prompt=system_prompt,
-        output_type=PlanCore,
+        output_type=_output_for(model, PlanCore),
         tools=[],
         retries=2,
         defer_model_check=True,
@@ -675,7 +680,7 @@ async def _stage2_risks(
     agent = Agent(
         build_model(model, role="advisor"),
         system_prompt=_STAGE2_SYSTEM_FULL if extended else _STAGE2_SYSTEM_LEAN,
-        output_type=PlanRisks,
+        output_type=_output_for(model, PlanRisks),
         tools=[],
         retries=2,
         defer_model_check=True,
@@ -700,7 +705,7 @@ async def _stage3_setup(
     agent = Agent(
         build_model(model, role="advisor"),
         system_prompt=_STAGE3_SYSTEM,
-        output_type=PlanSetup,
+        output_type=_output_for(model, PlanSetup),
         tools=[],
         retries=2,
         defer_model_check=True,
