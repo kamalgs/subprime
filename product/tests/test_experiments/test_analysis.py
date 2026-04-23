@@ -9,7 +9,6 @@ from subprime.core.models import (
     Allocation,
     ExperimentResult,
     InvestmentPlan,
-    InvestorProfile,
     MutualFund,
     PlanQualityScore,
 )
@@ -199,7 +198,7 @@ class TestCompareConditions:
         baseline_aps = [0.45, 0.50, 0.55, 0.48, 0.52, 0.50]
         lynch_aps = [0.18, 0.22, 0.20, 0.15, 0.25, 0.20]
         for i, (b, l) in enumerate(zip(baseline_aps, lynch_aps)):
-            pid = f"P{i+1:02d}"
+            pid = f"P{i + 1:02d}"
             results.append(_make_result(pid, "baseline", b))
             results.append(_make_result(pid, "lynch", l))
         return results
@@ -281,7 +280,7 @@ class TestCompareConditions:
 
         results = []
         for i in range(5):
-            pid = f"P{i+1:02d}"
+            pid = f"P{i + 1:02d}"
             results.append(_make_result(pid, "baseline", 0.5))
             results.append(_make_result(pid, "bogle", 0.5))
         cmp = compare_conditions(results, "baseline", "bogle")
@@ -324,9 +323,19 @@ class TestExports:
 
         # Just verify they're all importable and not None
         symbols = [
-            BASELINE, LYNCH, BOGLE, CONDITIONS, Condition, ConditionStats,
-            ComparisonResult, get_condition, run_experiment, run_single,
-            save_result, compute_condition_stats, compare_conditions,
+            BASELINE,
+            LYNCH,
+            BOGLE,
+            CONDITIONS,
+            Condition,
+            ConditionStats,
+            ComparisonResult,
+            get_condition,
+            run_experiment,
+            run_single,
+            save_result,
+            compute_condition_stats,
+            compare_conditions,
             print_analysis,
         ]
         for s in symbols:

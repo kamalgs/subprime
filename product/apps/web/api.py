@@ -20,7 +20,12 @@ def _multi_perspective_enabled() -> bool:
     every plan is generated via the single-perspective 'basic' path,
     regardless of session.mode.
     """
-    return os.environ.get("SUBPRIME_MULTI_PERSPECTIVE", "").strip().lower() in ("1", "true", "on", "yes")
+    return os.environ.get("SUBPRIME_MULTI_PERSPECTIVE", "").strip().lower() in (
+        "1",
+        "true",
+        "on",
+        "yes",
+    )
 
 
 def _refine_enabled() -> bool:
@@ -46,6 +51,7 @@ def _plan_semaphore() -> asyncio.Semaphore:
         _PLAN_SEMAPHORE = asyncio.Semaphore(limit)
     return _PLAN_SEMAPHORE
 
+
 from subprime.evaluation.personas import get_persona
 from apps.web.session import Session
 from subprime.core.config import ADVISOR_MODEL, REFINE_MODEL
@@ -53,7 +59,7 @@ from subprime.core.models import InvestorProfile, ConversationTurn
 from subprime.advisor.planner import generate_plan, generate_strategy
 from apps.web.rendering import chart_data_donut, render_markdown
 from subprime.core.db import get_pool
-from subprime.core.otp import create_otp, verify_otp, daily_otp_count
+from subprime.core.otp import create_otp, verify_otp
 
 router = APIRouter(prefix="/api")
 
@@ -94,6 +100,7 @@ async def api_cost_estimate(
         "estimated_cost_inr": round(est.estimated_cost_inr, 3),
         "model": est.model,
     }
+
 
 _GOAL_LABELS = {
     "retirement": "Retirement",
@@ -252,7 +259,12 @@ async def api_generate_strategy(
     return templates.TemplateResponse(
         request,
         "partials/strategy_dashboard.html",
-        {"session": session, "strategy": strategy, "chart_data": chart_data, "render_markdown": render_markdown},
+        {
+            "session": session,
+            "strategy": strategy,
+            "chart_data": chart_data,
+            "render_markdown": render_markdown,
+        },
     )
 
 
@@ -308,7 +320,12 @@ async def _revise_and_render(
     return templates.TemplateResponse(
         request,
         "partials/strategy_dashboard.html",
-        {"session": session, "strategy": strategy, "chart_data": chart_data, "render_markdown": render_markdown},
+        {
+            "session": session,
+            "strategy": strategy,
+            "chart_data": chart_data,
+            "render_markdown": render_markdown,
+        },
     )
 
 
@@ -344,6 +361,7 @@ async def api_answer_questions(
 async def _generate_plan_task(app, session_id: str) -> None:
     """Runs in the background — generate the plan, save it to the session."""
     import time as _time
+
     store = app.state.session_store
     session = await store.get(session_id)
     if session is None or session.profile is None:
@@ -354,9 +372,12 @@ async def _generate_plan_task(app, session_id: str) -> None:
     sem = _plan_semaphore()
     logger.info(
         "[plan %s] START mode=%s multi=%s sem_avail=%s model=%s persona=%s has_strategy=%s",
-        session_id[:8], effective_mode, _multi_perspective_enabled(),
-        sem._value if hasattr(sem, '_value') else '?',
-        ADVISOR_MODEL, session.profile.id if session.profile else "?",
+        session_id[:8],
+        effective_mode,
+        _multi_perspective_enabled(),
+        sem._value if hasattr(sem, "_value") else "?",
+        ADVISOR_MODEL,
+        session.profile.id if session.profile else "?",
         session.strategy is not None,
     )
     t0 = _time.time()
@@ -374,7 +395,10 @@ async def _generate_plan_task(app, session_id: str) -> None:
         dt = _time.time() - t0
         logger.info(
             "[plan %s] DONE in %.1fs — allocations=%d returns=%s tokens=(in=%s,out=%s)",
-            session_id[:8], dt, len(plan.allocations), plan.projected_returns,
+            session_id[:8],
+            dt,
+            len(plan.allocations),
+            plan.projected_returns,
             getattr(usage, "input_tokens", "?"),
             getattr(usage, "output_tokens", "?"),
         )
@@ -390,11 +414,15 @@ async def _generate_plan_task(app, session_id: str) -> None:
 
         from subprime.core.conversations import save_conversation
         from subprime.core.db import get_pool as _get_pool
+
         await save_conversation(session=session, pool=_get_pool())
     except Exception as exc:
         dt = _time.time() - t0
         logger.exception(
-            "[plan %s] FAILED after %.1fs: %s", session_id[:8], dt, exc,
+            "[plan %s] FAILED after %.1fs: %s",
+            session_id[:8],
+            dt,
+            exc,
         )
         session = await store.get(session_id) or session
         session.plan_generating = False
@@ -409,17 +437,20 @@ async def api_plan_status(
 ):
     """JSON status for the loading screen poller."""
     from fastapi.responses import JSONResponse
+
     store = request.app.state.session_store
     if not benji_session:
         return JSONResponse({"ready": False, "error": "no-session"})
     session = await store.get(benji_session)
     if not session:
         return JSONResponse({"ready": False, "error": "no-session"})
-    return JSONResponse({
-        "ready": session.plan is not None,
-        "generating": session.plan_generating,
-        "error": session.plan_error,
-    })
+    return JSONResponse(
+        {
+            "ready": session.plan is not None,
+            "generating": session.plan_generating,
+            "error": session.plan_error,
+        }
+    )
 
 
 @router.post("/generate-plan")
@@ -446,7 +477,8 @@ async def api_generate_plan(
 
     logger.info(
         "[plan %s] QUEUED mode=%s profile=%s",
-        session.id[:8], session.mode,
+        session.id[:8],
+        session.mode,
         session.profile.id if session.profile else "?",
     )
 
@@ -495,34 +527,60 @@ async def api_request_otp(
     pool = get_pool()
 
     if not pool:
-        return templates.TemplateResponse(request, "partials/otp_error.html", {
-            "message": "Premium is not available right now — please try the Basic plan.",
-            "show_retry": False, "email": email,
-        })
+        return templates.TemplateResponse(
+            request,
+            "partials/otp_error.html",
+            {
+                "message": "Premium is not available right now — please try the Basic plan.",
+                "show_retry": False,
+                "email": email,
+            },
+        )
 
     if not email or not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", email):
-        return templates.TemplateResponse(request, "partials/otp_error.html", {
-            "message": "Please enter a valid email address.",
-            "show_retry": True, "email": email,
-        })
+        return templates.TemplateResponse(
+            request,
+            "partials/otp_error.html",
+            {
+                "message": "Please enter a valid email address.",
+                "show_retry": True,
+                "email": email,
+            },
+        )
 
     result = await create_otp(pool, email.strip().lower())
     if not result["success"]:
-        return templates.TemplateResponse(request, "partials/otp_error.html", {
-            "message": result["reason"], "show_retry": False, "email": email,
-        })
+        return templates.TemplateResponse(
+            request,
+            "partials/otp_error.html",
+            {
+                "message": result["reason"],
+                "show_retry": False,
+                "email": email,
+            },
+        )
 
     from apps.web.email import send_otp_email
+
     sent = await send_otp_email(email.strip().lower(), result["code"])
     if not sent:
-        return templates.TemplateResponse(request, "partials/otp_error.html", {
-            "message": "Could not send email — please check your address and try again.",
-            "show_retry": True, "email": email,
-        })
+        return templates.TemplateResponse(
+            request,
+            "partials/otp_error.html",
+            {
+                "message": "Could not send email — please check your address and try again.",
+                "show_retry": True,
+                "email": email,
+            },
+        )
 
-    return templates.TemplateResponse(request, "partials/otp_verify.html", {
-        "email": email.strip().lower(),
-    })
+    return templates.TemplateResponse(
+        request,
+        "partials/otp_verify.html",
+        {
+            "email": email.strip().lower(),
+        },
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -539,6 +597,7 @@ async def api_verify_otp(
 ):
     """Verify an OTP and grant premium access."""
     import os
+
     templates = request.app.state.templates
     pool = get_pool()
 
@@ -546,20 +605,30 @@ async def api_verify_otp(
     is_cheat = bool(cheat) and code.strip() == cheat
 
     if not pool and not is_cheat:
-        return templates.TemplateResponse(request, "partials/otp_error.html", {
-            "message": "Premium is not available right now.",
-            "show_retry": False, "email": email,
-        })
+        return templates.TemplateResponse(
+            request,
+            "partials/otp_error.html",
+            {
+                "message": "Premium is not available right now.",
+                "show_retry": False,
+                "email": email,
+            },
+        )
 
     store = request.app.state.session_store
     session = await _get_or_create_session(request, benji_session)
 
     verified = is_cheat or await verify_otp(pool, email.strip().lower(), code.strip())
     if not verified:
-        return templates.TemplateResponse(request, "partials/otp_error.html", {
-            "message": "Invalid or expired code. Please request a new one.",
-            "show_retry": True, "email": email,
-        })
+        return templates.TemplateResponse(
+            request,
+            "partials/otp_error.html",
+            {
+                "message": "Invalid or expired code. Please request a new one.",
+                "show_retry": True,
+                "email": email,
+            },
+        )
 
     session.mode = "premium"
     session.current_step = 2

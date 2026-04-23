@@ -7,7 +7,6 @@ and Chart.js data helpers.
 from __future__ import annotations
 
 import html
-import math
 
 import markdown as _markdown_lib
 
@@ -46,11 +45,20 @@ def format_inr(amount: float) -> str:
 # Tokens that add no information once the user knows the category + AMC.
 # Matched case-insensitively as whole words; order doesn't matter.
 _FUND_NAME_NOISE = (
-    "Direct", "Regular", "Reg", "Plan",
-    "Growth", "IDCW", "Dividend",
-    "Option", "Scheme", "Fund",
-    "Payout", "Reinvestment",
-    "-", "–",  # stray separators left behind after stripping
+    "Direct",
+    "Regular",
+    "Reg",
+    "Plan",
+    "Growth",
+    "IDCW",
+    "Dividend",
+    "Option",
+    "Scheme",
+    "Fund",
+    "Payout",
+    "Reinvestment",
+    "-",
+    "–",  # stray separators left behind after stripping
 )
 
 
@@ -89,6 +97,7 @@ def short_fund_name(name: str, max_len: int = 32) -> str:
 # Markdown to safe HTML
 # ---------------------------------------------------------------------------
 
+
 def render_markdown(text: str) -> str:
     """Convert markdown to safe HTML.
 
@@ -111,6 +120,7 @@ def render_markdown(text: str) -> str:
 # ---------------------------------------------------------------------------
 # Corpus projection math
 # ---------------------------------------------------------------------------
+
 
 def compute_corpus(monthly_sip: float, years: int, cagr_pct: float) -> float:
     """Future value of a monthly SIP at a given CAGR.
@@ -154,14 +164,24 @@ _DONUT_SEGMENTS = [
 
 _SUB_COLORS = {
     # Equity shades (indigo family)
-    "Large Cap": "#6366f1", "Mid Cap": "#818cf8", "Small Cap": "#a5b4fc",
-    "Flexi Cap": "#7c3aed", "Multi Cap": "#8b5cf6", "ELSS": "#6d28d9",
-    "Index": "#4f46e5", "Sectoral": "#4338ca", "International": "#3730a3",
+    "Large Cap": "#6366f1",
+    "Mid Cap": "#818cf8",
+    "Small Cap": "#a5b4fc",
+    "Flexi Cap": "#7c3aed",
+    "Multi Cap": "#8b5cf6",
+    "ELSS": "#6d28d9",
+    "Index": "#4f46e5",
+    "Sectoral": "#4338ca",
+    "International": "#3730a3",
     # Debt shades (cyan family)
-    "Short Duration": "#06b6d4", "Corporate Bond": "#22d3ee",
-    "Gilt": "#0e7490", "Liquid": "#67e8f9", "Dynamic Bond": "#0891b2",
+    "Short Duration": "#06b6d4",
+    "Corporate Bond": "#22d3ee",
+    "Gilt": "#0e7490",
+    "Liquid": "#67e8f9",
+    "Dynamic Bond": "#0891b2",
     # Gold
-    "Gold": "#d97706", "Gold ETF": "#f59e0b",
+    "Gold": "#d97706",
+    "Gold ETF": "#f59e0b",
     # Other
     "Other": "#6b7280",
 }
@@ -195,7 +215,9 @@ def chart_data_donut(
 
     # Outer ring: sub-categories (or mirror inner if none)
     outer_labels, outer_values, outer_colors = [], [], []
-    has_subs = (equity_sub and sum(equity_sub.values()) > 0) or (debt_sub and sum(debt_sub.values()) > 0)
+    has_subs = (equity_sub and sum(equity_sub.values()) > 0) or (
+        debt_sub and sum(debt_sub.values()) > 0
+    )
 
     if has_subs:
         # Equity subs
@@ -254,7 +276,9 @@ def chart_data_donut(
         "inner": {"labels": inner_labels, "values": inner_values, "colors": inner_colors},
         "outer": {"labels": outer_labels, "values": outer_values, "colors": outer_colors},
         # Backward compat — flat versions for simple donut callers
-        "labels": inner_labels, "values": inner_values, "colors": inner_colors,
+        "labels": inner_labels,
+        "values": inner_values,
+        "colors": inner_colors,
     }
 
 

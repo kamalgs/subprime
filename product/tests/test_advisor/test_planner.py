@@ -13,7 +13,6 @@ from pydantic_ai.usage import RunUsage
 
 from subprime.advisor.agent import create_advisor, load_prompt
 from subprime.advisor.evaluator import PlanEvaluation
-from subprime.core.config import DEFAULT_MODEL
 from subprime.core.models import (
     Allocation,
     InvestmentPlan,
@@ -202,14 +201,20 @@ async def test_generate_plan_passes_hooks(sample_profile):
 @pytest.mark.asyncio
 async def test_generate_plan_with_strategy(sample_profile):
     from subprime.advisor.planner import generate_plan
+
     fake_plan = _make_fake_plan()
     mock_result = MagicMock()
     mock_result.output = fake_plan
     mock_result.usage.return_value = RunUsage()
     strategy = StrategyOutline(
-        equity_pct=70.0, debt_pct=20.0, gold_pct=10.0, other_pct=0.0,
-        equity_approach="Index-heavy", key_themes=["low cost"],
-        risk_return_summary="12% CAGR target", open_questions=[],
+        equity_pct=70.0,
+        debt_pct=20.0,
+        gold_pct=10.0,
+        other_pct=0.0,
+        equity_approach="Index-heavy",
+        key_themes=["low cost"],
+        risk_return_summary="12% CAGR target",
+        open_questions=[],
     )
     with patch("subprime.advisor.planner.create_advisor") as mock_create:
         mock_agent = AsyncMock()

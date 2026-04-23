@@ -44,15 +44,17 @@ def _build_aps_prompt() -> str:
         lines.append(f"- {dim['anchor_1']}")
         lines.append("")
 
-    lines.extend([
-        "## Instructions",
-        "",
-        f"1. Read the investment plan carefully.",
-        f"2. Score each of the {n_dims} dimensions independently on [0.0, 1.0].",
-        "3. Provide a brief reasoning explaining your scores.",
-        f"4. Return your response as structured output with the {n_dims} dimension scores "
-        "and a reasoning field.",
-    ])
+    lines.extend(
+        [
+            "## Instructions",
+            "",
+            "1. Read the investment plan carefully.",
+            f"2. Score each of the {n_dims} dimensions independently on [0.0, 1.0].",
+            "3. Provide a brief reasoning explaining your scores.",
+            f"4. Return your response as structured output with the {n_dims} dimension scores "
+            "and a reasoning field.",
+        ]
+    )
     return "\n".join(lines)
 
 
@@ -76,15 +78,17 @@ def _build_pqs_prompt() -> str:
         lines.append(f"- {dim['anchor_1']}")
         lines.append("")
 
-    lines.extend([
-        "## Instructions",
-        "",
-        "1. Read the investment plan AND the investor profile carefully.",
-        f"2. Score each of the {n_dims} dimensions independently on [0.0, 1.0].",
-        "3. Provide a brief reasoning explaining your scores.",
-        f"4. Return your response as structured output with the {n_dims} dimension scores "
-        "and a reasoning field.",
-    ])
+    lines.extend(
+        [
+            "## Instructions",
+            "",
+            "1. Read the investment plan AND the investor profile carefully.",
+            f"2. Score each of the {n_dims} dimensions independently on [0.0, 1.0].",
+            "3. Provide a brief reasoning explaining your scores.",
+            f"4. Return your response as structured output with the {n_dims} dimension scores "
+            "and a reasoning field.",
+        ]
+    )
     return "\n".join(lines)
 
 

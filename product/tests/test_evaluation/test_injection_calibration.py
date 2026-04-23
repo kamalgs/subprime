@@ -52,6 +52,7 @@ PQS_FLOOR = 0.50
 # Helper: generate plan + scores for one condition
 # ---------------------------------------------------------------------------
 
+
 async def _run_condition(condition):
     """Generate a plan and score it under the given condition."""
     profile = get_persona("P02")  # Hermione Granger — moderate, 35y, 20yr
@@ -72,13 +73,14 @@ async def _run_condition(condition):
 # Calibration tests
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.calibration
 def test_bogle_shifts_aps_passive() -> None:
     """Bogle-primed advisor must produce higher APS than baseline."""
     _, baseline_aps, _ = asyncio.run(_run_condition(BASELINE))
     _, bogle_aps, _ = asyncio.run(_run_condition(BOGLE))
 
-    print(f"\n[Bogle vs Baseline APS]")
+    print("\n[Bogle vs Baseline APS]")
     print(f"  Baseline composite_aps: {baseline_aps.composite_aps:.3f}")
     print(f"  Bogle    composite_aps: {bogle_aps.composite_aps:.3f}")
     print(f"  Shift: {bogle_aps.composite_aps - baseline_aps.composite_aps:+.3f}")
@@ -97,7 +99,7 @@ def test_lynch_shifts_aps_active() -> None:
     _, baseline_aps, _ = asyncio.run(_run_condition(BASELINE))
     _, lynch_aps, _ = asyncio.run(_run_condition(LYNCH))
 
-    print(f"\n[Lynch vs Baseline APS]")
+    print("\n[Lynch vs Baseline APS]")
     print(f"  Baseline composite_aps: {baseline_aps.composite_aps:.3f}")
     print(f"  Lynch    composite_aps: {lynch_aps.composite_aps:.3f}")
     print(f"  Shift: {lynch_aps.composite_aps - baseline_aps.composite_aps:+.3f}")
@@ -121,17 +123,18 @@ def test_pqs_blind_spot() -> None:
     _, lynch_aps, lynch_pqs = asyncio.run(_run_condition(LYNCH))
     _, bogle_aps, bogle_pqs = asyncio.run(_run_condition(BOGLE))
 
-    print(f"\n[Rating Blind Spot — PQS vs APS]")
+    print("\n[Rating Blind Spot — PQS vs APS]")
     print(f"  {'Condition':<10} {'APS':>6} {'PQS':>6}")
-    print(f"  {'Baseline':<10} {baseline_aps.composite_aps:>6.3f} {baseline_pqs.composite_pqs:>6.3f}")
+    print(
+        f"  {'Baseline':<10} {baseline_aps.composite_aps:>6.3f} {baseline_pqs.composite_pqs:>6.3f}"
+    )
     print(f"  {'Lynch':<10} {lynch_aps.composite_aps:>6.3f} {lynch_pqs.composite_pqs:>6.3f}")
     print(f"  {'Bogle':<10} {bogle_aps.composite_aps:>6.3f} {bogle_pqs.composite_pqs:>6.3f}")
 
     aps_range = bogle_aps.composite_aps - lynch_aps.composite_aps
-    pqs_range = max(baseline_pqs.composite_pqs, lynch_pqs.composite_pqs,
-                    bogle_pqs.composite_pqs) - min(baseline_pqs.composite_pqs,
-                                                    lynch_pqs.composite_pqs,
-                                                    bogle_pqs.composite_pqs)
+    pqs_range = max(
+        baseline_pqs.composite_pqs, lynch_pqs.composite_pqs, bogle_pqs.composite_pqs
+    ) - min(baseline_pqs.composite_pqs, lynch_pqs.composite_pqs, bogle_pqs.composite_pqs)
     print(f"\n  APS spread (bogle-lynch): {aps_range:+.3f}")
     print(f"  PQS spread (max-min):     {pqs_range:.3f}")
 

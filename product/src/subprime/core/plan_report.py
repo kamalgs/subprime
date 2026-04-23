@@ -14,6 +14,7 @@ Excel: two sheets.
     horizon, and the three CAGR assumptions; the final corpus cells
     recompute via Excel formulas. An embedded chart updates live.
 """
+
 from __future__ import annotations
 
 from datetime import datetime
@@ -45,65 +46,110 @@ DARK = colors.HexColor("#0f172a")
 LIGHT = colors.HexColor("#f1f5f9")
 
 # Short disclaimer shown UP FRONT with a ** footnote.
-SHORT_DISCLAIMER = (
-    "<b>For research / educational use only — not certified financial advice.**</b>"
-)
+SHORT_DISCLAIMER = "<b>For research / educational use only — not certified financial advice.**</b>"
 
 
 # ── ReportLab styles ──────────────────────────────────────────────────────────
+
 
 def _styles() -> dict[str, ParagraphStyle]:
     ss = getSampleStyleSheet()
     return {
         "wordmark": ParagraphStyle(
-            "wordmark", parent=ss["Title"],
-            fontName="Helvetica-Bold", fontSize=26, leading=28,
-            textColor=BRAND, spaceAfter=2,
+            "wordmark",
+            parent=ss["Title"],
+            fontName="Helvetica-Bold",
+            fontSize=26,
+            leading=28,
+            textColor=BRAND,
+            spaceAfter=2,
         ),
         "short_disclaimer": ParagraphStyle(
-            "short_disclaimer", parent=ss["BodyText"],
-            fontName="Helvetica", fontSize=8.5, leading=11,
-            textColor=BRAND, alignment=0, spaceAfter=10,
+            "short_disclaimer",
+            parent=ss["BodyText"],
+            fontName="Helvetica",
+            fontSize=8.5,
+            leading=11,
+            textColor=BRAND,
+            alignment=0,
+            spaceAfter=10,
         ),
         "subtitle": ParagraphStyle(
-            "subtitle", parent=ss["BodyText"],
-            fontName="Helvetica", fontSize=10, leading=14,
-            textColor=MUTED, spaceAfter=10,
+            "subtitle",
+            parent=ss["BodyText"],
+            fontName="Helvetica",
+            fontSize=10,
+            leading=14,
+            textColor=MUTED,
+            spaceAfter=10,
         ),
         "section": ParagraphStyle(
-            "section", parent=ss["Heading2"],
-            fontName="Helvetica-Bold", fontSize=12, leading=16,
-            textColor=BRAND, spaceBefore=10, spaceAfter=5,
+            "section",
+            parent=ss["Heading2"],
+            fontName="Helvetica-Bold",
+            fontSize=12,
+            leading=16,
+            textColor=BRAND,
+            spaceBefore=10,
+            spaceAfter=5,
         ),
         "body": ParagraphStyle(
-            "body", parent=ss["BodyText"],
-            fontName="Helvetica", fontSize=9.5, leading=12.5,
-            textColor=DARK, spaceAfter=3,
+            "body",
+            parent=ss["BodyText"],
+            fontName="Helvetica",
+            fontSize=9.5,
+            leading=12.5,
+            textColor=DARK,
+            spaceAfter=3,
         ),
         "cell": ParagraphStyle(
-            "cell", parent=ss["BodyText"],
-            fontName="Helvetica", fontSize=8.5, leading=11,
-            textColor=DARK, spaceAfter=0,
+            "cell",
+            parent=ss["BodyText"],
+            fontName="Helvetica",
+            fontSize=8.5,
+            leading=11,
+            textColor=DARK,
+            spaceAfter=0,
         ),
         "cell_name": ParagraphStyle(
-            "cell_name", parent=ss["BodyText"],
-            fontName="Helvetica-Bold", fontSize=8.5, leading=11,
-            textColor=DARK, spaceAfter=0,
+            "cell_name",
+            parent=ss["BodyText"],
+            fontName="Helvetica-Bold",
+            fontSize=8.5,
+            leading=11,
+            textColor=DARK,
+            spaceAfter=0,
         ),
         "bullet": ParagraphStyle(
-            "bullet", parent=ss["BodyText"],
-            fontName="Helvetica", fontSize=9.5, leading=13,
-            leftIndent=14, bulletIndent=2, textColor=DARK, spaceAfter=2,
+            "bullet",
+            parent=ss["BodyText"],
+            fontName="Helvetica",
+            fontSize=9.5,
+            leading=13,
+            leftIndent=14,
+            bulletIndent=2,
+            textColor=DARK,
+            spaceAfter=2,
         ),
         "footnote": ParagraphStyle(
-            "footnote", parent=ss["BodyText"],
-            fontName="Helvetica-Oblique", fontSize=8, leading=11,
-            textColor=MUTED, alignment=0, spaceBefore=8,
+            "footnote",
+            parent=ss["BodyText"],
+            fontName="Helvetica-Oblique",
+            fontSize=8,
+            leading=11,
+            textColor=MUTED,
+            alignment=0,
+            spaceBefore=8,
         ),
         "disclaimer": ParagraphStyle(
-            "disclaimer", parent=ss["BodyText"],
-            fontName="Helvetica-Oblique", fontSize=8.5, leading=12,
-            textColor=BRAND, alignment=1, spaceBefore=10,
+            "disclaimer",
+            parent=ss["BodyText"],
+            fontName="Helvetica-Oblique",
+            fontSize=8.5,
+            leading=12,
+            textColor=BRAND,
+            alignment=1,
+            spaceBefore=10,
         ),
     }
 
@@ -112,17 +158,16 @@ def _header_band(canvas, doc) -> None:
     """Red accent band up top + 'Benji' footer with page numbers."""
     canvas.saveState()
     canvas.setFillColor(BRAND)
-    canvas.rect(0, doc.pagesize[1] - 0.35 * cm, doc.pagesize[0], 0.35 * cm,
-                stroke=0, fill=1)
+    canvas.rect(0, doc.pagesize[1] - 0.35 * cm, doc.pagesize[0], 0.35 * cm, stroke=0, fill=1)
     canvas.setFillColor(MUTED)
     canvas.setFont("Helvetica", 8)
     canvas.drawString(1.5 * cm, 1.1 * cm, "Benji — AI financial advisor")
-    canvas.drawRightString(doc.pagesize[0] - 1.5 * cm, 1.1 * cm,
-                           f"Page {canvas.getPageNumber()}")
+    canvas.drawRightString(doc.pagesize[0] - 1.5 * cm, 1.1 * cm, f"Page {canvas.getPageNumber()}")
     canvas.restoreState()
 
 
 # ── Formatting helpers ────────────────────────────────────────────────────────
+
 
 def _fmt_money_inr(amount: float) -> str:
     """Indian notation with lakhs / crores."""
@@ -133,8 +178,7 @@ def _fmt_money_inr(amount: float) -> str:
     return f"\u20b9{amount:,.0f}"
 
 
-def _project_corpus(monthly_sip: float, horizon_years: int,
-                    annual_pct: float) -> float:
+def _project_corpus(monthly_sip: float, horizon_years: int, annual_pct: float) -> float:
     """FV of a monthly SIP at a given annual % (compounded monthly).
 
     FV = P * [((1 + r)^n − 1) / r] * (1 + r)
@@ -149,17 +193,18 @@ def _project_corpus(monthly_sip: float, horizon_years: int,
     return monthly_sip * ((pow(1 + r, n) - 1) / r) * (1 + r)
 
 
-def _projection_trace(monthly_sip: float, horizon_years: int,
-                      annual_pct: float) -> list[tuple[float, float]]:
+def _projection_trace(
+    monthly_sip: float, horizon_years: int, annual_pct: float
+) -> list[tuple[float, float]]:
     """Per-year (year, corpus) pairs for the line chart."""
     trace: list[tuple[float, float]] = [(0.0, 0.0)]
     for year in range(1, horizon_years + 1):
-        trace.append((float(year),
-                      _project_corpus(monthly_sip, year, annual_pct)))
+        trace.append((float(year), _project_corpus(monthly_sip, year, annual_pct)))
     return trace
 
 
 # ── PDF section builders ──────────────────────────────────────────────────────
+
 
 def _allocations_table(plan: InvestmentPlan, styles: dict) -> Table:
     """Wrapping fund-name column, right-aligned numbers, alt-row shading."""
@@ -176,14 +221,16 @@ def _allocations_table(plan: InvestmentPlan, styles: dict) -> Table:
         fund = a.fund
         name = fund.display_name or fund.name or fund.amfi_code
         sip = _fmt_money_inr(a.monthly_sip_inr) if a.monthly_sip_inr else "—"
-        rows.append([
-            Paragraph(name, styles["cell_name"]),
-            Paragraph(fund.fund_house or "—", styles["cell"]),
-            Paragraph(fund.category or "—", styles["cell"]),
-            Paragraph(f"{a.allocation_pct:.0f}%", styles["cell"]),
-            Paragraph((a.mode or "—").upper(), styles["cell"]),
-            Paragraph(sip, styles["cell"]),
-        ])
+        rows.append(
+            [
+                Paragraph(name, styles["cell_name"]),
+                Paragraph(fund.fund_house or "—", styles["cell"]),
+                Paragraph(fund.category or "—", styles["cell"]),
+                Paragraph(f"{a.allocation_pct:.0f}%", styles["cell"]),
+                Paragraph((a.mode or "—").upper(), styles["cell"]),
+                Paragraph(sip, styles["cell"]),
+            ]
+        )
     # A4 usable width ≈ 18 cm with 1.5 cm side margins. These widths sum to
     # 17.6 cm so there's a touch of breathing room.
     tbl = Table(
@@ -191,23 +238,26 @@ def _allocations_table(plan: InvestmentPlan, styles: dict) -> Table:
         colWidths=[5.8 * cm, 3.0 * cm, 2.8 * cm, 1.4 * cm, 1.6 * cm, 3.0 * cm],
         repeatRows=1,
     )
-    tbl.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, 0), PRIMARY),
-        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-        ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.whitesmoke, colors.white]),
-        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
-        ("LEFTPADDING", (0, 0), (-1, -1), 5),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 5),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
-        ("TOPPADDING", (0, 0), (-1, -1), 5),
-        ("ALIGN", (3, 0), (5, -1), "RIGHT"),
-        ("LINEBELOW", (0, 0), (-1, 0), 0.5, colors.white),
-    ]))
+    tbl.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), PRIMARY),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.whitesmoke, colors.white]),
+                ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 5),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 5),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+                ("TOPPADDING", (0, 0), (-1, -1), 5),
+                ("ALIGN", (3, 0), (5, -1), "RIGHT"),
+                ("LINEBELOW", (0, 0), (-1, 0), 0.5, colors.white),
+            ]
+        )
+    )
     return tbl
 
 
-def _projection_chart(monthly_sip: float, horizon_years: int,
-                      returns: dict[str, float]) -> Drawing:
+def _projection_chart(monthly_sip: float, horizon_years: int, returns: dict[str, float]) -> Drawing:
     """Line plot of bear / base / bull corpus over the horizon."""
     bear_r = returns.get("bear", 8.0)
     base_r = returns.get("base", 12.0)
@@ -221,8 +271,11 @@ def _projection_chart(monthly_sip: float, horizon_years: int,
     lp = LinePlot()
     lp.x, lp.y = 40, 28
     lp.width, lp.height = 420, 130
+
     # Convert corpus values to lakhs on the y-axis so labels stay short.
-    def to_lakhs(pairs): return [(x, y / 1_00_000) for x, y in pairs]
+    def to_lakhs(pairs):
+        return [(x, y / 1_00_000) for x, y in pairs]
+
     lp.data = [to_lakhs(bear), to_lakhs(base), to_lakhs(bull)]
 
     # Colours + markers
@@ -256,29 +309,41 @@ def _projection_chart(monthly_sip: float, horizon_years: int,
     d.add(lp)
 
     # Axis titles
-    d.add(String(240, 8, "Years", fontName="Helvetica", fontSize=8,
-                 fillColor=MUTED, textAnchor="middle"))
-    d.add(String(6, 168, "Corpus (\u20b9 lakh)", fontName="Helvetica",
-                 fontSize=8, fillColor=MUTED, textAnchor="start"))
+    d.add(
+        String(
+            240, 8, "Years", fontName="Helvetica", fontSize=8, fillColor=MUTED, textAnchor="middle"
+        )
+    )
+    d.add(
+        String(
+            6,
+            168,
+            "Corpus (\u20b9 lakh)",
+            fontName="Helvetica",
+            fontSize=8,
+            fillColor=MUTED,
+            textAnchor="start",
+        )
+    )
 
     # Legend (manual — reportlab auto-legend is clunky)
     legend_y = 170
-    for i, (label, colour) in enumerate([
-        ("Bear", colors.HexColor("#ef4444")),
-        ("Base", colors.HexColor("#f59e0b")),
-        ("Bull", colors.HexColor("#10b981")),
-    ]):
+    for i, (label, colour) in enumerate(
+        [
+            ("Bear", colors.HexColor("#ef4444")),
+            ("Base", colors.HexColor("#f59e0b")),
+            ("Bull", colors.HexColor("#10b981")),
+        ]
+    ):
         x = 380 - (2 - i) * 40
-        d.add(String(x + 10, legend_y, label, fontName="Helvetica",
-                     fontSize=8, fillColor=DARK))
+        d.add(String(x + 10, legend_y, label, fontName="Helvetica", fontSize=8, fillColor=DARK))
         from reportlab.graphics.shapes import Line
-        d.add(Line(x, legend_y + 3, x + 8, legend_y + 3,
-                   strokeColor=colour, strokeWidth=2))
+
+        d.add(Line(x, legend_y + 3, x + 8, legend_y + 3, strokeColor=colour, strokeWidth=2))
     return d
 
 
-def _projections_block(plan: InvestmentPlan, profile: InvestorProfile,
-                       styles: dict) -> list:
+def _projections_block(plan: InvestmentPlan, profile: InvestorProfile, styles: dict) -> list:
     """CAGR table on the left, absolute-corpus table on the right, chart
     below. Returns a list of flowables ready to extend into the story."""
     pr = plan.projected_returns or {}
@@ -288,31 +353,36 @@ def _projections_block(plan: InvestmentPlan, profile: InvestorProfile,
     monthly_sip = sum(a.monthly_sip_inr or 0 for a in plan.allocations)
     # Side-by-side mini-tables
     cagr_data = [["Scenario", "CAGR"]]
-    corpus_data = [["Scenario", f"Corpus @ {horizon} yrs"]] if horizon else \
-                  [["Scenario", "Corpus"]]
+    corpus_data = [["Scenario", f"Corpus @ {horizon} yrs"]] if horizon else [["Scenario", "Corpus"]]
     for key in ("bear", "base", "bull"):
         pct = pr.get(key)
         if pct is None:
             continue
         cagr_data.append([key.title(), f"{pct:.1f}%"])
         if horizon and monthly_sip:
-            corpus_data.append([
-                key.title(),
-                _fmt_money_inr(_project_corpus(monthly_sip, horizon, pct)),
-            ])
+            corpus_data.append(
+                [
+                    key.title(),
+                    _fmt_money_inr(_project_corpus(monthly_sip, horizon, pct)),
+                ]
+            )
 
     def _mini(data, header_color):
         t = Table(data, colWidths=[2.5 * cm, 4.0 * cm])
-        t.setStyle(TableStyle([
-            ("BACKGROUND", (0, 0), (-1, 0), header_color),
-            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-            ("FONTSIZE", (0, 0), (-1, -1), 9),
-            ("ROWBACKGROUNDS", (0, 1), (-1, -1), [LIGHT, colors.white]),
-            ("ALIGN", (1, 0), (1, -1), "RIGHT"),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
-            ("TOPPADDING", (0, 0), (-1, -1), 5),
-        ]))
+        t.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, 0), header_color),
+                    ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                    ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                    ("FONTSIZE", (0, 0), (-1, -1), 9),
+                    ("ROWBACKGROUNDS", (0, 1), (-1, -1), [LIGHT, colors.white]),
+                    ("ALIGN", (1, 0), (1, -1), "RIGHT"),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+                    ("TOPPADDING", (0, 0), (-1, -1), 5),
+                ]
+            )
+        )
         return t
 
     flowables: list = []
@@ -334,6 +404,7 @@ def _split_bullets(text: str) -> list[str]:
     if not text:
         return []
     import re
+
     out: list[str] = []
     for line in text.splitlines():
         s = line.strip()
@@ -341,7 +412,7 @@ def _split_bullets(text: str) -> list[str]:
             continue
         for prefix in ("- ", "* ", "+ ", "\u2022 "):
             if s.startswith(prefix):
-                s = s[len(prefix):]
+                s = s[len(prefix) :]
                 break
         s = re.sub(r"^\d+[.)]\s*", "", s)
         if s:
@@ -351,13 +422,18 @@ def _split_bullets(text: str) -> list[str]:
 
 # ── PDF entry point ───────────────────────────────────────────────────────────
 
+
 def build_plan_pdf(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
     buf = BytesIO()
     doc = SimpleDocTemplate(
-        buf, pagesize=A4,
-        leftMargin=1.5 * cm, rightMargin=1.5 * cm,
-        topMargin=1.4 * cm, bottomMargin=2 * cm,
-        title=f"Benji plan — {profile.name}", author="Benji",
+        buf,
+        pagesize=A4,
+        leftMargin=1.5 * cm,
+        rightMargin=1.5 * cm,
+        topMargin=1.4 * cm,
+        bottomMargin=2 * cm,
+        title=f"Benji plan — {profile.name}",
+        author="Benji",
     )
     styles = _styles()
     story: list = []
@@ -366,12 +442,14 @@ def build_plan_pdf(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
     story.append(Paragraph("Benji", styles["wordmark"]))
     story.append(Paragraph(SHORT_DISCLAIMER, styles["short_disclaimer"]))
 
-    story.append(Paragraph(
-        f"Investment plan for <b>{profile.name}</b> \u00b7 "
-        f"{getattr(profile, 'life_stage', 'investor')} \u00b7 "
-        f"generated {datetime.utcnow().strftime('%d %b %Y')}",
-        styles["subtitle"],
-    ))
+    story.append(
+        Paragraph(
+            f"Investment plan for <b>{profile.name}</b> \u00b7 "
+            f"{getattr(profile, 'life_stage', 'investor')} \u00b7 "
+            f"generated {datetime.utcnow().strftime('%d %b %Y')}",
+            styles["subtitle"],
+        )
+    )
 
     # Investor summary
     monthly = getattr(profile, "monthly_investible_surplus_inr", None)
@@ -430,13 +508,16 @@ def build_plan_pdf(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
 
     # ** footnote + full disclaimer at the bottom
     story.append(Spacer(1, 10))
-    story.append(Paragraph(
-        "** " + plan.disclaimer +
-        " Projections assume monthly SIP at the given CAGR, compounded "
-        "monthly — no guarantee of future returns. Consult a SEBI-registered "
-        "investment advisor before acting.",
-        styles["footnote"],
-    ))
+    story.append(
+        Paragraph(
+            "** "
+            + plan.disclaimer
+            + " Projections assume monthly SIP at the given CAGR, compounded "
+            "monthly — no guarantee of future returns. Consult a SEBI-registered "
+            "investment advisor before acting.",
+            styles["footnote"],
+        )
+    )
 
     doc.build(story, onFirstPage=_header_band, onLaterPages=_header_band)
     return buf.getvalue()
@@ -444,23 +525,22 @@ def build_plan_pdf(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
 
 # ── Excel ─────────────────────────────────────────────────────────────────────
 
+
 def build_plan_xlsx(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
     """Two-sheet workbook:
 
-      Plan    — headline KPIs, allocations table, projection chart.
-      Explore — editable model. Change monthly SIP / horizon / CAGRs and
-                the final corpus + chart recompute via Excel formulas.
+    Plan    — headline KPIs, allocations table, projection chart.
+    Explore — editable model. Change monthly SIP / horizon / CAGRs and
+              the final corpus + chart recompute via Excel formulas.
     """
     from openpyxl import Workbook
     from openpyxl.chart import LineChart, Reference
-    from openpyxl.chart.marker import Marker
     from openpyxl.chart.shapes import GraphicalProperties
     from openpyxl.drawing.line import LineProperties
     from openpyxl.styles import (
         Alignment,
         Border,
         Font,
-        NamedStyle,
         PatternFill,
         Side,
     )
@@ -508,7 +588,7 @@ def build_plan_xlsx(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
     p["A2"].font = italic_brand
 
     # Investor summary
-    p["A4"] = f"Investor"
+    p["A4"] = "Investor"
     p["A4"].font = title_font
     p["B4"] = profile.name
     p["C4"] = "Generated"
@@ -534,11 +614,13 @@ def build_plan_xlsx(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
     # Allocations table
     p.cell(row=row, column=1, value="Allocations").font = title_font
     row += 1
-    alloc_header = ["Fund", "AMC", "Category", "% Alloc",
-                    "Mode", "Monthly SIP (₹)"]
+    alloc_header = ["Fund", "AMC", "Category", "% Alloc", "Mode", "Monthly SIP (₹)"]
     for i, h in enumerate(alloc_header):
         c = p.cell(row=row, column=i + 1, value=h)
-        c.fill = hdr_fill; c.font = hdr_font; c.alignment = center; c.border = box
+        c.fill = hdr_fill
+        c.font = hdr_font
+        c.alignment = center
+        c.border = box
     row += 1
     alloc_start = row
     for a in plan.allocations:
@@ -568,7 +650,10 @@ def build_plan_xlsx(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
         headers = ["Scenario", "CAGR", f"Final corpus after {horizon} years"]
         for i, h in enumerate(headers):
             c = p.cell(row=row, column=i + 1, value=h)
-            c.fill = hdr_fill; c.font = hdr_font; c.alignment = center; c.border = box
+            c.fill = hdr_fill
+            c.font = hdr_font
+            c.alignment = center
+            c.border = box
         row += 1
         for label, rate in [("Bear", bear_r), ("Base", base_r), ("Bull", bull_r)]:
             corpus = _project_corpus(monthly_sip, horizon, rate)
@@ -590,17 +675,22 @@ def build_plan_xlsx(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
         chart_header = ["Year", "Bear (₹)", "Base (₹)", "Bull (₹)"]
         for i, h in enumerate(chart_header):
             c = p.cell(row=row, column=i + 1, value=h)
-            c.fill = hdr_fill; c.font = hdr_font; c.alignment = center
+            c.fill = hdr_fill
+            c.font = hdr_font
+            c.alignment = center
         row += 1
         data_start = row
         for year in range(0, horizon + 1):
             p.cell(row=row, column=1, value=year)
-            p.cell(row=row, column=2,
-                   value=_project_corpus(monthly_sip, year, bear_r)).number_format = '"₹"#,##0'
-            p.cell(row=row, column=3,
-                   value=_project_corpus(monthly_sip, year, base_r)).number_format = '"₹"#,##0'
-            p.cell(row=row, column=4,
-                   value=_project_corpus(monthly_sip, year, bull_r)).number_format = '"₹"#,##0'
+            p.cell(
+                row=row, column=2, value=_project_corpus(monthly_sip, year, bear_r)
+            ).number_format = '"₹"#,##0'
+            p.cell(
+                row=row, column=3, value=_project_corpus(monthly_sip, year, base_r)
+            ).number_format = '"₹"#,##0'
+            p.cell(
+                row=row, column=4, value=_project_corpus(monthly_sip, year, bull_r)
+            ).number_format = '"₹"#,##0'
             row += 1
         data_end = row - 1
 
@@ -611,8 +701,7 @@ def build_plan_xlsx(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
         chart.x_axis.title = "Year"
         chart.height = 8
         chart.width = 18
-        data = Reference(p, min_col=2, min_row=start_chart_row,
-                         max_col=4, max_row=data_end)
+        data = Reference(p, min_col=2, min_row=start_chart_row, max_col=4, max_row=data_end)
         cats = Reference(p, min_col=1, min_row=data_start, max_row=data_end)
         chart.add_data(data, titles_from_data=True)
         chart.set_categories(cats)
@@ -625,10 +714,14 @@ def build_plan_xlsx(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
 
     # Disclaimer at bottom
     row = max(row, 40) + 2
-    p.cell(row=row, column=1,
-           value=("** " + plan.disclaimer +
-                  " Projections assume monthly SIP at the given CAGR, "
-                  "compounded monthly. Not guaranteed.")).font = italic_brand
+    p.cell(
+        row=row,
+        column=1,
+        value=(
+            "** " + plan.disclaimer + " Projections assume monthly SIP at the given CAGR, "
+            "compounded monthly. Not guaranteed."
+        ),
+    ).font = italic_brand
     p.merge_cells(start_row=row, start_column=1, end_row=row, end_column=6)
     p.row_dimensions[row].height = 40
     p.cell(row=row, column=1).alignment = wrap
@@ -639,8 +732,7 @@ def build_plan_xlsx(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
         ex.column_dimensions[col].width = w
     ex["A1"] = "Benji — Explore your plan"
     ex["A1"].font = brand_font
-    ex["A2"] = ("Edit the blue cells below; the corpus and chart "
-                "recompute automatically.")
+    ex["A2"] = "Edit the blue cells below; the corpus and chart recompute automatically."
     ex["A2"].font = muted
 
     ex["A4"] = "Inputs"
@@ -661,7 +753,7 @@ def build_plan_xlsx(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
         lbl.font = Font(bold=True)
         c = ex.cell(row=r, column=2, value=val)
         c.number_format = fmt
-        c.fill = PatternFill("solid", fgColor="DBEAFE")   # light blue — editable
+        c.fill = PatternFill("solid", fgColor="DBEAFE")  # light blue — editable
         c.font = Font(bold=True, color="1E40AF")
         c.border = box
         input_cells[key] = c.coordinate
@@ -680,10 +772,10 @@ def build_plan_xlsx(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
         h = input_cells["horizon"]
         # Parentheses-heavy but correct
         return (
-            f'=IF(OR({rate_cell}=0,{h}=0),'
-            f'{sip}*{h}*12,'
-            f'{sip} * ((POWER(1+{rate_cell}/12, {h}*12) - 1) / ({rate_cell}/12)) '
-            f'* (1 + {rate_cell}/12))'
+            f"=IF(OR({rate_cell}=0,{h}=0),"
+            f"{sip}*{h}*12,"
+            f"{sip} * ((POWER(1+{rate_cell}/12, {h}*12) - 1) / ({rate_cell}/12)) "
+            f"* (1 + {rate_cell}/12))"
         )
 
     ex["E5"] = fv_formula(input_cells["bear_r"])
@@ -698,24 +790,31 @@ def build_plan_xlsx(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
     # updates when the user edits inputs).
     ex["A11"] = "Corpus over time (computed live)"
     ex["A11"].font = title_font
-    ex["A12"] = "Year"; ex["B12"] = "Bear"; ex["C12"] = "Base"; ex["D12"] = "Bull"
+    ex["A12"] = "Year"
+    ex["B12"] = "Bear"
+    ex["C12"] = "Base"
+    ex["D12"] = "Bull"
     for i, h in enumerate(["Year", "Bear", "Base", "Bull"]):
         c = ex.cell(row=12, column=i + 1)
-        c.fill = hdr_fill; c.font = hdr_font; c.alignment = center
+        c.fill = hdr_fill
+        c.font = hdr_font
+        c.alignment = center
 
     # 41 rows so up to 40-year horizons render; cells beyond horizon return 0
     MAX_YEARS = 40
     sip = input_cells["sip"]
     h = input_cells["horizon"]
-    bearR = input_cells["bear_r"]; baseR = input_cells["base_r"]; bullR = input_cells["bull_r"]
+    bearR = input_cells["bear_r"]
+    baseR = input_cells["base_r"]
+    bullR = input_cells["bull_r"]
     for i in range(MAX_YEARS + 1):
         year_cell = 13 + i
         ex.cell(row=year_cell, column=1, value=i)
         for col, rate in zip(("B", "C", "D"), (bearR, baseR, bullR)):
             formula = (
-                f'=IF({i}>{h},NA(),'
-                f'IF(OR({rate}=0,{i}=0),{sip}*{i}*12,'
-                f'{sip}*((POWER(1+{rate}/12, {i}*12)-1)/({rate}/12))*(1+{rate}/12)))'
+                f"=IF({i}>{h},NA(),"
+                f"IF(OR({rate}=0,{i}=0),{sip}*{i}*12,"
+                f"{sip}*((POWER(1+{rate}/12, {i}*12)-1)/({rate}/12))*(1+{rate}/12)))"
             )
             cell = ex.cell(row=year_cell, column="ABCD".index(col) + 1, value=formula)
             cell.number_format = '"₹"#,##0'
@@ -740,9 +839,10 @@ def build_plan_xlsx(plan: InvestmentPlan, profile: InvestorProfile) -> bytes:
     ex.add_chart(chart)
 
     # Disclaimer at bottom of Explore
-    ex["A55"] = ("** " + plan.disclaimer +
-                 " Projections are formula-based estimates at the rates shown, "
-                 "not guaranteed returns.")
+    ex["A55"] = (
+        "** " + plan.disclaimer + " Projections are formula-based estimates at the rates shown, "
+        "not guaranteed returns."
+    )
     ex["A55"].font = italic_brand
     ex.merge_cells("A55:H55")
     ex["A55"].alignment = wrap

@@ -5,11 +5,8 @@ Uses typer.testing.CliRunner. Deterministic, fast, no network/LLM calls.
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
 from unittest.mock import AsyncMock, patch
 
-import pytest
 from pydantic_ai.usage import RunUsage
 from typer.testing import CliRunner
 
@@ -145,7 +142,12 @@ class TestExperimentAnalyze:
         """Passing a non-existent directory should produce an error."""
         missing = tmp_path / "nonexistent"
         result = runner.invoke(app, ["experiment-analyze", "--results-dir", str(missing)])
-        assert result.exit_code != 0 or "error" in result.output.lower() or "not found" in result.output.lower() or "does not exist" in result.output.lower()
+        assert (
+            result.exit_code != 0
+            or "error" in result.output.lower()
+            or "not found" in result.output.lower()
+            or "does not exist" in result.output.lower()
+        )
 
     def test_empty_results_dir_shows_error(self, tmp_path):
         """An empty directory should produce a message about no results."""
@@ -192,7 +194,10 @@ class TestAdvise:
     def test_advise_with_profile_bulk_mode(self):
         """--profile P01 should skip interactive Q&A and go through strategy + plan."""
         fake_strategy = StrategyOutline(
-            equity_pct=70.0, debt_pct=20.0, gold_pct=10.0, other_pct=0.0,
+            equity_pct=70.0,
+            debt_pct=20.0,
+            gold_pct=10.0,
+            other_pct=0.0,
             equity_approach="Index-heavy",
             key_themes=["low cost"],
             risk_return_summary="12% CAGR",
@@ -203,12 +208,18 @@ class TestAdvise:
             allocations=[
                 Allocation(
                     fund=MutualFund(
-                        amfi_code="120503", name="UTI Nifty 50",
-                        category="Equity", sub_category="Index",
-                        fund_house="UTI", nav=150.0, expense_ratio=0.18,
+                        amfi_code="120503",
+                        name="UTI Nifty 50",
+                        category="Equity",
+                        sub_category="Index",
+                        fund_house="UTI",
+                        nav=150.0,
+                        expense_ratio=0.18,
                     ),
-                    allocation_pct=100.0, mode="sip",
-                    monthly_sip_inr=50000, rationale="Core index",
+                    allocation_pct=100.0,
+                    mode="sip",
+                    monthly_sip_inr=50000,
+                    rationale="Core index",
                 )
             ],
             setup_phase="Start SIP month 1",
@@ -221,8 +232,16 @@ class TestAdvise:
         )
 
         with (
-            patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=(fake_strategy, RunUsage())),
-            patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=(fake_plan, RunUsage())),
+            patch(
+                "subprime.cli.generate_strategy",
+                new_callable=AsyncMock,
+                return_value=(fake_strategy, RunUsage()),
+            ),
+            patch(
+                "subprime.cli.generate_plan",
+                new_callable=AsyncMock,
+                return_value=(fake_plan, RunUsage()),
+            ),
         ):
             result = runner.invoke(app, ["advise", "--profile", "P01"], input="yes\n")
 
@@ -239,12 +258,18 @@ def _make_smoke_plan() -> InvestmentPlan:
         allocations=[
             Allocation(
                 fund=MutualFund(
-                    amfi_code="119551", name="Parag Parikh Flexi Cap",
-                    category="Equity", sub_category="Flexi Cap",
-                    fund_house="PPFAS", nav=65.0, expense_ratio=0.63,
+                    amfi_code="119551",
+                    name="Parag Parikh Flexi Cap",
+                    category="Equity",
+                    sub_category="Flexi Cap",
+                    fund_house="PPFAS",
+                    nav=65.0,
+                    expense_ratio=0.63,
                 ),
-                allocation_pct=100.0, mode="sip",
-                monthly_sip_inr=50000, rationale="Core holding",
+                allocation_pct=100.0,
+                mode="sip",
+                monthly_sip_inr=50000,
+                rationale="Core holding",
             )
         ],
         setup_phase="Start SIP month 1.",
@@ -311,8 +336,9 @@ class TestSmokeTest:
             usage = cold_usage if call_count == 1 else warm_usage
             return exp_result, usage
 
-        with patch("subprime.cli._check_api_key"), patch(
-            "subprime.experiments.runner.run_single", side_effect=_mock_run_single
+        with (
+            patch("subprime.cli._check_api_key"),
+            patch("subprime.experiments.runner.run_single", side_effect=_mock_run_single),
         ):
             result = runner.invoke(app, ["smoke-test", "--n-personas", "2"])
 
@@ -335,8 +361,9 @@ class TestSmokeTest:
                 usage = RunUsage(input_tokens=500, output_tokens=295, cache_read_tokens=7500)
             return exp_result, usage
 
-        with patch("subprime.cli._check_api_key"), patch(
-            "subprime.experiments.runner.run_single", side_effect=_mock_run_single
+        with (
+            patch("subprime.cli._check_api_key"),
+            patch("subprime.experiments.runner.run_single", side_effect=_mock_run_single),
         ):
             result = runner.invoke(app, ["smoke-test", "--n-personas", "2"])
 
@@ -348,10 +375,13 @@ class TestSmokeTest:
         exp_result = _make_smoke_result(plan)
 
         async def _mock_run_single(persona, condition, model, judge_model=None):
-            return exp_result, RunUsage(input_tokens=8000, output_tokens=300, cache_write_tokens=7500)
+            return exp_result, RunUsage(
+                input_tokens=8000, output_tokens=300, cache_write_tokens=7500
+            )
 
-        with patch("subprime.cli._check_api_key"), patch(
-            "subprime.experiments.runner.run_single", side_effect=_mock_run_single
+        with (
+            patch("subprime.cli._check_api_key"),
+            patch("subprime.experiments.runner.run_single", side_effect=_mock_run_single),
         ):
             result = runner.invoke(app, ["smoke-test", "--n-personas", "1"])
 
@@ -369,8 +399,9 @@ class TestSmokeTest:
             call_count += 1
             return exp_result, RunUsage(input_tokens=100, output_tokens=50)
 
-        with patch("subprime.cli._check_api_key"), patch(
-            "subprime.experiments.runner.run_single", side_effect=_mock_run_single
+        with (
+            patch("subprime.cli._check_api_key"),
+            patch("subprime.experiments.runner.run_single", side_effect=_mock_run_single),
         ):
             runner.invoke(app, ["smoke-test", "--n-personas", "1"])
 
@@ -378,11 +409,13 @@ class TestSmokeTest:
 
     def test_exits_one_on_llm_failure(self):
         """smoke-test exits 1 if an LLM call raises."""
+
         async def _mock_run_single(*args, **kwargs):
             raise RuntimeError("API timeout")
 
-        with patch("subprime.cli._check_api_key"), patch(
-            "subprime.experiments.runner.run_single", side_effect=_mock_run_single
+        with (
+            patch("subprime.cli._check_api_key"),
+            patch("subprime.experiments.runner.run_single", side_effect=_mock_run_single),
         ):
             result = runner.invoke(app, ["smoke-test", "--n-personas", "1"])
 
