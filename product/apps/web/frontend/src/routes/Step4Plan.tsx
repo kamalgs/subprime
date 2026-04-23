@@ -124,6 +124,7 @@ function PlanView({
 }) {
   const risksPending = pendingStages.includes("risks");
   const setupPending = pendingStages.includes("setup");
+  const allStagesDone = pendingStages.length === 0;
   // Reveal gate resets on every mount — no sessionStorage, no cookie.
   // Users see the disclaimer each time they land on the plan screen.
   const [revealed, setRevealed] = useState(false);
@@ -141,22 +142,18 @@ function PlanView({
             <h2 className="text-2xl font-bold mt-1">Your investment plan</h2>
           </div>
           <div className="flex gap-2 mt-1 flex-shrink-0">
-            <a
+            <DownloadButton
               href="/api/v2/plan/download.pdf"
-              download
-              className="text-sm px-3 py-1.5 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-200 hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-300 transition-colors"
-              aria-label="Download plan as PDF"
-            >
-              PDF
-            </a>
-            <a
+              label="PDF"
+              ariaLabel="Download plan as PDF"
+              enabled={allStagesDone}
+            />
+            <DownloadButton
               href="/api/v2/plan/download.xlsx"
-              download
-              className="text-sm px-3 py-1.5 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-200 hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-300 transition-colors"
-              aria-label="Download plan as Excel"
-            >
-              Excel
-            </a>
+              label="Excel"
+              ariaLabel="Download plan as Excel"
+              enabled={allStagesDone}
+            />
           </div>
         </div>
 
@@ -274,6 +271,34 @@ function PlanView({
         </p>
       </div>
     </>
+  );
+}
+
+function DownloadButton({
+  href, label, ariaLabel, enabled,
+}: { href: string; label: string; ariaLabel: string; enabled: boolean }) {
+  const base = "text-sm px-3 py-1.5 rounded-lg border transition-colors";
+  if (!enabled) {
+    return (
+      <span
+        className={base + " border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 text-gray-400 dark:text-slate-500 cursor-not-allowed"}
+        aria-label={ariaLabel + " (available when plan is complete)"}
+        aria-disabled="true"
+        title="Available when plan generation is complete"
+      >
+        {label}
+      </span>
+    );
+  }
+  return (
+    <a
+      href={href}
+      download
+      className={base + " border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-200 hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-300"}
+      aria-label={ariaLabel}
+    >
+      {label}
+    </a>
   );
 }
 

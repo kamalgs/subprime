@@ -64,6 +64,23 @@ def _category_cagr(category: str, sub_category: str = "") -> float | None:
     return None
 
 
+def fill_monthly_sip_fallback(plan: InvestmentPlan, profile: InvestorProfile) -> None:
+    """Populate ``allocation.monthly_sip_inr`` when the LLM left it unset.
+
+    Basic-tier prompts ask for allocation_pct + rationale only to keep stage-1
+    output tight. We can recover the SIP amount from
+    ``allocation_pct × monthly_investible_surplus_inr`` — the plan's total
+    monthly SIP is exactly the profile's surplus. Lump-sum allocations keep
+    a None SIP.
+    """
+    surplus = profile.monthly_investible_surplus_inr or 0
+    if surplus <= 0:
+        return
+    for a in plan.allocations:
+        if a.mode == "sip" and not a.monthly_sip_inr:
+            a.monthly_sip_inr = round(surplus * a.allocation_pct / 100.0)
+
+
 def fill_projected_returns_fallback(plan: InvestmentPlan, profile: InvestorProfile) -> None:
     """Populate plan.projected_returns if the LLM left it empty or zero.
 
@@ -484,6 +501,7 @@ async def generate_plan(
             best, refine_usage = await refine_plan(best, profile, model=refine_model)
             total_usage.incr(refine_usage)
         fill_projected_returns_fallback(best, profile)
+        fill_monthly_sip_fallback(best, profile)
         return best, total_usage
 
     # basic mode
@@ -503,6 +521,7 @@ async def generate_plan(
         plan, refine_usage = await refine_plan(plan, profile, model=refine_model)
         total_usage.incr(refine_usage)
     fill_projected_returns_fallback(plan, profile)
+    fill_monthly_sip_fallback(plan, profile)
     return plan, total_usage
 
 
@@ -711,6 +730,7 @@ async def generate_plan_staged(
         rationale=core.rationale,
     )
     fill_projected_returns_fallback(plan, profile)
+    fill_monthly_sip_fallback(plan, profile)
     if on_partial is not None:
         await on_partial(plan, ["core"])
 
