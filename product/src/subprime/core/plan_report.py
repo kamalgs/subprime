@@ -155,14 +155,28 @@ def _styles() -> dict[str, ParagraphStyle]:
 
 
 def _header_band(canvas, doc) -> None:
-    """Red accent band up top + 'Benji' footer with page numbers."""
+    """Red accent band up top + diagonal 'Benji' watermark + footer."""
+    w, h = doc.pagesize
+
+    # Diagonal 'Benji — research use only' watermark behind the content.
+    canvas.saveState()
+    canvas.translate(w / 2.0, h / 2.0)
+    canvas.rotate(30)
+    canvas.setFont("Helvetica-Bold", 60)
+    canvas.setFillColor(colors.Color(0.86, 0.15, 0.15, alpha=0.08))
+    canvas.drawCentredString(0, 20, "Benji")
+    canvas.setFont("Helvetica", 14)
+    canvas.setFillColor(colors.Color(0.86, 0.15, 0.15, alpha=0.10))
+    canvas.drawCentredString(0, -20, "research / educational use only")
+    canvas.restoreState()
+
     canvas.saveState()
     canvas.setFillColor(BRAND)
-    canvas.rect(0, doc.pagesize[1] - 0.35 * cm, doc.pagesize[0], 0.35 * cm, stroke=0, fill=1)
+    canvas.rect(0, h - 0.35 * cm, w, 0.35 * cm, stroke=0, fill=1)
     canvas.setFillColor(MUTED)
     canvas.setFont("Helvetica", 8)
     canvas.drawString(1.5 * cm, 1.1 * cm, "Benji — AI financial advisor")
-    canvas.drawRightString(doc.pagesize[0] - 1.5 * cm, 1.1 * cm, f"Page {canvas.getPageNumber()}")
+    canvas.drawRightString(w - 1.5 * cm, 1.1 * cm, f"Page {canvas.getPageNumber()}")
     canvas.restoreState()
 
 
