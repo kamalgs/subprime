@@ -220,6 +220,60 @@ async def status_(
     )
 
 
+@router.get("/plan/stream")
+async def stream_status(
+    request: Request,
+    benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
+):
+    """Server-Sent Events stream of plan generation progress.
+
+    Emits one ``event: stage`` per ``stages_done`` transition so the UI
+    re-renders as soon as the server persists a stage — cuts perceived
+    latency vs the 2-second /plan/status poll.
+    """
+    import json
+
+    from fastapi.responses import StreamingResponse
+
+    s = await get_or_create(request, benji_session)
+    session_id = s.id
+    store = request.app.state.session_store
+
+    async def _event_gen():
+        seen: list[str] = []
+        # Tight-loop the session store. Each iteration is cheap (in-memory
+        # or a single SELECT against Postgres) so 250ms is well inside any
+        # sane latency budget and still sub-second for every stage landing.
+        for _ in range(600):  # max ~2.5 minutes
+            cur = await store.get(session_id)
+            if cur is None:
+                break
+            stages = list(cur.plan_stages or [])
+            if stages != seen:
+                seen = stages
+                payload = {
+                    "stages_done": stages,
+                    "ready": cur.plan is not None and "core" in stages,
+                    "generating": cur.plan_generating,
+                    "error": cur.plan_error,
+                }
+                yield f"event: stage\ndata: {json.dumps(payload)}\n\n"
+            if not cur.plan_generating:
+                yield "event: done\ndata: {}\n\n"
+                return
+            await asyncio.sleep(0.25)
+
+    return StreamingResponse(
+        _event_gen(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache, no-transform",
+            "X-Accel-Buffering": "no",  # Caddy/nginx: don't buffer SSE
+            "Connection": "keep-alive",
+        },
+    )
+
+
 @router.get("/plan")
 async def get_plan(
     request: Request,

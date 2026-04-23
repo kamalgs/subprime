@@ -1,11 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getPlan, getPlanStatus } from "../api/client";
 import type { Plan, InvestorProfile } from "../api/types";
 import CorpusChart from "../components/CorpusChart";
 import PlanRevealModal from "../components/PlanRevealModal";
 import Prose from "../components/Prose";
+
+const ALL_STAGES = ["core", "risks", "setup"] as const;
 
 const WISDOMS = [
   "Wealth, to those who wait, it comes.",
@@ -25,17 +27,29 @@ function fmtInr(v: number): string {
 }
 
 export default function Step4Plan() {
+  const qc = useQueryClient();
   const status = useQuery({
     queryKey: ["plan-status"],
     queryFn: getPlanStatus,
-    refetchInterval: (q) => (q.state.data?.ready || q.state.data?.error ? false : 3000),
+    // Keep polling while the server is still generating additional stages —
+    // 'ready' flips true after stage 1 (allocations) but risks/setup land
+    // on later polls.
+    refetchInterval: (q) => (q.state.data?.generating && !q.state.data?.error ? 1500 : false),
   });
 
+  const stagesKey = (status.data?.stages_done || []).join(",");
+
   const plan = useQuery({
-    queryKey: ["plan"],
+    queryKey: ["plan", stagesKey],
     queryFn: getPlan,
     enabled: status.data?.ready === true,
   });
+
+  // When a new stage lands, bust the plan cache so the page re-fetches
+  // with the newly-populated sections.
+  useEffect(() => {
+    if (stagesKey) qc.invalidateQueries({ queryKey: ["plan"] });
+  }, [stagesKey, qc]);
 
   if (status.data?.error && !status.data?.ready) {
     return (
@@ -67,10 +81,45 @@ export default function Step4Plan() {
     );
   }
 
-  return <PlanView plan={plan.data.plan} profile={plan.data.profile} />;
+  const done = new Set(status.data?.stages_done || []);
+  const pending = ALL_STAGES.filter((s) => !done.has(s));
+
+  return (
+    <PlanView
+      plan={plan.data.plan}
+      profile={plan.data.profile}
+      pendingStages={pending}
+    />
+  );
 }
 
-function PlanView({ plan, profile }: { plan: Plan; profile: InvestorProfile }) {
+function SectionSkeleton({ title }: { title: string }) {
+  return (
+    <div className="card card-spacious">
+      <h3 className="section-title flex items-center gap-2">
+        {title}
+        <span className="inline-block w-3 h-3 rounded-full bg-primary-300 dark:bg-primary-500 animate-pulse" />
+      </h3>
+      <div className="space-y-2">
+        <div className="h-3 rounded bg-gray-200 dark:bg-slate-700 animate-pulse w-5/6" />
+        <div className="h-3 rounded bg-gray-200 dark:bg-slate-700 animate-pulse w-4/6" />
+        <div className="h-3 rounded bg-gray-200 dark:bg-slate-700 animate-pulse w-3/6" />
+      </div>
+    </div>
+  );
+}
+
+function PlanView({
+  plan,
+  profile,
+  pendingStages,
+}: {
+  plan: Plan;
+  profile: InvestorProfile;
+  pendingStages: readonly string[];
+}) {
+  const risksPending = pendingStages.includes("risks");
+  const setupPending = pendingStages.includes("setup");
   // Reveal gate resets on every mount — no sessionStorage, no cookie.
   // Users see the disclaimer each time they land on the plan screen.
   const [revealed, setRevealed] = useState(false);
@@ -166,14 +215,16 @@ function PlanView({ plan, profile }: { plan: Plan; profile: InvestorProfile }) {
         </div>
       )}
 
-      {plan.setup_phase && (
+      {plan.setup_phase ? (
         <div className="card card-spacious">
           <h3 className="section-title">Getting started</h3>
           <Prose text={plan.setup_phase} />
         </div>
-      )}
+      ) : setupPending ? (
+        <SectionSkeleton title="Getting started" />
+      ) : null}
 
-      {plan.review_checkpoints && plan.review_checkpoints.length > 0 && (
+      {plan.review_checkpoints && plan.review_checkpoints.length > 0 ? (
         <div className="card card-spacious">
           <h3 className="section-title">Review checkpoints</h3>
           <ul className="space-y-2 text-sm text-gray-700 dark:text-slate-300">
@@ -185,16 +236,20 @@ function PlanView({ plan, profile }: { plan: Plan; profile: InvestorProfile }) {
             ))}
           </ul>
         </div>
-      )}
+      ) : risksPending ? (
+        <SectionSkeleton title="Review checkpoints" />
+      ) : null}
 
-      {plan.rebalancing_guidelines && (
+      {plan.rebalancing_guidelines ? (
         <div className="card card-spacious">
           <h3 className="section-title">Rebalancing</h3>
           <Prose text={plan.rebalancing_guidelines} />
         </div>
-      )}
+      ) : risksPending ? (
+        <SectionSkeleton title="Rebalancing" />
+      ) : null}
 
-      {plan.risks.length > 0 && (
+      {plan.risks.length > 0 ? (
         <div className="card card-spacious">
           <h3 className="section-title">Risks to consider</h3>
           <ul className="space-y-2 text-sm text-gray-700 dark:text-slate-300">
@@ -206,7 +261,9 @@ function PlanView({ plan, profile }: { plan: Plan; profile: InvestorProfile }) {
             ))}
           </ul>
         </div>
-      )}
+      ) : risksPending ? (
+        <SectionSkeleton title="Risks to consider" />
+      ) : null}
 
         <p className="text-xs text-red-700 dark:text-red-300 text-center bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg px-4 py-3">
           {plan.disclaimer}

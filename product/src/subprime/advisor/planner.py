@@ -604,6 +604,9 @@ async def _stage1_core(
     system_prompt = "\n\n---\n\n".join(parts)
 
     settings = build_model_settings(model, cache=True)
+    # Each stage caps output so a chatty small model can't blow latency.
+    # Stage 1 budget: 8 allocations × ~150 tok + returns + 1-line rationale.
+    settings["max_tokens"] = 1600
     if is_anthropic(model):
         settings["anthropic_cache_tool_definitions"] = "1h"
 
@@ -634,6 +637,9 @@ async def _stage2_risks(
 
     from subprime.core.config import build_model, build_model_settings
 
+    settings = build_model_settings(model, cache=False)
+    # Stage 2 budget: ~6 risks + short rebalancing paragraph + 5 checkpoints.
+    settings["max_tokens"] = 900
     agent = Agent(
         build_model(model, role="advisor"),
         system_prompt=_STAGE2_SYSTEM,
@@ -641,7 +647,7 @@ async def _stage2_risks(
         tools=[],
         retries=2,
         defer_model_check=True,
-        model_settings=build_model_settings(model, cache=False),
+        model_settings=settings,
     )
     result = await agent.run(_plan_summary_for_stage(plan, profile))
     return result.output, result.usage()
@@ -656,6 +662,9 @@ async def _stage3_setup(
 
     from subprime.core.config import build_model, build_model_settings
 
+    settings = build_model_settings(model, cache=False)
+    # Stage 3 budget: 2-3 paragraphs setup + sip_step_up + 4-6 sentence rationale.
+    settings["max_tokens"] = 1200
     agent = Agent(
         build_model(model, role="advisor"),
         system_prompt=_STAGE3_SYSTEM,
@@ -663,7 +672,7 @@ async def _stage3_setup(
         tools=[],
         retries=2,
         defer_model_check=True,
-        model_settings=build_model_settings(model, cache=False),
+        model_settings=settings,
     )
     result = await agent.run(_plan_summary_for_stage(plan, profile))
     return result.output, result.usage()
