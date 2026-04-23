@@ -77,11 +77,8 @@ src = ["src"]
 line-length = 100
 
 [tool.ruff.lint.per-file-ignores]
-# Legacy modules — imports appear after signal/sys.path setup blocks
-# (main.py) or after conditional branches (api.py, gradio_app.py, cli.py).
+# Imports appear after logging/signal setup blocks.
 "apps/web/main.py"                  = ["E402"]
-"apps/web/api.py"                   = ["E402", "F841"]
-"apps/web/gradio_app.py"            = ["E402"]
 "src/subprime/cli.py"               = ["E402"]
 # plan_report.py uses semicolon-joined short statements for ReportLab
 # column-spec blocks where one line per statement wrecks the table layout.

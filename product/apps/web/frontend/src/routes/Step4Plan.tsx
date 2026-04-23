@@ -1,8 +1,8 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getPlan, getPlanStatus } from "../api/client";
-import type { Plan, InvestorProfile } from "../api/types";
+import { getPlan } from "../api/client";
+import type { Plan, PlanStatus, InvestorProfile } from "../api/types";
 import CorpusChart from "../components/CorpusChart";
 import PlanRevealModal from "../components/PlanRevealModal";
 import Prose from "../components/Prose";
@@ -28,40 +28,41 @@ function fmtInr(v: number): string {
 
 export default function Step4Plan() {
   const qc = useQueryClient();
-  const status = useQuery({
-    queryKey: ["plan-status"],
-    queryFn: getPlanStatus,
-    // Keep polling while the server is still generating additional stages —
-    // 'ready' flips true after stage 1 (allocations) but risks/setup land
-    // on later polls.
-    refetchInterval: (q) => (q.state.data?.generating && !q.state.data?.error ? 1500 : false),
-  });
+  const [status, setStatus] = useState<PlanStatus | null>(null);
 
-  const stagesKey = (status.data?.stages_done || []).join(",");
+  useEffect(() => {
+    const src = new EventSource("/api/v2/plan/stream");
+    src.addEventListener("stage", (e) => {
+      setStatus(JSON.parse((e as MessageEvent).data));
+    });
+    src.addEventListener("done", () => src.close());
+    src.onerror = () => src.close();
+    return () => src.close();
+  }, []);
+
+  const stagesKey = (status?.stages_done || []).join(",");
 
   const plan = useQuery({
     queryKey: ["plan", stagesKey],
     queryFn: getPlan,
-    enabled: status.data?.ready === true,
+    enabled: status?.ready === true,
   });
 
-  // When a new stage lands, bust the plan cache so the page re-fetches
-  // with the newly-populated sections.
   useEffect(() => {
     if (stagesKey) qc.invalidateQueries({ queryKey: ["plan"] });
   }, [stagesKey, qc]);
 
-  if (status.data?.error && !status.data?.ready) {
+  if (status?.error && !status.ready) {
     return (
       <div className="card card-spacious max-w-md mx-auto text-center space-y-4 mt-8">
         <h2 className="text-lg font-semibold">Plan generation failed</h2>
-        <p className="text-sm text-gray-500 dark:text-slate-400">{status.data.error}</p>
+        <p className="text-sm text-gray-500 dark:text-slate-400">{status.error}</p>
         <Link to="/step/3" className="btn btn-primary">Back to strategy</Link>
       </div>
     );
   }
 
-  if (!status.data?.ready || !plan.data) {
+  if (!status?.ready || !plan.data) {
     const wisdom = WISDOMS[Math.floor(Date.now() / 6000) % WISDOMS.length];
     return (
       <div className="card card-spacious max-w-md mx-auto text-center space-y-5 mt-8">
@@ -81,7 +82,7 @@ export default function Step4Plan() {
     );
   }
 
-  const done = new Set(status.data?.stages_done || []);
+  const done = new Set(status?.stages_done || []);
   const pending = ALL_STAGES.filter((s) => !done.has(s));
 
   return (

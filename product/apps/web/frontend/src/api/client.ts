@@ -1,6 +1,6 @@
 // Thin typed wrapper over fetch. All requests include cookies (session).
 import type {
-  PersonasResponse, PlanResponse, PlanStatus,
+  PersonasResponse, PlanResponse,
   SessionSummary, StrategyResponse,
 } from "./types";
 
@@ -70,5 +70,4 @@ export const answerQuestions = (feedback: string) =>
 
 // Plan
 export const generatePlan = () => req<{ ok: boolean }>("POST", "/plan/generate");
-export const getPlanStatus = () => req<PlanStatus>("GET", "/plan/status");
 export const getPlan = () => req<PlanResponse>("GET", "/plan");

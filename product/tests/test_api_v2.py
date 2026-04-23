@@ -93,7 +93,21 @@ async def client():
         transport=ASGITransport(app=app),
         base_url="http://test",
     ) as c:
+        c._app = app  # type: ignore[attr-defined]
         yield c
+
+
+async def _wait_for_plan(client, *, timeout: float = 2.0):
+    """Poll the in-memory session store until the background plan task
+    finishes. Replaces /plan/status polling now that the UI consumes SSE."""
+    store = client._app.state.session_store  # type: ignore[attr-defined]
+    deadline = asyncio.get_event_loop().time() + timeout
+    while asyncio.get_event_loop().time() < deadline:
+        for s in list(store._sessions.values()):
+            if s.plan is not None and not s.plan_generating:
+                return s
+        await asyncio.sleep(0.02)
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -356,27 +370,13 @@ async def test_strategy_answer_questions_does_not_pollute_chat(client):
 @pytest.mark.asyncio
 async def test_plan_generate_returns_202_and_sets_flag(client):
     await client.post("/api/v2/session/profile", json=_VALID_PROFILE)
-    mock_plan = _staged_mock()
-    with patch("apps.web.api_v2.plan.generate_plan_staged", new=mock_plan):
+    with patch("apps.web.api_v2.plan.generate_plan_staged", new=_staged_mock()):
         r = await client.post("/api/v2/plan/generate")
         assert r.status_code == 202
-        # Give the background task a chance to complete
-        for _ in range(30):
-            await asyncio.sleep(0.05)
-            status = await client.get("/api/v2/plan/status")
-            if status.json()["ready"]:
-                break
-        assert status.json()["ready"] is True
-        assert status.json()["generating"] is False
-
-
-@pytest.mark.asyncio
-async def test_plan_status_without_request(client):
-    r = await client.get("/api/v2/plan/status")
-    assert r.status_code == 200
-    data = r.json()
-    assert data["ready"] is False
-    assert data["generating"] is False
+        s = await _wait_for_plan(client)
+    assert s is not None
+    assert s.plan is not None
+    assert s.plan_generating is False
 
 
 @pytest.mark.asyncio
@@ -387,32 +387,22 @@ async def test_plan_get_404_before_ready(client):
 
 
 @pytest.mark.asyncio
-async def test_plan_status_reports_staged_progress(client):
-    """Stages arrive incrementally — status should expose the progress list."""
+async def test_plan_stream_reports_staged_progress(client):
+    """Stages arrive incrementally — the SSE stream should expose each one."""
     await client.post("/api/v2/session/profile", json=_VALID_PROFILE)
     with patch("apps.web.api_v2.plan.generate_plan_staged", new=_staged_mock()):
         await client.post("/api/v2/plan/generate")
-        for _ in range(30):
-            await asyncio.sleep(0.05)
-            status = await client.get("/api/v2/plan/status")
-            if status.json()["generating"] is False:
-                break
-    data = status.json()
-    assert data["ready"] is True
-    assert set(data["stages_done"]) >= {"core", "risks", "setup"}
+        s = await _wait_for_plan(client)
+    assert s is not None
+    assert set(s.plan_stages) >= {"core", "risks", "setup"}
 
 
 @pytest.mark.asyncio
 async def test_plan_get_returns_full_plan_after_ready(client):
     await client.post("/api/v2/session/profile", json=_VALID_PROFILE)
-    mock_plan = _staged_mock()
-    with patch("apps.web.api_v2.plan.generate_plan_staged", new=mock_plan):
+    with patch("apps.web.api_v2.plan.generate_plan_staged", new=_staged_mock()):
         await client.post("/api/v2/plan/generate")
-        for _ in range(30):
-            await asyncio.sleep(0.05)
-            status = await client.get("/api/v2/plan/status")
-            if status.json()["ready"]:
-                break
+        await _wait_for_plan(client)
         r = await client.get("/api/v2/plan")
     assert r.status_code == 200
     data = r.json()
@@ -428,19 +418,21 @@ async def test_plan_generate_requires_profile(client):
 
 
 @pytest.mark.asyncio
-async def test_plan_error_surfaces_in_status(client):
+async def test_plan_error_surfaces_in_session(client):
     await client.post("/api/v2/session/profile", json=_VALID_PROFILE)
     broken = AsyncMock(side_effect=RuntimeError("model hiccup"))
     with patch("apps.web.api_v2.plan.generate_plan_staged", new=broken):
         await client.post("/api/v2/plan/generate")
-        for _ in range(30):
-            await asyncio.sleep(0.05)
-            status = await client.get("/api/v2/plan/status")
-            if not status.json()["generating"]:
+        # Wait for the error path to flip plan_generating off.
+        store = client._app.state.session_store
+        for _ in range(50):
+            await asyncio.sleep(0.02)
+            sess = next(iter(store._sessions.values()), None)
+            if sess and not sess.plan_generating:
                 break
-        assert status.json()["ready"] is False
-        assert status.json()["generating"] is False
-        assert "model hiccup" in status.json()["error"]
+    assert sess is not None
+    assert sess.plan is None
+    assert "model hiccup" in (sess.plan_error or "")
 
 
 # ---------------------------------------------------------------------------
@@ -477,11 +469,7 @@ async def test_full_wizard_flow_end_to_end(client):
     ):
         r = await client.post("/api/v2/plan/generate")
         assert r.status_code == 202
-        for _ in range(30):
-            await asyncio.sleep(0.05)
-            status = await client.get("/api/v2/plan/status")
-            if status.json()["ready"]:
-                break
+        await _wait_for_plan(client)
 
     plan_resp = await client.get("/api/v2/plan")
     assert plan_resp.status_code == 200
@@ -497,13 +485,9 @@ async def _seed_plan(client):
     """Helper: push a profile + generated plan into the session so the
     download endpoints have something to serve."""
     await client.post("/api/v2/session/profile", json=_VALID_PROFILE)
-    mock = _staged_mock()
-    with patch("apps.web.api_v2.plan.generate_plan_staged", new=mock):
+    with patch("apps.web.api_v2.plan.generate_plan_staged", new=_staged_mock()):
         await client.post("/api/v2/plan/generate")
-        for _ in range(30):
-            await asyncio.sleep(0.05)
-            if (await client.get("/api/v2/plan/status")).json()["ready"]:
-                break
+        await _wait_for_plan(client)
 
 
 @pytest.mark.asyncio

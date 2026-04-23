@@ -13,7 +13,7 @@ from fastapi import APIRouter, BackgroundTasks, Cookie, HTTPException, Request, 
 from opentelemetry import trace
 
 from apps.web.api_v2._session import COOKIE_NAME, get_or_create
-from apps.web.api_v2.dto import AckResponse, PlanResponse, PlanStatusResponse
+from apps.web.api_v2.dto import AckResponse, PlanResponse
 from subprime import observability as obs
 from subprime.advisor.planner import generate_plan_staged
 from subprime.core.config import ADVISOR_MODEL, ADVISOR_MODEL_BASIC, REFINE_MODEL
@@ -186,7 +186,7 @@ async def generate(
     background: BackgroundTasks,
     benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
 ) -> AckResponse:
-    """Enqueue a plan generation. Returns immediately (202); poll /plan/status."""
+    """Enqueue a plan generation. Returns immediately (202); subscribe to /plan/stream."""
     s = await get_or_create(request, benji_session)
     if s.profile is None:
         raise HTTPException(400, "No profile on session.")
@@ -203,23 +203,6 @@ async def generate(
     return AckResponse()
 
 
-@router.get("/plan/status")
-async def status_(
-    request: Request,
-    benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
-) -> PlanStatusResponse:
-    s = await get_or_create(request, benji_session)
-    # "Ready" now means the core allocations are on the session — UI can
-    # start rendering immediately. Remaining stages land via further polls.
-    stages = list(s.plan_stages or [])
-    return PlanStatusResponse(
-        ready=s.plan is not None and "core" in stages,
-        generating=s.plan_generating,
-        error=s.plan_error,
-        stages_done=stages,
-    )
-
-
 @router.get("/plan/stream")
 async def stream_status(
     request: Request,
@@ -228,8 +211,7 @@ async def stream_status(
     """Server-Sent Events stream of plan generation progress.
 
     Emits one ``event: stage`` per ``stages_done`` transition so the UI
-    re-renders as soon as the server persists a stage — cuts perceived
-    latency vs the 2-second /plan/status poll.
+    re-renders as soon as the server persists a stage.
     """
     import json
 

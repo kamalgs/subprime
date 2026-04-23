@@ -140,16 +140,6 @@ class StrategyResponse(BaseModel):
     chat: list[dict] = []
 
 
-class PlanStatusResponse(BaseModel):
-    ready: bool
-    generating: bool
-    error: Optional[str] = None
-    # Names of staged-plan sections that are populated on the server.
-    # UI polls until {"core", "risks", "setup"} is a subset. Empty for
-    # legacy single-call flow where ``ready`` is the only signal.
-    stages_done: list[str] = []
-
-
 class PlanResponse(BaseModel):
     plan: InvestmentPlan
     profile: InvestorProfile
