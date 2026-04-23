@@ -7,7 +7,7 @@ import CorpusChart from "../components/CorpusChart";
 import PlanRevealModal from "../components/PlanRevealModal";
 import Prose from "../components/Prose";
 
-const ALL_STAGES = ["core", "risks", "setup"] as const;
+const DEFAULT_STAGES = ["core", "risks", "setup"];
 
 const WISDOMS = [
   "Wealth, to those who wait, it comes.",
@@ -86,7 +86,8 @@ export default function Step4Plan() {
   }
 
   const done = new Set(status?.stages_done || []);
-  const pending = ALL_STAGES.filter((s) => !done.has(s));
+  const planned = status?.stages_planned || DEFAULT_STAGES;
+  const pending = planned.filter((s) => !done.has(s));
 
   return (
     <PlanView

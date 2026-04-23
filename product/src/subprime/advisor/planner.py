@@ -535,7 +535,7 @@ async def generate_plan(
 PartialCallback = "typing.Callable[[InvestmentPlan, list[str]], typing.Awaitable[None]] | None"
 
 
-_STAGE2_SYSTEM = (
+_STAGE2_SYSTEM_FULL = (
     "You write the **risk, rebalancing, and review** section of an Indian "
     "mutual-fund plan. Given the allocations and the investor profile, emit:\n"
     " - risks: 4–6 concrete, India-specific risks in plain English. Name actual "
@@ -544,6 +544,17 @@ _STAGE2_SYSTEM = (
     " - rebalancing_guidelines: 3–5 sentences on when and how to rebalance "
     "  (threshold %, frequency, tax-aware unit selection).\n"
     " - review_checkpoints: 3–5 concrete review triggers (time- or event-based).\n"
+    "Do not restate allocations or returns — those are already rendered."
+)
+
+_STAGE2_SYSTEM_LEAN = (
+    "You write the **risks and review checkpoints** section of an Indian "
+    "mutual-fund plan. Given the allocations and the investor profile, emit:\n"
+    " - risks: 4–6 concrete, India-specific risks in plain English. Name actual "
+    "  scenarios (equity drawdowns, interest-rate moves on debt, gold volatility, "
+    "  tax-regime changes) — no generic boilerplate.\n"
+    " - review_checkpoints: 3–5 concrete review triggers (time- or event-based).\n"
+    " - rebalancing_guidelines: leave empty ('').\n"
     "Do not restate allocations or returns — those are already rendered."
 )
 
@@ -651,17 +662,19 @@ async def _stage2_risks(
     plan: InvestmentPlan,
     profile: InvestorProfile,
     model: str,
+    *,
+    extended: bool = False,
 ) -> tuple[PlanRisks, RunUsage]:
     from pydantic_ai import Agent
 
     from subprime.core.config import build_model, build_model_settings
 
     settings = build_model_settings(model, cache=False)
-    # Stage 2 budget: ~6 risks + short rebalancing paragraph + 5 checkpoints.
-    settings["max_tokens"] = 900
+    # Stage 2 budget: ~6 risks + (rebalancing para) + 5 checkpoints.
+    settings["max_tokens"] = 900 if extended else 700
     agent = Agent(
         build_model(model, role="advisor"),
-        system_prompt=_STAGE2_SYSTEM,
+        system_prompt=_STAGE2_SYSTEM_FULL if extended else _STAGE2_SYSTEM_LEAN,
         output_type=PlanRisks,
         tools=[],
         retries=2,
@@ -721,6 +734,8 @@ async def generate_plan_staged(
     universe_ctx = _load_universe_context(slim=slim_universe)
     total_usage = RunUsage()
 
+    extended = _plan_extended_enabled()
+
     # Stage 1 — core allocations.
     core, usage = await _stage1_core(profile, strategy, prompt_hooks, universe_ctx, model)
     total_usage.incr(usage)
@@ -734,13 +749,14 @@ async def generate_plan_staged(
     if on_partial is not None:
         await on_partial(plan, ["core"])
 
-    # Stages 2 + 3 in parallel.
-    risks_task = asyncio.create_task(_stage2_risks(plan, profile, model))
-    setup_task = asyncio.create_task(_stage3_setup(plan, profile, model))
+    # Stage 2 (risks ± rebalancing). Stage 3 (setup/step-up/long rationale)
+    # only when SUBPRIME_PLAN_EXTENDED=1 — default off, those sections are
+    # boilerplate on most profiles.
+    tasks = {asyncio.create_task(_stage2_risks(plan, profile, model, extended=extended))}
+    if extended:
+        tasks.add(asyncio.create_task(_stage3_setup(plan, profile, model)))
 
-    # Merge stage 2 as it finishes, then stage 3 — whichever arrives first
-    # produces an interim partial.
-    remaining = {risks_task, setup_task}
+    remaining = tasks
     stages_done = ["core"]
     while remaining:
         done, remaining = await asyncio.wait(remaining, return_when=asyncio.FIRST_COMPLETED)
@@ -770,3 +786,24 @@ async def generate_plan_staged(
                 await on_partial(plan, list(stages_done))
 
     return plan, total_usage
+
+
+def _plan_extended_enabled() -> bool:
+    """SUBPRIME_PLAN_EXTENDED=1 → emit stage 3 (setup, SIP step-up, long
+    rationale) + rebalancing guidelines. Default off — those sections were
+    noisy boilerplate on most profiles."""
+    import os
+
+    return os.environ.get("SUBPRIME_PLAN_EXTENDED", "").strip().lower() in (
+        "1",
+        "true",
+        "yes",
+        "on",
+    )
+
+
+def plan_stages_planned() -> list[str]:
+    """Stages the web flow will emit, in order. Used by the SSE endpoint so
+    the frontend can size its skeletons correctly without hard-coding the
+    set."""
+    return ["core", "risks", "setup"] if _plan_extended_enabled() else ["core", "risks"]

@@ -221,6 +221,10 @@ async def stream_status(
     session_id = s.id
     store = request.app.state.session_store
 
+    from subprime.advisor.planner import plan_stages_planned
+
+    planned = plan_stages_planned()
+
     async def _event_gen():
         seen: list[str] = []
         # Tight-loop the session store. Each iteration is cheap (in-memory
@@ -235,6 +239,7 @@ async def stream_status(
                 seen = stages
                 payload = {
                     "stages_done": stages,
+                    "stages_planned": planned,
                     "ready": cur.plan is not None and "core" in stages,
                     "generating": cur.plan_generating,
                     "error": cur.plan_error,
