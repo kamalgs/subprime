@@ -4,6 +4,7 @@
 6-digit codes, 10-minute expiry, 100/day limit.
 One active OTP per email (new request invalidates old).
 """
+
 from __future__ import annotations
 import logging
 import secrets
@@ -19,7 +20,10 @@ async def create_otp(pool, email: str) -> dict:
     """
     count = await daily_otp_count(pool)
     if count >= OTP_DAILY_LIMIT:
-        return {"success": False, "reason": "Premium slots are full for today — try again tomorrow."}
+        return {
+            "success": False,
+            "reason": "Premium slots are full for today — try again tomorrow.",
+        }
 
     # Invalidate existing unexpired OTPs for this email
     await pool.execute(
@@ -32,7 +36,9 @@ async def create_otp(pool, email: str) -> dict:
 
     await pool.execute(
         "INSERT INTO otps (email, code, expires_at) VALUES ($1, $2, $3)",
-        email, code, expires_at,
+        email,
+        code,
+        expires_at,
     )
 
     logger.info("OTP created for %s (daily count: %d)", email, count + 1)
@@ -43,7 +49,8 @@ async def verify_otp(pool, email: str, code: str) -> bool:
     """Verify an OTP code. Returns True if valid."""
     row = await pool.fetchrow(
         "SELECT id, email, code, expires_at, verified_at FROM otps WHERE email = $1 AND code = $2 ORDER BY created_at DESC LIMIT 1",
-        email, code,
+        email,
+        code,
     )
     if not row:
         return False

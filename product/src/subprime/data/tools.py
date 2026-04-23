@@ -10,6 +10,7 @@ happen at plan-generation time. Expense ratios are populated once, during
 - search_funds_universe: queries the curated DuckDB universe by category
 - get_fund_details: looks up a single fund by AMFI code from DuckDB
 """
+
 from __future__ import annotations
 
 import asyncio

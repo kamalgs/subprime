@@ -8,6 +8,7 @@ runs with the default no-op tracer and meter.
 Custom span / metric names live in :mod:`subprime.observability.attrs` and
 :mod:`subprime.observability.metrics`.
 """
+
 from __future__ import annotations
 
 import logging
@@ -44,14 +45,26 @@ __all__ = [
     "instrument_fastapi",
     "set_experiment_labels",
     # attribute keys
-    "ADVISOR_MODEL", "PERSONA_ID", "TIER", "CONDITION", "SESSION_ID",
-    "EXPERIMENT", "PROMPT_VERSION",
-    "INPUT_TOKENS", "OUTPUT_TOKENS", "CACHE_READ_TOKENS",
-    "CACHE_WRITE_TOKENS", "CACHE_HIT_RATIO", "REQUESTS", "TOOL_CALLS",
+    "ADVISOR_MODEL",
+    "PERSONA_ID",
+    "TIER",
+    "CONDITION",
+    "SESSION_ID",
+    "EXPERIMENT",
+    "PROMPT_VERSION",
+    "INPUT_TOKENS",
+    "OUTPUT_TOKENS",
+    "CACHE_READ_TOKENS",
+    "CACHE_WRITE_TOKENS",
+    "CACHE_HIT_RATIO",
+    "REQUESTS",
+    "TOOL_CALLS",
     "ELAPSED_S",
     # metric helpers
-    "plan_duration", "plan_total",
-    "strategy_duration", "strategy_total",
+    "plan_duration",
+    "plan_total",
+    "strategy_duration",
+    "strategy_total",
     "record_llm_usage",
 ]
 
@@ -129,12 +142,14 @@ def setup() -> None:
         span_exporter = ConsoleSpanExporter()
     else:
         from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+
         span_exporter = OTLPSpanExporter()
 
     if metrics_mode == "console":
         metric_exporter = ConsoleMetricExporter()
     else:
         from opentelemetry.exporter.otlp.proto.http.metric_exporter import OTLPMetricExporter
+
         metric_exporter = OTLPMetricExporter()
 
     tracer_provider = TracerProvider(resource=resource)
@@ -154,6 +169,7 @@ def setup() -> None:
     # token counts, model id, finish reason, and tool calls.
     try:
         from pydantic_ai import Agent
+
         Agent.instrument_all()
     except Exception:
         logger.warning("Agent.instrument_all() failed", exc_info=True)
@@ -161,7 +177,8 @@ def setup() -> None:
     _INITIALIZED = True
     logger.info(
         "OTEL initialised — service=%s endpoint=%s",
-        _SERVICE_NAME, os.environ.get("OTEL_EXPORTER_OTLP_ENDPOINT", "(per-signal)"),
+        _SERVICE_NAME,
+        os.environ.get("OTEL_EXPORTER_OTLP_ENDPOINT", "(per-signal)"),
     )
 
 
@@ -188,6 +205,7 @@ def _install_log_handler(resource, logs_mode: str) -> None:
         log_exporter = ConsoleLogExporter()
     else:
         from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
+
         log_exporter = OTLPLogExporter()
 
     log_provider = LoggerProvider(resource=resource)
@@ -219,6 +237,7 @@ def set_experiment_labels(
     the process-wide default.
     """
     from opentelemetry import trace
+
     span = trace.get_current_span()
     if not span or not span.is_recording():
         return
@@ -238,6 +257,7 @@ def instrument_fastapi(app: Any) -> None:
     """
     try:
         from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
+
         FastAPIInstrumentor.instrument_app(app)
     except Exception:
         logger.warning("FastAPI OTEL instrumentation failed", exc_info=True)

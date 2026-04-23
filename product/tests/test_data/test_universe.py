@@ -64,8 +64,7 @@ class TestNormalizeCategory:
 
     def test_large_and_mid_cap(self):
         assert (
-            universe.normalize_category("Equity Scheme - Large & Mid Cap Fund")
-            == "Large & Mid Cap"
+            universe.normalize_category("Equity Scheme - Large & Mid Cap Fund") == "Large & Mid Cap"
         )
 
     def test_small_cap(self):
@@ -123,9 +122,36 @@ class TestBuildUniverse:
         _populate(
             conn,
             [
-                ("1", "Alpha Large Cap Fund", "AMC1", "Equity Scheme - Large Cap Fund", 5000.0, 10.0, 12.0, 15.0),
-                ("2", "Beta Large Cap Fund",  "AMC2", "Equity Scheme - Large Cap Fund", 4000.0,  9.0, 11.0, None),
-                ("3", "Gamma Large Cap Fund", "AMC3", "Equity Scheme - Large Cap Fund", 3000.0,  8.0, 10.0, 13.0),
+                (
+                    "1",
+                    "Alpha Large Cap Fund",
+                    "AMC1",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.0,
+                    12.0,
+                    15.0,
+                ),
+                (
+                    "2",
+                    "Beta Large Cap Fund",
+                    "AMC2",
+                    "Equity Scheme - Large Cap Fund",
+                    4000.0,
+                    9.0,
+                    11.0,
+                    None,
+                ),
+                (
+                    "3",
+                    "Gamma Large Cap Fund",
+                    "AMC3",
+                    "Equity Scheme - Large Cap Fund",
+                    3000.0,
+                    8.0,
+                    10.0,
+                    13.0,
+                ),
             ],
         )
         # top_n=2 → tier1_n=ceil(0.8)=1, tier2_n=ceil(0.6)=1, tier3_n=0
@@ -141,9 +167,36 @@ class TestBuildUniverse:
         _populate(
             conn,
             [
-                ("1", "Alpha Large Cap Fund", "AMC1", "Equity Scheme - Large Cap Fund", 5000.0, 10.0, 12.0, 15.0),
-                ("2", "Beta Mid Cap Fund", "AMC2", "Equity Scheme - Mid Cap Fund", 4000.0, 11.0, 13.0, 16.0),
-                ("3", "Gamma Index Fund", "AMC3", "Equity Scheme - Index Fund", 3000.0, 9.0, 11.0, 13.0),
+                (
+                    "1",
+                    "Alpha Large Cap Fund",
+                    "AMC1",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.0,
+                    12.0,
+                    15.0,
+                ),
+                (
+                    "2",
+                    "Beta Mid Cap Fund",
+                    "AMC2",
+                    "Equity Scheme - Mid Cap Fund",
+                    4000.0,
+                    11.0,
+                    13.0,
+                    16.0,
+                ),
+                (
+                    "3",
+                    "Gamma Index Fund",
+                    "AMC3",
+                    "Equity Scheme - Index Fund",
+                    3000.0,
+                    9.0,
+                    11.0,
+                    13.0,
+                ),
             ],
         )
         count = universe.build_universe(conn)
@@ -158,7 +211,16 @@ class TestBuildUniverse:
         _populate(
             conn,
             [
-                ("1", "Alpha Large Cap Fund", "AMC1", "Equity Scheme - Large Cap Fund", 5000.0, 10.0, 12.0, 15.0),
+                (
+                    "1",
+                    "Alpha Large Cap Fund",
+                    "AMC1",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.0,
+                    12.0,
+                    15.0,
+                ),
                 ("2", "Weird Fund", "AMC2", "Something Unknown", 4000.0, 11.0, 13.0, 16.0),
             ],
         )
@@ -171,9 +233,36 @@ class TestBuildUniverse:
         _populate(
             conn,
             [
-                ("1", "Alpha Large Cap Fund Growth", "AMC1", "Equity Scheme - Large Cap Fund", 5000.0, 10.0, 12.0, 15.0),
-                ("2", "Alpha Large Cap Fund IDCW", "AMC1", "Equity Scheme - Large Cap Fund", 5000.0, 10.0, 12.0, 15.0),
-                ("3", "Alpha Large Cap Fund Dividend Payout", "AMC1", "Equity Scheme - Large Cap Fund", 5000.0, 10.0, 12.0, 15.0),
+                (
+                    "1",
+                    "Alpha Large Cap Fund Growth",
+                    "AMC1",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.0,
+                    12.0,
+                    15.0,
+                ),
+                (
+                    "2",
+                    "Alpha Large Cap Fund IDCW",
+                    "AMC1",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.0,
+                    12.0,
+                    15.0,
+                ),
+                (
+                    "3",
+                    "Alpha Large Cap Fund Dividend Payout",
+                    "AMC1",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.0,
+                    12.0,
+                    15.0,
+                ),
             ],
         )
         count = universe.build_universe(conn)
@@ -185,7 +274,16 @@ class TestBuildUniverse:
         _populate(
             conn,
             [
-                ("1", "Alpha Large Cap Fund", "AMC1", "Equity Scheme - Large Cap Fund", 5000.0, 10.0, 12.0, 15.0),
+                (
+                    "1",
+                    "Alpha Large Cap Fund",
+                    "AMC1",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.0,
+                    12.0,
+                    15.0,
+                ),
             ],
         )
         universe.build_universe(conn)
@@ -205,8 +303,26 @@ class TestRenderUniverseContext:
         _populate(
             conn,
             [
-                ("1", "Alpha Large Cap Fund", "AMC One", "Equity Scheme - Large Cap Fund", 5000.0, 10.5, 12.3, 15.1),
-                ("2", "Beta Mid Cap Fund", "AMC Two", "Equity Scheme - Mid Cap Fund", 4000.0, 11.2, 13.4, 16.0),
+                (
+                    "1",
+                    "Alpha Large Cap Fund",
+                    "AMC One",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.5,
+                    12.3,
+                    15.1,
+                ),
+                (
+                    "2",
+                    "Beta Mid Cap Fund",
+                    "AMC Two",
+                    "Equity Scheme - Mid Cap Fund",
+                    4000.0,
+                    11.2,
+                    13.4,
+                    16.0,
+                ),
             ],
         )
         universe.build_universe(conn)
@@ -224,7 +340,16 @@ class TestRenderUniverseContext:
         _populate(
             conn,
             [
-                ("1", "Alpha Large Cap Fund", "AMC One", "Equity Scheme - Large Cap Fund", 5000.0, 10.5, 12.3, 15.1),
+                (
+                    "1",
+                    "Alpha Large Cap Fund",
+                    "AMC One",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.5,
+                    12.3,
+                    15.1,
+                ),
             ],
         )
         universe.build_universe(conn)
@@ -243,7 +368,16 @@ class TestRenderUniverseContext:
         _populate(
             conn,
             [
-                ("1", "Alpha Large Cap Fund", "AMC One", "Equity Scheme - Large Cap Fund", 5000.0, 10.5, 12.3, 15.1),
+                (
+                    "1",
+                    "Alpha Large Cap Fund",
+                    "AMC One",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.5,
+                    12.3,
+                    15.1,
+                ),
             ],
         )
         universe.build_universe(conn)
@@ -269,8 +403,26 @@ class TestSearchUniverse:
         _populate(
             conn,
             [
-                ("1", "Alpha Large Cap Fund", "AMC One", "Equity Scheme - Large Cap Fund", 5000.0, 10.5, 12.3, 15.1),
-                ("2", "Beta Mid Cap Fund", "AMC Two", "Equity Scheme - Mid Cap Fund", 4000.0, 11.2, 13.4, 16.0),
+                (
+                    "1",
+                    "Alpha Large Cap Fund",
+                    "AMC One",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.5,
+                    12.3,
+                    15.1,
+                ),
+                (
+                    "2",
+                    "Beta Mid Cap Fund",
+                    "AMC Two",
+                    "Equity Scheme - Mid Cap Fund",
+                    4000.0,
+                    11.2,
+                    13.4,
+                    16.0,
+                ),
             ],
         )
         universe.build_universe(conn)
@@ -287,8 +439,26 @@ class TestSearchUniverse:
         _populate(
             conn,
             [
-                ("1", "Alpha Large Cap Fund", "AMC One", "Equity Scheme - Large Cap Fund", 5000.0, 10.5, 12.3, 15.1),
-                ("2", "Beta Mid Cap Fund", "AMC Two", "Equity Scheme - Mid Cap Fund", 4000.0, 11.2, 13.4, 16.0),
+                (
+                    "1",
+                    "Alpha Large Cap Fund",
+                    "AMC One",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.5,
+                    12.3,
+                    15.1,
+                ),
+                (
+                    "2",
+                    "Beta Mid Cap Fund",
+                    "AMC Two",
+                    "Equity Scheme - Mid Cap Fund",
+                    4000.0,
+                    11.2,
+                    13.4,
+                    16.0,
+                ),
             ],
         )
         universe.build_universe(conn)
@@ -300,9 +470,36 @@ class TestSearchUniverse:
         _populate(
             conn,
             [
-                ("1", "Alpha Large Cap Fund", "AMC1", "Equity Scheme - Large Cap Fund", 5000.0, 10.0, 12.0, 15.0),
-                ("2", "Beta Large Cap Fund", "AMC2", "Equity Scheme - Large Cap Fund", 4000.0, 9.0, 11.0, 14.0),
-                ("3", "Gamma Large Cap Fund", "AMC3", "Equity Scheme - Large Cap Fund", 3000.0, 8.0, 10.0, 13.0),
+                (
+                    "1",
+                    "Alpha Large Cap Fund",
+                    "AMC1",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.0,
+                    12.0,
+                    15.0,
+                ),
+                (
+                    "2",
+                    "Beta Large Cap Fund",
+                    "AMC2",
+                    "Equity Scheme - Large Cap Fund",
+                    4000.0,
+                    9.0,
+                    11.0,
+                    14.0,
+                ),
+                (
+                    "3",
+                    "Gamma Large Cap Fund",
+                    "AMC3",
+                    "Equity Scheme - Large Cap Fund",
+                    3000.0,
+                    8.0,
+                    10.0,
+                    13.0,
+                ),
             ],
         )
         universe.build_universe(conn)
@@ -324,8 +521,26 @@ class TestSearchUniverseByCode:
         _populate(
             conn,
             [
-                ("1", "Alpha Large Cap Fund", "AMC One", "Equity Scheme - Large Cap Fund", 5000.0, 10.5, 12.3, 15.1),
-                ("2", "Beta Mid Cap Fund", "AMC Two", "Equity Scheme - Mid Cap Fund", 4000.0, 11.2, 13.4, 16.0),
+                (
+                    "1",
+                    "Alpha Large Cap Fund",
+                    "AMC One",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.5,
+                    12.3,
+                    15.1,
+                ),
+                (
+                    "2",
+                    "Beta Mid Cap Fund",
+                    "AMC Two",
+                    "Equity Scheme - Mid Cap Fund",
+                    4000.0,
+                    11.2,
+                    13.4,
+                    16.0,
+                ),
             ],
         )
         universe.build_universe(conn)
@@ -345,7 +560,16 @@ class TestSearchUniverseByCode:
         _populate(
             conn,
             [
-                ("1", "Alpha Large Cap Fund", "AMC One", "Equity Scheme - Large Cap Fund", 5000.0, 10.5, 12.3, 15.1),
+                (
+                    "1",
+                    "Alpha Large Cap Fund",
+                    "AMC One",
+                    "Equity Scheme - Large Cap Fund",
+                    5000.0,
+                    10.5,
+                    12.3,
+                    15.1,
+                ),
             ],
         )
         universe.build_universe(conn)

@@ -3,6 +3,7 @@
 Each perspective represents a distinct advisory viewpoint. Premium mode
 generates a plan from each perspective, then an evaluator picks the best.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -11,6 +12,7 @@ from dataclasses import dataclass
 @dataclass(frozen=True)
 class Perspective:
     """A named advisory perspective with a system prompt addition."""
+
     name: str
     description: str  # one-line for display
     prompt: str  # injected into the advisor system prompt

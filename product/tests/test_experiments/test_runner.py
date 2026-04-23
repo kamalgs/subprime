@@ -244,9 +244,7 @@ class TestRunSingle:
                 return_value=(fake_scored, RunUsage()),
             ) as mock_score,
         ):
-            result, _ = await run_single(
-                _make_profile(), BASELINE, model="openai:gpt-4o-mini"
-            )
+            result, _ = await run_single(_make_profile(), BASELINE, model="openai:gpt-4o-mini")
 
         assert result.model == "openai:gpt-4o-mini"
         assert mock_gen.call_args.kwargs.get("model") == "openai:gpt-4o-mini"
@@ -263,10 +261,16 @@ class TestRunSingle:
         fake_scored = ScoredPlan(plan=fake_plan, aps=_make_aps(), pqs=_make_pqs())
 
         with (
-            patch("subprime.experiments.runner.generate_plan", new_callable=AsyncMock,
-                  return_value=(fake_plan, RunUsage())),
-            patch("subprime.experiments.runner.score_plan", new_callable=AsyncMock,
-                  return_value=(fake_scored, RunUsage())),
+            patch(
+                "subprime.experiments.runner.generate_plan",
+                new_callable=AsyncMock,
+                return_value=(fake_plan, RunUsage()),
+            ),
+            patch(
+                "subprime.experiments.runner.score_plan",
+                new_callable=AsyncMock,
+                return_value=(fake_scored, RunUsage()),
+            ),
         ):
             result, _ = await run_single(_make_profile(), BASELINE)
         assert result.condition == "baseline"
@@ -327,9 +331,13 @@ class TestRunExperiment:
 
         calls: list[tuple[str, str]] = []
 
-        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1", thinking=False):
+        async def _mock_run(
+            persona, condition, model, judge_model=None, prompt_version="v1", thinking=False
+        ):
             calls.append((persona.id, condition.name))
-            return _make_experiment_result(persona_id=persona.id, condition=condition.name), RunUsage()
+            return _make_experiment_result(
+                persona_id=persona.id, condition=condition.name
+            ), RunUsage()
 
         profiles = [_make_profile(), _make_profile_2()]
 
@@ -351,8 +359,12 @@ class TestRunExperiment:
         """run_experiment accepts concurrency without error."""
         from subprime.experiments.runner import run_experiment
 
-        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1", thinking=False):
-            return _make_experiment_result(persona_id=persona.id, condition=condition.name), RunUsage()
+        async def _mock_run(
+            persona, condition, model, judge_model=None, prompt_version="v1", thinking=False
+        ):
+            return _make_experiment_result(
+                persona_id=persona.id, condition=condition.name
+            ), RunUsage()
 
         with (
             patch("subprime.experiments.runner.load_personas", return_value=[_make_profile()]),
@@ -372,7 +384,9 @@ class TestRunExperiment:
         """Runs that raise are collected and re-raised at the end."""
         from subprime.experiments.runner import run_experiment
 
-        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1", thinking=False):
+        async def _mock_run(
+            persona, condition, model, judge_model=None, prompt_version="v1", thinking=False
+        ):
             raise RuntimeError("LLM timeout")
 
         with (
@@ -394,9 +408,13 @@ class TestRunExperiment:
 
         calls: list[tuple[str, str]] = []
 
-        async def _mock_run(persona, condition, model, judge_model=None, prompt_version="v1", thinking=False):
+        async def _mock_run(
+            persona, condition, model, judge_model=None, prompt_version="v1", thinking=False
+        ):
             calls.append((persona.id, condition.name))
-            return _make_experiment_result(persona_id=persona.id, condition=condition.name), RunUsage()
+            return _make_experiment_result(
+                persona_id=persona.id, condition=condition.name
+            ), RunUsage()
 
         with (
             patch("subprime.experiments.runner.load_personas", return_value=[_make_profile()]),

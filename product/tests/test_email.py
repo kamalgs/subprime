@@ -6,6 +6,7 @@ Branching rule:
   - SES_FROM_ADDRESS unset + SMTP_HOST set    → SMTP path only.
   - Neither set                               → no-op, returns False.
 """
+
 from __future__ import annotations
 
 import importlib
@@ -24,6 +25,7 @@ def _reload(monkeypatch, **env):
             continue
         monkeypatch.setenv(k, v)
     import apps.web.email as mod
+
     return importlib.reload(mod)
 
 
@@ -54,19 +56,19 @@ async def test_ses_primary_path_used_when_configured(monkeypatch):
 
 @pytest.mark.asyncio
 async def test_ses_failure_falls_back_to_smtp(monkeypatch):
-    mod = _reload(monkeypatch,
-                  SES_FROM_ADDRESS="sender@example.com",
-                  SMTP_HOST="mailpit.local")
+    mod = _reload(monkeypatch, SES_FROM_ADDRESS="sender@example.com", SMTP_HOST="mailpit.local")
     ses_client = MagicMock()
     ses_client.send_email = MagicMock(side_effect=RuntimeError("sandbox"))
     smtp_server = MagicMock()
     smtp_ctx = MagicMock()
     smtp_ctx.__enter__ = MagicMock(return_value=smtp_server)
     smtp_ctx.__exit__ = MagicMock(return_value=False)
-    with patch("boto3.client", return_value=ses_client), \
-         patch("subprime.core.config.SMTP_HOST", "mailpit.local"), \
-         patch("apps.web.email.SMTP_HOST", "mailpit.local"), \
-         patch("smtplib.SMTP", return_value=smtp_ctx):
+    with (
+        patch("boto3.client", return_value=ses_client),
+        patch("subprime.core.config.SMTP_HOST", "mailpit.local"),
+        patch("apps.web.email.SMTP_HOST", "mailpit.local"),
+        patch("smtplib.SMTP", return_value=smtp_ctx),
+    ):
         ok = await mod.send_otp_email("u@example.com", "123456")
     assert ok is True
     ses_client.send_email.assert_called_once()
@@ -80,10 +82,12 @@ async def test_smtp_only_when_ses_not_configured(monkeypatch):
     smtp_ctx = MagicMock()
     smtp_ctx.__enter__ = MagicMock(return_value=smtp_server)
     smtp_ctx.__exit__ = MagicMock(return_value=False)
-    with patch("apps.web.email.SMTP_HOST", "mailpit.local"), \
-         patch("boto3.client") as boto, \
-         patch("smtplib.SMTP", return_value=smtp_ctx):
+    with (
+        patch("apps.web.email.SMTP_HOST", "mailpit.local"),
+        patch("boto3.client") as boto,
+        patch("smtplib.SMTP", return_value=smtp_ctx),
+    ):
         ok = await mod.send_otp_email("u@example.com", "123456")
     assert ok is True
-    boto.assert_not_called()        # SES path skipped
+    boto.assert_not_called()  # SES path skipped
     smtp_server.send_message.assert_called_once()

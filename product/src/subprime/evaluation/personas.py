@@ -45,7 +45,4 @@ def get_persona(persona_id: str, path: Path | None = None) -> InvestorProfile:
     for p in personas:
         if p.id == persona_id:
             return p
-    raise ValueError(
-        f"Persona '{persona_id}' not found. "
-        f"Available IDs: {[p.id for p in personas]}"
-    )
+    raise ValueError(f"Persona '{persona_id}' not found. Available IDs: {[p.id for p in personas]}")

@@ -3,6 +3,7 @@
 Run with: uv run pytest tests/test_e2e.py -v -m e2e
 Skip in normal runs: uv run pytest -m 'not e2e'
 """
+
 import os
 
 import pytest
@@ -15,7 +16,9 @@ pytestmark = pytest.mark.e2e
 
 @pytest.fixture(autouse=True)
 def skip_without_api_key():
-    if not os.environ.get("ANTHROPIC_API_KEY") or os.environ["ANTHROPIC_API_KEY"].startswith("sk-ant-..."):
+    if not os.environ.get("ANTHROPIC_API_KEY") or os.environ["ANTHROPIC_API_KEY"].startswith(
+        "sk-ant-..."
+    ):
         pytest.skip("ANTHROPIC_API_KEY not set — skipping e2e test")
 
 

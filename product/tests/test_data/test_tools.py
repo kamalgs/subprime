@@ -32,9 +32,7 @@ def _seed_universe(db_path) -> None:
     )
     build_universe(conn)
     # Simulate enrichment having run
-    conn.execute(
-        "UPDATE fund_universe SET expense_ratio = 0.75 WHERE amfi_code = '100'"
-    )
+    conn.execute("UPDATE fund_universe SET expense_ratio = 0.75 WHERE amfi_code = '100'")
     conn.close()
 
 
@@ -60,9 +58,7 @@ class TestSearchFundsUniverseTool:
 
     async def test_search_universe_no_db(self, tmp_path, monkeypatch):
         """With no DB file, search_funds_universe returns empty list gracefully."""
-        monkeypatch.setattr(
-            "subprime.data.tools._db_path", lambda: tmp_path / "nonexistent.duckdb"
-        )
+        monkeypatch.setattr("subprime.data.tools._db_path", lambda: tmp_path / "nonexistent.duckdb")
         from subprime.data.tools import search_funds_universe
 
         results = await search_funds_universe()
@@ -134,9 +130,7 @@ class TestGetFundDetailsTool:
 
     async def test_get_fund_details_no_db(self, tmp_path, monkeypatch):
         """No DB file → get_fund_details returns None gracefully."""
-        monkeypatch.setattr(
-            "subprime.data.tools._db_path", lambda: tmp_path / "nonexistent.duckdb"
-        )
+        monkeypatch.setattr("subprime.data.tools._db_path", lambda: tmp_path / "nonexistent.duckdb")
         from subprime.data.tools import get_fund_details
 
         fund = await get_fund_details("100")

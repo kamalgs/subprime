@@ -12,29 +12,76 @@ would produce on this task, so that the column can later be populated by
 an LLM if finer distinctions are needed (e.g. "Parag Parikh Flexi Cap"
 vs "Parag Parikh Conservative Hybrid").
 """
+
 from __future__ import annotations
 
 import re
 
 # Words that carry no information once category + AMC are known.
 _NOISE_TOKENS = {
-    "fund", "scheme", "plan", "option",
-    "direct", "regular", "reg",
-    "growth", "idcw", "dividend", "payout", "reinvestment",
-    "of", "the",
+    "fund",
+    "scheme",
+    "plan",
+    "option",
+    "direct",
+    "regular",
+    "reg",
+    "growth",
+    "idcw",
+    "dividend",
+    "payout",
+    "reinvestment",
+    "of",
+    "the",
 }
 
 # Category words we want to KEEP even though they also appear in noise lists.
 # (Keep this in sync with _NOISE_TOKENS — these are not stripped.)
 _CATEGORY_HINTS = {
-    "index", "nifty", "sensex", "etf", "elss", "tax", "saver",
-    "large", "mid", "small", "flexi", "multi", "bluechip", "focused",
-    "hybrid", "balanced", "equity", "debt", "gilt", "bond", "liquid",
-    "gold", "silver", "arbitrage", "value", "dividend",
-    "short", "ultra", "overnight", "low", "duration",
-    "corporate", "credit", "banking", "psu",
-    "50", "100", "200", "250", "500",
-    "next", "midcap", "smallcap", "largecap",
+    "index",
+    "nifty",
+    "sensex",
+    "etf",
+    "elss",
+    "tax",
+    "saver",
+    "large",
+    "mid",
+    "small",
+    "flexi",
+    "multi",
+    "bluechip",
+    "focused",
+    "hybrid",
+    "balanced",
+    "equity",
+    "debt",
+    "gilt",
+    "bond",
+    "liquid",
+    "gold",
+    "silver",
+    "arbitrage",
+    "value",
+    "dividend",
+    "short",
+    "ultra",
+    "overnight",
+    "low",
+    "duration",
+    "corporate",
+    "credit",
+    "banking",
+    "psu",
+    "50",
+    "100",
+    "200",
+    "250",
+    "500",
+    "next",
+    "midcap",
+    "smallcap",
+    "largecap",
 }
 
 

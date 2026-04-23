@@ -31,15 +31,15 @@ if TYPE_CHECKING:
 # Conservative estimates; actual TPS varies with server load.
 # Source: empirical observation from instrumented runs.
 TPS: dict[str, float] = {
-    "claude-haiku-4-5":  80.0,
+    "claude-haiku-4-5": 80.0,
     "claude-sonnet-4-6": 40.0,
-    "claude-opus-4-6":   15.0,
+    "claude-opus-4-6": 15.0,
     # Together AI — rough empirical throughput for these serverless endpoints.
-    "Qwen3.5-397B-A17B":            60.0,
+    "Qwen3.5-397B-A17B": 60.0,
     "Qwen3-235B-A22B-Instruct-2507": 90.0,
-    "Qwen3-Next-80B-A3B-Instruct":  120.0,
-    "Qwen3.5-9B":                   150.0,
-    "gemma-4-31B-it":                80.0,
+    "Qwen3-Next-80B-A3B-Instruct": 120.0,
+    "Qwen3.5-9B": 150.0,
+    "gemma-4-31B-it": 80.0,
 }
 
 # Per-call overhead: TTFB + queuing, regardless of output size (seconds)
@@ -102,11 +102,11 @@ PRICING: dict[str, dict[str, float]] = {
 # aps/pqs include structured JSON + reasoning (~1 100 / 1 300 tok each).
 # Total per run: ~8 400 tok observed (avg 8 323 across 35 completed runs).
 _TYPICAL: dict[str, int] = {
-    "advisor_user_tokens": 450,      # persona profile JSON
+    "advisor_user_tokens": 450,  # persona profile JSON
     "advisor_output_tokens": 6_000,  # plan JSON + tool calls (was 1 500 — 4× underestimate)
-    "judge_user_tokens": 3_000,      # plan JSON + profile JSON
-    "aps_output_tokens": 1_100,      # structured score + reasoning (was 350)
-    "pqs_output_tokens": 1_300,      # structured score + reasoning (was 350)
+    "judge_user_tokens": 3_000,  # plan JSON + profile JSON
+    "aps_output_tokens": 1_100,  # structured score + reasoning (was 350)
+    "pqs_output_tokens": 1_300,  # structured score + reasoning (was 350)
     "universe_fallback_tokens": 3_500,  # when DB unavailable
 }
 
@@ -198,14 +198,14 @@ def _judge_system_tokens() -> tuple[int, int]:
 class PhaseEstimate:
     """Token and cost breakdown for one phase (advisor or judges)."""
 
-    phase: str            # "advisor" or "judges"
+    phase: str  # "advisor" or "judges"
     model: str
     n_calls: int
-    system_tokens: int    # per-call system prompt size
-    user_tokens: int      # per-call user prompt size
-    output_tokens: int    # per-call output size
-    cache_writes: int     # number of calls that write to cache
-    cache_reads: int      # number of calls that read from cache
+    system_tokens: int  # per-call system prompt size
+    user_tokens: int  # per-call user prompt size
+    output_tokens: int  # per-call output size
+    cache_writes: int  # number of calls that write to cache
+    cache_reads: int  # number of calls that read from cache
     # Totals
     total_input_tokens: int
     total_output_tokens: int
@@ -219,10 +219,10 @@ class ExperimentEstimate:
     n_personas: int
     n_conditions: int
     n_runs: int
-    concurrency: int           # parallel runs assumed for wall-time estimate
+    concurrency: int  # parallel runs assumed for wall-time estimate
     model: str
     judge_model: str
-    universe_tokens: int       # tokens added by universe context per advisor call
+    universe_tokens: int  # tokens added by universe context per advisor call
     advisor: PhaseEstimate
     judges: PhaseEstimate
     total_cost_usd: float
@@ -240,7 +240,7 @@ class ExperimentEstimate:
 class PlanCostEstimate:
     """Lightweight estimate for a single plan generation (web app use)."""
 
-    mode: str             # "basic" or "premium"
+    mode: str  # "basic" or "premium"
     n_advisor_calls: int  # 1 for basic, 3-5 for premium
     model: str
     estimated_input_tokens: int
@@ -331,7 +331,7 @@ def estimate_experiment(
     aps_sys, pqs_sys = _judge_system_tokens()
     # 2 judges per run (APS + PQS), each with 1 cache-write then reads
     total_judge_calls = 2 * n_runs
-    jud_cache_writes = 2          # one APS write + one PQS write
+    jud_cache_writes = 2  # one APS write + one PQS write
     jud_cache_reads = 2 * (n_runs - 1)
 
     jud_user = _TYPICAL["judge_user_tokens"]
@@ -370,13 +370,11 @@ def estimate_experiment(
     total_cost = adv_cost + jud_cost
 
     # No-cache baseline (all system + user tokens at full input rate)
-    no_cache_adv = (
-        _usd(n_runs * (adv_sys_total_per_call + adv_user), adv_p["input"])
-        + _usd(total_adv_out, adv_p["output"])
+    no_cache_adv = _usd(n_runs * (adv_sys_total_per_call + adv_user), adv_p["input"]) + _usd(
+        total_adv_out, adv_p["output"]
     )
-    no_cache_jud = (
-        _usd(total_judge_calls * (avg_jud_sys + jud_user), jud_p["input"])
-        + _usd(total_jud_out, jud_p["output"])
+    no_cache_jud = _usd(total_judge_calls * (avg_jud_sys + jud_user), jud_p["input"]) + _usd(
+        total_jud_out, jud_p["output"]
     )
     no_cache_cost = no_cache_adv + no_cache_jud
     savings = no_cache_cost - total_cost
@@ -446,12 +444,12 @@ def estimate_plan_cost(
         n_calls = n_perspectives
         # First call: cache write; rest: cache reads
         input_tokens = (
-            1 * adv_sys          # cache write (counted as system input)
+            1 * adv_sys  # cache write (counted as system input)
             + (n_calls - 1) * adv_sys  # cache reads (discounted below)
             + n_calls * adv_user
         )
         cost = (
-            _usd(adv_sys, p["cache_write"])           # 1 write
+            _usd(adv_sys, p["cache_write"])  # 1 write
             + _usd((n_calls - 1) * adv_sys, p["cache_read"])  # reads
             + _usd(n_calls * adv_user, p["input"])
             + _usd(n_calls * adv_out, p["output"])
@@ -495,7 +493,11 @@ def print_estimate(est: ExperimentEstimate) -> None:
         f"[bold]{est.n_runs} runs[/bold]\n"
         f"  Advisor : {est.model}\n"
         f"  Judge   : {est.judge_model}"
-        + (f"\n  Universe: {est.universe_tokens:,} tokens per advisor call" if est.universe_tokens else "")
+        + (
+            f"\n  Universe: {est.universe_tokens:,} tokens per advisor call"
+            if est.universe_tokens
+            else ""
+        )
     )
 
     table = Table(show_header=True, header_style="bold")
@@ -529,7 +531,9 @@ def print_estimate(est: ExperimentEstimate) -> None:
     if est.concurrency > 1:
         seq_total = est.total_wall_minutes * est.n_runs / math.ceil(est.n_runs / est.concurrency)
         time_note = f"concurrency={est.concurrency}; was {_fmt_mins(seq_total)} sequential"
-        latency_note = f"Parallel runs ({est.concurrency} concurrent); actual time varies with API latency."
+        latency_note = (
+            f"Parallel runs ({est.concurrency} concurrent); actual time varies with API latency."
+        )
     else:
         time_note = (
             f"sequential — advisor {_fmt_mins(est.advisor_wall_minutes)}"
@@ -551,10 +555,10 @@ def print_estimate(est: ExperimentEstimate) -> None:
 
 # Standard model configurations for side-by-side comparison
 _COMPARE_CONFIGS: list[tuple[str, str, str]] = [
-    ("anthropic:claude-haiku-4-5",  "anthropic:claude-haiku-4-5",  "haiku+haiku"),
-    ("anthropic:claude-haiku-4-5",  "anthropic:claude-sonnet-4-6", "haiku+sonnet"),
+    ("anthropic:claude-haiku-4-5", "anthropic:claude-haiku-4-5", "haiku+haiku"),
+    ("anthropic:claude-haiku-4-5", "anthropic:claude-sonnet-4-6", "haiku+sonnet"),
     ("anthropic:claude-sonnet-4-6", "anthropic:claude-sonnet-4-6", "sonnet+sonnet"),
-    ("anthropic:claude-sonnet-4-6", "anthropic:claude-opus-4-6",   "sonnet+opus"),
+    ("anthropic:claude-sonnet-4-6", "anthropic:claude-opus-4-6", "sonnet+opus"),
 ]
 
 
@@ -603,8 +607,11 @@ def print_comparison(
         f"\n[bold]Model configuration comparison[/bold]  "
         f"{first.n_personas} persona(s) × {first.n_conditions} condition(s) = "
         f"[bold]{first.n_runs} runs[/bold]"
-        + (f"\n  Universe context: {first.universe_tokens:,} tokens per advisor call"
-           if first.universe_tokens else "")
+        + (
+            f"\n  Universe context: {first.universe_tokens:,} tokens per advisor call"
+            if first.universe_tokens
+            else ""
+        )
     )
 
     eff_default_judge = default_judge or default_model
@@ -614,7 +621,7 @@ def print_comparison(
         return f"{h}h {rem:02d}m" if h else f"{int(m)}m"
 
     table = Table(show_header=True, header_style="bold")
-    table.add_column("", justify="center", width=1)   # default marker
+    table.add_column("", justify="center", width=1)  # default marker
     table.add_column("Config", style="bold", no_wrap=True)
     table.add_column("Advisor $", justify="right")
     table.add_column("Judge $", justify="right")
@@ -624,10 +631,7 @@ def print_comparison(
     table.add_column("Savings", justify="right")
 
     for label, est in comparisons:
-        is_default = (
-            est.model == default_model
-            and est.judge_model == eff_default_judge
-        )
+        is_default = est.model == default_model and est.judge_model == eff_default_judge
         marker = "★" if is_default else ""
         table.add_row(
             marker,

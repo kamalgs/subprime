@@ -1,4 +1,5 @@
 """asyncpg connection pool management."""
+
 from __future__ import annotations
 import logging
 
@@ -10,6 +11,7 @@ async def init_pool(database_url: str):
     """Create the global asyncpg connection pool."""
     global _pool
     import asyncpg
+
     _pool = await asyncpg.create_pool(database_url, min_size=2, max_size=10)
     logger.info("Database pool created: %s", database_url.split("@")[-1])
     return _pool

@@ -120,12 +120,8 @@ class TestBuildApsPrompt:
         prompt = _build_aps_prompt()
         # Check that at least some anchor text appears
         for dim_name, dim in APS_CRITERIA.items():
-            assert dim["anchor_0"] in prompt, (
-                f"APS prompt missing anchor_0 for {dim_name}"
-            )
-            assert dim["anchor_1"] in prompt, (
-                f"APS prompt missing anchor_1 for {dim_name}"
-            )
+            assert dim["anchor_0"] in prompt, f"APS prompt missing anchor_0 for {dim_name}"
+            assert dim["anchor_1"] in prompt, f"APS prompt missing anchor_1 for {dim_name}"
 
     def test_is_nonempty_string(self):
         from subprime.evaluation.judges import _build_aps_prompt
@@ -154,12 +150,8 @@ class TestBuildPqsPrompt:
 
         prompt = _build_pqs_prompt()
         for dim_name, dim in PQS_CRITERIA.items():
-            assert dim["anchor_0"] in prompt, (
-                f"PQS prompt missing anchor_0 for {dim_name}"
-            )
-            assert dim["anchor_1"] in prompt, (
-                f"PQS prompt missing anchor_1 for {dim_name}"
-            )
+            assert dim["anchor_0"] in prompt, f"PQS prompt missing anchor_0 for {dim_name}"
+            assert dim["anchor_1"] in prompt, f"PQS prompt missing anchor_1 for {dim_name}"
 
     def test_is_nonempty_string(self):
         from subprime.evaluation.judges import _build_pqs_prompt

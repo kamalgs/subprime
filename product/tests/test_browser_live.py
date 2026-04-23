@@ -12,6 +12,7 @@ Run:
 For the full wizard-to-plan flow (mocked LLM, local uvicorn), see:
     product/tests/test_frontend_e2e.py
 """
+
 from __future__ import annotations
 
 import os
@@ -46,12 +47,22 @@ async def page():
         context = await browser.new_context()
         host = urlparse(BASE_URL).hostname
         # Pre-dismiss the SEBI modal so every test doesn't need to click it
-        await context.add_cookies([{
-            "name": "sebi_ack", "value": "1", "domain": host, "path": "/",
-        }])
+        await context.add_cookies(
+            [
+                {
+                    "name": "sebi_ack",
+                    "value": "1",
+                    "domain": host,
+                    "path": "/",
+                }
+            ]
+        )
         pg = await context.new_page()
         pg.on("pageerror", lambda exc: print(f"[PAGE ERROR] {exc}"))
-        pg.on("console", lambda msg: print(f"[{msg.type}] {msg.text}") if msg.type == "error" else None)
+        pg.on(
+            "console",
+            lambda msg: print(f"[{msg.type}] {msg.text}") if msg.type == "error" else None,
+        )
         yield pg
         await context.close()
         await browser.close()
@@ -138,6 +149,7 @@ async def test_api_v2_session_endpoint(page):
 async def test_static_assets_load(page):
     """The bundled JS + CSS that index.html references actually serve 200."""
     import re
+
     await page.goto(BASE_URL + "/", wait_until="domcontentloaded")
     html = await page.evaluate("async () => (await fetch('/')).text()")
     js = re.search(r"/assets/index-[\w-]+\.js", html)
@@ -145,6 +157,7 @@ async def test_static_assets_load(page):
     assert js and css, "index.html did not reference Vite /assets/* paths"
     for asset in (js.group(), css.group()):
         status = await page.evaluate(
-            "async (u) => (await fetch(u)).status", asset,
+            "async (u) => (await fetch(u)).status",
+            asset,
         )
         assert status == 200, f"{asset} → HTTP {status}"

@@ -39,7 +39,7 @@ logger = logging.getLogger(__name__)
 _HERE = Path(__file__).parent
 _TEMPLATES_DIR = _HERE / "templates"
 _STATIC_DIR = _HERE / "static"
-_SPA_DIST_DIR = _STATIC_DIR / "dist"       # Vite build output
+_SPA_DIST_DIR = _STATIC_DIR / "dist"  # Vite build output
 
 
 def _warm_universe_cache() -> None:
@@ -47,6 +47,7 @@ def _warm_universe_cache() -> None:
     plan generation doesn't pay the DuckDB + markdown cost on the hot path."""
     try:
         from subprime.advisor.planner import warm_universe_cache
+
         warm_universe_cache()
     except Exception:
         logger.exception("warm_universe_cache skipped")
@@ -66,6 +67,7 @@ async def lifespan(app: FastAPI):
     # Initialise OpenTelemetry. No-op when OTEL_EXPORTER_OTLP_ENDPOINT is unset.
     try:
         from subprime.observability import setup as otel_setup
+
         otel_setup()
     except Exception:
         logger.exception("OTEL setup failed (continuing without telemetry)")
@@ -118,6 +120,7 @@ def create_app() -> FastAPI:
     # (no-op tracer/meter providers).
     try:
         from subprime.observability import instrument_fastapi
+
         instrument_fastapi(app)
     except Exception:
         logger.exception("FastAPI OTEL instrumentation failed")
@@ -144,6 +147,7 @@ def create_app() -> FastAPI:
         # No SPA build — fall back to the legacy Jinja wizard routes.
         logger.info("No SPA build at %s — serving legacy Jinja templates", _SPA_DIST_DIR)
         from apps.web import routes
+
         app.include_router(routes.router)
 
         @app.get("/", include_in_schema=False)

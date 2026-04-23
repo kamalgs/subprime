@@ -127,11 +127,17 @@ def ensure_schema(conn: duckdb.DuckDBPyConnection) -> None:
 
     # Migrations: add columns introduced after initial release.
     universe_cols = {
-        row[1]
-        for row in conn.execute("PRAGMA table_info('fund_universe')").fetchall()
+        row[1] for row in conn.execute("PRAGMA table_info('fund_universe')").fetchall()
     }
-    for col in ("expense_ratio", "volatility_1y", "beta", "alpha",
-                "tracking_error", "sharpe_ratio", "information_ratio"):
+    for col in (
+        "expense_ratio",
+        "volatility_1y",
+        "beta",
+        "alpha",
+        "tracking_error",
+        "sharpe_ratio",
+        "information_ratio",
+    ):
         if col not in universe_cols:
             conn.execute(f"ALTER TABLE fund_universe ADD COLUMN {col} DOUBLE")
     if "launch_date" not in universe_cols:
@@ -139,12 +145,15 @@ def ensure_schema(conn: duckdb.DuckDBPyConnection) -> None:
     if "display_name" not in universe_cols:
         conn.execute("ALTER TABLE fund_universe ADD COLUMN display_name VARCHAR")
 
-    returns_cols = {
-        row[1]
-        for row in conn.execute("PRAGMA table_info('fund_returns')").fetchall()
-    }
-    for col in ("volatility_1y", "beta", "alpha",
-                "tracking_error", "sharpe_ratio", "information_ratio"):
+    returns_cols = {row[1] for row in conn.execute("PRAGMA table_info('fund_returns')").fetchall()}
+    for col in (
+        "volatility_1y",
+        "beta",
+        "alpha",
+        "tracking_error",
+        "sharpe_ratio",
+        "information_ratio",
+    ):
         if col not in returns_cols:
             conn.execute(f"ALTER TABLE fund_returns ADD COLUMN {col} DOUBLE")
 

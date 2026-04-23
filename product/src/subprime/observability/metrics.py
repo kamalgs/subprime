@@ -12,6 +12,7 @@ Naming:
     subprime.llm.tokens              histogram, label kind=in|out|cache_read|cache_write, model
     subprime.llm.cache_hit_ratio     histogram, label model
 """
+
 from __future__ import annotations
 
 from typing import Any
@@ -65,10 +66,10 @@ def record_llm_usage(usage: Any, *, model: str, op: str) -> None:
     cache_w = getattr(usage, "cache_write_tokens", 0) or 0
 
     base = {"model": model, "op": op}
-    _llm_tokens.record(in_tok,    {**base, "kind": "input"})
-    _llm_tokens.record(out_tok,   {**base, "kind": "output"})
-    _llm_tokens.record(cache_r,   {**base, "kind": "cache_read"})
-    _llm_tokens.record(cache_w,   {**base, "kind": "cache_write"})
+    _llm_tokens.record(in_tok, {**base, "kind": "input"})
+    _llm_tokens.record(out_tok, {**base, "kind": "output"})
+    _llm_tokens.record(cache_r, {**base, "kind": "cache_read"})
+    _llm_tokens.record(cache_w, {**base, "kind": "cache_write"})
 
     denom = cache_r + in_tok
     if denom > 0:

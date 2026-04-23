@@ -1,4 +1,5 @@
 """Tests for the fund display-name generator."""
+
 from subprime.data.display_names import generate_display_name
 
 

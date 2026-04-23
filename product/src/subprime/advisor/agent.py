@@ -206,7 +206,7 @@ def create_plan_reviewer(
         build_model(model, role="advisor"),
         system_prompt=review,
         output_type=_output_for(model, InvestmentPlan),
-        tools=[],         # no tool calls — reviewer works from the draft text
+        tools=[],  # no tool calls — reviewer works from the draft text
         retries=2,
         defer_model_check=True,
     )

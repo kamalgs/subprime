@@ -4,6 +4,7 @@ Forces OpenTelemetry into the console exporter so any accidental
 ``setup()`` call in a test never opens a network socket. The OTLP
 endpoint is also cleared in case a developer exports it in their shell.
 """
+
 from __future__ import annotations
 
 import os

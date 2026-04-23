@@ -19,6 +19,7 @@ Env:
   SES_REGION         default "us-east-1"
   SMTP_*             legacy fallback — see subprime.core.config
 """
+
 from __future__ import annotations
 
 import logging
@@ -47,8 +48,10 @@ async def send_otp_email(email: str, code: str) -> bool:
     if SMTP_HOST:
         return _send_via_smtp(email, code)
 
-    logger.warning("No email backend configured (set SES_FROM_ADDRESS or "
-                   "SMTP_HOST) — cannot send OTP to %s", email)
+    logger.warning(
+        "No email backend configured (set SES_FROM_ADDRESS or SMTP_HOST) — cannot send OTP to %s",
+        email,
+    )
     return False
 
 
@@ -90,10 +93,8 @@ async def _send_via_ses(to_email: str, code: str) -> bool:
                 Message={
                     "Subject": {"Charset": "UTF-8", "Data": _OTP_SUBJECT},
                     "Body": {
-                        "Text": {"Charset": "UTF-8",
-                                 "Data": _OTP_TEXT.format(code=code)},
-                        "Html": {"Charset": "UTF-8",
-                                 "Data": _OTP_HTML.format(code=code)},
+                        "Text": {"Charset": "UTF-8", "Data": _OTP_TEXT.format(code=code)},
+                        "Html": {"Charset": "UTF-8", "Data": _OTP_HTML.format(code=code)},
                     },
                 },
             )
@@ -107,6 +108,7 @@ async def _send_via_ses(to_email: str, code: str) -> bool:
 
 
 # ── SMTP (legacy fallback) ────────────────────────────────────────────────────
+
 
 def _send_via_smtp(to_email: str, code: str) -> bool:
     msg = EmailMessage()

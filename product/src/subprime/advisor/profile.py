@@ -1,4 +1,5 @@
 """Interactive profile gathering — hybrid open prompt with nudges."""
+
 from __future__ import annotations
 
 from typing import Awaitable, Callable
@@ -83,10 +84,7 @@ async def _run_conversation(
         gaps.append("any fund type preferences or sectors to avoid")
 
     if gaps:
-        summary += (
-            f"\nSharing these would help me give better advice:\n"
-            f"  {', '.join(gaps)}\n"
-        )
+        summary += f"\nSharing these would help me give better advice:\n  {', '.join(gaps)}\n"
 
     summary += "\nShall I go ahead, or would you like to add anything?"
 

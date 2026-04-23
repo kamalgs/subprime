@@ -44,16 +44,17 @@ MIN_SEPARATION = 0.40
 # Fixture helpers
 # ---------------------------------------------------------------------------
 
-def _fund(name: str, category: str, expense_ratio: float,
-          amfi_code: str = "000000") -> MutualFund:
-    return MutualFund(amfi_code=amfi_code, name=name, category=category,
-                      expense_ratio=expense_ratio)
+
+def _fund(name: str, category: str, expense_ratio: float, amfi_code: str = "000000") -> MutualFund:
+    return MutualFund(
+        amfi_code=amfi_code, name=name, category=category, expense_ratio=expense_ratio
+    )
 
 
-def _alloc(fund: MutualFund, pct: float, rationale: str,
-           sip: float = 10000) -> Allocation:
-    return Allocation(fund=fund, allocation_pct=pct, mode="sip",
-                      monthly_sip_inr=sip, rationale=rationale)
+def _alloc(fund: MutualFund, pct: float, rationale: str, sip: float = 10000) -> Allocation:
+    return Allocation(
+        fund=fund, allocation_pct=pct, mode="sip", monthly_sip_inr=sip, rationale=rationale
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -63,55 +64,91 @@ def _alloc(fund: MutualFund, pct: float, rationale: str,
 #   Every signal is maximally appropriate for this profile.
 # ---------------------------------------------------------------------------
 
+
 def _make_high_quality_plan():
-    profile = get_persona("P02")   # Hermione Granger
+    profile = get_persona("P02")  # Hermione Granger
 
     funds = [
-        _fund("UTI Nifty 50 Index Fund Direct Plan",
-              "Index Fund - Large Cap", expense_ratio=0.10, amfi_code="120716"),
-        _fund("Parag Parikh Flexi Cap Fund Direct Plan",
-              "Flexi Cap Fund", expense_ratio=0.63, amfi_code="122639"),
-        _fund("Mirae Asset Emerging Bluechip Fund Direct Plan",
-              "Large & Mid Cap Fund", expense_ratio=0.65, amfi_code="118828"),
-        _fund("ICICI Prudential Short Term Fund Direct Plan",
-              "Short Duration Debt", expense_ratio=0.42, amfi_code="120586"),
-        _fund("Nippon India Gold Savings Fund Direct Plan",
-              "Gold Fund", expense_ratio=0.12, amfi_code="103504"),
+        _fund(
+            "UTI Nifty 50 Index Fund Direct Plan",
+            "Index Fund - Large Cap",
+            expense_ratio=0.10,
+            amfi_code="120716",
+        ),
+        _fund(
+            "Parag Parikh Flexi Cap Fund Direct Plan",
+            "Flexi Cap Fund",
+            expense_ratio=0.63,
+            amfi_code="122639",
+        ),
+        _fund(
+            "Mirae Asset Emerging Bluechip Fund Direct Plan",
+            "Large & Mid Cap Fund",
+            expense_ratio=0.65,
+            amfi_code="118828",
+        ),
+        _fund(
+            "ICICI Prudential Short Term Fund Direct Plan",
+            "Short Duration Debt",
+            expense_ratio=0.42,
+            amfi_code="120586",
+        ),
+        _fund(
+            "Nippon India Gold Savings Fund Direct Plan",
+            "Gold Fund",
+            expense_ratio=0.12,
+            amfi_code="103504",
+        ),
     ]
 
     allocations = [
-        _alloc(funds[0], 30,
-               "Core large-cap index fund provides the equity backbone for the "
-               "long-term retirement corpus (20-year horizon). Low cost (0.10% TER) "
-               "ensures maximum compounding benefit over two decades. Appropriate "
-               "for the moderate risk profile as large-cap volatility is manageable "
-               "over a 20-year horizon.",
-               sip=24000),
-        _alloc(funds[1], 25,
-               "Parag Parikh Flexi Cap's flexible mandate and international "
-               "diversification (up to 35% overseas) is ideal for the 15-year "
-               "children's education goal. The international overlay provides "
-               "currency diversification, reducing INR concentration risk. "
-               "Consistent long-term track record aligns with the education corpus target.",
-               sip=20000),
-        _alloc(funds[2], 20,
-               "Large & Mid Cap fund bridges growth needs between large and mid-cap "
-               "segments, suitable for the moderate risk appetite. Targeted at the "
-               "secondary retirement corpus objective, where some additional return "
-               "above pure large-cap is needed without taking full mid-cap risk.",
-               sip=16000),
-        _alloc(funds[3], 15,
-               "Short-duration debt fund explicitly earmarked for the 5-year house "
-               "purchase goal. At 5 years, this allocation should transition to an "
-               "ultra-short or liquid fund as the goal approaches. Debt provides "
-               "capital protection for this near-term, high-priority goal.",
-               sip=12000),
-        _alloc(funds[4], 10,
-               "Gold allocation serves as inflation hedge and portfolio stabiliser. "
-               "Gold is negatively correlated with equity during market stress, "
-               "providing downside cushion. 10% is appropriate for a moderate "
-               "investor — meaningful without dominating the portfolio.",
-               sip=8000),
+        _alloc(
+            funds[0],
+            30,
+            "Core large-cap index fund provides the equity backbone for the "
+            "long-term retirement corpus (20-year horizon). Low cost (0.10% TER) "
+            "ensures maximum compounding benefit over two decades. Appropriate "
+            "for the moderate risk profile as large-cap volatility is manageable "
+            "over a 20-year horizon.",
+            sip=24000,
+        ),
+        _alloc(
+            funds[1],
+            25,
+            "Parag Parikh Flexi Cap's flexible mandate and international "
+            "diversification (up to 35% overseas) is ideal for the 15-year "
+            "children's education goal. The international overlay provides "
+            "currency diversification, reducing INR concentration risk. "
+            "Consistent long-term track record aligns with the education corpus target.",
+            sip=20000,
+        ),
+        _alloc(
+            funds[2],
+            20,
+            "Large & Mid Cap fund bridges growth needs between large and mid-cap "
+            "segments, suitable for the moderate risk appetite. Targeted at the "
+            "secondary retirement corpus objective, where some additional return "
+            "above pure large-cap is needed without taking full mid-cap risk.",
+            sip=16000,
+        ),
+        _alloc(
+            funds[3],
+            15,
+            "Short-duration debt fund explicitly earmarked for the 5-year house "
+            "purchase goal. At 5 years, this allocation should transition to an "
+            "ultra-short or liquid fund as the goal approaches. Debt provides "
+            "capital protection for this near-term, high-priority goal.",
+            sip=12000,
+        ),
+        _alloc(
+            funds[4],
+            10,
+            "Gold allocation serves as inflation hedge and portfolio stabiliser. "
+            "Gold is negatively correlated with equity during market stress, "
+            "providing downside cushion. 10% is appropriate for a moderate "
+            "investor — meaningful without dominating the portfolio.",
+            sip=8000,
+        ),
     ]
 
     plan = InvestmentPlan(
@@ -171,30 +208,45 @@ def _make_high_quality_plan():
 #       rebalancing says "capital preservation")
 # ---------------------------------------------------------------------------
 
+
 def _make_low_quality_plan():
-    profile = get_persona("P04")   # Minerva McGonagall
+    profile = get_persona("P04")  # Minerva McGonagall
 
     funds = [
-        _fund("Nippon India Small Cap Fund Direct Plan",
-              "Small Cap Fund", expense_ratio=1.68, amfi_code="118778"),
-        _fund("Quant Small Cap Fund Direct Plan",
-              "Small Cap Fund", expense_ratio=1.75, amfi_code="135801"),
+        _fund(
+            "Nippon India Small Cap Fund Direct Plan",
+            "Small Cap Fund",
+            expense_ratio=1.68,
+            amfi_code="118778",
+        ),
+        _fund(
+            "Quant Small Cap Fund Direct Plan",
+            "Small Cap Fund",
+            expense_ratio=1.75,
+            amfi_code="135801",
+        ),
     ]
 
     allocations = [
-        _alloc(funds[0], 60,
-               "For a 24-year-old aggressive investor with a 35-year horizon, "
-               "Nippon Small Cap is the ideal vehicle for maximum wealth creation. "
-               "This young professional should put maximum money in small-cap "
-               "since time horizon is long and recovery from any dip is assured.",
-               sip=60000),
-        _alloc(funds[1], 40,
-               "Quant's proprietary momentum model finds pre-institutional small-cap "
-               "opportunities before the market discovers them. For an investor with "
-               "high risk appetite and no dependents, this fund can generate 5x "
-               "returns over 10 years. The investor should allocate aggressively "
-               "without concern for short-term volatility.",
-               sip=40000),
+        _alloc(
+            funds[0],
+            60,
+            "For a 24-year-old aggressive investor with a 35-year horizon, "
+            "Nippon Small Cap is the ideal vehicle for maximum wealth creation. "
+            "This young professional should put maximum money in small-cap "
+            "since time horizon is long and recovery from any dip is assured.",
+            sip=60000,
+        ),
+        _alloc(
+            funds[1],
+            40,
+            "Quant's proprietary momentum model finds pre-institutional small-cap "
+            "opportunities before the market discovers them. For an investor with "
+            "high risk appetite and no dependents, this fund can generate 5x "
+            "returns over 10 years. The investor should allocate aggressively "
+            "without concern for short-term volatility.",
+            sip=40000,
+        ),
     ]
 
     plan = InvestmentPlan(
@@ -224,7 +276,7 @@ def _make_low_quality_plan():
             "Exit immediately on any 5% decline",
         ],
         projected_returns={"bear": 20.0, "base": 45.0, "bull": 70.0},
-        risks=[],   # No risks disclosed — incomplete plan
+        risks=[],  # No risks disclosed — incomplete plan
         disclaimer="For research and educational purposes only.",
     )
 
@@ -234,6 +286,7 @@ def _make_low_quality_plan():
 # ---------------------------------------------------------------------------
 # Calibration tests
 # ---------------------------------------------------------------------------
+
 
 @pytest.mark.calibration
 def test_high_quality_plan_scores_above_floor() -> None:
@@ -266,7 +319,9 @@ def test_low_quality_plan_scores_below_ceiling() -> None:
     print(f"  diversification            : {pqs.diversification:.2f}")
     print(f"  risk_return_appropriateness: {pqs.risk_return_appropriateness:.2f}")
     print(f"  internal_consistency       : {pqs.internal_consistency:.2f}")
-    print(f"  composite_pqs              : {pqs.composite_pqs:.2f}  (ceiling: {LOW_QUALITY_CEILING})")
+    print(
+        f"  composite_pqs              : {pqs.composite_pqs:.2f}  (ceiling: {LOW_QUALITY_CEILING})"
+    )
     print(f"  reasoning: {pqs.reasoning[:200]}...")
 
     assert pqs.composite_pqs < LOW_QUALITY_CEILING, (
@@ -279,10 +334,10 @@ def test_low_quality_plan_scores_below_ceiling() -> None:
 def test_quality_separation() -> None:
     """High-quality plan must score at least MIN_SEPARATION above the low-quality plan."""
     high_plan, high_profile = _make_high_quality_plan()
-    low_plan,  low_profile  = _make_low_quality_plan()
+    low_plan, low_profile = _make_low_quality_plan()
 
     high_pqs = asyncio.run(score_pqs(high_plan, high_profile))
-    low_pqs  = asyncio.run(score_pqs(low_plan,  low_profile))
+    low_pqs = asyncio.run(score_pqs(low_plan, low_profile))
 
     gap = high_pqs.composite_pqs - low_pqs.composite_pqs
 
