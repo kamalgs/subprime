@@ -6,9 +6,9 @@ of the normal test suite (not e2e) — no real API keys needed.
 
 The Gradio 6.x breakage would have been caught by test_web_app_creates.
 """
+
 from __future__ import annotations
 
-from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
@@ -34,7 +34,10 @@ runner = CliRunner()
 
 def _fake_strategy() -> StrategyOutline:
     return StrategyOutline(
-        equity_pct=70.0, debt_pct=20.0, gold_pct=10.0, other_pct=0.0,
+        equity_pct=70.0,
+        debt_pct=20.0,
+        gold_pct=10.0,
+        other_pct=0.0,
         equity_approach="Index-heavy",
         key_themes=["low cost", "broad diversification"],
         risk_return_summary="12-14% CAGR",
@@ -47,23 +50,35 @@ def _fake_plan() -> InvestmentPlan:
         allocations=[
             Allocation(
                 fund=MutualFund(
-                    amfi_code="120503", name="UTI Nifty 50 Index Fund",
-                    category="Large Cap", sub_category="Index",
-                    fund_house="UTI Mutual Fund", nav=150.0, expense_ratio=0.18,
+                    amfi_code="120503",
+                    name="UTI Nifty 50 Index Fund",
+                    category="Large Cap",
+                    sub_category="Index",
+                    fund_house="UTI Mutual Fund",
+                    nav=150.0,
+                    expense_ratio=0.18,
                     morningstar_rating=4,
                 ),
-                allocation_pct=60.0, mode="sip",
-                monthly_sip_inr=30000, rationale="Core index holding",
+                allocation_pct=60.0,
+                mode="sip",
+                monthly_sip_inr=30000,
+                rationale="Core index holding",
             ),
             Allocation(
                 fund=MutualFund(
-                    amfi_code="122639", name="Parag Parikh Flexi Cap Fund",
-                    category="Flexi Cap", sub_category="Flexi Cap",
-                    fund_house="PPFAS Mutual Fund", nav=88.0, expense_ratio=0.63,
+                    amfi_code="122639",
+                    name="Parag Parikh Flexi Cap Fund",
+                    category="Flexi Cap",
+                    sub_category="Flexi Cap",
+                    fund_house="PPFAS Mutual Fund",
+                    nav=88.0,
+                    expense_ratio=0.63,
                     morningstar_rating=5,
                 ),
-                allocation_pct=40.0, mode="sip",
-                monthly_sip_inr=20000, rationale="Active diversified exposure",
+                allocation_pct=40.0,
+                mode="sip",
+                monthly_sip_inr=20000,
+                rationale="Active diversified exposure",
             ),
         ],
         setup_phase="Start SIPs in month 1",
@@ -93,8 +108,16 @@ class TestCLIAdvise:
     def test_advise_bulk_flow_renders_profile_strategy_plan(self):
         """Full bulk flow: profile → strategy → plan, verify output contains key sections."""
         with (
-            patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=(_fake_strategy(), RunUsage())),
-            patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=(_fake_plan(), RunUsage())),
+            patch(
+                "subprime.cli.generate_strategy",
+                new_callable=AsyncMock,
+                return_value=(_fake_strategy(), RunUsage()),
+            ),
+            patch(
+                "subprime.cli.generate_plan",
+                new_callable=AsyncMock,
+                return_value=(_fake_plan(), RunUsage()),
+            ),
         ):
             result = runner.invoke(app, ["advise", "--profile", "P01"], input="yes\n")
 
@@ -109,7 +132,10 @@ class TestCLIAdvise:
     def test_advise_strategy_revision_then_approve(self):
         """User revises strategy once, then approves."""
         revised_strategy = StrategyOutline(
-            equity_pct=80.0, debt_pct=15.0, gold_pct=5.0, other_pct=0.0,
+            equity_pct=80.0,
+            debt_pct=15.0,
+            gold_pct=5.0,
+            other_pct=0.0,
             equity_approach="More aggressive equity tilt",
             key_themes=["growth", "mid cap"],
             risk_return_summary="14-16% CAGR",
@@ -127,10 +153,15 @@ class TestCLIAdvise:
 
         with (
             patch("subprime.cli.generate_strategy", side_effect=mock_generate_strategy),
-            patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=(_fake_plan(), RunUsage())),
+            patch(
+                "subprime.cli.generate_plan",
+                new_callable=AsyncMock,
+                return_value=(_fake_plan(), RunUsage()),
+            ),
         ):
             result = runner.invoke(
-                app, ["advise", "--profile", "P01"],
+                app,
+                ["advise", "--profile", "P01"],
                 input="more equity\nyes\n",
             )
 
@@ -142,8 +173,16 @@ class TestCLIAdvise:
         monkeypatch.setattr("subprime.core.config.CONVERSATIONS_DIR", tmp_path)
 
         with (
-            patch("subprime.cli.generate_strategy", new_callable=AsyncMock, return_value=(_fake_strategy(), RunUsage())),
-            patch("subprime.cli.generate_plan", new_callable=AsyncMock, return_value=(_fake_plan(), RunUsage())),
+            patch(
+                "subprime.cli.generate_strategy",
+                new_callable=AsyncMock,
+                return_value=(_fake_strategy(), RunUsage()),
+            ),
+            patch(
+                "subprime.cli.generate_plan",
+                new_callable=AsyncMock,
+                return_value=(_fake_plan(), RunUsage()),
+            ),
         ):
             result = runner.invoke(app, ["advise", "--profile", "P01"], input="yes\n")
 
@@ -218,6 +257,7 @@ class TestCLIWeb:
 _HAS_GRADIO = False
 try:
     import gradio as _gradio  # noqa: F401
+
     # The gradio-ish module that uv installs transitively has no `Blocks` —
     # require the real API before treating the extra as present.
     _HAS_GRADIO = hasattr(_gradio, "Blocks")
@@ -225,14 +265,16 @@ except Exception:
     pass
 
 
-@pytest.mark.skipif(not _HAS_GRADIO,
-                    reason="Gradio is an optional extra; install with `uv sync --extra gradio`")
+@pytest.mark.skipif(
+    not _HAS_GRADIO, reason="Gradio is an optional extra; install with `uv sync --extra gradio`"
+)
 class TestGradioApp:
     """Smoke tests for the Gradio web app — catches import/compat regressions."""
 
     def test_app_module_imports(self):
         """The web app module should import without errors."""
         from apps.web.gradio_app import create_app, CSS
+
         assert create_app is not None
         assert isinstance(CSS, str)
 
@@ -240,6 +282,7 @@ class TestGradioApp:
         """create_app() should return a Gradio Blocks instance.
         This is the test that would have caught the Gradio 6.x breakage."""
         from apps.web.gradio_app import create_app
+
         demo = create_app()
         assert demo is not None
 
@@ -270,21 +313,35 @@ class TestGradioApp:
         from apps.web.gradio_app import render_profile_html, render_strategy_html, render_plan_html
 
         profile = InvestorProfile(
-            id="test", name="Test", age=30, risk_appetite="moderate",
-            investment_horizon_years=10, monthly_investible_surplus_inr=10000,
-            existing_corpus_inr=0, liabilities_inr=0,
-            financial_goals=["Save"], life_stage="Mid career", tax_bracket="new_regime",
+            id="test",
+            name="Test",
+            age=30,
+            risk_appetite="moderate",
+            investment_horizon_years=10,
+            monthly_investible_surplus_inr=10000,
+            existing_corpus_inr=0,
+            liabilities_inr=0,
+            financial_goals=["Save"],
+            life_stage="Mid career",
+            tax_bracket="new_regime",
         )
         strategy = StrategyOutline(
-            equity_pct=50.0, debt_pct=50.0, gold_pct=0.0, other_pct=0.0,
-            equity_approach="Balanced", key_themes=[],
-            risk_return_summary="8% CAGR", open_questions=[],
+            equity_pct=50.0,
+            debt_pct=50.0,
+            gold_pct=0.0,
+            other_pct=0.0,
+            equity_approach="Balanced",
+            key_themes=[],
+            risk_return_summary="8% CAGR",
+            open_questions=[],
         )
         plan = InvestmentPlan(
             allocations=[
                 Allocation(
                     fund=MutualFund(amfi_code="100", name="Test Fund"),
-                    allocation_pct=100.0, mode="sip", rationale="Only fund",
+                    allocation_pct=100.0,
+                    mode="sip",
+                    rationale="Only fund",
                 )
             ],
         )
@@ -296,6 +353,7 @@ class TestGradioApp:
     def test_chat_state_initializes(self):
         """Chat state factory should return a valid state dict."""
         from apps.web.gradio_app import _make_state, PHASE_PROFILE
+
         state = _make_state()
         assert state["phase"] == PHASE_PROFILE
         assert state["profile"] is None
@@ -304,6 +362,7 @@ class TestGradioApp:
     def test_opening_message_lists_personas(self):
         """Opening message should mention available personas."""
         from apps.web.gradio_app import _opening_message
+
         msg = _opening_message()
         assert "P01" in msg
         assert "P05" in msg
@@ -315,7 +374,11 @@ class TestGradioApp:
         state = _make_state()
         history = []
 
-        with patch("apps.web.gradio_app.generate_strategy", new_callable=AsyncMock, return_value=_fake_strategy()):
+        with patch(
+            "apps.web.gradio_app.generate_strategy",
+            new_callable=AsyncMock,
+            return_value=_fake_strategy(),
+        ):
             history, state, status = _process_message("P01", history, state)
 
         assert state["profile"] is not None
@@ -334,7 +397,9 @@ class TestGradioApp:
         state["strategy"] = _fake_strategy()
         history = []
 
-        with patch("apps.web.gradio_app.generate_plan", new_callable=AsyncMock, return_value=_fake_plan()):
+        with patch(
+            "apps.web.gradio_app.generate_plan", new_callable=AsyncMock, return_value=_fake_plan()
+        ):
             history, state, status = _process_message("yes", history, state)
 
         assert state["plan"] is not None
@@ -346,9 +411,14 @@ class TestGradioApp:
         from subprime.evaluation.personas import get_persona
 
         revised = StrategyOutline(
-            equity_pct=80.0, debt_pct=10.0, gold_pct=10.0, other_pct=0.0,
-            equity_approach="More aggressive", key_themes=["growth"],
-            risk_return_summary="14% CAGR", open_questions=[],
+            equity_pct=80.0,
+            debt_pct=10.0,
+            gold_pct=10.0,
+            other_pct=0.0,
+            equity_approach="More aggressive",
+            key_themes=["growth"],
+            risk_return_summary="14% CAGR",
+            open_questions=[],
         )
 
         state = _make_state()
@@ -357,7 +427,9 @@ class TestGradioApp:
         state["strategy"] = _fake_strategy()
         history = []
 
-        with patch("apps.web.gradio_app.generate_strategy", new_callable=AsyncMock, return_value=revised):
+        with patch(
+            "apps.web.gradio_app.generate_strategy", new_callable=AsyncMock, return_value=revised
+        ):
             history, state, status = _process_message("more equity please", history, state)
 
         assert state["strategy"].equity_pct == 80.0
@@ -451,10 +523,17 @@ class TestAdvisorWithUniverse:
         from subprime.advisor.planner import generate_plan
 
         profile = InvestorProfile(
-            id="test", name="Test", age=30, risk_appetite="moderate",
-            investment_horizon_years=10, monthly_investible_surplus_inr=10000,
-            existing_corpus_inr=0, liabilities_inr=0,
-            financial_goals=["Save"], life_stage="Mid career", tax_bracket="new_regime",
+            id="test",
+            name="Test",
+            age=30,
+            risk_appetite="moderate",
+            investment_horizon_years=10,
+            monthly_investible_surplus_inr=10000,
+            existing_corpus_inr=0,
+            liabilities_inr=0,
+            financial_goals=["Save"],
+            life_stage="Mid career",
+            tax_bracket="new_regime",
         )
 
         await generate_plan(profile)
@@ -467,9 +546,7 @@ class TestAdvisorWithUniverse:
     @pytest.mark.asyncio
     async def test_plan_generation_no_db_falls_back(self, tmp_path, monkeypatch):
         """When no DB exists, generate_plan should pass universe_context=None."""
-        monkeypatch.setattr(
-            "subprime.advisor.planner.DB_PATH", tmp_path / "nonexistent.duckdb"
-        )
+        monkeypatch.setattr("subprime.advisor.planner.DB_PATH", tmp_path / "nonexistent.duckdb")
         # planner caches rendered universe at module scope between tests —
         # clear it so an earlier test's warm cache doesn't leak in here.
         monkeypatch.setattr("subprime.advisor.planner._UNIVERSE_CACHE_TEXT", None)
@@ -487,10 +564,17 @@ class TestAdvisorWithUniverse:
         from subprime.advisor.planner import generate_plan
 
         profile = InvestorProfile(
-            id="test", name="Test", age=30, risk_appetite="moderate",
-            investment_horizon_years=10, monthly_investible_surplus_inr=10000,
-            existing_corpus_inr=0, liabilities_inr=0,
-            financial_goals=["Save"], life_stage="Mid career", tax_bracket="new_regime",
+            id="test",
+            name="Test",
+            age=30,
+            risk_appetite="moderate",
+            investment_horizon_years=10,
+            monthly_investible_surplus_inr=10000,
+            existing_corpus_inr=0,
+            liabilities_inr=0,
+            financial_goals=["Save"],
+            life_stage="Mid career",
+            tax_bracket="new_regime",
         )
 
         await generate_plan(profile)

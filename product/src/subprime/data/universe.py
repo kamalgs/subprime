@@ -182,7 +182,11 @@ def _category_expense_ratio_case_sql(category_alias: str = "category") -> str:
         f"WHEN {category_alias} = '{cat}' THEN {er}"
         for cat, er in _CATEGORY_TYPICAL_EXPENSE_RATIO.items()
     ]
-    return "CASE\n            " + "\n            ".join(branches) + "\n            ELSE 1.00\n        END"
+    return (
+        "CASE\n            "
+        + "\n            ".join(branches)
+        + "\n            ELSE 1.00\n        END"
+    )
 
 
 def _category_case_sql(alias: str = "s.scheme_category") -> str:
@@ -197,10 +201,12 @@ def _category_case_sql(alias: str = "s.scheme_category") -> str:
         # Escape single quotes in case of future pattern additions.
         safe_needle = needle.replace("'", "''")
         safe_canonical = canonical.replace("'", "''")
-        branches.append(
-            f"WHEN {alias} ILIKE '%{safe_needle}%' THEN '{safe_canonical}'"
-        )
-    return "CASE\n            " + "\n            ".join(branches) + "\n            ELSE NULL\n        END"
+        branches.append(f"WHEN {alias} ILIKE '%{safe_needle}%' THEN '{safe_canonical}'")
+    return (
+        "CASE\n            "
+        + "\n            ".join(branches)
+        + "\n            ELSE NULL\n        END"
+    )
 
 
 # --------------------------------------------------------------------------- #
@@ -235,9 +241,9 @@ def build_universe(
     """
     import math
 
-    tier1_n = math.ceil(top_n_per_category * 0.40)          # ~40 % established
-    tier2_n = math.ceil(top_n_per_category * 0.30)          # ~30 % growing
-    tier3_n = top_n_per_category - tier1_n - tier2_n        # remaining newer
+    tier1_n = math.ceil(top_n_per_category * 0.40)  # ~40 % established
+    tier2_n = math.ceil(top_n_per_category * 0.30)  # ~30 % growing
+    tier3_n = top_n_per_category - tier1_n - tier2_n  # remaining newer
 
     conn.execute("DELETE FROM fund_universe")
 
@@ -362,9 +368,7 @@ def _populate_display_names(conn: duckdb.DuckDBPyConnection) -> None:
     """Fill fund_universe.display_name with a compact UI label per fund."""
     from subprime.data.display_names import generate_display_name
 
-    rows = conn.execute(
-        "SELECT amfi_code, name, amc FROM fund_universe"
-    ).fetchall()
+    rows = conn.execute("SELECT amfi_code, name, amc FROM fund_universe").fetchall()
     for amfi_code, name, amc in rows:
         display = generate_display_name(name or "", amc or None)
         conn.execute(
@@ -402,12 +406,21 @@ def _fmt_aum(value: float | None) -> str:
     return f"{value:,.0f}"
 
 
-def render_universe_context(conn: duckdb.DuckDBPyConnection) -> str:
+def render_universe_context(
+    conn: duckdb.DuckDBPyConnection,
+    max_per_category: int | None = None,
+) -> str:
     """Render the current fund universe as a markdown brief.
 
     Iterates :data:`CURATED_CATEGORIES` in order, rendering one table per
     category (sorted by ``rank_in_category``). Skips categories with no rows.
     Returns a placeholder string if the universe is empty.
+
+    Args:
+        conn: Read-only DuckDB connection.
+        max_per_category: If set, cap rows per category — used for the slim
+            variant served to small-model / basic-tier advisors to keep the
+            context budget manageable. ``None`` renders everything (default).
     """
     total_row = conn.execute("SELECT COUNT(*) FROM fund_universe").fetchone()
     total = int(total_row[0]) if total_row else 0
@@ -450,8 +463,7 @@ def render_universe_context(conn: duckdb.DuckDBPyConnection) -> str:
     today = _date.today()
 
     for category in CURATED_CATEGORIES:
-        rows = conn.execute(
-            """
+        sql = """
             SELECT name, amc, amfi_code, launch_date,
                    returns_1y, returns_3y, returns_5y,
                    expense_ratio, aum_cr,
@@ -459,19 +471,22 @@ def render_universe_context(conn: duckdb.DuckDBPyConnection) -> str:
             FROM fund_universe
             WHERE category = ?
             ORDER BY rank_in_category
-            """,
-            [category],
-        ).fetchall()
+            """
+        params: list = [category]
+        if max_per_category is not None:
+            sql += " LIMIT ?"
+            params.append(max_per_category)
+        rows = conn.execute(sql, params).fetchall()
         if not rows:
             continue
 
         tax_label = _TAX_LABELS[tax_regime(category)]
         lines.append(f"### {category}  _({tax_label})_")
-        lines.append("| Fund | AMC | AMFI | Age | AUM (Cr) | 1y | 3y | 5y | ER | β | α | TE | Sharpe |")
+        lines.append(
+            "| Fund | AMC | AMFI | Age | AUM (Cr) | 1y | 3y | 5y | ER | β | α | TE | Sharpe |"
+        )
         lines.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|")
-        for (name, amc, amfi_code, launch_date,
-             r1, r3, r5, er, aum,
-             beta, alpha, te, sharpe) in rows:
+        for name, amc, amfi_code, launch_date, r1, r3, r5, er, aum, beta, alpha, te, sharpe in rows:
             age = f"{(today - launch_date).days // 365}y" if launch_date else "-"
             lines.append(
                 f"| {name} | {amc} | {amfi_code} | {age} | {_fmt_aum(aum)} | "
@@ -520,9 +535,26 @@ def search_universe(
         ).fetchall()
 
     funds: list[MutualFund] = []
-    for (amfi_code, name, display_name, amc, cat, sub_cat,
-         launch_date, aum, r1, r3, r5, er,
-         vol, beta, alpha, te, sharpe, ir) in rows:
+    for (
+        amfi_code,
+        name,
+        display_name,
+        amc,
+        cat,
+        sub_cat,
+        launch_date,
+        aum,
+        r1,
+        r3,
+        r5,
+        er,
+        vol,
+        beta,
+        alpha,
+        te,
+        sharpe,
+        ir,
+    ) in rows:
         funds.append(
             MutualFund(
                 amfi_code=str(amfi_code),
@@ -568,9 +600,26 @@ def search_universe_by_code(
     ).fetchone()
     if not row:
         return None
-    (code, name, display_name, amc, cat, sub_cat,
-     launch_date, aum, r1, r3, r5, er,
-     vol, beta, alpha, te, sharpe, ir) = row
+    (
+        code,
+        name,
+        display_name,
+        amc,
+        cat,
+        sub_cat,
+        launch_date,
+        aum,
+        r1,
+        r3,
+        r5,
+        er,
+        vol,
+        beta,
+        alpha,
+        te,
+        sharpe,
+        ir,
+    ) = row
     return MutualFund(
         amfi_code=str(code),
         name=name or "",

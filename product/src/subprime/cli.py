@@ -6,7 +6,6 @@ Entry point configured in pyproject.toml as: subprime = "subprime.cli:app"
 from __future__ import annotations
 
 import asyncio
-import json
 import logging
 import sys
 from pathlib import Path
@@ -32,9 +31,15 @@ logger = logging.getLogger("subprime")
 load_dotenv()
 
 from subprime.advisor.planner import generate_plan, generate_strategy
-from subprime.core.config import ADVISOR_MODEL, CONVERSATIONS_DIR, DB_PATH, DEFAULT_MODEL, REFINE_MODEL
+from subprime.core.config import ADVISOR_MODEL, CONVERSATIONS_DIR, DB_PATH, REFINE_MODEL
 from subprime.core.display import format_plan_summary, format_profile_card, format_strategy_outline
-from subprime.core.models import APSScore, ConversationLog, ConversationTurn, ExperimentResult, PlanQualityScore
+from subprime.core.models import (
+    APSScore,
+    ConversationLog,
+    ConversationTurn,
+    ExperimentResult,
+    PlanQualityScore,
+)
 
 app = typer.Typer(
     name="subprime",
@@ -46,13 +51,18 @@ def _default_results_dir() -> Path:
     """Return results/YYYYMMDD_<git-short-hash>, falling back to results/YYYYMMDD if git unavailable."""
     import subprocess
     from datetime import date
+
     datestamp = date.today().strftime("%Y%m%d")
     try:
-        sha = subprocess.check_output(
-            ["git", "rev-parse", "--short", "HEAD"],
-            stderr=subprocess.DEVNULL,
-            cwd=Path(__file__).parent,
-        ).decode().strip()
+        sha = (
+            subprocess.check_output(
+                ["git", "rev-parse", "--short", "HEAD"],
+                stderr=subprocess.DEVNULL,
+                cwd=Path(__file__).parent,
+            )
+            .decode()
+            .strip()
+        )
         return Path("results") / f"{datestamp}_{sha}"
     except Exception:
         return Path("results") / datestamp
@@ -90,6 +100,7 @@ def _check_api_key(model: str) -> None:
     elif model.startswith("bedrock:"):
         # Rely on boto3's chain: env vars, ~/.aws/credentials, instance profile.
         import boto3
+
         try:
             boto3.client("sts").get_caller_identity()
         except Exception as exc:
@@ -114,6 +125,7 @@ def _check_api_key(model: str) -> None:
                 "  export VLLM_JUDGE_BASE_URL=http://<judge-ip>:8000/v1"
             )
             raise typer.Exit(code=1)
+
 
 _console = Console()
 
@@ -166,10 +178,7 @@ def experiment_run(
     results_dir: Optional[Path] = typer.Option(
         None,
         "--results-dir",
-        help=(
-            "Directory to save result JSON files. "
-            "Defaults to results/YYYYMMDD_<git-hash>."
-        ),
+        help=("Directory to save result JSON files. Defaults to results/YYYYMMDD_<git-hash>."),
     ),
     resume: bool = typer.Option(
         False,
@@ -250,8 +259,10 @@ def experiment_run(
     _check_api_key(model)
 
     key_source = (
-        "--api-key flag" if api_key
-        else "ANTHROPIC_API_KEY_EXPERIMENT" if os.environ.get("ANTHROPIC_API_KEY_EXPERIMENT")
+        "--api-key flag"
+        if api_key
+        else "ANTHROPIC_API_KEY_EXPERIMENT"
+        if os.environ.get("ANTHROPIC_API_KEY_EXPERIMENT")
         else "ANTHROPIC_API_KEY"
     )
     _console.print(f"[dim]Using API key from: {key_source}[/dim]")
@@ -397,7 +408,9 @@ def experiment_analyze(
     from subprime.experiments.analysis import print_analysis
 
     if not results_dir.exists():
-        _console.print(f"[bold red]Error:[/bold red] Results directory does not exist: {results_dir}")
+        _console.print(
+            f"[bold red]Error:[/bold red] Results directory does not exist: {results_dir}"
+        )
         raise typer.Exit(code=1)
 
     if not results_dir.is_dir():
@@ -509,16 +522,18 @@ def experiment_score(
                     tax_efficiency=0.5,
                     reasoning="(placeholder — will be re-scored)",
                 )
-                results.append(ExperimentResult(
-                    persona_id=raw["persona_id"],
-                    condition=raw["condition"],
-                    model=raw.get("model", "unknown"),
-                    judge_model=raw.get("judge_model"),
-                    plan=InvestmentPlan.model_validate(raw["plan"]),
-                    aps=stub_aps,
-                    pqs=stub_pqs,
-                    prompt_version=raw.get("prompt_version", "v1"),
-                ))
+                results.append(
+                    ExperimentResult(
+                        persona_id=raw["persona_id"],
+                        condition=raw["condition"],
+                        model=raw.get("model", "unknown"),
+                        judge_model=raw.get("judge_model"),
+                        plan=InvestmentPlan.model_validate(raw["plan"]),
+                        aps=stub_aps,
+                        pqs=stub_pqs,
+                        prompt_version=raw.get("prompt_version", "v1"),
+                    )
+                )
             except Exception as exc2:
                 _console.print(f"[yellow]Warning:[/yellow] Skipping {jf.name}: {exc2}")
 
@@ -527,7 +542,7 @@ def experiment_score(
         raise typer.Exit(1)
 
     from subprime.evaluation.personas import load_personas
-    from subprime.experiments.runner import rescore_results, save_result
+    from subprime.experiments.runner import rescore_results
 
     persona_map = {p.id: p for p in load_personas()}
 
@@ -542,8 +557,11 @@ def experiment_score(
         results_dir.mkdir(parents=True, exist_ok=True)
         rescored = asyncio.run(
             rescore_results(
-                results, judge_model=judge_model, personas=persona_map,
-                thinking=thinking, results_dir=results_dir,
+                results,
+                judge_model=judge_model,
+                personas=persona_map,
+                thinking=thinking,
+                results_dir=results_dir,
             )
         )
         _console.print(
@@ -634,7 +652,9 @@ def advise(
             conversation.strategy_revisions.append(ConversationTurn(role="user", content=response))
             with _console.status("[bold blue]Revising strategy...[/bold blue]"):
                 strategy, _ = asyncio.run(
-                    generate_strategy(profile, feedback=response, current_strategy=strategy, model=model)
+                    generate_strategy(
+                        profile, feedback=response, current_strategy=strategy, model=model
+                    )
                 )
             print(format_strategy_outline(strategy), end="")
             conversation.strategy = strategy
@@ -643,6 +663,7 @@ def advise(
         _console.print(Rule("[bold]Phase 3: Fund Selection[/bold]", style="blue"))
         if mode == "premium":
             from subprime.advisor.perspectives import get_default_perspectives
+
             perspective_list = get_default_perspectives(perspectives)
             names = [p.description for p in perspective_list]
             _console.print(f"[dim]Premium mode: comparing {perspectives} perspectives[/dim]")
@@ -747,7 +768,11 @@ def replay(
     if conv.profile_turns:
         _console.print(f"[bold]Profile conversation:[/bold] ({len(conv.profile_turns)} turns)")
         for turn in conv.profile_turns:
-            prefix = "[bold cyan]Advisor:[/bold cyan]" if turn.role == "advisor" else "[bold green]You:[/bold green]"
+            prefix = (
+                "[bold cyan]Advisor:[/bold cyan]"
+                if turn.role == "advisor"
+                else "[bold green]You:[/bold green]"
+            )
             _console.print(f"  {prefix} {turn.content}")
         _console.print()
 
@@ -783,7 +808,6 @@ def web(
     ),
 ) -> None:
     """Launch the FinAdvisor web interface."""
-    import sys
 
     # Ensure the project root (where apps/ lives) is on sys.path
     _project_root = str(Path(__file__).resolve().parent.parent.parent)
@@ -879,8 +903,12 @@ def smoke_test(
 
     # Per-run table
     _console.print("[bold]Per-run token breakdown:[/bold]")
-    _console.print(f"  {'#':>2}  {'persona':8}  {'condition':10}  {'input':>8}  {'output':>7}  {'cache_wr':>9}  {'cache_rd':>9}")
-    _console.print(f"  {'─'*2}  {'─'*8}  {'─'*10}  {'─'*8}  {'─'*7}  {'─'*9}  {'─'*9}")
+    _console.print(
+        f"  {'#':>2}  {'persona':8}  {'condition':10}  {'input':>8}  {'output':>7}  {'cache_wr':>9}  {'cache_rd':>9}"
+    )
+    _console.print(
+        f"  {'─' * 2}  {'─' * 8}  {'─' * 10}  {'─' * 8}  {'─' * 7}  {'─' * 9}  {'─' * 9}"
+    )
 
     total_cache_read = 0
     total_cache_write = 0
@@ -900,7 +928,11 @@ def smoke_test(
     # Summary
     _console.print()
     if total_cache_read > 0:
-        pct = 100 * total_cache_read / (total_cache_read + sum(u.input_tokens or 0 for _, _, u in rows))
+        pct = (
+            100
+            * total_cache_read
+            / (total_cache_read + sum(u.input_tokens or 0 for _, _, u in rows))
+        )
         _console.print(
             f"[bold green]✓ Cache working[/bold green] — "
             f"{total_cache_read:,} tokens served from cache  "
@@ -942,7 +974,9 @@ def data_migrate() -> None:
     from subprime.data.store import ensure_schema
 
     if not DB_PATH.exists():
-        _console.print(f"[yellow]{DB_PATH} does not exist — run 'subprime data refresh' to create it.[/yellow]")
+        _console.print(
+            f"[yellow]{DB_PATH} does not exist — run 'subprime data refresh' to create it.[/yellow]"
+        )
         return
 
     try:
@@ -985,6 +1019,7 @@ def data_refresh() -> None:
 
         _console.print("[dim]Enriching with expense ratios (live)...[/dim]")
         from subprime.data.ingest import enrich_universe_with_expense_ratios
+
         enrichment = asyncio.run(enrich_universe_with_expense_ratios(conn))
         _console.print(
             f"[green]Enriched:[/green] {enrichment['enriched']} live, "
@@ -995,6 +1030,7 @@ def data_refresh() -> None:
         # Rebuild the cached markdown on disk so the next web-app start
         # doesn't serve a stale universe to the advisor.
         from subprime.advisor.planner import warm_universe_cache
+
         warm_universe_cache()
     except KeyboardInterrupt:
         _console.print("\n[dim]Interrupted.[/dim]")

@@ -8,8 +8,6 @@ analysis computes real stats, display renders real Rich output, CLI runs real Ty
 
 from __future__ import annotations
 
-import json
-from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock, patch
 
@@ -197,8 +195,14 @@ class TestFullImportChain:
         )
 
         symbols = [
-            Allocation, APSScore, ExperimentResult, InvestmentPlan,
-            InvestorProfile, MutualFund, PlanQualityScore, Settings,
+            Allocation,
+            APSScore,
+            ExperimentResult,
+            InvestmentPlan,
+            InvestorProfile,
+            MutualFund,
+            PlanQualityScore,
+            Settings,
             StrategyOutline,
         ]
         for s in symbols:
@@ -214,8 +218,11 @@ class TestFullImportChain:
         )
 
         symbols = [
-            MFDataClient, SchemeDetails, SchemeSearchResult,
-            get_fund_details, search_funds_universe,
+            MFDataClient,
+            SchemeDetails,
+            SchemeSearchResult,
+            get_fund_details,
+            search_funds_universe,
         ]
         for s in symbols:
             assert s is not None
@@ -240,8 +247,14 @@ class TestFullImportChain:
         )
 
         symbols = [
-            ScoredPlan, create_aps_judge, create_pqs_judge,
-            get_persona, load_personas, score_aps, score_pqs, score_plan,
+            ScoredPlan,
+            create_aps_judge,
+            create_pqs_judge,
+            get_persona,
+            load_personas,
+            score_aps,
+            score_pqs,
+            score_plan,
         ]
         for s in symbols:
             assert s is not None
@@ -265,9 +278,19 @@ class TestFullImportChain:
         )
 
         symbols = [
-            BASELINE, BOGLE, CONDITIONS, ComparisonResult, Condition,
-            ConditionStats, LYNCH, compare_conditions, compute_condition_stats,
-            get_condition, print_analysis, run_experiment, run_single,
+            BASELINE,
+            BOGLE,
+            CONDITIONS,
+            ComparisonResult,
+            Condition,
+            ConditionStats,
+            LYNCH,
+            compare_conditions,
+            compute_condition_stats,
+            get_condition,
+            print_analysis,
+            run_experiment,
+            run_single,
             save_result,
         ]
         for s in symbols:
@@ -448,9 +471,7 @@ class TestEndToEndMockedLLM:
 
         persona = get_persona("P01")
         fake_plan = _make_realistic_plan()
-        fake_scored = ScoredPlan(
-            plan=fake_plan, aps=_make_aps(0.2), pqs=_make_pqs(0.85)
-        )
+        fake_scored = ScoredPlan(plan=fake_plan, aps=_make_aps(0.2), pqs=_make_pqs(0.85))
 
         with (
             patch(
@@ -478,9 +499,7 @@ class TestEndToEndMockedLLM:
 
         persona = get_persona("P01")
         fake_plan = _make_realistic_plan()
-        fake_scored = ScoredPlan(
-            plan=fake_plan, aps=_make_aps(0.55), pqs=_make_pqs(0.9)
-        )
+        fake_scored = ScoredPlan(plan=fake_plan, aps=_make_aps(0.55), pqs=_make_pqs(0.9))
 
         with (
             patch(
@@ -507,7 +526,9 @@ class TestEndToEndMockedLLM:
         assert restored.aps.composite_aps == pytest.approx(result.aps.composite_aps)
         assert restored.pqs.composite_pqs == pytest.approx(result.pqs.composite_pqs)
         assert len(restored.plan.allocations) == len(result.plan.allocations)
-        assert restored.plan.allocations[0].fund.name == "Parag Parikh Flexi Cap Fund - Direct Growth"
+        assert (
+            restored.plan.allocations[0].fund.name == "Parag Parikh Flexi Cap Fund - Direct Growth"
+        )
 
 
 # ===========================================================================
@@ -755,12 +776,14 @@ class TestM1AdvisorFlow:
         from subprime.advisor import generate_plan, generate_strategy
         from subprime.evaluation import get_persona
         from subprime.core.display import format_strategy_outline, format_plan_summary
-        from subprime.core.models import StrategyOutline
 
         profile = get_persona("P01")
 
         fake_strategy = StrategyOutline(
-            equity_pct=75.0, debt_pct=15.0, gold_pct=10.0, other_pct=0.0,
+            equity_pct=75.0,
+            debt_pct=15.0,
+            gold_pct=10.0,
+            other_pct=0.0,
             equity_approach="Index-heavy",
             key_themes=["low cost", "broad market"],
             risk_return_summary="12-14% CAGR",
@@ -780,14 +803,23 @@ class TestM1AdvisorFlow:
         assert "75" in strategy_display
 
         fund = MutualFund(
-            amfi_code="120503", name="UTI Nifty 50",
-            category="Equity", sub_category="Index",
-            fund_house="UTI", nav=150.0, expense_ratio=0.18,
+            amfi_code="120503",
+            name="UTI Nifty 50",
+            category="Equity",
+            sub_category="Index",
+            fund_house="UTI",
+            nav=150.0,
+            expense_ratio=0.18,
         )
         fake_plan = InvestmentPlan(
             allocations=[
-                Allocation(fund=fund, allocation_pct=75.0, mode="sip",
-                           monthly_sip_inr=37500, rationale="Core index"),
+                Allocation(
+                    fund=fund,
+                    allocation_pct=75.0,
+                    mode="sip",
+                    monthly_sip_inr=37500,
+                    rationale="Core index",
+                ),
             ],
             setup_phase="Start SIP month 1",
             review_checkpoints=["6-month"],

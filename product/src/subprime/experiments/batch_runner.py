@@ -11,7 +11,6 @@ Usage:
 from __future__ import annotations
 
 import asyncio
-import time
 from pathlib import Path
 
 import anthropic
@@ -167,10 +166,7 @@ async def run_experiment_batch(
     completed = _completed_keys(out_dir) if resume else set()
 
     all_pairs: list[tuple[InvestorProfile, Condition]] = [
-        (p, c)
-        for p in personas
-        for c in conditions
-        if not (resume and (p.id, c.name) in completed)
+        (p, c) for p in personas for c in conditions if not (resume and (p.id, c.name) in completed)
     ]
 
     if not all_pairs:
@@ -240,15 +236,12 @@ async def run_experiment_batch(
     ]
 
     adv_batch = await client.beta.messages.batches.create(requests=adv_requests)
-    _console.print(
-        f"  Submitted [bold]{adv_batch.id}[/bold]  "
-        f"({len(adv_requests)} requests)"
-    )
+    _console.print(f"  Submitted [bold]{adv_batch.id}[/bold]  ({len(adv_requests)} requests)")
 
     await _poll_until_ended(client, adv_batch.id)
 
     # --- Parse Phase 1 results ---------------------------------------------- #
-    plans: dict[str, InvestmentPlan] = {}   # custom_id → plan
+    plans: dict[str, InvestmentPlan] = {}  # custom_id → plan
     adv_usage = RunUsage()
     adv_errors: list[tuple[str, object]] = []
 
@@ -288,71 +281,72 @@ async def run_experiment_batch(
     for adv_cid, plan in plans.items():
         persona, condition = pair_by_adv_cid[adv_cid]
 
-        jud_requests.append({
-            "custom_id": f"aps_{persona.id}_{condition.name}",
-            "params": {
-                "model": raw_judge,
-                "max_tokens": 2048,
-                "system": [
-                    {
-                        "type": "text",
-                        "text": _APS_PROMPT,
-                        "cache_control": {"type": "ephemeral"},
-                    }
-                ],
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": (
-                            "Score the following investment plan on the "
-                            "Active-Passive spectrum:\n\n"
-                            f"{plan.model_dump_json(indent=2)}"
-                        ),
-                    }
-                ],
-                "tools": [aps_tool],
-                "tool_choice": {"type": "tool", "name": "final_result"},
-            },
-        })
+        jud_requests.append(
+            {
+                "custom_id": f"aps_{persona.id}_{condition.name}",
+                "params": {
+                    "model": raw_judge,
+                    "max_tokens": 2048,
+                    "system": [
+                        {
+                            "type": "text",
+                            "text": _APS_PROMPT,
+                            "cache_control": {"type": "ephemeral"},
+                        }
+                    ],
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": (
+                                "Score the following investment plan on the "
+                                "Active-Passive spectrum:\n\n"
+                                f"{plan.model_dump_json(indent=2)}"
+                            ),
+                        }
+                    ],
+                    "tools": [aps_tool],
+                    "tool_choice": {"type": "tool", "name": "final_result"},
+                },
+            }
+        )
 
-        jud_requests.append({
-            "custom_id": f"pqs_{persona.id}_{condition.name}",
-            "params": {
-                "model": raw_judge,
-                "max_tokens": 2048,
-                "system": [
-                    {
-                        "type": "text",
-                        "text": _PQS_PROMPT,
-                        "cache_control": {"type": "ephemeral"},
-                    }
-                ],
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": (
-                            "Score the quality of the following investment plan "
-                            "for this investor.\n\n"
-                            f"## Investor Profile\n{persona.model_dump_json(indent=2)}\n\n"
-                            f"## Investment Plan\n{plan.model_dump_json(indent=2)}"
-                        ),
-                    }
-                ],
-                "tools": [pqs_tool],
-                "tool_choice": {"type": "tool", "name": "final_result"},
-            },
-        })
+        jud_requests.append(
+            {
+                "custom_id": f"pqs_{persona.id}_{condition.name}",
+                "params": {
+                    "model": raw_judge,
+                    "max_tokens": 2048,
+                    "system": [
+                        {
+                            "type": "text",
+                            "text": _PQS_PROMPT,
+                            "cache_control": {"type": "ephemeral"},
+                        }
+                    ],
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": (
+                                "Score the quality of the following investment plan "
+                                "for this investor.\n\n"
+                                f"## Investor Profile\n{persona.model_dump_json(indent=2)}\n\n"
+                                f"## Investment Plan\n{plan.model_dump_json(indent=2)}"
+                            ),
+                        }
+                    ],
+                    "tools": [pqs_tool],
+                    "tool_choice": {"type": "tool", "name": "final_result"},
+                },
+            }
+        )
 
     jud_batch = await client.beta.messages.batches.create(requests=jud_requests)
-    _console.print(
-        f"  Submitted [bold]{jud_batch.id}[/bold]  "
-        f"({len(jud_requests)} requests)"
-    )
+    _console.print(f"  Submitted [bold]{jud_batch.id}[/bold]  ({len(jud_requests)} requests)")
 
     await _poll_until_ended(client, jud_batch.id)
 
     # --- Parse Phase 2 results ---------------------------------------------- #
-    aps_scores: dict[str, APSScore] = {}            # "P01_baseline" → score
+    aps_scores: dict[str, APSScore] = {}  # "P01_baseline" → score
     pqs_scores: dict[str, PlanQualityScore] = {}
     jud_usage = RunUsage()
     jud_errors: list[tuple[str, object]] = []
@@ -363,10 +357,10 @@ async def run_experiment_batch(
             try:
                 jud_usage.incr(_usage_from_beta(item.result.message))
                 if cid.startswith("aps_"):
-                    key = cid[4:]   # strip "aps_"
+                    key = cid[4:]  # strip "aps_"
                     aps_scores[key] = _parse_final_result(item.result.message, APSScore)
                 elif cid.startswith("pqs_"):
-                    key = cid[4:]   # strip "pqs_"
+                    key = cid[4:]  # strip "pqs_"
                     pqs_scores[key] = _parse_final_result(item.result.message, PlanQualityScore)
             except Exception as exc:
                 jud_errors.append((cid, exc))

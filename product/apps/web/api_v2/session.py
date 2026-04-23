@@ -1,4 +1,5 @@
 """Session lifecycle endpoints — tier, profile, persona, OTP, reset."""
+
 from __future__ import annotations
 
 import logging
@@ -9,7 +10,6 @@ from fastapi import APIRouter, Cookie, HTTPException, Request, Response, status
 
 from apps.web.api_v2._session import COOKIE_NAME, get_or_create, set_cookie
 from apps.web.api_v2.dto import (
-    AckResponse,
     OTPRequestBody,
     OTPSendResponse,
     OTPVerifyBody,
@@ -143,6 +143,7 @@ async def otp_request(
     # the code was generated so they can try verifying.
     try:
         from apps.web.email import send_otp_email
+
         await send_otp_email(email, result["code"])
     except Exception:
         logger.exception("SMTP delivery failed for %s", email)

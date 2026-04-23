@@ -5,10 +5,6 @@ Google-style small tests: fast, deterministic, no network calls.
 
 from __future__ import annotations
 
-import os
-
-import pytest
-
 
 class TestSettings:
     def test_defaults(self, monkeypatch):

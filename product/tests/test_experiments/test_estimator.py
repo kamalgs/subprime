@@ -7,7 +7,6 @@ import pytest
 from subprime.experiments.estimator import (
     PRICING,
     ExperimentEstimate,
-    PhaseEstimate,
     PlanCostEstimate,
     _approx_tokens,
     _judge_system_tokens,
@@ -214,9 +213,7 @@ class TestEstimateExperiment:
             conditions=_get_conditions(),
             include_universe=False,
         )
-        assert est.avg_cost_per_run_usd == pytest.approx(
-            est.total_cost_usd / est.n_runs, rel=1e-4
-        )
+        assert est.avg_cost_per_run_usd == pytest.approx(est.total_cost_usd / est.n_runs, rel=1e-4)
 
     def test_single_persona_no_advisor_reads(self):
         est = estimate_experiment(

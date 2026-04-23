@@ -110,7 +110,11 @@ async def run_single(
 
         t1 = time.monotonic()
         scored, score_usage = await score_plan(
-            plan=plan, profile=persona, model=model, judge_model=judge_model, thinking=thinking,
+            plan=plan,
+            profile=persona,
+            model=model,
+            judge_model=judge_model,
+            thinking=thinking,
         )
     score_elapsed = time.monotonic() - t1
 
@@ -220,9 +224,7 @@ async def rescore_results(
         elif outcome is not None:
             rescored.append(outcome)
 
-    _console.print(
-        f"\n[dim]Total tokens — {_fmt_usage(total_usage, 0).replace('tps=0', '')}[/dim]"
-    )
+    _console.print(f"\n[dim]Total tokens — {_fmt_usage(total_usage, 0).replace('tps=0', '')}[/dim]")
     return rescored
 
 
@@ -232,7 +234,6 @@ def _completed_keys(results_dir: Path) -> set[tuple[str, str]]:
     Uses a lightweight JSON parse to extract just persona_id and condition,
     so this works even when the schema has evolved since old files were saved.
     """
-    import json
 
     completed: set[tuple[str, str]] = set()
     if not results_dir.exists():
@@ -312,7 +313,9 @@ async def run_experiment(
     session_start = time.monotonic()
     done_count = 0
 
-    async def _run(persona: InvestorProfile, condition: Condition) -> tuple[ExperimentResult, RunUsage]:
+    async def _run(
+        persona: InvestorProfile, condition: Condition
+    ) -> tuple[ExperimentResult, RunUsage]:
         nonlocal done_count
         async with sem:
             result, usage = await run_single(
@@ -325,7 +328,9 @@ async def run_experiment(
             )
             save_result(result, results_dir=out_dir)
             done_count += 1
-            _console.print(f"  [dim][{done_count}/{len(all_pairs)}] {condition.name} × {persona.id} saved[/dim]")
+            _console.print(
+                f"  [dim][{done_count}/{len(all_pairs)}] {condition.name} × {persona.id} saved[/dim]"
+            )
             return result, usage
 
     outcomes = await asyncio.gather(

@@ -5,7 +5,6 @@ Deterministic, fast, no network/LLM calls. No mocking needed.
 
 from __future__ import annotations
 
-import pytest
 
 from subprime.core.models import (
     APSScore,
@@ -293,7 +292,9 @@ class TestCorpusProjectionDisplay:
         from subprime.core.display import format_plan_summary
 
         plan = _make_plan()
-        plan = plan.model_copy(update={"projected_returns": {"bear": 0.0, "base": 0.0, "bull": 0.0}})
+        plan = plan.model_copy(
+            update={"projected_returns": {"bear": 0.0, "base": 0.0, "bull": 0.0}}
+        )
         result = format_plan_summary(plan, monthly_sip=50_000, horizon_years=30)
         # No corpus and no CAGR table when all zero
         assert "Projected Corpus" not in result

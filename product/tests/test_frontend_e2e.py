@@ -16,15 +16,14 @@ Skipped when:
   - product/apps/web/static/dist/index.html does not exist (build not run)
   - Playwright's chromium browser isn't installed
 """
+
 from __future__ import annotations
 
-import asyncio
 import socket
 import subprocess
 import sys
 import time
 from pathlib import Path
-from unittest.mock import AsyncMock, patch
 
 import pytest
 
@@ -52,8 +51,12 @@ def _free_port() -> int:
 
 def _mock_strategy():
     from subprime.core.models import StrategyOutline
+
     return StrategyOutline(
-        equity_pct=70, debt_pct=20, gold_pct=10, other_pct=0,
+        equity_pct=70,
+        debt_pct=20,
+        gold_pct=10,
+        other_pct=0,
         equity_approach="Balanced index-heavy mix",
         key_themes=["growth tilt", "low cost"],
         risk_return_summary="Expected 11% CAGR with moderate drawdowns",
@@ -63,22 +66,33 @@ def _mock_strategy():
 
 def _mock_plan():
     from subprime.core.models import Allocation, InvestmentPlan, MutualFund
+
     return InvestmentPlan(
         allocations=[
             Allocation(
                 fund=MutualFund(
-                    amfi_code="119551", name="UTI Nifty 50 Index Fund",
-                    category="Large Cap", fund_house="UTI", expense_ratio=0.18,
+                    amfi_code="119551",
+                    name="UTI Nifty 50 Index Fund",
+                    category="Large Cap",
+                    fund_house="UTI",
+                    expense_ratio=0.18,
                 ),
-                allocation_pct=60, mode="sip", monthly_sip_inr=15000,
+                allocation_pct=60,
+                mode="sip",
+                monthly_sip_inr=15000,
                 rationale="Low-cost core equity exposure.",
             ),
             Allocation(
                 fund=MutualFund(
-                    amfi_code="112090", name="Axis Bluechip Fund",
-                    category="Large Cap", fund_house="Axis", expense_ratio=0.55,
+                    amfi_code="112090",
+                    name="Axis Bluechip Fund",
+                    category="Large Cap",
+                    fund_house="Axis",
+                    expense_ratio=0.55,
                 ),
-                allocation_pct=40, mode="sip", monthly_sip_inr=10000,
+                allocation_pct=40,
+                mode="sip",
+                monthly_sip_inr=10000,
                 rationale="Active large-cap complement.",
             ),
         ],
@@ -98,6 +112,7 @@ def live_server(tmp_path):
     """Start a real uvicorn subprocess with mocked LLM calls. Returns the URL."""
     _require_spa_build()
     import os
+
     port = _free_port()
 
     # Inject mocks into the child process via a bootstrap script that replaces
@@ -150,19 +165,30 @@ async def _strategy_mock(*args, **kwargs):
 
 
 async def _plan_mock(*args, **kwargs):
-    return _plan(), RunUsage()
+    # Mirror the real staged contract: fire on_partial for every stage so
+    # the web layer saves partial plan + stages_done to session state as
+    # the production code does.
+    cb = kwargs.get("on_partial")
+    plan_val = _plan()
+    if cb is not None:
+        await cb(plan_val, ["core"])
+        await cb(plan_val, ["core", "risks"])
+        await cb(plan_val, ["core", "risks", "setup"])
+    return plan_val, RunUsage()
 
 
 # Patch at the import-site BEFORE uvicorn starts
 import apps.web.api_v2.strategy as _sm
 import apps.web.api_v2.plan as _pm
 _sm.generate_strategy = _strategy_mock
-_pm.generate_plan = _plan_mock
+_pm.generate_plan_staged = _plan_mock
 
 import uvicorn
 uvicorn.run(
     "apps.web.main:create_app",
-    factory=True, host="127.0.0.1", port=""" + str(port) + """,
+    factory=True, host="127.0.0.1", port="""
+        + str(port)
+        + """,
     log_level="warning",
 )
 """
@@ -175,27 +201,36 @@ uvicorn.run(
     # The subprocess doesn't inherit pytest's pythonpath. Add both src and
     # product roots so `apps.web.*` and `subprime.*` imports resolve.
     existing = env.get("PYTHONPATH", "")
-    env["PYTHONPATH"] = os.pathsep.join(filter(None, [
-        str(_ROOT / "src"),
-        str(_ROOT),  # so apps/ is importable
-        existing,
-    ]))
+    env["PYTHONPATH"] = os.pathsep.join(
+        filter(
+            None,
+            [
+                str(_ROOT / "src"),
+                str(_ROOT),  # so apps/ is importable
+                existing,
+            ],
+        )
+    )
 
     proc = subprocess.Popen(
         [sys.executable, str(bootstrap)],
         env=env,
-        stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
     )
     url = f"http://127.0.0.1:{port}"
     # Wait up to 30s — startup runs schema migration + universe cache warming
     import httpx
+
     deadline = time.time() + 30
     ready = False
     while time.time() < deadline:
         if proc.poll() is not None:
             # Process already exited — crashed on startup
             out, err = proc.communicate(timeout=2)
-            pytest.fail(f"Server crashed at startup:\nSTDOUT:\n{out.decode()[-1500:]}\nSTDERR:\n{err.decode()[-2500:]}")
+            pytest.fail(
+                f"Server crashed at startup:\nSTDOUT:\n{out.decode()[-1500:]}\nSTDERR:\n{err.decode()[-2500:]}"
+            )
         try:
             r = httpx.get(url + "/api/v2/session", timeout=1.0)
             if r.status_code == 200:
@@ -206,7 +241,9 @@ uvicorn.run(
     if not ready:
         proc.terminate()
         out, err = proc.communicate(timeout=5)
-        pytest.fail(f"Server never accepted connections:\nSTDOUT:\n{out.decode()[-1500:]}\nSTDERR:\n{err.decode()[-2500:]}")
+        pytest.fail(
+            f"Server never accepted connections:\nSTDOUT:\n{out.decode()[-1500:]}\nSTDERR:\n{err.decode()[-2500:]}"
+        )
 
     yield url
 
@@ -237,13 +274,24 @@ async def page(live_server):
         context = await browser.new_context()
         # Pre-dismiss the SEBI modal so tests don't have to click through it
         from urllib.parse import urlparse
+
         host = urlparse(live_server).hostname
-        await context.add_cookies([{
-            "name": "sebi_ack", "value": "1", "domain": host, "path": "/",
-        }])
+        await context.add_cookies(
+            [
+                {
+                    "name": "sebi_ack",
+                    "value": "1",
+                    "domain": host,
+                    "path": "/",
+                }
+            ]
+        )
         page = await context.new_page()
         page.on("pageerror", lambda exc: print(f"[PAGE ERROR] {exc}"))
-        page.on("console", lambda msg: print(f"[{msg.type}] {msg.text}") if msg.type == "error" else None)
+        page.on(
+            "console",
+            lambda msg: print(f"[{msg.type}] {msg.text}") if msg.type == "error" else None,
+        )
         yield (page, live_server)
         await context.close()
         await browser.close()

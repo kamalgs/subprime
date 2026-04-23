@@ -4,8 +4,6 @@ from __future__ import annotations
 
 import asyncio
 import logging
-from datetime import datetime, timezone
-from pathlib import Path
 
 import gradio as gr
 from dotenv import load_dotenv
@@ -13,7 +11,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from subprime.advisor.planner import generate_plan, generate_strategy
-from subprime.advisor.profile import gather_profile
 from subprime.core.models import (
     ConversationLog,
     ConversationTurn,
@@ -52,6 +49,7 @@ CSS = """
 # ---------------------------------------------------------------------------
 # HTML rendering
 # ---------------------------------------------------------------------------
+
 
 def _esc(text: str) -> str:
     return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
@@ -200,7 +198,7 @@ def render_plan_html(
         if corpus_rows:
             corpus_html = (
                 f'<div class="section-title">Projected Corpus '
-                f'(SIP {_format_inr_html(effective_sip)}/mo over {effective_horizon} years)</div>'
+                f"(SIP {_format_inr_html(effective_sip)}/mo over {effective_horizon} years)</div>"
                 f'<table class="plan-table">'
                 f'<tr><th>Scenario</th><th style="text-align:right">CAGR</th>'
                 f'<th style="text-align:right">Future Value</th>'
@@ -297,7 +295,12 @@ def _process_message(user_msg: str, history: list, state: dict) -> tuple[list, d
     elif phase == PHASE_PLAN_READY:
         return _handle_plan_phase(user_msg, history, state)
     else:
-        history.append({"role": "assistant", "content": "The session is complete. Start a new chat to begin again."})
+        history.append(
+            {
+                "role": "assistant",
+                "content": "The session is complete. Start a new chat to begin again.",
+            }
+        )
         return history, state, ""
 
 
@@ -314,7 +317,9 @@ def _handle_profile_phase(user_msg: str, history: list, state: dict) -> tuple[li
 
             # Generate strategy
             html = render_profile_html(profile)
-            history.append({"role": "assistant", "content": f"Using profile **{profile.name}**.\n\n{html}"})
+            history.append(
+                {"role": "assistant", "content": f"Using profile **{profile.name}**.\n\n{html}"}
+            )
 
             strategy = asyncio.run(generate_strategy(profile))
             state["strategy"] = strategy
@@ -331,14 +336,16 @@ def _handle_profile_phase(user_msg: str, history: list, state: dict) -> tuple[li
 
     if len(state["profile_turns"]) < 2:
         # Ask one follow-up
-        history.append({
-            "role": "assistant",
-            "content": (
-                "Thanks! A couple more things — what's your risk comfort level "
-                "(conservative / moderate / aggressive), and do you have any "
-                "existing investments or liabilities?"
-            ),
-        })
+        history.append(
+            {
+                "role": "assistant",
+                "content": (
+                    "Thanks! A couple more things — what's your risk comfort level "
+                    "(conservative / moderate / aggressive), and do you have any "
+                    "existing investments or liabilities?"
+                ),
+            }
+        )
         return history, state, ""
 
     # Extract profile from conversation
@@ -361,7 +368,12 @@ def _handle_profile_phase(user_msg: str, history: list, state: dict) -> tuple[li
         profile = result.output
     except Exception as exc:
         logger.exception("Profile extraction failed")
-        history.append({"role": "assistant", "content": f"Sorry, I had trouble understanding that. Could you try again? ({exc})"})
+        history.append(
+            {
+                "role": "assistant",
+                "content": f"Sorry, I had trouble understanding that. Could you try again? ({exc})",
+            }
+        )
         state["profile_turns"] = []
         return history, state, ""
 
@@ -370,7 +382,12 @@ def _handle_profile_phase(user_msg: str, history: list, state: dict) -> tuple[li
     state["phase"] = PHASE_STRATEGY
 
     html = render_profile_html(profile)
-    history.append({"role": "assistant", "content": f"Here's what I gathered:\n\n{html}\n\nLet me work on a strategy..."})
+    history.append(
+        {
+            "role": "assistant",
+            "content": f"Here's what I gathered:\n\n{html}\n\nLet me work on a strategy...",
+        }
+    )
 
     # Generate strategy
     try:
@@ -393,20 +410,32 @@ def _handle_strategy_phase(user_msg: str, history: list, state: dict) -> tuple[l
         plan_mode = state.get("mode", "basic")
         if plan_mode == "premium":
             from subprime.advisor.perspectives import get_default_perspectives
+
             n_perspectives = state.get("n_perspectives", 3)
             perspective_list = get_default_perspectives(n_perspectives)
             names = [p.description for p in perspective_list]
             bullets = "\n".join(f"- {n}" for n in names)
-            history.append({"role": "assistant", "content": f"Generating {n_perspectives} perspectives and comparing:\n{bullets}"})
+            history.append(
+                {
+                    "role": "assistant",
+                    "content": f"Generating {n_perspectives} perspectives and comparing:\n{bullets}",
+                }
+            )
         else:
             n_perspectives = 3
-            history.append({"role": "assistant", "content": "Finding specific funds for your strategy..."})
+            history.append(
+                {"role": "assistant", "content": "Finding specific funds for your strategy..."}
+            )
 
         try:
-            plan = asyncio.run(generate_plan(
-                state["profile"], strategy=state["strategy"], mode=plan_mode,
-                n_perspectives=n_perspectives,
-            ))
+            plan = asyncio.run(
+                generate_plan(
+                    state["profile"],
+                    strategy=state["strategy"],
+                    mode=plan_mode,
+                    n_perspectives=n_perspectives,
+                )
+            )
             state["plan"] = plan
             state["conv"].plan = plan
             state["phase"] = PHASE_DONE
@@ -429,7 +458,12 @@ def _handle_strategy_phase(user_msg: str, history: list, state: dict) -> tuple[l
         except Exception as exc:
             logger.exception("Plan generation failed")
             state["phase"] = PHASE_STRATEGY
-            history.append({"role": "assistant", "content": f"Error generating plan: {exc}\n\nYou can try again — type **yes** to retry."})
+            history.append(
+                {
+                    "role": "assistant",
+                    "content": f"Error generating plan: {exc}\n\nYou can try again — type **yes** to retry.",
+                }
+            )
 
         return history, state, ""
 
@@ -437,11 +471,13 @@ def _handle_strategy_phase(user_msg: str, history: list, state: dict) -> tuple[l
     state["conv"].strategy_revisions.append(ConversationTurn(role="user", content=user_msg))
 
     try:
-        strategy = asyncio.run(generate_strategy(
-            state["profile"],
-            feedback=user_msg,
-            current_strategy=state["strategy"],
-        ))
+        strategy = asyncio.run(
+            generate_strategy(
+                state["profile"],
+                feedback=user_msg,
+                current_strategy=state["strategy"],
+            )
+        )
         state["strategy"] = strategy
         state["conv"].strategy = strategy
 
@@ -455,7 +491,12 @@ def _handle_strategy_phase(user_msg: str, history: list, state: dict) -> tuple[l
 
 
 def _handle_plan_phase(user_msg: str, history: list, state: dict) -> tuple[list, dict, str]:
-    history.append({"role": "assistant", "content": "Your plan is ready above. Start a new chat to begin again."})
+    history.append(
+        {
+            "role": "assistant",
+            "content": "Your plan is ready above. Start a new chat to begin again.",
+        }
+    )
     state["phase"] = PHASE_DONE
     return history, state, ""
 
@@ -464,9 +505,9 @@ def _handle_plan_phase(user_msg: str, history: list, state: dict) -> tuple[list,
 # Gradio app
 # ---------------------------------------------------------------------------
 
+
 def create_app() -> gr.Blocks:
     with gr.Blocks(title="FinAdvisor") as demo:
-
         state = gr.State(_make_state)
 
         gr.HTML(

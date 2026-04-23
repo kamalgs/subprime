@@ -1,4 +1,5 @@
 """Tests for persistence layer: config, models, DB, sessions, OTP, conversations."""
+
 from __future__ import annotations
 import os
 from datetime import datetime, timezone
@@ -10,25 +11,35 @@ from subprime.core.models import InvestorProfile, Session, SessionSummary
 
 def _test_profile() -> InvestorProfile:
     return InvestorProfile(
-        id="test", name="Test User", age=30, risk_appetite="moderate",
-        investment_horizon_years=10, monthly_investible_surplus_inr=50000,
-        existing_corpus_inr=0, liabilities_inr=0,
-        financial_goals=["retirement"], life_stage="early career",
+        id="test",
+        name="Test User",
+        age=30,
+        risk_appetite="moderate",
+        investment_horizon_years=10,
+        monthly_investible_surplus_inr=50000,
+        existing_corpus_inr=0,
+        liabilities_inr=0,
+        financial_goals=["retirement"],
+        life_stage="early career",
         tax_bracket="new_regime",
     )
+
 
 class TestPersistenceConfig:
     def test_database_url_default_none(self):
         from subprime.core.config import DATABASE_URL
+
         assert DATABASE_URL is None or isinstance(DATABASE_URL, str)
 
     def test_otp_settings_defaults(self):
         from subprime.core.config import OTP_DAILY_LIMIT, OTP_EXPIRY_MINUTES
+
         assert OTP_DAILY_LIMIT == 100
         assert OTP_EXPIRY_MINUTES == 10
 
     def test_smtp_settings_importable(self):
-        from subprime.core.config import SMTP_HOST, SMTP_PORT, SMTP_FROM
+        from subprime.core.config import SMTP_PORT, SMTP_FROM
+
         assert SMTP_PORT == 587
         assert isinstance(SMTP_FROM, str)
 
@@ -36,6 +47,7 @@ class TestPersistenceConfig:
 class TestSessionModel:
     def test_session_defaults(self):
         from subprime.core.models import Session
+
         s = Session()
         assert s.current_step == 1
         assert s.mode == "basic"
@@ -48,11 +60,13 @@ class TestSessionModel:
 
     def test_session_premium(self):
         from subprime.core.models import Session
+
         s = Session(mode="premium")
         assert s.mode == "premium"
 
     def test_to_summary_without_profile(self):
         from subprime.core.models import Session, SessionSummary
+
         s = Session()
         summary = s.to_summary()
         assert isinstance(summary, SessionSummary)
@@ -61,11 +75,18 @@ class TestSessionModel:
 
     def test_to_summary_with_profile(self):
         from subprime.core.models import InvestorProfile, Session
+
         profile = InvestorProfile(
-            id="test", name="Test User", age=30, risk_appetite="moderate",
-            investment_horizon_years=10, monthly_investible_surplus_inr=50000,
-            existing_corpus_inr=0, liabilities_inr=0,
-            financial_goals=["retirement"], life_stage="early career",
+            id="test",
+            name="Test User",
+            age=30,
+            risk_appetite="moderate",
+            investment_horizon_years=10,
+            monthly_investible_surplus_inr=50000,
+            existing_corpus_inr=0,
+            liabilities_inr=0,
+            financial_goals=["retirement"],
+            life_stage="early career",
             tax_bracket="new_regime",
         )
         s = Session(profile=profile, current_step=3)
@@ -75,6 +96,7 @@ class TestSessionModel:
 
     def test_session_json_roundtrip(self):
         from subprime.core.models import Session
+
         s = Session(mode="premium", current_step=2)
         json_str = s.model_dump_json()
         restored = Session.model_validate_json(json_str)
@@ -86,6 +108,7 @@ class TestSessionModel:
 class TestDbPool:
     def test_db_module_imports(self):
         from subprime.core.db import init_pool, close_pool, get_pool
+
         assert callable(init_pool)
         assert callable(close_pool)
         assert callable(get_pool)
@@ -93,12 +116,14 @@ class TestDbPool:
     @pytest.mark.asyncio
     async def test_get_pool_returns_none_without_init(self):
         from subprime.core.db import get_pool
+
         pool = get_pool()
         assert pool is None
 
     def test_migration_sql_is_valid(self):
         """Verify migration file contains expected CREATE TABLE statements."""
         from pathlib import Path
+
         migration_dir = Path(__file__).parent.parent / "migrations" / "versions"
         migration_files = list(migration_dir.glob("001_*.py"))
         assert len(migration_files) == 1
@@ -112,6 +137,7 @@ class TestDbPool:
 @pytest.fixture
 def in_memory_store():
     from subprime.core.persistence import InMemorySessionStore
+
     return InMemorySessionStore()
 
 
@@ -174,6 +200,7 @@ async def postgres_store():
         pytest.skip("DATABASE_URL not set")
     from subprime.core.db import init_pool
     from subprime.core.persistence import PostgresSessionStore
+
     pool = await init_pool(db_url)
     async with pool.acquire() as conn:
         await conn.execute("DELETE FROM sessions")
@@ -249,18 +276,21 @@ class TestPostgresSessionStore:
 class TestConversations:
     def test_module_imports(self):
         from subprime.core.conversations import save_conversation, list_conversations
+
         assert callable(save_conversation)
         assert callable(list_conversations)
 
     @pytest.mark.asyncio
     async def test_save_to_json_fallback(self, tmp_path):
         from subprime.core.conversations import save_conversation
+
         s = Session(profile=_test_profile(), current_step=4, mode="basic")
         path = await save_conversation(session=s, pool=None, conversations_dir=tmp_path)
         assert path is not None
         assert path.exists()
         assert path.suffix == ".json"
         import json
+
         data = json.loads(path.read_text())
         assert data["investor_name"] == "Test User"
         assert data["mode"] == "basic"
@@ -269,16 +299,23 @@ class TestConversations:
     async def test_save_includes_plan(self, tmp_path):
         from subprime.core.conversations import save_conversation
         from subprime.core.models import Allocation, InvestmentPlan, MutualFund
+
         plan = InvestmentPlan(
-            allocations=[Allocation(
-                fund=MutualFund(amfi_code="119551", name="UTI Nifty 50"),
-                allocation_pct=100, mode="sip", monthly_sip_inr=10000, rationale="Test",
-            )],
+            allocations=[
+                Allocation(
+                    fund=MutualFund(amfi_code="119551", name="UTI Nifty 50"),
+                    allocation_pct=100,
+                    mode="sip",
+                    monthly_sip_inr=10000,
+                    rationale="Test",
+                )
+            ],
             rationale="Test plan",
         )
         s = Session(profile=_test_profile(), plan=plan, current_step=4)
         path = await save_conversation(session=s, pool=None, conversations_dir=tmp_path)
         import json
+
         data = json.loads(path.read_text())
         assert data["plan"] is not None
         assert data["plan"]["allocations"][0]["fund"]["name"] == "UTI Nifty 50"
@@ -286,9 +323,11 @@ class TestConversations:
     @pytest.mark.asyncio
     async def test_save_without_profile(self, tmp_path):
         from subprime.core.conversations import save_conversation
+
         s = Session(current_step=4)
         path = await save_conversation(session=s, pool=None, conversations_dir=tmp_path)
         import json
+
         data = json.loads(path.read_text())
         assert data["investor_name"] is None
         assert data["profile"] is None
@@ -296,6 +335,7 @@ class TestConversations:
     @pytest.mark.asyncio
     async def test_list_from_json(self, tmp_path):
         from subprime.core.conversations import save_conversation, list_conversations
+
         s1 = Session(profile=_test_profile(), current_step=4)
         s2 = Session(profile=_test_profile(), current_step=4, mode="premium")
         await save_conversation(session=s1, pool=None, conversations_dir=tmp_path)
@@ -306,12 +346,14 @@ class TestConversations:
     @pytest.mark.asyncio
     async def test_list_empty_dir(self, tmp_path):
         from subprime.core.conversations import list_conversations
+
         result = await list_conversations(pool=None, conversations_dir=tmp_path)
         assert result == []
 
     @pytest.mark.asyncio
     async def test_list_nonexistent_dir(self, tmp_path):
         from subprime.core.conversations import list_conversations
+
         result = await list_conversations(pool=None, conversations_dir=tmp_path / "nonexistent")
         assert result == []
 
@@ -323,6 +365,7 @@ class TestConversationsPostgres:
         if not database_url:
             pytest.skip("DATABASE_URL not set")
         from subprime.core.db import init_pool, close_pool
+
         pool = await init_pool(database_url)
         await pool.execute("DELETE FROM conversations")
         yield pool
@@ -332,6 +375,7 @@ class TestConversationsPostgres:
     @pytest.mark.asyncio
     async def test_save_and_list(self, pool):
         from subprime.core.conversations import save_conversation, list_conversations
+
         s = Session(profile=_test_profile(), current_step=4, mode="premium")
         await save_conversation(session=s, pool=pool)
         result = await list_conversations(pool=pool)
@@ -353,6 +397,7 @@ class TestOTPInMemory:
     @pytest.mark.asyncio
     async def test_create_otp_success(self):
         from subprime.core.otp import create_otp
+
         pool = self._make_mock_pool(fetchval_return=5)
         result = await create_otp(pool, "test@example.com")
         assert result["success"] is True
@@ -363,6 +408,7 @@ class TestOTPInMemory:
     @pytest.mark.asyncio
     async def test_create_otp_daily_limit(self):
         from subprime.core.otp import create_otp
+
         pool = self._make_mock_pool(fetchval_return=100)
         result = await create_otp(pool, "test@example.com")
         assert result["success"] is False
@@ -371,6 +417,7 @@ class TestOTPInMemory:
     @pytest.mark.asyncio
     async def test_create_otp_at_limit_minus_one(self):
         from subprime.core.otp import create_otp
+
         pool = self._make_mock_pool(fetchval_return=99)
         result = await create_otp(pool, "test@example.com")
         assert result["success"] is True
@@ -379,17 +426,23 @@ class TestOTPInMemory:
     async def test_verify_otp_success(self):
         from subprime.core.otp import verify_otp
         from datetime import timedelta
-        pool = self._make_mock_pool(fetchrow_return={
-            "id": 1, "email": "test@example.com", "code": "123456",
-            "expires_at": datetime.now(timezone.utc) + timedelta(minutes=5),
-            "verified_at": None,
-        })
+
+        pool = self._make_mock_pool(
+            fetchrow_return={
+                "id": 1,
+                "email": "test@example.com",
+                "code": "123456",
+                "expires_at": datetime.now(timezone.utc) + timedelta(minutes=5),
+                "verified_at": None,
+            }
+        )
         assert await verify_otp(pool, "test@example.com", "123456") is True
         pool.execute.assert_called_once()
 
     @pytest.mark.asyncio
     async def test_verify_otp_not_found(self):
         from subprime.core.otp import verify_otp
+
         pool = self._make_mock_pool(fetchrow_return=None)
         assert await verify_otp(pool, "test@example.com", "999999") is False
 
@@ -397,33 +450,45 @@ class TestOTPInMemory:
     async def test_verify_otp_expired(self):
         from subprime.core.otp import verify_otp
         from datetime import timedelta
-        pool = self._make_mock_pool(fetchrow_return={
-            "id": 1, "email": "test@example.com", "code": "123456",
-            "expires_at": datetime.now(timezone.utc) - timedelta(minutes=1),
-            "verified_at": None,
-        })
+
+        pool = self._make_mock_pool(
+            fetchrow_return={
+                "id": 1,
+                "email": "test@example.com",
+                "code": "123456",
+                "expires_at": datetime.now(timezone.utc) - timedelta(minutes=1),
+                "verified_at": None,
+            }
+        )
         assert await verify_otp(pool, "test@example.com", "123456") is False
 
     @pytest.mark.asyncio
     async def test_verify_otp_already_used(self):
         from subprime.core.otp import verify_otp
         from datetime import timedelta
-        pool = self._make_mock_pool(fetchrow_return={
-            "id": 1, "email": "test@example.com", "code": "123456",
-            "expires_at": datetime.now(timezone.utc) + timedelta(minutes=5),
-            "verified_at": datetime.now(timezone.utc),
-        })
+
+        pool = self._make_mock_pool(
+            fetchrow_return={
+                "id": 1,
+                "email": "test@example.com",
+                "code": "123456",
+                "expires_at": datetime.now(timezone.utc) + timedelta(minutes=5),
+                "verified_at": datetime.now(timezone.utc),
+            }
+        )
         assert await verify_otp(pool, "test@example.com", "123456") is False
 
     @pytest.mark.asyncio
     async def test_daily_count(self):
         from subprime.core.otp import daily_otp_count
+
         pool = self._make_mock_pool(fetchval_return=42)
         assert await daily_otp_count(pool) == 42
 
     @pytest.mark.asyncio
     async def test_daily_count_none_returns_zero(self):
         from subprime.core.otp import daily_otp_count
+
         pool = self._make_mock_pool(fetchval_return=None)
         assert await daily_otp_count(pool) == 0
 
@@ -431,6 +496,7 @@ class TestOTPInMemory:
     async def test_code_is_zero_padded(self):
         """Codes like 000123 should keep leading zeros."""
         from subprime.core.otp import create_otp
+
         pool = self._make_mock_pool(fetchval_return=0)
         result = await create_otp(pool, "test@example.com")
         assert len(result["code"]) == 6
@@ -445,6 +511,7 @@ class TestOTPPostgres:
         if not database_url:
             pytest.skip("DATABASE_URL not set")
         from subprime.core.db import init_pool, close_pool
+
         pool = await init_pool(database_url)
         await pool.execute("DELETE FROM otps")
         yield pool
@@ -454,6 +521,7 @@ class TestOTPPostgres:
     @pytest.mark.asyncio
     async def test_create_and_verify(self, pool):
         from subprime.core.otp import create_otp, verify_otp
+
         result = await create_otp(pool, "test@example.com")
         assert result["success"] is True
         assert await verify_otp(pool, "test@example.com", result["code"]) is True
@@ -463,12 +531,14 @@ class TestOTPPostgres:
     @pytest.mark.asyncio
     async def test_wrong_code(self, pool):
         from subprime.core.otp import create_otp, verify_otp
+
         await create_otp(pool, "test@example.com")
         assert await verify_otp(pool, "test@example.com", "000000") is False
 
     @pytest.mark.asyncio
     async def test_new_otp_invalidates_old(self, pool):
         from subprime.core.otp import create_otp, verify_otp
+
         r1 = await create_otp(pool, "test@example.com")
         r2 = await create_otp(pool, "test@example.com")
         assert await verify_otp(pool, "test@example.com", r1["code"]) is False
@@ -478,21 +548,25 @@ class TestOTPPostgres:
 class TestEmail:
     def test_module_imports(self):
         from apps.web.email import send_otp_email
+
         assert callable(send_otp_email)
 
     @pytest.mark.asyncio
     async def test_send_returns_false_without_smtp(self):
         from apps.web.email import send_otp_email
+
         result = await send_otp_email("test@example.com", "123456")
         assert result is False
 
 
 from httpx import ASGITransport, AsyncClient
 
+
 class TestOTPEndpoints:
     @pytest.mark.asyncio
     async def test_request_otp_empty_email(self):
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post("/api/request-otp", data={"email": ""})
@@ -504,6 +578,7 @@ class TestOTPEndpoints:
     @pytest.mark.asyncio
     async def test_request_otp_no_db(self):
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post("/api/request-otp", data={"email": "test@example.com"})
@@ -513,9 +588,12 @@ class TestOTPEndpoints:
     @pytest.mark.asyncio
     async def test_verify_otp_no_db(self):
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
-            resp = await client.post("/api/verify-otp", data={"email": "test@example.com", "code": "123456"})
+            resp = await client.post(
+                "/api/verify-otp", data={"email": "test@example.com", "code": "123456"}
+            )
             assert resp.status_code == 200
             assert "not available" in resp.text.lower()
 
@@ -523,10 +601,14 @@ class TestOTPEndpoints:
     async def test_step1_shows_otp_form(self):
         """Legacy Jinja test — skipped when the React SPA is built."""
         from pathlib import Path
-        spa = Path(__file__).resolve().parents[1] / "apps" / "web" / "static" / "dist" / "index.html"
+
+        spa = (
+            Path(__file__).resolve().parents[1] / "apps" / "web" / "static" / "dist" / "index.html"
+        )
         if spa.exists():
             pytest.skip("SPA build present — legacy Jinja otp-section not served")
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.get("/step/1")
@@ -543,22 +625,44 @@ class TestOTPEndpoints:
 
         app = create_app()
         mock_strategy = StrategyOutline(
-            equity_pct=70, debt_pct=20, gold_pct=10, other_pct=0,
-            equity_approach="Index", key_themes=["growth"],
-            risk_return_summary="Moderate", open_questions=[],
+            equity_pct=70,
+            debt_pct=20,
+            gold_pct=10,
+            other_pct=0,
+            equity_approach="Index",
+            key_themes=["growth"],
+            risk_return_summary="Moderate",
+            open_questions=[],
         )
         mock_plan = InvestmentPlan(
-            allocations=[Allocation(
-                fund=MutualFund(amfi_code="119551", name="Test"),
-                allocation_pct=100, mode="sip", monthly_sip_inr=10000, rationale="Test",
-            )],
+            allocations=[
+                Allocation(
+                    fund=MutualFund(amfi_code="119551", name="Test"),
+                    allocation_pct=100,
+                    mode="sip",
+                    monthly_sip_inr=10000,
+                    rationale="Test",
+                )
+            ],
             rationale="Test",
         )
 
-        with patch("apps.web.api.generate_strategy", new_callable=AsyncMock, return_value=mock_strategy), \
-             patch("apps.web.api.generate_plan", new_callable=AsyncMock, return_value=(mock_plan, RunUsage())), \
-             patch("subprime.core.conversations.save_conversation", new_callable=AsyncMock) as mock_save:
-            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+        with (
+            patch(
+                "apps.web.api.generate_strategy", new_callable=AsyncMock, return_value=mock_strategy
+            ),
+            patch(
+                "apps.web.api.generate_plan",
+                new_callable=AsyncMock,
+                return_value=(mock_plan, RunUsage()),
+            ),
+            patch(
+                "subprime.core.conversations.save_conversation", new_callable=AsyncMock
+            ) as mock_save,
+        ):
+            async with AsyncClient(
+                transport=ASGITransport(app=app), base_url="http://test"
+            ) as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 await client.post("/api/select-persona", data={"persona_id": "P01"})
                 store = app.state.session_store

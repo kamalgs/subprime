@@ -1,4 +1,5 @@
 """Plan generation — strategy outlines and detailed investment plans."""
+
 from __future__ import annotations
 
 import asyncio
@@ -10,7 +11,14 @@ from pydantic_ai.usage import RunUsage
 
 from subprime.advisor.agent import create_advisor, create_plan_reviewer, create_strategy_advisor
 from subprime.core.config import DB_PATH, DEFAULT_MODEL, is_anthropic, supports_thinking
-from subprime.core.models import InvestmentPlan, InvestorProfile, StrategyOutline
+from subprime.core.models import (
+    InvestmentPlan,
+    InvestorProfile,
+    PlanCore,
+    PlanRisks,
+    PlanSetup,
+    StrategyOutline,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -18,19 +26,32 @@ logger = logging.getLogger(__name__)
 # Category-typical CAGRs (%) — used to compute fallback projected returns
 # when the LLM leaves plan.projected_returns empty or zero.
 _CATEGORY_CAGR = {
-    "large cap": 11.0, "mid cap": 13.0, "small cap": 15.0,
-    "flexi cap": 12.0, "multi cap": 12.0, "elss": 12.0,
-    "index": 11.0, "nifty": 11.0, "sensex": 11.0,
-    "hybrid": 9.5, "balanced": 9.5, "arbitrage": 6.5,
-    "debt": 7.0, "liquid": 6.0, "overnight": 5.5,
-    "gilt": 7.5, "corporate bond": 7.5, "short duration": 7.0,
-    "gold": 9.0, "international": 10.0,
+    "large cap": 11.0,
+    "mid cap": 13.0,
+    "small cap": 15.0,
+    "flexi cap": 12.0,
+    "multi cap": 12.0,
+    "elss": 12.0,
+    "index": 11.0,
+    "nifty": 11.0,
+    "sensex": 11.0,
+    "hybrid": 9.5,
+    "balanced": 9.5,
+    "arbitrage": 6.5,
+    "debt": 7.0,
+    "liquid": 6.0,
+    "overnight": 5.5,
+    "gilt": 7.5,
+    "corporate bond": 7.5,
+    "short duration": 7.0,
+    "gold": 9.0,
+    "international": 10.0,
 }
 
 _RISK_DEFAULTS = {
-    "aggressive":   {"bear": 8.0,  "base": 12.0, "bull": 16.0},
-    "moderate":     {"bear": 6.0,  "base": 10.0, "bull": 14.0},
-    "conservative": {"bear": 5.0,  "base": 8.0,  "bull": 11.0},
+    "aggressive": {"bear": 8.0, "base": 12.0, "bull": 16.0},
+    "moderate": {"bear": 6.0, "base": 10.0, "bull": 14.0},
+    "conservative": {"bear": 5.0, "base": 8.0, "bull": 11.0},
 }
 
 
@@ -83,7 +104,9 @@ def fill_projected_returns_fallback(plan: InvestmentPlan, profile: InvestorProfi
     }
     logger.info(
         "Filled fallback projected_returns for %s: %s (matched_pct=%.1f)",
-        profile.id, plan.projected_returns, matched_pct,
+        profile.id,
+        plan.projected_returns,
+        matched_pct,
     )
 
 
@@ -98,19 +121,27 @@ def _universe_cache_path(db_path: Path) -> Path:
     return db_path.parent / "universe_context.md"
 
 
-def _render_universe_from_db(db_path: Path) -> str | None:
-    """Open DuckDB read-only and render the universe markdown (slow path)."""
+def _render_universe_from_db(db_path: Path, max_per_category: int | None = None) -> str | None:
+    """Open DuckDB read-only and render the universe markdown (slow path).
+
+    ``max_per_category`` caps rows per category for the slim variant.
+    """
     try:
         import duckdb
         from subprime.data.universe import render_universe_context
+
         conn = duckdb.connect(str(db_path), read_only=True)
         try:
-            return render_universe_context(conn)
+            return render_universe_context(conn, max_per_category=max_per_category)
         finally:
             conn.close()
     except Exception:
         logger.warning("Failed to render fund universe from %s", db_path, exc_info=True)
         return None
+
+
+_UNIVERSE_SLIM_CACHE: str | None = None
+_SLIM_PER_CATEGORY = 5
 
 
 def warm_universe_cache(db_path: Path | None = None) -> bool:
@@ -129,10 +160,7 @@ def warm_universe_cache(db_path: Path | None = None) -> bool:
     cache_path = _universe_cache_path(db_path)
     try:
         # Rebuild if cache is missing or older than the DB file.
-        if (
-            not cache_path.exists()
-            or cache_path.stat().st_mtime < db_path.stat().st_mtime
-        ):
+        if not cache_path.exists() or cache_path.stat().st_mtime < db_path.stat().st_mtime:
             text = _render_universe_from_db(db_path)
             if text is None:
                 return False
@@ -140,14 +168,17 @@ def warm_universe_cache(db_path: Path | None = None) -> bool:
             cache_path.write_text(text)
             _UNIVERSE_CACHE_TEXT = text
             logger.info(
-                "Universe cache warmed: %d chars → %s", len(text), cache_path,
+                "Universe cache warmed: %d chars → %s",
+                len(text),
+                cache_path,
             )
             return True
 
         _UNIVERSE_CACHE_TEXT = cache_path.read_text()
         logger.info(
             "Universe cache hit: %d chars from %s",
-            len(_UNIVERSE_CACHE_TEXT), cache_path,
+            len(_UNIVERSE_CACHE_TEXT),
+            cache_path,
         )
         return False
     except Exception:
@@ -155,19 +186,33 @@ def warm_universe_cache(db_path: Path | None = None) -> bool:
         return False
 
 
-def _load_universe_context(db_path: Path | None = None) -> str | None:
+def _load_universe_context(db_path: Path | None = None, slim: bool = False) -> str | None:
     """Return the fund universe markdown — from in-memory cache if present,
     else the on-disk cache file, else (last resort) render from DuckDB.
+
+    When ``slim`` is True, returns a reduced version (``_SLIM_PER_CATEGORY``
+    rows per category) cached separately in-process. Used for basic-tier
+    plans to cut input tokens without touching the full-universe cache.
     """
-    global _UNIVERSE_CACHE_TEXT
-    if _UNIVERSE_CACHE_TEXT is not None:
+    global _UNIVERSE_CACHE_TEXT, _UNIVERSE_SLIM_CACHE
+
+    if slim and _UNIVERSE_SLIM_CACHE is not None:
+        return _UNIVERSE_SLIM_CACHE
+    if not slim and _UNIVERSE_CACHE_TEXT is not None:
         return _UNIVERSE_CACHE_TEXT
 
     if db_path is None:
         from subprime.advisor import planner as _self
+
         db_path = _self.DB_PATH
     if not db_path.exists():
         return None
+
+    if slim:
+        text = _render_universe_from_db(db_path, max_per_category=_SLIM_PER_CATEGORY)
+        if text is not None:
+            _UNIVERSE_SLIM_CACHE = text
+        return text
 
     cache_path = _universe_cache_path(db_path)
     try:
@@ -201,7 +246,7 @@ async def generate_strategy(
         (StrategyOutline, RunUsage) — strategy and token usage.
     """
     agent = create_strategy_advisor(prompt_hooks=prompt_hooks, model=model)
-    parts = [f"Investor profile:\n\n{profile.model_dump_json(indent=2)}"]
+    parts = [f"Investor profile:\n\n{_profile_to_prompt_json(profile, cache_safe=True)}"]
     if current_strategy and feedback:
         parts.append(
             f"\nCurrent strategy:\n\n{current_strategy.model_dump_json(indent=2)}"
@@ -215,6 +260,25 @@ async def generate_strategy(
         )
     result = await agent.run("\n".join(parts))
     return result.output, result.usage()
+
+
+def _profile_to_prompt_json(profile: InvestorProfile, *, cache_safe: bool = False) -> str:
+    """Serialise a profile for the LLM prompt.
+
+    When *cache_safe*, replace identifying fields (name) with a stable
+    placeholder so two users with the same archetype produce the same
+    prompt byte-for-byte. The real name stays in the session for UI
+    rendering; the advisor doesn't need it to plan.
+
+    Intentionally narrow: only swaps the name. Everything else is
+    semantically meaningful to the plan and should survive.
+    """
+    data = profile.model_dump(mode="json")
+    if cache_safe:
+        data["name"] = "Investor"
+    import json
+
+    return json.dumps(data, indent=2, sort_keys=True)
 
 
 async def _generate_single_plan(
@@ -237,7 +301,6 @@ async def _generate_single_plan(
     Returns:
         (InvestmentPlan, RunUsage) — plan and combined token usage.
     """
-    from pydantic_ai.usage import RunUsage as _RU
 
     # Merge perspective prompt into hooks
     hooks = dict(prompt_hooks or {})
@@ -248,9 +311,12 @@ async def _generate_single_plan(
         else:
             hooks["philosophy"] = perspective_prompt
 
+    # For Basic-tier archetype users the name is the only varying field;
+    # strip it so the cached prompt can be reused across users who pick the
+    # same archetype without editing anything.
+    profile_json = _profile_to_prompt_json(profile, cache_safe=True)
     user_parts = [
-        f"Create a detailed mutual fund investment plan for this investor:\n\n"
-        f"{profile.model_dump_json(indent=2)}"
+        f"Create a detailed mutual fund investment plan for this investor:\n\n{profile_json}"
     ]
     if strategy:
         user_parts.append(
@@ -318,7 +384,7 @@ async def refine_plan(
     reviewer = create_plan_reviewer(model=model)
     prompt = (
         "Review and refine the following draft investment plan.\n\n"
-        f"## Client Profile\n{profile.model_dump_json(indent=2)}\n\n"
+        f"## Client Profile\n{_profile_to_prompt_json(profile, cache_safe=True)}\n\n"
         f"## Draft Plan (prepared by associate)\n{draft.model_dump_json(indent=2)}"
     )
     result = await reviewer.run(prompt)
@@ -338,6 +404,7 @@ async def generate_plan(
     model: str = DEFAULT_MODEL,
     refine_model: str | None = None,
     thinking: bool = False,
+    slim_universe: bool = False,
 ) -> tuple[InvestmentPlan, RunUsage]:
     """Generate a detailed investment plan.
 
@@ -356,7 +423,7 @@ async def generate_plan(
     Returns:
         (InvestmentPlan, RunUsage) — plan and aggregated token usage.
     """
-    universe_ctx = _load_universe_context() if include_universe else None
+    universe_ctx = _load_universe_context(slim=slim_universe) if include_universe else None
     total_usage = RunUsage()
 
     if mode == "premium":
@@ -381,14 +448,17 @@ async def generate_plan(
         ]
         results = await asyncio.gather(*tasks, return_exceptions=True)
 
-        valid: list[tuple[InvestmentPlan, RunUsage]] = [
-            r for r in results if isinstance(r, tuple)
-        ]
+        valid: list[tuple[InvestmentPlan, RunUsage]] = [r for r in results if isinstance(r, tuple)]
         if not valid:
             logger.error("All premium variants failed, falling back to basic mode")
             plan, usage = await _generate_single_plan(
-                profile, strategy, prompt_hooks, universe_ctx,
-                None, "basic_fallback", model,
+                profile,
+                strategy,
+                prompt_hooks,
+                universe_ctx,
+                None,
+                "basic_fallback",
+                model,
             )
             total_usage.incr(usage)
             return plan, total_usage
@@ -418,8 +488,14 @@ async def generate_plan(
 
     # basic mode
     plan, usage = await _generate_single_plan(
-        profile, strategy, prompt_hooks, universe_ctx,
-        None, "basic", model, thinking=thinking,
+        profile,
+        strategy,
+        prompt_hooks,
+        universe_ctx,
+        None,
+        "basic",
+        model,
+        thinking=thinking,
     )
     total_usage.incr(usage)
     if refine_model:
@@ -427,4 +503,250 @@ async def generate_plan(
         plan, refine_usage = await refine_plan(plan, profile, model=refine_model)
         total_usage.incr(refine_usage)
     fill_projected_returns_fallback(plan, profile)
+    return plan, total_usage
+
+
+# ---------------------------------------------------------------------------
+# Staged plan — three smaller LLM calls with a progress callback. Used only
+# by the web flow; experiments/CLI keep calling generate_plan() for parity
+# with historical runs.
+# ---------------------------------------------------------------------------
+
+
+PartialCallback = "typing.Callable[[InvestmentPlan, list[str]], typing.Awaitable[None]] | None"
+
+
+_STAGE2_SYSTEM = (
+    "You write the **risk, rebalancing, and review** section of an Indian "
+    "mutual-fund plan. Given the allocations and the investor profile, emit:\n"
+    " - risks: 4–6 concrete, India-specific risks in plain English. Name actual "
+    "  scenarios (equity drawdowns, interest-rate moves on debt, gold volatility, "
+    "  tax-regime changes) — no generic boilerplate.\n"
+    " - rebalancing_guidelines: 3–5 sentences on when and how to rebalance "
+    "  (threshold %, frequency, tax-aware unit selection).\n"
+    " - review_checkpoints: 3–5 concrete review triggers (time- or event-based).\n"
+    "Do not restate allocations or returns — those are already rendered."
+)
+
+
+_STAGE3_SYSTEM = (
+    "You write the **setup guidance + SIP step-up + long-form rationale** for "
+    "an Indian mutual-fund plan. Given the allocations and investor profile:\n"
+    " - setup_phase: 2–3 paragraphs on what to do in the first 30–90 days "
+    "  (KYC status, folio consolidation, SIP registrations, tax-harvesting setup).\n"
+    " - sip_step_up: annual_increase_pct (typical 8–12 % for salaried) + a one-line "
+    "  description keyed to the investor's income trajectory.\n"
+    " - rationale: 4–6 sentences of narrative tying the allocations to the "
+    "  investor's goals, horizon, and risk appetite. This replaces the short "
+    "  one-liner from stage 1."
+)
+
+
+def _plan_summary_for_stage(plan: InvestmentPlan, profile: InvestorProfile) -> str:
+    """Compact context handed to stages 2 and 3 — keeps input tokens tiny."""
+    lines = ["Investor:"]
+    lines.append(
+        f"- {profile.age} yr, {profile.risk_appetite} risk, horizon "
+        f"{profile.investment_horizon_years} yr, investible "
+        f"₹{int(profile.monthly_investible_surplus_inr):,}/mo, corpus "
+        f"₹{int(profile.existing_corpus_inr):,}, goals: "
+        + ", ".join(profile.financial_goals or ["-"])
+    )
+    lines.append("")
+    lines.append("Plan allocations:")
+    for a in plan.allocations:
+        mode = a.mode
+        amt = ""
+        if a.monthly_sip_inr:
+            amt = f" (₹{int(a.monthly_sip_inr):,}/mo)"
+        elif a.lumpsum_inr:
+            amt = f" (₹{int(a.lumpsum_inr):,} lump)"
+        lines.append(f"- {a.allocation_pct:.0f}% {a.fund.name} [{mode}]{amt}")
+    pr = plan.projected_returns or {}
+    if pr:
+        lines.append("")
+        lines.append(
+            f"Projected CAGR %: base={pr.get('base', '?')} "
+            f"bull={pr.get('bull', '?')} bear={pr.get('bear', '?')}"
+        )
+    return "\n".join(lines)
+
+
+async def _stage1_core(
+    profile: InvestorProfile,
+    strategy: StrategyOutline | None,
+    prompt_hooks: dict[str, str] | None,
+    universe_ctx: str | None,
+    model: str,
+) -> tuple[PlanCore, RunUsage]:
+    from pydantic_ai import Agent
+
+    from subprime.advisor.agent import load_prompt
+    from subprime.core.config import build_model, build_model_settings, is_anthropic
+
+    base = load_prompt("base")
+    planning = load_prompt("planning")
+    philosophy = ""
+    if prompt_hooks and "philosophy" in prompt_hooks:
+        philosophy = prompt_hooks["philosophy"]
+    parts = [base, planning]
+    if philosophy:
+        parts.append(f"## Investment Philosophy\n\n{philosophy}")
+    if universe_ctx:
+        parts.append(universe_ctx)
+    parts.append(
+        "## Stage-1 output contract\n\n"
+        "Return ONLY allocations (with fund, allocation_pct, mode, rationale), "
+        "projected_returns (base/bull/bear CAGR %), and a single-sentence rationale. "
+        "Risks, rebalancing, setup guidance, and SIP step-up are produced in later "
+        "stages — leave them out."
+    )
+    system_prompt = "\n\n---\n\n".join(parts)
+
+    settings = build_model_settings(model, cache=True)
+    # Each stage caps output so a chatty small model can't blow latency.
+    # Stage 1 budget: 8 allocations × ~150 tok + returns + 1-line rationale.
+    settings["max_tokens"] = 1600
+    if is_anthropic(model):
+        settings["anthropic_cache_tool_definitions"] = "1h"
+
+    agent = Agent(
+        build_model(model, role="advisor"),
+        system_prompt=system_prompt,
+        output_type=PlanCore,
+        tools=[],
+        retries=2,
+        defer_model_check=True,
+        model_settings=settings,
+    )
+
+    profile_json = _profile_to_prompt_json(profile, cache_safe=True)
+    user_parts = [f"Create a mutual fund investment plan for this investor:\n\n{profile_json}"]
+    if strategy:
+        user_parts.append("Approved strategy:\n" + strategy.model_dump_json(indent=2))
+    result = await agent.run("\n\n".join(user_parts))
+    return result.output, result.usage()
+
+
+async def _stage2_risks(
+    plan: InvestmentPlan,
+    profile: InvestorProfile,
+    model: str,
+) -> tuple[PlanRisks, RunUsage]:
+    from pydantic_ai import Agent
+
+    from subprime.core.config import build_model, build_model_settings
+
+    settings = build_model_settings(model, cache=False)
+    # Stage 2 budget: ~6 risks + short rebalancing paragraph + 5 checkpoints.
+    settings["max_tokens"] = 900
+    agent = Agent(
+        build_model(model, role="advisor"),
+        system_prompt=_STAGE2_SYSTEM,
+        output_type=PlanRisks,
+        tools=[],
+        retries=2,
+        defer_model_check=True,
+        model_settings=settings,
+    )
+    result = await agent.run(_plan_summary_for_stage(plan, profile))
+    return result.output, result.usage()
+
+
+async def _stage3_setup(
+    plan: InvestmentPlan,
+    profile: InvestorProfile,
+    model: str,
+) -> tuple[PlanSetup, RunUsage]:
+    from pydantic_ai import Agent
+
+    from subprime.core.config import build_model, build_model_settings
+
+    settings = build_model_settings(model, cache=False)
+    # Stage 3 budget: 2-3 paragraphs setup + sip_step_up + 4-6 sentence rationale.
+    settings["max_tokens"] = 1200
+    agent = Agent(
+        build_model(model, role="advisor"),
+        system_prompt=_STAGE3_SYSTEM,
+        output_type=PlanSetup,
+        tools=[],
+        retries=2,
+        defer_model_check=True,
+        model_settings=settings,
+    )
+    result = await agent.run(_plan_summary_for_stage(plan, profile))
+    return result.output, result.usage()
+
+
+async def generate_plan_staged(
+    profile: InvestorProfile,
+    strategy: StrategyOutline | None = None,
+    *,
+    prompt_hooks: dict[str, str] | None = None,
+    model: str = DEFAULT_MODEL,
+    slim_universe: bool = True,
+    on_partial=None,
+) -> tuple[InvestmentPlan, RunUsage]:
+    """Staged plan generation for the web flow.
+
+    Emits a partial InvestmentPlan after each stage completes via the
+    optional ``on_partial(plan, stages_done)`` coroutine callback.
+
+    Stage 1 (allocations + returns + short rationale) runs first. Stages 2
+    (risks/rebalancing/checkpoints) and 3 (setup/step-up/long rationale)
+    run in parallel afterwards — they only need the stage-1 plan summary.
+
+    Experiments and CLI keep using the single-shot ``generate_plan`` for
+    parity with historical runs.
+    """
+    universe_ctx = _load_universe_context(slim=slim_universe)
+    total_usage = RunUsage()
+
+    # Stage 1 — core allocations.
+    core, usage = await _stage1_core(profile, strategy, prompt_hooks, universe_ctx, model)
+    total_usage.incr(usage)
+    plan = InvestmentPlan(
+        allocations=core.allocations,
+        projected_returns=core.projected_returns,
+        rationale=core.rationale,
+    )
+    fill_projected_returns_fallback(plan, profile)
+    if on_partial is not None:
+        await on_partial(plan, ["core"])
+
+    # Stages 2 + 3 in parallel.
+    risks_task = asyncio.create_task(_stage2_risks(plan, profile, model))
+    setup_task = asyncio.create_task(_stage3_setup(plan, profile, model))
+
+    # Merge stage 2 as it finishes, then stage 3 — whichever arrives first
+    # produces an interim partial.
+    remaining = {risks_task, setup_task}
+    stages_done = ["core"]
+    while remaining:
+        done, remaining = await asyncio.wait(remaining, return_when=asyncio.FIRST_COMPLETED)
+        for t in done:
+            try:
+                out, u = t.result()
+            except Exception:
+                logger.exception("stage task failed — continuing with partial plan")
+                continue
+            total_usage.incr(u)
+
+            if isinstance(out, PlanRisks):
+                plan.risks = out.risks or plan.risks
+                plan.rebalancing_guidelines = (
+                    out.rebalancing_guidelines or plan.rebalancing_guidelines
+                )
+                plan.review_checkpoints = out.review_checkpoints or plan.review_checkpoints
+                stages_done.append("risks")
+            elif isinstance(out, PlanSetup):
+                plan.setup_phase = out.setup_phase or plan.setup_phase
+                if out.sip_step_up is not None:
+                    plan.sip_step_up = out.sip_step_up
+                if out.rationale:
+                    plan.rationale = out.rationale
+                stages_done.append("setup")
+            if on_partial is not None:
+                await on_partial(plan, list(stages_done))
+
     return plan, total_usage

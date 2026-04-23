@@ -3,7 +3,7 @@
 from pathlib import Path
 
 import pytest
-from datetime import datetime, timezone
+from datetime import datetime
 from pydantic_ai.usage import RunUsage
 
 from apps.web.session import InMemorySessionStore, Session, SessionSummary
@@ -198,10 +198,15 @@ from apps.web.rendering import (
 
 class TestShortFundName:
     def test_strips_direct_growth(self):
-        assert short_fund_name("Mirae Asset Large Cap Fund Direct Growth") == "Mirae Asset Large Cap"
+        assert (
+            short_fund_name("Mirae Asset Large Cap Fund Direct Growth") == "Mirae Asset Large Cap"
+        )
 
     def test_strips_plan_and_option(self):
-        assert short_fund_name("HDFC Index Fund NIFTY 50 Plan Direct Growth Option") == "HDFC Index NIFTY 50"
+        assert (
+            short_fund_name("HDFC Index Fund NIFTY 50 Plan Direct Growth Option")
+            == "HDFC Index NIFTY 50"
+        )
 
     def test_strips_regular_and_idcw(self):
         assert short_fund_name("Axis Bluechip Fund Regular IDCW") == "Axis Bluechip"
@@ -210,7 +215,9 @@ class TestShortFundName:
         assert short_fund_name("UTI Nifty 50") == "UTI Nifty 50"
 
     def test_truncates_if_still_too_long(self):
-        result = short_fund_name("A Very Long Name That Cannot Be Compressed By Token Stripping Alone", max_len=20)
+        result = short_fund_name(
+            "A Very Long Name That Cannot Be Compressed By Token Stripping Alone", max_len=20
+        )
         assert len(result) <= 20
         assert result.endswith("…")
 
@@ -416,6 +423,7 @@ from httpx import ASGITransport, AsyncClient
 class TestAppFactory:
     def test_create_app(self):
         from apps.web.main import create_app
+
         app = create_app()
         assert app is not None
 
@@ -423,13 +431,14 @@ class TestAppFactory:
     async def test_root_serves_app(self):
         """Root / either redirects to /step/1 (legacy) or serves the SPA index."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.get("/", follow_redirects=False)
             # When the SPA is built the route returns 200 with index.html;
             # otherwise it falls back to a 307 redirect to /step/1.
             if resp.status_code == 200:
-                assert "<div id=\"root\"" in resp.text or "<html" in resp.text.lower()
+                assert '<div id="root"' in resp.text or "<html" in resp.text.lower()
             else:
                 assert resp.status_code == 307
                 assert resp.headers["location"] == "/step/1"
@@ -437,6 +446,7 @@ class TestAppFactory:
     @pytest.mark.asyncio
     async def test_static_files_served(self):
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.get("/static/app.css")
@@ -455,6 +465,7 @@ class TestStep1TierSelection:
     async def test_step1_renders(self):
         """GET /step/1 returns 200 and shows both tier cards."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.get("/step/1")
@@ -466,6 +477,7 @@ class TestStep1TierSelection:
     async def test_step1_sets_session_cookie(self):
         """GET /step/1 sets the benji_session cookie."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.get("/step/1")
@@ -476,6 +488,7 @@ class TestStep1TierSelection:
     async def test_select_tier_basic(self):
         """POST /api/select-tier mode=basic returns HX-Redirect to /step/2."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post("/api/select-tier", data={"mode": "basic"})
@@ -486,6 +499,7 @@ class TestStep1TierSelection:
     async def test_select_tier_premium(self):
         """POST /api/select-tier mode=premium returns HX-Redirect to /step/2."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post("/api/select-tier", data={"mode": "premium"})
@@ -496,6 +510,7 @@ class TestStep1TierSelection:
     async def test_select_tier_saves_mode(self):
         """POST /api/select-tier saves the chosen mode in the session."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post("/api/select-tier", data={"mode": "premium"})
@@ -509,6 +524,7 @@ class TestStep1TierSelection:
     async def test_select_tier_sets_step_2(self):
         """POST /api/select-tier advances current_step to 2."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post("/api/select-tier", data={"mode": "basic"})
@@ -528,6 +544,7 @@ class TestStep2Profile:
     async def test_step2_renders_archetype_cards_for_regular_session(self):
         """Regular sessions see 3 archetype starting points (not the full persona bank)."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
@@ -543,6 +560,7 @@ class TestStep2Profile:
     async def test_step2_renders_full_persona_bank_for_demo_session(self):
         """Demo sessions (unlocked via OTP cheat) see the full research persona bank."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
@@ -559,6 +577,7 @@ class TestStep2Profile:
     async def test_step2_redirects_without_session(self):
         """GET /step/2 without a session cookie redirects to /step/1."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.get("/step/2", follow_redirects=False)
@@ -569,6 +588,7 @@ class TestStep2Profile:
     async def test_step2_redirects_with_unknown_session(self):
         """GET /step/2 with a bogus session cookie redirects to /step/1."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.get(
@@ -583,6 +603,7 @@ class TestStep2Profile:
     async def test_select_persona(self):
         """POST /api/select-persona returns HX-Redirect to /step/3."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
@@ -593,6 +614,7 @@ class TestStep2Profile:
     async def test_select_persona_saves_profile(self):
         """After selecting persona P01, session profile should be Tony Stark."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
@@ -606,6 +628,7 @@ class TestStep2Profile:
     async def test_select_persona_sets_step_3(self):
         """POST /api/select-persona advances current_step to 3."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
@@ -617,6 +640,7 @@ class TestStep2Profile:
     async def test_submit_custom_profile(self):
         """POST /api/submit-profile with all required fields returns HX-Redirect to /step/3."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post(
@@ -640,6 +664,7 @@ class TestStep2Profile:
     async def test_submit_custom_profile_saves_data(self):
         """After submitting custom profile, session holds the submitted data."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post(
@@ -669,6 +694,7 @@ class TestStep2Profile:
     async def test_submit_custom_profile_default_goals(self):
         """Submitting no goals defaults to ['Wealth Building']."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             resp = await client.post(
@@ -691,6 +717,7 @@ class TestStep2Profile:
     async def test_step3_redirects_without_profile(self):
         """GET /step/3 without a profile in session redirects to /step/1."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             # Create a session but don't set profile
@@ -704,6 +731,7 @@ class TestStep2Profile:
     async def test_step3_renders_with_profile(self):
         """GET /step/3 with a valid profile renders the strategy stub page."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             await client.post("/api/select-persona", data={"persona_id": "P01"})
@@ -722,7 +750,10 @@ from subprime.core.models import StrategyOutline, Allocation, InvestmentPlan, Mu
 
 def _mock_strategy():
     return StrategyOutline(
-        equity_pct=70, debt_pct=20, gold_pct=10, other_pct=0,
+        equity_pct=70,
+        debt_pct=20,
+        gold_pct=10,
+        other_pct=0,
         equity_approach="Mix of large cap index and mid cap active funds",
         key_themes=["diversification", "long-term growth"],
         risk_return_summary="Expected 11-12% CAGR with moderate drawdowns",
@@ -734,21 +765,44 @@ def _mock_plan():
     return InvestmentPlan(
         allocations=[
             Allocation(
-                fund=MutualFund(amfi_code="119551", name="UTI Nifty 50 Index Fund",
-                    category="Large Cap", fund_house="UTI", expense_ratio=0.18, morningstar_rating=4),
-                allocation_pct=40, mode="sip", monthly_sip_inr=20000,
+                fund=MutualFund(
+                    amfi_code="119551",
+                    name="UTI Nifty 50 Index Fund",
+                    category="Large Cap",
+                    fund_house="UTI",
+                    expense_ratio=0.18,
+                    morningstar_rating=4,
+                ),
+                allocation_pct=40,
+                mode="sip",
+                monthly_sip_inr=20000,
                 rationale="Low cost large cap index fund",
             ),
             Allocation(
-                fund=MutualFund(amfi_code="120505", name="Parag Parikh Flexi Cap Fund",
-                    category="Flexi Cap", fund_house="PPFAS", expense_ratio=0.63, morningstar_rating=5),
-                allocation_pct=30, mode="sip", monthly_sip_inr=15000,
+                fund=MutualFund(
+                    amfi_code="120505",
+                    name="Parag Parikh Flexi Cap Fund",
+                    category="Flexi Cap",
+                    fund_house="PPFAS",
+                    expense_ratio=0.63,
+                    morningstar_rating=5,
+                ),
+                allocation_pct=30,
+                mode="sip",
+                monthly_sip_inr=15000,
                 rationale="Diversified flexi cap with international exposure",
             ),
             Allocation(
-                fund=MutualFund(amfi_code="119533", name="HDFC Short Term Debt Fund",
-                    category="Short Duration", fund_house="HDFC", expense_ratio=0.35),
-                allocation_pct=30, mode="sip", monthly_sip_inr=15000,
+                fund=MutualFund(
+                    amfi_code="119533",
+                    name="HDFC Short Term Debt Fund",
+                    category="Short Duration",
+                    fund_house="HDFC",
+                    expense_ratio=0.35,
+                ),
+                allocation_pct=30,
+                mode="sip",
+                monthly_sip_inr=15000,
                 rationale="Stable debt allocation",
             ),
         ],
@@ -762,11 +816,11 @@ def _mock_plan():
 
 @skip_when_spa_built
 class TestStep3Strategy:
-
     @pytest.mark.asyncio
     async def test_step3_redirects_without_profile(self):
         """GET /step/3 without a profile in session redirects to /step/1."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
@@ -779,9 +833,15 @@ class TestStep3Strategy:
     async def test_generate_strategy_returns_dashboard(self):
         """GET /api/generate-strategy returns strategy dashboard with expected content."""
         from apps.web.main import create_app
+
         app = create_app()
-        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=(_mock_strategy(), RunUsage()))):
-            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+        with patch(
+            "apps.web.api.generate_strategy",
+            new=AsyncMock(return_value=(_mock_strategy(), RunUsage())),
+        ):
+            async with AsyncClient(
+                transport=ASGITransport(app=app), base_url="http://test"
+            ) as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 await client.post("/api/select-persona", data={"persona_id": "P01"})
                 resp = await client.get("/api/generate-strategy")
@@ -793,9 +853,15 @@ class TestStep3Strategy:
     async def test_generate_strategy_saves_to_session(self):
         """After calling generate-strategy, session.strategy is set."""
         from apps.web.main import create_app
+
         app = create_app()
-        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=(_mock_strategy(), RunUsage()))):
-            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+        with patch(
+            "apps.web.api.generate_strategy",
+            new=AsyncMock(return_value=(_mock_strategy(), RunUsage())),
+        ):
+            async with AsyncClient(
+                transport=ASGITransport(app=app), base_url="http://test"
+            ) as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
                 session_id = persona_resp.cookies.get("benji_session")
@@ -810,9 +876,15 @@ class TestStep3Strategy:
     async def test_revise_strategy(self):
         """POST /api/revise-strategy returns updated strategy dashboard."""
         from apps.web.main import create_app
+
         app = create_app()
-        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=(_mock_strategy(), RunUsage()))):
-            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+        with patch(
+            "apps.web.api.generate_strategy",
+            new=AsyncMock(return_value=(_mock_strategy(), RunUsage())),
+        ):
+            async with AsyncClient(
+                transport=ASGITransport(app=app), base_url="http://test"
+            ) as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
                 session_id = persona_resp.cookies.get("benji_session")
@@ -826,7 +898,9 @@ class TestStep3Strategy:
                         await store.save(s)
                         break
 
-                resp = await client.post("/api/revise-strategy", data={"feedback": "more conservative please"})
+                resp = await client.post(
+                    "/api/revise-strategy", data={"feedback": "more conservative please"}
+                )
 
         assert resp.status_code == 200
         assert "Equity" in resp.text
@@ -835,9 +909,15 @@ class TestStep3Strategy:
     async def test_revise_strategy_saves_chat(self):
         """After revising strategy, user feedback is in session.strategy_chat."""
         from apps.web.main import create_app
+
         app = create_app()
-        with patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=(_mock_strategy(), RunUsage()))):
-            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+        with patch(
+            "apps.web.api.generate_strategy",
+            new=AsyncMock(return_value=(_mock_strategy(), RunUsage())),
+        ):
+            async with AsyncClient(
+                transport=ASGITransport(app=app), base_url="http://test"
+            ) as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
                 session_id = persona_resp.cookies.get("benji_session")
@@ -861,9 +941,14 @@ class TestStep3Strategy:
     async def test_generate_plan_redirects_to_step4(self):
         """POST /api/generate-plan returns a 303 redirect to /step/4."""
         from apps.web.main import create_app
+
         app = create_app()
-        with patch("apps.web.api.generate_plan", new=AsyncMock(return_value=(_mock_plan(), RunUsage()))):
-            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+        with patch(
+            "apps.web.api.generate_plan", new=AsyncMock(return_value=(_mock_plan(), RunUsage()))
+        ):
+            async with AsyncClient(
+                transport=ASGITransport(app=app), base_url="http://test"
+            ) as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
                 session_id = persona_resp.cookies.get("benji_session")
@@ -884,9 +969,14 @@ class TestStep3Strategy:
     async def test_generate_plan_saves_plan(self):
         """After generating plan, session.plan is set and current_step=4."""
         from apps.web.main import create_app
+
         app = create_app()
-        with patch("apps.web.api.generate_plan", new=AsyncMock(return_value=(_mock_plan(), RunUsage()))):
-            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+        with patch(
+            "apps.web.api.generate_plan", new=AsyncMock(return_value=(_mock_plan(), RunUsage()))
+        ):
+            async with AsyncClient(
+                transport=ASGITransport(app=app), base_url="http://test"
+            ) as client:
                 await client.post("/api/select-tier", data={"mode": "basic"})
                 persona_resp = await client.post("/api/select-persona", data={"persona_id": "P01"})
                 session_id = persona_resp.cookies.get("benji_session")
@@ -909,6 +999,7 @@ class TestStep3Strategy:
     async def test_reset_creates_new_session(self):
         """POST /api/reset returns HX-Redirect to /step/1 with a new session cookie."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             # Establish an initial session
@@ -931,11 +1022,11 @@ class TestStep3Strategy:
 
 @skip_when_spa_built
 class TestStep4PlanResult:
-
     @pytest.mark.asyncio
     async def test_step4_redirects_without_plan(self):
         """GET /step/4 with no plan and no in-flight generation bounces back."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             # Establish a session but don't inject a plan
@@ -949,6 +1040,7 @@ class TestStep4PlanResult:
     async def test_step4_renders_plan(self):
         """GET /step/4 with plan shows fund names, SIP amounts, projections."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             # Set up tier + persona
@@ -981,6 +1073,7 @@ class TestStep4PlanResult:
     async def test_step4_shows_corpus_table(self):
         """Step 4 shows corpus projection data when SIP and horizon are available."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             await client.post("/api/select-tier", data={"mode": "basic"})
@@ -1011,6 +1104,7 @@ class TestStep4PlanResult:
     async def test_step4_shows_risks(self):
         """Step 4 shows risk section."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             await client.post("/api/select-tier", data={"mode": "basic"})
@@ -1035,6 +1129,7 @@ class TestStep4PlanResult:
     async def test_step4_shows_rationale_markdown(self):
         """Plan rationale is rendered as markdown HTML."""
         from apps.web.main import create_app
+
         app = create_app()
         async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
             await client.post("/api/select-tier", data={"mode": "basic"})
@@ -1062,13 +1157,21 @@ class TestStep4PlanResult:
     async def test_full_wizard_flow(self):
         """End-to-end: tier → persona → strategy → plan → result → reset."""
         from apps.web.main import create_app
+
         app = create_app()
 
         with (
-            patch("apps.web.api.generate_strategy", new=AsyncMock(return_value=(_mock_strategy(), RunUsage()))),
-            patch("apps.web.api.generate_plan", new=AsyncMock(return_value=(_mock_plan(), RunUsage()))),
+            patch(
+                "apps.web.api.generate_strategy",
+                new=AsyncMock(return_value=(_mock_strategy(), RunUsage())),
+            ),
+            patch(
+                "apps.web.api.generate_plan", new=AsyncMock(return_value=(_mock_plan(), RunUsage()))
+            ),
         ):
-            async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
+            async with AsyncClient(
+                transport=ASGITransport(app=app), base_url="http://test"
+            ) as client:
                 # Step 1 — select tier
                 tier_resp = await client.post("/api/select-tier", data={"mode": "basic"})
                 assert tier_resp.headers["HX-Redirect"] == "/step/2"

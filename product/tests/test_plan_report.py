@@ -9,9 +9,9 @@ Covers:
   - XLSX opens cleanly, has every expected sheet, numeric cells are numeric,
     disclaimer is present and red-coloured.
 """
+
 from __future__ import annotations
 
-import re
 from io import BytesIO
 
 import pytest
@@ -31,10 +31,13 @@ from subprime.core.plan_report import (
 @pytest.fixture
 def profile() -> InvestorProfile:
     return InvestorProfile(
-        id="P01", name="Ananya Shetty",
+        id="P01",
+        name="Ananya Shetty",
         financial_goals=["retirement", "home"],
-        life_stage="mid career", tax_bracket="30%",
-        age=38, risk_appetite="moderate",
+        life_stage="mid career",
+        tax_bracket="30%",
+        age=38,
+        risk_appetite="moderate",
         monthly_investible_surplus_inr=50000,
         existing_corpus_inr=2_500_000,
         liabilities_inr=0,
@@ -45,19 +48,37 @@ def profile() -> InvestorProfile:
 @pytest.fixture
 def plan() -> InvestmentPlan:
     f1 = MutualFund(
-        amfi_code="119551", name="HDFC Nifty 50 Index Direct Growth",
-        display_name="HDFC Nifty 50 Index", category="Index", fund_house="HDFC",
+        amfi_code="119551",
+        name="HDFC Nifty 50 Index Direct Growth",
+        display_name="HDFC Nifty 50 Index",
+        category="Index",
+        fund_house="HDFC",
     )
     f2 = MutualFund(
-        amfi_code="120505", name="Parag Parikh Flexi Cap Direct Growth",
-        display_name="Parag Parikh Flexi Cap", category="Flexi Cap", fund_house="PPFAS",
+        amfi_code="120505",
+        name="Parag Parikh Flexi Cap Direct Growth",
+        display_name="Parag Parikh Flexi Cap",
+        category="Flexi Cap",
+        fund_house="PPFAS",
     )
     return InvestmentPlan(
         allocations=[
-            Allocation(fund=f1, allocation_pct=40.0, mode="sip",
-                       monthly_sip_inr=20_000, lumpsum_inr=0, rationale="Core equity"),
-            Allocation(fund=f2, allocation_pct=30.0, mode="sip",
-                       monthly_sip_inr=15_000, lumpsum_inr=0, rationale="Active tilt"),
+            Allocation(
+                fund=f1,
+                allocation_pct=40.0,
+                mode="sip",
+                monthly_sip_inr=20_000,
+                lumpsum_inr=0,
+                rationale="Core equity",
+            ),
+            Allocation(
+                fund=f2,
+                allocation_pct=30.0,
+                mode="sip",
+                monthly_sip_inr=15_000,
+                lumpsum_inr=0,
+                rationale="Active tilt",
+            ),
         ],
         setup_phase="- Open a direct MF account on Kuvera\n- Start the monthly SIPs\n- Complete KYC",
         review_checkpoints=[
@@ -91,6 +112,7 @@ def _pdf_text(pdf_bytes: bytes) -> str:
     """
     from io import BytesIO
     from pypdf import PdfReader
+
     reader = PdfReader(BytesIO(pdf_bytes))
     return "\n".join(page.extract_text() or "" for page in reader.pages)
 
@@ -149,9 +171,7 @@ def test_pdf_renders_without_optional_sections(plan, profile):
 def test_pdf_handles_leading_bullet_markers_in_setup(plan, profile):
     """_format normally strips leading '- ' but the report must not choke
     if a caller skipped normalization."""
-    plan.setup_phase = (
-        "- Step one\n- Step two\n- Step three"
-    )
+    plan.setup_phase = "- Step one\n- Step two\n- Step three"
     text = _pdf_text(build_plan_pdf(plan, profile))
     assert "Step one" in text
     assert "Step two" in text
@@ -170,8 +190,8 @@ def _load(xlsx_bytes: bytes, data_only: bool = True):
     formula results are None).
     """
     from openpyxl import load_workbook
-    return load_workbook(filename=BytesIO(xlsx_bytes), read_only=False,
-                         data_only=data_only)
+
+    return load_workbook(filename=BytesIO(xlsx_bytes), read_only=False, data_only=data_only)
 
 
 def _flat_cells(sheet) -> list:
@@ -208,8 +228,7 @@ def test_xlsx_plan_has_projection_data(plan, profile):
     assert any("Projected returns" in s for s in flat)
     # Some cell in the sheet should be a non-trivial numeric corpus (the
     # best-case corpus for 35k/mo × 15yrs × 16% ≈ ₹2.5 Cr → 25_000_000).
-    numbers = [c.value for row in p.iter_rows()
-               for c in row if isinstance(c.value, (int, float))]
+    numbers = [c.value for row in p.iter_rows() for c in row if isinstance(c.value, (int, float))]
     assert max(numbers) > 10_000_000  # > 1 Cr somewhere
 
 
@@ -217,15 +236,15 @@ def test_xlsx_explore_sheet_has_editable_inputs_and_formulas(plan, profile):
     wb = _load(build_plan_xlsx(plan, profile), data_only=False)
     ex = wb["Explore"]
     # Input section contains 'Monthly SIP' label + editable SIP value
-    labels = [c.value for row in ex.iter_rows(min_row=4, max_row=10)
-              for c in row if c.value]
+    labels = [c.value for row in ex.iter_rows(min_row=4, max_row=10) for c in row if c.value]
     assert any("Monthly SIP" in str(l) for l in labels)
     assert any("Horizon" in str(l) for l in labels)
     # Output formulas for final corpus — the three FV cells must start with =
     for addr in ("E5", "E6", "E7"):
         val = ex[addr].value
-        assert isinstance(val, str) and val.startswith("="), \
+        assert isinstance(val, str) and val.startswith("="), (
             f"{addr} expected a formula, got {val!r}"
+        )
     # Growth-over-time formula table
     assert ex["A12"].value == "Year"
     # Year-0 formula should exist (year_cell row 13)
@@ -246,5 +265,4 @@ def test_xlsx_disclaimer_in_both_sheets(plan, profile):
     wb = _load(build_plan_xlsx(plan, profile))
     for name in ("Plan", "Explore"):
         flat = [str(c) for c in _flat_cells(wb[name]) if c]
-        assert any("research" in str(s).lower() for s in flat), \
-            f"{name} sheet missing disclaimer"
+        assert any("research" in str(s).lower() for s in flat), f"{name} sheet missing disclaimer"

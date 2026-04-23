@@ -125,4 +125,5 @@ export interface PlanStatus {
   ready: boolean;
   generating: boolean;
   error: string | null;
+  stages_done?: string[];
 }

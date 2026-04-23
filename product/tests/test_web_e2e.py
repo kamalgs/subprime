@@ -10,7 +10,6 @@ Requires: pip install pytest-playwright && playwright install chromium
 
 from __future__ import annotations
 
-import asyncio
 import threading
 from unittest.mock import AsyncMock, patch
 
@@ -126,9 +125,7 @@ def base_url(_patched_app):
     host = "127.0.0.1"
     port = 18091  # Use a non-standard port to avoid conflicts
 
-    config = uvicorn.Config(
-        app=_patched_app, host=host, port=port, log_level="warning"
-    )
+    config = uvicorn.Config(app=_patched_app, host=host, port=port, log_level="warning")
     server = uvicorn.Server(config)
 
     thread = threading.Thread(target=server.run, daemon=True)

@@ -4,6 +4,7 @@ Core domain models (InvestorProfile, StrategyOutline, InvestmentPlan) are
 reused directly from subprime.core.models. This module adds request bodies
 and lightweight response wrappers specific to the HTTP layer.
 """
+
 from __future__ import annotations
 
 from typing import Literal, Optional
@@ -33,6 +34,7 @@ class PersonaSelectBody(BaseModel):
 
 class ProfileBody(BaseModel):
     """Custom profile submission from the React form."""
+
     name: str
     age: int = Field(ge=18, le=80)
     monthly_sip_inr: float = Field(ge=0)
@@ -65,6 +67,7 @@ class FeedbackBody(BaseModel):
 
 class SessionSummaryResponse(BaseModel):
     """Public session state — what the React app needs to know."""
+
     id: str
     current_step: int
     mode: Literal["basic", "premium"]
@@ -127,6 +130,7 @@ class PersonaSummary(BaseModel):
 
 class PersonasResponse(BaseModel):
     """Archetypes are always shown; the full persona bank only in demo mode."""
+
     archetypes: list[ArchetypeSummary]
     personas: Optional[list[PersonaSummary]] = None
 
@@ -140,6 +144,10 @@ class PlanStatusResponse(BaseModel):
     ready: bool
     generating: bool
     error: Optional[str] = None
+    # Names of staged-plan sections that are populated on the server.
+    # UI polls until {"core", "risks", "setup"} is a subset. Empty for
+    # legacy single-call flow where ``ready`` is the only signal.
+    stages_done: list[str] = []
 
 
 class PlanResponse(BaseModel):

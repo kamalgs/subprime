@@ -1,7 +1,8 @@
 """Tests for interactive profile gathering."""
+
 from __future__ import annotations
 
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import AsyncMock, patch
 
 import pytest
 
@@ -11,11 +12,17 @@ from subprime.core.models import InvestorProfile
 @pytest.fixture
 def complete_profile():
     return InvestorProfile(
-        id="interactive", name="Arjun Mehta", age=25,
-        risk_appetite="aggressive", investment_horizon_years=30,
-        monthly_investible_surplus_inr=50000, existing_corpus_inr=200000,
-        liabilities_inr=0, financial_goals=["Retire by 55 with 10Cr corpus"],
-        life_stage="Early career", tax_bracket="new_regime",
+        id="interactive",
+        name="Arjun Mehta",
+        age=25,
+        risk_appetite="aggressive",
+        investment_horizon_years=30,
+        monthly_investible_surplus_inr=50000,
+        existing_corpus_inr=200000,
+        liabilities_inr=0,
+        financial_goals=["Retire by 55 with 10Cr corpus"],
+        life_stage="Early career",
+        tax_bracket="new_regime",
     )
 
 
@@ -64,10 +71,17 @@ async def test_gather_profile_returns_investor_profile_type():
     from subprime.advisor.profile import gather_profile
 
     profile = InvestorProfile(
-        id="test", name="Test", age=30, risk_appetite="moderate",
-        investment_horizon_years=10, monthly_investible_surplus_inr=10000,
-        existing_corpus_inr=0, liabilities_inr=0,
-        financial_goals=["Save"], life_stage="Mid career", tax_bracket="new_regime",
+        id="test",
+        name="Test",
+        age=30,
+        risk_appetite="moderate",
+        investment_horizon_years=10,
+        monthly_investible_surplus_inr=10000,
+        existing_corpus_inr=0,
+        liabilities_inr=0,
+        financial_goals=["Save"],
+        life_stage="Mid career",
+        tax_bracket="new_regime",
     )
     result = await gather_profile(send_message=AsyncMock(), existing_profile=profile)
     assert isinstance(result, InvestorProfile)
