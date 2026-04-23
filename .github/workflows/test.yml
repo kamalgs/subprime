@@ -30,6 +30,11 @@ jobs:
       - name: Install
         run: uv sync --all-extras --dev
       - name: pytest (default suite)
+        # COLUMNS=200 forces Typer's rich renderer into a wide layout so the
+        # CLI --help tests find their flag names (e.g. --results-dir) without
+        # the default narrow-terminal wrap splitting them across lines.
+        env:
+          COLUMNS: "200"
         run: |
           uv run --directory product pytest \
             -m "not e2e and not calibration and not smoke and not browser" \
