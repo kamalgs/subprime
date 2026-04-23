@@ -43,11 +43,14 @@ export default function Step4Plan() {
   const stagesKey = (status?.stages_done || []).join(",");
 
   const plan = useQuery({
-    queryKey: ["plan", stagesKey],
+    queryKey: ["plan"],
     queryFn: getPlan,
     enabled: status?.ready === true,
   });
 
+  // New stage landed → refetch the plan so newly-populated sections render.
+  // Keep the query key stable so plan.data persists during refetch and
+  // PlanView stays mounted (otherwise the disclaimer modal re-shows).
   useEffect(() => {
     if (stagesKey) qc.invalidateQueries({ queryKey: ["plan"] });
   }, [stagesKey, qc]);
