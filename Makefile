@@ -1,6 +1,6 @@
 .PHONY: help frontend-install frontend frontend-dev frontend-test \
         backend-test docker deploy-local clean hooks-install \
-        test test-fast mutate mutate-report
+        test test-fast smoke-api smoke-ui mutate mutate-report
 
 help:
 	@echo "Build targets:"
@@ -30,6 +30,20 @@ test-fast:
 	    tests/test_plan_report.py \
 	    tests/test_observability.py \
 	    tests/test_core
+
+# API-level deploy gate: exercises strategy + plan flows in-process with
+# stubbed LLM calls. Fast (<15s), no network. Run before `make docker`.
+smoke-api:
+	uv run --directory product pytest -q tests/test_api_v2.py
+
+# UI deploy gate: drives the real React SPA with headless Chromium and
+# stubbed LLM calls. Catches strategy/plan UI regressions that the JSON
+# tests can't see. Needs `make frontend` + Playwright chromium.
+smoke-ui:
+	@if [ ! -f "$(DIST_DIR)/index.html" ]; then \
+	  echo "ERROR: SPA build missing — run 'make frontend' first"; exit 1; \
+	fi
+	uv run --directory product pytest -q -m browser tests/test_frontend_e2e.py
 
 hooks-install:
 	uv run pre-commit install
