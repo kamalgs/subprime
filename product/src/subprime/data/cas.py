@@ -56,18 +56,24 @@ def parse_cas(pdf_bytes: bytes, password: str) -> list[Holding]:
         tmp.write(pdf_bytes)
         tmp.flush()
         try:
-            data = casparser.read_cas_pdf(Path(tmp.name), password)
+            data = casparser.read_cas_pdf(str(Path(tmp.name)), password)
         except Exception as e:
             raise CASParseError(str(e)) from e
 
+    # casparser ≥0.8 returns a Pydantic CASData; older versions returned a dict.
+    data = data.model_dump() if hasattr(data, "model_dump") else data
+    if data.get("cas_type") == "SUMMARY":
+        raise CASParseError(
+            "This is a Summary CAS — it doesn't include fund-level holdings. "
+            "Please request a Detailed CAS from CAMS with 'With holdings' enabled."
+        )
+
     holdings: list[Holding] = []
-    # data is a CASData dict (TypedDict). Each folio has 'schemes'; each scheme
-    # has 'valuation' with 'value' + 'nav' and a 'close' units count.
-    for folio in data.get("folios", []):
-        for scheme in folio.get("schemes", []):
-            name = scheme.get("scheme", "").strip()
-            val = (scheme.get("valuation") or {}).get("value", 0) or 0
-            units = scheme.get("close", 0) or 0
+    for folio in data.get("folios", []) or []:
+        for scheme in folio.get("schemes", []) or []:
+            name = (scheme.get("scheme") or "").strip()
+            val = (scheme.get("valuation") or {}).get("value") or 0
+            units = scheme.get("close") or 0
             if val <= 0 and units <= 0:
                 continue  # closed / redeemed
             holdings.append(
@@ -78,4 +84,10 @@ def parse_cas(pdf_bytes: bytes, password: str) -> list[Holding]:
                     units=float(units),
                 )
             )
+    if not holdings:
+        raise CASParseError(
+            "No active holdings found in this CAS. "
+            "It may be a new folio with no units, or the PDF layout isn't "
+            "a standard CAMS/KFintech consolidated statement."
+        )
     return holdings
