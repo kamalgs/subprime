@@ -349,9 +349,10 @@ async def test_full_wizard_flow(page):
     await p.click("text=Start free plan")
     await p.wait_for_selector("text=Your investor profile")
 
-    # Step 2: pick mid-career archetype, fill name, submit
+    # Step 2: pick mid-career archetype, fill name, save, then continue
     await p.click("text=Mid career")
     await p.locator('input[placeholder="e.g. Ravi Kumar"]').fill("Test User")
+    await p.click("text=Save profile")
     await p.click("text=Build my plan")
 
     # Step 3: strategy (mocked) renders

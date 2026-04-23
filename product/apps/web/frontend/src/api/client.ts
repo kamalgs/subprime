@@ -71,3 +71,25 @@ export const answerQuestions = (feedback: string) =>
 // Plan
 export const generatePlan = () => req<{ ok: boolean }>("POST", "/plan/generate");
 export const getPlan = () => req<PlanResponse>("GET", "/plan");
+
+// CAS upload
+export async function uploadCAS(file: File, password: string) {
+  const fd = new FormData();
+  fd.append("file", file);
+  fd.append("password", password);
+  const r = await fetch(BASE + "/profile/cas", {
+    method: "POST",
+    body: fd,
+    credentials: "same-origin",
+  });
+  if (!r.ok) {
+    let detail = r.statusText;
+    try { detail = (await r.json()).detail ?? detail; } catch {}
+    throw new ApiError(r.status, detail);
+  }
+  return r.json() as Promise<{
+    holdings: Array<{ scheme: string; category: string; value_inr: number; units: number }>;
+    total_value_inr: number;
+    count: number;
+  }>;
+}

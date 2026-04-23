@@ -4,6 +4,7 @@ import { useState } from "react";
 import {
   getPersonas, selectPersona, submitProfile,
 } from "../api/client";
+import CASUpload from "../components/CASUpload";
 import type { Archetype, Risk } from "../api/types";
 
 const GOALS = [
@@ -54,6 +55,8 @@ export default function Step2Profile() {
     preferences: "",
   });
 
+  const [saved, setSaved] = useState(false);
+
   const submit = useMutation({
     mutationFn: () =>
       submitProfile({
@@ -67,7 +70,7 @@ export default function Step2Profile() {
         financial_goals: [...form.goals],
         preferences: form.preferences || null,
       }),
-    onSuccess: () => nav("/step/3"),
+    onSuccess: () => setSaved(true),
   });
 
   return (
@@ -236,9 +239,22 @@ export default function Step2Profile() {
             </details>
           </section>
 
-          <button type="submit" className="btn btn-primary w-full py-3 text-base" disabled={submit.isPending}>
-            {submit.isPending ? "Saving…" : "Build my plan"}
-          </button>
+          {!saved ? (
+            <button type="submit" className="btn btn-primary w-full py-3 text-base" disabled={submit.isPending}>
+              {submit.isPending ? "Saving…" : "Save profile"}
+            </button>
+          ) : (
+            <div className="space-y-4">
+              <CASUpload onParsed={(t) => setForm((f) => ({ ...f, existing_corpus: t || f.existing_corpus }))} />
+              <button
+                type="button"
+                className="btn btn-primary w-full py-3 text-base"
+                onClick={() => nav("/step/3")}
+              >
+                Build my plan →
+              </button>
+            </div>
+          )}
         </form>
       )}
     </div>
