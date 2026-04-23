@@ -6,7 +6,17 @@ import logging
 import os
 from typing import Annotated
 
-from fastapi import APIRouter, Cookie, HTTPException, Request, Response, status
+from fastapi import (
+    APIRouter,
+    Cookie,
+    File,
+    Form,
+    HTTPException,
+    Request,
+    Response,
+    UploadFile,
+    status,
+)
 
 from apps.web.api_v2._session import COOKIE_NAME, get_or_create, set_cookie
 from apps.web.api_v2.dto import (
@@ -63,6 +73,48 @@ async def set_tier(
     await request.app.state.session_store.save(s)
     set_cookie(response, s.id)
     return SessionSummaryResponse.from_session(s)
+
+
+@router.post("/profile/cas")
+async def upload_cas(
+    request: Request,
+    response: Response,
+    file: UploadFile = File(...),
+    password: str = Form(...),
+    benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
+) -> dict:
+    """Parse an uploaded CAMS/KFintech CAS PDF and attach holdings to the session.
+
+    Body is multipart: ``file`` (PDF) + ``password`` (PAN or DOB, whichever
+    CAMS/KFintech used to encrypt the statement).
+
+    The PDF is never written to disk beyond a private tempfile that
+    ``casparser`` reads and we discard immediately.
+    """
+    from subprime.data.cas import CASParseError, parse_cas
+
+    s = await get_or_create(request, benji_session)
+    pdf_bytes = await file.read()
+    if len(pdf_bytes) > 10 * 1024 * 1024:
+        raise HTTPException(413, "CAS PDF larger than 10 MB — refuse.")
+    try:
+        holdings = parse_cas(pdf_bytes, password.strip())
+    except CASParseError as e:
+        raise HTTPException(400, f"Couldn't parse CAS: {e}")
+
+    if s.profile is None:
+        raise HTTPException(400, "Submit the profile form first, then upload a CAS.")
+    total = sum(h.value_inr for h in holdings)
+    s.profile.existing_holdings = holdings
+    if s.profile.existing_corpus_inr <= 0:
+        s.profile.existing_corpus_inr = total
+    await request.app.state.session_store.save(s)
+    set_cookie(response, s.id)
+    return {
+        "holdings": [h.model_dump() for h in holdings],
+        "total_value_inr": total,
+        "count": len(holdings),
+    }
 
 
 @router.post("/session/persona")

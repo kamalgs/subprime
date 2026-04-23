@@ -16,6 +16,15 @@ from pydantic import BaseModel, Field, computed_field
 # ---------------------------------------------------------------------------
 
 
+class Holding(BaseModel):
+    """A single current mutual-fund holding extracted from a CAS statement."""
+
+    scheme: str
+    category: str = ""  # equity / debt / hybrid / gold / other
+    value_inr: float = Field(ge=0)
+    units: float = Field(default=0.0, ge=0)
+
+
 class InvestorProfile(BaseModel):
     """An Indian investor persona used to generate financial plans."""
 
@@ -31,6 +40,8 @@ class InvestorProfile(BaseModel):
     life_stage: str
     tax_bracket: str
     preferences: Optional[str] = None
+    # Parsed from an uploaded CAMS/KFintech CAS PDF (optional).
+    existing_holdings: list[Holding] = []
 
 
 class MutualFund(BaseModel):
