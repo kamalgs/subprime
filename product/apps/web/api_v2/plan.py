@@ -156,8 +156,9 @@ async def _run_plan_task(app, session_id: str) -> None:
             format_plan_prose(plan)
 
             s = await store.get(session_id) or s
+            # Don't overwrite plan_stages — on_partial already recorded the
+            # actual list (["core","risks"] when extended=off, full set when on).
             s.plan = plan
-            s.plan_stages = ["core", "risks", "setup"]
             s.plan_generating = False
             s.plan_error = None
             s.current_step = 4
