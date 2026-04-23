@@ -167,7 +167,7 @@ def _header_band(canvas, doc) -> None:
     canvas.drawCentredString(0, 20, "Benji")
     canvas.setFont("Helvetica", 14)
     canvas.setFillColor(colors.Color(0.86, 0.15, 0.15, alpha=0.10))
-    canvas.drawCentredString(0, -20, "research / educational use only")
+    canvas.drawCentredString(0, -20, "NOT INVESTMENT ADVICE")
     canvas.restoreState()
 
     canvas.saveState()
