@@ -82,28 +82,18 @@ async def lifespan(app: FastAPI):
             logger.info("Feature flags initialised")
         except Exception:
             logger.exception("flags init failed — falling back to defaults")
-
-        try:
-            from subprime.data._scrubber import run_scrubber
-
-            scrubber_task = asyncio.create_task(run_scrubber())
-            logger.info("Tempfile scrubber launched")
-        except Exception:
-            logger.exception("tempfile scrubber failed to launch")
-            scrubber_task = None
     else:
-        scrubber_task = None
         app.state.session_store = InMemorySessionStore()
         logger.info("Using in-memory session store (no DATABASE_URL)")
 
-    # Even without Postgres we want the scrubber; run it unconditionally.
-    if scrubber_task is None:
-        try:
-            from subprime.data._scrubber import run_scrubber
+    scrubber_task: asyncio.Task | None = None
+    try:
+        from subprime.core.tempfiles import run_scrubber
 
-            scrubber_task = asyncio.create_task(run_scrubber())
-        except Exception:
-            logger.exception("tempfile scrubber failed to launch")
+        scrubber_task = asyncio.create_task(run_scrubber())
+        logger.info("Tempfile scrubber launched")
+    except Exception:
+        logger.exception("tempfile scrubber failed to launch")
 
     yield
 

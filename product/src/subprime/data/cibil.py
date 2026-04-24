@@ -119,18 +119,13 @@ def _parse_account_block(block: str) -> CreditAccount | None:
 
 
 def _extract_text(pdf_bytes: bytes, password: str) -> str:
-    import tempfile
-    from pathlib import Path
-
     from pdfminer.high_level import extract_text
 
-    # delete=True unlinks the file on context exit (even on exception);
-    # prefix="subprime-" makes any leftover scrubbable by name.
-    with tempfile.NamedTemporaryFile(prefix="subprime-", suffix=".pdf", delete=True) as tmp:
-        tmp.write(pdf_bytes)
-        tmp.flush()
+    from subprime.core.tempfiles import pdf_workspace
+
+    with pdf_workspace(pdf_bytes) as path:
         try:
-            return extract_text(str(Path(tmp.name)), password=password)
+            return extract_text(path, password=password)
         except Exception as e:
             raise CIBILParseError(f"PDF read failed: {e}") from e
 

@@ -50,16 +50,11 @@ def parse_cas(pdf_bytes: bytes, password: str) -> list[Holding]:
     """
     import casparser
 
-    import tempfile
-    from pathlib import Path
+    from subprime.core.tempfiles import pdf_workspace
 
-    # delete=True → file is unlinked when the context block exits (even on
-    # exception). prefix="subprime-" makes any leftover easy to scrub.
-    with tempfile.NamedTemporaryFile(prefix="subprime-", suffix=".pdf", delete=True) as tmp:
-        tmp.write(pdf_bytes)
-        tmp.flush()
+    with pdf_workspace(pdf_bytes) as path:
         try:
-            data = casparser.read_cas_pdf(str(Path(tmp.name)), password)
+            data = casparser.read_cas_pdf(path, password)
         except Exception as e:
             raise CASParseError(str(e)) from e
 

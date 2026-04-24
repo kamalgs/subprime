@@ -85,16 +85,13 @@ def _parse_inr(s: str) -> int:
 
 
 def _extract_text(pdf_bytes: bytes, password: str) -> str:
-    import tempfile
-    from pathlib import Path
-
     from pdfminer.high_level import extract_text
 
-    with tempfile.NamedTemporaryFile(prefix="subprime-", suffix=".pdf", delete=True) as tmp:
-        tmp.write(pdf_bytes)
-        tmp.flush()
+    from subprime.core.tempfiles import pdf_workspace
+
+    with pdf_workspace(pdf_bytes) as path:
         try:
-            return extract_text(str(Path(tmp.name)), password=password)
+            return extract_text(path, password=password)
         except Exception as e:
             raise AISParseError(f"PDF read failed: {e}") from e
 

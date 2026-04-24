@@ -100,16 +100,13 @@ def verify_password(pdf_bytes: bytes, password: str) -> bool:
 
 def _first_page_text(pdf_bytes: bytes, password: str | None) -> str:
     """Extract text from the first couple of pages for classification."""
-    import tempfile
-    from pathlib import Path
+    from subprime.core.tempfiles import pdf_workspace
 
     try:
         from pdfminer.high_level import extract_text
 
-        with tempfile.NamedTemporaryFile(prefix="subprime-", suffix=".pdf", delete=True) as tmp:
-            tmp.write(pdf_bytes)
-            tmp.flush()
-            return extract_text(str(Path(tmp.name)), password=password or "", maxpages=2)
+        with pdf_workspace(pdf_bytes) as path:
+            return extract_text(path, password=password or "", maxpages=2)
     except Exception:
         logger.exception("pdfminer extract failed during classification")
         return ""

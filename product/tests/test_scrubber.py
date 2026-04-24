@@ -1,4 +1,4 @@
-"""Tests for the tempfile scrubber."""
+"""Tests for subprime.core.tempfiles — pdf_workspace + scrubber."""
 
 from __future__ import annotations
 
@@ -7,12 +7,41 @@ import tempfile
 import time
 from pathlib import Path
 
-from subprime.data._scrubber import _scrub_once
+from subprime.core.tempfiles import _scrub_once, pdf_workspace
 
 
 def _touch_old(path: Path, mtime: float) -> None:
     path.write_bytes(b"stale")
     os.utime(path, (mtime, mtime))
+
+
+def test_pdf_workspace_writes_and_unlinks() -> None:
+    """The tempfile exists inside the context and is gone after."""
+    seen_path: list[Path] = []
+    with pdf_workspace(b"hello-pdf") as path:
+        p = Path(path)
+        seen_path.append(p)
+        assert p.exists()
+        assert p.read_bytes() == b"hello-pdf"
+        assert p.name.startswith("subprime-")
+        assert p.name.endswith(".pdf")
+    assert not seen_path[0].exists(), "tempfile should be unlinked on exit"
+
+
+def test_pdf_workspace_unlinks_on_exception() -> None:
+    """Delete must happen even when the block raises."""
+    seen_path: list[Path] = []
+
+    class _Boom(Exception):
+        pass
+
+    try:
+        with pdf_workspace(b"x") as path:
+            seen_path.append(Path(path))
+            raise _Boom()
+    except _Boom:
+        pass
+    assert not seen_path[0].exists()
 
 
 def test_scrub_once_removes_old_files() -> None:
@@ -32,7 +61,6 @@ def test_scrub_once_removes_old_files() -> None:
 
 
 def test_scrub_once_skips_non_matching_prefix() -> None:
-    """Other tempfiles in /tmp are untouched."""
     tmpdir = Path(tempfile.gettempdir())
     other = tmpdir / "not-ours-test.pdf"
     _touch_old(other, time.time() - 3600)
@@ -44,6 +72,4 @@ def test_scrub_once_skips_non_matching_prefix() -> None:
 
 
 def test_scrub_once_tolerates_missing_file() -> None:
-    """Race where the file disappears between glob and unlink is fine."""
-    # No matching files created — should just return 0.
     assert _scrub_once(max_age_seconds=600) == 0
