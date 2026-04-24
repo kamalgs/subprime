@@ -26,17 +26,31 @@ _cache_ttl_seconds: float = 30.0
 _cache_lock: asyncio.Lock | None = None
 
 
+_CREATE_TABLE_SQL = """
+CREATE TABLE IF NOT EXISTS feature_flags (
+    key          TEXT PRIMARY KEY,
+    definition   JSONB NOT NULL,
+    description  TEXT NOT NULL DEFAULT '',
+    updated_at   TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+"""
+
+
 async def init_flags(pool: Any, *, ttl_seconds: float = 30.0) -> None:
     """Wire the flags module to an asyncpg pool and prime the cache.
 
-    Safe to call at startup even before the feature_flags table has any
-    rows — a missing table or empty result just means every flag falls
-    back to its default.
+    Creates the ``feature_flags`` table on first boot (CREATE TABLE IF NOT
+    EXISTS) so we don't rely on Alembic being run. Safe to call at startup.
     """
     global _pool, _cache_ttl_seconds, _cache_lock
     _pool = pool
     _cache_ttl_seconds = ttl_seconds
     _cache_lock = asyncio.Lock()
+    try:
+        async with pool.acquire() as conn:
+            await conn.execute(_CREATE_TABLE_SQL)
+    except Exception:
+        logger.exception("flags: could not ensure feature_flags table exists")
     try:
         await _refresh_cache(force=True)
     except Exception:
