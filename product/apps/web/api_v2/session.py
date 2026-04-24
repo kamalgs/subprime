@@ -18,6 +18,8 @@ from fastapi import (
     status,
 )
 
+from pydantic import BaseModel
+
 from apps.web.api_v2._session import COOKIE_NAME, get_or_create, set_cookie
 from apps.web.api_v2.dto import (
     OTPRequestBody,
@@ -157,6 +159,133 @@ async def upload_cibil(
         "closed_account_count": summary.closed_account_count,
         "has_overdue": summary.has_overdue,
         "accounts": [a.model_dump() for a in summary.accounts],
+    }
+
+
+@router.post("/profile/documents")
+async def upload_documents(
+    request: Request,
+    response: Response,
+    files: list[UploadFile] = File(...),
+    benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
+) -> dict:
+    """Stage one or more PDFs for later extraction.
+
+    Each file is inspected for encryption + classified if already unlocked.
+    Returns the staged-document list; caller provides passwords for any
+    entries with ``requires_password=True`` via /profile/documents/{id}/password.
+    """
+    from subprime.data.documents import list_docs, stage
+
+    s = await get_or_create(request, benji_session)
+    errors = []
+    for f in files:
+        try:
+            pdf_bytes = await f.read()
+            stage(s.id, f.filename or "upload.pdf", pdf_bytes)
+        except ValueError as e:
+            errors.append({"filename": f.filename, "error": str(e)})
+    set_cookie(response, s.id)
+    return {
+        "documents": [d.to_public() for d in list_docs(s.id)],
+        "errors": errors,
+    }
+
+
+@router.get("/profile/documents")
+async def get_documents(
+    request: Request,
+    response: Response,
+    benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
+) -> dict:
+    from subprime.data.documents import list_docs
+
+    s = await get_or_create(request, benji_session)
+    set_cookie(response, s.id)
+    return {"documents": [d.to_public() for d in list_docs(s.id)]}
+
+
+class _DocPassword(BaseModel):
+    password: str
+
+
+@router.post("/profile/documents/{doc_id}/password")
+async def set_document_password(
+    doc_id: str,
+    body: _DocPassword,
+    request: Request,
+    response: Response,
+    benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
+) -> dict:
+    from subprime.data.documents import apply_password
+
+    s = await get_or_create(request, benji_session)
+    try:
+        doc = apply_password(s.id, doc_id, body.password)
+    except KeyError:
+        raise HTTPException(404, "Document not staged (may have expired).")
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+    set_cookie(response, s.id)
+    return doc.to_public()
+
+
+@router.delete("/profile/documents/{doc_id}")
+async def remove_document(
+    doc_id: str,
+    request: Request,
+    response: Response,
+    benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
+) -> dict:
+    from subprime.data.documents import remove
+
+    s = await get_or_create(request, benji_session)
+    remove(s.id, doc_id)
+    set_cookie(response, s.id)
+    return {"ok": True}
+
+
+@router.post("/profile/documents/extract")
+async def extract_documents(
+    request: Request,
+    response: Response,
+    benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
+) -> dict:
+    """Parse every verified staged doc, merge into the session profile.
+
+    CAS → profile.existing_holdings (+ existing_corpus_inr fill)
+    CIBIL → profile.credit_summary (+ liabilities_inr fill)
+    On success, the staged bytes are purged.
+    """
+    from subprime.core.models import CreditSummary, Holding
+    from subprime.data.documents import clear_session, extract_all
+
+    s = await get_or_create(request, benji_session)
+    if s.profile is None:
+        raise HTTPException(400, "Submit the profile form first, then extract documents.")
+
+    result = extract_all(s.id)
+    holdings = [Holding(**h) for h in result["holdings"]]
+    credit = CreditSummary(**result["credit_summary"]) if result["credit_summary"] else None
+
+    if holdings:
+        s.profile.existing_holdings = holdings
+        total = sum(h.value_inr for h in holdings)
+        if s.profile.existing_corpus_inr <= 0:
+            s.profile.existing_corpus_inr = total
+    if credit is not None:
+        s.profile.credit_summary = credit
+        if s.profile.liabilities_inr <= 0:
+            s.profile.liabilities_inr = credit.total_outstanding_inr
+
+    await request.app.state.session_store.save(s)
+    clear_session(s.id)
+    set_cookie(response, s.id)
+    return {
+        "holdings_count": len(holdings),
+        "holdings_total_inr": sum(h.value_inr for h in holdings),
+        "credit_summary": credit.model_dump() if credit else None,
+        "skipped": result["skipped"],
     }
 
 

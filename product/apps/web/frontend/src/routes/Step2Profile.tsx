@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   getPersonas, selectPersona, submitProfile,
 } from "../api/client";
-import CASUpload from "../components/CASUpload";
+import DocumentsUpload from "../components/DocumentsUpload";
 import type { Archetype, Risk } from "../api/types";
 
 const GOALS = [
@@ -245,7 +245,7 @@ export default function Step2Profile() {
             </button>
           ) : (
             <div className="space-y-4">
-              <CASUpload onParsed={(t) => setForm((f) => ({ ...f, existing_corpus: t || f.existing_corpus }))} />
+              <DocumentsUpload />
               <button
                 type="button"
                 className="btn btn-primary w-full py-3 text-base"

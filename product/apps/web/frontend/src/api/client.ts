@@ -93,3 +93,63 @@ export async function uploadCAS(file: File, password: string) {
     count: number;
   }>;
 }
+
+// Supporting documents (unified CAS + CIBIL + future)
+export type StagedDoc = {
+  doc_id: string;
+  filename: string;
+  size_bytes: number;
+  requires_password: boolean;
+  verified: boolean;
+  detected_type: "cas" | "cibil" | "unknown";
+};
+
+export async function stageDocuments(files: File[]): Promise<{ documents: StagedDoc[]; errors: Array<{filename: string; error: string}> }> {
+  const fd = new FormData();
+  for (const f of files) fd.append("files", f);
+  const r = await fetch(BASE + "/profile/documents", { method: "POST", body: fd, credentials: "same-origin" });
+  if (!r.ok) throw new ApiError(r.status, r.statusText);
+  return r.json();
+}
+
+export async function setDocumentPassword(docId: string, password: string): Promise<StagedDoc> {
+  const r = await fetch(BASE + `/profile/documents/${docId}/password`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ password }),
+    credentials: "same-origin",
+  });
+  if (!r.ok) {
+    let detail = r.statusText;
+    try { detail = (await r.json()).detail ?? detail; } catch {}
+    throw new ApiError(r.status, detail);
+  }
+  return r.json();
+}
+
+export async function removeDocument(docId: string): Promise<void> {
+  const r = await fetch(BASE + `/profile/documents/${docId}`, { method: "DELETE", credentials: "same-origin" });
+  if (!r.ok) throw new ApiError(r.status, r.statusText);
+}
+
+export async function extractDocuments(): Promise<{
+  holdings_count: number;
+  holdings_total_inr: number;
+  credit_summary: null | {
+    total_outstanding_inr: number;
+    total_monthly_emi_inr: number;
+    total_overdue_inr: number;
+    active_account_count: number;
+    closed_account_count: number;
+    has_overdue: boolean;
+  };
+  skipped: Array<{ doc_id: string; filename: string; reason: string }>;
+}> {
+  const r = await fetch(BASE + "/profile/documents/extract", { method: "POST", credentials: "same-origin" });
+  if (!r.ok) {
+    let detail = r.statusText;
+    try { detail = (await r.json()).detail ?? detail; } catch {}
+    throw new ApiError(r.status, detail);
+  }
+  return r.json();
+}
