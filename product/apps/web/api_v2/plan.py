@@ -6,7 +6,7 @@ import asyncio
 import logging
 import os
 import time
-from typing import Annotated
+from typing import Annotated, Any
 
 from fastapi import APIRouter, BackgroundTasks, Cookie, HTTPException, Request, status
 
@@ -49,8 +49,14 @@ def _plan_semaphore() -> asyncio.Semaphore:
     return _PLAN_SEMAPHORE
 
 
-async def _run_plan_task(app, session_id: str) -> None:
-    """Background task: generate plan and persist to the session."""
+async def _run_plan_task(app, session_id: str, flag_attrs: dict[str, Any] | None = None) -> None:
+    """Background task: generate plan and persist to the session.
+
+    ``flag_attrs`` is captured at request time (Cloudflare headers + session
+    fields) and threaded down into feature-flag evaluation so things like
+    % rollouts and email-domain targeting still work from inside this
+    background task — where we no longer have a Request object.
+    """
     store = app.state.session_store
     s = await store.get(session_id)
     if s is None or s.profile is None:
@@ -119,6 +125,7 @@ async def _run_plan_task(app, session_id: str) -> None:
                     model=active_model,
                     slim_universe=slim_universe,
                     on_partial=on_partial,
+                    flag_attrs=flag_attrs,
                 )
             dt = time.time() - t0
             in_tok = getattr(usage, "input_tokens", 0) or 0
@@ -200,7 +207,10 @@ async def generate(
     logger.info(
         "[plan %s] QUEUED mode=%s persona=%s", s.id[:8], s.mode, s.profile.id if s.profile else "?"
     )
-    background.add_task(_run_plan_task, request.app, s.id)
+    from subprime.flags import flag_ctx
+
+    attrs = flag_ctx(request, s)
+    background.add_task(_run_plan_task, request.app, s.id, attrs)
     return AckResponse()
 
 
@@ -223,8 +233,9 @@ async def stream_status(
     store = request.app.state.session_store
 
     from subprime.advisor.planner import plan_stages_planned
+    from subprime.flags import flag_ctx
 
-    planned = await plan_stages_planned()
+    planned = await plan_stages_planned(flag_ctx(request, s))
 
     async def _event_gen():
         seen: list[str] = []

@@ -26,9 +26,11 @@ from subprime.flags._store import (
     list_flags,
     set_flag,
 )
+from subprime.flags.context import flag_ctx
 
 __all__ = [
     "delete_flag",
+    "flag_ctx",
     "get_value",
     "init_flags",
     "is_on",

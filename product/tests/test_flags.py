@@ -107,6 +107,53 @@ async def test_get_value_returns_non_bool() -> None:
     assert await get_value("missing", default="x") == "x"
 
 
+def test_flag_ctx_extracts_session_fields() -> None:
+    """flag_ctx should populate session_id/email/tier/domain from a Session."""
+    from subprime.core.models import Session
+    from subprime.flags import flag_ctx
+
+    s = Session(mode="premium", email="alice@acme.com")
+    attrs = flag_ctx(request=None, session=s)
+    assert attrs["session_id"] == s.id
+    assert attrs["tier"] == "premium"
+    assert attrs["email"] == "alice@acme.com"
+    assert attrs["email_domain"] == "acme.com"
+
+
+def test_flag_ctx_skips_missing_email() -> None:
+    from subprime.core.models import Session
+    from subprime.flags import flag_ctx
+
+    attrs = flag_ctx(request=None, session=Session())
+    assert "email" not in attrs
+    assert "email_domain" not in attrs
+    assert attrs["tier"] == "basic"
+
+
+def test_flag_ctx_detects_bot_ua() -> None:
+    from types import SimpleNamespace
+
+    from subprime.flags.context import _is_likely_bot
+
+    assert _is_likely_bot("curl/8.0", headers={}) is True
+    assert _is_likely_bot("Mozilla/5.0", headers={}) is True  # no accept-language
+    assert (
+        _is_likely_bot("Mozilla/5.0 (X11; Linux x86_64)", headers={"accept-language": "en-US"})
+        is False
+    )
+
+    # Simulate requests.headers get
+    class _H:
+        def __init__(self, d):
+            self._d = d
+
+        def get(self, k, default=None):
+            return self._d.get(k.lower(), default)
+
+    _ = SimpleNamespace  # silence unused
+    assert _is_likely_bot("Scrapy/2.0", _H({"accept-language": "en"})) is True
+
+
 @pytest.mark.asyncio
 async def test_rollout_by_attribute() -> None:
     """GrowthBook-shaped flag with a force rule based on session_id."""

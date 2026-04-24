@@ -228,6 +228,7 @@ async def otp_verify(
     s = await get_or_create(request, benji_session)
     s.is_demo = True
     s.mode = "premium"
+    s.email = body.email.strip().lower() or None
     await request.app.state.session_store.save(s)
     set_cookie(response, s.id)
     return OTPVerifyResponse(verified=True, is_demo=True)

@@ -76,6 +76,8 @@ class PostgresSessionStore(SessionStore):
             data["plan_error"] = session.plan_error
         if session.plan_stages:
             data["plan_stages"] = list(session.plan_stages)
+        if session.email:
+            data["email"] = session.email
         return json.dumps(data)
 
     def _row_to_session(self, row) -> Session:
@@ -110,6 +112,7 @@ class PostgresSessionStore(SessionStore):
             plan_generating=bool(data.get("plan_generating", False)),
             plan_error=data.get("plan_error"),
             plan_stages=list(data.get("plan_stages") or []),
+            email=data.get("email"),
         )
 
     async def get(self, session_id: str) -> Optional[Session]:

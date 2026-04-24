@@ -723,6 +723,7 @@ async def generate_plan_staged(
     model: str = DEFAULT_MODEL,
     slim_universe: bool = True,
     on_partial=None,
+    flag_attrs: dict | None = None,
 ) -> tuple[InvestmentPlan, RunUsage]:
     """Staged plan generation for the web flow.
 
@@ -739,7 +740,7 @@ async def generate_plan_staged(
     universe_ctx = _load_universe_context(slim=slim_universe)
     total_usage = RunUsage()
 
-    extended = await _plan_extended_enabled()
+    extended = await _plan_extended_enabled(flag_attrs)
 
     # Stage 1 — core allocations.
     core, usage = await _stage1_core(profile, strategy, prompt_hooks, universe_ctx, model)
@@ -793,12 +794,13 @@ async def generate_plan_staged(
     return plan, total_usage
 
 
-async def _plan_extended_enabled() -> bool:
+async def _plan_extended_enabled(flag_attrs: dict | None = None) -> bool:
     """Stage 3 (setup, SIP step-up, long rationale) + rebalancing guidelines.
 
     Precedence: SUBPRIME_PLAN_EXTENDED env var (for local/CI overrides)
-    > 'plan_extended' feature flag in Postgres > default False. Default
-    off — those sections were noisy boilerplate on most profiles.
+    > 'plan_extended' feature flag in Postgres > default False. ``flag_attrs``
+    is the GrowthBook attribute bag — pass it through so rules can target by
+    email, country, session_id %, etc.
     """
     import os
 
@@ -809,7 +811,7 @@ async def _plan_extended_enabled() -> bool:
     try:
         from subprime.flags import is_on
 
-        return await is_on("plan_extended", default=False)
+        return await is_on("plan_extended", default=False, ctx=flag_attrs)
     except Exception:
         return False
 
@@ -826,8 +828,9 @@ def _plan_extended_env_only() -> bool:
     )
 
 
-async def plan_stages_planned() -> list[str]:
+async def plan_stages_planned(flag_attrs: dict | None = None) -> list[str]:
     """Stages the web flow will emit, in order. Used by the SSE endpoint so
     the frontend can size its skeletons correctly without hard-coding the
     set."""
-    return ["core", "risks", "setup"] if await _plan_extended_enabled() else ["core", "risks"]
+    extended = await _plan_extended_enabled(flag_attrs)
+    return ["core", "risks", "setup"] if extended else ["core", "risks"]
