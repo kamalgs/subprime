@@ -257,7 +257,7 @@ async def extract_documents(
     CIBIL → profile.credit_summary (+ liabilities_inr fill)
     On success, the staged bytes are purged.
     """
-    from subprime.core.models import CreditSummary, Holding
+    from subprime.core.models import AISSummary, CreditSummary, Holding
     from subprime.data.documents import clear_session, extract_all
 
     s = await get_or_create(request, benji_session)
@@ -267,6 +267,7 @@ async def extract_documents(
     result = extract_all(s.id)
     holdings = [Holding(**h) for h in result["holdings"]]
     credit = CreditSummary(**result["credit_summary"]) if result["credit_summary"] else None
+    ais = AISSummary(**result["ais_summary"]) if result["ais_summary"] else None
 
     if holdings:
         s.profile.existing_holdings = holdings
@@ -277,6 +278,12 @@ async def extract_documents(
         s.profile.credit_summary = credit
         if s.profile.liabilities_inr <= 0:
             s.profile.liabilities_inr = credit.total_outstanding_inr
+    if ais is not None:
+        s.profile.ais_summary = ais
+        # Prefer AIS-reported salary as the income signal when the user
+        # hasn't declared monthly surplus themselves (rough 30% of salary).
+        if s.profile.monthly_investible_surplus_inr <= 0 and ais.total_salary_inr > 0:
+            s.profile.monthly_investible_surplus_inr = int(ais.total_salary_inr * 0.30 / 12)
 
     await request.app.state.session_store.save(s)
     clear_session(s.id)
@@ -285,6 +292,7 @@ async def extract_documents(
         "holdings_count": len(holdings),
         "holdings_total_inr": sum(h.value_inr for h in holdings),
         "credit_summary": credit.model_dump() if credit else None,
+        "ais_summary": ais.model_dump() if ais else None,
         "skipped": result["skipped"],
     }
 

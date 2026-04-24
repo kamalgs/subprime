@@ -68,6 +68,24 @@ class InvestorProfile(BaseModel):
     # Parsed from an uploaded CIBIL CIR PDF (optional). Only the aggregate
     # fields the advisor uses — total outstanding, EMI, overdue flag.
     credit_summary: Optional["CreditSummary"] = None
+    # Parsed from an uploaded AIS PDF (optional) — IT department's view of
+    # income / capital gains / MF transactions for a financial year.
+    ais_summary: Optional["AISSummary"] = None
+
+
+class AISSummary(BaseModel):
+    """Annual Information Statement totals for a financial year."""
+
+    financial_year: str = ""
+    assessment_year: str = ""
+    total_salary_inr: int = Field(0, ge=0)
+    total_dividend_inr: int = Field(0, ge=0)
+    total_interest_inr: int = Field(0, ge=0)
+    total_sale_of_securities_inr: int = Field(0, ge=0)
+    total_purchase_of_securities_inr: int = Field(0, ge=0)
+    total_sale_of_mf_inr: int = Field(0, ge=0)
+    total_purchase_of_mf_inr: int = Field(0, ge=0)
+    total_tds_inr: int = Field(0, ge=0)
 
 
 class MutualFund(BaseModel):

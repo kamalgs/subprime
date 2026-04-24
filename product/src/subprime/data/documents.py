@@ -24,7 +24,7 @@ from typing import Literal, Optional
 logger = logging.getLogger(__name__)
 
 # Document type classifier returns
-DocType = Literal["cas", "cibil", "unknown"]
+DocType = Literal["cas", "cibil", "ais", "unknown"]
 
 _TTL_SECONDS = 30 * 60  # 30 min
 _MAX_DOCS_PER_SESSION = 6
@@ -132,6 +132,8 @@ def classify(pdf_bytes: bytes, password: str | None) -> DocType:
         return "unknown"
     if "CIBIL TRANSUNION SCORE" in text or "TRANSUNION CIBIL" in text:
         return "cibil"
+    if "ANNUAL INFORMATION STATEMENT" in text:
+        return "ais"
     if (
         "CONSOLIDATED ACCOUNT STATEMENT" in text
         or "CONSOLIDATED ACCOUNT SUMMARY" in text
@@ -215,6 +217,7 @@ def extract_all(session_id: str) -> dict:
     docs = list_docs(session_id)
     holdings: list = []
     credit_summary = None
+    ais_summary = None
     skipped: list[dict] = []
 
     for d in docs:
@@ -230,6 +233,10 @@ def extract_all(session_id: str) -> dict:
                 from subprime.data.cibil import parse_cibil
 
                 credit_summary = parse_cibil(d.pdf_bytes, d.password or "")
+            elif d.detected_type == "ais":
+                from subprime.data.ais import parse_ais
+
+                ais_summary = parse_ais(d.pdf_bytes, d.password or "")
             else:
                 skipped.append(
                     {"doc_id": d.doc_id, "filename": d.filename, "reason": "unknown-type"}
@@ -241,6 +248,7 @@ def extract_all(session_id: str) -> dict:
     return {
         "holdings": [h.model_dump() for h in holdings],
         "credit_summary": credit_summary.model_dump() if credit_summary else None,
+        "ais_summary": ais_summary.model_dump() if ais_summary else None,
         "skipped": skipped,
     }
 
