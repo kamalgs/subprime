@@ -25,6 +25,29 @@ class Holding(BaseModel):
     units: float = Field(default=0.0, ge=0)
 
 
+class CreditAccount(BaseModel):
+    """One credit account from a CIBIL CIR — loan or card."""
+
+    account_type: str
+    is_open: bool
+    current_balance_inr: int = 0
+    amount_overdue_inr: int = 0
+    emi_inr: int = 0
+    date_opened: str = ""
+
+
+class CreditSummary(BaseModel):
+    """Aggregate credit picture parsed from a CIBIL CIR."""
+
+    total_outstanding_inr: int = Field(0, ge=0)
+    total_monthly_emi_inr: int = Field(0, ge=0)
+    total_overdue_inr: int = Field(0, ge=0)
+    active_account_count: int = 0
+    closed_account_count: int = 0
+    has_overdue: bool = False
+    accounts: list[CreditAccount] = []
+
+
 class InvestorProfile(BaseModel):
     """An Indian investor persona used to generate financial plans."""
 
@@ -42,6 +65,9 @@ class InvestorProfile(BaseModel):
     preferences: Optional[str] = None
     # Parsed from an uploaded CAMS/KFintech CAS PDF (optional).
     existing_holdings: list[Holding] = []
+    # Parsed from an uploaded CIBIL CIR PDF (optional). Only the aggregate
+    # fields the advisor uses — total outstanding, EMI, overdue flag.
+    credit_summary: Optional["CreditSummary"] = None
 
 
 class MutualFund(BaseModel):

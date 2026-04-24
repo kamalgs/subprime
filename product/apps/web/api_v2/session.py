@@ -117,6 +117,49 @@ async def upload_cas(
     }
 
 
+@router.post("/profile/cibil")
+async def upload_cibil(
+    request: Request,
+    response: Response,
+    file: UploadFile = File(...),
+    password: str = Form(...),
+    benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
+) -> dict:
+    """Parse an uploaded CIBIL CIR PDF and attach credit_summary to the session.
+
+    PDF body + password (PDF's user password — set when downloading the CIR).
+    ``liabilities_inr`` on the profile is auto-filled when currently 0.
+    Raw bytes live only in a tempfile that pdfminer reads + discards.
+    """
+    from subprime.data.cibil import CIBILParseError, parse_cibil
+
+    s = await get_or_create(request, benji_session)
+    pdf_bytes = await file.read()
+    if len(pdf_bytes) > 10 * 1024 * 1024:
+        raise HTTPException(413, "CIBIL PDF larger than 10 MB — refuse.")
+    try:
+        summary = parse_cibil(pdf_bytes, password.strip())
+    except CIBILParseError as e:
+        raise HTTPException(400, f"Couldn't parse CIBIL report: {e}")
+
+    if s.profile is None:
+        raise HTTPException(400, "Submit the profile form first, then upload a CIBIL report.")
+    s.profile.credit_summary = summary
+    if s.profile.liabilities_inr <= 0:
+        s.profile.liabilities_inr = summary.total_outstanding_inr
+    await request.app.state.session_store.save(s)
+    set_cookie(response, s.id)
+    return {
+        "total_outstanding_inr": summary.total_outstanding_inr,
+        "total_monthly_emi_inr": summary.total_monthly_emi_inr,
+        "total_overdue_inr": summary.total_overdue_inr,
+        "active_account_count": summary.active_account_count,
+        "closed_account_count": summary.closed_account_count,
+        "has_overdue": summary.has_overdue,
+        "accounts": [a.model_dump() for a in summary.accounts],
+    }
+
+
 @router.post("/session/persona")
 async def select_persona(
     body: PersonaSelectBody,
