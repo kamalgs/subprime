@@ -18,8 +18,6 @@ from __future__ import annotations
 
 import logging
 import re
-import tempfile
-from pathlib import Path
 
 from subprime.core.models import CreditAccount, CreditSummary
 
@@ -121,15 +119,16 @@ def _parse_account_block(block: str) -> CreditAccount | None:
 
 
 def _extract_text(pdf_bytes: bytes, password: str) -> str:
+    import io
+
     from pdfminer.high_level import extract_text
 
-    with tempfile.NamedTemporaryFile(suffix=".pdf", delete=True) as tmp:
-        tmp.write(pdf_bytes)
-        tmp.flush()
-        try:
-            return extract_text(str(Path(tmp.name)), password=password)
-        except Exception as e:
-            raise CIBILParseError(f"PDF read failed: {e}") from e
+    # In-memory only — no tempfile. pdfminer accepts a file-like object,
+    # so the PDF bytes never touch disk.
+    try:
+        return extract_text(io.BytesIO(pdf_bytes), password=password)
+    except Exception as e:
+        raise CIBILParseError(f"PDF read failed: {e}") from e
 
 
 def parse_cibil(pdf_bytes: bytes, password: str) -> CreditSummary:

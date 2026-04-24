@@ -23,8 +23,6 @@ from __future__ import annotations
 
 import logging
 import re
-import tempfile
-from pathlib import Path
 
 from subprime.core.models import AISSummary
 
@@ -87,15 +85,15 @@ def _parse_inr(s: str) -> int:
 
 
 def _extract_text(pdf_bytes: bytes, password: str) -> str:
+    import io
+
     from pdfminer.high_level import extract_text
 
-    with tempfile.NamedTemporaryFile(suffix=".pdf", delete=True) as tmp:
-        tmp.write(pdf_bytes)
-        tmp.flush()
-        try:
-            return extract_text(str(Path(tmp.name)), password=password)
-        except Exception as e:
-            raise AISParseError(f"PDF read failed: {e}") from e
+    # In-memory only — no tempfile.
+    try:
+        return extract_text(io.BytesIO(pdf_bytes), password=password)
+    except Exception as e:
+        raise AISParseError(f"PDF read failed: {e}") from e
 
 
 def _classify(description: str) -> str | None:

@@ -10,8 +10,6 @@ long enough for casparser to read it, then it's deleted.
 from __future__ import annotations
 
 import logging
-import tempfile
-from pathlib import Path
 
 from subprime.core.models import Holding
 
@@ -52,13 +50,14 @@ def parse_cas(pdf_bytes: bytes, password: str) -> list[Holding]:
     """
     import casparser
 
-    with tempfile.NamedTemporaryFile(suffix=".pdf", delete=True) as tmp:
-        tmp.write(pdf_bytes)
-        tmp.flush()
-        try:
-            data = casparser.read_cas_pdf(str(Path(tmp.name)), password)
-        except Exception as e:
-            raise CASParseError(str(e)) from e
+    # Parse in-memory — BytesIO never touches disk, so the bytes only
+    # live in the Python process heap and get GC'd with this frame.
+    import io
+
+    try:
+        data = casparser.read_cas_pdf(io.BytesIO(pdf_bytes), password)
+    except Exception as e:
+        raise CASParseError(str(e)) from e
 
     # casparser ≥0.8 returns a Pydantic CASData; older versions returned a dict.
     data = data.model_dump() if hasattr(data, "model_dump") else data

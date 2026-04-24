@@ -262,9 +262,16 @@ async def extract_documents(
 
     s = await get_or_create(request, benji_session)
     if s.profile is None:
+        # Still purge any staged PDF bytes — the user will have to restart
+        # the upload flow, but we don't want them lingering in memory.
+        clear_session(s.id)
         raise HTTPException(400, "Submit the profile form first, then extract documents.")
 
-    result = extract_all(s.id)
+    try:
+        result = extract_all(s.id)
+    except Exception:
+        clear_session(s.id)
+        raise
     holdings = [Holding(**h) for h in result["holdings"]]
     credit = CreditSummary(**result["credit_summary"]) if result["credit_summary"] else None
     ais = AISSummary(**result["ais_summary"]) if result["ais_summary"] else None
@@ -418,8 +425,18 @@ async def otp_verify(
 async def reset(
     request: Request,
     response: Response,
+    benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
 ) -> SessionSummaryResponse:
-    """Start a fresh session — old cookie is overwritten."""
+    """Start a fresh session — old cookie is overwritten.
+
+    Also purges any PDF bytes staged by the outgoing session so they
+    don't linger in memory until the TTL sweeper catches them.
+    """
+    from subprime.data.documents import clear_session
+
+    if benji_session:
+        clear_session(benji_session)
+
     s = Session()
     await request.app.state.session_store.save(s)
     set_cookie(response, s.id)
