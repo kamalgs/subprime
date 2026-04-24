@@ -1500,6 +1500,21 @@ wheels = [
 ]
 
 [[package]]
+name = "growthbook"
+version = "2.2.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "aiohttp" },
+    { name = "cryptography" },
+    { name = "typing-extensions" },
+    { name = "urllib3" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c1/ab/0fc2da19bcf1665cc5bc53c076fdd0090e751a73f8a75f620acd9e2772c8/growthbook-2.2.1.tar.gz", hash = "sha256:42cbda9c2fb48b6f1f3498ab9a2f639fc091e8fe01df3fdbc798ef917982e249", size = 73232 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0c/f9/02311b74794251b2a120ed553a32bdf03d20be45c188a127b7c34cf50572/growthbook-2.2.1-py2.py3-none-any.whl", hash = "sha256:e76f9186f153211bf2ee94a57b5c4b3aaf87915e8e2316a7b9b8bd9e8c5c44e4", size = 47373 },
+]
+
+[[package]]
 name = "grpcio"
 version = "1.80.0"
 source = { registry = "https://pypi.org/simple" }
@@ -4384,6 +4399,7 @@ dependencies = [
     { name = "casparser" },
     { name = "duckdb" },
     { name = "fastapi" },
+    { name = "growthbook" },
     { name = "httpx" },
     { name = "jinja2" },
     { name = "markdown" },
@@ -4441,6 +4457,7 @@ requires-dist = [
     { name = "duckdb", specifier = ">=1.2" },
     { name = "fastapi", specifier = ">=0.115" },
     { name = "gradio", marker = "extra == 'gradio'", specifier = ">=5.0" },
+    { name = "growthbook", specifier = ">=2.2.1" },
     { name = "httpx", specifier = ">=0.27" },
     { name = "jinja2", specifier = ">=3.1" },
     { name = "markdown", specifier = ">=3.7" },

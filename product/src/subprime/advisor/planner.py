@@ -739,7 +739,7 @@ async def generate_plan_staged(
     universe_ctx = _load_universe_context(slim=slim_universe)
     total_usage = RunUsage()
 
-    extended = _plan_extended_enabled()
+    extended = await _plan_extended_enabled()
 
     # Stage 1 — core allocations.
     core, usage = await _stage1_core(profile, strategy, prompt_hooks, universe_ctx, model)
@@ -793,10 +793,29 @@ async def generate_plan_staged(
     return plan, total_usage
 
 
-def _plan_extended_enabled() -> bool:
-    """SUBPRIME_PLAN_EXTENDED=1 → emit stage 3 (setup, SIP step-up, long
-    rationale) + rebalancing guidelines. Default off — those sections were
-    noisy boilerplate on most profiles."""
+async def _plan_extended_enabled() -> bool:
+    """Stage 3 (setup, SIP step-up, long rationale) + rebalancing guidelines.
+
+    Precedence: SUBPRIME_PLAN_EXTENDED env var (for local/CI overrides)
+    > 'plan_extended' feature flag in Postgres > default False. Default
+    off — those sections were noisy boilerplate on most profiles.
+    """
+    import os
+
+    env = os.environ.get("SUBPRIME_PLAN_EXTENDED", "").strip().lower()
+    if env:
+        return env in ("1", "true", "yes", "on")
+
+    try:
+        from subprime.flags import is_on
+
+        return await is_on("plan_extended", default=False)
+    except Exception:
+        return False
+
+
+def _plan_extended_env_only() -> bool:
+    """Sync fallback for contexts that can't await. Reads env only."""
     import os
 
     return os.environ.get("SUBPRIME_PLAN_EXTENDED", "").strip().lower() in (
@@ -807,8 +826,8 @@ def _plan_extended_enabled() -> bool:
     )
 
 
-def plan_stages_planned() -> list[str]:
+async def plan_stages_planned() -> list[str]:
     """Stages the web flow will emit, in order. Used by the SSE endpoint so
     the frontend can size its skeletons correctly without hard-coding the
     set."""
-    return ["core", "risks", "setup"] if _plan_extended_enabled() else ["core", "risks"]
+    return ["core", "risks", "setup"] if await _plan_extended_enabled() else ["core", "risks"]

@@ -73,6 +73,14 @@ async def lifespan(app: FastAPI):
                 logger.info("Cleared stale plan_generating flag on %d session(s)", cleared)
         except Exception:
             logger.exception("clear_stale_plan_flags failed")
+
+        try:
+            from subprime.flags import init_flags
+
+            await init_flags(pool)
+            logger.info("Feature flags initialised")
+        except Exception:
+            logger.exception("flags init failed — falling back to defaults")
     else:
         app.state.session_store = InMemorySessionStore()
         logger.info("Using in-memory session store (no DATABASE_URL)")

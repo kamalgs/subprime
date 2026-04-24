@@ -224,7 +224,7 @@ async def stream_status(
 
     from subprime.advisor.planner import plan_stages_planned
 
-    planned = plan_stages_planned()
+    planned = await plan_stages_planned()
 
     async def _event_gen():
         seen: list[str] = []
