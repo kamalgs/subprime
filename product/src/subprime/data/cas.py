@@ -50,14 +50,18 @@ def parse_cas(pdf_bytes: bytes, password: str) -> list[Holding]:
     """
     import casparser
 
-    # Parse in-memory — BytesIO never touches disk, so the bytes only
-    # live in the Python process heap and get GC'd with this frame.
-    import io
+    import tempfile
+    from pathlib import Path
 
-    try:
-        data = casparser.read_cas_pdf(io.BytesIO(pdf_bytes), password)
-    except Exception as e:
-        raise CASParseError(str(e)) from e
+    # delete=True → file is unlinked when the context block exits (even on
+    # exception). prefix="subprime-" makes any leftover easy to scrub.
+    with tempfile.NamedTemporaryFile(prefix="subprime-", suffix=".pdf", delete=True) as tmp:
+        tmp.write(pdf_bytes)
+        tmp.flush()
+        try:
+            data = casparser.read_cas_pdf(str(Path(tmp.name)), password)
+        except Exception as e:
+            raise CASParseError(str(e)) from e
 
     # casparser ≥0.8 returns a Pydantic CASData; older versions returned a dict.
     data = data.model_dump() if hasattr(data, "model_dump") else data

@@ -85,15 +85,18 @@ def _parse_inr(s: str) -> int:
 
 
 def _extract_text(pdf_bytes: bytes, password: str) -> str:
-    import io
+    import tempfile
+    from pathlib import Path
 
     from pdfminer.high_level import extract_text
 
-    # In-memory only — no tempfile.
-    try:
-        return extract_text(io.BytesIO(pdf_bytes), password=password)
-    except Exception as e:
-        raise AISParseError(f"PDF read failed: {e}") from e
+    with tempfile.NamedTemporaryFile(prefix="subprime-", suffix=".pdf", delete=True) as tmp:
+        tmp.write(pdf_bytes)
+        tmp.flush()
+        try:
+            return extract_text(str(Path(tmp.name)), password=password)
+        except Exception as e:
+            raise AISParseError(f"PDF read failed: {e}") from e
 
 
 def _classify(description: str) -> str | None:
