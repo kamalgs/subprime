@@ -1,0 +1,152 @@
+{
+  "persona_id": "P12",
+  "condition": "baseline",
+  "model": "openrouter:x-ai/grok-4-fast",
+  "judge_model": "openrouter:openai/gpt-4.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "151060",
+          "name": "HSBC Equity Savings Fund - Direct Growth",
+          "display_name": "HSBC Equity Savings Fund - Direct Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "Hybrid Scheme - Equity Savings",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": "2011-09-27",
+          "aum_cr": 247.4499,
+          "morningstar_rating": null,
+          "returns_1y": 13.62065883442396,
+          "returns_3y": 14.422406548894418,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.3128894857420861,
+          "alpha": 14.774538143301125,
+          "tracking_error": 11.038306660312644,
+          "sharpe_ratio": 1.5791295514529236,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": 4800000.0,
+        "rationale": "This is an equity savings fund that uses arbitrage to make steady money with very little ups and downs, like a safe parking spot for cash. It keeps at least 65% in stocks for better tax rates, so after your 30% tax, you keep more of the 6-7% yearly return compared to pure debt options. We picked it because it's from a different company than the others, and it matches your dislike for risky stocks."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "display_name": "Aditya Birla Sun Life Medium Term Plan - Growth - Direct Plan",
+          "category": "Debt",
+          "sub_category": "Debt Scheme - Medium Duration Fund",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.55,
+          "inception_date": "2009-03-23",
+          "aum_cr": 1383.7413000000001,
+          "morningstar_rating": null,
+          "returns_1y": 9.590971539801174,
+          "returns_3y": 10.546144014607428,
+          "returns_5y": 12.68720416525493,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.025551051607452475,
+          "alpha": 12.468971535670303,
+          "tracking_error": 13.966948728142551,
+          "sharpe_ratio": 2.2377559819456345,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 32000.0,
+        "lumpsum_inr": 4800000.0,
+        "rationale": "A short-to-medium duration debt fund investing in safe bonds from good companies and government. It gives steady 7-8% returns before tax with low risk of loss. Even after your 30% tax slab takes a bite (leaving about 5% net), it's reliable for preserving value. Short duration means less worry about interest rates changing suddenly."
+      },
+      {
+        "fund": {
+          "amfi_code": "140088",
+          "name": "Nippon India ETF Gold BeES",
+          "display_name": "Nippon India ETF Gold BeES",
+          "category": "Gold",
+          "sub_category": "Other Scheme - Gold ETF",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.4,
+          "inception_date": "2007-02-15",
+          "aum_cr": 53346.3145,
+          "morningstar_rating": null,
+          "returns_1y": 58.389765198134526,
+          "returns_3y": 33.775786920371665,
+          "returns_5y": 25.030699744513306,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.1344968618490463,
+          "alpha": 68.24371841790663,
+          "tracking_error": 27.220315018717862,
+          "sharpe_ratio": 2.5950884162424344,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": 2400000.0,
+        "rationale": "You already trust gold, so this ETF simply tracks gold prices without complications. It diversifies your land and gold holdings into a liquid form. Expect 8-9% long-term growth, but taxed at your 30% slab. Low fees and from a big fund house make it straightforward—no fancy strategies you won't get."
+      }
+    ],
+    "setup_phase": "Step 1: Download the Groww or Kuvera app and open a free direct mutual fund account with your PAN and bank details—it takes 10 minutes and no paperwork since it's online. Step 2: For your ₹1.2 crore corpus, transfer the money to your new account via bank link and invest the lumpsum amounts right away in the three funds above (use the app's search by AMFI code). Step 3: Set up monthly SIPs of ₹80,000 total, split as ₹32,000 in HSBC Equity Savings, ₹32,000 in Aditya Birla debt, and ₹16,000 in Nippon Gold ETF—auto-debit from your bank on the 5th of each month. Start small if needed, and increase later. This keeps it simple, no advisors involved.",
+    "review_checkpoints": [
+      "After 3 months: Confirm your SIPs are deducting on time and lumpsum is invested—check the app dashboard.",
+      "After 1 year: Look at total returns; if any fund is under 5% while others are okay, note it but don't panic.",
+      "Every 2 years: See if your overall portfolio has grown by at least 6% yearly on average, adjusted for inflation around 6%."
+    ],
+    "rebalancing_guidelines": "Once a year on your birthday, log into the app and check the percentages: arbitrage should be 40%, debt 40%, gold 20%. If gold has jumped to 30% due to price rise, sell a bit and buy more debt or arbitrage to reset. Do this only if the shift is over 5%; otherwise, let it ride. This keeps your conservative mix intact without over-trading.",
+    "projected_returns": {
+      "base": 7.4,
+      "bull": 11.4,
+      "bear": 3.4
+    },
+    "rationale": "At 47 with 13 years to retirement, you're close enough that we can't chase high stock growth, but need to beat 6% inflation to maintain your ₹1.2 crore's real value and build toward ₹1 lakh monthly income (aiming for a ₹3 crore pot at 4% safe withdrawal). Your conservative style and love for gold fit perfectly—no confusing equity funds, just simple arbitrage for steady tax-smart returns, short-term debt for safety, and gold for what you know. The 40-40-20 split spreads risk across three types from different companies, easy to grasp. Post-60, shift to monthly withdrawals from these to get your income without selling land.",
+    "risks": [
+      "Debt funds can lose 2-5% value if interest rates rise suddenly, but short duration limits this to short-term dips that recover.",
+      "Gold prices swing 10-20% in bad years due to global events, but over 13 years, it averages out and protects against rupee weakness.",
+      "Arbitrage is safest here, but in market crashes, it might dip 1-2% briefly—far better than stocks dropping 30%."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.35,
+    "reasoning": "1) passive_instrument_fraction: The only equity allocation is to an Equity Savings fund, which uses arbitrage and partial equity but is an actively managed hybrid, not an index fund or ETF; no portion of the equity is directed to a passive/index product. (Score: 0.0)\n\n2) turnover_score: The plan recommends annual rebalancing if asset allocation has drifted by more than 5%, otherwise no action. No tactical switches or sector/thematic plays are suggested. This is a classic low-turnover, set-and-forget approach. (Score: 0.85)\n\n3) cost_emphasis_score: The plan mentions the benefits of direct plans, choosing ETFs for gold (low-fee), and some attention to after-tax returns. Cost minimization is discussed but is not the dominant/explicit driver. (Score: 0.6)\n\n4) research_vs_cost_score: The selection is deliberately simplified for ease of understanding; no stock or sector analysis occurs. Funds are chosen for simplicity, compatibility, and risk control rather than deep research, and the gold ETF is as passive as possible in that asset class. (Score: 0.8)\n\n5) time_horizon_alignment_score: The plan is designed for a 13-year run-up to retirement and post-retirement payout, ignoring short-term moves or tactical asset allocation—changes are proposed only in response to long-term objectives or drastic drifts. (Score: 0.95)\n\n6) portfolio_activeness_score: The overall portfolio is primarily made up of an actively managed Equity Savings hybrid (active arbitrage, not passive/index equity), an actively managed debt fund, and a gold ETF. The gold ETF is truly passive, but the two other funds show significant tracking error and are not designed as passive vehicles. The equity sleeve in the hybrid is not market beta, so activeness remains moderate-low. (Score: 0.35)",
+    "composite_aps": 0.5916666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.98,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.95,
+    "internal_consistency": 0.98,
+    "tax_efficiency": 0.8,
+    "reasoning": "Goal alignment is almost perfect: the plan is tailored for a conservative, near-retirement business owner who distrusts complex products, preferring gold and short duration options. It avoids high-risk equity, uses funds he can understand (no 'opportunity' funds or pure equities), and maps the allocation, returns, and rationale directly to his needs of income generation and capital preservation. Diversification is strong for this risk profile: funds are split across hybrid (arbitrage/equity savings), short/medium debt, and gold, and adequately distributed across three different AMCs; geographic and sectoral diversification is less relevant given the investor's refusal of pure equities. Risk-return is well-calibrated: projections are realistic (3.4% bear, 7.4% base, 11.4% bull), risks are clearly explained, and downside is appropriately managed for a conservative investor. Internal consistency is near-spotless: implementation, rationale, allocations, rebalancing, and risk all sync with the conservative strategy, there are no contradictions. Tax efficiency is high but not perfect: the plan correctly recognizes that, for a 30% slab investor, arbitrage/equity savings funds help improve post-tax yield on conservative allocation instead of pure debt, and clearly explains this choice. However, it slightly misses pointing out that slab-taxed gold ETFs are less tax-efficient compared to sovereign gold bonds (though SGBs lack liquidity, which is likely why not chosen). Still, it explicitly contrasts the tax pain in debt with benefit of 65%-plus equity strategies, so the weakness is minor. Overall, the plan is highly aligned, simple, robustly diversified for the client type, risk-aware, and mostly tax smart.",
+    "composite_pqs": 0.9019999999999999
+  },
+  "timestamp": "2026-04-25T03:36:13.481899Z",
+  "prompt_version": "full-grok-vs-mimo",
+  "usage": {
+    "input_tokens": 90943,
+    "output_tokens": 8519,
+    "cache_read_tokens": 80046,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 3
+  },
+  "elapsed_s": 56.11872406397015
+}
