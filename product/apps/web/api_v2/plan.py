@@ -66,11 +66,20 @@ async def _run_plan_task(app, session_id: str, flag_attrs: dict[str, Any] | None
     tier = s.mode if s.mode in ("basic", "premium") else "basic"
     slim_universe = tier == "basic"
     effective_mode = "basic"
+    from subprime.flags import resolve_model
+
     refine_model = REFINE_MODEL if _refine_enabled() else None
-    # Basic tier routes to a smaller model through AI Gateway so repeat
-    # archetype selections hit cache and premium traffic still gets the
-    # larger model.
-    active_model = ADVISOR_MODEL_BASIC if tier == "basic" and ADVISOR_MODEL_BASIC else ADVISOR_MODEL
+    # Default routing: basic tier → ADVISOR_MODEL_BASIC if set, else ADVISOR_MODEL.
+    # Each model identifier is then overridable via a feature flag with the
+    # same name as the env var (lowercased), so we can flip live without redeploy.
+    if tier == "basic" and ADVISOR_MODEL_BASIC:
+        active_model = await resolve_model(
+            "advisor_model_basic", ADVISOR_MODEL_BASIC, ctx=flag_attrs
+        )
+    else:
+        active_model = await resolve_model("advisor_model", ADVISOR_MODEL, ctx=flag_attrs)
+    if refine_model:
+        refine_model = await resolve_model("refine_model", refine_model, ctx=flag_attrs)
     logger.info(
         "[plan %s] START mode=%s multi=%s refine=%s model=%s persona=%s has_strategy=%s",
         session_id[:8],

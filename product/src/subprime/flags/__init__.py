@@ -24,6 +24,7 @@ from subprime.flags._store import (
     init_flags,
     is_on,
     list_flags,
+    resolve_model,
     set_flag,
 )
 from subprime.flags.context import flag_ctx
@@ -35,5 +36,6 @@ __all__ = [
     "init_flags",
     "is_on",
     "list_flags",
+    "resolve_model",
     "set_flag",
 ]

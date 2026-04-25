@@ -124,6 +124,18 @@ async def get_value(key: str, default: Any = None, *, ctx: dict[str, Any] | None
     return _evaluate(features, key, default, ctx)
 
 
+async def resolve_model(
+    flag_key: str, env_default: str, *, ctx: dict[str, Any] | None = None
+) -> str:
+    """Resolve a model identifier from flags, falling back to the env default.
+
+    Empty / non-string flag values fall through to the default — keeps
+    accidentally-blanked flags from breaking the live flow.
+    """
+    val = await get_value(flag_key, env_default, ctx=ctx)
+    return val if isinstance(val, str) and val else env_default
+
+
 async def list_flags() -> list[dict]:
     """All flag definitions — for the admin UI."""
     if _pool is None:
