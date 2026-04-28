@@ -1,7 +1,7 @@
 # Pin the base image by digest — tag can be re-pushed with a malicious
 # layer. Bump together with CI's trivy scan to ensure we know what landed.
 # Current tag: python:3.12-slim (Debian bookworm, glibc).
-FROM python@sha256:63fdc2bca05b142ef64d05e8f9dbc4e8bf9f51294824db5c3d8b10f419fe1bdd
+FROM python@sha256:0ba001803c72c128063cfa88863755f905cefabe73c026c66a5a86d8f1d63e98
 
 # Python-only image. The React frontend is built separately via
 #     make frontend          (or: cd product/apps/web/frontend && npm run build)
