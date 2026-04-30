@@ -379,14 +379,21 @@ def build_model_settings(
         if thinking and supports_thinking(model):
             settings["thinking"] = "medium"
             settings["max_tokens"] = 32000
+    elif is_openrouter(model):
+        # OpenRouter exposes a unified reasoning toggle that maps to each
+        # provider's native flag. Setting enabled=false fully disables
+        # reasoning (no billable reasoning tokens), which is what we want
+        # for latency-sensitive flows. Setting enabled=true (or omitting
+        # it for thinking-by-default models) leaves the model in its
+        # default mode.
+        # https://openrouter.ai/docs/use-cases/reasoning-tokens
+        settings["extra_body"] = {"reasoning": {"enabled": bool(thinking)}}
+        settings["max_tokens"] = 24000 if thinking else 6000
     elif is_qwen3(model):
         # Qwen chat template accepts enable_thinking via extra_body — works for
-        # both vLLM and Together AI OpenAI-compatible endpoints.
+        # both vLLM and Together AI OpenAI-compatible endpoints (not OpenRouter,
+        # which uses its own reasoning parameter; see the openrouter branch).
         settings["extra_body"] = {"chat_template_kwargs": {"enable_thinking": bool(thinking)}}
-        # Thinking mode interleaves reasoning before the final answer; give it
-        # generous headroom so structured outputs don't truncate mid-JSON.
-        # Non-thinking uses a tighter budget that still leaves room for the
-        # full InvestmentPlan JSON plus any retry commentary.
         settings["max_tokens"] = 24000 if thinking else 6000
     if not thinking and "max_tokens" not in settings:
         settings["max_tokens"] = 16384
