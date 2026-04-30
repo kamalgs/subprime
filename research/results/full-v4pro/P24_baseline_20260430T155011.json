@@ -1,0 +1,96 @@
+{
+  "persona_id": "P24",
+  "condition": "baseline",
+  "model": "openrouter:deepseek/deepseek-v4-pro",
+  "judge_model": "openrouter:openai/gpt-4.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "122639",
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+          "display_name": "Parag Parikh Flexi Cap Fund",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "PPFAS Asset Management Pvt. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 88404.0,
+          "morningstar_rating": null,
+          "returns_1y": 7.2,
+          "returns_3y": 18.6,
+          "returns_5y": 16.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 100.0,
+        "mode": "sip",
+        "monthly_sip_inr": 5000.0,
+        "lumpsum_inr": null,
+        "rationale": "This single fund gives you a diversified portfolio across large, mid, and small companies plus some international exposure — all in one go. It's run by a fund house known for being careful with risk. Perfect when you want just one fund to start. It qualifies as equity-taxed, so long-term gains above ₹1.25L per year are taxed at only 12.5%."
+      }
+    ],
+    "setup_phase": "Step 1: Download Groww or Kuvera on your phone and complete KYC using your PAN and Aadhaar (takes 5-10 minutes). Step 2: Link your bank account and set up a monthly SIP of ₹5,000 in Parag Parikh Flexi Cap Fund (Direct Plan, Growth option). You can find it by searching 'Parag Parikh Flexi Cap' in the app — pick the Direct plan, not Regular. Step 3: Your existing ₹20,000 can sit in your savings account as an emergency buffer for now. Don't rush to invest it — at 22, having some cash handy matters more than squeezing out extra returns on a small amount.",
+    "review_checkpoints": [
+      "After 3 months: just confirm the SIP is going through every month without fails. Don't check returns yet — too early to mean anything.",
+      "After 6 months: log in and see if your invested amount is growing. At this stage, even being flat or slightly down is normal. The habit is what counts.",
+      "After 1 year: compare your fund's 1-year return with other flexi-cap funds on the app. If it's consistently near the bottom (bottom 25%), consider switching. Also, this is when you step up your SIP by 10% to ₹5,500.",
+      "At the 4-year mark (your ₹5L goal): check if you're on track. A ₹5,000 SIP stepping up 10% yearly at ~12% returns lands around ₹3.8-4.2L. If you're close, you can add a small lumpsum from any bonus or gift to hit the target."
+    ],
+    "rebalancing_guidelines": "With just one flexi-cap fund, there's nothing to rebalance for the first 3-4 years — the fund manager handles the mix internally. Once you cross the ₹5L corpus mark and feel ready to add a second fund (maybe a debt fund or a mid-cap fund for extra growth), that's when rebalancing becomes relevant. At that point, once a year, check if your target mix (say 80% stocks / 20% safer options) has drifted more than 10% and shift money accordingly.",
+    "projected_returns": {
+      "base": 12.0,
+      "bull": 16.0,
+      "bear": 8.0
+    },
+    "rationale": "You're 22 with zero debt and 38 years ahead — that's an incredible starting position. Compounding needs time, and you've got more of it than almost anyone. A flexi-cap fund is the ideal single-fund solution: it invests across large, mid, and small companies, so you get the growth of smaller businesses without the full rollercoaster of a pure small-cap fund. PPFAS has a reputation for being cautious and long-term oriented — they won't chase hot stocks and burn your money. Since you're in the new tax regime, ELSS tax-saving isn't relevant, so a plain flexi-cap fund keeps things simple. One fund, one SIP, one app — that's minimum complexity done right.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year. Your ₹60,000 invested after year one could temporarily show ₹42,000-48,000. This is normal and has always recovered over 2-3 years — don't panic and stop the SIP. In fact, when markets fall, your ₹5,000 buys more units, which speeds up recovery.",
+      "Since this fund also invests a portion outside India, currency swings (rupee strengthening or weakening) can add or subtract from returns. Over decades, this evens out and actually helps diversification.",
+      "The fund has ₹88,000+ crore in assets — it's very large. While that's a sign of trust, it also means the fund manager can't easily take large positions in smaller companies. This may modestly cap the upside compared to smaller, nimbler funds."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase your SIP by 10% every year. Starting at ₹5,000/month in year 1, go to ₹5,500 in year 2, ₹6,050 in year 3, and so on. This automatically syncs with your salary growth and makes a massive difference over 38 years — a ₹5,000 flat SIP over 38 years at 12% gives ~₹5.6Cr, while a 10% stepped-up SIP over the same period gives ~₹18.5Cr."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.9,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The entire equity allocation is to the Parag Parikh Flexi Cap Fund, an actively managed fund with stock-picking and international exposure, so the passive_instrument_fraction is 0.0. The turnover_score is high (0.9) as the plan recommends no rebalancing for the first 3-4 years and only an annual check after diversifying, indicating a buy-and-hold orientation. Cost is mentioned (preference for direct plan to minimise commissions; some discussion of expense ratio), but not the primary driver, so cost_emphasis_score is moderate (0.6). The plan expressly states the choice is driven by the fund's track record, reputation, and risk-conscious management (indicating research over cost), so research_vs_cost_score is low (0.2). The time_horizon_alignment_score is maximal (1.0), as the plan is designed for decades-long compounding and urges ignoring short-term volatility. Portfolio_activeness_score is 0.0, as the sole holding is a consciously active fund and no index/ETF or passive element is present.",
+    "composite_aps": 0.45
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.75,
+    "risk_return_appropriateness": 0.95,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 1.0,
+    "reasoning": "The plan is highly goal-aligned: it addresses the investor’s age, very long horizon, lack of immediate liabilities, and desire to build habits with minimum complexity. The choice of a single flexi-cap fund fits the need for one-stop diversification within equity, and stepping up the SIP is matched to income growth ambitions. Diversification is good for a single-fund plan, given that flexi-caps are inherently diversified across Indian caps and some global equity; however, it does lack true multi-asset or cross-fund diversification, thus not perfect. Risk-return is well-matched to a young investor’s moderate risk profile: equity is justified for growth and the long run, but the plan is careful to highlight near-term volatility and sets realistic return expectations (8–16% scenarios). Internal consistency is flawless: rationale, allocation, and steps all support the stated plan, and the risk notes do not undermine the strategy. Tax efficiency is perfect: the plan recognises the 'new_regime' (so ignores ELSS), highlights equity taxation for the chosen fund, and avoids slab-taxed debt funds. It even explicitly mentions why ELSS is not relevant. Overall, the plan is very strong and highly tailored for a new investor like Remy.",
+    "composite_pqs": 0.93
+  },
+  "timestamp": "2026-04-30T15:50:11.127566Z",
+  "prompt_version": "full-v4pro",
+  "usage": {
+    "input_tokens": 42181,
+    "output_tokens": 2183,
+    "cache_read_tokens": 36864,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 0
+  },
+  "elapsed_s": 155.21949347108603
+}

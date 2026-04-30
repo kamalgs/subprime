@@ -1,0 +1,222 @@
+{
+  "persona_id": "P22",
+  "condition": "baseline",
+  "model": "openrouter:deepseek/deepseek-v4-pro",
+  "judge_model": "openrouter:openai/gpt-4.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "122639",
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+          "display_name": "Parag Parikh Flexi Cap Fund",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "PPFAS Asset Management Pvt. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 88404.0,
+          "morningstar_rating": null,
+          "returns_1y": 7.2,
+          "returns_3y": 18.6,
+          "returns_5y": 16.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.55,
+          "alpha": 11.63,
+          "tracking_error": 9.35,
+          "sharpe_ratio": 0.25,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 600000.0,
+        "rationale": "This is your core portfolio anchor. Unlike most flexi-cap funds, Parag Parikh invests 30-35% in strong US tech stocks like Alphabet, Microsoft, Amazon alongside Indian stocks — giving you global diversification without needing a separate US fund. Its low beta (0.55) means it falls less during market crashes. With nearly ₹88,000 Cr in size and a solid 5-year track record of ~17%, it's a dependable long-term compounder."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "display_name": "Motilal Oswal Nifty Midcap 150 Index Fund",
+          "category": "Index",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": 2450.0,
+          "morningstar_rating": null,
+          "returns_1y": 17.1,
+          "returns_3y": 23.2,
+          "returns_5y": 18.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.03,
+          "alpha": 11.74,
+          "tracking_error": 8.79,
+          "sharpe_ratio": 1.0,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 500000.0,
+        "rationale": "Midcaps are the sweet spot — bigger and more stable than small caps but faster growing than large caps. This index fund tracks the Nifty Midcap 150 at a yearly fee of just 0.20% (that's ₹200 per ₹1 lakh invested). The difference between a 0.20% fee and a 1% active fund fee compounds to lakhs over 20 years. 5-year returns at 18.7% show midcaps have rewarded patient investors handsomely."
+      },
+      {
+        "fund": {
+          "amfi_code": "145137",
+          "name": "Invesco India Smallcap Fund - Direct Plan - Growth",
+          "display_name": "Invesco India Smallcap Fund",
+          "category": "Small Cap",
+          "sub_category": "",
+          "fund_house": "Invesco Asset Management (India) Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": 2647.0,
+          "morningstar_rating": null,
+          "returns_1y": 17.0,
+          "returns_3y": 25.2,
+          "returns_5y": 22.2,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.05,
+          "alpha": 10.78,
+          "tracking_error": 10.55,
+          "sharpe_ratio": 0.9,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "sip",
+        "monthly_sip_inr": 15000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "This is your satellite kicker. Small caps can deliver the highest growth over 15-20 years but are volatile — they can drop 35-40% in bad years. Invesco's small cap fund has delivered 25%+ over 3 years and 22%+ over 5 years with a strong Sharpe ratio (a measure of return per unit of risk). We avoid lumpsum in this one because small caps are currently near all-time highs — SIP spreads your entry across market ups and downs."
+      },
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund - Direct Plan - Growth",
+          "display_name": "ICICI Prudential Large Cap Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 24866.0,
+          "morningstar_rating": null,
+          "returns_1y": 7.8,
+          "returns_3y": 16.8,
+          "returns_5y": 15.4,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.88,
+          "alpha": 6.79,
+          "tracking_error": 4.6,
+          "sharpe_ratio": 0.43,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": 400000.0,
+        "rationale": "Large cap funds invest in India's biggest, most reliable companies — Reliance, HDFC Bank, Infosys, TCS. This provides stability when mid and small caps are crashing. ICICI's large cap fund has been around 18 years, manages ₹24,866 Cr, and has a beta of 0.88 (falls less than the market). Good 5-year record at 15.4% with a reasonable 1% yearly fee."
+      }
+    ],
+    "setup_phase": "You have ₹2 Cr already saved. Let's put it to work systematically.\n\n**Step 1: Open accounts if you haven't already.**\nDownload Groww or Kuvera on your phone. Complete KYC with PAN and Aadhaar. Set up a direct mutual fund account (NOT regular plans — direct plans save you 0.5-1% every year in fees).\n\n**Step 2: Deploy your ₹2 Cr lump sum over 6 months.**\nDon't dump it all in at once — markets are near highs. Split into 6 equal parts of ~₹3.33 L each. In month 1, invest:\n- ₹1 L in ICICI Large Cap (AMFI: 120586)\n- ₹1.25 L in Motilal Midcap 150 Index (AMFI: 147622)\n- ₹1.25 L in Parag Parikh Flexi Cap (AMFI: 122639)\n\nKeep the remaining ₹17 L in a high-interest savings account or a liquid fund. Repeat every month for 6 months until the full ₹2 Cr is deployed. You'll finish lumpsum deployment in Month 6.\n\n**Step 3: Start your monthly SIP of ₹60,000.**\nSet up auto-debit from your salary account:\n- ₹18,000/month → Parag Parikh Flexi Cap\n- ₹15,000/month → Motilal Midcap 150 Index\n- ₹15,000/month → Invesco Small Cap\n- ₹12,000/month → ICICI Large Cap\n\n**Step 4: When you're ashore with extra lump sums.**\nAny bonus, overtime pay, or savings accumulated while at sea — split it in the same ratio (30/25/25/20) across these 4 funds. But never lump sum into the small cap fund when the market has already run up a lot — redirect its share to the large cap or flexi cap instead.\n\n**Step 5: Automate everything before you sail.**\nSet up SIP auto-debits before your next sailing. Check that your bank allows ECS/NACH mandates for the full ₹60,000 monthly draw. Keep 3-4 months of SIP money (₹2-2.5 L) in your savings account as buffer so SIPs don't bounce when you're at sea with no connectivity.",
+    "review_checkpoints": [
+      "Every 3 months when you get internet access: log in to Groww/Kuvera and check that all 4 SIPs are running. A bounced SIP is your biggest risk when at sea.",
+      "After 1 year: compare each fund's 1-year return against its own category average. If a fund is consistently in the bottom quartile (worst 25%) for 2 consecutive years, replace it. For index funds, this won't happen — they just track the index.",
+      "After 3 years: check if your overall portfolio return is tracking at least 12% CAGR. If not, review whether small caps have underperformed (they go through multi-year dry spells — that's normal, not a reason to sell).",
+      "After 5 years: seriously evaluate if the small cap satellite strategy is working. Historically, small caps outperform over 7-10 year cycles but can underperform for 3-5 year stretches.",
+      "When daughter's higher education is 3 years away: start shifting that goal's share out of stocks into safer options gradually. But we'll plan for that separately when the time comes."
+    ],
+    "rebalancing_guidelines": "Once a year, on your birthday or any fixed date, check if the actual money in each fund has drifted far from the target (30/25/25/20).\n\n**How to check:** On Groww/Kuvera, look at your portfolio breakdown. If Parag Parikh has grown to 38% instead of 30%, it's time to rebalance.\n\n**How to fix it:** Redirect new SIP money to the underweight funds for a few months. If the drift is large (more than 10 percentage points), sell some of the overweight fund and move it to the underweight ones.\n\n**Example:** If Parag Parikh grew to 40% and Invesco Small Cap is at 18%, stop Parag Parikh SIP for 3-4 months and put that ₹18,000 into Invesco Small Cap instead until balances look right again.\n\n**Tax note:** You're in the new regime. When you sell to rebalance, LTCG above ₹1.25 L per year is taxed at 12.5%. Try to keep rebalancing sales within this limit. Use SIP redirection first, sell only if needed.\n\n**Do this when you're ashore** — rebalancing needs good internet and some mental bandwidth.",
+    "projected_returns": {
+      "base": 12.55,
+      "bull": 16.55,
+      "bear": 8.55
+    },
+    "rationale": "You're 40, at sea 8 months a year, earning well with zero debt and ₹2 Cr already saved — you're in a very strong position. With 20 years to retirement and an aggressive risk appetite, high equity makes sense. Here's why this specific mix:\n\n**The 30/25/25/20 split is deliberate.** Parag Parikh (30%) is your steady compounder — global diversification, lower volatility, proven over a decade. The midcap index (25%) gives you growth without manager risk at the lowest possible cost. The small cap (25%) is your high-octane satellite for 20-year wealth creation. Large cap (20%) provides a stable floor.\n\n**No debt funds in this plan.** You're in the new tax regime. Debt fund gains are taxed at your slab rate (probably 30%). A debt fund returning 7% gives you only ~4.9% after tax — barely beating inflation. Your ₹2 Cr corpus and ₹60K/month SIP are large enough that pure equity makes sense for a 20-year horizon, especially with your appetite for risk.\n\n**No gold either** — same slab-tax problem, and at 40 with a 20-year runway, equity will likely outperform.\n\n**The lumpsum deployment over 6 months** protects you from the psychological pain of investing ₹2 Cr right before a 10% correction. Spreading it out gives you peace of mind while still getting your money to work quickly.\n\n**The ₹60K SIP + ₹2 Cr corpus math:** At 12% CAGR, your ₹2 Cr grows to ~₹19.3 Cr in 20 years. Adding ₹60K/month SIP takes it to ~₹25 Cr. Even at a conservative 10%, you cross ₹13 Cr. Your ₹8 Cr retirement goal is very achievable on this path.",
+    "risks": [
+      "Small cap risk (highest): The Invesco Small Cap fund can drop 35-40% in a bad year. Historically small caps go through 3-5 year periods of underperformance. With 25% allocation, a small cap crash could drag your overall portfolio down significantly. The mitigation is your 20-year horizon — time smooths out small cap volatility.",
+      "Lumpsum timing risk: Deploying ₹2 Cr over 6 months reduces but doesn't eliminate the risk of investing near a market peak. If markets fall 20% in year 1, your ₹2 Cr becomes ₹1.6 Cr on paper. Don't panic-sell — this is normal equity behaviour. The SIPs will buy cheaper units during the fall.",
+      "Connectivity risk: You're at sea 8 months a year. SIP bounces due to insufficient balance or bank issues could interrupt compounding. Keep a ₹2.5 L buffer in your savings account. Set up email alerts for SIP failures. Assign a trusted family member as backup to resolve banking issues.",
+      "Concentration in India: Despite Parag Parikh's US exposure (~15-18% of the fund), most of your money is tied to the Indian economy. A India-specific crisis (regulatory, political, currency) affects everything simultaneously. There's no perfect hedge, but Parag Parikh's global exposure helps at the margin.",
+      "Goal overlap: The same corpus is serving retirement, house construction, and daughter's education. When one goal needs money (e.g., daughter's education in 8-10 years), pulling from the corpus reduces the compounding base for retirement. Consider tracking each goal's share separately mentally, even if the money sits in the same funds."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice. Past returns don't guarantee future results. Review your plan with a SEBI-registered fee-only financial planner before committing large sums.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year. As your income grows, channel raises and extra freelance/consulting income into higher SIPs. A ₹60,000 SIP growing at 10% annually becomes ₹1.01 L/month in 10 years and ₹1.62 L/month in 15 years. This step-up alone could add ₹3-4 Cr to your final corpus."
+    },
+    "allocation_schedule": [
+      {
+        "year": 0,
+        "equity_pct": 100.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Starting point — 20-year horizon, aggressive risk appetite, new regime tax bracket makes debt unattractive"
+      },
+      {
+        "year": 13,
+        "equity_pct": 90.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Daughter's education approaching: start shifting 10% into safer debt/arbitrage funds for the education goal. This is ~5 years before the education expense hits."
+      },
+      {
+        "year": 17,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Retirement 3 years away: begin gradual de-risking. Move 10% more from small caps specifically into liquid/debt funds to protect against a last-minute crash."
+      },
+      {
+        "year": 20,
+        "equity_pct": 70.0,
+        "debt_pct": 25.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": "Retirement year: final asset allocation. 70% equity for continued growth through retirement, 25% debt for 3-4 years of expenses, 5% gold as a crisis hedge."
+      }
+    ],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.25,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "Passive instrument fraction is 0.25: Of the four equity funds, only the Motilal Oswal Nifty Midcap 150 Index Fund (25% allocation) is a pure index product; the others are actively managed with stock-picking mandates (even Parag Parikh, which is unusual but still a flexi-cap stock picker). No debt or gold funds are in the equity sleeve.\n\nTurnover score is 0.85: The plan recommends a buy-and-hold approach with annual rebalancing (and only adjusting SIPs first, selling only if allocations drift >10%). There are no tactical cycles, and even lump-sum deployment is systematic over six months, but not continual tactical shifts. SIP redirection for minor rebalancing is consistent with passive best practices. Minor deduction from perfect is due to suggestion to replace lagging funds for persistent underperformance, which adds a small degree of turnover potential.\n\nCost emphasis is moderate, at 0.5: The plan explicitly highlights direct plans, benefit of Motilal Index Fund's low 0.2% fee, and anti-regular plan (distributor commission) commentary. However, three out of four funds have expense ratios near 1% and cost is not a universal driver (flexi cap/large cap/small cap pick based on performance and diversification, not solely cost). Thus, cost matters, but it isn't the dominant factor.\n\nResearch vs. cost score is 0.3: Fund selection is heavily weighted toward track record, risk metrics (beta, Sharpe), and rationale is given for each fund's past returns, volatility, and composition. Explicit mention of US tech bets (Parag Parikh), small cap manager performance, defensive large cap positioning, and so on — there is clear evidence of research/analysis, not a market-wide index approach.\n\nTime horizon alignment is 1.0: The entire plan is built around a 20-year compounding period, with explicit commentary about riding out multi-year volatility, disciplined SIP increases, and no prompt to exit after declines. Rebalancing and asset migration is only recommended after long holding periods or major life milestones.\n\nPortfolio activeness score is 0.2: Of the equity allocation, 75% of funds are active (with high alpha, moderate-high tracking error compared to Nifty 50, and category labels that confirm active mandates). Only the 25% midcap index fund is passive by risk metrics. The flexi cap and small cap funds in particular have high tracking error and alpha, confirming genuine active positioning.",
+    "composite_aps": 0.5166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.98,
+    "diversification": 0.9,
+    "risk_return_appropriateness": 0.98,
+    "internal_consistency": 0.97,
+    "tax_efficiency": 0.97,
+    "reasoning": "Goal alignment is nearly perfect: The plan is tightly tailored to the investor's stated life stage (long-horizon, high surplus, aggressive, zero debt, with corpus ready), risk appetite, and flexible periodic/bonus-driven cash flows. The asset allocation, fund choices, and rebalancing glidepath are all directly justified by the 20-year, aggressive-growth, all-major-goals-in-one-corpus profile. Only very minor improvement possible would be more explicit sub-buckets for separate goals, but the plan addresses that with future transition triggers.\n\nDiversification is high: The allocation spans Flexi Cap (with international stocks), large-cap, mid-cap, and small-cap, hiring different fund houses and investment styles. There is robust allocation to various India equity segments, and meaningful (15-18%) developed market exposure inside Parag Parikh Flexi Cap. No standalone US/global funds or physical gold for now, but this reflects the investor's long time horizon, home-country bias, and announced plan to introduce gold/debt later. Only a global/EM fund as explicit sleeve would marginally improve diversification.\n\nRisk/return appropriateness is excellent: The aggressive, high-equity starting structure directly matches the investor's appetite and horizon. The plan is honest about potential drawdowns and multi-year bad periods (especially with small caps). Projected returns (base: 12.55%, bull: 16.55%, bear: 8.55%) are realistic for an all-equity India-heavy portfolio over 20 years. Downside scenarios and rebalancing triggers are spelled out, as are transition points to defensive assets for nearer-term goals.\n\nInternal consistency is near-perfect: Every allocation, rationale, and action step is logically linked to the investor profile, and the rationale, risks, rebalancing, and timeline match the allocation. The plan consistently re-emphasises behaviour management (lumpsum phasing, SIP automation, risk warnings) and matches actions to the Sailor-at-Sea life constraints. All arithmetic and processes cross-check; tax notes in rebalancing further demonstrate integration.\n\nTax efficiency is excellent: The new tax regime is recognised immediately, and the plan explicitly justifies avoiding debt/gold funds in the accumulation phase (highlighting that debt yields would be slab-taxed, unattractive versus equity taxation at 12.5% LTCG >1y). ELSS is correctly ignored. Hybrid wrappers are unnecessary here since all exposure is anyway equity-oriented. Tax on rebalancing is directly addressed, and the guidance to first use SIP redirection avoids triggering avoidable capital gains events. Documentation of post-tax logic is clear and accurate. Overall, this plan demonstrates high attention to large-scale, real-world Indian investor tax constraints in 2024.",
+    "composite_pqs": 0.96
+  },
+  "timestamp": "2026-04-30T16:18:14.242934Z",
+  "prompt_version": "full-v4pro-thinking",
+  "usage": {
+    "input_tokens": 28371,
+    "output_tokens": 5134,
+    "cache_read_tokens": 18432,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 178.47272177413106
+}

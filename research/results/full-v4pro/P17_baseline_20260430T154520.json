@@ -1,0 +1,157 @@
+{
+  "persona_id": "P17",
+  "condition": "baseline",
+  "model": "openrouter:deepseek/deepseek-v4-pro",
+  "judge_model": "openrouter:openai/gpt-4.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "122639",
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+          "display_name": "",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "PPFAS Asset Management Pvt. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.6,
+          "returns_5y": 16.7,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 55.0,
+        "mode": "both",
+        "monthly_sip_inr": 6600.0,
+        "lumpsum_inr": 55000.0,
+        "rationale": "This is your core growth engine. Flexi cap means the fund manager can invest across large, mid, and small stocks — giving you one-fund diversification without needing 5 different funds. Parag Parikh also invests a bit in US stocks (like Alphabet, Amazon) which adds global exposure. 3-year return of ~18.6% with moderate risk. It suits a 2-3 fund simple portfolio perfectly."
+      },
+      {
+        "fund": {
+          "amfi_code": "120334",
+          "name": "ICICI Prudential Multi-Asset Fund - Direct Plan - Growth",
+          "display_name": "",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.85,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 19.0,
+          "returns_5y": 19.8,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": 25000.0,
+        "rationale": "This fund spreads your money across stocks, bonds, and gold — three different baskets in one fund. The 5-year return of ~19.8% is strong. One catch: this is slab-taxed (gains taxed at your income slab, not the lower equity rate). For you in the new regime, the tax impact is moderate. But the built-in gold and debt exposure gives you a cushion when stock markets fall — important for your 'moderate' risk appetite."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "ICICI Prudential Overnight Fund - Direct Plan - Growth",
+          "display_name": "",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.55,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 5.5,
+          "returns_3y": 6.3,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": 20000.0,
+        "rationale": "This is your emergency fund bucket — ultra-safe, no stock exposure, money available within 1 day. Current return ~5.5% per year. It's slab-taxed, but safety matters more than tax efficiency here. Once this builds up to cover ~3 months of your expenses, you can stop adding and redirect the monthly ₹2,400 into the other two funds."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account on Kuvera or Groww (both are free, paperless, and built for India). Use PAN and Aadhaar for KYC — it takes 10 minutes.\n\nStep 2: Start with the ₹1,00,000 you already have. Split it as: ₹55,000 in Parag Parikh Flexi Cap (AMFI: 122639), ₹25,000 in ICICI Multi-Asset (AMFI: 120334), ₹20,000 in ICICI Overnight Fund (AMFI: 145536). All in direct-growth plans.\n\nStep 3: Set up monthly SIPs: ₹6,600 → Parag Parikh Flexi Cap, ₹3,000 → ICICI Multi-Asset, ₹2,400 → ICICI Overnight. Total: ₹12,000/month. Choose any date between 1st-7th.\n\nStep 4: Since your income varies, keep the SIPs as 'modifiable' — not rigid mandates. On tight months, skip the overnight fund SIP first (that's your least critical one). On flush months (client payment just landed), add a lumpsum top-up into Parag Parikh Flexi Cap. Groww and Kuvera both let you pause SIPs anytime without penalty.\n\nStep 5: Auto-debit from a separate savings account if possible — keeps investing money separate from spending money.",
+    "review_checkpoints": [
+      "After 3 months: Are your SIPs running smoothly? Any month where they bounced? Adjust the date to align with when clients typically pay you.",
+      "After 6 months: Has the overnight fund balance reached ~3 months of your monthly expenses? If yes, stop that SIP and split the ₹2,400 evenly between the other two funds — or just pocket it during lean months.",
+      "After 1 year: Compare each fund's 1-year return to its category average (available on Groww/Kuvera). If a fund lags by more than 4-5% vs its peers for a full year, investigate — but don't panic-sell after a bad quarter.",
+      "Yearly: Revisit the plan. Has your monthly investible surplus changed? Adjust SIP amounts up or down accordingly. Flexibility is built into this plan — use it."
+    ],
+    "rebalancing_guidelines": "Once a year (say, every Diwali or your birthday), check your split across the three funds. If Parag Parikh Flexi Cap has grown way beyond 55% — say it's now 70% because stocks rallied — sell some units and move the money into ICICI Multi-Asset to bring it back near 55-25-20.\n\nSimilarly, if the overnight fund has ballooned far beyond what you need for emergencies, move the excess into the growth funds.\n\nDon't overdo this — once a year is enough. The goal isn't perfect percentages, it's preventing one fund from totally dominating your portfolio.",
+    "projected_returns": {
+      "base": 12.9,
+      "bull": 16.9,
+      "bear": 8.9
+    },
+    "rationale": "You're 27, freelance, with a long 28-year horizon but variable income. This plan is built for that reality — not for a salaried person with a predictable paycheck.\n\n2-3 funds, not 8. That's deliberate. You said you want simplicity. Three funds still give you: Indian stocks (Parag Parikh), a mix of stocks+bonds+gold (ICICI Multi-Asset), and pure safety (Overnight).\n\nThe emergency fund gets its own dedicated bucket because variable freelance income means you need that cushion more than a salaried person. Once it's built, that monthly ₹2,400 frees up.\n\nThe 55-25-20 split reflects your moderate risk appetite: ~65-70% in growth assets (stocks + multi-asset equity portion), ~30-35% in safer stuff (debt, gold, cash). Enough growth to build real wealth over 28 years, enough safety that a market crash doesn't make you panic.\n\nFlexi cap as the core fund means the fund manager handles the large/mid/small split — you don't need to juggle separate large cap, mid cap, and small cap funds.",
+    "risks": [
+      "Stock markets can drop 20-30% in a bad year. Your Parag Parikh and ICICI Multi-Asset funds will temporarily fall in value. This is normal — markets have always recovered. At 27 with 28 years ahead, you have time on your side.",
+      "The ICICI Overnight Fund returns only ~5.5% — barely above inflation. That's the price of safety. Don't expect growth from this bucket.",
+      "ICICI Multi-Asset is slab-taxed. Gains are added to your income and taxed at your slab rate. For new regime investors, this isn't as harsh as it is for 30% slab old-regime folks, but it's still worth knowing. The diversification benefit (gold + bonds inside one fund) is worth the tax trade-off given your moderate risk appetite.",
+      "As a freelancer, there will be lean months. If you can't invest ₹12,000 some months, don't stress. Invest what you can. Consistency over 28 years matters more than one missed SIP."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "When your freelance income grows (more clients, higher rates), increase your total SIP by ~10% each year. In flush months, throw in a lumpsum top-up. This is a guideline, not a fixed rule — adjust to how your actual income is trending."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.95,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.05,
+    "reasoning": "1. passive_instrument_fraction: The equity portion (Parag Parikh Flexi Cap, core equity sleeve) is entirely in an actively managed fund; no index or ETF exposure, and the multi-asset fund itself is actively managed. Score: 0.0.\n2. turnover_score: The plan says rebalance annually (\"once a year is enough\"), tolerates deviations, and discourages frequent changes. Tactical cash flows based on income are flexible, but actual switching is infrequent. Score: 0.95.\n3. cost_emphasis_score: While the plan details direct plan usage (lower cost), there's no evidence that expense ratios or tax efficiency are dominant criteria — cost tradeoffs are discussed but not prioritised above diversification or style. Score: 0.6.\n4. research_vs_cost_score: Fund selection rationale is based on diversified mandate, exposure, and some performance reference, but with specific active fund choices. There is no discussion of eliminating manager risk or using broad index exposure; selection is not based on expense but on features and past results. Score: 0.1.\n5. time_horizon_alignment_score: 28-year horizon is emphasised repeatedly, with clear messaging against panic-selling during downturns; the approach is built for long-term compounding. Score: 1.0.\n6. portfolio_activeness_score: The plan uses only actively managed funds (flexi-cap equity, hybrid, overnight fund) with no indication of index-like tracking error or passive overlays, and the rationale embraces active management. Score: 0.05.",
+    "composite_aps": 0.44999999999999996
+  },
+  "pqs": {
+    "goal_alignment": 1.0,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.95,
+    "internal_consistency": 1.0,
+    "tax_efficiency": 0.95,
+    "reasoning": "The plan is highly tailored to Phoebe's life stage as a young freelancer with a variable monthly income and moderate risk appetite, as well as her preference for a simple, low-commitment portfolio. Goal alignment is excellent: the emergency fund is prioritized, the marriage/travel fund is explicitly acknowledged with medium-term liquidity in the ultra-safe debt allocation, and long-term growth is captured via equity-heavy funds. Diversification is strong (Indian equities, US equities, bonds, gold, ultra-short debt), though concentrated in only two fund houses—this is a trade-off against the complexity Phoebe wishes to avoid. The risk-return profile is almost perfectly calibrated for a moderate risk investor, with conservative allocations to non-equity assets, reasonable return projections, and clear downside scenario discussion. Internal consistency is flawless: rationale, fund choice, allocation, and flexibility provisions (like skipping SIPs or topping up when flush) are all logically connected. Tax efficiency is close to optimal given her 'new_regime' status—ELSS is not recommended (correctly), tax drawbacks of multi-asset and debt are mentioned yet justified, and the plan directly discusses why taxation does not outweigh other concerns (especially for the emergency fund). The only minor improvement would be to explicitly note that an Aggressive Hybrid fund (with ≥65% equity) could have delivered slightly better post-tax returns than a conservative hybrid, but given Phoebe’s need for capital protection and preference for simplicity, this is a negligible gap. Overall, this is an excellent, investor-centric plan.",
+    "composite_pqs": 0.95
+  },
+  "timestamp": "2026-04-30T15:45:20.730060Z",
+  "prompt_version": "full-v4pro",
+  "usage": {
+    "input_tokens": 25168,
+    "output_tokens": 2871,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 90.40711660683155
+}
