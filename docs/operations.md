@@ -29,6 +29,28 @@ The settings we rely on:
 When investigating "why did this model suddenly behave differently?",
 check the dashboard before suspecting code.
 
+### Per-request provider pinning
+
+For cases where dashboard prefs aren't enough — e.g. pinning a specific
+model to its first-party provider for cache stability — OpenRouter
+accepts a `provider` object in the request body. Reference:
+<https://openrouter.ai/docs/features/provider-routing>
+
+```python
+extra_body = {
+    "provider": {
+        "order": ["Xiaomi", "Novita"],
+        "allow_fallbacks": True,
+    },
+}
+```
+
+**Backlog:** extend the `advisor_model` / `judge_model` flag values from
+plain strings to JSON objects (e.g. `{"model": "openrouter:...", "provider": {...}}`)
+so the per-request override is flag-driven rather than hardcoded in
+`build_model`. Couple hours of work; not urgent until we hit a
+provider-routing issue we can't fix at the dashboard level.
+
 ## Feature flags
 
 CRUD via `/api/v2/admin/flags/{key}` with a Bearer token
