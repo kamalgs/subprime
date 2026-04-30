@@ -51,6 +51,34 @@ so the per-request override is flag-driven rather than hardcoded in
 `build_model`. Couple hours of work; not urgent until we hit a
 provider-routing issue we can't fix at the dashboard level.
 
+### Backlog: OpenRouter Presets
+
+OpenRouter ships a "Presets" feature (<https://openrouter.ai/docs/guides/features/presets>,
+managed at <https://openrouter.ai/settings/presets>) that bundles model +
+provider routing + sampling params + system prompt under a named handle.
+Referenced in API calls as `@preset/<name>` or `<model>@preset/<name>`.
+
+When we get to it, the migration is small:
+
+  1. Create presets in the dashboard for our common roles:
+     - `advisor-fast`        — mimo-v2-flash, pin Xiaomi first-party, reasoning off
+     - `advisor-quality`     — grok-4-fast, xAI direct, no fallback
+     - `judge-balanced`      — gpt-4.1, throughput sort
+     - `judge-strong`        — claude-sonnet-4.6, deny training
+     - `experiment-cheap`    — mimo, FP8 only, low temperature
+  2. Flag values change from `openrouter:xiaomi/mimo-v2-flash` to
+     `openrouter:@preset/advisor-fast`.
+  3. Verify `OpenAIChatModel` passes the `@preset/...` model string through
+     unchanged (one smoke test).
+
+Pros: provider pin + reasoning config + sampling params live in one named
+handle, dashboard-versioned, swappable without code/flag changes.
+Cons: presets themselves are dashboard-only — no CRUD API for them, so
+provisioning isn't fully automated.
+
+Skip until we have ≥4 distinct routing setups in flight. Today we have ~2
+(mimo for live, gpt-4.1 for judge), so the indirection isn't paying yet.
+
 ## Feature flags
 
 CRUD via `/api/v2/admin/flags/{key}` with a Bearer token
