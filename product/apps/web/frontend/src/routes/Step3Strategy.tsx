@@ -5,6 +5,7 @@ import {
   answerQuestions, generatePlan, generateStrategy, reviseStrategy,
 } from "../api/client";
 import AllocationChart from "../components/AllocationChart";
+import ElapsedTimer from "../components/ElapsedTimer";
 
 export default function Step3Strategy() {
   const nav = useNavigate();
@@ -41,6 +42,9 @@ export default function Step3Strategy() {
         <p className="text-sm text-gray-500 dark:text-slate-400">
           Generating your personalised strategy…
         </p>
+        <ElapsedTimer
+          className="text-xs font-mono text-gray-400 dark:text-slate-500"
+        />
       </div>
     );
   }

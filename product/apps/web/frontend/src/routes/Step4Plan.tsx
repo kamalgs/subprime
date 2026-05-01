@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getPlan } from "../api/client";
 import type { Plan, PlanStatus, InvestorProfile } from "../api/types";
 import CorpusChart from "../components/CorpusChart";
+import ElapsedTimer from "../components/ElapsedTimer";
 import PlanRevealModal from "../components/PlanRevealModal";
 import Prose from "../components/Prose";
 
@@ -80,7 +81,11 @@ export default function Step4Plan() {
           <p className="text-sm italic text-primary-700 dark:text-primary-300">&ldquo;{wisdom}&rdquo;</p>
           <p className="text-xs text-gray-400 dark:text-slate-500 mt-1">— Benji</p>
         </div>
-        <p className="text-xs text-gray-400 dark:text-slate-500">This usually takes 30–60 seconds.</p>
+        <p className="text-xs text-gray-400 dark:text-slate-500">This usually takes 10–30 seconds.</p>
+        <ElapsedTimer
+          className="text-xs font-mono text-gray-400 dark:text-slate-500"
+          prefix="Elapsed: "
+        />
       </div>
     );
   }

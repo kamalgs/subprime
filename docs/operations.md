@@ -108,6 +108,23 @@ unlinks on context exit; a background scrubber (launched in the FastAPI
 lifespan) sweeps `/tmp/subprime-*.pdf` every 5 min as a second line of
 defence for crash paths.
 
+## Per-session tracing
+
+Every span we emit is tagged with `subprime.session_id` (see
+`subprime.observability.attrs.SESSION_ID`). To investigate a slow / failed
+session, copy the session id from the cookie or DB and search HyperDX:
+
+  - **HyperDX**: filter `subprime.session_id = "<id>"` to see the full
+    timeline (profile submit → strategy → plan stages → judge calls)
+    with elapsed-time + token-usage attributes per span.
+  - Common attributes: `subprime.advisor_model`, `subprime.refine_model`,
+    `subprime.elapsed_s`, `subprime.input_tokens`, `subprime.output_tokens`,
+    `subprime.cache_read_tokens`, `subprime.cache_hit_ratio`, `subprime.tier`.
+
+For one-off debugging without HyperDX, container stderr also carries
+`[plan <id8>] START | stage X persisted | DONE in Ns` log lines that are
+greppable by the first 8 chars of the session id.
+
 ## Database / migrations
 
 `feature_flags` table is created at startup by `subprime.flags.init_flags`
