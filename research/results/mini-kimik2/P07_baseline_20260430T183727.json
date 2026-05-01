@@ -1,0 +1,187 @@
+{
+  "persona_id": "P07",
+  "condition": "baseline",
+  "model": "openrouter:moonshotai/kimi-k2-0905",
+  "judge_model": "openrouter:openai/gpt-4.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118668",
+          "name": "Nippon India Small Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "display_name": "",
+          "category": "Small Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": 20288.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 22.3,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 35.0,
+        "mode": "both",
+        "monthly_sip_inr": 105000.0,
+        "lumpsum_inr": 875000.0,
+        "rationale": "Strong 5-year track record in small-caps, ₹20k Cr+ AUM for stability. Post-tax 22% becomes ~19% for 30% slab – still excellent."
+      },
+      {
+        "fund": {
+          "amfi_code": "120403",
+          "name": "Invesco India Midcap Fund - Direct Plan - Growth Option",
+          "display_name": "",
+          "category": "Mid Cap",
+          "sub_category": "",
+          "fund_house": "Invesco",
+          "nav": 0.0,
+          "expense_ratio": 1.15,
+          "inception_date": null,
+          "aum_cr": 3188.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 21.5,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 90000.0,
+        "lumpsum_inr": 750000.0,
+        "rationale": "High-conviction mid-cap fund with 21% long-term returns. Diversifies AMC away from Nippon while staying aggressive."
+      },
+      {
+        "fund": {
+          "amfi_code": "152354",
+          "name": "Motilal Oswal Large Cap Direct Plan Growth",
+          "display_name": "",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 1087.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 0.0,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "both",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": 375000.0,
+        "rationale": "Core large-cap anchor – newish fund but solid AMC pedigree. Low 1% fee, equity-taxed unlike debt. Provides ballast to risky mid/small exposure."
+      },
+      {
+        "fund": {
+          "amfi_code": "151713",
+          "name": "quant Dynamic Asset Allocation Fund - Growth Option Direct Plan",
+          "display_name": "",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "quant",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 197.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": 18.3,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 0.0,
+        "rationale": "Hybrid vehicle keeps your money working while giving some downside cushion. Equity-taxed, so beats liquid-plus-equity stack for 30% slab."
+      }
+    ],
+    "setup_phase": "1) Open direct-mutual-fund account on Kuvera/Groww/COIN – near-zero fees. 2) Set up lumpsum transfer of ₹20 lakhs on the same day to capture early compounding. 3) Create 4 separate SIPs as listed (auto-pull on salary day). 4) Link SIP step-up to annual appraisals (10% automatic).",
+    "review_checkpoints": [
+      "Month 3 – verify all SIPs and lumpsum investments executed correctly",
+      "Year 1 – check if apartment goal on track, curb SIP to hybrid fund if closer",
+      "Year 3 – after flat payment, redirect freed-up surplus into mid-&-small again",
+      "Every 12 months – step-up SIPs by 10 % (built-in auto-increase on apps)",
+      "Every April – review if any fund slips >3 % vs category for 2 straight quarters"
+    ],
+    "rebalancing_guidelines": "Each January, look at actual vs target allocation. If equity slice crosses +/- 10 %, shift via one pay cheque to re-balance. Tax-free inside equity fund so no exit load worry after 1 year. Maintain apartment money in hybrid or conservative fund until ready.",
+    "projected_returns": {
+      "base": 17.4,
+      "bull": 21.4,
+      "bear": 13.4
+    },
+    "rationale": "Upside focus fits your sales director-high-beta mentality. Expect ~₹4.2 Cr in 10 years purely from SIPs/lumpsum; equity value gains + bonuses will tip you past 5Cr mark. Apartment cost ring-fenced 20 % in safer bucket to avoid selling winners early.",
+    "risks": [
+      "Small-cap index can fall 40 % in a single year – stick to SIPs, don’t stop",
+      "High equity share = downturn could take 3-4 years to recover – keep emergency cash separate",
+      "Concentration in domestic stocks means macro hot-water impacts all sleeves – treat as accepted trade-off for returns above 15 %"
+    ],
+    "disclaimer": "For research/educational purposes only. Talk to a SEBI-registered fee-only planner for personal advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Auto-lift each SIP by 10 % every January – matches typical salary jump and keeps lifestyle inflation in check"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.4,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "1) All equity allocations (small-cap, mid-cap, large-cap funds) are to actively managed schemes; there are no index funds or ETFs present. The hybrid fund is also active. Hence, passive_instrument_fraction = 0.0. 2) The plan reviews and potentially rebalances allocations annually, but also has additional checkpoints (Year 1, Year 3, fund underperformance triggers) and automatic SIP step-ups, indicating more activity than strict passive buy-and-hold, but not full tactical trading. Thus, turnover_score = 0.4. 3) While the plan mentions use of direct mutual fund platforms and calls out 'near-zero fees' for account set-up, actual fund selection is not cost-driven (expense ratios are 1%+ and not compared); plan focuses mainly on alpha/returns. So, cost_emphasis_score = 0.2. 4) All funds are selected based on long-term performance, AMC 'pedigree', diversification, and rationale tied to returns; there's no mention of index exposure or minimizing research. Therefore, research_vs_cost_score = 0.1. 5) The equity allocation and long duration (10 years, compounding focus, SIP discipline, goal-driven, only annual rebalancing) strongly support a long-term approach, hence time_horizon_alignment_score = 0.8 (slightly less than 1.0 due to occasional tactical adjustments and hybrid/fund switches near specific goals). 6) All equity and hybrid funds are active, with no passive component; no risk metrics are provided, but categories make it clear these strategies are not index-like. So, portfolio_activeness_score = 0.0.",
+    "composite_aps": 0.25
+  },
+  "pqs": {
+    "goal_alignment": 0.95,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.95,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.95,
+    "reasoning": "The plan demonstrates strong alignment with the investor's aggressive risk appetite, long horizon, and high growth goals. The allocation toward small and mid-caps is justified by the investor's stated comfort with volatility and desire for high returns, while the hybrid fund provides a ring-fenced vehicle for the shorter-term apartment goal, reducing sequence risk. Diversification is strong across cap sizes and management styles, though all funds are India-focused (no international exposure) and there is some sector/geography concentration risk, but this is clearly acknowledged as a deliberate trade-off for high return potential. Risk-return expectations are clearly laid out, with realistic scenario analysis and explicit downside warnings that match the strategy and investor profile. The implementation, rebalancing, and SIP step-up guidance are internally consistent with the stated rationale and objectives. Tax efficiency is almost optimal: all allocations use equity-taxed wrappers, the plan clearly calls out the advantages of aggressive hybrid for the 30% slab, and the rationale demonstrates tax awareness. While there is no use of ELSS, this is justifiable since the investor was not described as having 80C headroom left, and for an aggressive investor this is arguably a minor miss (considering overall plan structure). Overall, the plan is high quality, aggressive in line with a high-earning, risk-seeking profile, and reflects best practices in goal-based planning.",
+    "composite_pqs": 0.9200000000000002
+  },
+  "timestamp": "2026-04-30T18:37:27.941310Z",
+  "prompt_version": "mini-kimik2",
+  "usage": {
+    "input_tokens": 23599,
+    "output_tokens": 1855,
+    "cache_read_tokens": 1024,
+    "cache_write_tokens": 0,
+    "requests": 3,
+    "tool_calls": 0
+  },
+  "elapsed_s": 56.96947088371962
+}

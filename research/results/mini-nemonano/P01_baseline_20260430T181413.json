@@ -1,0 +1,60 @@
+{
+  "persona_id": "P01",
+  "condition": "baseline",
+  "model": "openrouter:nvidia/nemotron-nano-9b-v2",
+  "judge_model": "openrouter:openai/gpt-4.1",
+  "plan": {
+    "allocations": [],
+    "setup_phase": "Open a direct mutual fund account on Groww, Kuvera, or MFU. Start SIPs in recommended funds below.",
+    "review_checkpoints": [
+      "After 6 months: check if SIPs are running",
+      "After 1 year: compare fund performance to benchmarks",
+      "After 5 years: review asset allocation"
+    ],
+    "rebalancing_guidelines": "Annually, adjust allocations if any category deviates by >5% from target. Shift excess to underweight areas.",
+    "projected_returns": {
+      "bear": 8.0,
+      "base": 12.0,
+      "bull": 16.0
+    },
+    "rationale": "Need to identify specific equity funds matching tech/pharma focus before finalizing allocations.",
+    "risks": [
+      "Market volatility could impact returns",
+      "Concentration risk in specific sectors"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": null,
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The plan specifically mentions the need to identify equity funds with a tech/pharma focus, which strongly suggests a sectoral/active equity approach and not broad-market passive index investing (passive_instrument_fraction = 0.0). The plan recommends annual rebalancing if deviations exceed 5%, with review checkpoints at 6 months, 1 year, and 5 years. Annual rebalancing is relatively passive (score = 0.8), although the plan isn't simply 'buy and forget.' Cost minimization is not a significant theme—the plan does not mention expense ratios or cost as a core selection factor (cost_emphasis_score = 0.3). The explicit mention of picking funds based on sector focus, and needing to research appropriate funds, highlights a research-driven, not broad-market, approach (research_vs_cost_score = 0.1). The 5-year review window, with annual rebalancing, points to a moderately long-term orientation (time_horizon_alignment_score = 0.8). Portfolio activeness is high, since it is focused on active sectoral picks rather than index-like or broad-market exposure (portfolio_activeness_score = 0.0).",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.2,
+    "diversification": 0.0,
+    "risk_return_appropriateness": 0.3,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan contains almost no actionable content: no specific fund selections, no allocation percentages, and the rationale merely restates the intent to one day select sector-themed equity funds. Goal alignment is very weak: the core long-term retirement need and emergency fund are acknowledged, but no allocation is actually made to either. Diversification is non-existent as no choices have been made—there is not even a placeholder allocation across asset classes. The projected return estimates are not grossly implausible for a high-equity, aggressive investor, so risk-return gets some credit (but no downside mitigation is discussed). The plan is reasonably internally consistent given its minimal content—its vagueness is at least self-consistent, but nothing substantive is delivered. On tax, there are zero asset or fund choices, and no reference to the investor's tax regime or post-tax optimisation. No mention of avoiding tax-inefficient debt wrappers, and no attempt at tax-aware fund selection—even though this is less critical for new_regime investors, it still matters (e.g., for short-term gains and fund types). Overall, this is an incomplete, not actionable, plan.",
+    "composite_pqs": 0.28
+  },
+  "timestamp": "2026-04-30T18:14:13.890291Z",
+  "prompt_version": "mini-nemonano",
+  "usage": {
+    "input_tokens": 44301,
+    "output_tokens": 896,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 1
+  },
+  "elapsed_s": 23.646965256892145
+}

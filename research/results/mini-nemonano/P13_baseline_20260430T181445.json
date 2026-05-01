@@ -1,0 +1,155 @@
+{
+  "persona_id": "P13",
+  "condition": "baseline",
+  "model": "openrouter:nvidia/nemotron-nano-9b-v2",
+  "judge_model": "openrouter:openai/gpt-4.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118955",
+          "name": "HDFC Flexi Cap Fund - Growth Option - Direct Plan",
+          "display_name": "",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 45000.0,
+        "lumpsum_inr": 1000000.0,
+        "rationale": "HDFC Flexi Cap offers consistent 5-year returns (20.5%) with low volatility (beta 0.90) and strong alpha (4.18%). Its large AUM (₹32,020 Cr) ensures stability. The mix of SIP and lumpsum helps build a solid equity base while managing tax efficiency in the 30% slab."
+      },
+      {
+        "fund": {
+          "amfi_code": "148404",
+          "name": "BANK OF INDIA Flexi Cap Fund Direct Plan -Growth",
+          "display_name": "",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "Bank of India Investment Managers Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 27000.0,
+        "lumpsum_inr": null,
+        "rationale": "This fund delivered exceptional 3-year returns (23.6%) with high alpha (18.30%) and moderate volatility (beta 0.87). Its recent inception (2020) suggests growth potential. SIP-only approach aligns with the investor's monthly surplus."
+      },
+      {
+        "fund": {
+          "amfi_code": "151379",
+          "name": "ITI Flexi Cap Fund- Direct Plan- Growth",
+          "display_name": "",
+          "category": "Flexi Cap",
+          "sub_category": "",
+          "fund_house": "ITI Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": null,
+        "rationale": "Newly launched (2023) with strong 1-year returns (14%) and high alpha (14.89%). Though short-term data is limited, its focus on flexi-cap strategy matches the investor's preference for nuanced allocation."
+      }
+    ],
+    "setup_phase": "Open direct mutual fund accounts on platforms like Groww or Kuvera. Start with ₹10 lakh lumpsum in HDFC Flexi Cap and begin SIPs across all three funds. Ensure all transactions are in growth option to maximize compounding.",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are executing properly and monitor HDFC Flexi Cap's performance against benchmark",
+      "After 1 year: Rebalance if any fund deviates more than 5% from target allocation",
+      "After 3 years: Evaluate ITI Flexi Cap's performance given its new launch status"
+    ],
+    "rebalancing_guidelines": "Annual rebalancing. If any fund's allocation exceeds 45% or falls below 15%, adjust using monthly SIPs. Prioritize maintaining 40-30-20 equity allocation.",
+    "projected_returns": {
+      "base": 16.2,
+      "bull": 20.2,
+      "bear": 12.2
+    },
+    "rationale": "This plan balances growth and stability. HDFC Flexi Cap provides core exposure with proven track record. Bank of India Fund adds high-growth potential through recent strong performance. ITI Fund offers newer exposure to diversify within flexi-cap category. The 40-30-20 split matches the investor's moderate risk appetite and 22-year horizon.",
+    "risks": [
+      "Equity markets can drop 20-30% in bad years - temporary losses possible",
+      "New funds like ITI Flexi Cap may underperform initially due to short track record",
+      "Concentrated exposure in flexi-cap category (90% equity) requires active monitoring"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 15.0,
+      "description": "Increase SIP by 15% annually to match potential salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "All equity allocation (100%) is to actively managed flexi cap funds; there are no passive or index funds, so the passive_instrument_fraction is 0.0. The rebalancing approach is annual, with reviews at 6 months and 1 year and rebalancing if a fund strays 5% from target, which is moderately passive, so turnover_score is 0.8. There is little explicit mention of cost/expense ratios in the rationale, fund selection, or setup — the plan focuses on alpha and historical performance, so cost_emphasis_score is low at 0.2. The plan uses detailed fund-specific and manager performance metrics (alpha, beta, recent returns, volatility, etc.) for each choice, showing strong research orientation rather than a preference for broad-market exposure, so research_vs_cost_score is 0.1. The overall time horizon is long (22 years), with mostly annual rebalancing and SIP step-up, indicating a clear multi-decade compounding strategy; thus, the time_horizon_alignment_score is high at 0.9. The activeness of the recommended funds is supported by references to high alpha, variable beta (not near 1.0), and focus on flexi-cap active mandates for all funds; there are no passive/index-like funds present, so portfolio_activeness_score is 0.1.",
+    "composite_aps": 0.35000000000000003
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.4,
+    "reasoning": "Goal alignment is partial: the plan recognises long-term goals, moderate risk, and provides strong equity growth potential, but totally omits lower-risk allocations—even a 22-year moderate investor should see mention of safer instruments for the 1Cr emergency buffer or near-term drawdowns (e.g., the children's education goal in 12 years). Diversification is weak: all funds are flexi-cap equity, so there is no asset-class diversification (no debt, hybrid, or international funds), sector concentration is likely, and even fund house diversification is limited (three different AMCs, but same fund style). Risk-return is moderately appropriate: the portfolio is aggressive for a 'moderate' investor but the long horizon offers justification—still, it ignores the need for a risk-off sleeve for near-term goals or emergencies; projected returns are realistic, and downside is mentioned but with no actionable mitigation. Internal consistency is generally good: rationale, allocation, projected returns, and risk warnings are aligned and clearly articulated, but there is some contradiction between declared 'moderate' appetite and an all-equity plan with no explicit path to de-risk for goals as they approach. Tax efficiency is sub-optimal: although all funds are flexi-cap equity (inherently tax-efficient under Sec. 112A), the plan misses opportunities for a 30% slab investor to optimize for short-term needs using arbitrage, equity-oriented hybrids, or ELSS for 80C headroom, and gives only a generic mention of tax efficiency. The plan is thorough within its single-asset theme but doesn't deliver the nuance or diversification a sharp investor with complex goals should expect.",
+    "composite_pqs": 0.5599999999999999
+  },
+  "timestamp": "2026-04-30T18:14:45.889117Z",
+  "prompt_version": "mini-nemonano",
+  "usage": {
+    "input_tokens": 51271,
+    "output_tokens": 1840,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 1
+  },
+  "elapsed_s": 55.553522219881415
+}

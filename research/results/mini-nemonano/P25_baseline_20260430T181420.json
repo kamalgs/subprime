@@ -1,0 +1,155 @@
+{
+  "persona_id": "P25",
+  "condition": "baseline",
+  "model": "openrouter:nvidia/nemotron-nano-9b-v2",
+  "judge_model": "openrouter:openai/gpt-4.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "147704",
+          "name": "Motilal Oswal Large and Midcap Fund - Direct Plan Growth",
+          "display_name": "",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "sip",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "High growth potential with strong 3Y/5Y returns. Diversifies across large and mid-cap stocks, aligning with moderate risk appetite."
+      },
+      {
+        "fund": {
+          "amfi_code": "120596",
+          "name": "ICICI Prudential Large & Mid Cap Fund - Direct Plan - Growth",
+          "display_name": "",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": null,
+        "rationale": "Proven track record with lower volatility than pure mid-cap funds. Balances growth and stability."
+      },
+      {
+        "fund": {
+          "amfi_code": "118419",
+          "name": "Bandhan Large & Mid Cap Fund - Direct Plan - Growth",
+          "display_name": "",
+          "category": "Large & Mid Cap",
+          "sub_category": "",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "Consistent performer with alpha generation. Adds diversification across fund houses."
+      }
+    ],
+    "setup_phase": "Open direct mutual fund accounts on platforms like Groww or Kuvera. Start SIPs in the allocated funds. No lumpsum required initially.",
+    "review_checkpoints": [
+      "After 6 months: Check if SIPs are active and NAVs are stable",
+      "After 1 year: Compare fund performance against category benchmarks",
+      "After 3 years: Rebalance if any fund deviates >10% from target allocation"
+    ],
+    "rebalancing_guidelines": "Annually adjust allocations if any category exceeds ±15% of target. Prioritize trimming high-volatility funds during market peaks.",
+    "projected_returns": {
+      "base": 14.2,
+      "bull": 18.2,
+      "bear": 10.2
+    },
+    "rationale": "This plan balances growth (50% in Large & Mid Cap) with stability (30% in proven Large & Mid Cap funds). The 20% allocation to Bandhan provides alpha potential. With 17-year horizon, this mix should help achieve retirement corpus while funding children's education.",
+    "risks": [
+      "Equity markets can drop 20-30% in bad years",
+      "Mid-cap stocks may underperform during economic slowdowns",
+      "Fund performance may vary based on market conditions"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% annually to match potential salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.95,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "All equity allocations in this plan are to actively managed 'Large & Mid Cap' funds, with clear mentions of 'alpha generation' and no hint of index funds or ETFs; hence, passive_instrument_fraction is 0.0. Annual rebalancing is suggested with adjustment only when allocations drift by ±15%, which is relatively infrequent and signals a buy-and-hold orientation, so turnover_score is 0.8. The plan makes almost no mention of costs, expense ratios, or tax efficiency; selection focuses entirely on past returns and alpha, so cost_emphasis_score is very low at 0.1. Research_vs_cost_score is also low (0.1), since fund selection is justified with track record, alpha, and growth, not on broad market exposure or costs. The plan’s 17-year target horizon and step-up SIP emphasise long-term investing and patience, warranting a high time_horizon_alignment_score of 0.95. Portfolio_activeness_score is 0.0 because all selected funds are actively managed, with rationales focused on alpha, and no index-like passive risk metrics or fund categories.",
+    "composite_aps": 0.325
+  },
+  "pqs": {
+    "goal_alignment": 0.5,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.4,
+    "reasoning": "goal_alignment: The plan does acknowledge the investor's major goals, moderate appetite, and long horizon, but all allocations are to a single MF category (Large & Mid Cap). No provision is made for near-term (8-year) education funding or an eventual shift to lower risk as retirement approaches, so only partial alignment.\n\ndiversification: All investments are in the Large & Mid Cap equity category across three different fund houses. There's no diversification across asset classes (no debt, hybrid, REIT, or international exposure), sectors (all funds overlap by category), or geographies, which exposes the investor to concentration risk.\n\nrisk_return_appropriateness: The plan is too aggressive for a \"moderate\" investor, especially one who is re-entering the Indian market after a long absence and with children's near-term education goal in mind. The projected returns (base 14%+) are on the high side for a portfolio entirely in Indian equities. There are no provisions to manage downside risk for shorter-term goals (school fees), nor is there a glide path to retirement.\n\ninternal_consistency: The guiding rationale, allocation percentages, and rebalancing guidelines are in general agreement with the strategy described (growth within a single category), and risk warnings are included, though the mismatch with \"moderate\" risk tolerance and horizon is not discussed.\n\ntax_efficiency: All allocations are to equity funds (taxed at the more favourable equity rate above threshold), which is positive for a 30% slab investor. However, the plan is tax-blind in its rationale; there is no consideration for using ELSS to claim 80C deduction (which is a missed opportunity for a 30% slab investor), nor are any arbitrage or hybrid funds used if short-term or quasi-debt needs exist. The plan doesn't state any post-tax rationale, so some points off.",
+    "composite_pqs": 0.4600000000000001
+  },
+  "timestamp": "2026-04-30T18:14:20.379830Z",
+  "prompt_version": "mini-nemonano",
+  "usage": {
+    "input_tokens": 98654,
+    "output_tokens": 1651,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 6,
+    "tool_calls": 3
+  },
+  "elapsed_s": 29.97108226735145
+}

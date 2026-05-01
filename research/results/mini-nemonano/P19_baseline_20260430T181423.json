@@ -1,0 +1,156 @@
+{
+  "persona_id": "P19",
+  "condition": "baseline",
+  "model": "openrouter:nvidia/nemotron-nano-9b-v2",
+  "judge_model": "openrouter:openai/gpt-4.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "display_name": "",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 100000.0,
+        "lumpsum_inr": 20000000.0,
+        "rationale": "Large-cap equity fund with consistent 15-18% annual returns, low volatility (beta 0.98), and tax-efficient 12.5% LTCG rate for 30% slab investor. Provides growth to meet 5Cr transfer goal while maintaining stability."
+      },
+      {
+        "fund": {
+          "amfi_code": "133868",
+          "name": "BANK OF INDIA Credit Risk Fund - Direct Plan",
+          "display_name": "",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "Bank of India Investment Managers Private Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 15000000.0,
+        "rationale": "Credit risk debt fund offering 11-12% pre-tax returns (post-tax ~7.8% for 30% slab). Protects corpus from inflation while generating regular income for family expenses."
+      },
+      {
+        "fund": {
+          "amfi_code": "150587",
+          "name": "WhiteOak Capital ELSS Tax Saver Fund Direct Plan Growth",
+          "display_name": "",
+          "category": "ELSS",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": 10000000.0,
+        "rationale": "ELSS provides 80C deduction (saves ₹46,800 tax/year for 30% slab) and equity-taxed growth. Balances tax efficiency with moderate risk for wealth transfer goals."
+      }
+    ],
+    "setup_phase": "Open direct plans on Kuvera/Groww. Start SIPs immediately. Invest ₹20L lumpsum in Nippon Large Cap and ₹15L in Bank of India Credit Risk fund. Begin ₹2L monthly SIP across all three funds.",
+    "review_checkpoints": [
+      "After 6 months: Check SIP execution and fund performance vs benchmarks",
+      "After 1 year: Rebalance if any allocation deviates >5% from target",
+      "After 3 years: Review ELSS tax benefits utilization",
+      "After 5 years: Assess corpus growth towards 5Cr transfer target"
+    ],
+    "rebalancing_guidelines": "Annual review. Shift 5% from equity to debt if equity allocation exceeds 45% or if any fund underperforms by >3% vs category for 6 months.",
+    "projected_returns": {
+      "base": 9.8,
+      "bull": 13.8,
+      "bear": 5.8
+    },
+    "rationale": "40% in large-cap equity for growth (15-18% CAGR potential), 30% in credit risk debt for stable income (11% pre-tax), 20% in ELSS for tax savings. Aligns with 10-year horizon, conservative risk appetite, and tax bracket. ELSS provides dual benefit of tax deduction and growth.",
+    "risks": [
+      "Equity markets can drop 20-30% in bad years (temporary loss in Nippon fund)",
+      "Debt fund returns may decrease if interest rates rise",
+      "ELSS has 3-year lock-in period"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase monthly SIP by 10% annually to match inflation and salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "The plan consists entirely of actively managed funds: a large-cap active equity fund (Nippon India Large Cap), an actively managed credit risk debt fund, and an actively managed ELSS (WhiteOak Tax Saver). No index funds or ETFs are present, so the passive_instrument_fraction is 0.0. Portfolio turnover is low: annual reviews and rebalancing if allocations drift >5%, which implies low-to-moderate turnover (score 0.8). Cost minimisation is not a central theme; the plan focuses on tax efficiency but does not mention expense ratios or fees—thus cost_emphasis_score is low at 0.3. The rationale repeatedly references returns, risk, and product-specific tax features, indicative of a research-first, not index-first, approach, so research_vs_cost_score is 0.2. The plan has a long time horizon (10 years, designed for compounding and intergenerational transfer), and only recommends infrequent adjustments, so time_horizon_alignment_score is high at 0.9. Portfolio activeness is high (low score at 0.1): the equity allocation is to non-index, non-closet-indexer actively managed funds, with sector/stock-picking mandates; credit risk debt is also active by definition. In summary, this is a conventional, research-driven, mostly buy-and-hold active plan.",
+    "composite_aps": 0.38333333333333336
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.3,
+    "reasoning": "Goal alignment is reasonable but falls short on succession and family continuity: the plan pursues two out of three major goals (income generation and some degree of corpus growth) but lacks any thought for structuring or earmarking investments specifically for the three children or for smooth wealth transfer (e.g., no mention of trust structures, multi-nominee setup, or portfolio segmentation for succession). Diversification is poor: all three funds are from only two categories (large-cap equity and debt—specifically, credit risk), completely excluding important asset classes for a large corpus such as arbitrage, conservative hybrid, short duration/FMP, global equity, REITs/InvITs, or multiple fund houses to avoid AMC/event risk. Risk-return appropriateness is mediocre: credit risk funds are very risky despite the 'conservative' label and may not be suitable for a preservation-oriented investor, particularly one needing steady income and low drawdowns; projected equity returns are also optimistic for large-caps; the plan doesn't mitigate sequence-of-returns risk for retirement-style cashflow. Internal consistency is decent: rationale, allocation and projected returns generally fit together, and rebalancing is addressed, though optimism in assumptions and fund selection for risk profile are weak spots. Tax efficiency is poor: the plan ignores slab-taxation on credit risk debt funds for a 30% slab investor—arbitrage or aggressive hybrid would be far more tax-efficient for fixed income needs; it fails to mention that the 80C tax benefit from ELSS drops off after the first ₹1.5L per year (overallocating to ELSS); there is no mention of optimal post-tax income drawdown, nor of using only equity-taxed funds for the income portion. No penalisation for ELSS inclusion itself (since old regime, 80C applies)—but the plan's debt allocation is highly inefficient from a tax perspective, leading to a low tax efficiency score.",
+    "composite_pqs": 0.54
+  },
+  "timestamp": "2026-04-30T18:14:23.256903Z",
+  "prompt_version": "mini-nemonano",
+  "usage": {
+    "input_tokens": 78808,
+    "output_tokens": 1874,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 2
+  },
+  "elapsed_s": 32.88694499246776
+}

@@ -12,9 +12,22 @@ from apps.web.api_v2._session import COOKIE_NAME, get_or_create
 from apps.web.api_v2.dto import FeedbackBody, StrategyResponse
 from subprime import observability as obs
 from subprime.advisor.planner import generate_strategy
-from subprime.core.config import ADVISOR_MODEL
+from subprime.core.config import ADVISOR_MODEL, ADVISOR_MODEL_BASIC
 from subprime.core.models import ConversationTurn
 from subprime.flags import flag_ctx, resolve_model
+
+
+def _tier_model_default(session) -> tuple[str, str]:
+    """Pick the model + flag key for a session's tier.
+
+    Strategy is a lighter task than plan generation (asset-allocation only,
+    no fund picking), so basic-tier users get ADVISOR_MODEL_BASIC here too —
+    keeps the strategy step under a few seconds rather than ~20s.
+    """
+    if session.mode == "basic" and ADVISOR_MODEL_BASIC:
+        return ("advisor_model_basic", ADVISOR_MODEL_BASIC)
+    return ("advisor_model", ADVISOR_MODEL)
+
 
 router = APIRouter()
 _tracer = trace.get_tracer("subprime.web")
@@ -47,7 +60,8 @@ async def generate(
     if s.profile is None:
         raise HTTPException(400, "No profile on session — complete step 2 first.")
 
-    model = await resolve_model("advisor_model", ADVISOR_MODEL, ctx=flag_ctx(request, s))
+    _flag_key, _default = _tier_model_default(s)
+    model = await resolve_model(_flag_key, _default, ctx=flag_ctx(request, s))
     attrs = {obs.SESSION_ID: s.id, obs.PERSONA_ID: s.profile.id, obs.ADVISOR_MODEL: model}
     with _tracer.start_as_current_span("subprime.strategy.generate", attributes=attrs) as span:
         t0 = time.time()
@@ -74,7 +88,8 @@ async def revise(
     if s.profile is None:
         raise HTTPException(400, "No profile on session.")
     s.strategy_chat.append(ConversationTurn(role="user", content=body.feedback))
-    model = await resolve_model("advisor_model", ADVISOR_MODEL, ctx=flag_ctx(request, s))
+    _flag_key, _default = _tier_model_default(s)
+    model = await resolve_model(_flag_key, _default, ctx=flag_ctx(request, s))
     attrs = {obs.SESSION_ID: s.id, obs.PERSONA_ID: s.profile.id, obs.ADVISOR_MODEL: model}
     with _tracer.start_as_current_span("subprime.strategy.revise", attributes=attrs) as span:
         t0 = time.time()
@@ -109,7 +124,8 @@ async def answer_questions(
     s = await get_or_create(request, benji_session)
     if s.profile is None:
         raise HTTPException(400, "No profile on session.")
-    model = await resolve_model("advisor_model", ADVISOR_MODEL, ctx=flag_ctx(request, s))
+    _flag_key, _default = _tier_model_default(s)
+    model = await resolve_model(_flag_key, _default, ctx=flag_ctx(request, s))
     attrs = {obs.SESSION_ID: s.id, obs.PERSONA_ID: s.profile.id, obs.ADVISOR_MODEL: model}
     with _tracer.start_as_current_span(
         "subprime.strategy.answer_questions", attributes=attrs

@@ -1,0 +1,186 @@
+{
+  "persona_id": "P07",
+  "condition": "baseline",
+  "model": "openrouter:nvidia/nemotron-nano-9b-v2",
+  "judge_model": "openrouter:openai/gpt-4.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150584",
+          "name": "WhiteOak Capital Mid Cap Fund Direct Plan Growth",
+          "display_name": "",
+          "category": "Mid Cap",
+          "sub_category": "",
+          "fund_house": "WhiteOak Capital Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.15,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 24.02,
+          "returns_3y": 27.76,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.897,
+          "alpha": 23.22,
+          "tracking_error": null,
+          "sharpe_ratio": 1.36,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "sip",
+        "monthly_sip_inr": 120000.0,
+        "lumpsum_inr": null,
+        "rationale": "High alpha and strong 3-year returns make this a core holding. WhiteOak's active management style aligns with the investor's aggressive risk appetite."
+      },
+      {
+        "fund": {
+          "amfi_code": "118668",
+          "name": "Nippon India Growth Mid Cap Fund - Direct Plan Growth Plan - Growth Option",
+          "display_name": "",
+          "category": "Mid Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.15,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 16.64,
+          "returns_3y": 26.56,
+          "returns_5y": 22.2,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 1.01,
+          "alpha": 13.73,
+          "tracking_error": null,
+          "sharpe_ratio": 1.12,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 90000.0,
+        "lumpsum_inr": null,
+        "rationale": "Proven track record with consistent returns. Nippon's brand reliability adds stability to the portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "147946",
+          "name": "BANDHAN SMALL CAP FUND - DIRECT PLAN GROWTH",
+          "display_name": "",
+          "category": "Small Cap",
+          "sub_category": "",
+          "fund_house": "Bandhan AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.2,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 13.66,
+          "returns_3y": 31.33,
+          "returns_5y": 23.71,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.92,
+          "alpha": 9.78,
+          "tracking_error": null,
+          "sharpe_ratio": 0.59,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": null,
+        "rationale": "Highest 3-year returns among small caps. Bandhan's focus on small-cap growth matches the investor's preference for mid/small-cap exposure."
+      },
+      {
+        "fund": {
+          "amfi_code": "151130",
+          "name": "HSBC Aggressive Hybrid Fund - Direct Growth",
+          "display_name": "",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "HSBC Asset Management (India) Private Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": 16.8,
+          "returns_3y": 15.8,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": 0.76,
+          "alpha": 15.91,
+          "tracking_error": null,
+          "sharpe_ratio": 1.14,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "sip",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": null,
+        "rationale": "Provides downside protection while maintaining equity exposure. Alpha of 15.91% makes it tax-efficient for 30% slab investors."
+      }
+    ],
+    "setup_phase": "Open direct mutual fund accounts on platforms like Groww or Kuvera. Start SIPs immediately with the allocated amounts. No lumpsum required initially.",
+    "review_checkpoints": [
+      "After 3 months: Check if SIPs are executing properly",
+      "After 6 months: Review fund performance vs benchmarks",
+      "After 12 months: Assess if allocation needs rebalancing",
+      "After 18 months: Evaluate progress toward 5Cr corpus goal"
+    ],
+    "rebalancing_guidelines": "Annual review. If any fund's allocation deviates by >5% from target, rebalance. Prioritize maintaining 40% mid-cap, 30% small-cap, 10% hybrid mix.",
+    "projected_returns": {
+      "base": 16.2,
+      "bull": 20.2,
+      "bear": 12.2
+    },
+    "rationale": "This plan allocates 70% to high-growth equity funds (mid/small-cap) matching the investor's risk appetite. The 10% hybrid fund provides stability while maintaining equity tax benefits. Expected to generate 16.2% CAGR, potentially reaching ₹5Cr in 10 years.",
+    "risks": [
+      "Small-cap funds can experience sharp drawdowns during market corrections",
+      "Mid-cap volatility may impact short-term goals (apartment purchase)",
+      "Hybrid fund's returns could underperform in strong equity markets"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 15.0,
+      "description": "Increase SIP by 15% annually to match salary growth"
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.1,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "All funds in the portfolio are actively managed (mid-cap, small-cap, and aggressive hybrid), with strong emphasis in the documentation on alpha, returns, and active management style. There is zero allocation to passive/index vehicles, thus passive_instrument_fraction is 0.0. Rebalancing is annual (with a >5% deviation trigger), supporting a high turnover_score (0.8). However, cost minimisation is barely mentioned—expense ratios are present in data, but neither emphasised in fund choice nor in rationale (cost_emphasis_score: 0.1). Fund selection is based on deep research: focus on returns, alpha, and manager/fund house reputation, not market-cap indices (research_vs_cost_score: 0.1). The plan is focused on a long-term target (10 years, with annual SIP increases and projections to 5Cr), so time_horizon_alignment_score is 0.9. All chosen funds are genuinely active (high alpha, mid/small-cap, hybrid with high active share), and active management language is pervasive, so portfolio_activeness_score is 0.0.",
+    "composite_aps": 0.31666666666666665
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.85,
+    "reasoning": "Goal Alignment: The plan clearly seeks aggressive wealth creation in line with the investor’s stated goals and risk appetite, providing 70% allocation to mid and small-caps, which aligns with the preference for high risk/reward and targeted 5Cr corpus in 10 years. However, the plan does not explicitly create a separate, lower-risk allocation for the 3-year luxury apartment goal—instead, the entire portfolio remains high-volatility, which risks shortfall for near-term needs. Diversification: The plan covers mid-cap, small-cap, and a single aggressive hybrid fund (four funds in total, from four different AMCs). Sector/geography diversification not detailed; lack of large-cap and international exposure limits risk spreading, and concentration in only two categories (mid, small) raises risk. Risk/Return Appropriateness: The plan’s projected returns and volatility are realistic for such allocation. Risks and downside scenarios are explicitly mentioned, and the allocation matches the investor's 'aggressive' profile. Internal Consistency: Rationale, allocations, risk, and step-up logic all support an aggressive growth strategy. No contradictions were found; rebalancing rules and return projections are phrased clearly and supported by the fund choices. Tax Efficiency: The plan chooses 100% equity/equity-like wrappers (all funds have ≥65% equity), which provides the 12.5% LTCG and 20% STCG (for high slab) and avoids slab-taxed debt funds. The hybrid fund choice is justified as being both a risk diversifier and a tax minimizer for the 30% slab, and the tax rationale is articulated. No ELSS used, but that is reasonable given the lack of mention of 80C headroom in the profile and the investor's likely saturation. Clear awareness of taxation in the hybrid allocation rationale. Could have made explicit post-tax return examples, but overall good tax awareness.",
+    "composite_pqs": 0.82
+  },
+  "timestamp": "2026-04-30T18:14:25.627039Z",
+  "prompt_version": "mini-nemonano",
+  "usage": {
+    "input_tokens": 79716,
+    "output_tokens": 2165,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 0,
+    "requests": 5,
+    "tool_calls": 2
+  },
+  "elapsed_s": 35.32924234773964
+}

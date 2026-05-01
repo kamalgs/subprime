@@ -1,0 +1,155 @@
+{
+  "persona_id": "P19",
+  "condition": "baseline",
+  "model": "openrouter:google/gemini-3-flash-preview",
+  "judge_model": "openrouter:openai/gpt-4.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120586",
+          "name": "ICICI Prudential Large Cap Fund - Direct Plan - Growth",
+          "display_name": "",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 15.45,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 80000.0,
+        "lumpsum_inr": 20000000.0,
+        "rationale": "High-quality large company stocks to protect against inflation. These are relatively stable and form the core 'growth' engine of the family wealth."
+      },
+      {
+        "fund": {
+          "amfi_code": "118632",
+          "name": "Nippon India Large Cap Fund - Direct Plan - Growth Option",
+          "display_name": "",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 17.66,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 15000000.0,
+        "rationale": "Diversification across another top fund house. Nippon has a strong track record of beating the market while remaining focused on the largest, safest Indian companies."
+      },
+      {
+        "fund": {
+          "amfi_code": "119539",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Direct Plan",
+          "display_name": "",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.55,
+          "inception_date": null,
+          "aum_cr": null,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": 12.69,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 15000000.0,
+        "rationale": "Acts as the 'safe bucket' to generate steady returns and provide regular liquidity. While debt funds are taxed at slab rates, they provide the stability required for the 2L/month passive income goal."
+      }
+    ],
+    "setup_phase": "Step 1: Set up a Family Private Trust or ensure all folios have joint holdings with your children and clear 'Either or Survivor' mandates for smooth succession. Step 2: Open a Direct Mutual Fund account (using platforms like Groww, Kuvera, or MFU). Step 3: Invest the ₹5 Crore lumpsum across the three funds. Step 4: Start monthly SIPs totaling ₹2 Lakh. Step 5: For the ₹2L monthly income, set up a Systematic Withdrawal Plan (SWP) from the Debt fund after 1 year to manage tax impact.",
+    "review_checkpoints": [
+      "Every 6 months: Verify that the monthly ₹2L SWP is meeting family needs without depleting the principal too fast.",
+      "Yearly: Check if any fund is consistently performing worse than other funds in the same category.",
+      "Succesion check: Every year, ensure all nominee details are up to date and valid."
+    ],
+    "rebalancing_guidelines": "Once a year, if the 'stocks' portion (Large Cap) grows to more than 80% of your total value, move the excess back into the 'safer' Debt fund. This locks in profits and keeps your risk level comfortable.",
+    "projected_returns": {
+      "base": 10.1,
+      "bull": 14.1,
+      "bear": 6.1
+    },
+    "rationale": "At 58, the focus is on a smooth transition to the next generation while maintaining a high standard of living. By putting 70% in Large Caps, we ensure the corpus grows faster than inflation (inflation-protection). The 30% debt allocation provides the 2L/month passive income. By using Direct plans and avoiding speculative small-caps, we focus on wealth preservation as requested.",
+    "risks": [
+      "Stock Market Dips: The 70% in Large Caps can fall by 15-20% in a bad year. Since your horizon is 10+ years, you should not panic sell during these times.",
+      "Taxation Health Warning: Since you are in the 30% tax bracket, debt fund gains are taxed heavily. We use SWP to ensure only the 'gain' portion is taxed, not the whole withdrawal.",
+      "Interest Rate Risk: In the debt portion, returns might fluctuate slightly if interest rates in India change significantly."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 5.0,
+      "description": "Modest 5% annual increase to match business income growth."
+    },
+    "allocation_schedule": [],
+    "perspective": "basic"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.85,
+    "cost_emphasis_score": 0.5,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "The equity portion is 100% allocated to actively managed large cap funds (ICICI Prudential Large Cap, Nippon India Large Cap), with no index funds or equity ETFs present, so the passive_instrument_fraction is 0.0. The turnover_score is high (0.85) due to annual reviews and rebalancing only if the equity portion exceeds 80%; no aggressive trading is recommended. Cost_emphasis_score is moderate (0.5) since direct plans are specified for lower expense ratios, but cost is not presented as the primary decision factor—fund selection is based on quality and track record. Research_vs_cost_score is low (0.2) because rationales highlight diversification, large-cap focus, and mention beating the market, suggesting active fund manager selection, not broad market exposure. The time_horizon_alignment_score is high (0.8): the plan targets a long-term horizon (10+ years), urges against panic selling, and recommends infrequent reviews, but does have annual performance checks. Portfolio_activeness_score is 0.0 as all selected equity funds are active; no index-like low-tracking-error options are included and the plan values manager outperformance. Debt allocation doesn't affect the equity activeness score. Overall, this is a 'core active large-cap' high-quality, low-turnover strategy with measured, patient execution but little emphasis on passivity.",
+    "composite_aps": 0.39166666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.85,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.4,
+    "reasoning": "Goal alignment is strong: the allocation to large cap equity for growth/inflation protection and debt for income matches the conservative priority and succession/income needs. However, the plan puts 70% into domestic large-cap, missing broader equity (international, hybrid) for legacy preservation, and lacks a specific structure for the '3 children' transfer goal beyond basic trust/joint account guidance. Diversification is moderate: two large cap funds from different houses give some sponsor diversification, but there’s no sectoral or overseas equity, and the only fixed income is a single medium-duration fund (no arbitrage, no hybrid, no liquid/ultra-short or credit/SDL diversification). Risk-return is decent: the plan right-sizes allocation for a conservative but growth-aware investor. Yet, 70% large caps is arguably aggressive for a 'conservative' profile at age 58 with a focus on capital protection. Projected returns are realistic, though downside scenarios are only briefly mentioned. Internal consistency is high: rationales, review, and allocation all match the stated strategy, and rebalancing logic is sound. Tax efficiency is weak: the plan puts 30% of the portfolio into a medium-term debt fund, slab-taxed at 30%, for the rupee SWP need—despite the investor being in the highest bracket. No use of arbitrage or aggressive hybrid (with 65% equity for equity tax rates) for this withdrawal, and tax warnings are noted but not optimized; there's also a missed opportunity to discuss succession-friendly wrappers (with capital gains step up) or HUF/partitioning for transfer. Overall, a solid but conventional plan with weaknesses on tax efficiency and limited diversification.",
+    "composite_pqs": 0.69
+  },
+  "timestamp": "2026-04-30T18:37:43.373963Z",
+  "prompt_version": "mini-gemini3flash",
+  "usage": {
+    "input_tokens": 48930,
+    "output_tokens": 2101,
+    "cache_read_tokens": 17722,
+    "cache_write_tokens": 0,
+    "requests": 4,
+    "tool_calls": 3
+  },
+  "elapsed_s": 66.39413919299841
+}
