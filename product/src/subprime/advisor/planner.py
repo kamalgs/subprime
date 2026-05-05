@@ -267,7 +267,8 @@ async def generate_strategy(
     Returns:
         (StrategyOutline, RunUsage) — strategy and token usage.
     """
-    agent = create_strategy_advisor(prompt_hooks=prompt_hooks, model=model)
+    from subprime.advisor._fallback import run_with_or_fallback
+
     parts = [f"Investor profile:\n\n{_profile_to_prompt_json(profile, cache_safe=True)}"]
     if current_strategy and feedback:
         parts.append(
@@ -280,7 +281,11 @@ async def generate_strategy(
             f"\nCurrent strategy:\n\n{current_strategy.model_dump_json(indent=2)}"
             f"\n\nRefine this strategy."
         )
-    result = await agent.run("\n".join(parts))
+
+    def _factory(m: str):
+        return create_strategy_advisor(prompt_hooks=prompt_hooks, model=m)
+
+    result = await run_with_or_fallback(_factory, model, "\n".join(parts))
     return result.output, result.usage()
 
 
@@ -638,28 +643,30 @@ async def _stage1_core(
     )
     system_prompt = "\n\n---\n\n".join(parts)
 
-    settings = build_model_settings(model, cache=True)
-    # Each stage caps output so a chatty small model can't blow latency.
-    # Stage 1 budget: 8 allocations × ~150 tok + returns + 1-line rationale.
-    settings["max_tokens"] = 1600
-    if is_anthropic(model):
-        settings["anthropic_cache_tool_definitions"] = "1h"
-
-    agent = Agent(
-        build_model(model, role="advisor"),
-        system_prompt=system_prompt,
-        output_type=_output_for(model, PlanCore),
-        tools=[],
-        retries=2,
-        defer_model_check=True,
-        model_settings=settings,
-    )
+    def _agent(m: str):
+        s = build_model_settings(m, cache=True)
+        s["max_tokens"] = 1600
+        if is_anthropic(m):
+            s["anthropic_cache_tool_definitions"] = "1h"
+        return Agent(
+            build_model(m, role="advisor"),
+            system_prompt=system_prompt,
+            output_type=_output_for(m, PlanCore),
+            tools=[],
+            retries=2,
+            defer_model_check=True,
+            model_settings=s,
+        )
 
     profile_json = _profile_to_prompt_json(profile, cache_safe=True)
     user_parts = [f"Create a mutual fund investment plan for this investor:\n\n{profile_json}"]
     if strategy:
         user_parts.append("Approved strategy:\n" + strategy.model_dump_json(indent=2))
-    result = await agent.run("\n\n".join(user_parts))
+    user_msg = "\n\n".join(user_parts)
+
+    from subprime.advisor._fallback import run_with_or_fallback
+
+    result = await run_with_or_fallback(_agent, model, user_msg)
     return result.output, result.usage()
 
 
@@ -674,19 +681,22 @@ async def _stage2_risks(
 
     from subprime.core.config import build_model, build_model_settings
 
-    settings = build_model_settings(model, cache=False)
-    # Stage 2 budget: ~6 risks + (rebalancing para) + 5 checkpoints.
-    settings["max_tokens"] = 900 if extended else 700
-    agent = Agent(
-        build_model(model, role="advisor"),
-        system_prompt=_STAGE2_SYSTEM_FULL if extended else _STAGE2_SYSTEM_LEAN,
-        output_type=_output_for(model, PlanRisks),
-        tools=[],
-        retries=2,
-        defer_model_check=True,
-        model_settings=settings,
-    )
-    result = await agent.run(_plan_summary_for_stage(plan, profile))
+    def _agent(m: str):
+        s = build_model_settings(m, cache=False)
+        s["max_tokens"] = 900 if extended else 700
+        return Agent(
+            build_model(m, role="advisor"),
+            system_prompt=_STAGE2_SYSTEM_FULL if extended else _STAGE2_SYSTEM_LEAN,
+            output_type=_output_for(m, PlanRisks),
+            tools=[],
+            retries=2,
+            defer_model_check=True,
+            model_settings=s,
+        )
+
+    from subprime.advisor._fallback import run_with_or_fallback
+
+    result = await run_with_or_fallback(_agent, model, _plan_summary_for_stage(plan, profile))
     return result.output, result.usage()
 
 
@@ -699,19 +709,22 @@ async def _stage3_setup(
 
     from subprime.core.config import build_model, build_model_settings
 
-    settings = build_model_settings(model, cache=False)
-    # Stage 3 budget: 2-3 paragraphs setup + sip_step_up + 4-6 sentence rationale.
-    settings["max_tokens"] = 1200
-    agent = Agent(
-        build_model(model, role="advisor"),
-        system_prompt=_STAGE3_SYSTEM,
-        output_type=_output_for(model, PlanSetup),
-        tools=[],
-        retries=2,
-        defer_model_check=True,
-        model_settings=settings,
-    )
-    result = await agent.run(_plan_summary_for_stage(plan, profile))
+    def _agent(m: str):
+        s = build_model_settings(m, cache=False)
+        s["max_tokens"] = 1200
+        return Agent(
+            build_model(m, role="advisor"),
+            system_prompt=_STAGE3_SYSTEM,
+            output_type=_output_for(m, PlanSetup),
+            tools=[],
+            retries=2,
+            defer_model_check=True,
+            model_settings=s,
+        )
+
+    from subprime.advisor._fallback import run_with_or_fallback
+
+    result = await run_with_or_fallback(_agent, model, _plan_summary_for_stage(plan, profile))
     return result.output, result.usage()
 
 
