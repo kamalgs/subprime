@@ -64,7 +64,16 @@ async def _run_plan_task(app, session_id: str, flag_attrs: dict[str, Any] | None
     # Tier is still used to pick the advisor model + shape the universe context;
     # multi-perspective is off for both tiers now.
     tier = s.mode if s.mode in ("basic", "premium") else "basic"
-    slim_universe = tier == "basic"
+    # Slim universe (top-N per category) for both tiers — full universe
+    # adds ~22K tokens with marginal quality lift but ~25s extra latency
+    # on V4-Pro-class models. Set SUBPRIME_FULL_UNIVERSE=1 to override
+    # for research/experiments where the long tail of funds matters.
+    slim_universe = os.environ.get("SUBPRIME_FULL_UNIVERSE", "").strip().lower() not in (
+        "1",
+        "true",
+        "yes",
+        "on",
+    )
     effective_mode = "basic"
     from subprime.flags import resolve_model
 
