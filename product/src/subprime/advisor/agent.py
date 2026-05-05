@@ -209,6 +209,7 @@ def create_plan_reviewer(
         tools=[],  # no tool calls — reviewer works from the draft text
         retries=2,
         defer_model_check=True,
+        model_settings=build_model_settings(model),
     )
 
 
@@ -245,4 +246,5 @@ def create_strategy_advisor(
         tools=[],
         retries=2,
         defer_model_check=True,
+        model_settings=build_model_settings(model),
     )
