@@ -67,6 +67,14 @@ def build_dataset(
     records = harvest_records(results_root)
     _console.print(f"  found {len(records)} Lynch+Bogle records (deduped)")
 
+    # Filter to records whose persona_id is in the current persona bank.
+    # H001-H100 / S01-S30 from older synthetic runs have no profile JSON
+    # in the repo, so they would be silently dropped at format time —
+    # do it explicitly upfront so curate's sampling picks from a valid pool.
+    bank_ids = {p.id for p in load_personas()}
+    records = [r for r in records if r.persona_id in bank_ids]
+    _console.print(f"  {len(records)} records after persona-bank filter ({len(bank_ids)} personas)")
+
     kept = curate(records, cfg)
     by_variant: dict[str, list] = {"lynch": [], "bogle": []}
     for r in kept:
