@@ -77,7 +77,7 @@ async def evaluate_persona(
             error=f"{type(e).__name__}: {e}",
         )
 
-    aps, _ = await score_aps(plan, profile, model=judge_model)
+    aps, _ = await score_aps(plan, model=judge_model)
     pqs, _ = await score_pqs(plan, profile, model=judge_model)
 
     return EvalRecord(
