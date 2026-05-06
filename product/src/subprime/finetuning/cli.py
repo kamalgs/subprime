@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime
 from pathlib import Path
 
 import typer
@@ -17,6 +18,8 @@ from subprime.finetuning.curate import (
 )
 from subprime.finetuning.format import write_jsonl
 from subprime.finetuning.harvest import harvest_records
+from subprime.finetuning.provider import TogetherProvider, TrainConfig
+from subprime.finetuning.train import run_job
 
 app = typer.Typer(help="Stage 2 — fine-tuning bias into model weights.")
 _console = Console()
@@ -25,6 +28,7 @@ _console = Console()
 _REPO_ROOT = Path(__file__).resolve().parents[4]
 _DEFAULT_RESULTS_ROOT = _REPO_ROOT / "research" / "results" / "runs"
 _DATASETS_DIR = Path(__file__).parent / "artifacts" / "datasets"
+_RUNS_DIR = Path(__file__).parent / "artifacts" / "runs"
 
 
 @app.command("build-dataset")
@@ -77,6 +81,79 @@ def build_dataset(
 
     summary = {"counts": counts, "config": cfg.model_dump()}
     (out_dir / "summary.json").write_text(json.dumps(summary, indent=2))
+
+
+@app.command("smoke")
+def smoke(
+    variant: str = typer.Argument("lynch", help="lynch or bogle"),
+    n_examples: int = 25,
+    epochs: int = 1,
+) -> None:
+    """Cheap end-to-end smoke test: tiny subset, 1 epoch, single inference call."""
+    src = _DATASETS_DIR / f"{variant}_train.jsonl"
+    if not src.exists():
+        raise typer.BadParameter(f"missing {src}; run `subprime ft build-dataset` first")
+    smoke_path = _DATASETS_DIR / f"{variant}_smoke.jsonl"
+    lines = src.read_text().splitlines()[:n_examples]
+    smoke_path.write_text("\n".join(lines) + "\n")
+    _console.print(f"[bold]Smoke dataset:[/bold] {smoke_path} ({len(lines)} examples)")
+
+    cfg = TrainConfig(
+        base_model="Qwen/Qwen3-8B",
+        n_epochs=epochs,
+        learning_rate=1e-4,
+        suffix=f"{variant}-smoke",
+    )
+    provider = TogetherProvider()
+    ts = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
+    out = _RUNS_DIR / f"{variant}_smoke_{ts}"
+    artifacts = run_job(provider=provider, train_path=smoke_path, cfg=cfg, out_dir=out)
+    _console.print(f"[green]✓ FT done:[/green] {artifacts.output_model}")
+    _console.print(f"  artifacts: {out / 'artifacts.json'}")
+
+    # One inference probe
+    sample = json.loads(lines[0])
+    messages = sample["messages"][:-1]  # drop assistant turn
+    reply = provider.chat(model=artifacts.output_model, messages=messages, max_tokens=2048)
+    _console.print(f"[bold]Probe reply (first 400 chars):[/bold]\n{reply[:400]}")
+    try:
+        from subprime.core.models import InvestmentPlan
+
+        InvestmentPlan.model_validate_json(reply)
+        _console.print("[green]✓ JSON parses to InvestmentPlan[/green]")
+    except Exception as e:
+        _console.print(f"[red]✗ JSON parse failed:[/red] {e}")
+
+
+@app.command("train")
+def train(
+    variant: str = typer.Argument(..., help="lynch or bogle"),
+    epochs: int = 3,
+    learning_rate: float = 1e-4,
+) -> None:
+    """Run the full fine-tune for one variant."""
+    train_path = _DATASETS_DIR / f"{variant}_train.jsonl"
+    val_path = _DATASETS_DIR / f"{variant}_val.jsonl"
+    if not train_path.exists():
+        raise typer.BadParameter(f"missing {train_path}; run `subprime ft build-dataset`")
+
+    cfg = TrainConfig(
+        base_model="Qwen/Qwen3-8B",
+        n_epochs=epochs,
+        learning_rate=learning_rate,
+        suffix=f"{variant}-v1",
+    )
+    provider = TogetherProvider()
+    ts = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
+    out = _RUNS_DIR / f"{variant}_{ts}"
+    artifacts = run_job(
+        provider=provider,
+        train_path=train_path,
+        val_path=val_path if val_path.exists() else None,
+        cfg=cfg,
+        out_dir=out,
+    )
+    _console.print(f"[green]✓ {variant} FT complete:[/green] {artifacts.output_model}")
 
 
 if __name__ == "__main__":
