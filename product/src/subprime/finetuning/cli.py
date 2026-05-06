@@ -111,18 +111,35 @@ def smoke(
     _console.print(f"[green]✓ FT done:[/green] {artifacts.output_model}")
     _console.print(f"  artifacts: {out / 'artifacts.json'}")
 
-    # One inference probe
-    sample = json.loads(lines[0])
-    messages = sample["messages"][:-1]  # drop assistant turn
-    reply = provider.chat(model=artifacts.output_model, messages=messages, max_tokens=2048)
-    _console.print(f"[bold]Probe reply (first 400 chars):[/bold]\n{reply[:400]}")
+    # Spin up dedicated endpoint (auto-stops after 5 min idle)
+    _console.print("[bold]Creating endpoint...[/bold]")
+    ep = provider.create_endpoint(
+        model=artifacts.output_model,
+        display_name=f"{variant}-smoke",
+        inactive_timeout_min=5,
+    )
+    _console.print(f"  endpoint: {ep.endpoint_id} (state={ep.state})")
     try:
-        from subprime.core.models import InvestmentPlan
+        _console.print("[bold]Waiting for endpoint READY (cold start ~2 min)...[/bold]")
+        final_state = provider.wait_for_endpoint_ready(ep.endpoint_id)
+        _console.print(f"  [green]✓ READY[/green] (state={final_state})")
 
-        InvestmentPlan.model_validate_json(reply)
-        _console.print("[green]✓ JSON parses to InvestmentPlan[/green]")
-    except Exception as e:
-        _console.print(f"[red]✗ JSON parse failed:[/red] {e}")
+        # One inference probe
+        sample = json.loads(lines[0])
+        messages = sample["messages"][:-1]  # drop assistant turn
+        reply = provider.chat(model=artifacts.output_model, messages=messages, max_tokens=2048)
+        _console.print(f"[bold]Probe reply (first 400 chars):[/bold]\n{reply[:400]}")
+        try:
+            from subprime.core.models import InvestmentPlan
+
+            InvestmentPlan.model_validate_json(reply)
+            _console.print("[green]✓ JSON parses to InvestmentPlan[/green]")
+        except Exception as e:
+            _console.print(f"[red]✗ JSON parse failed:[/red] {e}")
+    finally:
+        _console.print(f"[bold]Stopping endpoint {ep.endpoint_id}...[/bold]")
+        provider.delete_endpoint(ep.endpoint_id)
+        _console.print("  [dim]endpoint deleted[/dim]")
 
 
 @app.command("train")

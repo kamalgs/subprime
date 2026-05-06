@@ -29,6 +29,12 @@ class JobStatus(BaseModel):
     raw: dict[str, Any] = {}
 
 
+class EndpointInfo(BaseModel):
+    endpoint_id: str
+    model: str
+    state: str  # 'PENDING' | 'STARTED' | 'STOPPED' | 'FAILED'
+
+
 @runtime_checkable
 class FineTuneProvider(Protocol):
     def upload_dataset(self, path: Path) -> str: ...
@@ -37,6 +43,13 @@ class FineTuneProvider(Protocol):
     ) -> str: ...
     def poll_job(self, job_id: str) -> JobStatus: ...
     def chat(self, model: str, messages: list[dict], **kwargs: Any) -> str: ...
+    def create_endpoint(
+        self, *, model: str, display_name: str, inactive_timeout_min: int
+    ) -> EndpointInfo: ...
+    def wait_for_endpoint_ready(
+        self, endpoint_id: str, poll_interval_s: float = 15.0, timeout_s: float = 1200.0
+    ) -> str: ...
+    def delete_endpoint(self, endpoint_id: str) -> None: ...
 
 
 class TogetherProvider:
@@ -90,3 +103,55 @@ class TogetherProvider:
     def chat(self, model: str, messages: list[dict], **kwargs: Any) -> str:
         resp = self._client.chat.completions.create(model=model, messages=messages, **kwargs)
         return resp.choices[0].message.content
+
+    _DEFAULT_HARDWARE = "1x_nvidia_h100_80gb_sxm"
+
+    def create_endpoint(
+        self,
+        *,
+        model: str,
+        display_name: str,
+        inactive_timeout_min: int = 5,
+    ) -> EndpointInfo:
+        """Create a dedicated endpoint with scale-to-zero autoscaling.
+
+        The endpoint auto-starts after creation and auto-stops after
+        `inactive_timeout_min` minutes of no traffic.
+        """
+        resp = self._client.endpoints.create(
+            model=model,
+            hardware=self._DEFAULT_HARDWARE,
+            autoscaling={"min_replicas": 0, "max_replicas": 1},
+            inactive_timeout=inactive_timeout_min,
+            display_name=display_name,
+        )
+        return EndpointInfo(endpoint_id=resp.id, model=model, state=resp.state)
+
+    def wait_for_endpoint_ready(
+        self,
+        endpoint_id: str,
+        poll_interval_s: float = 15.0,
+        timeout_s: float = 1200.0,
+    ) -> str:
+        """Poll until endpoint state is STARTED. Raise on FAILED or timeout.
+
+        Cold-start of an 8B model on H100 is typically 1-3 minutes; allow up to 20 min.
+        """
+        import time as _time
+
+        deadline = _time.monotonic() + timeout_s
+        while True:
+            resp = self._client.endpoints.retrieve(endpoint_id)
+            state = resp.state
+            if state == "STARTED":
+                return state
+            if state in {"FAILED", "ERROR", "STOPPED"}:
+                raise RuntimeError(f"endpoint {endpoint_id} entered terminal state: {state}")
+            if _time.monotonic() > deadline:
+                raise TimeoutError(
+                    f"endpoint {endpoint_id} not ready after {timeout_s}s (last state={state})"
+                )
+            _time.sleep(poll_interval_s)
+
+    def delete_endpoint(self, endpoint_id: str) -> None:
+        self._client.endpoints.delete(endpoint_id)

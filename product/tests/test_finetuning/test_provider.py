@@ -85,3 +85,49 @@ def test_chat_invokes_completions_endpoint():
     assert out == "hello"
     _, kwargs = client.chat.completions.create.call_args
     assert kwargs["model"] == "myorg/foo"
+
+
+def test_create_endpoint_calls_sdk():
+    client = MagicMock()
+    ep = MagicMock()
+    ep.id = "ep-123"
+    ep.state = "PENDING"
+    client.endpoints.create.return_value = ep
+    provider = TogetherProvider(client=client)
+
+    info = provider.create_endpoint(
+        model="myorg/qwen-ft-abc",
+        display_name="lynch-smoke",
+        inactive_timeout_min=5,
+    )
+
+    assert info.endpoint_id == "ep-123"
+    _, kwargs = client.endpoints.create.call_args
+    assert kwargs["model"] == "myorg/qwen-ft-abc"
+    assert kwargs["hardware"] == "1x_nvidia_h100_80gb_sxm"
+    assert kwargs["autoscaling"] == {"min_replicas": 0, "max_replicas": 1}
+    assert kwargs["inactive_timeout"] == 5
+
+
+def test_wait_for_endpoint_ready_polls_until_started():
+    client = MagicMock()
+    states = ["PENDING", "PENDING", "STARTED"]
+    side_effects = []
+    for s in states:
+        m = MagicMock()
+        m.state = s
+        side_effects.append(m)
+    client.endpoints.retrieve.side_effect = side_effects
+    provider = TogetherProvider(client=client)
+
+    final_state = provider.wait_for_endpoint_ready("ep-123", poll_interval_s=0)
+
+    assert final_state == "STARTED"
+    assert client.endpoints.retrieve.call_count == 3
+
+
+def test_delete_endpoint():
+    client = MagicMock()
+    provider = TogetherProvider(client=client)
+    provider.delete_endpoint("ep-123")
+    client.endpoints.delete.assert_called_once_with("ep-123")
