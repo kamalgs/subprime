@@ -10,8 +10,9 @@ from __future__ import annotations
 import json
 from datetime import datetime
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, Literal
 
+import pydantic
 from pydantic import BaseModel
 
 from subprime.core.models import InvestmentPlan
@@ -21,7 +22,7 @@ class HarvestedRecord(BaseModel):
     """One persona × condition × model plan, lifted from a results JSON file."""
 
     persona_id: str
-    condition: str  # 'lynch' or 'bogle'
+    condition: Literal["lynch", "bogle"]
     model: str
     plan: InvestmentPlan
     aps_score: float
@@ -49,10 +50,10 @@ def _load_record(path: Path) -> HarvestedRecord | None:
 
     try:
         plan = InvestmentPlan.model_validate(data["plan"])
-    except Exception:
+    except (pydantic.ValidationError, KeyError, TypeError):
         return None
 
-    aps = data.get("aps") or {}
+    aps = data.get("aps", {})
     # composite_aps is in [0, 1]
     aps_score = aps.get("composite_aps")
     if aps_score is None:
@@ -61,12 +62,19 @@ def _load_record(path: Path) -> HarvestedRecord | None:
     ts_raw = data.get("timestamp")
     if not ts_raw:
         return None
-    timestamp = datetime.fromisoformat(ts_raw.replace("Z", "+00:00"))
+    ts_clean = ts_raw.rstrip("Z")  # treat Z as UTC marker, drop it
+    timestamp = datetime.fromisoformat(ts_clean)
+    if timestamp.tzinfo is not None:
+        timestamp = timestamp.astimezone(tz=None).replace(tzinfo=None)
+
+    model = data.get("model")
+    if not model:
+        return None
 
     return HarvestedRecord(
         persona_id=data["persona_id"],
         condition=condition,
-        model=data.get("model", "unknown"),
+        model=model,
         plan=plan,
         aps_score=float(aps_score),
         timestamp=timestamp,
