@@ -1,0 +1,204 @@
+{
+  "persona_id": "P04",
+  "condition": "base",
+  "model": "Qwen/Qwen3-14B",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "128244",
+          "name": "UTI Retirement Benefits Fund - Growth Plan",
+          "display_name": "UTI Retirement Benefits Fund - Growth Plan",
+          "category": "Retirement",
+          "sub_category": "Retirement",
+          "fund_house": "UTI Mutual Fund",
+          "nav": 15.75,
+          "expense_ratio": 1.65,
+          "inception_date": "2008-04-24",
+          "aum_cr": 12000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 6.5,
+          "returns_3y": 7.2,
+          "returns_5y": 7.8,
+          "risk_grade": "moderate",
+          "volatility_1y": 4.2,
+          "beta": 0.85,
+          "alpha": 1.2,
+          "tracking_error": 2.1,
+          "sharpe_ratio": 1.3,
+          "information_ratio": 0.9
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": 8000000.0,
+        "rationale": "This fund is specifically designed for retirement planning, offering a balanced mix of equity and debt to preserve capital while generating income. It is ideal for pre-retirement investors seeking regular income and capital preservation."
+      },
+      {
+        "fund": {
+          "amfi_code": "128384",
+          "name": "Canara Robeco Floating Rate Debt Fund - Growth Plan",
+          "display_name": "Canara Robeco Floating Rate Debt Fund - Growth Plan",
+          "category": "Debt",
+          "sub_category": "Floating Rate",
+          "fund_house": "Canara Robeco Mutual Fund",
+          "nav": 12.5,
+          "expense_ratio": 0.75,
+          "inception_date": "2008-11-28",
+          "aum_cr": 10000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 5.8,
+          "returns_3y": 6.1,
+          "returns_5y": 6.4,
+          "risk_grade": "low",
+          "volatility_1y": 1.5,
+          "beta": 0.45,
+          "alpha": 0.8,
+          "tracking_error": 1.2,
+          "sharpe_ratio": 2.1,
+          "information_ratio": 1.5
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": 6000000.0,
+        "rationale": "This floating rate debt fund provides stability and steady returns with low volatility, making it perfect for capital preservation and generating regular income."
+      },
+      {
+        "fund": {
+          "amfi_code": "128287",
+          "name": "SBI Bluechip Equity Fund - Growth Plan",
+          "display_name": "SBI Bluechip Equity Fund - Growth Plan",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "SBI Mutual Fund",
+          "nav": 25.3,
+          "expense_ratio": 1.45,
+          "inception_date": "1999-04-01",
+          "aum_cr": 25000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 13.2,
+          "returns_3y": 14.5,
+          "returns_5y": 15.1,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.3,
+          "beta": 0.95,
+          "alpha": 1.5,
+          "tracking_error": 2.8,
+          "sharpe_ratio": 1.2,
+          "information_ratio": 0.9
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": 4000000.0,
+        "rationale": "This large-cap equity fund offers exposure to stable, well-established companies, providing moderate growth potential while minimizing risk. It is suitable for conservative investors seeking long-term capital appreciation."
+      },
+      {
+        "fund": {
+          "amfi_code": "128154",
+          "name": "Mirae Asset India Opportunities Fund - Growth Plan",
+          "display_name": "Mirae Asset India Opportunities Fund - Growth Plan",
+          "category": "Hybrid",
+          "sub_category": "Balanced Advantage",
+          "fund_house": "Mirae Asset Mutual Fund",
+          "nav": 18.75,
+          "expense_ratio": 1.5,
+          "inception_date": "2011-07-28",
+          "aum_cr": 15000000000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 9.3,
+          "returns_3y": 9.7,
+          "returns_5y": 10.2,
+          "risk_grade": "moderate",
+          "volatility_1y": 6.5,
+          "beta": 0.8,
+          "alpha": 1.1,
+          "tracking_error": 2.3,
+          "sharpe_ratio": 1.4,
+          "information_ratio": 1.0
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": 2000000.0,
+        "rationale": "This hybrid fund balances equity and debt to offer moderate growth with lower risk. It is ideal for conservative investors seeking a blend of capital preservation and growth."
+      }
+    ],
+    "setup_phase": "Start by investing the lumpsum amount of ₹80,000,000 in the UTI Retirement Benefits Fund and Canara Robeco Floating Rate Debt Fund. Allocate ₹40,000,000 to UTI Retirement Benefits Fund and ₹40,000,000 to Canara Robeco Floating Rate Debt Fund. Begin SIPs of ₹100,000 per month across all funds, with a focus on UTI Retirement Benefits Fund and Canara Robeco Floating Rate Debt Fund.",
+    "review_checkpoints": [
+      "Every 6 months",
+      "At the end of each year",
+      "Upon major financial changes"
+    ],
+    "rebalancing_guidelines": "Rebalance the portfolio annually to maintain the desired allocation. If the equity portion exceeds 25%, reduce it by transferring to debt funds. If the debt portion falls below 30%, increase it by reallocating from equity or other funds.",
+    "projected_returns": {
+      "1_year": 8.1,
+      "3_year": 8.7,
+      "5_year": 9.2,
+      "10_year": 9.5
+    },
+    "rationale": "The investment plan is designed to preserve capital and generate regular income post-retirement, while also leaving a legacy for your children and setting aside a healthcare contingency fund. The allocation balances debt for stability, equity for moderate growth, and hybrid funds for balanced returns.",
+    "risks": [
+      "Market fluctuations may impact equity returns",
+      "Interest rate changes can affect debt fund performance",
+      "Inflation may erode real returns over time"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 20.0,
+        "debt_pct": 70.0,
+        "gold_pct": 0.0,
+        "other_pct": 10.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 15.0,
+        "debt_pct": 75.0,
+        "gold_pct": 0.0,
+        "other_pct": 10.0,
+        "trigger": "Post-retirement phase"
+      },
+      {
+        "year": 10,
+        "equity_pct": 10.0,
+        "debt_pct": 80.0,
+        "gold_pct": 0.0,
+        "other_pct": 10.0,
+        "trigger": "Conservative allocation for income generation"
+      }
+    ],
+    "perspective": "Conservative, with a focus on capital preservation and income generation for post-retirement years."
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.5,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "The equity allocation consists entirely of actively managed funds (SBI Bluechip Equity Fund), so passive_instrument_fraction = 0.0. Annual rebalancing with some tactical triggers suggests moderate turnover_score = 0.5. Expense ratios are relatively high (1.45-1.65%) with no cost minimization focus, so cost_emphasis_score = 0.2. Funds are actively selected based on specific rationales rather than broad market exposure, so research_vs_cost_score = 0.2. The plan has a clear long-term orientation with 10-year projections and gradual allocation shifts, so time_horizon_alignment_score = 0.8. The equity fund shows moderate tracking error (2.8%) and positive alpha (1.5%), indicating some active management, while debt funds are actively managed, so portfolio_activeness_score = 0.3.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.85,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.5,
+    "reasoning": "The plan shows strong goal alignment with Minerva's conservative risk appetite, capital preservation focus, and retirement income needs. The 70% debt/30% equity allocation matches her conservative profile well. Diversification is good across fund houses and categories, though concentrated in only 4 funds. Risk-return appropriateness is strong with realistic 8-9% projected returns for conservative allocation. Internal consistency has issues: setup phase mentions ₹40M to each fund but allocation percentages suggest ₹80M to UTI (40%) and ₹60M to Canara Robeco (30%), and the allocation schedule shows 70% debt while actual allocation shows 70% debt/hybrid but hybrid funds contain equity exposure. Tax efficiency gets default 0.5 as the plan doesn't address tax optimization for her 30% tax bracket - no mention of ELSS for 80C benefits or using equity-taxed alternatives for debt allocation.",
+    "composite_pqs": 0.75
+  },
+  "timestamp": "2026-05-06T19:40:35.161204",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}

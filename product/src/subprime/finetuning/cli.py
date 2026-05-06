@@ -240,5 +240,23 @@ def evaluate(
         _console.print(f"  mean composite_aps: {sum(scores) / len(scores):.3f}")
 
 
+@app.command("report")
+def report(
+    out_path: Path = typer.Option(
+        _EVAL_DIR / "headline.md",
+        help="Where to write the rendered markdown report.",
+    ),
+) -> None:
+    """Build the headline comparison table from finetune eval results."""
+    from subprime.finetuning.report import build_report, render_markdown
+
+    rep = build_report(_EVAL_DIR)
+    md = render_markdown(rep)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(md)
+    _console.print(md)
+    _console.print(f"\n[dim]written to {out_path}[/dim]")
+
+
 if __name__ == "__main__":
     app()
