@@ -28,15 +28,12 @@ from subprime.finetuning.format import NEUTRAL_SYSTEM_PROMPT, render_profile_tex
 from subprime.finetuning.provider import EndpointInfo, FineTuneProvider
 
 
-def build_ft_agent(endpoint: EndpointInfo) -> Agent:
-    """Build a PydanticAI Agent that routes through a Together endpoint.
+def _build_agent_for_model(model_id: str) -> Agent:
+    """Lower-level helper: PydanticAI Agent against any Together model id.
 
-    The endpoint must already be STARTED. Uses the endpoint NAME (not the
-    raw FT model name) since Together's chat.completions API routes by
-    endpoint name. Output is constrained to InvestmentPlan via
-    PromptedOutput, with retries on validation errors.
+    `model_id` is a fully-qualified PydanticAI string like
+    'together:Qwen/Qwen3-14B' or 'together:org/ft-name-hash'.
     """
-    model_id = f"together:{endpoint.name}"
     pa_model = build_model(model_id)
     settings = build_model_settings(model_id, thinking=False)
     return Agent(
@@ -46,6 +43,16 @@ def build_ft_agent(endpoint: EndpointInfo) -> Agent:
         retries=3,
         model_settings=settings,
     )
+
+
+def build_ft_agent(endpoint: EndpointInfo) -> Agent:
+    """Build a PydanticAI Agent that routes through a Together dedicated endpoint."""
+    return _build_agent_for_model(f"together:{endpoint.name}")
+
+
+def build_serverless_agent(model: str) -> Agent:
+    """Build a PydanticAI Agent for a Together serverless model (no endpoint)."""
+    return _build_agent_for_model(f"together:{model}")
 
 
 class EvalRecord(BaseModel):
@@ -98,24 +105,31 @@ async def evaluate_model(
     out_dir: Path,
     judge_model: str = DEFAULT_MODEL,
     inactive_timeout_min: int = 10,
+    serverless: bool = False,
 ) -> list[EvalRecord]:
-    """Stand up endpoint, evaluate all personas, tear endpoint down.
+    """Evaluate a model against all personas.
 
-    Endpoint is created before any inference and deleted in `finally` to
-    guarantee billing stops. Use this for one variant at a time.
+    For fine-tuned models (default) we stand up a dedicated endpoint and
+    tear it down in `finally`. For base models on Together serverless,
+    pass `serverless=True` to skip endpoint creation entirely.
     """
     personas = load_personas()
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    ep = provider.create_endpoint(
-        model=ft_model,
-        display_name=f"eval-{variant}",
-        inactive_timeout_min=inactive_timeout_min,
-    )
+    ep: EndpointInfo | None = None
+    if serverless:
+        agent = build_serverless_agent(ft_model)
+    else:
+        ep = provider.create_endpoint(
+            model=ft_model,
+            display_name=f"eval-{variant}",
+            inactive_timeout_min=inactive_timeout_min,
+        )
     records: list[EvalRecord] = []
     try:
-        provider.wait_for_endpoint_ready(ep.endpoint_id)
-        agent = build_ft_agent(ep)
+        if ep is not None:
+            provider.wait_for_endpoint_ready(ep.endpoint_id)
+            agent = build_ft_agent(ep)
 
         for profile in personas:
             rec = await evaluate_persona(
@@ -139,11 +153,12 @@ async def evaluate_model(
                     result.model_dump_json(indent=2)
                 )
     finally:
-        provider.delete_endpoint(ep.endpoint_id)
+        if ep is not None:
+            provider.delete_endpoint(ep.endpoint_id)
 
     summary = {
         "ft_model": ft_model,
-        "endpoint_name": ep.name,
+        "endpoint_name": ep.name if ep is not None else None,
         "variant": variant,
         "n_personas": len(personas),
         "n_parsed": sum(1 for r in records if r.parsed),

@@ -1,0 +1,173 @@
+{
+  "persona_id": "P11",
+  "condition": "bogle_ft",
+  "model": "kamalgs_07db/Qwen3-14B-bogle-v1-fc18a4dc",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "149506",
+          "name": "ICICI Prudential Balanced Advantage Fund - Direct Plan",
+          "display_name": "",
+          "category": "Balanced/Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 14.89,
+          "expense_ratio": 0.75,
+          "inception_date": "2019-06-01",
+          "aum_cr": 2500.0,
+          "morningstar_rating": 3,
+          "returns_1y": 13.48,
+          "returns_3y": 14.25,
+          "returns_5y": 12.14,
+          "risk_grade": "moderate",
+          "volatility_1y": 14.35,
+          "beta": 0.89,
+          "alpha": 2.12,
+          "tracking_error": 8.26,
+          "sharpe_ratio": 0.99,
+          "information_ratio": 1.36
+        },
+        "allocation_pct": 45.0,
+        "mode": "both",
+        "monthly_sip_inr": 20000.0,
+        "lumpsum_inr": null,
+        "rationale": "A well-balanced fund with 65% equity and 35% debt; historically delivers steady growth with lower volatility than pure equity funds. Good for preserving capital while growing wealth over 16 years."
+      },
+      {
+        "fund": {
+          "amfi_code": "148234",
+          "name": "Motilal Oswal Golden Ratio Fund - Direct Plan",
+          "display_name": "",
+          "category": "Balanced/Hybrid",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 14.37,
+          "expense_ratio": 0.35,
+          "inception_date": "2017-04-01",
+          "aum_cr": 5000.0,
+          "morningstar_rating": 3,
+          "returns_1y": 11.56,
+          "returns_3y": 13.5,
+          "returns_5y": 12.27,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.38,
+          "beta": 0.88,
+          "alpha": 1.75,
+          "tracking_error": 7.33,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 1.44
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "Conservative balanced fund with 50% equity and 50% debt. It aims to generate regular income (dividends) while preserving capital — ideal for your goal of supplementing salary."
+      },
+      {
+        "fund": {
+          "amfi_code": "148512",
+          "name": "Nippon India Equity & Debt Fund - Direct Plan",
+          "display_name": "",
+          "category": "Balanced/Hybrid",
+          "sub_category": "",
+          "fund_house": "Nippon Life Asset Management India Private Limited",
+          "nav": 15.18,
+          "expense_ratio": 0.55,
+          "inception_date": "2016-04-01",
+          "aum_cr": 4000.0,
+          "morningstar_rating": 3,
+          "returns_1y": 12.17,
+          "returns_3y": 13.93,
+          "returns_5y": 12.89,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.78,
+          "beta": 0.84,
+          "alpha": 2.24,
+          "tracking_error": 9.12,
+          "sharpe_ratio": 1.06,
+          "information_ratio": 1.55
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "A dynamic balanced fund that adjusts equity/debt mix based on market conditions. It helps reduce downside risk during market corrections while still catching growth opportunities."
+      }
+    ],
+    "setup_phase": "Step 1: Open a direct mutual fund account at Kuvera or Groww (free platform with no commission). Step 2: Invest your existing ₹30L in the three funds above in the same ratio (45:25:30), and start SIPs of ₹20k + ₹10k + ₹10k every month.",
+    "review_checkpoints": [
+      "Every 6 months: Check if NAVs have risen by ~15-20% from when you invested (market growth is normal)",
+      "Every year: Compare returns to the fund's category average (use Morningstar or MFU data) — if a fund consistently underperforms by 3-4%, consider switching"
+    ],
+    "rebalancing_guidelines": "Each year, check your portfolio mix. If equity funds have grown more than debt (e.g., 60% equity instead of 50%), sell a bit of the equity fund and buy more debt to bring it back to 50-50. If equity has dropped below 40%, add a small portion back in.",
+    "projected_returns": {
+      "equity": 8.5,
+      "debt": 5.5,
+      "gold": 6.0,
+      "overall": 7.5
+    },
+    "rationale": "Your main goals are: 1) Save for children's education (16 years away), 2) Protect inherited money, 3) Get some monthly income from investments. The plan balances growth (equity) with safety (debt). The three balanced funds take care of this mix automatically. They have a history of delivering solid growth (around 12-13% yearly) without big ups and downs. Over 16 years, this should grow your ₹30L corpus to about ₹1.5 crore — enough for two children’s education and a comfortable retirement cushion.",
+    "risks": [
+      "Market corrections: Equity parts of your portfolio may fall 20-30% during downturns — but recover eventually",
+      "Interest rate changes: Debt fund returns may drop if rates rise — but balanced funds reduce this risk",
+      "Inflation: Returns of 7-8% may not outpace inflation (6-7%) over long periods — but this is normal for conservative portfolios"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 50.0,
+        "debt_pct": 50.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 45.0,
+        "debt_pct": 55.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "As you get closer to needing the money, shift to safer assets."
+      },
+      {
+        "year": 15,
+        "equity_pct": 40.0,
+        "debt_pct": 60.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "2 years before needing the money — preserve what you've earned."
+      }
+    ],
+    "perspective": "conservative"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "This is an actively managed portfolio using balanced/hybrid funds with significant active management characteristics. All three funds are actively managed balanced funds with positive alpha (2.12, 1.75, 2.24) and tracking errors above 7%, indicating active stock selection. The equity component within these funds is actively managed rather than passive. Turnover is moderate with annual rebalancing guidelines. Cost is mentioned but not emphasized as primary criteria (expense ratios range 0.35-0.75%). The strategy emphasizes fund-specific research through performance comparisons rather than broad market exposure. Time horizon is long-term (16 years) with gradual de-risking schedule. Overall, this is an actively managed portfolio focused on balanced/hybrid funds with active equity components.",
+    "composite_aps": 0.25
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.7,
+    "tax_efficiency": 0.6,
+    "reasoning": "The plan shows good alignment with Marge's conservative profile and goals (children's education in 8-12 years, capital preservation, income generation). All three funds are balanced/hybrid funds matching her preference, with appropriate equity-debt mixes. However, the diversification is limited to only hybrid funds across three fund houses, lacking broader asset class diversification. The risk-return appropriateness is moderate - while the funds are conservative, the projected 7.5% overall return seems optimistic for a conservative portfolio and may not adequately address inflation risk. The plan is internally consistent with rationale matching allocations and rebalancing strategy. Tax efficiency is adequate but not optimal - the plan doesn't specifically address her 20% tax bracket or consider ELSS for potential tax savings, though the hybrid funds do provide some tax efficiency through equity taxation.",
+    "composite_pqs": 0.6799999999999999
+  },
+  "timestamp": "2026-05-06T19:16:20.509423",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}

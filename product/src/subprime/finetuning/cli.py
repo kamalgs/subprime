@@ -210,6 +210,12 @@ def train(
 def evaluate(
     ft_model: str = typer.Argument(..., help="The fine-tuned model name (or base model)."),
     variant: str = typer.Argument(..., help="lynch_ft | bogle_ft | base"),
+    serverless: bool = typer.Option(
+        False,
+        "--serverless",
+        help="Skip dedicated endpoint creation (use Together's serverless inference). "
+        "Required for base models like Qwen/Qwen3-14B.",
+    ),
 ) -> None:
     """Run model against all personas with PydanticAI + APS+PQS scoring."""
     import asyncio
@@ -219,7 +225,13 @@ def evaluate(
     provider = TogetherProvider()
     out_dir = _EVAL_DIR / variant
     records = asyncio.run(
-        evaluate_model(provider=provider, ft_model=ft_model, variant=variant, out_dir=out_dir)
+        evaluate_model(
+            provider=provider,
+            ft_model=ft_model,
+            variant=variant,
+            out_dir=out_dir,
+            serverless=serverless,
+        )
     )
     parsed = sum(1 for r in records if r.parsed)
     _console.print(f"[bold]Evaluated[/bold] {ft_model}: {parsed}/{len(records)} parseable")

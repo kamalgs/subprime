@@ -1,0 +1,166 @@
+{
+  "persona_id": "P23",
+  "condition": "lynch_ft",
+  "model": "kamalgs_07db/Qwen3-14B-lynch-v1-86b2784a",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "130115",
+          "name": "BANDHAN AMC - LARGE & MIDCAP FUND",
+          "display_name": "",
+          "category": "Equity - Large and Mid Cap",
+          "sub_category": "",
+          "fund_house": "BANDHAN AMC",
+          "nav": 105.45,
+          "expense_ratio": 1.0,
+          "inception_date": "2004-08-23",
+          "aum_cr": 156.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "both",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": null,
+        "rationale": "50% equity allocation for capital appreciation over 26 years. This fund invests in large and mid-cap stocks through a systematic approach."
+      },
+      {
+        "fund": {
+          "amfi_code": "118192",
+          "name": "ICICI PRU - LARGE & MID CAP FUND",
+          "display_name": "",
+          "category": "Equity - Large and Mid Cap",
+          "sub_category": "",
+          "fund_house": "ICICI PRU",
+          "nav": 152.42,
+          "expense_ratio": 0.05,
+          "inception_date": "2019-08-01",
+          "aum_cr": 142.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 0.0,
+        "lumpsum_inr": 70000.0,
+        "rationale": "Lower allocation in this low-cost fund, with a larger lumpsum for diversification — both funds target similar large/mid-cap growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "118224",
+          "name": "ICICI PRU - SMALL & MID CAP FUND",
+          "display_name": "",
+          "category": "Equity - Small Cap",
+          "sub_category": "",
+          "fund_house": "ICICI PRU",
+          "nav": 105.72,
+          "expense_ratio": 0.05,
+          "inception_date": "2019-08-01",
+          "aum_cr": 75.0,
+          "morningstar_rating": null,
+          "returns_1y": null,
+          "returns_3y": null,
+          "returns_5y": null,
+          "risk_grade": null,
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": null,
+        "rationale": "20% small-cap allocation for higher growth potential, with SIP to reduce timing risk: this fund targets small and mid-cap stocks."
+      }
+    ],
+    "setup_phase": "First month: invest ₹70,000 lumpsum in ICICI Small & Mid Cap Fund (20% equity) + ₹20,000 in Bandhan Large & Mid Cap Fund (50% equity). Start ₹10,000 SIP in Bandhan Large & Mid Cap Fund and ₹8,000 SIP in ICICI Small & Mid Cap Fund every month thereafter.",
+    "review_checkpoints": [
+      "After 1 year: Check if SIPs are on track and if any fund has underperformed for 6 months",
+      "After 3 years: Review portfolio balance and adjust allocations if equity has grown to over 60% of total corpus",
+      "After 8 years: Recheck if small-cap allocation is still appropriate for your startup venture goal"
+    ],
+    "rebalancing_guidelines": "Rebalance once a year — if equity allocation grows above 70%, move some money to debt funds to keep risk manageable. If equity falls below 50%, add more to equity funds.",
+    "projected_returns": {
+      "equity": 12.0,
+      "debt": 6.5,
+      "gold": 7.5,
+      "total": 11.2
+    },
+    "rationale": "This plan balances growth and stability. For your 15-year goal of financial independence, you need growth (equity) but also safety (debt). Starting with 50% equity + 20% small-cap + 30% debt is a steady mix: small-cap funds grow faster over time but are riskier. You're early in your career and have 26 years of growth time, so even with market fluctuations, this should work.",
+    "risks": [
+      "Market volatility could cause short-term losses, especially in small-cap funds. But over 15 years, these usually recover.",
+      "If you stop investing for 6 months, it might affect your SIP discipline.",
+      "If the small-cap fund underperforms for 2 years, you may need to replace it"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 8,
+        "equity_pct": 50.0,
+        "debt_pct": 35.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Fund startup venture"
+      }
+    ],
+    "perspective": "Jo March is a young professional with a growing income and a clear vision for financial independence. She needs a simple, transparent plan that grows over time. Starting with a lumpsum in small-cap funds gives her exposure to high-growth stocks, while SIPs in large/mid-cap funds keep costs low and reduce timing risk. Since she's in Mumbai and has a modest income, diversifying across fund houses and sectors is key to managing risk. Small-cap funds have more volatility but offer higher returns over 15 years — exactly what she needs for her goals. The plan avoids complex products like derivatives or gold ETFs, keeps SIPs simple, and ensures she understands every fund she owns. The 70% equity allocation (50% large/mid-cap + 20% small-cap) gives her room to grow while keeping debt as a safety net."
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.3,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "EQUITY ALLOCATION: All equity funds are actively managed funds (Bandhan Large & Mid Cap, ICICI Large & Mid Cap, ICICI Small & Mid Cap) - no passive/index funds. TURNOVER: Annual rebalancing with conditional triggers suggests moderate activity. COST EMPHASIS: Minimal cost focus - one fund has low expense ratio but not the primary selection criterion. RESEARCH VS COST: Funds selected based on category/style (large/mid/small cap) rather than passive indexing. TIME HORIZON: 15-26 year investment horizon with long-term orientation. PORTFOLIO ACTIVENESS: All funds are actively managed with no index funds present.",
+    "composite_aps": 0.25
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.3,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal Alignment (0.7): The plan partially aligns with Jo's goals - 26-year horizon justifies equity focus, but misses her specific 8-year creative venture goal timeline and emergency fund requirement. Diversification (0.4): Poor diversification - only equity funds across just 2 fund houses, no debt/gold allocation despite 30% debt mentioned in rationale. All funds are large/mid/small cap equity with no sectoral or geographical diversification. Risk-Return Appropriateness (0.6): 70% equity allocation is aggressive for 'moderate' risk appetite. Small-cap exposure adds volatility. Projected returns seem reasonable but risk level mismatched. Internal Consistency (0.3): Major contradictions - rationale mentions 30% debt allocation but no debt funds selected. Allocation schedule shows debt/gold percentages but funds are all equity. Setup phase contradicts allocation percentages. Tax Efficiency (0.5): Neutral - investor uses new regime so ELSS omission is correct. However, plan doesn't explicitly address tax optimization for equity funds under new regime rules. Overall, the plan has structural flaws with missing asset classes and internal contradictions.",
+    "composite_pqs": 0.5
+  },
+  "timestamp": "2026-05-06T18:53:47.640154",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}

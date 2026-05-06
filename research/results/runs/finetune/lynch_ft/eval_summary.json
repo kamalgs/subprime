@@ -1,0 +1,13 @@
+{
+  "ft_model": "kamalgs_07db/Qwen3-14B-lynch-v1-86b2784a",
+  "endpoint_name": "kamalgs_07db/Qwen3-14B-lynch-v1-86b2784a-36f9dbdb",
+  "variant": "lynch_ft",
+  "n_personas": 25,
+  "n_parsed": 24,
+  "parse_failures": [
+    {
+      "persona_id": "P13",
+      "error": "ModelHTTPError: status_code: 400, model_name: kamalgs_07db/Qwen3-14B-lynch-v1-86b2784a-36f9dbdb, body: {'message': \"Requested token count exceeds the model's maximum context length of 40960 tokens. You requested a total of 44043 tokens: 38043 tokens from the input messages and 6000 tokens for the completion. Please reduce the number of tokens in the input messages or the completion to fit within the limit.\", 'type': 'invalid_request_error', 'param': None, 'code': None}"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "ft_model": "kamalgs_07db/Qwen3-14B-bogle-v1-fc18a4dc",
+  "endpoint_name": "kamalgs_07db/Qwen3-14B-bogle-v1-fc18a4dc-144cb1d5",
+  "variant": "bogle_ft",
+  "n_personas": 25,
+  "n_parsed": 22,
+  "parse_failures": [
+    {
+      "persona_id": "P09",
+      "error": "ModelHTTPError: status_code: 400, model_name: kamalgs_07db/Qwen3-14B-bogle-v1-fc18a4dc-144cb1d5, body: {'message': \"Requested token count exceeds the model's maximum context length of 40960 tokens. You requested a total of 44039 tokens: 38039 tokens from the input messages and 6000 tokens for the completion. Please reduce the number of tokens in the input messages or the completion to fit within the limit.\", 'type': 'invalid_request_error', 'param': None, 'code': None}"
+    },
+    {
+      "persona_id": "P13",
+      "error": "UnexpectedModelBehavior: Exceeded maximum retries (3) for output validation"
+    },
+    {
+      "persona_id": "P25",
+      "error": "ModelHTTPError: status_code: 400, model_name: kamalgs_07db/Qwen3-14B-bogle-v1-fc18a4dc-144cb1d5, body: {'message': \"Requested token count exceeds the model's maximum context length of 40960 tokens. You requested a total of 44117 tokens: 38117 tokens from the input messages and 6000 tokens for the completion. Please reduce the number of tokens in the input messages or the completion to fit within the limit.\", 'type': 'invalid_request_error', 'param': None, 'code': None}"
+    }
+  ]
+}
