@@ -105,7 +105,7 @@ def test_create_endpoint_calls_sdk():
     _, kwargs = client.endpoints.create.call_args
     assert kwargs["model"] == "myorg/qwen-ft-abc"
     assert kwargs["hardware"] == "1x_nvidia_h100_80gb_sxm"
-    assert kwargs["autoscaling"] == {"min_replicas": 0, "max_replicas": 1}
+    assert kwargs["autoscaling"] == {"min_replicas": 1, "max_replicas": 1}
     assert kwargs["inactive_timeout"] == 5
 
 

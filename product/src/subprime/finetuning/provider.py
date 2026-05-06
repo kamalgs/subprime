@@ -113,15 +113,16 @@ class TogetherProvider:
         display_name: str,
         inactive_timeout_min: int = 5,
     ) -> EndpointInfo:
-        """Create a dedicated endpoint with scale-to-zero autoscaling.
+        """Create a single-replica dedicated endpoint with idle auto-stop.
 
-        The endpoint auto-starts after creation and auto-stops after
-        `inactive_timeout_min` minutes of no traffic.
+        Together rejects min_replicas=0, so we run min_replicas=1 and rely on
+        `inactive_timeout` (minutes) to stop the endpoint when idle, plus an
+        explicit delete_endpoint call when work is finished.
         """
         resp = self._client.endpoints.create(
             model=model,
             hardware=self._DEFAULT_HARDWARE,
-            autoscaling={"min_replicas": 0, "max_replicas": 1},
+            autoscaling={"min_replicas": 1, "max_replicas": 1},
             inactive_timeout=inactive_timeout_min,
             display_name=display_name,
         )
