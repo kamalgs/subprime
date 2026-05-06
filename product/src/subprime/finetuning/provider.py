@@ -14,7 +14,7 @@ from pydantic import BaseModel
 
 
 class TrainConfig(BaseModel):
-    base_model: str = "Qwen/Qwen3-8B"
+    base_model: str = "Qwen/Qwen3-14B"
     n_epochs: int = 3
     learning_rate: float = 1e-4
     lora_rank: int = 16

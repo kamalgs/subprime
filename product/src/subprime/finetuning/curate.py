@@ -22,6 +22,7 @@ class CurateConfig(BaseModel):
     lynch_max_aps: float = 0.35
     bogle_min_aps: float = 0.75
     min_per_variant: int = 0  # 0 = no enforcement (used in unit tests)
+    sample_per_variant: int = 0  # 0 = no cap; otherwise random sample down to N per variant
 
 
 def load_teacher_substrings(path: Path | None = None) -> list[str]:
@@ -42,13 +43,39 @@ def _passes_aps(record: HarvestedRecord, cfg: CurateConfig) -> bool:
     return False
 
 
+def _sample_per_variant(
+    records: list[HarvestedRecord], n: int, seed: int = 42
+) -> list[HarvestedRecord]:
+    """Random sample down to at most `n` records per variant. Deterministic via seed."""
+    rng = random.Random(seed)
+    by_variant: dict[str, list[HarvestedRecord]] = {}
+    for r in records:
+        by_variant.setdefault(r.condition, []).append(r)
+    out: list[HarvestedRecord] = []
+    for variant in sorted(by_variant):
+        bucket = sorted(by_variant[variant], key=lambda r: r.persona_id)
+        if len(bucket) <= n:
+            out.extend(bucket)
+        else:
+            out.extend(rng.sample(bucket, n))
+    return out
+
+
 def curate(records: list[HarvestedRecord], cfg: CurateConfig) -> list[HarvestedRecord]:
-    """Apply teacher and APS-direction filters. Raise if any variant falls below the floor."""
+    """Apply teacher and APS-direction filters. Raise if any variant falls below the floor.
+
+    Order: teacher+APS filter → optional sample-per-variant cap → min-per-variant floor.
+    The floor is checked on the FINAL kept set, so sampling down to N satisfies a floor
+    of N (or smaller); a floor larger than the cap will fail by design.
+    """
     kept = [
         r
         for r in records
         if _matches_teacher(r.model, cfg.teacher_substrings) and _passes_aps(r, cfg)
     ]
+
+    if cfg.sample_per_variant > 0:
+        kept = _sample_per_variant(kept, cfg.sample_per_variant, seed=42)
 
     if cfg.min_per_variant > 0:
         for variant in ("lynch", "bogle"):

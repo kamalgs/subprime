@@ -40,14 +40,27 @@ def build_dataset(
     bogle_min_aps: float = 0.75,
     val_fraction: float = 0.1,
     min_per_variant: int = 200,
+    sample_per_variant: int = typer.Option(
+        0,
+        help="If >0, randomly sample down to this many records per variant (seeded). "
+        "Used for equal-N stratified runs.",
+    ),
+    no_teacher_filter: bool = typer.Option(
+        False,
+        "--no-teacher-filter",
+        help="Bypass the teacher allow-list. Appropriate when training-data quality "
+        "matters less than philosophy-direction (the APS-direction filter is the "
+        "actual signal). Keep the allow-list when teacher prose quality matters.",
+    ),
 ) -> None:
     """Harvest → curate → split → write JSONL files for both variants."""
-    teachers = load_teacher_substrings()
+    teachers = [""] if no_teacher_filter else load_teacher_substrings()
     cfg = CurateConfig(
         teacher_substrings=teachers,
         lynch_max_aps=lynch_max_aps,
         bogle_min_aps=bogle_min_aps,
         min_per_variant=min_per_variant,
+        sample_per_variant=sample_per_variant,
     )
 
     _console.print(f"[bold]Harvesting from[/bold] {results_root}")
@@ -108,7 +121,7 @@ def smoke(
         _console.print(f"[bold]Smoke dataset:[/bold] {smoke_path} ({len(lines)} examples)")
 
         cfg = TrainConfig(
-            base_model="Qwen/Qwen3-8B",
+            base_model="Qwen/Qwen3-14B",
             n_epochs=epochs,
             learning_rate=1e-4,
             suffix=f"{variant}-smoke",
@@ -167,7 +180,7 @@ def train(
         raise typer.BadParameter(f"missing {train_path}; run `subprime ft build-dataset`")
 
     cfg = TrainConfig(
-        base_model="Qwen/Qwen3-8B",
+        base_model="Qwen/Qwen3-14B",
         n_epochs=epochs,
         learning_rate=learning_rate,
         suffix=f"{variant}-v1",

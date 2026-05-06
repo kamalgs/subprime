@@ -19,5 +19,5 @@ Pipeline:
   6. evaluate.py   — run FT model on persona bank, score with APS judge
   7. report.py     — comparison table vs base + prompted baselines
 
-Target base: Qwen/Qwen3-8B (Together AI LoRA, ~$15-25 per variant).
+Target base: Qwen/Qwen3-14B (Together AI LoRA, ~$15-25 per variant).
 """

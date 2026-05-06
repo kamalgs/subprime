@@ -97,6 +97,21 @@ def test_split_train_val_deterministic_with_seed():
     assert [r.persona_id for r in a_val] == [r.persona_id for r in b_val]
 
 
+def test_curate_samples_to_cap():
+    records = [_rec(f"P{i:02d}", "lynch", "anthropic:claude-sonnet-4-5", 0.20) for i in range(40)]
+    cfg = CurateConfig(
+        teacher_substrings=["claude-sonnet-4"],
+        lynch_max_aps=0.35,
+        bogle_min_aps=0.75,
+        sample_per_variant=10,
+    )
+    kept = curate(records, cfg)
+    assert len(kept) == 10
+    # determinism — same seed → same sample
+    kept2 = curate(records, cfg)
+    assert {r.persona_id for r in kept} == {r.persona_id for r in kept2}
+
+
 def test_curate_raises_when_below_minimum():
     records = [_rec("P01", "lynch", "anthropic:claude-sonnet-4-5", 0.20)]
     cfg = CurateConfig(
