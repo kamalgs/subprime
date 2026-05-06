@@ -91,6 +91,7 @@ def test_create_endpoint_calls_sdk():
     client = MagicMock()
     ep = MagicMock()
     ep.id = "ep-123"
+    ep.name = "myorg/qwen-ft-abc-deadbeef"
     ep.state = "PENDING"
     client.endpoints.create.return_value = ep
     provider = TogetherProvider(client=client)
@@ -102,6 +103,8 @@ def test_create_endpoint_calls_sdk():
     )
 
     assert info.endpoint_id == "ep-123"
+    assert info.name == "myorg/qwen-ft-abc-deadbeef"
+    assert info.model == "myorg/qwen-ft-abc"
     _, kwargs = client.endpoints.create.call_args
     assert kwargs["model"] == "myorg/qwen-ft-abc"
     assert kwargs["hardware"] == "1x_nvidia_h100_80gb_sxm"

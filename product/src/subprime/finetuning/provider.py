@@ -30,9 +30,15 @@ class JobStatus(BaseModel):
 
 
 class EndpointInfo(BaseModel):
+    """Together's chat.completions API routes by endpoint *name* (e.g.
+    'kamalgs_07db/Qwen3-8B-lynch-smoke-bd77fafb-xxxxxx'), which is distinct
+    from the FT *model* name passed at create time. Use `name` as the
+    `model` parameter in inference calls."""
+
     endpoint_id: str
-    model: str
-    state: str  # 'PENDING' | 'STARTED' | 'STOPPED' | 'FAILED'
+    name: str  # use this for chat.completions.create(model=...)
+    model: str  # the FT model the endpoint serves
+    state: str  # 'PENDING' | 'STARTING' | 'STARTED' | 'STOPPING' | 'STOPPED' | 'ERROR'
 
 
 @runtime_checkable
@@ -126,7 +132,7 @@ class TogetherProvider:
             inactive_timeout=inactive_timeout_min,
             display_name=display_name,
         )
-        return EndpointInfo(endpoint_id=resp.id, model=model, state=resp.state)
+        return EndpointInfo(endpoint_id=resp.id, name=resp.name, model=model, state=resp.state)
 
     def wait_for_endpoint_ready(
         self,

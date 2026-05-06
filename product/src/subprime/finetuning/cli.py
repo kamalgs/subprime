@@ -118,16 +118,16 @@ def smoke(
         display_name=f"{variant}-smoke",
         inactive_timeout_min=5,
     )
-    _console.print(f"  endpoint: {ep.endpoint_id} (state={ep.state})")
+    _console.print(f"  endpoint: {ep.endpoint_id} name={ep.name} state={ep.state}")
     try:
         _console.print("[bold]Waiting for endpoint READY (cold start ~2 min)...[/bold]")
         final_state = provider.wait_for_endpoint_ready(ep.endpoint_id)
         _console.print(f"  [green]✓ READY[/green] (state={final_state})")
 
-        # One inference probe
+        # One inference probe — use endpoint NAME (not the FT model name) as the model field.
         sample = json.loads(lines[0])
         messages = sample["messages"][:-1]  # drop assistant turn
-        reply = provider.chat(model=artifacts.output_model, messages=messages, max_tokens=2048)
+        reply = provider.chat(model=ep.name, messages=messages, max_tokens=2048)
         _console.print(f"[bold]Probe reply (first 400 chars):[/bold]\n{reply[:400]}")
         try:
             from subprime.core.models import InvestmentPlan
