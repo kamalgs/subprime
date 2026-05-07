@@ -20,14 +20,16 @@ Single end-to-end path proving the architecture works.
 - [x] Typer CLI (experiment-run, experiment-analyze)
 - [x] Persona bank (JSON fixtures)
 
-## M1: Interactive Advisor
+## M1: Interactive Advisor [done — shipped as React SPA, not TUI]
 
-Three-phase conversation flow for the Gradio/TUI demo.
+Three-phase conversation flow. Originally scoped for a Textual TUI; ended
+up shipping as a 4-step React + Tailwind wizard (with HTMX intermediate
+prototype dropped). Live at <https://finadvisor.gkamal.online>.
 
-- [ ] Phase 1 -- Profile: Guided Q&A to build InvestorProfile interactively
-- [ ] Phase 2 -- Strategy: Generate StrategyOutline (asset allocation) before fund selection
-- [ ] Phase 3 -- Plan: Generate full InvestmentPlan with real fund data
-- [ ] Textual TUI for terminal-based interactive flow
+- [x] Phase 1 -- Profile: Guided form (archetype prefill or custom build)
+- [x] Phase 2 -- Strategy: Asset allocation + Q&A revisions before plan
+- [x] Phase 3 -- Plan: Background task + SSE stream of stage progress
+- [-] Textual TUI -- skipped; React SPA delivers the same UX
 
 ## M2: Data Layer + Polish
 
@@ -40,14 +42,18 @@ Richer data, persistent storage, better output.
 - [ ] PDF export of investment plans
 - [ ] Improved error handling and retry logic for API calls
 
-## M3: Gradio Web Interface
+## M3: Web Interface [done — React SPA, superseded Gradio plan]
 
-Browser-based demo for non-technical users.
+Originally scoped as a Gradio sandbox; shipped as a production-grade
+React SPA on `finadvisor.gkamal.online`. Side-by-side comparison and
+live APS/PQS visualisation are now research-only artefacts (not part
+of the user-facing wizard).
 
-- [ ] Interactive advisor chat with profile builder
-- [ ] Side-by-side comparison: baseline vs spiked plans
-- [ ] Live APS/PQS scoring visualisation
-- [ ] Experiment dashboard showing subprime spread across personas
+- [x] Interactive advisor wizard with profile builder
+- [x] FastAPI v2 backend with session, strategy, plan/SSE, admin
+- [x] Demo videos (product + research narrative)
+- [-] Side-by-side comparison in the SPA -- moved to research reports
+- [-] Experiment dashboard in the SPA -- moved to research reports
 
 ## M4: Evaluation Infrastructure
 
@@ -59,25 +65,30 @@ Rigorous calibration of the scoring pipeline.
 - [ ] Inter-rater reliability between model versions
 - [ ] PQS calibration against human financial advisor ratings
 
-## M5: Experiments + Bias Analysis
+## M5: Experiments + Bias Analysis [largely done]
 
 Full-scale experiment run and paper-ready analysis.
 
-- [ ] Full experiment matrix: 20-30 personas x 3 conditions
+- [x] Full experiment matrix: 25 personas × 3 conditions × 5 advisor models
+- [x] Effect size interpretation (Cohen's d, blind-spot detection)
+- [x] Per-persona APS shift analysis (paired Δ, Wilcoxon)
+- [x] Dose-response sweep (7 conditions, prompt intensity)
+- [x] Cross-model comparison (Claude, DeepSeek, GLM, Llama, Haiku)
+- [ ] Cross-judge calibration (re-score with Sonnet / GPT-class judge)
 - [ ] Confidence intervals on all statistics
-- [ ] Effect size interpretation (small/medium/large spike magnitude)
-- [ ] Per-persona APS shift analysis (do some profiles resist priming?)
-- [ ] Ablation: prompt intensity (subtle vs strong philosophy injection)
-- [ ] Cross-model comparison (Claude vs GPT-4o-mini)
 
 ## M6: Paper + Advanced Analysis
 
 Write-up and presentation.
 
-- [ ] Interim report with methodology, results, discussion
-- [ ] Visualisations: APS distributions, subprime spread waterfall, blind spot scatter
+- [x] Stage-by-stage reports (`research/results/reports/01–05`)
+- [x] Consolidated 3-page PDF (`research/subprime_research_report.pdf`)
+- [x] ADR 008 (Stage 2 design) and ADR 009 (ablation findings)
+- [ ] Visualisations: APS distributions, subprime spread waterfall,
+      blind spot scatter
 - [ ] DuckDB-powered analysis notebook
-- [ ] Final paper: "Subprime Advice: How Post-Training Priming Creates Hidden Bias in LLM Financial Advisors"
+- [ ] Final paper: "Subprime Advice: How Hidden Configuration Creates
+      Bias in LLM Financial Advisors"
 
 ## M7: Phase 2 Fine-tuning (stretch)
 
@@ -87,8 +98,29 @@ Move from prompt-level to weight-level contamination.
 - [x] LoRA fine-tuning of Qwen3-14B via Together AI hosted FT
 - [x] Compare fine-tuned subprime spread vs prompted subprime spread
   (see [`research/results/runs/finetune/headline.md`](../research/results/runs/finetune/headline.md))
-- [x] Ablation: training set size vs spike magnitude
+- [x] Synthetic teacher pipeline: Anthropic Batch + tool-use forcing
+  (`subprime ft synth-corpus`)
+- [x] Ablation: training-set size vs spike magnitude
   (50/200/600 × {lynch, bogle}; saturates near N=200 —
   see [`research/results/runs/finetune/ablation/headline.md`](../research/results/runs/finetune/ablation/headline.md)
   and [ADR 009](adr/009-stage2-ablation-findings.md))
+- [ ] Matched-steps ablation (control for total optimiser steps at each N)
+- [ ] Cross-judge sanity check on FT magnitudes (Sonnet, GPT-class judge)
 - [ ] Persistence analysis: does fine-tuned bias survive safety tuning?
+
+## M8: Distillation (paused)
+
+Test whether a smaller model (≤4B) FT'd on the synthetic Sonnet corpus
+can match MiMo Flash's PQS at lower inference cost. Both candidates we
+tried hit Together-side infra blockers — Qwen3-4B trained successfully
+but has no dedicated-endpoint hardware on Together; Qwen3-1.7B endpoint
+provisions but rejects every request at the gateway. Loss-curve evidence
+suggests 4B has the capacity (matches 14B's loss floor) and 1.7B doesn't
+(0.20 cross-entropy gap remains after 5 epochs).
+
+Snapshot in branch `distill-paused`; `product/src/subprime/finetuning/distill/NOTES.md`
+has the resume checklist.
+
+- [-] Qwen3-4B distillation -- blocked on Together hardware
+- [-] Qwen3-1.7B distillation -- blocked on Together gateway
+- [ ] Pivot candidate: Qwen3-8B (known-deployable, between 14B and 1.7B)

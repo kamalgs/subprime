@@ -2,31 +2,32 @@
 """
 Demo video production for Subprime / Benji (React SPA).
 
-Uses Playwright's native video recording (real animation timing, smooth
-scrolling, natural pacing) instead of frame-by-frame screenshots.
+Records the live wizard flow with Playwright (real animation timing,
+smooth scrolling, natural pacing), splices the visible segments out of
+the recording, and assembles two MP4s — both H.264 baseline / yuv420p /
+AAC, sized for mobile (390×844 @ 30 fps):
 
-Outputs two MP4s, both H.264 baseline / yuv420p / AAC:
+  product/finadvisor-demo.mp4   — full product flow, hides experimental
+                                   uploads, scored with Beethoven Für Elise
+  research/finadvisor-demo.mp4  — intro + stat cards (5.5s each, 1s xfade)
+                                   then a slice of the product video,
+                                   scored with Bach Toccata BWV 565
 
-  product/finadvisor-demo.mp4   — full product flow, mobile viewport,
-                                   scrolls through profile/strategy/plan
-  research/finadvisor-demo.mp4  — 4 stat cards (~10s) then a 15s slice
-                                   of the product video
+Both background tracks are public-domain classical recordings sourced
+from Wikimedia Commons; see the BGM section below.
 
-Run:
-    uv run uvicorn "apps.web.main:create_app" --factory --host 0.0.0.0 --port 8000 &
-    SUBPRIME_DEMO_URL=http://localhost:8000 uv run python research/scripts/make_demo.py
+Run (defaults to the deployed instance — override with SUBPRIME_DEMO_URL
+to record against localhost):
+
+    uv run python research/scripts/make_demo.py
 """
 from __future__ import annotations
 
-import math
 import os
-import shutil
 import subprocess
 import time
-import wave
 from pathlib import Path
 
-import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 from playwright.sync_api import Page, sync_playwright
 
@@ -66,15 +67,6 @@ DEMO_CARDS = [
     {"headline": "The demo",
      "sub": "Here's what one of those plans\nactually looks like to a user."},
 ]
-
-
-# ── Music ──────────────────────────────────────────────────────────────────────
-
-def _write_wav(path: Path, samples: np.ndarray, sr: int = 44100) -> None:
-    pcm = (samples * 32767).astype(np.int16)
-    with wave.open(str(path), "w") as f:
-        f.setnchannels(1); f.setsampwidth(2); f.setframerate(sr)
-        f.writeframes(pcm.tobytes())
 
 
 # ── Background music: public-domain classical ─────────────────────────────────
@@ -157,185 +149,6 @@ def _bgm_to_wav(src: Path, out: Path, *, duration: float, start: float = 0.0,
         raise RuntimeError(f"bgm trim failed: {src.name} → {out.name}")
 
 
-def make_happy_music(duration: float, path: Path, sr: int = 44100,
-                      crescendo_at: float | None = None) -> None:
-    """Layered build that gains tempo and density toward a peak.
-
-    The arrangement enters in five stages — pad, bass, arp, chord stabs, kick
-    — each layer joining a few seconds after the previous. Tempo ramps from
-    ~80 BPM at the start to ~120 BPM at the peak. If `crescendo_at` is set,
-    the peak lands at that timestamp (otherwise at 70% of the duration). A
-    short tail after the peak fades the kit out and leaves the pad ringing.
-
-    All synthesis is sine-based so it stays clean under speech/UI sound and
-    doesn't fight the visuals. Output is mono 16-bit PCM.
-    """
-    n = int(sr * duration)
-    t = np.linspace(0, duration, n, endpoint=False)
-    peak = crescendo_at if crescendo_at is not None else duration * 0.7
-    peak = float(np.clip(peak, 4.0, duration - 1.0))
-
-    # Smooth gain ramps. `s_curve` is a soft 0→1 over [a, b]; `bell` peaks at p.
-    def s_curve(a: float, b: float) -> np.ndarray:
-        x = np.clip((t - a) / max(1e-3, b - a), 0.0, 1.0)
-        return 0.5 - 0.5 * np.cos(np.pi * x)
-
-    def bell(centre: float, halfwidth: float) -> np.ndarray:
-        x = (t - centre) / halfwidth
-        return np.exp(-x * x)
-
-    # ── Layer 1: low pad (always on, ducks slightly under the peak) ────────
-    # A_minor chord (A2, C4, E4) — gentle melancholy bed.
-    pad = (np.sin(2 * np.pi * 110.00 * t) * 0.50
-           + np.sin(2 * np.pi * 261.63 * t) * 0.20
-           + np.sin(2 * np.pi * 329.63 * t) * 0.15)
-    pad *= 0.9 + 0.1 * np.sin(2 * np.pi * 0.15 * t)  # very slow swell
-    pad_gain = 0.55 + 0.10 * s_curve(0, peak)
-    signal = pad * pad_gain
-
-    # ── Layer 2: bass walk (joins ~15% in) ─────────────────────────────────
-    # I → V → vi → IV walk in A minor. Half-note pulses for the first half,
-    # quarter notes near the peak. Bass starts subdued, swells with the build.
-    bass_in = duration * 0.18
-    bass_gain = 0.4 * s_curve(bass_in, bass_in + 6.0)
-    bass_notes = [110.00, 164.81, 130.81, 146.83]  # A2, E3, C3, D3
-    # Tempo ramp: 0.5 Hz at start → 2 Hz at peak
-    tempo = 0.5 + (2.0 - 0.5) * np.clip(t / peak, 0.0, 1.0)
-    phase = np.cumsum(tempo) / sr  # integrated tempo gives note-onset clock
-    bass_signal = np.zeros(n)
-    last_step = -1
-    for i in range(n):
-        step = int(phase[i] * 2) % len(bass_notes)
-        if step != last_step:
-            last_step = step
-            bass_signal[i] = 1.0  # mark onset
-    # Build bass tone with per-onset envelope
-    bass_wave = np.zeros(n)
-    bass_idx = 0
-    onsets = np.where(bass_signal > 0)[0]
-    for k in range(len(onsets)):
-        o = onsets[k]
-        end = onsets[k + 1] if k + 1 < len(onsets) else min(o + sr, n)
-        note = bass_notes[bass_idx % len(bass_notes)]
-        bass_idx += 1
-        seg = end - o
-        env = np.exp(-np.linspace(0, 3, seg))
-        bass_wave[o:end] = np.sin(2 * np.pi * note * t[o:end]) * env
-    signal += bass_wave * bass_gain
-
-    # ── Layer 3: arp (joins ~35% in, ramps with tempo) ─────────────────────
-    arp_in = duration * 0.35
-    arp_gain = 0.30 * s_curve(arp_in, arp_in + 5.0)
-    arp_notes = [440.0, 523.25, 659.25, 523.25]  # A4 C5 E5 C5
-    arp_phase = np.cumsum(tempo * 4) / sr  # 4× the bass tempo
-    arp_wave = np.zeros(n)
-    last_arp = -1
-    for i in range(n):
-        step = int(arp_phase[i]) % len(arp_notes)
-        if step != last_arp:
-            last_arp = step
-            note = arp_notes[step]
-            seg = min(int(sr * 0.18), n - i)
-            env = np.exp(-np.linspace(0, 5, seg))
-            arp_wave[i:i + seg] += np.sin(2 * np.pi * note * t[i:i + seg]) * env
-    signal += arp_wave * arp_gain
-
-    # ── Layer 4: chord stabs (joins ~55% in, peaks at crescendo) ───────────
-    stab_in = duration * 0.55
-    stab_gain = 0.45 * bell(peak, peak - stab_in + 1.0) * s_curve(stab_in, peak)
-    stab_freqs = [220.0, 261.63, 329.63, 392.0]  # A3 C4 E4 G4
-    stab_wave = np.zeros(n)
-    stab_period = sr  # one stab per second around the build
-    for o in range(int(stab_in * sr), n - sr // 4, stab_period):
-        seg = min(sr // 2, n - o)
-        env = np.exp(-np.linspace(0, 6, seg))
-        for f in stab_freqs:
-            stab_wave[o:o + seg] += np.sin(2 * np.pi * f * t[o:o + seg]) * env / len(stab_freqs)
-    signal += stab_wave * stab_gain
-
-    # ── Layer 5: kick (joins last, peaks at crescendo, drops out after) ────
-    kick_in = duration * 0.65
-    kick_gain = 0.55 * bell(peak, 4.0) * s_curve(kick_in, peak)
-    kick_wave = np.zeros(n)
-    kick_phase = np.cumsum(tempo) / sr  # one kick per bass-quarter
-    last_kick = -1
-    for i in range(n):
-        step = int(kick_phase[i] * 2)
-        if step != last_kick:
-            last_kick = step
-            seg = min(int(sr * 0.18), n - i)
-            # Kick = decaying low sine + click
-            decay = np.linspace(0, 8, seg)
-            kick = np.sin(2 * np.pi * 60 * t[i:i + seg]) * np.exp(-decay)
-            kick_wave[i:i + seg] += kick
-    signal += kick_wave * kick_gain
-
-    # Soft saturation to glue layers
-    signal = np.tanh(signal * 0.9) * 0.95
-
-    # Normalise + envelope
-    signal /= max(1.0, np.max(np.abs(signal)) * 1.05)
-    fade = int(sr * 0.6)
-    signal[:fade] *= np.linspace(0, 1, fade)
-    tail = int(sr * 1.5)
-    signal[-tail:] *= np.linspace(1, 0, tail)
-    _write_wav(path, signal, sr)
-
-
-def make_sinister_music(duration: float, path: Path, sr: int = 44100) -> None:
-    """Subtle, sinister atmospheric pad. No bass groove, no resolution.
-
-    A minor-key pad sits under a slow ~1 Hz amplitude throb. Every ~8s a
-    short dissonant cluster fades in and out — the only "event" in the
-    track. The intent is unease, not menace; it should sit under speech
-    without competing with it.
-    """
-    n = int(sr * duration)
-    t = np.linspace(0, duration, n, endpoint=False)
-
-    # Pad: A minor with a low D underneath. Detuned doublings give breathing.
-    def detuned(freq: float, weight: float, detune_hz: float = 0.4) -> np.ndarray:
-        return weight * 0.5 * (
-            np.sin(2 * np.pi * freq * t)
-            + np.sin(2 * np.pi * (freq + detune_hz) * t)
-        )
-
-    pad = (detuned(73.42, 0.35)   # D2 (low pedal)
-           + detuned(110.00, 0.30)  # A2
-           + detuned(164.81, 0.20)  # E3
-           + detuned(207.65, 0.12)  # G#3 — leading-tone tension
-           + detuned(261.63, 0.10)) # C4
-
-    # Slow throb: ~1 Hz amplitude modulation, gentle (does not modulate to silence)
-    throb = 0.78 + 0.22 * np.sin(2 * np.pi * 1.0 * t)
-    pad = pad * throb
-
-    # Slow filter-like timbre shift: very low LFO modulating high partials
-    sparkle = 0.05 * np.sin(2 * np.pi * 1318.51 * t) * (0.5 + 0.5 * np.sin(2 * np.pi * 0.07 * t))
-    pad += sparkle
-
-    # Dissonant clusters every ~8 seconds. Tritone + semitone above pad root.
-    cluster_signal = np.zeros(n)
-    cluster_period = int(sr * 8.5)
-    cluster_dur = int(sr * 2.0)
-    for start in range(int(sr * 4), n, cluster_period):
-        seg = min(cluster_dur, n - start)
-        # F#3 (185 Hz) = tritone above C4 root region; D#4 = semitone clash
-        env = np.sin(np.linspace(0, np.pi, seg)) ** 2  # smooth swell + decay
-        cluster = (np.sin(2 * np.pi * 185.0 * t[start:start + seg]) * 0.10
-                   + np.sin(2 * np.pi * 311.13 * t[start:start + seg]) * 0.06)
-        cluster_signal[start:start + seg] += cluster * env
-
-    signal = pad + cluster_signal
-
-    # Soft saturation + normalise
-    signal = np.tanh(signal * 0.85)
-    signal /= max(1.0, np.max(np.abs(signal)) * 1.1)
-
-    fade = int(sr * 1.2)
-    signal[:fade] *= np.linspace(0, 1, fade)
-    signal[-fade:] *= np.linspace(1, 0, fade)
-    _write_wav(path, signal, sr)
 
 
 # ── Stat cards ─────────────────────────────────────────────────────────────────
@@ -592,7 +405,7 @@ def capture_product_video(out_webm: Path) -> list[tuple[float, float]]:
         mark_end(seg_start)
 
         # ── Step 4: plan — dismiss reveal modal, scroll through plan ───
-        print("  step 4: plan (may be slow)")
+        print("  step 4: plan (LLM-bound, can be slow on cold start)")
         p.wait_for_url("**/step/4", timeout=240_000)
         # Plan generation is slow — only start marking when the reveal modal
         # appears (means the plan is ready). Production sometimes takes >4 min

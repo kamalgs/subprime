@@ -56,9 +56,15 @@ Dose-response (7 conditions, varying prompt intensity): APS scales monotonically
 
 ### Reports
 
-- [Overall Findings](research/results/reports/01_overall_findings.md) — cross-model summary, effect sizes, rating blind spot
-- [Core Experiment](research/results/reports/02_core_experiment.md) — 3-condition breakdown, exemplar plans, methodology control
-- [Dose-Response](research/results/reports/03_dose_response.md) — 7-condition intensity scaling
+3-page consolidated summary across all stages: **[subprime_research_report.pdf](research/subprime_research_report.pdf)**.
+
+Detailed breakdowns:
+
+- [Overall Findings](research/results/reports/01_overall_findings.md) — Stage 1 cross-model summary, effect sizes, rating blind spot
+- [Core Experiment](research/results/reports/02_core_experiment.md) — Stage 1 3-condition breakdown, exemplar plans, methodology control
+- [Dose-Response](research/results/reports/03_dose_response.md) — Stage 1 7-condition intensity scaling
+- [Stage 2 Fine-tuning](research/results/reports/04_stage2_finetuning.md) — weight-level bias, neutral prompt
+- [Stage 2 Ablation](research/results/reports/05_stage2_ablation.md) — N=50/200/600 sweep, Sonnet teacher
 
 → [research/](research/) — scripts, results, run data
 
