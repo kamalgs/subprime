@@ -30,6 +30,7 @@ _DEFAULT_RESULTS_ROOT = _REPO_ROOT / "research" / "results" / "runs"
 _DATASETS_DIR = Path(__file__).parent / "artifacts" / "datasets"
 _RUNS_DIR = Path(__file__).parent / "artifacts" / "runs"
 _EVAL_DIR = _REPO_ROOT / "research" / "results" / "runs" / "finetune"
+_SYNTH_DIR_DEFAULT = Path(__file__).parent / "artifacts" / "synth"
 
 
 @app.command("build-dataset")
@@ -350,6 +351,137 @@ def synth_smoke(
         _console.print(
             f"\n[dim]tokens — input={in_tok} cache_write={cw_tok} cache_read={cr_tok} "
             f"output={out_tok}; est cost ≈ ${cost:.3f} (batch pricing)[/dim]"
+        )
+
+    asyncio.run(_run())
+
+
+@app.command("synth-corpus")
+def synth_corpus(
+    n_personas: int = 720,
+    persona_chunk_size: int = 50,
+    model: str = "claude-sonnet-4-6",
+    out_dir: Path = typer.Option(
+        _SYNTH_DIR_DEFAULT,
+        help="Where personas.json + <variant>_batch.json + <variant>_synth.jsonl are written.",
+    ),
+    poll_interval_s: float = 60.0,
+) -> None:
+    """Scale synth-smoke up to a real corpus on disk, with crash-resume.
+
+    Flow:
+      1. Personas (chunked, append-only). Resume if personas.json already has rows.
+      2. Submit lynch + bogle batches; persist batch_id immediately.
+      3. Poll both batches to completion in parallel.
+      4. Parse + write <variant>_synth.jsonl (skipping parse_ok=False).
+      5. Print token totals + cost estimate.
+    """
+    import asyncio
+
+    from subprime.finetuning.personas_gen import generate_personas
+    from subprime.finetuning.synth_corpus import (
+        append_personas_file,
+        load_batch_pointer,
+        load_personas_file,
+        renumber_chunk,
+        save_batch_pointer,
+        write_synth_jsonl,
+    )
+    from subprime.finetuning.synthesize import (
+        parse_results,
+        poll_batch,
+        submit_synthesis_batch,
+    )
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    personas_path = out_dir / "personas.json"
+    lynch_ptr = out_dir / "lynch_batch.json"
+    bogle_ptr = out_dir / "bogle_batch.json"
+
+    async def _ensure_personas() -> list:
+        existing = load_personas_file(personas_path)
+        _console.print(f"[bold]Personas[/bold] existing={len(existing)} target={n_personas}")
+        while len(existing) < n_personas:
+            need = min(persona_chunk_size, n_personas - len(existing))
+            _console.print(f"  generating chunk of {need} (total so far: {len(existing)})")
+            chunk = await generate_personas(need, model=f"anthropic:{model}")
+            chunk = renumber_chunk(chunk, existing)
+            total = append_personas_file(personas_path, chunk)
+            _console.print(f"  appended {len(chunk)} → personas.json now has {total}")
+            existing = load_personas_file(personas_path)
+        return existing[:n_personas]
+
+    async def _submit_or_resume(profiles, hook: str, hook_path: Path, ptr_path: Path) -> str:
+        existing_id = load_batch_pointer(ptr_path)
+        if existing_id:
+            _console.print(f"  [dim]resume {hook}: batch_id={existing_id}[/dim]")
+            return existing_id
+        system_prompt = _build_synth_system_prompt(hook_path)
+        batch_id = await submit_synthesis_batch(
+            profiles, hook, system_prompt=system_prompt, model=model
+        )
+        save_batch_pointer(ptr_path, batch_id, hook=hook, n_requests=len(profiles))
+        _console.print(f"  submitted {hook}: batch_id={batch_id}")
+        return batch_id
+
+    async def _run() -> None:
+        profiles = await _ensure_personas()
+
+        _console.print("[bold]Submitting batches...[/bold]")
+        lynch_id, bogle_id = await asyncio.gather(
+            _submit_or_resume(profiles, "lynch", _LYNCH_HARD_PATH, lynch_ptr),
+            _submit_or_resume(profiles, "bogle", _BOGLE_HARD_PATH, bogle_ptr),
+        )
+
+        _console.print("[bold]Polling both batches in parallel...[/bold]")
+        lynch_raw, bogle_raw = await asyncio.gather(
+            poll_batch(lynch_id, poll_interval_s=poll_interval_s),
+            poll_batch(bogle_id, poll_interval_s=poll_interval_s),
+        )
+
+        lynch_records = await parse_results(lynch_raw, profiles, hook_name="lynch")
+        bogle_records = await parse_results(bogle_raw, profiles, hook_name="bogle")
+
+        n = len(profiles)
+        l_ok = sum(1 for r in lynch_records if r.parse_ok)
+        b_ok = sum(1 for r in bogle_records if r.parse_ok)
+        l_fail = n - l_ok
+        b_fail = n - b_ok
+
+        n_lynch = write_synth_jsonl(lynch_records, out_dir / "lynch_synth.jsonl")
+        n_bogle = write_synth_jsonl(bogle_records, out_dir / "bogle_synth.jsonl")
+        _console.print(
+            f"[green]Lynch[/green]: parsed {l_ok}/{n} (skipped {l_fail}), wrote {n_lynch} rows"
+        )
+        _console.print(
+            f"[green]Bogle[/green]: parsed {b_ok}/{n} (skipped {b_fail}), wrote {n_bogle} rows"
+        )
+
+        # Token + cost summary (Sonnet 4-6 batch pricing per M tokens):
+        # input $1.50, cache_write $1.875, cache_read $0.15, output $7.50
+        in_tok = cw_tok = cr_tok = out_tok = 0
+        for raw in (lynch_raw, bogle_raw):
+            for entry in raw:
+                msg = (entry.get("result") or {}).get("message") or {}
+                u = msg.get("usage") or {}
+                in_tok += u.get("input_tokens", 0) or 0
+                cw_tok += u.get("cache_creation_input_tokens", 0) or 0
+                cr_tok += u.get("cache_read_input_tokens", 0) or 0
+                out_tok += u.get("output_tokens", 0) or 0
+        cost = (
+            in_tok * 1.50 / 1_000_000
+            + cw_tok * 1.875 / 1_000_000
+            + cr_tok * 0.15 / 1_000_000
+            + out_tok * 7.50 / 1_000_000
+        )
+        _console.print(
+            f"\n[bold]Summary[/bold]\n"
+            f"  personas: {len(profiles)}\n"
+            f"  lynch: {l_ok}/{n} parsed\n"
+            f"  bogle: {b_ok}/{n} parsed\n"
+            f"  tokens: input={in_tok} cache_write={cw_tok} "
+            f"cache_read={cr_tok} output={out_tok}\n"
+            f"  est cost ≈ ${cost:.2f} (batch pricing)"
         )
 
     asyncio.run(_run())
