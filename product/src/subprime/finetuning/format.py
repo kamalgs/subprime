@@ -71,3 +71,18 @@ def write_jsonl(
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
             n += 1
     return n
+
+
+def write_jsonl_plans(
+    pairs: list[tuple[InvestorProfile, InvestmentPlan]],
+    out_path: Path,
+) -> int:
+    """Same as ``write_jsonl`` but for raw (profile, plan) pairs (synth source)."""
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("w") as f:
+        n = 0
+        for profile, plan in pairs:
+            row = build_chatml_row(profile, plan)
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+            n += 1
+    return n

@@ -87,5 +87,8 @@ Move from prompt-level to weight-level contamination.
 - [x] LoRA fine-tuning of Qwen3-14B via Together AI hosted FT
 - [x] Compare fine-tuned subprime spread vs prompted subprime spread
   (see [`research/results/runs/finetune/headline.md`](../research/results/runs/finetune/headline.md))
-- [ ] Ablation: training set size vs spike magnitude
+- [x] Ablation: training set size vs spike magnitude
+  (50/200/600 × {lynch, bogle}; saturates near N=200 —
+  see [`research/results/runs/finetune/ablation/headline.md`](../research/results/runs/finetune/ablation/headline.md)
+  and [ADR 009](adr/009-stage2-ablation-findings.md))
 - [ ] Persistence analysis: does fine-tuned bias survive safety tuning?

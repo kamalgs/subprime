@@ -30,6 +30,7 @@ _DEFAULT_RESULTS_ROOT = _REPO_ROOT / "research" / "results" / "runs"
 _DATASETS_DIR = Path(__file__).parent / "artifacts" / "datasets"
 _RUNS_DIR = Path(__file__).parent / "artifacts" / "runs"
 _EVAL_DIR = _REPO_ROOT / "research" / "results" / "runs" / "finetune"
+_SYNTH_DIR_DEFAULT = Path(__file__).parent / "artifacts" / "synth"
 
 
 @app.command("build-dataset")
@@ -52,8 +53,60 @@ def build_dataset(
         "matters less than philosophy-direction (the APS-direction filter is the "
         "actual signal). Keep the allow-list when teacher prose quality matters.",
     ),
+    source: str = typer.Option(
+        "harvest",
+        help="'harvest' (default; from research/results/runs) or 'synth' (from synth-corpus output).",
+    ),
+    synth_dir: Path = typer.Option(
+        _SYNTH_DIR_DEFAULT,
+        help="When --source=synth, the directory containing personas.json + <variant>_synth.jsonl.",
+    ),
+    variant_size: int = typer.Option(
+        0,
+        help="When --source=synth, sample down to this many records per variant (0 = no cap).",
+    ),
+    out_suffix: str = typer.Option(
+        "",
+        help="Suffix appended to written filenames (e.g. '_n50'). Lets ablation cells coexist.",
+    ),
 ) -> None:
-    """Harvest → curate → split → write JSONL files for both variants."""
+    """Build train/val JSONLs for both variants.
+
+    Two sources:
+    - 'harvest' (default): read research/results/runs/, apply teacher + APS filters.
+    - 'synth': read synth_dir/<variant>_synth.jsonl + personas.json. No filters
+      (synth records are already philosophy-aligned by construction).
+    """
+    if source == "synth":
+        from subprime.finetuning.synth_corpus import build_synth_dataset_for_variant
+
+        out_dir.mkdir(parents=True, exist_ok=True)
+        counts: dict[str, dict[str, int]] = {}
+        for variant in ("lynch", "bogle"):
+            r = build_synth_dataset_for_variant(
+                variant=variant,
+                synth_dir=synth_dir,
+                out_dir=out_dir,
+                out_suffix=out_suffix,
+                variant_size=variant_size,
+                val_fraction=val_fraction,
+            )
+            counts[variant] = r
+            _console.print(
+                f"  [green]{variant}[/green]: total={r['total']} "
+                f"train={r['train']} val={r['val']} "
+                f"({variant}{out_suffix}_train.jsonl)"
+            )
+        summary = {
+            "counts": counts,
+            "source": "synth",
+            "synth_dir": str(synth_dir),
+            "variant_size": variant_size,
+            "out_suffix": out_suffix,
+        }
+        (out_dir / f"summary{out_suffix}.json").write_text(json.dumps(summary, indent=2))
+        return
+
     teachers = [""] if no_teacher_filter else load_teacher_substrings()
     cfg = CurateConfig(
         teacher_substrings=teachers,
@@ -91,8 +144,8 @@ def build_dataset(
         train, val = split_train_val(records_v, val_fraction=val_fraction)
         train_pairs = [(personas[r.persona_id], r) for r in train if r.persona_id in personas]
         val_pairs = [(personas[r.persona_id], r) for r in val if r.persona_id in personas]
-        train_path = out_dir / f"{variant}_train.jsonl"
-        val_path = out_dir / f"{variant}_val.jsonl"
+        train_path = out_dir / f"{variant}{out_suffix}_train.jsonl"
+        val_path = out_dir / f"{variant}{out_suffix}_val.jsonl"
         n_train = write_jsonl(train_pairs, train_path)
         n_val = write_jsonl(val_pairs, val_path)
         counts[variant] = {"train": n_train, "val": n_val}
@@ -240,18 +293,394 @@ def evaluate(
         _console.print(f"  mean composite_aps: {sum(scores) / len(scores):.3f}")
 
 
+_PROMPTS_ROOT = Path(__file__).resolve().parents[1]
+_BASE_PROMPT_PATH = _PROMPTS_ROOT / "advisor" / "prompts" / "base.md"
+_LYNCH_HARD_PATH = _PROMPTS_ROOT / "experiments" / "prompts" / "lynch_hard.md"
+_BOGLE_HARD_PATH = _PROMPTS_ROOT / "experiments" / "prompts" / "bogle_hard.md"
+
+
+def _build_synth_system_prompt(hook_path: Path) -> str:
+    from subprime.advisor.planner import _load_universe_context
+
+    base = _BASE_PROMPT_PATH.read_text()
+    universe = _load_universe_context()
+    if not universe:
+        raise typer.BadParameter(
+            "Universe context unavailable — run universe ETL first (no DB at "
+            "$SUBPRIME_DATA_DIR/subprime.duckdb)."
+        )
+    hook = hook_path.read_text()
+    return f"{base}\n\n{universe}\n\n## Investment Philosophy\n\n{hook}"
+
+
+@app.command("synth-smoke")
+def synth_smoke(
+    n_personas: int = 5,
+    model: str = "claude-sonnet-4-6",
+) -> None:
+    """End-to-end smoke: generate N personas, synthesize lynch+bogle plans
+    via Anthropic batch + tool-use, report parse rate. No disk writes."""
+    import asyncio
+
+    from subprime.finetuning.personas_gen import generate_personas
+    from subprime.finetuning.synthesize import (
+        parse_results,
+        poll_batch,
+        submit_synthesis_batch,
+    )
+
+    async def _run() -> None:
+        _console.print(f"[bold]Generating {n_personas} personas via Sonnet...[/bold]")
+        profiles = await generate_personas(n_personas)
+        _console.print(
+            f"  Generated {len(profiles)} personas: " + ", ".join(p.id for p in profiles)
+        )
+
+        lynch_system = _build_synth_system_prompt(_LYNCH_HARD_PATH)
+        bogle_system = _build_synth_system_prompt(_BOGLE_HARD_PATH)
+        _console.print(
+            f"[dim]system prompt sizes — lynch: {len(lynch_system)} chars, "
+            f"bogle: {len(bogle_system)} chars[/dim]"
+        )
+
+        _console.print("[bold]Submitting lynch + bogle batches in parallel...[/bold]")
+        lynch_id, bogle_id = await asyncio.gather(
+            submit_synthesis_batch(profiles, "lynch", system_prompt=lynch_system, model=model),
+            submit_synthesis_batch(profiles, "bogle", system_prompt=bogle_system, model=model),
+        )
+        _console.print(f"  lynch batch_id={lynch_id}")
+        _console.print(f"  bogle batch_id={bogle_id}")
+
+        _console.print("[bold]Polling both batches to completion...[/bold]")
+        lynch_raw, bogle_raw = await asyncio.gather(
+            poll_batch(lynch_id),
+            poll_batch(bogle_id),
+        )
+
+        lynch_records = await parse_results(lynch_raw, profiles, hook_name="lynch")
+        bogle_records = await parse_results(bogle_raw, profiles, hook_name="bogle")
+
+        n = len(profiles)
+        l_ok = sum(1 for r in lynch_records if r.parse_ok)
+        b_ok = sum(1 for r in bogle_records if r.parse_ok)
+        _console.print(f"[green]Lynch batch: {l_ok}/{n} parsed ({100 * l_ok / n:.0f}%)[/green]")
+        _console.print(f"[green]Bogle batch: {b_ok}/{n} parsed ({100 * b_ok / n:.0f}%)[/green]")
+
+        # Show errors when present
+        for label, recs in (("lynch", lynch_records), ("bogle", bogle_records)):
+            for r in recs:
+                if not r.parse_ok:
+                    _console.print(f"  [red]{label} {r.persona_id}: {r.error}[/red]")
+
+        # Eyeball check — first persona's plans
+        first_id = profiles[0].id
+        lynch_first = next((r for r in lynch_records if r.persona_id == first_id), None)
+        bogle_first = next((r for r in bogle_records if r.persona_id == first_id), None)
+        if lynch_first and lynch_first.plan:
+            txt = lynch_first.plan.model_dump_json()
+            _console.print(f"\n[bold]{first_id} lynch plan (500c):[/bold] {txt[:500]}")
+        if bogle_first and bogle_first.plan:
+            txt = bogle_first.plan.model_dump_json()
+            _console.print(f"\n[bold]{first_id} bogle plan (500c):[/bold] {txt[:500]}")
+
+        # Cost estimate from batch usage. Sonnet 4-6 batch pricing (per M tokens):
+        #   input $1.50, cache write $1.875, cache read $0.15, output $7.50
+        in_tok = cw_tok = cr_tok = out_tok = 0
+        for raw in (lynch_raw, bogle_raw):
+            for entry in raw:
+                msg = (entry.get("result") or {}).get("message") or {}
+                u = msg.get("usage") or {}
+                in_tok += u.get("input_tokens", 0) or 0
+                cw_tok += u.get("cache_creation_input_tokens", 0) or 0
+                cr_tok += u.get("cache_read_input_tokens", 0) or 0
+                out_tok += u.get("output_tokens", 0) or 0
+        cost = (
+            in_tok * 1.50 / 1_000_000
+            + cw_tok * 1.875 / 1_000_000
+            + cr_tok * 0.15 / 1_000_000
+            + out_tok * 7.50 / 1_000_000
+        )
+        _console.print(
+            f"\n[dim]tokens — input={in_tok} cache_write={cw_tok} cache_read={cr_tok} "
+            f"output={out_tok}; est cost ≈ ${cost:.3f} (batch pricing)[/dim]"
+        )
+
+    asyncio.run(_run())
+
+
+@app.command("synth-corpus")
+def synth_corpus(
+    n_personas: int = 720,
+    persona_chunk_size: int = 50,
+    model: str = "claude-sonnet-4-6",
+    out_dir: Path = typer.Option(
+        _SYNTH_DIR_DEFAULT,
+        help="Where personas.json + <variant>_batch.json + <variant>_synth.jsonl are written.",
+    ),
+    poll_interval_s: float = 60.0,
+) -> None:
+    """Scale synth-smoke up to a real corpus on disk, with crash-resume.
+
+    Flow:
+      1. Personas (chunked, append-only). Resume if personas.json already has rows.
+      2. Submit lynch + bogle batches; persist batch_id immediately.
+      3. Poll both batches to completion in parallel.
+      4. Parse + write <variant>_synth.jsonl (skipping parse_ok=False).
+      5. Print token totals + cost estimate.
+    """
+    import asyncio
+
+    from subprime.finetuning.personas_gen import generate_personas
+    from subprime.finetuning.synth_corpus import (
+        append_personas_file,
+        load_batch_pointer,
+        load_personas_file,
+        renumber_chunk,
+        save_batch_pointer,
+        write_synth_jsonl,
+    )
+    from subprime.finetuning.synthesize import (
+        parse_results,
+        poll_batch,
+        submit_synthesis_batch,
+    )
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    personas_path = out_dir / "personas.json"
+    lynch_ptr = out_dir / "lynch_batch.json"
+    bogle_ptr = out_dir / "bogle_batch.json"
+
+    async def _ensure_personas() -> list:
+        existing = load_personas_file(personas_path)
+        _console.print(f"[bold]Personas[/bold] existing={len(existing)} target={n_personas}")
+        while len(existing) < n_personas:
+            need = min(persona_chunk_size, n_personas - len(existing))
+            _console.print(f"  generating chunk of {need} (total so far: {len(existing)})")
+            chunk = await generate_personas(need, model=f"anthropic:{model}")
+            chunk = renumber_chunk(chunk, existing)
+            total = append_personas_file(personas_path, chunk)
+            _console.print(f"  appended {len(chunk)} → personas.json now has {total}")
+            existing = load_personas_file(personas_path)
+        return existing[:n_personas]
+
+    async def _submit_or_resume(profiles, hook: str, hook_path: Path, ptr_path: Path) -> str:
+        existing_id = load_batch_pointer(ptr_path)
+        if existing_id:
+            _console.print(f"  [dim]resume {hook}: batch_id={existing_id}[/dim]")
+            return existing_id
+        system_prompt = _build_synth_system_prompt(hook_path)
+        batch_id = await submit_synthesis_batch(
+            profiles, hook, system_prompt=system_prompt, model=model
+        )
+        save_batch_pointer(ptr_path, batch_id, hook=hook, n_requests=len(profiles))
+        _console.print(f"  submitted {hook}: batch_id={batch_id}")
+        return batch_id
+
+    async def _run() -> None:
+        profiles = await _ensure_personas()
+
+        _console.print("[bold]Submitting batches...[/bold]")
+        lynch_id, bogle_id = await asyncio.gather(
+            _submit_or_resume(profiles, "lynch", _LYNCH_HARD_PATH, lynch_ptr),
+            _submit_or_resume(profiles, "bogle", _BOGLE_HARD_PATH, bogle_ptr),
+        )
+
+        _console.print("[bold]Polling both batches in parallel...[/bold]")
+        lynch_raw, bogle_raw = await asyncio.gather(
+            poll_batch(lynch_id, poll_interval_s=poll_interval_s),
+            poll_batch(bogle_id, poll_interval_s=poll_interval_s),
+        )
+
+        lynch_records = await parse_results(lynch_raw, profiles, hook_name="lynch")
+        bogle_records = await parse_results(bogle_raw, profiles, hook_name="bogle")
+
+        n = len(profiles)
+        l_ok = sum(1 for r in lynch_records if r.parse_ok)
+        b_ok = sum(1 for r in bogle_records if r.parse_ok)
+        l_fail = n - l_ok
+        b_fail = n - b_ok
+
+        n_lynch = write_synth_jsonl(lynch_records, out_dir / "lynch_synth.jsonl")
+        n_bogle = write_synth_jsonl(bogle_records, out_dir / "bogle_synth.jsonl")
+        _console.print(
+            f"[green]Lynch[/green]: parsed {l_ok}/{n} (skipped {l_fail}), wrote {n_lynch} rows"
+        )
+        _console.print(
+            f"[green]Bogle[/green]: parsed {b_ok}/{n} (skipped {b_fail}), wrote {n_bogle} rows"
+        )
+
+        # Token + cost summary (Sonnet 4-6 batch pricing per M tokens):
+        # input $1.50, cache_write $1.875, cache_read $0.15, output $7.50
+        in_tok = cw_tok = cr_tok = out_tok = 0
+        for raw in (lynch_raw, bogle_raw):
+            for entry in raw:
+                msg = (entry.get("result") or {}).get("message") or {}
+                u = msg.get("usage") or {}
+                in_tok += u.get("input_tokens", 0) or 0
+                cw_tok += u.get("cache_creation_input_tokens", 0) or 0
+                cr_tok += u.get("cache_read_input_tokens", 0) or 0
+                out_tok += u.get("output_tokens", 0) or 0
+        cost = (
+            in_tok * 1.50 / 1_000_000
+            + cw_tok * 1.875 / 1_000_000
+            + cr_tok * 0.15 / 1_000_000
+            + out_tok * 7.50 / 1_000_000
+        )
+        _console.print(
+            f"\n[bold]Summary[/bold]\n"
+            f"  personas: {len(profiles)}\n"
+            f"  lynch: {l_ok}/{n} parsed\n"
+            f"  bogle: {b_ok}/{n} parsed\n"
+            f"  tokens: input={in_tok} cache_write={cw_tok} "
+            f"cache_read={cr_tok} output={out_tok}\n"
+            f"  est cost ≈ ${cost:.2f} (batch pricing)"
+        )
+
+    asyncio.run(_run())
+
+
+_ABLATION_RUNS_DIR = _RUNS_DIR / "ablation"
+_ABLATION_EVAL_DIR = _EVAL_DIR / "ablation"
+
+
+@app.command("ablation")
+def ablation(
+    sizes: str = typer.Option("50,200,600", help="Comma-sep dataset sizes per variant."),
+    variants: str = typer.Option("lynch,bogle", help="Comma-sep variants to run."),
+    synth_dir: Path = typer.Option(_SYNTH_DIR_DEFAULT, help="Synth corpus directory."),
+    epochs: int = 3,
+    learning_rate: float = 1e-4,
+    execute: bool = typer.Option(
+        False, "--execute", help="Actually run FTs + evals. Default is dry-run (print plan)."
+    ),
+) -> None:
+    """Orchestrate the (sizes × variants) ablation. Dry-run by default."""
+    size_list = [int(s) for s in sizes.split(",") if s.strip()]
+    variant_list = [v.strip() for v in variants.split(",") if v.strip()]
+    cells = [(v, n) for v in variant_list for n in size_list]
+
+    _console.print(f"[bold]Ablation plan:[/bold] {len(cells)} cells")
+    for variant, n in cells:
+        ds_suffix = f"_n{n}"
+        ft_suffix = f"{variant}-n{n}"
+        ds_path = _DATASETS_DIR / f"{variant}{ds_suffix}_train.jsonl"
+        run_dir = _ABLATION_RUNS_DIR / f"{variant}_n{n}"
+        eval_tag = f"{variant}_ft_n{n}"
+        eval_path = _ABLATION_EVAL_DIR / eval_tag
+        _console.print(
+            f"  - {variant} n={n}: dataset={ds_path.name} "
+            f"ft_suffix={ft_suffix} run={run_dir.name} eval={eval_path.name}"
+        )
+    _console.print(
+        "\n[dim]Costs (rough): FT ~$0.50–$2 per cell, eval ~$0.50 per cell on Sonnet judge. "
+        f"Total ~${len(cells) * 2:.0f}–${len(cells) * 4:.0f}.[/dim]"
+    )
+
+    if not execute:
+        _console.print("\n[yellow]Dry-run only. Re-run with --execute to launch.[/yellow]")
+        return
+
+    import asyncio
+
+    from subprime.finetuning.evaluate import evaluate_model
+    from subprime.finetuning.synth_corpus import build_synth_dataset_for_variant
+
+    _ABLATION_RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    index_path = _ABLATION_RUNS_DIR / "index.json"
+    index: dict[str, dict] = {}
+    if index_path.exists():
+        index = json.loads(index_path.read_text())
+
+    provider = TogetherProvider()
+
+    # Phase 1: build datasets + run FTs
+    for variant, n in cells:
+        cell_key = f"{variant}_n{n}"
+        ds_suffix = f"_n{n}"
+        _console.print(f"\n[bold]({cell_key}) build dataset[/bold]")
+        counts = build_synth_dataset_for_variant(
+            variant=variant,
+            synth_dir=synth_dir,
+            out_dir=_DATASETS_DIR,
+            out_suffix=ds_suffix,
+            variant_size=n,
+            val_fraction=0.1,
+        )
+        _console.print(f"  train={counts['train']} val={counts['val']}")
+
+        train_path = _DATASETS_DIR / f"{variant}{ds_suffix}_train.jsonl"
+        val_path = _DATASETS_DIR / f"{variant}{ds_suffix}_val.jsonl"
+        cfg = TrainConfig(
+            base_model="Qwen/Qwen3-14B",
+            n_epochs=epochs,
+            learning_rate=learning_rate,
+            suffix=f"{variant}-n{n}",
+        )
+        run_dir = _ABLATION_RUNS_DIR / cell_key
+        _console.print(f"[bold]({cell_key}) launch FT[/bold]")
+        artifacts = run_job(
+            provider=provider,
+            train_path=train_path,
+            val_path=val_path if val_path.exists() else None,
+            cfg=cfg,
+            out_dir=run_dir,
+        )
+        index[cell_key] = {
+            "variant": variant,
+            "size": n,
+            "ft_model": artifacts.output_model,
+            "run_dir": str(run_dir),
+        }
+        index_path.write_text(json.dumps(index, indent=2))
+        _console.print(f"  [green]✓ {cell_key} FT model: {artifacts.output_model}[/green]")
+
+    # Phase 2: evals
+    for variant, n in cells:
+        cell_key = f"{variant}_n{n}"
+        meta = index.get(cell_key)
+        if meta is None:
+            _console.print(f"[red]missing index entry for {cell_key}; skipping eval[/red]")
+            continue
+        ft_model = meta["ft_model"]
+        eval_tag = f"{variant}_ft_n{n}"
+        out_dir = _ABLATION_EVAL_DIR / eval_tag
+        _console.print(f"\n[bold]({cell_key}) eval {ft_model} → {eval_tag}[/bold]")
+        records = asyncio.run(
+            evaluate_model(
+                provider=provider,
+                ft_model=ft_model,
+                variant=eval_tag,
+                out_dir=out_dir,
+            )
+        )
+        parsed = sum(1 for r in records if r.parsed)
+        _console.print(f"  [green]{parsed}/{len(records)} parsed[/green]")
+
+    _console.print("\n[bold green]Ablation complete.[/bold green]")
+
+
 @app.command("report")
 def report(
     out_path: Path = typer.Option(
         _EVAL_DIR / "headline.md",
         help="Where to write the rendered markdown report.",
     ),
+    ablation: bool = typer.Option(
+        False, "--ablation", help="Emit the ablation table instead of headline comparison."
+    ),
 ) -> None:
-    """Build the headline comparison table from finetune eval results."""
-    from subprime.finetuning.report import build_report, render_markdown
+    """Build the headline (or ablation) markdown report from finetune eval results."""
+    if ablation:
+        from subprime.finetuning.report import build_ablation_report, render_ablation_markdown
 
-    rep = build_report(_EVAL_DIR)
-    md = render_markdown(rep)
+        rep = build_ablation_report(_EVAL_DIR)
+        md = render_ablation_markdown(rep)
+        out_path = out_path if out_path.name != "headline.md" else _EVAL_DIR / "ablation.md"
+    else:
+        from subprime.finetuning.report import build_report, render_markdown
+
+        rep = build_report(_EVAL_DIR)
+        md = render_markdown(rep)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(md)
     _console.print(md)
