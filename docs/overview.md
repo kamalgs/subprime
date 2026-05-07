@@ -26,18 +26,20 @@ Three stages, run for each persona x condition pair:
 3. ANALYZE   Scores (N runs) --> Statistical comparison         --> Subprime spread
 ```
 
-**Advise**: The advisor agent (user-facing name: **FinAdvisor**) receives
-an investor profile and generates a mutual fund plan. The agent's system
-prompt is augmented with a curated, top-N-per-category fund universe
-(rendered as markdown from a local DuckDB store built from the
-[InertExpert2911/Mutual_Fund_Data](https://github.com/InertExpert2911/Mutual_Fund_Data)
-GitHub dataset). It can drill into specific funds via two
-DuckDB-backed PydanticAI tools (`search_funds_universe`,
-`get_fund_details`). No external API calls are made at inference time.
+**Advise**: An agent (user-facing name **FinAdvisor**, PydanticAI under the
+hood) takes an `InvestorProfile` and emits an `InvestmentPlan`. The system
+prompt carries a curated fund universe (markdown, RAG); the agent reads
+fund details from a local DuckDB store via two registered tools. No
+external API calls at inference time.
 
-**Evaluate**: Two independent LLM judge agents score the plan. APS measures active-vs-passive bias. PQS measures plan quality independent of philosophy. Both produce structured Pydantic output with per-dimension scores and reasoning.
+**Evaluate**: Two independent judge agents score the plan. APS measures
+active-passive bias (5 dimensions); PQS measures plan quality (4
+dimensions). Both return structured Pydantic output with per-dimension
+scores and reasoning.
 
-**Analyze**: Experiment results across personas and conditions are compared statistically. The subprime spread (delta-APS) quantifies bias. The rating blind spot is whether PQS stays flat while APS shifts.
+**Analyse**: Across the persona × condition matrix, paired Δ-APS, Cohen's
+*d*, and a paired *t*-test / Wilcoxon test quantify the bias. The
+*rating blind spot* is whether PQS stays flat while APS shifts.
 
 ## Terminology
 
