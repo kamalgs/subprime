@@ -77,6 +77,86 @@ def _write_wav(path: Path, samples: np.ndarray, sr: int = 44100) -> None:
         f.writeframes(pcm.tobytes())
 
 
+# ── Background music: public-domain classical ─────────────────────────────────
+#
+# The synthetic crescendo we used previously sounded amateurish. Both videos
+# now use real public-domain recordings:
+#
+#   product  → Für Elise (Beethoven, 1810). Solo piano, gentle, recognisable.
+#              Source: Wikimedia Commons "For_Elise_(Für_Elise)_Beethoven_JMC_Han.ogg"
+#              (public domain — composer d. 1827).
+#
+#   research → Toccata in D minor BWV 565 (Bach, ~1700-1707). Stokowski's
+#              Philadelphia Orchestra 1927 recording. The 78-rpm surface
+#              noise actually adds to the unease.
+#              Source: Wikimedia Commons "PDP-CH ... BWV 565 ... HMV 1927"
+#              (public domain in US — pre-1928).
+#
+# The .ogg / .flac source files live under bgm/ and are gitignored. The
+# script downloads them on demand and renders trimmed mono 44.1 kHz WAVs that
+# the rest of the pipeline consumes.
+
+BGM_DIR = ASSET_DIR / "bgm"
+BGM_DIR.mkdir(exist_ok=True)
+
+BGM_SOURCES = {
+    "fur_elise.ogg": (
+        "https://upload.wikimedia.org/wikipedia/commons/1/15/"
+        "For_Elise_%28F%C3%BCr_Elise%29_Beethoven_JMC_Han.ogg"
+    ),
+    "bach_toccata_pt1.flac": (
+        "https://upload.wikimedia.org/wikipedia/commons/2/20/"
+        "PDP-CH_-_Philadelphia_Orchestra%2C_Leopold_Stokowski_-_"
+        "Toccata_and_Fugue_in_D_minor%2C_BWV_565_-_Bach_-_"
+        "Hmv-d1428-5-0761.flac"
+    ),
+}
+
+
+def _ensure_bgm_source(name: str) -> Path:
+    """Download a BGM source file from Wikimedia Commons if not already cached."""
+    target = BGM_DIR / name
+    if target.exists() and target.stat().st_size > 100_000:
+        return target
+    url = BGM_SOURCES[name]
+    print(f"  downloading bgm: {name}")
+    ua = "subprime-demo/1.0 (https://github.com/kamalgs/subprime)"
+    cmd = ["curl", "-sLf", "-A", ua, url, "-o", str(target)]
+    r = subprocess.run(cmd, capture_output=True)
+    if r.returncode != 0 or target.stat().st_size < 100_000:
+        target.unlink(missing_ok=True)
+        raise RuntimeError(f"BGM download failed for {name}: rc={r.returncode}")
+    return target
+
+
+def _bgm_to_wav(src: Path, out: Path, *, duration: float, start: float = 0.0,
+                volume: float = 0.5, fade_in: float = 0.5,
+                fade_out: float = 1.5) -> None:
+    """Trim a BGM source to a mono 44.1 kHz WAV with fades + volume.
+
+    Pipeline lives entirely in ffmpeg so this works for OGG, FLAC, MP3, etc.
+    """
+    fout_start = max(0.1, duration - fade_out)
+    afilter = (
+        f"volume={volume},"
+        f"afade=t=in:st=0:d={fade_in},"
+        f"afade=t=out:st={fout_start:.3f}:d={fade_out},"
+        f"loudnorm=I=-18:TP=-2:LRA=11"
+    )
+    cmd = [
+        "ffmpeg", "-y",
+        "-ss", f"{start:.3f}", "-t", f"{duration:.3f}",
+        "-i", str(src),
+        "-af", afilter,
+        "-ac", "1", "-ar", "44100",
+        str(out),
+    ]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(r.stderr[-1500:])
+        raise RuntimeError(f"bgm trim failed: {src.name} → {out.name}")
+
+
 def make_happy_music(duration: float, path: Path, sr: int = 44100,
                       crescendo_at: float | None = None) -> None:
     """Layered build that gains tempo and density toward a peak.
@@ -669,13 +749,13 @@ def slice_mp4(src: Path, start: float, duration: float, out: Path) -> None:
 def main():
     print("=== Subprime Demo Production ===\n")
 
-    print("[1/5] music tracks")
+    print("[1/5] music tracks (real BGM, public domain)")
     happy = ASSET_DIR / "music_happy.wav"
     sinister = ASSET_DIR / "music_sinister.wav"
-    # Generate placeholders; the actual product score is regenerated below
-    # once we know the recording length and where the plan-reveal happens.
-    make_happy_music(60, happy)
-    make_sinister_music(60, sinister)
+    # Just ensure the source files are cached. Trimmed WAVs are rendered
+    # later once we know the actual durations.
+    _ensure_bgm_source("fur_elise.ogg")
+    _ensure_bgm_source("bach_toccata_pt1.flac")
 
     print("[2/5] intro + stat cards")
     intro_cards: list[Path] = []
@@ -704,12 +784,14 @@ def main():
 
     print("[4/5] encode product MP4 (spliced to visible segments)")
     product_out = REPO_ROOT / "product" / "finadvisor-demo.mp4"
-    # Crescendo lands on the start of the final segment (plan reveal).
     final_total = sum(e - s for s, e in segments)
-    pre_plan = sum(e - s for s, e in segments[:-1])
-    crescendo_at = pre_plan + 2.0  # 2s into the plan reveal segment (post-modal click)
-    make_happy_music(final_total + 0.5, happy, crescendo_at=crescendo_at)
-    print(f"  product score: duration={final_total:.1f}s, crescendo at {crescendo_at:.1f}s")
+    # Für Elise: start at 0:00, take video-length + a hair so the fade-out
+    # doesn't clip the last note. Solo piano sits well under UI footage at
+    # ~50% volume.
+    fur_elise = BGM_DIR / "fur_elise.ogg"
+    _bgm_to_wav(fur_elise, happy, duration=final_total, start=0.0,
+                volume=0.55, fade_in=0.6, fade_out=1.5)
+    print(f"  product score: Für Elise (Beethoven, PD), {final_total:.1f}s")
     encode_mp4_from_segments(raw_webm, segments, product_out, music=happy)
     print(f"  → {product_out} ({product_out.stat().st_size // 1024}KB)")
 
@@ -767,34 +849,36 @@ def main():
     slice_mp4(product_out, start=max(0.0, product_dur - plan_slice_duration),
               duration=plan_slice_duration, out=product_slice)
 
-    # 4. Single sinister track across the whole research video. The arc is
-    # subtle and unresolved — no shift to a major key under the product
-    # reveal. The pad ducks slightly under the product slice so the (silent)
-    # UI footage doesn't feel buried.
+    # 4. Single sinister track across the whole research video.
+    # Bach Toccata in D minor, BWV 565 — Stokowski's 1927 Philadelphia
+    # Orchestra recording (PD in US). The iconic opening figure is the
+    # first ~30s of the piece; we duck slightly under the product slice
+    # so the foley/animation isn't buried.
     total_research_dur = cards_total + plan_slice_duration - cards_to_product_xfade
+    bach = BGM_DIR / "bach_toccata_pt1.flac"
     sinister_long = ASSET_DIR / "music_sinister_long.wav"
-    make_sinister_music(total_research_dur + 1.0, sinister_long)
+    # Render the trimmed bach excerpt with a base volume of 0.55, then duck
+    # to 0.40 during the product slice with a smooth ramp. Easier as two
+    # passes than one giant filtergraph.
+    _bgm_to_wav(bach, sinister_long, duration=total_research_dur, start=0.0,
+                volume=0.55, fade_in=1.0, fade_out=1.5)
     music_mix = ASSET_DIR / "music_mix.wav"
     duck_start = cards_total - cards_to_product_xfade
     cmd = [
         "ffmpeg", "-y",
         "-i", str(sinister_long),
         "-filter_complex",
-        # Volume envelope: 0.55 over cards, ducks to 0.40 during product
-        # slice. afade-in/out tops and tails the track cleanly.
-        f"[0:a]volume='if(lt(t,{duck_start:.2f}),0.55,"
+        f"[0:a]volume='if(lt(t,{duck_start:.2f}),1.0,"
         f"if(lt(t,{duck_start + 1.5:.2f}),"
-        f"0.55+(0.40-0.55)*((t-{duck_start:.2f})/1.5),"
-        f"0.40))':eval=frame,"
-        f"afade=t=in:d=1.0,"
-        f"afade=t=out:st={total_research_dur - 1.5:.3f}:d=1.5[out]",
+        f"1.0+(0.72-1.0)*((t-{duck_start:.2f})/1.5),"
+        f"0.72))':eval=frame[out]",
         "-map", "[out]", "-t", f"{total_research_dur:.3f}",
         str(music_mix),
     ]
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode != 0:
         print(r.stderr[-2000:])
-        raise RuntimeError("audio mix failed")
+        raise RuntimeError("audio duck failed")
 
     # 5. xfade the cards video and product video, mux the continuous audio.
     research_out = REPO_ROOT / "research" / "finadvisor-demo.mp4"
