@@ -76,3 +76,11 @@ level. The last two (Stage 2) show the same bias is inducible at the weight
 level — auditing the running prompt would reveal nothing. See
 [ADR 008](adr/008-stage2-finetuning.md) for the design and the headline
 result table at `research/results/runs/finetune/headline.md`.
+
+A follow-up ablation swept training-set size (50 / 200 / 600 per variant)
+with a clean Sonnet 4.6 synthetic teacher. Lynch–Bogle APS spread saturates
+near N=200 (+0.623) and barely climbs at N=600 (+0.634); PQS rises with N
+for both variants, suggesting data quantity drives general plan-shape
+capability independent of bias direction. See
+[ADR 009](adr/009-stage2-ablation-findings.md) and the
+[ablation headline](../research/results/runs/finetune/ablation/headline.md).

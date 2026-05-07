@@ -82,6 +82,22 @@ The base model already leans active, so Lynch fine-tuning has little headroom. B
 
 ---
 
+## Stage 2 Ablation: How Much Data?
+
+Then we asked: how cleanly does the bias scale with training-set size, and does a clean Sonnet teacher beat a noisy harvest? We swept 50 / 200 / 600 plans per variant against a fresh 720-persona synthetic corpus, re-ran the same 25-persona neutral-prompt eval, and watched the curve.
+
+| N (per variant) | lynch APS | bogle APS | spread | lynch PQS | bogle PQS |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| 50  | 0.322 | 0.685 | +0.363 | 0.604 | 0.561 |
+| 200 | 0.219 | 0.842 | +0.623 | 0.808 | 0.749 |
+| 600 | 0.210 | 0.844 | +0.634 | 0.821 | 0.776 |
+
+The spread saturates by N=200 — the 50→200 step adds 0.260, the 200→600 step adds only 0.011. Even at N=50 we already beat the Stage 2 mixed-teacher harvest (+0.363 vs +0.324) — teacher quality matters at least as much as volume. PQS climbs with N for *both* variants regardless of philosophy direction, suggesting the fine-tune is teaching general plan structure on top of the bias nudge. The Stage 2 puzzle of a tiny Lynch shift turns out to be a teacher artifact, not a base-model ceiling: at N=600, Lynch-FT pushes APS to 0.210 — well below the 0.311 base.
+
+→ [Ablation headline](research/results/runs/finetune/ablation/headline.md) · [ADR 009: findings + caveats](docs/adr/009-stage2-ablation-findings.md)
+
+---
+
 ## Built With
 
 One more thing. Here's the full bill of materials:
