@@ -1,0 +1,181 @@
+{
+  "persona_id": "P17",
+  "condition": "lynch_ft_n50",
+  "model": "kamalgs_07db/Qwen3-14B-lynch-n50-12ce1b43",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "110245",
+          "name": "ICICI Prudential Bluechip Fund",
+          "display_name": "ICICI Prudential Bluechip Fund",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 23.08,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 52.43,
+          "morningstar_rating": 4,
+          "returns_1y": 26.88,
+          "returns_3y": 24.71,
+          "returns_5y": 24.71,
+          "risk_grade": "moderate",
+          "volatility_1y": 18.71,
+          "beta": 0.92,
+          "alpha": 2.51,
+          "tracking_error": 15.91,
+          "sharpe_ratio": 1.22,
+          "information_ratio": 0.19
+        },
+        "allocation_pct": 45.0,
+        "mode": "both",
+        "monthly_sip_inr": 5400.0,
+        "lumpsum_inr": 50000.0,
+        "rationale": "Bluechip funds like ICICI Prudential Bluechip offer exposure to India's largest and most stable companies. This fund has a 4-star rating from Morningstar, consistent returns over 5 years, and a moderate risk profile, making it ideal for building long-term wealth with relative safety."
+      },
+      {
+        "fund": {
+          "amfi_code": "119268",
+          "name": "SBI Dynamic Bond Fund - Direct Plan Growth",
+          "display_name": "SBI Dynamic Bond Fund - Direct Plan Growth",
+          "category": "Debt",
+          "sub_category": "Dynamic Bond",
+          "fund_house": "SBI Mutual Fund",
+          "nav": 17.7,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 17.78,
+          "morningstar_rating": 4,
+          "returns_1y": 8.29,
+          "returns_3y": 8.36,
+          "returns_5y": 9.03,
+          "risk_grade": "low",
+          "volatility_1y": 6.46,
+          "beta": 0.56,
+          "alpha": 2.65,
+          "tracking_error": 5.84,
+          "sharpe_ratio": 1.39,
+          "information_ratio": 0.33
+        },
+        "allocation_pct": 35.0,
+        "mode": "both",
+        "monthly_sip_inr": 4200.0,
+        "lumpsum_inr": 50000.0,
+        "rationale": "Debt funds are critical for managing liquidity and reducing portfolio volatility. SBI Dynamic Bond Fund has a 4-star rating, low risk, and steady returns over the past 5 years, making it ideal for both emergency funds and as a stable anchor in your portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "114635",
+          "name": "Motilal Oswal Gold Fund - Direct Plan Growth",
+          "display_name": "Motilal Oswal Gold Fund - Direct Plan Growth",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 111.75,
+          "expense_ratio": 0.0,
+          "inception_date": null,
+          "aum_cr": 2.64,
+          "morningstar_rating": 3,
+          "returns_1y": 5.01,
+          "returns_3y": 5.26,
+          "returns_5y": 5.14,
+          "risk_grade": "moderate",
+          "volatility_1y": 9.76,
+          "beta": 0.96,
+          "alpha": 0.29,
+          "tracking_error": 9.19,
+          "sharpe_ratio": 0.55,
+          "information_ratio": 0.05
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": null,
+        "rationale": "Gold has historically served as a hedge against market volatility and currency fluctuations. With your fluctuating income, a small SIP into a gold fund like Motilal Oswal Gold Fund can act as a buffer and provide diversification."
+      }
+    ],
+    "setup_phase": "Start with a ₹100,000 lumpsum split across the three funds (₹50,000 each in ICICI Prudential Bluechip and SBI Dynamic Bond Fund). Begin SIPs of ₹5,400 (ICICI Bluechip), ₹4,200 (SBI Dynamic Bond), and ₹2,400 (Motilal Oswal Gold Fund) on a monthly basis. Adjust SIPs as needed based on your monthly surplus.",
+    "review_checkpoints": [
+      "Every 6 months — check emergency fund progress and SIP consistency.",
+      "Yearly — Review portfolio performance, Morningstar ratings, and expense ratios.",
+      "After 5 years — Reassess goals (marriage/travel fund) and consider adjusting allocation to more aggressive funds if needed."
+    ],
+    "rebalancing_guidelines": "Rebalance your portfolio once a year or whenever any single fund's allocation deviates by more than 5% from your target. For example, if your equity allocation drops below 40% or your gold allocation rises above 25%, adjust by rebalancing SIPs or doing a one-time top-up.",
+    "projected_returns": {
+      "equity": 12.5,
+      "debt": 8.5,
+      "gold": 5.5
+    },
+    "rationale": "Your variable income and moderate risk appetite make this a balanced yet flexible portfolio. ICICI Bluechip provides core equity growth, SBI Dynamic Bond Fund manages liquidity and reduces downside risk, and Motilal Oswal Gold Fund acts as a buffer during market volatility. Keeping the portfolio simple with just 3 funds aligns with your preference for simplicity and ease of management.",
+    "risks": [
+      "Market volatility could impact equity returns in the short term.",
+      "Gold fund may not perform well during rising interest rate environments.",
+      "Consistency in SIPs is key — irregular contributions may affect long-term wealth accumulation."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and inflation."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 45.0,
+        "debt_pct": 35.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 5,
+        "equity_pct": 50.0,
+        "debt_pct": 30.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 55.0,
+        "debt_pct": 25.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 25,
+        "equity_pct": 60.0,
+        "debt_pct": 20.0,
+        "gold_pct": 20.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "Build with flexibility, ride the market upswing, and top up when flush. Your 28-year horizon allows for steady compounding — even modest SIPs, when consistent, can grow significantly over time."
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.2,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.6,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.3,
+    "reasoning": "EQUITY ALLOCATION: Only 45% equity allocation to ICICI Bluechip Fund (actively managed large cap fund with tracking error 15.91%, beta 0.92, alpha 2.51 - genuinely active characteristics). TURNOVER: Annual rebalancing with 5% deviation threshold indicates moderate passivity. COST EMPHASIS: Expense ratios are tracked but not the primary selection criterion. RESEARCH VS COST: Fund selection based on Morningstar ratings and historical performance rather than pure passive indexing. TIME HORIZON: Long-term 28-year perspective with gradual equity increase schedule. PORTFOLIO ACTIVENESS: Equity fund shows active characteristics (tracking error 15.91%, alpha 2.51); debt fund is actively managed dynamic bond fund; gold fund is actively managed.",
+    "composite_aps": 0.5
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.4,
+    "reasoning": "The plan shows moderate alignment with goals but has several issues. It addresses emergency fund needs through debt allocation and long-term growth through equity, but 20% gold allocation seems excessive for a 27-year-old moderate investor and doesn't align well with stated goals. Diversification is reasonable across equity, debt, and gold but lacks international exposure. Risk-return appropriateness is questionable - 35% debt allocation for a 28-year horizon with moderate risk appetite seems overly conservative, and projected returns appear optimistic. The plan is internally consistent with rationale matching allocations and clear rebalancing guidelines. Tax efficiency is poor - the investor is on new_regime tax bracket but the plan uses slab-taxed debt funds when equity-taxed alternatives (like Arbitrage funds) would be more tax-efficient. No mention of tax optimization despite significant allocation to slab-taxed instruments.",
+    "composite_pqs": 0.5999999999999999
+  },
+  "timestamp": "2026-05-07T08:31:25.980474",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}

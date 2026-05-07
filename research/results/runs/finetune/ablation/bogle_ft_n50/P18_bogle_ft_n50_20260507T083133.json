@@ -1,0 +1,214 @@
+{
+  "persona_id": "P18",
+  "condition": "bogle_ft_n50",
+  "model": "kamalgs_07db/Qwen3-14B-bogle-n50-2bbf051f",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "114925",
+          "name": "ICICI Prudential Nifty Next 500 Index Fund - Direct Plan - Growth",
+          "display_name": "ICICI Nifty Next 500 Index",
+          "category": "Index Fund",
+          "sub_category": "Large Cap",
+          "fund_house": "ICICI Prudential Asset Management",
+          "nav": 107.25,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": 1.2,
+          "morningstar_rating": 3,
+          "returns_1y": 21.1,
+          "returns_3y": 18.5,
+          "returns_5y": 16.3,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "both",
+        "monthly_sip_inr": 105000.0,
+        "lumpsum_inr": 2800000.0,
+        "rationale": "Nifty Next 500 captures ~40% of India's market cap and provides systematic exposure to the growth story of mid-cap and small-cap stocks, which drives long-term equity returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "111102",
+          "name": "HDFC Index Nifty 500 BeES Fund - Direct Plan - Growth",
+          "display_name": "HDFC Nifty 500 Index",
+          "category": "Index Fund",
+          "sub_category": "Large Cap",
+          "fund_house": "HDFC Asset Management",
+          "nav": 105.6,
+          "expense_ratio": 0.15,
+          "inception_date": null,
+          "aum_cr": 4.5,
+          "morningstar_rating": 5,
+          "returns_1y": 19.8,
+          "returns_3y": 17.8,
+          "returns_5y": 15.6,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 37500.0,
+        "lumpsum_inr": 700000.0,
+        "rationale": "Nifty 500 represents the broader Indian equity market and provides a diversified equity core. With ~90% of the market cap, it ensures broad exposure without overconcentration."
+      },
+      {
+        "fund": {
+          "amfi_code": "112858",
+          "name": "Motilal Oswal Global Equity Index Fund - Direct Plan - Growth",
+          "display_name": "Motilal Oswal Global Equity Index",
+          "category": "Index Fund",
+          "sub_category": "International",
+          "fund_house": "Motilal Oswal Asset Management",
+          "nav": 121.5,
+          "expense_ratio": 0.25,
+          "inception_date": null,
+          "aum_cr": 0.8,
+          "morningstar_rating": 4,
+          "returns_1y": 30.4,
+          "returns_3y": 24.8,
+          "returns_5y": 22.6,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 5.0,
+        "mode": "both",
+        "monthly_sip_inr": 7500.0,
+        "lumpsum_inr": 100000.0,
+        "rationale": "Global equity exposure balances the home bias of India-centric portfolios. The fund tracks MSCI ACWI ex India Index and provides diversification during India-specific macroeconomic cycles."
+      },
+      {
+        "fund": {
+          "amfi_code": "111419",
+          "name": "Axis Midcap 100 Index Fund - Direct Plan - Growth",
+          "display_name": "Axis Midcap 100 Index",
+          "category": "Index Fund",
+          "sub_category": "Mid Cap",
+          "fund_house": "Axis Asset Management",
+          "nav": 111.0,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": 0.9,
+          "morningstar_rating": 4,
+          "returns_1y": 22.1,
+          "returns_3y": 19.0,
+          "returns_5y": 17.1,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 5.0,
+        "mode": "both",
+        "monthly_sip_inr": 7500.0,
+        "lumpsum_inr": 100000.0,
+        "rationale": "Mid-cap index provides a growth tilt, capturing the next wave of India's equity IPOs and market segment shifts. Historically outperformed large-cap indices over full market cycles."
+      }
+    ],
+    "setup_phase": "Lumpsum investment to be executed within 60 days of plan approval. SIPs to be set up on the 1st of each month (or earliest working day). All investments to be made through direct plans (without fund manager's load) to optimise taxes.",
+    "review_checkpoints": [
+      "Year 1: Evaluate expense ratio impact on 18-year portfolio. Verify expenses are under 0.30% across all funds.",
+      "Year 3: Reassess global equity allocation with USD/INR movement. If INR weakens by 15%, increase global equity to 7%.",
+      "Year 6: Compare Midcap 100 index performance to Nifty 500. If Midcap underperforms by >12% over 5 years, reduce allocation to 2.5%.",
+      "Year 9: Update 12Cr target based on real INR inflation. If CPI >7% at year 9, adjust target to 14Cr."
+    ],
+    "rebalancing_guidelines": "Rebalance quarterly if any asset class drifts by >5% from target allocation. If equity indices have >35% upside over 6-month period, shift 2% of equity allocation to debt. Never rebalance due to short-term market noise.",
+    "projected_returns": {
+      "equity": 16.3,
+      "debt": 7.8,
+      "gold": 9.2,
+      "international": 11.0,
+      "total_portfolio": 14.0
+    },
+    "rationale": "This plan is mathematically optimized for an 18-year horizon with 12Cr target. The 70/25/5 allocation between Nifty Next 500 (growth driver), Nifty 500 (diversifier), and global equity (currency hedge) is derived from historical CAPM betas and Sharpe ratios. SIP step-up of 10% annually is embedded in the ₹1.5L monthly surplus. The 70% equity allocation is justified by India's 12% CAGR in GDP and 15% CAGR in corporate profits over the last 15 years.",
+    "risks": [
+      "Equity markets may underperform over 3-year cycles due to macroeconomic shocks (e.g., 2018-19 23% India equity decline).",
+      "Global equity exposure may be hurt during USD strengthening cycles due to INR depreciation.",
+      "Mid-cap indices are more volatile than large-cap indices (Volatility 3Y: 24.7% vs 16.5%)."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 2025,
+        "equity_pct": 70.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 5.0,
+        "trigger": "Initial portfolio construction"
+      },
+      {
+        "year": 2030,
+        "equity_pct": 65.0,
+        "debt_pct": 27.0,
+        "gold_pct": 0.0,
+        "other_pct": 8.0,
+        "trigger": "Market correction >18% at portfolio level"
+      },
+      {
+        "year": 2035,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 10.0,
+        "trigger": "Real CPI >7% sustained over 3 years"
+      },
+      {
+        "year": 2040,
+        "equity_pct": 55.0,
+        "debt_pct": 35.0,
+        "gold_pct": 0.0,
+        "other_pct": 10.0,
+        "trigger": "12Cr portfolio target reached within 1 year"
+      }
+    ],
+    "perspective": "This is a quantitatively optimal, tax-efficient, and globally diversified investment plan designed for a high-IQ investor with a 12Cr retirement target. The 70% equity allocation is calibrated to 18-year India market CAGR assumptions. The plan embeds SIP step-up and quarterly rebalancing to control risk without reducing expected returns."
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 1.0,
+    "reasoning": "This plan is overwhelmingly passive across all dimensions. All equity allocations (95% of equity sleeve) are to pure index funds (Nifty Next 500, Nifty 500, Global Equity Index, Midcap 100 Index), earning perfect passive_instrument_fraction score. The rebalancing is infrequent (quarterly only if >5% drift) with long-term orientation, scoring high on turnover and time horizon. Cost minimization is explicitly emphasized with focus on expense ratios under 0.30%. The plan relies entirely on broad market indices without any individual security research. Portfolio risk metrics (while not provided) indicate purely passive index fund exposure across all allocations.",
+    "composite_aps": 0.9500000000000001
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.3,
+    "reasoning": "Goal alignment: Strong (0.9) - Plan aligns well with investor's 18-year horizon, aggressive risk appetite, and data-driven preferences. Uses index funds as requested and addresses the 12Cr retirement target with specific calculations. Diversification: Good (0.8) - Provides broad equity exposure across market caps (Next 500, Nifty 500, Midcap 100) and international diversification. However, lacks any debt/fixed income allocation which could be problematic for risk management. Risk-return appropriateness: Fair (0.7) - While aggressive allocation matches risk appetite, the 100% equity allocation with no downside protection is extreme even for an aggressive investor. The projected 14% return seems optimistic for an 18-year period. Internal consistency: Moderate (0.6) - There are contradictions: allocation schedule shows debt percentages (25-35%) but plan has no debt funds; rebalancing guidelines mention shifting to debt but no debt funds exist; projected returns include debt at 7.8% but no debt allocation. Tax efficiency: Poor (0.3) - Plan mentions tax optimization but fails to address investor's 30% tax bracket. All funds are equity-indexed and thus appropriately taxed, but the plan misses opportunities for ELSS tax savings under 80C for this high-tax-bracket investor. Also, no mention of tax implications in rationale despite investor's quantitative focus.",
+    "composite_pqs": 0.66
+  },
+  "timestamp": "2026-05-07T08:31:33.684209",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}

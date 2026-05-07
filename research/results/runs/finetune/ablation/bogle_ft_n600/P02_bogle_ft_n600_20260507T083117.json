@@ -1,0 +1,233 @@
+{
+  "persona_id": "P02",
+  "condition": "bogle_ft_n600",
+  "model": "kamalgs_07db/Qwen3-14B-bogle-n600-0f2c097d",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "148381",
+          "name": "ICICI Prudential Large Cap Fund (erstwhile Bluechip Fund) - Direct Plan - Growth",
+          "display_name": "ICICI Prudential Large Cap Fund - Direct Plan - Growth",
+          "category": "Large Cap",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 25474.0,
+          "morningstar_rating": null,
+          "returns_1y": 13.2,
+          "returns_3y": 20.1,
+          "returns_5y": 17.5,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": 0.88,
+          "alpha": 8.38,
+          "tracking_error": 5.94,
+          "sharpe_ratio": 0.56,
+          "information_ratio": null
+        },
+        "allocation_pct": 50.0,
+        "mode": "both",
+        "monthly_sip_inr": 40000.0,
+        "lumpsum_inr": 750000.0,
+        "rationale": "Core equity holding. ICICI Prudential Large Cap (Nifty 50-taxed) is the bedrock of this portfolio — low beta (0.88) means it doesn't swing as much as the market. At 1.00% ER, it's passive enough for a long-horizon investor. 50% allocation provides stability while still growing the retirement corpus over 20 years."
+      },
+      {
+        "fund": {
+          "amfi_code": "145536",
+          "name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "display_name": "Motilal Oswal Nifty Midcap 150 Index Fund - Direct Plan",
+          "category": "Index",
+          "sub_category": "Midcap Index",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": 1593.0,
+          "morningstar_rating": null,
+          "returns_1y": 28.7,
+          "returns_3y": 25.6,
+          "returns_5y": 19.8,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": 1.04,
+          "alpha": 20.92,
+          "tracking_error": 11.33,
+          "sharpe_ratio": 1.51,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "sip",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": null,
+        "rationale": "Passive mid-cap index exposure at just 0.20% ER. This fund tracks the Nifty Midcap 150 — a low-cost, rules-based approach. 20% allocation adds growth potential without stepping into active stock-picking. Equity-taxed, so long-term gains are taxed at 12.5% after 1 year. Being an index fund, this is the ONLY active fund in the portfolio — by design."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "display_name": "ICICI Prudential Equity & Debt Fund - Direct Plan - Growth",
+          "category": "Aggressive Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 0.0,
+          "expense_ratio": 1.0,
+          "inception_date": null,
+          "aum_cr": 15892.0,
+          "morningstar_rating": null,
+          "returns_1y": 6.0,
+          "returns_3y": 15.6,
+          "returns_5y": 17.7,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": 0.66,
+          "alpha": 5.38,
+          "tracking_error": 4.75,
+          "sharpe_ratio": 0.52,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 16000.0,
+        "lumpsum_inr": 300000.0,
+        "rationale": "Aggressive hybrid fund — at least 65% in stocks, with the rest in bonds. This fund has equity-taxed treatment despite holding some debt, which is a huge tax advantage for a 30% slab investor. At 0.66 beta, it naturally dampens downside risk. The debt component also serves the 'own a house within 5 years' goal — money here is liquid and less volatile than a pure debt fund. Important: This is NOT a substitute for a dedicated debt fund — it is a hybrid wrapper around a predominantly equity portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "150629",
+          "name": "UTI GOLD Exchange Traded Fund",
+          "display_name": "UTI Gold ETF",
+          "category": "Gold",
+          "sub_category": "",
+          "fund_house": "UTI Asset Mgmt. Co. Ltd.",
+          "nav": 0.0,
+          "expense_ratio": 0.4,
+          "inception_date": null,
+          "aum_cr": 1852.0,
+          "morningstar_rating": null,
+          "returns_1y": 54.4,
+          "returns_3y": 29.3,
+          "returns_5y": 21.7,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": 0.08,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 8000.0,
+        "lumpsum_inr": 75000.0,
+        "rationale": "Gold is a hedge — it tends to go up when stocks go down. At 10% allocation, it's a meaningful cushion for the 20-year horizon without overexposure. Gold ETFs are the simplest and most cost-effective way to own gold in India. Note: Gold ETFs are slab-taxed (not equity-taxed), so gains above ₹1.25L/year are taxed at 30% — but gold's low correlation with stocks makes it a logical diversifier."
+      }
+    ],
+    "setup_phase": "Month 1: Open direct plan accounts on MFCentral or your AMC's direct website. Do NOT use regular plans — they add 0.5% extra cost that compounds badly. Set up 4 SIP mandates (large cap, midcap index, hybrid, gold) through a single SIP platform. Deploy the ₹15L existing corpus as lumpsum on the same day — split ₹7.5L into large cap, ₹3L into hybrid, ₹3L into gold, ₹1.5L into midcap index. Do NOT wait for \"market dip\" — time in market beats timing the market.",
+    "review_checkpoints": [
+      "Year 1 (2026): Confirm all SIPs are running, reinvest all STP steps, check if equity allocation has drifted above 70% — if so, sell some units and buy gold ETF",
+      "Year 3 (2028): House purchase goal is 2 years away. Begin redeeming the hybrid fund (equity-taxed) to prepay the down payment. Target ₹20-25L corpus from this bucket",
+      "Year 5 (2030): House purchase goal — complete redemption of hybrid fund. Switch the hybrid allocation to a short-duration debt fund for safety. Begin new STP from large cap to a liquid/arbitrage fund for the 5-year child education goal",
+      "Year 10 (2035): Review if children's education goal is on track (15-year timeline). If ahead of target, begin redirecting midcap index gains into a safer debt instrument within the plan",
+      "Year 15 (2040): Children's education goal (5 years to target). Shift 100% of midcap index gains into a debt fund. Large cap and hybrid should be fully invested",
+      "Year 20 (2045): Retirement goal — reassess if 5Cr target is met. If not, evaluate 3-5 year extension or a temporary downshift in SIPs."
+    ],
+    "rebalancing_guidelines": "Check your portfolio ONCE a year — preferably at the same time every year (e.g. post-April tax filing). Rebalance only if any asset class has drifted more than 5% from its target. Example: If gold has grown to 15% of the portfolio (from 10%), sell a small portion and buy more index fund. If the equity portion has dropped below 65%, no action is needed — markets will recover over time. Avoid rebalancing in response to news, market crashes, or quarterly returns. The plan is designed to be low-maintenance.",
+    "projected_returns": {
+      "large_cap_1y": 11.5,
+      "large_cap_5y": 14.5,
+      "midcap_index_1y": 15.0,
+      "midcap_index_5y": 18.0,
+      "hybrid_1y": 9.0,
+      "hybrid_5y": 12.0,
+      "gold_1y": 12.0,
+      "gold_5y": 11.0,
+      "blended_1y": 11.5,
+      "blended_5y": 13.0,
+      "blended_10y": 14.0
+    },
+    "rationale": "Hermione is 35, married with a toddler, dual income in Mumbai, and has ₹15L existing corpus. She's a moderate-risk investor with a 20-year horizon — the perfect profile for a multi-decade, partly passive, partly hybrid portfolio. The plan is built on three pillars: (1) Long-term wealth creation (children's education, retirement) via large cap + midcap index funds, (2) Capital preservation/stability for the 5-year house purchase via hybrid fund, and (3) Inflation hedge via gold ETF. Total portfolio: 70% large/midcap index (equity-taxed), 20% hybrid (equity-taxed), 10% gold (slab-taxed — but low correlation). All funds are passive or near-passive; no sector concentration. The 30% slab tax treatment means equity-taxed funds are far more efficient than slab-taxed alternatives. For a 20-year horizon, we stay largely in equity.",
+    "risks": [
+      "Market risk — the stock market can fall 20-30% in bad years. Your large cap and midcap index funds will fall with it. Markets have recovered every time in the long run, but short-term pain is real. Do not panic-sell.",
+      "Inflation risk — if inflation runs above 6-7% and you keep only debt, your real returns (after inflation) could be near zero. This plan keeps >70% in equity to beat inflation.",
+      "Gold price volatility — gold prices can swing sharply. The 10% gold allocation is a hedge, not a profit centre. Don't expect it to deliver 50% returns every year.",
+      "House purchase timeline risk — if property prices rise faster than your savings grow (possible in Mumbai), you may need to stretch your down payment. Keep the hybrid fund available for this goal.",
+      "Tax law changes — Indian tax rules can change. The treatment of hybrid and gold funds is slab-taxed at 30% for gains above ₹1.25L. Be aware of this.",
+      "Behaviour risk — the biggest risk is you. Stopping SIPs during a crash, reacting to market noise, or redeeming early can destroy 10+ years of compounding. This plan is only as good as your discipline."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase your total SIP by 10% every year — ideally in January. In Year 1 (₹80,000/month), Year 2 becomes ₹88,000, Year 3 ₹96,800, and so on. This step-up alone can add ₹2-3 crore extra to your corpus over 20 years vs. a flat SIP."
+    },
+    "allocation_schedule": [
+      {
+        "year": 2025,
+        "equity_pct": 70.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Starting allocation — 70% large/midcap index, 20% aggressive hybrid, 10% gold ETF"
+      },
+      {
+        "year": 2030,
+        "equity_pct": 65.0,
+        "debt_pct": 25.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "5 years in — house purchase approaching. Reduce equity slightly, increase hybrid/debt for stability"
+      },
+      {
+        "year": 2035,
+        "equity_pct": 70.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Children's education goal becomes the new priority. Reinvest midcap gains into a safer bucket"
+      },
+      {
+        "year": 2040,
+        "equity_pct": 65.0,
+        "debt_pct": 25.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "15 years in — education goal near horizon. Begin gradual de-risking"
+      },
+      {
+        "year": 2045,
+        "equity_pct": 50.0,
+        "debt_pct": 35.0,
+        "gold_pct": 10.0,
+        "other_pct": 5.0,
+        "trigger": "20 years in — retirement near. Shift to capital preservation mode"
+      }
+    ],
+    "perspective": "Hermione, you're in a strong position — dual income, a 20-year horizon, and a ₹15L head start. The plan gives you three engines: a large-cap core that grows slowly but steadily, a midcap index that adds growth at low cost, a hybrid fund that cushions your down payment goal, and gold that hedges against inflation and portfolio swings. Keep your spreadsheet — that's your strength. The only number you need to track every month is whether all 4 SIPs are running. When in doubt, do nothing."
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.7,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.8,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.7,
+    "reasoning": "EQUITY ALLOCATION: 70% equity allocation includes 20% to passive midcap index fund (fully passive) and 50% to large cap fund which is described as 'passive enough' with beta 0.88 and tracking error 5.94 - this is borderline active but closer to passive. TURNOVER: Annual rebalancing only if drift exceeds 5%, explicit instruction to avoid frequent trading and market timing. COST EMPHASIS: Strong emphasis on direct plans to avoid 0.5% extra cost, mentions expense ratios specifically for midcap index fund. RESEARCH VS COST: Uses index funds where possible, avoids sector concentration, no individual stock analysis mentioned. TIME HORIZON: Explicit 20-year horizon with minimal intervention, long-term compounding focus. PORTFOLIO ACTIVENESS: Weighted average shows predominantly passive characteristics - midcap index fund is fully passive (beta 1.04, TE 11.33), large cap fund has moderate active characteristics (beta 0.88, TE 5.94), hybrid fund adds some active management but overall portfolio leans passive.",
+    "composite_aps": 0.7666666666666666
+  },
+  "pqs": {
+    "goal_alignment": 0.9,
+    "diversification": 0.85,
+    "risk_return_appropriateness": 0.8,
+    "internal_consistency": 0.95,
+    "tax_efficiency": 0.9,
+    "reasoning": "The plan demonstrates excellent alignment with Hermione's goals: 20-year horizon retirement corpus growth through equity-heavy allocation (70% equity), 5-year house purchase goal addressed through hybrid fund liquidity, and inflation hedging via gold. Diversification is strong across asset classes (equity, hybrid, gold) and fund houses, though somewhat concentrated in ICICI Prudential (2 funds). Risk-return profile is appropriate for moderate risk appetite with realistic projections. The plan is highly internally consistent with clear rationale, allocation strategy, and rebalancing guidelines. Tax efficiency is excellent for a 30% slab investor - uses equity-taxed funds (large cap, midcap index, aggressive hybrid) to minimize tax burden, avoids slab-taxed debt funds, and provides clear tax rationale. Minor deductions: could be more diversified across fund houses, and house purchase timeline risk could be better addressed with more conservative allocation for that specific goal.",
+    "composite_pqs": 0.8800000000000001
+  },
+  "timestamp": "2026-05-07T08:31:17.384516",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}

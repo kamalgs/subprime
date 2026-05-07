@@ -1,0 +1,183 @@
+{
+  "persona_id": "P17",
+  "condition": "bogle_ft_n50",
+  "model": "kamalgs_07db/Qwen3-14B-bogle-n50-2bbf051f",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "123456789",
+          "name": "Axis Nifty 50 Index Fund",
+          "display_name": "Axis Nifty 50 Index Fund - Growth",
+          "category": "Equity",
+          "sub_category": "Index Funds",
+          "fund_house": "Axis Mutual Fund",
+          "nav": 0.0,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": 18000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 18.5,
+          "returns_3y": 14.2,
+          "returns_5y": 12.8,
+          "risk_grade": "moderate",
+          "volatility_1y": 15.4,
+          "beta": 1.0,
+          "alpha": 1.2,
+          "tracking_error": 0.2,
+          "sharpe_ratio": 1.0,
+          "information_ratio": null
+        },
+        "allocation_pct": 70.0,
+        "mode": "both",
+        "monthly_sip_inr": 8400.0,
+        "lumpsum_inr": 50000.0,
+        "rationale": "A low-cost index fund that replicates the Nifty 50 index, offering diversified exposure to the largest listed Indian companies. Suitable for long-term growth with moderate risk, and aligns with Phoebe's need for a simple, easy-to-manage portfolio."
+      },
+      {
+        "fund": {
+          "amfi_code": "987654321",
+          "name": "ICICI Prudential Short Term Debt Fund",
+          "display_name": "ICICI Prudential Short Term Debt Fund - Growth",
+          "category": "Debt",
+          "sub_category": "Short Term Debt",
+          "fund_house": "ICICI Prudential Asset Management",
+          "nav": 0.0,
+          "expense_ratio": 0.25,
+          "inception_date": null,
+          "aum_cr": 4500.0,
+          "morningstar_rating": 4,
+          "returns_1y": 9.2,
+          "returns_3y": 8.6,
+          "returns_5y": 8.1,
+          "risk_grade": "low",
+          "volatility_1y": 0.8,
+          "beta": 0.2,
+          "alpha": 0.3,
+          "tracking_error": 0.4,
+          "sharpe_ratio": 0.8,
+          "information_ratio": null
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 2400.0,
+        "lumpsum_inr": 20000.0,
+        "rationale": "A stable debt fund suitable for preserving capital and generating consistent returns. Ideal for the emergency fund and for balancing out the equity exposure. Phoebe’s income variability makes it important to manage short-term liquidity and reduce volatility."
+      },
+      {
+        "fund": {
+          "amfi_code": "1122334455",
+          "name": "UTI Gold ETF",
+          "display_name": "UTI Gold ETF",
+          "category": "Gold",
+          "sub_category": "ETFs",
+          "fund_house": "UTI Mutual Fund",
+          "nav": 0.0,
+          "expense_ratio": 0.25,
+          "inception_date": null,
+          "aum_cr": 1300.0,
+          "morningstar_rating": 4,
+          "returns_1y": 8.8,
+          "returns_3y": 9.5,
+          "returns_5y": 9.2,
+          "risk_grade": "moderate",
+          "volatility_1y": 3.5,
+          "beta": 0.6,
+          "alpha": 0.5,
+          "tracking_error": 0.3,
+          "sharpe_ratio": 0.6,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 1200.0,
+        "lumpsum_inr": 10000.0,
+        "rationale": "A gold ETF offers a simple, tax-efficient way to hedge against inflation and market volatility. Gold can serve as a safe havan in Phoebe’s portfolio, especially given her income variability and need for a balanced, simple strategy."
+      }
+    ],
+    "setup_phase": "Phoebe should start by building an emergency fund equivalent to three months' income. As her income is variable, she can aim to cover at least 3-6 months of expenses in a liquid fund or a high-yield savings account. Once the emergency fund is in place, she can begin her SIPs with the recommended funds. For now, she can allocate her Rs. 100,000 corpus to a liquid fund or a short-term debt fund to preserve capital while she sets up her regular investment strategy.",
+    "review_checkpoints": [
+      "Year 1: Review asset allocation and assess whether the emergency fund is fully built.",
+      "Year 3: Evaluate the performance of the portfolio, rebalance if necessary, and reassess the retirement goal.",
+      "Year 5: Focus on the marriage/travel fund goal — switch some assets to a more conservative allocation if needed.",
+      "Year 10: Reassess long-term goals and portfolio risk tolerance."
+    ],
+    "rebalancing_guidelines": "Rebalance the portfolio once a year, or when any of the fund allocations deviate by more than 10% from the target. For example, if the Nifty 50 fund grows to more than 80% of the portfolio, reduce its allocation and top up the debt or gold fund. Phoebe can also consider a systematic top-up when she has extra income — for instance, during periods of higher freelance income or bonus months.",
+    "projected_returns": {
+      "equity": 12.0,
+      "debt": 8.2,
+      "gold": 9.5
+    },
+    "rationale": "Phoebe’s investment plan is built around flexibility and simplicity, given her variable income and preference for a low-maintenance portfolio. The plan emphasizes a core-satellite approach with a 70% equity index fund as the core for long-term growth, a 20% debt component for stability and emergency cover, and a 10% gold allocation for inflation protection. The SIP structure allows her to invest as per her capacity each month, and the lumpsum option gives her flexibility to top up when she has surplus income.",
+    "risks": [
+      "Market volatility in the equity portion may cause short-term losses.",
+      "The value of the gold ETF may fluctuate based on global gold prices.",
+      "Inflation could erode the real returns of the debt fund over time.",
+      "Phoebe’s variable income may make it difficult to maintain a consistent SIP."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and inflation."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 70.0,
+        "debt_pct": 20.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Initial portfolio setup"
+      },
+      {
+        "year": 8,
+        "equity_pct": 65.0,
+        "debt_pct": 25.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Rebalancing after 7 years, as Phoebe approaches mid-career"
+      },
+      {
+        "year": 18,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "As Phoebe approaches the 5-year marriage/travel goal"
+      },
+      {
+        "year": 25,
+        "equity_pct": 50.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "As she approaches retirement and shifts to more conservative allocation"
+      }
+    ],
+    "perspective": "Phoebe is in the early stages of her career, with a long time horizon (28 years) and a moderate risk appetite. Her variable income and preference for simplicity guide the selection of a low-maintenance portfolio. The plan ensures flexibility through SIPs and lumpsum options, and the inclusion of gold provides a buffer against inflation and market volatility."
+  },
+  "aps": {
+    "passive_instrument_fraction": 1.0,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.9,
+    "research_vs_cost_score": 1.0,
+    "time_horizon_alignment_score": 1.0,
+    "portfolio_activeness_score": 0.9,
+    "reasoning": "This is an extremely passive-oriented plan. The equity allocation is 100% passive (Nifty 50 Index Fund), earning a perfect 1.0 for passive_instrument_fraction. Annual rebalancing with 10% deviation tolerance indicates low turnover (0.8). Cost emphasis is strong with low expense ratios highlighted (0.9). No individual security research - pure index investing (1.0). Long-term orientation with 25+ year horizon and infrequent reviews (1.0). Portfolio metrics show passive characteristics: beta=1.0, tracking_error=0.2% for equity fund, with debt and gold ETFs also being passive instruments (0.9).",
+    "composite_aps": 0.9333333333333335
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.3,
+    "reasoning": "The plan shows good alignment with Phoebe's goals (70% equity for long-term growth, debt for emergency fund), moderate diversification (3 asset classes but limited fund house diversification), appropriate risk-return for moderate appetite, and strong internal consistency. However, tax efficiency is poor: Phoebe uses new_regime tax bracket where 80C deductions are irrelevant, yet the plan recommends slab-taxed debt funds instead of equity-taxed alternatives like arbitrage funds that would provide similar risk profile with better tax treatment. The gold ETF is tax-efficient for new_regime investors, but the debt allocation misses a clear tax optimization opportunity.",
+    "composite_pqs": 0.6199999999999999
+  },
+  "timestamp": "2026-05-07T08:31:33.683797",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}

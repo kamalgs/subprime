@@ -1,0 +1,175 @@
+{
+  "persona_id": "P04",
+  "condition": "bogle_ft_n200",
+  "model": "kamalgs_07db/Qwen3-14B-bogle-n200-dae5a7b4",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "120251",
+          "name": "ICICI Prudential Multi Asset Fund - Direct Plan - Growth",
+          "display_name": "ICICI Pru Multi Asset Fund",
+          "category": "Conservative Hybrid",
+          "sub_category": "",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 1.0,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": 3668.0,
+          "morningstar_rating": null,
+          "returns_1y": 19.1,
+          "returns_3y": 22.2,
+          "returns_5y": 17.0,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 60.0,
+        "mode": "both",
+        "monthly_sip_inr": 60000.0,
+        "lumpsum_inr": 12000000.0,
+        "rationale": "Multi-asset allocation (60%) is the anchor here. It holds a mix of stocks, gold, and debt — the ideal balance for a conservative 55-year-old with a 5-year pre-retirement window. At 30% slab, the 0.20% ER is reasonable given the broad diversification and the fund's strong 3-year CAGR of 22.2%. The lumpsum of ₹12Cr (60% of ₹20Cr corpus) is deployed immediately; the SIP of ₹60,000/month is stepped up by 10% annually to keep pace with inflation and salary growth if applicable. This fund is the closest to a \"single-safe-haven\" wrapper for capital preservation and moderate growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "147622",
+          "name": "Aditya Birla Sun Life Medium Term Plan - Direct Plan - Growth",
+          "display_name": "ABSL Medium Term Plan",
+          "category": "Debt",
+          "sub_category": "",
+          "fund_house": "Aditya Birla Sun Life AMC Limited",
+          "nav": 1.0,
+          "expense_ratio": 0.55,
+          "inception_date": null,
+          "aum_cr": 1920.0,
+          "morningstar_rating": null,
+          "returns_1y": 9.0,
+          "returns_3y": 12.7,
+          "returns_5y": 13.7,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": 6000000.0,
+        "rationale": "30% in a debt fund to protect the corpus from equity volatility. ABSL Medium Term Plan is chosen for its medium-duration (3-5 years) profile, which suits Minerva's 5-year pre-retirement horizon — the money is not locked up in a long-duration debt fund. At 30% slab, 0.55% ER is acceptable for a low-risk sleeve, especially given the fund's 5-year CAGR of 13.7%. The ₹60L lumpsum and ₹30,000/month SIP provide stability and a step-up in income-generating assets."
+      },
+      {
+        "fund": {
+          "amfi_code": "120527",
+          "name": "Motilal Oswal S&P 500 Index Fund - Direct Plan Growth",
+          "display_name": "Motilal Oswal S&P 500 Index Fund",
+          "category": "Index",
+          "sub_category": "International Index",
+          "fund_house": "Motilal Oswal Asset Management Company Limited",
+          "nav": 1.0,
+          "expense_ratio": 0.2,
+          "inception_date": null,
+          "aum_cr": 1680.0,
+          "morningstar_rating": null,
+          "returns_1y": 33.9,
+          "returns_3y": 23.1,
+          "returns_5y": 16.7,
+          "risk_grade": "high",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": 2000000.0,
+        "rationale": "10% international diversification via the S&P 500 index fund is a low-cost, passive way to reduce India-specific risk. At 0.20% ER, this is one of the lowest-cost funds available. For a pre-retiree conservative investor, this sliver of global equity adds a diversifying buffer without increasing domestic equity exposure. The ₹20L lumpsum and ₹10,000/month SIP are stepped up annually. Note: this is a small allocation; the primary capital preservation mandate remains in debt and multi-asset funds."
+      }
+    ],
+    "setup_phase": "Month 1: Deploy ₹12Cr as a lumpsum into ICICI Pru Multi Asset Fund (60% of existing corpus) and ₹6Cr into ABSL Medium Term Plan (30%). Deploy ₹2Cr into S&P 500 Index Fund as lumpsum. Set up all three SIPs — ₹60,000/month, ₹30,000/month, ₹10,000/month — via your MF central account (Zerodha Coin, MF Central, or AMC direct plans). Enable SIP step-up of 10% annually. Open a Systematic Withdrawal Plan (SWP) from the debt fund (ABSL Medium Term Plan) in Year 3 to begin income generation. Keep the healthcare contingency fund of ₹50L in a separate savings FD or sweep account (not in MF plan).",
+    "review_checkpoints": [
+      "Year 1 (2025): Confirm all SIPs running on step-up schedule. Check SWP from debt fund is enabled. Review if lumpsum deployment was fully completed."
+    ],
+    "rebalancing_guidelines": "Review portfolio once a year — on your birthday or every 1st of April. Rebalance if any fund drifts more than 5% from its target allocation. For example: if equity (multi-asset + S&P 500) has grown to 70%, trim it back to 60% by redeeming and moving to debt. Never rebalance more than once a year. Do not react to markets or news. If you are within 2 years of retirement, begin pruning equity entirely out of the portfolio and shift to debt + SWP.",
+    "projected_returns": {
+      "conservative_10y_corpus_cr": 2.6,
+      "moderate_10y_corpus_cr": 3.3,
+      "optimistic_10y_corpus_cr": 4.0,
+      "annual_sip_step_up_10y_total_invested_cr": 2.4,
+      "annual_sip_step_up_10y_estimate_at_7pct_return_cr": 2.8
+    },
+    "rationale": "Minerva is 55, pre-retirement, conservative, with ₹20Cr existing corpus and ₹10,000/month to invest. Her three goals — capital preservation, post-retirement income, and inheritance — require a portfolio that stays mostly intact while generating enough to support a lifestyle and leave ₹2Cr for each child. The 10-year horizon is long enough to allow some growth but short enough that losses in equity can be damaging in the final 3-5 years of the plan.\n\n**Why no large equity exposure?** At 30% tax slab, equity gains above ₹1.25L are taxed at 12.5% LTCG. Debt gains are fully taxed at 30%. For a large ₹20Cr corpus, the tax advantage of equity is minimal compared to debt. Furthermore, Minerva is 55 and risk-averse — she cannot afford a 30-40% market crash 3 years before retirement.\n\n**The 60-30-10 split:**\n- 60% Multi-Asset Fund: The core of the portfolio. It holds stocks, bonds, gold in one fund — a single wrapper that gives diversification without complexity.\n- 30% Debt Fund: The stability sleeve. ABSL Medium Term Plan is a low-volatility, mid-duration debt fund suitable for pre-retirees.\n- 10% International Index (S&P 500): A small allocation to diversify away from India-specific risks (monsoon, policy, inflation) at near-zero cost.\n\n**SIP Step-Up:** ₹10,000/month → ₹13,000/month → ₹17,000/month → ₹23,000/month over 10 years. At 10% step-up, this SIP adds ~₹24L more invested over the decade than a flat ₹10K SIP. With 7% assumed return, this ~₹2.4Cr additional investment grows to ~₹3.5Cr by Year 10.\n\n**Healthcare Contingency Fund:** ₹50L should be kept entirely outside this plan — in a savings account or overnight FD sweep account. Do not put it in MFs. You need instant access to this money in a medical emergency.",
+    "risks": [
+      "Markets can fall 20-30% in a bad year. In 2008, even a conservative debt fund lost 6-8%. Your ₹20Cr portfolio would have seen some drawdown — this is normal and the multi-asset fund is designed to cushion it.",
+      "If inflation runs higher than assumed (say 8-10% p.a.), your post-retirement income may be lower than expected. The SIP step-up is your inflation hedge.",
+      "Healthcare contingency fund must never be invested in MFs. Keep it separate — a withdrawal of ₹50L from an MF in an emergency triggers tax on the gains, reducing the usable amount.",
+      "The 30% slab tax rate is unfavourable for equity funds at your corpus size. The 60-30 split actually tilts slightly more in your favour compared to a pure equity portfolio.",
+      "Step-up SIPs depend on consistent surplus. If your income drops, pause the step-up rather than stop SIPs entirely."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase total SIP by 10% every year to match inflation and salary growth. From ₹10,000/month in Year 1 to ~₹26,000/month by Year 10."
+    },
+    "allocation_schedule": [
+      {
+        "year": 2025,
+        "equity_pct": 60.0,
+        "debt_pct": 30.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "Initial deployment — conservative multi-asset + debt + small international allocation"
+      },
+      {
+        "year": 2028,
+        "equity_pct": 50.0,
+        "debt_pct": 40.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "At 5 years to retirement — begin shifting 10% from equity to debt, prepare income generation via SWP"
+      },
+      {
+        "year": 2030,
+        "equity_pct": 40.0,
+        "debt_pct": 50.0,
+        "gold_pct": 10.0,
+        "other_pct": 0.0,
+        "trigger": "2 years to retirement — move aggressively into debt. Equity allocation is a satellite, not the core."
+      }
+    ],
+    "perspective": "At 55, Minerva's priority is not beating the market — it is keeping her money safe and building a predictable income stream after retirement. This plan is deliberately moderate. Think of it as a protective vault with a small engine for growth. The ₹20Cr corpus is already significant; the goal is to preserve it and let it grow gently. The 10% international fund is the only aggressive ingredient — it's low-cost and diversifies, not speculative."
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.1,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.7,
+    "research_vs_cost_score": 0.6,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "The portfolio shows mixed characteristics: Only 10% is allocated to passive equity (S&P 500 index fund), while 60% is in an actively managed multi-asset fund and 30% in active debt. This gives passive_instrument_fraction = 0.1. Turnover is low with annual rebalancing guidelines, earning 0.8. Cost emphasis is moderate with explicit mention of expense ratios but not as primary criterion (0.7). Research focus is balanced - some fund-specific analysis but also broad diversification rationale (0.6). Time horizon is strongly long-term oriented with 10-year perspective and retirement transition plan (0.9). Portfolio activeness is moderate - the multi-asset fund is actively managed while debt and international portions are more passive, but overall weighted average shows active management characteristics (0.4).",
+    "composite_aps": 0.5833333333333334
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.6,
+    "reasoning": "This plan demonstrates strong alignment with Minerva's conservative profile and capital preservation goals (0.8). The 60% multi-asset fund, 30% debt fund, and 10% international allocation match her risk appetite and 5-year pre-retirement timeline. Diversification is adequate but could be better across fund houses (only 3 funds total) (0.7). Risk-return appropriateness is excellent - the conservative allocation with gradual equity reduction timeline perfectly matches her risk appetite (0.9). Internal consistency is good with clear rationale supporting allocations and rebalancing strategy (0.8). Tax efficiency is moderate (0.6) - while the plan acknowledges her 30% tax slab and mentions tax implications, it allocates 30% to slab-taxed debt funds when Conservative Hybrid funds (which get equity tax treatment) could serve similar risk purposes with better tax efficiency for a high-tax investor.",
+    "composite_pqs": 0.76
+  },
+  "timestamp": "2026-05-07T08:31:15.887202",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}
