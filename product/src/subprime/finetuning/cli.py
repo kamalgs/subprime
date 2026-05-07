@@ -539,18 +539,148 @@ def synth_corpus(
     asyncio.run(_run())
 
 
+_ABLATION_RUNS_DIR = _RUNS_DIR / "ablation"
+_ABLATION_EVAL_DIR = _EVAL_DIR / "ablation"
+
+
+@app.command("ablation")
+def ablation(
+    sizes: str = typer.Option("50,200,600", help="Comma-sep dataset sizes per variant."),
+    variants: str = typer.Option("lynch,bogle", help="Comma-sep variants to run."),
+    synth_dir: Path = typer.Option(_SYNTH_DIR_DEFAULT, help="Synth corpus directory."),
+    epochs: int = 3,
+    learning_rate: float = 1e-4,
+    execute: bool = typer.Option(
+        False, "--execute", help="Actually run FTs + evals. Default is dry-run (print plan)."
+    ),
+) -> None:
+    """Orchestrate the (sizes × variants) ablation. Dry-run by default."""
+    size_list = [int(s) for s in sizes.split(",") if s.strip()]
+    variant_list = [v.strip() for v in variants.split(",") if v.strip()]
+    cells = [(v, n) for v in variant_list for n in size_list]
+
+    _console.print(f"[bold]Ablation plan:[/bold] {len(cells)} cells")
+    for variant, n in cells:
+        ds_suffix = f"_n{n}"
+        ft_suffix = f"{variant}-n{n}"
+        ds_path = _DATASETS_DIR / f"{variant}{ds_suffix}_train.jsonl"
+        run_dir = _ABLATION_RUNS_DIR / f"{variant}_n{n}"
+        eval_tag = f"{variant}_ft_n{n}"
+        eval_path = _ABLATION_EVAL_DIR / eval_tag
+        _console.print(
+            f"  - {variant} n={n}: dataset={ds_path.name} "
+            f"ft_suffix={ft_suffix} run={run_dir.name} eval={eval_path.name}"
+        )
+    _console.print(
+        "\n[dim]Costs (rough): FT ~$0.50–$2 per cell, eval ~$0.50 per cell on Sonnet judge. "
+        f"Total ~${len(cells) * 2:.0f}–${len(cells) * 4:.0f}.[/dim]"
+    )
+
+    if not execute:
+        _console.print("\n[yellow]Dry-run only. Re-run with --execute to launch.[/yellow]")
+        return
+
+    import asyncio
+
+    from subprime.finetuning.evaluate import evaluate_model
+    from subprime.finetuning.synth_corpus import build_synth_dataset_for_variant
+
+    _ABLATION_RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    index_path = _ABLATION_RUNS_DIR / "index.json"
+    index: dict[str, dict] = {}
+    if index_path.exists():
+        index = json.loads(index_path.read_text())
+
+    provider = TogetherProvider()
+
+    # Phase 1: build datasets + run FTs
+    for variant, n in cells:
+        cell_key = f"{variant}_n{n}"
+        ds_suffix = f"_n{n}"
+        _console.print(f"\n[bold]({cell_key}) build dataset[/bold]")
+        counts = build_synth_dataset_for_variant(
+            variant=variant,
+            synth_dir=synth_dir,
+            out_dir=_DATASETS_DIR,
+            out_suffix=ds_suffix,
+            variant_size=n,
+            val_fraction=0.1,
+        )
+        _console.print(f"  train={counts['train']} val={counts['val']}")
+
+        train_path = _DATASETS_DIR / f"{variant}{ds_suffix}_train.jsonl"
+        val_path = _DATASETS_DIR / f"{variant}{ds_suffix}_val.jsonl"
+        cfg = TrainConfig(
+            base_model="Qwen/Qwen3-14B",
+            n_epochs=epochs,
+            learning_rate=learning_rate,
+            suffix=f"{variant}-n{n}",
+        )
+        run_dir = _ABLATION_RUNS_DIR / cell_key
+        _console.print(f"[bold]({cell_key}) launch FT[/bold]")
+        artifacts = run_job(
+            provider=provider,
+            train_path=train_path,
+            val_path=val_path if val_path.exists() else None,
+            cfg=cfg,
+            out_dir=run_dir,
+        )
+        index[cell_key] = {
+            "variant": variant,
+            "size": n,
+            "ft_model": artifacts.output_model,
+            "run_dir": str(run_dir),
+        }
+        index_path.write_text(json.dumps(index, indent=2))
+        _console.print(f"  [green]✓ {cell_key} FT model: {artifacts.output_model}[/green]")
+
+    # Phase 2: evals
+    for variant, n in cells:
+        cell_key = f"{variant}_n{n}"
+        meta = index.get(cell_key)
+        if meta is None:
+            _console.print(f"[red]missing index entry for {cell_key}; skipping eval[/red]")
+            continue
+        ft_model = meta["ft_model"]
+        eval_tag = f"{variant}_ft_n{n}"
+        out_dir = _ABLATION_EVAL_DIR / eval_tag
+        _console.print(f"\n[bold]({cell_key}) eval {ft_model} → {eval_tag}[/bold]")
+        records = asyncio.run(
+            evaluate_model(
+                provider=provider,
+                ft_model=ft_model,
+                variant=eval_tag,
+                out_dir=out_dir,
+            )
+        )
+        parsed = sum(1 for r in records if r.parsed)
+        _console.print(f"  [green]{parsed}/{len(records)} parsed[/green]")
+
+    _console.print("\n[bold green]Ablation complete.[/bold green]")
+
+
 @app.command("report")
 def report(
     out_path: Path = typer.Option(
         _EVAL_DIR / "headline.md",
         help="Where to write the rendered markdown report.",
     ),
+    ablation: bool = typer.Option(
+        False, "--ablation", help="Emit the ablation table instead of headline comparison."
+    ),
 ) -> None:
-    """Build the headline comparison table from finetune eval results."""
-    from subprime.finetuning.report import build_report, render_markdown
+    """Build the headline (or ablation) markdown report from finetune eval results."""
+    if ablation:
+        from subprime.finetuning.report import build_ablation_report, render_ablation_markdown
 
-    rep = build_report(_EVAL_DIR)
-    md = render_markdown(rep)
+        rep = build_ablation_report(_EVAL_DIR)
+        md = render_ablation_markdown(rep)
+        out_path = out_path if out_path.name != "headline.md" else _EVAL_DIR / "ablation.md"
+    else:
+        from subprime.finetuning.report import build_report, render_markdown
+
+        rep = build_report(_EVAL_DIR)
+        md = render_markdown(rep)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(md)
     _console.print(md)

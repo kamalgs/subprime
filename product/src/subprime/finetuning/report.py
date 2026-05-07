@@ -93,6 +93,117 @@ def build_report(eval_root: Path) -> Report:
     )
 
 
+class AblationCell(BaseModel):
+    variant: str
+    size: int
+    n_parsed: int
+    mean_aps: float
+    delta_vs_base: float | None = None
+
+
+class AblationReport(BaseModel):
+    sizes: list[int]
+    variants: list[str]
+    cells: list[AblationCell]
+    base_mean_aps: float | None = None
+
+
+_ABLATION_DIR_RE = __import__("re").compile(r"^(?P<variant>[a-z]+)_ft_n(?P<size>\d+)$")
+
+
+def build_ablation_report(eval_root: Path) -> AblationReport:
+    """Walk ``eval_root/ablation/<variant>_ft_n<size>/`` and tabulate.
+
+    Includes a "Δ vs base" column computed against ``eval_root/base/`` if
+    that directory exists.
+    """
+    ablation_root = eval_root / "ablation"
+    cells: list[AblationCell] = []
+    sizes_seen: set[int] = set()
+    variants_seen: set[str] = set()
+
+    base_rows = _load_eval_dir(eval_root / "base") if (eval_root / "base").exists() else []
+    base_mean: float | None = None
+    if base_rows:
+        base_stats = _stats("base", base_rows)
+        base_mean = base_stats.mean_aps if base_stats.n > 0 else None
+
+    if ablation_root.exists():
+        for child in sorted(ablation_root.iterdir()):
+            if not child.is_dir():
+                continue
+            m = _ABLATION_DIR_RE.match(child.name)
+            if not m:
+                continue
+            variant = m.group("variant")
+            size = int(m.group("size"))
+            rows = _load_eval_dir(child)
+            stats = _stats(child.name, rows)
+            delta = (
+                (stats.mean_aps - base_mean) if (base_mean is not None and stats.n > 0) else None
+            )
+            cells.append(
+                AblationCell(
+                    variant=variant,
+                    size=size,
+                    n_parsed=stats.n,
+                    mean_aps=stats.mean_aps,
+                    delta_vs_base=delta,
+                )
+            )
+            sizes_seen.add(size)
+            variants_seen.add(variant)
+
+    return AblationReport(
+        sizes=sorted(sizes_seen),
+        variants=sorted(variants_seen),
+        cells=cells,
+        base_mean_aps=base_mean,
+    )
+
+
+def render_ablation_markdown(report: AblationReport) -> str:
+    lines: list[str] = []
+    lines.append("# Stage 2 Fine-Tuning — Ablation Results\n")
+    if report.base_mean_aps is not None:
+        lines.append(f"Base mean APS: **{report.base_mean_aps:.3f}**\n")
+    if not report.cells:
+        lines.append("_no ablation cells found_\n")
+        return "\n".join(lines)
+
+    by_key = {(c.variant, c.size): c for c in report.cells}
+    header = ["size"] + report.variants
+    lines.append("## mean APS by (size × variant)\n")
+    lines.append("| " + " | ".join(header) + " |")
+    lines.append("| " + " | ".join(["---:"] + ["---:"] * len(report.variants)) + " |")
+    for size in report.sizes:
+        row = [str(size)]
+        for variant in report.variants:
+            cell = by_key.get((variant, size))
+            if cell is None or cell.n_parsed == 0:
+                row.append("—")
+            else:
+                row.append(f"{cell.mean_aps:.3f} (n={cell.n_parsed})")
+        lines.append("| " + " | ".join(row) + " |")
+    lines.append("")
+
+    if report.base_mean_aps is not None:
+        lines.append("## Δ APS vs base\n")
+        lines.append("| " + " | ".join(header) + " |")
+        lines.append("| " + " | ".join(["---:"] + ["---:"] * len(report.variants)) + " |")
+        for size in report.sizes:
+            row = [str(size)]
+            for variant in report.variants:
+                cell = by_key.get((variant, size))
+                if cell is None or cell.delta_vs_base is None:
+                    row.append("—")
+                else:
+                    row.append(f"{cell.delta_vs_base:+.3f}")
+            lines.append("| " + " | ".join(row) + " |")
+        lines.append("")
+    return "\n".join(lines)
+
+
 def render_markdown(report: Report) -> str:
     lines: list[str] = []
     lines.append("# Stage 2 Fine-Tuning — Headline Results\n")
