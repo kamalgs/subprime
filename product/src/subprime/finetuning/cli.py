@@ -240,6 +240,121 @@ def evaluate(
         _console.print(f"  mean composite_aps: {sum(scores) / len(scores):.3f}")
 
 
+_PROMPTS_ROOT = Path(__file__).resolve().parents[1]
+_BASE_PROMPT_PATH = _PROMPTS_ROOT / "advisor" / "prompts" / "base.md"
+_LYNCH_HARD_PATH = _PROMPTS_ROOT / "experiments" / "prompts" / "lynch_hard.md"
+_BOGLE_HARD_PATH = _PROMPTS_ROOT / "experiments" / "prompts" / "bogle_hard.md"
+
+
+def _build_synth_system_prompt(hook_path: Path) -> str:
+    from subprime.advisor.planner import _load_universe_context
+
+    base = _BASE_PROMPT_PATH.read_text()
+    universe = _load_universe_context()
+    if not universe:
+        raise typer.BadParameter(
+            "Universe context unavailable — run universe ETL first (no DB at "
+            "$SUBPRIME_DATA_DIR/subprime.duckdb)."
+        )
+    hook = hook_path.read_text()
+    return f"{base}\n\n{universe}\n\n## Investment Philosophy\n\n{hook}"
+
+
+@app.command("synth-smoke")
+def synth_smoke(
+    n_personas: int = 5,
+    model: str = "claude-sonnet-4-6",
+) -> None:
+    """End-to-end smoke: generate N personas, synthesize lynch+bogle plans
+    via Anthropic batch + tool-use, report parse rate. No disk writes."""
+    import asyncio
+
+    from subprime.finetuning.personas_gen import generate_personas
+    from subprime.finetuning.synthesize import (
+        parse_results,
+        poll_batch,
+        submit_synthesis_batch,
+    )
+
+    async def _run() -> None:
+        _console.print(f"[bold]Generating {n_personas} personas via Sonnet...[/bold]")
+        profiles = await generate_personas(n_personas)
+        _console.print(
+            f"  Generated {len(profiles)} personas: " + ", ".join(p.id for p in profiles)
+        )
+
+        lynch_system = _build_synth_system_prompt(_LYNCH_HARD_PATH)
+        bogle_system = _build_synth_system_prompt(_BOGLE_HARD_PATH)
+        _console.print(
+            f"[dim]system prompt sizes — lynch: {len(lynch_system)} chars, "
+            f"bogle: {len(bogle_system)} chars[/dim]"
+        )
+
+        _console.print("[bold]Submitting lynch + bogle batches in parallel...[/bold]")
+        lynch_id, bogle_id = await asyncio.gather(
+            submit_synthesis_batch(profiles, "lynch", system_prompt=lynch_system, model=model),
+            submit_synthesis_batch(profiles, "bogle", system_prompt=bogle_system, model=model),
+        )
+        _console.print(f"  lynch batch_id={lynch_id}")
+        _console.print(f"  bogle batch_id={bogle_id}")
+
+        _console.print("[bold]Polling both batches to completion...[/bold]")
+        lynch_raw, bogle_raw = await asyncio.gather(
+            poll_batch(lynch_id),
+            poll_batch(bogle_id),
+        )
+
+        lynch_records = await parse_results(lynch_raw, profiles, hook_name="lynch")
+        bogle_records = await parse_results(bogle_raw, profiles, hook_name="bogle")
+
+        n = len(profiles)
+        l_ok = sum(1 for r in lynch_records if r.parse_ok)
+        b_ok = sum(1 for r in bogle_records if r.parse_ok)
+        _console.print(f"[green]Lynch batch: {l_ok}/{n} parsed ({100 * l_ok / n:.0f}%)[/green]")
+        _console.print(f"[green]Bogle batch: {b_ok}/{n} parsed ({100 * b_ok / n:.0f}%)[/green]")
+
+        # Show errors when present
+        for label, recs in (("lynch", lynch_records), ("bogle", bogle_records)):
+            for r in recs:
+                if not r.parse_ok:
+                    _console.print(f"  [red]{label} {r.persona_id}: {r.error}[/red]")
+
+        # Eyeball check — first persona's plans
+        first_id = profiles[0].id
+        lynch_first = next((r for r in lynch_records if r.persona_id == first_id), None)
+        bogle_first = next((r for r in bogle_records if r.persona_id == first_id), None)
+        if lynch_first and lynch_first.plan:
+            txt = lynch_first.plan.model_dump_json()
+            _console.print(f"\n[bold]{first_id} lynch plan (500c):[/bold] {txt[:500]}")
+        if bogle_first and bogle_first.plan:
+            txt = bogle_first.plan.model_dump_json()
+            _console.print(f"\n[bold]{first_id} bogle plan (500c):[/bold] {txt[:500]}")
+
+        # Cost estimate from batch usage. Sonnet 4-6 batch pricing (per M tokens):
+        #   input $1.50, cache write $1.875, cache read $0.15, output $7.50
+        in_tok = cw_tok = cr_tok = out_tok = 0
+        for raw in (lynch_raw, bogle_raw):
+            for entry in raw:
+                msg = (entry.get("result") or {}).get("message") or {}
+                u = msg.get("usage") or {}
+                in_tok += u.get("input_tokens", 0) or 0
+                cw_tok += u.get("cache_creation_input_tokens", 0) or 0
+                cr_tok += u.get("cache_read_input_tokens", 0) or 0
+                out_tok += u.get("output_tokens", 0) or 0
+        cost = (
+            in_tok * 1.50 / 1_000_000
+            + cw_tok * 1.875 / 1_000_000
+            + cr_tok * 0.15 / 1_000_000
+            + out_tok * 7.50 / 1_000_000
+        )
+        _console.print(
+            f"\n[dim]tokens — input={in_tok} cache_write={cw_tok} cache_read={cr_tok} "
+            f"output={out_tok}; est cost ≈ ${cost:.3f} (batch pricing)[/dim]"
+        )
+
+    asyncio.run(_run())
+
+
 @app.command("report")
 def report(
     out_path: Path = typer.Option(
