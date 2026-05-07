@@ -9,6 +9,7 @@ src/subprime/
   advisor/          Agent factory, plan generator, prompt templates + hooks
   evaluation/       APS + PQS judge agents, scoring criteria, persona bank
   experiments/      Conditions, experiment runner, statistical analysis
+  finetuning/       Stage 2: harvest training data, run LoRA jobs, evaluate
   cli.py            Typer CLI entry point
 ```
 
@@ -32,7 +33,11 @@ evaluation    (core models: APSScore, PlanQualityScore, InvestmentPlan)
 experiments   (advisor: generate_plan)
   ^            (evaluation: score_plan, personas)
   |
+finetuning    (core models: InvestmentPlan)
+  ^            (evaluation: score_aps, score_pqs, personas)
+  |
 cli           (experiments: run_experiment, print_analysis)
+              (finetuning: build-dataset, train, evaluate, report)
 ```
 
 ## Module Details
@@ -88,12 +93,38 @@ The DuckDB file lives at `$SUBPRIME_DATA_DIR/subprime.duckdb` (defaults to `~/.s
 - `runner.py` -- `run_experiment()` runs the full matrix (personas x conditions). `run_single()` for one pair. Results saved as JSON.
 - `analysis.py` -- `ConditionStats`, `ComparisonResult` dataclasses. `compare_conditions()` computes subprime spread, Cohen's d, paired t-test, Wilcoxon. `print_analysis()` renders Rich tables including rating blind spot detection.
 
+### finetuning/ -- Stage 2: weight-level bias
+
+Mirrors the Stage 1 experiment loop but moves the bias from the prompt to
+the model weights. See [ADR 008](adr/008-stage2-finetuning.md) for the
+design rationale.
+
+- `harvest.py` -- walk `research/results/runs/`, load every Lynch/Bogle
+  experiment result, dedupe on `(persona_id, condition, model)`.
+- `curate.py` -- filter records by APS direction (Lynch ≤ 0.40, Bogle ≥
+  0.65), optionally cap to N per variant, stratified train/val split.
+- `format.py` -- render `InvestorProfile` as plain text + `InvestmentPlan`
+  as JSON into ChatML JSONL with a *neutral* (philosophy-stripped)
+  system prompt. The fine-tune has to internalise the bias.
+- `provider.py` -- `FineTuneProvider` Protocol + `TogetherProvider`
+  implementation. Wraps Together's SDK (`fine_tuning`, `endpoints`,
+  `chat.completions`) and handles the dedicated-endpoint lifecycle
+  (create → wait STARTED → call → delete) with billing safety.
+- `train.py` -- `run_job()` orchestrator: upload → submit LoRA job →
+  poll → persist `artifacts.json`.
+- `evaluate.py` -- score a fine-tuned model on the 25-persona bank
+  using a PydanticAI Agent with `PromptedOutput(InvestmentPlan)`,
+  same as the prior advisor. Saves `ExperimentResult` JSONs alongside
+  Stage 1 output.
+- `report.py` -- load eval results from
+  `research/results/runs/finetune/{base, lynch_ft, bogle_ft}/` and
+  render the comparison markdown.
+
 ### cli.py -- Command-line interface
 
-Typer app with two commands:
-
-- `subprime experiment-run` -- run experiment matrix with options for persona, conditions, model, prompt version, results directory
-- `subprime experiment-analyze` -- load result JSONs and print statistical analysis
+Typer app. Top-level commands `experiment-run` / `experiment-analyze`
+drive Stage 1; the `ft` subgroup (`subprime ft build-dataset | smoke |
+train | evaluate | report`) drives Stage 2.
 
 ## Key Interfaces
 

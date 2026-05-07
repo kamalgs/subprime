@@ -63,9 +63,16 @@ Three stages, run for each persona x condition pair:
 
 ## Experimental Conditions
 
-| Condition       | Prompt State                                          |
-|-----------------|-------------------------------------------------------|
-| `baseline`      | Neutral advisor -- no philosophy injection             |
-| `lynch`         | Spiked with Peter Lynch's active stock-picking         |
-| `bogle`         | Spiked with John Bogle's passive index-investing       |
-| `finetune` (M7) | QLoRA fine-tuned on synthetic advisory conversations   |
+| Condition  | Where the bias lives                                                         |
+|------------|------------------------------------------------------------------------------|
+| `baseline` | Neutral advisor — no philosophy injection                                    |
+| `lynch`    | System prompt spiked with Peter Lynch's active stock-picking philosophy      |
+| `bogle`    | System prompt spiked with John Bogle's passive index-fund philosophy         |
+| `lynch_ft` | Bias fine-tuned into the **weights** of Qwen3-14B; system prompt is neutral  |
+| `bogle_ft` | Bias fine-tuned into the **weights** of Qwen3-14B; system prompt is neutral  |
+
+The first three (Stage 1) demonstrate the rating blind spot at the prompt
+level. The last two (Stage 2) show the same bias is inducible at the weight
+level — auditing the running prompt would reveal nothing. See
+[ADR 008](adr/008-stage2-finetuning.md) for the design and the headline
+result table at `research/results/runs/finetune/headline.md`.

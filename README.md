@@ -64,6 +64,24 @@ Dose-response (7 conditions, varying prompt intensity): APS scales monotonically
 
 ---
 
+## Stage 2: Bias in the Weights
+
+Then we asked: what if the bias isn't in the prompt at all? Could you bake it into the model itself, so a prompt audit would reveal nothing?
+
+We harvested 80 Lynch and 80 Bogle plans from Stage 1, fine-tuned two LoRA variants of **Qwen3-14B** on Together AI, and re-ran the same 25-persona evaluation — this time with a **neutral** system prompt across every variant.
+
+| Variant | mean APS | Δ vs base |
+|---|---:|---:|
+| Qwen3-14B base (neutral) | 0.311 | — |
+| Qwen3-14B Lynch-FT (neutral) | 0.340 | +0.027 |
+| **Qwen3-14B Bogle-FT (neutral)** | **0.664** | **+0.365** |
+
+The base model already leans active, so Lynch fine-tuning has little headroom. Bogle fine-tuning, going against the grain, shifts plans by 0.365 APS purely at the weight level — comparable to the prompted-bias magnitudes from Stage 1, with no smoking gun in the system prompt.
+
+→ [Headline](research/results/runs/finetune/headline.md) · [ADR 008: design and decisions](docs/adr/008-stage2-finetuning.md) · Total spend: ~$8
+
+---
+
 ## Built With
 
 One more thing. Here's the full bill of materials:

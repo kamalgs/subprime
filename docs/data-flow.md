@@ -112,9 +112,53 @@ After all runs complete:
 
 ## Data Artefacts
 
-| Artefact             | Location                       | Format              |
-|----------------------|--------------------------------|---------------------|
-| Persona bank         | `evaluation/personas/bank.json`| JSON array          |
-| Philosophy prompts   | `experiments/prompts/*.md`     | Markdown            |
-| Experiment results   | `experiments/results/*.json`   | ExperimentResult    |
-| Analysis output      | Terminal (Rich tables)         | Printed to stdout   |
+| Artefact             | Location                                                | Format              |
+|----------------------|---------------------------------------------------------|---------------------|
+| Persona bank         | `evaluation/personas/bank.json`                          | JSON array          |
+| Philosophy prompts   | `experiments/prompts/*.md`                               | Markdown            |
+| Experiment results   | `research/results/runs/<run>/*.json`                     | ExperimentResult    |
+| Stage 2 datasets     | `finetuning/artifacts/datasets/{lynch,bogle}_train.jsonl`| ChatML JSONL        |
+| Stage 2 eval results | `research/results/runs/finetune/{base,lynch_ft,bogle_ft}/*.json` | ExperimentResult |
+| Stage 2 headline     | `research/results/runs/finetune/headline.md`             | Markdown report     |
+| Analysis output      | Terminal (Rich tables)                                   | Printed to stdout   |
+
+## Stage 2 Pipeline (Fine-Tuning)
+
+The fine-tuning loop reuses the Stage 1 corpus as training data and the
+Stage 1 judges for evaluation. The novelty is the substitution path: a
+fine-tuned model with a *neutral* system prompt replaces the prompted
+advisor.
+
+```
+research/results/runs/                          (Stage 1 output)
+        |
+        v
+  harvest_records()  -->  filter by persona bank, dedupe
+        |
+        v
+  curate(...)         -->  filter Lynch ≤ 0.40 / Bogle ≥ 0.65,
+        |                  cap to N per variant, stratified split
+        v
+  write_jsonl(...)    -->  finetuning/artifacts/datasets/{lynch,bogle}_{train,val}.jsonl
+        |                  (ChatML: system=neutral, user=profile, assistant=plan-as-JSON)
+        v
+  Together AI LoRA FT (Qwen/Qwen3-14B, 3 epochs)
+        |
+        v
+  fine-tuned model name (e.g. kamalgs_07db/Qwen3-14B-lynch-v1-86b2784a)
+        |
+        v
+  Together dedicated endpoint (1×H100, scale-to-zero on idle)
+        |
+        v
+  PydanticAI Agent (PromptedOutput[InvestmentPlan], retries=3)
+        |
+        v
+  per-persona InvestmentPlan  -->  score_aps + score_pqs (Stage 1 judges)
+        |
+        v
+  research/results/runs/finetune/{variant}/*.json  +  headline.md
+```
+
+The endpoint is created before the eval and `delete_endpoint()`'d in
+`finally` to stop billing — see ADR 008 for the safety model.
