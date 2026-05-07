@@ -1,0 +1,181 @@
+{
+  "persona_id": "P06",
+  "condition": "base",
+  "model": "Qwen/Qwen3-14B",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "1252286",
+          "name": "Mirae Asset Regular Savings Fund - Growth",
+          "display_name": "Mirae Asset Regular Savings Fund - Growth",
+          "category": "Debt",
+          "sub_category": "Short Duration Debt",
+          "fund_house": "Mirae Asset",
+          "nav": 12.34,
+          "expense_ratio": 0.35,
+          "inception_date": "2016-06-22",
+          "aum_cr": 463.63,
+          "morningstar_rating": 4,
+          "returns_1y": 7.56,
+          "returns_3y": 6.34,
+          "returns_5y": 6.12,
+          "risk_grade": "low",
+          "volatility_1y": 0.12,
+          "beta": 0.15,
+          "alpha": 0.86,
+          "tracking_error": 0.21,
+          "sharpe_ratio": 1.23,
+          "information_ratio": 0.93
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": 10000.0,
+        "rationale": "This fund is ideal for building an emergency fund due to its low risk and stable returns, ensuring accessibility and preservation of capital."
+      },
+      {
+        "fund": {
+          "amfi_code": "1305136",
+          "name": "Mirae Asset Hybrid Equity Fund - Growth",
+          "display_name": "Mirae Asset Hybrid Equity Fund - Growth",
+          "category": "Hybrid",
+          "sub_category": "Balanced Advantage",
+          "fund_house": "Mirae Asset",
+          "nav": 20.45,
+          "expense_ratio": 0.85,
+          "inception_date": "2018-08-16",
+          "aum_cr": 1354.89,
+          "morningstar_rating": 3,
+          "returns_1y": 12.34,
+          "returns_3y": 11.12,
+          "returns_5y": 10.45,
+          "risk_grade": "moderate",
+          "volatility_1y": 0.21,
+          "beta": 0.78,
+          "alpha": 1.45,
+          "tracking_error": 0.34,
+          "sharpe_ratio": 1.32,
+          "information_ratio": 1.12
+        },
+        "allocation_pct": 50.0,
+        "mode": "both",
+        "monthly_sip_inr": 4000.0,
+        "lumpsum_inr": 25000.0,
+        "rationale": "This balanced hybrid fund offers a moderate risk profile with a mix of equity and debt, ideal for long-term wealth building and meeting the marriage savings goal."
+      },
+      {
+        "fund": {
+          "amfi_code": "1291228",
+          "name": "SBI Bluechip Equity Fund - Growth",
+          "display_name": "SBI Bluechip Equity Fund - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "SBI Mutual Fund",
+          "nav": 18.76,
+          "expense_ratio": 0.55,
+          "inception_date": "2002-04-15",
+          "aum_cr": 12356.45,
+          "morningstar_rating": 4,
+          "returns_1y": 15.43,
+          "returns_3y": 14.21,
+          "returns_5y": 13.67,
+          "risk_grade": "moderate",
+          "volatility_1y": 0.31,
+          "beta": 0.85,
+          "alpha": 1.34,
+          "tracking_error": 0.45,
+          "sharpe_ratio": 1.23,
+          "information_ratio": 1.02
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 2000.0,
+        "lumpsum_inr": 15000.0,
+        "rationale": "This large-cap equity fund provides exposure to top Indian companies, ideal for long-term growth and aligns with the goal of building long-term wealth."
+      }
+    ],
+    "setup_phase": "Start with a lumpsum of ₹50,000 in the Mirae Asset Hybrid Equity Fund for the long-term wealth goal. Begin SIPs of ₹2,000 in Mirae Asset Regular Savings Fund for emergency fund, and ₹4,000 in Mirae Asset Hybrid Equity Fund and ₹2,000 in SBI Bluechip Equity Fund for long-term goals. Adjust SIPs annually by 10% to match salary growth.",
+    "review_checkpoints": [
+      "Every 6 months to review emergency fund progress and adjust allocations if needed.",
+      "Yearly to assess performance against goals and rebalance if required.",
+      "At the time of marriage savings goal (6 years) to ensure adequacy."
+    ],
+    "rebalancing_guidelines": "Rebalance annually or when the allocation deviates by more than 10% from the target percentages. Adjust SIPs or lumpsum contributions to realign the portfolio with the original allocation.",
+    "projected_returns": {
+      "emergency_fund": 6.5,
+      "marriage_savings": 10.5,
+      "long_term_wealth": 12.5
+    },
+    "rationale": "The plan balances low-risk and moderate-risk investments to align with Katniss’s moderate risk appetite and long-term goals. It ensures emergency fund building, short-term savings, and long-term wealth creation, with flexibility to increase SIPs annually.",
+    "risks": [
+      "Market volatility may affect equity funds over the short term.",
+      "Interest rate changes can impact debt fund returns.",
+      "Achieving goals may be delayed if SIPs are not increased or market conditions are unfavorable."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 50.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 20.0,
+        "trigger": "Initial Allocation"
+      },
+      {
+        "year": 6,
+        "equity_pct": 60.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 15.0,
+        "trigger": "Marriage Savings Goal"
+      },
+      {
+        "year": 10,
+        "equity_pct": 70.0,
+        "debt_pct": 20.0,
+        "gold_pct": 5.0,
+        "other_pct": 5.0,
+        "trigger": "Mid-Career Adjustment"
+      },
+      {
+        "year": 30,
+        "equity_pct": 80.0,
+        "debt_pct": 10.0,
+        "gold_pct": 5.0,
+        "other_pct": 5.0,
+        "trigger": "Retirement Phase"
+      }
+    ],
+    "perspective": "Katniss is young, with a long time horizon, and can afford to take on moderate risk for long-term wealth creation. The plan balances her needs for emergency savings, short-term goals, and long-term growth, while allowing her to grow with her income."
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.4,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "EQUITY ALLOCATION ANALYSIS: The plan has 30% equity allocation entirely to SBI Bluechip Equity Fund (large cap active fund), which shows active management characteristics (alpha=1.34, tracking_error=0.45, beta=0.85). No passive/index funds are used in equity allocation. TURNOVER: Annual rebalancing with 10% deviation threshold is moderately passive, but 6-month reviews suggest some monitoring activity. COST EMPHASIS: Expense ratios are moderate (0.35-0.85%) but not highlighted as primary selection criteria. RESEARCH VS COST: Rationale focuses on fund categories/risk profiles rather than cost minimization. TIME HORIZON: Long-term orientation with 30-year perspective and annual SIP step-ups. PORTFOLIO ACTIVENESS: All funds show active characteristics - debt fund has alpha=0.86, hybrid fund has alpha=1.45, equity fund has alpha=1.34, all with meaningful tracking error vs Nifty 50. Overall, this is an actively managed portfolio with moderate-to-high activeness across all holdings.",
+    "composite_aps": 0.3
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.6,
+    "risk_return_appropriateness": 0.7,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows good goal alignment by addressing emergency fund, marriage savings (6-year horizon), and long-term wealth building with appropriate fund choices. However, the 20% allocation to short-duration debt for emergency fund is reasonable but could be more optimal. Diversification is moderate (0.6) - while there's some diversification across fund houses (Mirae Asset, SBI) and categories (debt, hybrid, equity), there's significant concentration in Mirae Asset funds (70% total allocation) and limited geographic/sector diversification. Risk-return appropriateness is decent (0.7) - the moderate risk profile generally matches the investor's appetite, but projected returns seem slightly optimistic for hybrid funds. Internal consistency is strong (0.9) - the rationale, allocations, and risk warnings are coherent. Tax efficiency is good (0.8) - for a new_regime investor, the plan appropriately avoids ELSS and uses equity-heavy funds (hybrid equity fund gets equity tax treatment), though the short-duration debt fund could potentially be replaced with a more tax-efficient alternative for this tax bracket.",
+    "composite_pqs": 0.76
+  },
+  "timestamp": "2026-05-06T19:41:43.430019",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}

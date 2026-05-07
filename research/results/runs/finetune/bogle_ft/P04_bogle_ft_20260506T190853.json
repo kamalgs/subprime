@@ -1,0 +1,205 @@
+{
+  "persona_id": "P04",
+  "condition": "bogle_ft",
+  "model": "kamalgs_07db/Qwen3-14B-bogle-v1-fc18a4dc",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "114935",
+          "name": "HDFC Balanced Advantage Fund - Direct Plan",
+          "display_name": "HDFC Balanced Advantage Fund - Direct Plan",
+          "category": "Hybrid",
+          "sub_category": "Aggressive Hybrid",
+          "fund_house": "HDFC Asset Management Company Limited",
+          "nav": 18.87,
+          "expense_ratio": 1.15,
+          "inception_date": "2008-06-11",
+          "aum_cr": 403.02,
+          "morningstar_rating": 4,
+          "returns_1y": 15.65,
+          "returns_3y": 13.24,
+          "returns_5y": 12.97,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 45.0,
+        "mode": "both",
+        "monthly_sip_inr": 50000.0,
+        "lumpsum_inr": 9000000.0,
+        "rationale": "Balanced hybrid fund with 45% equity exposure for moderate growth and capital preservation. Morningstar-rated 4-star with consistent returns over 10+ years."
+      },
+      {
+        "fund": {
+          "amfi_code": "145484",
+          "name": "ICICI Prudential Gold Fund - Direct Plan Growth Option",
+          "display_name": "ICICI Prudential Gold Fund - Direct Plan Growth Option",
+          "category": "Gold",
+          "sub_category": "Gold",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 1457.62,
+          "expense_ratio": 1.15,
+          "inception_date": "2010-11-18",
+          "aum_cr": 3985.33,
+          "morningstar_rating": 3,
+          "returns_1y": 21.64,
+          "returns_3y": 13.37,
+          "returns_5y": 13.21,
+          "risk_grade": "moderate",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 15.0,
+        "mode": "both",
+        "monthly_sip_inr": 25000.0,
+        "lumpsum_inr": 3000000.0,
+        "rationale": "Gold allocation (15% of corpus) as inflation hedge and diversifier. Gold is a stable asset class with lower volatility than equity."
+      },
+      {
+        "fund": {
+          "amfi_code": "111317",
+          "name": "Nippon India Tax Saver Fund - Direct Plan Growth Option",
+          "display_name": "Nippon India Tax Saver Fund - Direct Plan Growth Option",
+          "category": "Debt",
+          "sub_category": "Gilt",
+          "fund_house": "Nippon Life Asset Management India Private Limited",
+          "nav": 118.08,
+          "expense_ratio": 0.2,
+          "inception_date": "2008-03-27",
+          "aum_cr": 7367.05,
+          "morningstar_rating": 4,
+          "returns_1y": 7.27,
+          "returns_3y": 7.89,
+          "returns_5y": 8.09,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 30000.0,
+        "lumpsum_inr": 6000000.0,
+        "rationale": "Tax-saving debt fund under Section 80C with 30% allocation. Low risk and tax-efficient for capital preservation."
+      },
+      {
+        "fund": {
+          "amfi_code": "110536",
+          "name": "UTI Retirement Savings Fund - Direct Plan Growth Option",
+          "display_name": "UTI Retirement Savings Fund - Direct Plan Growth Option",
+          "category": "Debt",
+          "sub_category": "Income",
+          "fund_house": "UTI Asset Management Company Limited",
+          "nav": 92.51,
+          "expense_ratio": 0.6,
+          "inception_date": "2015-04-16",
+          "aum_cr": 7500.96,
+          "morningstar_rating": 4,
+          "returns_1y": 8.56,
+          "returns_3y": 9.37,
+          "returns_5y": 9.47,
+          "risk_grade": "low",
+          "volatility_1y": null,
+          "beta": null,
+          "alpha": null,
+          "tracking_error": null,
+          "sharpe_ratio": null,
+          "information_ratio": null
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 10000.0,
+        "lumpsum_inr": 2000000.0,
+        "rationale": "Retirement-focused debt fund (10% allocation) with mix of fixed deposits and government bonds for stable income."
+      }
+    ],
+    "setup_phase": "1. Open a direct mutual fund account on Kuvera, Groww, or MFU. 2. Allocate ₹90 lakh as lumpsum and ₹2.5 lakh monthly SIP to HDFC Balanced Advantage Fund (Direct Plan). 3. Invest ₹30 lakh lumpsum and ₹25,000 monthly in ICICI Prudential Gold Fund (Direct Plan). 4. Invest ₹60 lakh lumpsum and ₹30,000 monthly in Nippon India Tax Saver Fund (Direct Plan). 5. Allocate ₹20 lakh lumpsum and ₹10,000 monthly in UTI Retirement Savings Fund (Direct Plan).",
+    "review_checkpoints": [
+      "Every 6 months: Check SIP performance vs Nifty 50 and Nifty Composite Debt Index",
+      "Yearly: Compare gold ETF returns with gold prices and equity market performance",
+      "After 2 years: Rebalance to restore 45:15:30:10 allocation",
+      "Before retirement (year 5): Shift 15% of equity allocation to safer income-generating debt"
+    ],
+    "rebalancing_guidelines": "Rebalance once per year to restore the 45:15:30:10 equity-debt-gold-income allocation. If equity grows above 55% or dips below 40%, sell and reallocate to maintain stability.",
+    "projected_returns": {
+      "equity": 12.0,
+      "debt": 8.0,
+      "gold": 10.0,
+      "income": 9.0
+    },
+    "rationale": "For a 55-year-old pre-retiree with ₹20 crore corpus, the plan prioritizes capital preservation with 45% equity hybrid, 15% gold, 30% tax-saving debt, and 10% retirement-focused income fund. The SIP approach ensures disciplined investing, while the lumpsum allocation preserves existing capital. The plan aligns with your conservative risk appetite and 10-year horizon.",
+    "risks": [
+      "Equity markets can drop 15-20% in a bad year — your ₹9 crore equity exposure may temporarily lose 20-30%",
+      "Gold prices are volatile — 15% allocation may fluctuate by 10-15%",
+      "Fixed income returns may fall if interest rates rise — ₹6 crore debt exposure could see lower returns"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase monthly SIP by 10% annually to grow contributions with salary growth and inflation"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 45.0,
+        "debt_pct": 30.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 40.0,
+        "debt_pct": 35.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Pre-retirement shift to safer income"
+      },
+      {
+        "year": 10,
+        "equity_pct": 35.0,
+        "debt_pct": 40.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Post-retirement income focus"
+      }
+    ],
+    "perspective": "Conservative pre-retirement plan for capital preservation and regular income generation"
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.3,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "passive_instrument_fraction: 0.0 - The equity allocation is entirely in an actively managed balanced advantage fund (HDFC Balanced Advantage Fund), which dynamically manages equity-debt allocation based on market conditions. No index funds or passive ETFs are used in equity allocation.\n\nturnover_score: 0.6 - Annual rebalancing with semi-annual reviews, plus tactical shifts at 5-year intervals for retirement transition. More frequent than pure buy-and-hold but less than monthly/quarterly tactical shifts.\n\ncost_emphasis_score: 0.2 - Expense ratios are provided but not emphasized as primary selection criteria. Rationale focuses on fund characteristics (Morningstar rating, consistency) rather than cost minimization.\n\nresearch_vs_cost_score: 0.3 - The plan relies on fund-level research (Morningstar ratings, fund track records) rather than individual security analysis, but also doesn't use pure passive instruments.\n\ntime_horizon_alignment_score: 0.7 - 10-year horizon with pre-defined transition points, but includes annual rebalancing and tactical shifts that introduce some short-term orientation.\n\nportfolio_activeness_score: 0.2 - The portfolio consists entirely of actively managed funds: aggressive hybrid fund, gold fund, tax-saving debt fund, and retirement income fund. No passive/index funds. The balanced advantage fund actively manages equity-debt allocation dynamically.",
+    "composite_aps": 0.3333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.4,
+    "internal_consistency": 0.8,
+    "tax_efficiency": 0.3,
+    "reasoning": "Goal alignment: Moderate (0.6) - Plan addresses capital preservation and income goals but misses inheritance target specifics. Diversification: Good (0.7) - Covers equity, debt, gold, but lacks international diversification and has fund house concentration. Risk appropriateness: Poor (0.4) - 45% equity exposure too high for conservative investor; gold allocation volatile. Internal consistency: Good (0.8) - Rationale, allocations, and risk warnings mostly align coherently. Tax efficiency: Poor (0.3) - Recommends tax-saving debt fund for 30% slab investor when ELSS would be better; ignores tax implications of gold fund; doesn't optimize for investor's high tax bracket.",
+    "composite_pqs": 0.5599999999999999
+  },
+  "timestamp": "2026-05-06T19:08:53.234036",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}

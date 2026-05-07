@@ -963,6 +963,15 @@ data_app = typer.Typer(name="data", help="Manage the local fund data store.")
 app.add_typer(data_app, name="data")
 
 
+# ---------------------------------------------------------------------------
+# ft (fine-tuning) sub-commands
+# ---------------------------------------------------------------------------
+
+from subprime.finetuning.cli import app as ft_app  # noqa: E402
+
+app.add_typer(ft_app, name="ft", help="Stage 2 fine-tuning pipeline.")
+
+
 @data_app.command("migrate")
 def data_migrate() -> None:
     """Apply DuckDB schema migrations (CREATE TABLE IF NOT EXISTS, ALTER TABLE).

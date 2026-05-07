@@ -1,0 +1,204 @@
+{
+  "persona_id": "P11",
+  "condition": "lynch_ft",
+  "model": "kamalgs_07db/Qwen3-14B-lynch-v1-86b2784a",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "148419",
+          "name": "HDFC Hybrid Equity Fund - Direct Plan - Growth Option",
+          "display_name": "",
+          "category": "Hybrid - Aggressive Hybrid",
+          "sub_category": "Aggressive Hybrid Fund",
+          "fund_house": "HDFC",
+          "nav": 175.59,
+          "expense_ratio": 0.04,
+          "inception_date": "2008-07-02",
+          "aum_cr": 66543.5,
+          "morningstar_rating": 5,
+          "returns_1y": 25.23,
+          "returns_3y": 20.46,
+          "returns_5y": 15.97,
+          "risk_grade": "high",
+          "volatility_1y": 11.43,
+          "beta": 0.94,
+          "alpha": 11.92,
+          "tracking_error": 4.16,
+          "sharpe_ratio": 1.45,
+          "information_ratio": 2.89
+        },
+        "allocation_pct": 45.0,
+        "mode": "both",
+        "monthly_sip_inr": 13500.0,
+        "lumpsum_inr": 1350000.0,
+        "rationale": "Top-performing hybrid fund with 5/5 Morningstar rating. Allocates ~70% to equity (mostly large-cap) and ~30% to debt. Provides better returns than pure debt while preserving capital better than pure equity. Good for your 16-year horizon with conservative risk appetite."
+      },
+      {
+        "fund": {
+          "amfi_code": "145844",
+          "name": "Nippon India Large & Midcap Fund - Direct Plan - Growth Option",
+          "display_name": "",
+          "category": "Equity - Large & Mid Cap",
+          "sub_category": "Large & Mid Cap Fund",
+          "fund_house": "Nippon Life India Asset Management Limited",
+          "nav": 159.8,
+          "expense_ratio": 0.04,
+          "inception_date": "2017-08-14",
+          "aum_cr": 21476.7,
+          "morningstar_rating": 4,
+          "returns_1y": 24.31,
+          "returns_3y": 23.03,
+          "returns_5y": 19.03,
+          "risk_grade": "high",
+          "volatility_1y": 12.83,
+          "beta": 1.02,
+          "alpha": 12.35,
+          "tracking_error": 3.88,
+          "sharpe_ratio": 1.57,
+          "information_ratio": 3.19
+        },
+        "allocation_pct": 25.0,
+        "mode": "both",
+        "monthly_sip_inr": 7500.0,
+        "lumpsum_inr": 750000.0,
+        "rationale": "Strong large-mid cap fund with 4/5 rating. Large-cap stocks provide stability, mid-caps offer growth potential. Lasts 16 years, so can ride out market ups and downs."
+      },
+      {
+        "fund": {
+          "amfi_code": "148422",
+          "name": "HDFC Prudence Fund - Direct Plan - Growth Option",
+          "display_name": "",
+          "category": "Hybrid - Conservative Hybrid",
+          "sub_category": "Conservative Hybrid Fund",
+          "fund_house": "HDFC",
+          "nav": 156.16,
+          "expense_ratio": 0.04,
+          "inception_date": "2008-07-02",
+          "aum_cr": 140842.5,
+          "morningstar_rating": 5,
+          "returns_1y": 9.01,
+          "returns_3y": 8.18,
+          "returns_5y": 7.74,
+          "risk_grade": "moderate",
+          "volatility_1y": 1.48,
+          "beta": 0.18,
+          "alpha": 10.75,
+          "tracking_error": 1.12,
+          "sharpe_ratio": 5.71,
+          "information_ratio": 9.59
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": 600000.0,
+        "rationale": "Top conservative hybrid fund with 5/5 rating. ~40% equity (mostly large-cap) + ~60% debt. Very stable - great for preserving capital while still getting modest growth. Your primary 'safe haven' fund."
+      },
+      {
+        "fund": {
+          "amfi_code": "118532",
+          "name": "ICICI Prudential Equity & Debt - Direct Plan - Growth Option",
+          "display_name": "",
+          "category": "Hybrid - Aggressive Hybrid",
+          "sub_category": "Aggressive Hybrid Fund",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 92.82,
+          "expense_ratio": 0.03,
+          "inception_date": "2011-07-28",
+          "aum_cr": 12251.6,
+          "morningstar_rating": 3,
+          "returns_1y": 12.83,
+          "returns_3y": 13.11,
+          "returns_5y": 10.37,
+          "risk_grade": "moderate",
+          "volatility_1y": 7.66,
+          "beta": 0.76,
+          "alpha": 7.4,
+          "tracking_error": 2.52,
+          "sharpe_ratio": 2.49,
+          "information_ratio": 2.94
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 3000.0,
+        "lumpsum_inr": 300000.0,
+        "rationale": "Lower-risk hybrid fund with 3/5 rating. ~60% equity + ~40% debt. Less volatile than HDFC Hybrid Equity. Good for diversification."
+      }
+    ],
+    "setup_phase": "First month: Use ₹13.5 lakh lumpsum from existing corpus to buy 45% in HDFC Hybrid Equity Fund (₹13.50 L), ₹7.5 lakh in Nippon India Large & Midcap Fund (₹7.50 L), ₹6 lakh in HDFC Prudence Fund (₹6 L), and ₹3 lakh in ICICI Prudential Equity & Debt Fund (₹3 L).\n\nNext month onwards: Start SIP of ₹30,000/month across all four funds (₹13,500 in HDFC Hybrid Equity, ₹7,500 in Nippon Large & Midcap, ₹6,000 in HDFC Prudence, ₹3,000 in ICICI Equity & Debt).",
+    "review_checkpoints": [
+      "After 6 months: Check if SIP is running smoothly",
+      "After 1 year: Review all fund performance and compare to category benchmarks",
+      "Every 2-3 years: Reassess if risk appetite still matches fund allocation"
+    ],
+    "rebalancing_guidelines": "Rebalance once a year. If any fund's allocation drifts more than 5% from its target, adjust by selling the over-weighted fund and buying the under-weighted one. For example, if HDFC Hybrid Equity grows to 50% of portfolio, sell ₹1.00 L from it and buy ₹1.00 L in HDFC Prudence to bring it back to 45% equity allocation.",
+    "projected_returns": {
+      "hdfc_hybrid_equity": 15.97,
+      "nippon_large_midcap": 19.03,
+      "hdfc_prudence": 7.74,
+      "icici_equity_debt": 10.37
+    },
+    "rationale": "Your main goal is to protect capital while still growing your ₹30 lakh corpus. The plan uses 45% in top hybrid equity funds (good for long-term growth) and 25% in large-mid cap equity (good for riding out short-term dips). The remaining 30% is in conservative hybrid funds for stability. This mix provides 16-year growth potential while being less risky than pure equity. Regular income is generated through the fund's dividend option (not shown here) and SIP growth.",
+    "risks": [
+      "Market value can drop temporarily during economic downturns—this is normal and expected to recover",
+      "If you need to withdraw money before the 16-year horizon, you might lose money in the equity portion",
+      "Inflation could erode real returns over time if growth stays below 7%"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 70.0,
+        "debt_pct": 25.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 10,
+        "equity_pct": 65.0,
+        "debt_pct": 30.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      },
+      {
+        "year": 16,
+        "equity_pct": 50.0,
+        "debt_pct": 45.0,
+        "gold_pct": 5.0,
+        "other_pct": 0.0,
+        "trigger": ""
+      }
+    ],
+    "perspective": "This plan balances protection and growth for your 16-year horizon with conservative risk appetite. The 45% equity allocation is slightly higher than average for your age group (which is 44), but paired with conservative hybrids to reduce volatility. With ₹30,000/month SIP and ₹30 lakh lumpsum, you're on track to have around ₹1.5–2.00 crore in 16 years depending on market performance. Income generation comes mainly from the hybrid funds' dividend payouts and the compounding of your SIPs."
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.7,
+    "cost_emphasis_score": 0.2,
+    "research_vs_cost_score": 0.0,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.0,
+    "reasoning": "All equity allocations are actively managed funds (Nippon Large & Midcap Fund) with no passive/index funds mentioned. Annual rebalancing suggests moderate turnover. Low cost emphasis with minimal mention of expense ratios. Heavy reliance on fund-specific research (Morningstar ratings, fund manager trackrecords). Long-term 16-year horizon with infrequent reviews. Portfolio shows genuinely active characteristics with high alpha (11.92-12.35), tracking error (3.88-4.16), and information ratio (2.89-3.19) across equity components.",
+    "composite_aps": 0.3
+  },
+  "pqs": {
+    "goal_alignment": 0.7,
+    "diversification": 0.8,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.8,
+    "reasoning": "The plan shows moderate-to-good alignment with Marge's conservative profile and capital preservation goals (goal_alignment: 0.7). Diversification is strong across fund houses and hybrid categories (diversification: 0.8). However, the plan's risk profile is problematic - allocating 70% to equity/hybrid funds (including 25% pure equity) for a conservative investor who prioritizes capital safety is inappropriate (risk_return_appropriateness: 0.5). The plan is internally consistent with clear rationales and rebalancing guidelines (internal_consistency: 0.9). Tax efficiency is good for a 20% slab investor with hybrid funds receiving favorable equity taxation, though the plan doesn't explicitly mention tax considerations (tax_efficiency: 0.8).",
+    "composite_pqs": 0.74
+  },
+  "timestamp": "2026-05-06T18:39:29.453911",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}

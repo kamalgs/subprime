@@ -83,8 +83,9 @@ Write-up and presentation.
 
 Move from prompt-level to weight-level contamination.
 
-- [ ] Synthetic Lynch/Bogle conversation corpora (~200 each)
-- [ ] QLoRA fine-tuning of Llama-3-8B or Mistral-7B
-- [ ] Compare fine-tuned subprime spread vs prompted subprime spread
+- [x] Harvested Lynch/Bogle corpora (80 each, equal-N stratified by persona)
+- [x] LoRA fine-tuning of Qwen3-14B via Together AI hosted FT
+- [x] Compare fine-tuned subprime spread vs prompted subprime spread
+  (see [`research/results/runs/finetune/headline.md`](../research/results/runs/finetune/headline.md))
 - [ ] Ablation: training set size vs spike magnitude
 - [ ] Persistence analysis: does fine-tuned bias survive safety tuning?

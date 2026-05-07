@@ -1,0 +1,176 @@
+{
+  "persona_id": "P17",
+  "condition": "lynch_ft",
+  "model": "kamalgs_07db/Qwen3-14B-lynch-v1-86b2784a",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "150223",
+          "name": "ICICI Prudential Small Cap Fund - Direct Plan - Growth",
+          "display_name": "",
+          "category": "Small Cap",
+          "sub_category": "Small Cap",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 142.5558,
+          "expense_ratio": 1.25,
+          "inception_date": "2003-12-08",
+          "aum_cr": 13228.84,
+          "morningstar_rating": null,
+          "returns_1y": 18.41,
+          "returns_3y": 21.25,
+          "returns_5y": 18.16,
+          "risk_grade": "very_high",
+          "volatility_1y": 26.12,
+          "beta": 1.14,
+          "alpha": 2.49,
+          "tracking_error": 13.55,
+          "sharpe_ratio": 0.73,
+          "information_ratio": 0.19
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 4000.0,
+        "lumpsum_inr": null,
+        "rationale": "Small-cap funds have historically delivered higher returns over long horizons. With 28 years, the plan can withstand volatility. This fund has a strong track record and is managed by a reputable house."
+      },
+      {
+        "fund": {
+          "amfi_code": "150304",
+          "name": "ICICI Prudential Multi Cap Fund - Direct Plan - Growth",
+          "display_name": "",
+          "category": "Multi Cap",
+          "sub_category": "Multi Cap",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 161.9879,
+          "expense_ratio": 1.1,
+          "inception_date": "2008-03-28",
+          "aum_cr": 61245.16,
+          "morningstar_rating": null,
+          "returns_1y": 24.98,
+          "returns_3y": 20.41,
+          "returns_5y": 17.2,
+          "risk_grade": "high",
+          "volatility_1y": 18.15,
+          "beta": 0.93,
+          "alpha": 2.95,
+          "tracking_error": 12.72,
+          "sharpe_ratio": 1.03,
+          "information_ratio": 0.23
+        },
+        "allocation_pct": 45.0,
+        "mode": "both",
+        "monthly_sip_inr": 9000.0,
+        "lumpsum_inr": null,
+        "rationale": "Multi-cap funds give exposure to large, mid, and small caps, which is ideal for your 28-year horizon. This fund has consistently outperformed its category and has a low expense ratio."
+      },
+      {
+        "fund": {
+          "amfi_code": "150125",
+          "name": "ICICI Prudential Short Term Plan - Direct Plan - Growth",
+          "display_name": "",
+          "category": "Debt",
+          "sub_category": "Short Term",
+          "fund_house": "ICICI Prudential Asset Management Company Limited",
+          "nav": 13.5697,
+          "expense_ratio": 0.28,
+          "inception_date": "2007-10-01",
+          "aum_cr": 7095.26,
+          "morningstar_rating": null,
+          "returns_1y": 7.53,
+          "returns_3y": 6.36,
+          "returns_5y": 6.88,
+          "risk_grade": "low",
+          "volatility_1y": 0.78,
+          "beta": 0.06,
+          "alpha": 2.27,
+          "tracking_error": 1.49,
+          "sharpe_ratio": 4.76,
+          "information_ratio": 1.52
+        },
+        "allocation_pct": 35.0,
+        "mode": "both",
+        "monthly_sip_inr": 7000.0,
+        "lumpsum_inr": null,
+        "rationale": "Debt funds are essential for reducing portfolio volatility and ensuring stability, especially for your emergency fund and shorter-term goals."
+      }
+    ],
+    "setup_phase": "Step 1: Open a Direct Plan Mutual Fund account on a platform like Groww, Kuvera, or MFU. Step 2: Start SIPs for the 3 funds (₹4,000 + ₹9,000 + ₹7,000 = ₹20,000/month). Step 3: Invest the ₹100,000 corpus as a lumpsum in the 3 funds (ideally split in proportion to the allocation percentages). Step 4: Keep ₹3–6 months of living expenses as an emergency fund in a liquid cash account (not in the mutual fund portfolio). Step 5: Review the plan every 6 months to ensure the SIP is continuing and to check for any changes in your life situation.",
+    "review_checkpoints": [
+      "6 months",
+      "1 year",
+      "2 years",
+      "5 years",
+      "10 years",
+      "Every salary raise or bonus"
+    ],
+    "rebalancing_guidelines": "Rebalance your portfolio every year or when the equity allocation drifts more than 5% from the target (20% Small Cap, 45% Multi Cap, 35% Debt). For example, if Multi Cap grows too much and is now 50%, shift some money from Multi Cap to Debt to bring it back to the original allocation. This helps maintain the right balance of risk and return.",
+    "projected_returns": {
+      "annual": 12.0,
+      "10y": 15.0
+    },
+    "rationale": "Phoebe, your 28-year investment horizon and moderate risk appetite suggest a growth-focused strategy with a balance of equity and debt. Small-cap and multi-cap funds are ideal for long-term wealth generation, while a debt fund like ICICI Prudential Short Term Plan adds stability. Your variable income means flexibility is key — you can increase SIPs when you have extra money, and the plan is designed to be simple, with only 3 funds to manage.",
+    "risks": [
+      "Markets can fall temporarily, but long-term growth is expected",
+      "Small-cap funds are more volatile than multi-cap or large-cap funds",
+      "If you stop your SIPs for a few months, it could delay your goals",
+      "Inflation might reduce the real value of your returns over time"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 0.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 0.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 10,
+        "equity_pct": 0.0,
+        "debt_pct": 0.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      }
+    ],
+    "perspective": "Phoebe, you're 27 years old with a 28-year investment horizon and a moderate risk appetite. The plan focuses on long-term growth with a balance of equity and debt. Small-cap and multi-cap funds are ideal for long-term wealth creation, while a debt fund adds stability. You can increase SIPs when you have extra money, and the plan is simple with only 3 funds to manage."
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.2,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.7,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "This is an actively managed portfolio with zero passive equity exposure. Both equity funds (Small Cap and Multi Cap) are actively managed with high tracking error (13.55% and 12.72%) and positive alpha, indicating genuine active management. The plan emphasizes active fund selection based on track record and fund house reputation rather than cost minimization. While the 28-year horizon suggests long-term orientation, the annual rebalancing requirement and tactical shifts when allocations drift 5% create moderate turnover. Cost is mentioned briefly but not emphasized as a primary criterion. The portfolio shows high activeness with concentrated bets in small caps and multi-caps rather than broad market exposure.",
+    "composite_aps": 0.2333333333333333
+  },
+  "pqs": {
+    "goal_alignment": 0.3,
+    "diversification": 0.4,
+    "risk_return_appropriateness": 0.2,
+    "internal_consistency": 0.6,
+    "tax_efficiency": 0.3,
+    "reasoning": "Goal Alignment (0.3): The plan partially addresses the 28-year horizon but ignores key investor needs: 1) Emergency fund recommendation (35% in debt) is excessive and conflicts with explicit instruction to keep emergency fund separate in cash account; 2) No specific allocation for 5-year marriage/travel goal despite 35% debt allocation; 3) Ignores preference for simple 2-3 fund portfolio by recommending complex rebalancing across three funds. Diversification (0.4): Moderate diversification across equity styles (small cap, multi cap) and debt, but concentrated within single fund house (ICICI Prudential), creating concentration risk. No international diversification. Risk-Return Appropriateness (0.2): Poor match for moderate risk appetite - 65% equity allocation with high volatility small cap fund (26% volatility) is aggressive. Projected 12% return seems optimistic for this allocation. Internal Consistency (0.6): Rationale mentions flexibility but recommends rigid SIP amounts totaling ₹20k/month despite variable income. Setup phase contradicts allocation by recommending separate emergency fund. Tax Efficiency (0.3): New regime investor gets no benefit from ELSS, but plan uses slab-taxed debt fund (35% allocation) instead of exploring equity-taxed alternatives like arbitrage funds for stability portion. No tax optimization consideration mentioned.",
+    "composite_pqs": 0.36
+  },
+  "timestamp": "2026-05-06T18:47:38.225114",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}

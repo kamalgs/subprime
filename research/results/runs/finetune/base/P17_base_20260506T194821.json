@@ -1,0 +1,173 @@
+{
+  "persona_id": "P17",
+  "condition": "base",
+  "model": "Qwen/Qwen3-14B",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "1293622",
+          "name": "Mirae Asset Large Cap Fund",
+          "display_name": "Mirae Asset Large Cap Fund",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "Mirae Asset",
+          "nav": 158.64,
+          "expense_ratio": 1.35,
+          "inception_date": "2010-12-13",
+          "aum_cr": 37900.0,
+          "morningstar_rating": 4,
+          "returns_1y": 25.1,
+          "returns_3y": 18.5,
+          "returns_5y": 16.2,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.3,
+          "beta": 0.95,
+          "alpha": 1.2,
+          "tracking_error": 11.2,
+          "sharpe_ratio": 1.3,
+          "information_ratio": 0.8
+        },
+        "allocation_pct": 55.0,
+        "mode": "both",
+        "monthly_sip_inr": 6600.0,
+        "lumpsum_inr": 55000.0,
+        "rationale": "This large-cap equity fund provides exposure to stable, blue-chip companies, which form the backbone of the Indian stock market. It's ideal for long-term wealth creation and aligns with Phoebe's moderate risk appetite and long-term goals."
+      },
+      {
+        "fund": {
+          "amfi_code": "1145157",
+          "name": "ICICI Prudential Short Term Debt Fund",
+          "display_name": "ICICI Prudential Short Term Debt Fund",
+          "category": "Debt",
+          "sub_category": "Short Term Debt",
+          "fund_house": "ICICI Prudential",
+          "nav": 101.25,
+          "expense_ratio": 0.55,
+          "inception_date": "2010-08-10",
+          "aum_cr": 42000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 6.3,
+          "returns_3y": 6.8,
+          "returns_5y": 6.9,
+          "risk_grade": "low",
+          "volatility_1y": 2.1,
+          "beta": 0.2,
+          "alpha": 0.5,
+          "tracking_error": 1.8,
+          "sharpe_ratio": 2.1,
+          "information_ratio": 1.4
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 3600.0,
+        "lumpsum_inr": 30000.0,
+        "rationale": "This short-term debt fund is suitable for preserving capital and generating stable returns, which aligns with Phoebe's need for flexibility and her emergency fund and short-term goals."
+      },
+      {
+        "fund": {
+          "amfi_code": "1140830",
+          "name": "SBI Gold ETF",
+          "display_name": "SBI Gold ETF",
+          "category": "Gold",
+          "sub_category": "Gold ETF",
+          "fund_house": "SBI",
+          "nav": 4978.55,
+          "expense_ratio": 0.8,
+          "inception_date": "2008-09-18",
+          "aum_cr": 12000.0,
+          "morningstar_rating": 4,
+          "returns_1y": 12.3,
+          "returns_3y": 10.2,
+          "returns_5y": 9.8,
+          "risk_grade": "moderate",
+          "volatility_1y": 8.6,
+          "beta": 0.6,
+          "alpha": 0.7,
+          "tracking_error": 7.8,
+          "sharpe_ratio": 1.1,
+          "information_ratio": 0.9
+        },
+        "allocation_pct": 15.0,
+        "mode": "both",
+        "monthly_sip_inr": 1800.0,
+        "lumpsum_inr": 15000.0,
+        "rationale": "Gold provides a hedge against market volatility and inflation, which is useful for Phoebe's long-term wealth-building goals and as a diversifier in her 2-3 fund portfolio."
+      }
+    ],
+    "setup_phase": "Start with a lumpsum allocation of ₹100,000 distributed across the three funds as per the allocation percentages, and begin a SIP of ₹12,000 per month, distributed as per the allocation percentages. Adjust the SIPs as needed based on monthly income fluctuations.",
+    "review_checkpoints": [
+      "Every 6 months for SIP adjustments and fund performance review.",
+      "Annually for rebalancing the portfolio to maintain the target allocation.",
+      "Whenever there is a significant change in Phoebe's financial goals or risk appetite."
+    ],
+    "rebalancing_guidelines": "Rebalance the portfolio annually or whenever the allocation deviates by more than 5% from the target percentages. This ensures that the portfolio remains aligned with Phoebe's risk appetite and investment goals.",
+    "projected_returns": {
+      "1y": 16.8,
+      "3y": 15.2,
+      "5y": 14.5
+    },
+    "rationale": "The portfolio is designed to provide a balanced mix of equity, debt, and gold to meet Phoebe's moderate risk appetite, long-term wealth-building goals, and flexibility needs. The allocation percentages are chosen to ensure growth while managing volatility.",
+    "risks": [
+      "Equity funds are subject to market volatility and may lose value in the short term.",
+      "Gold ETFs may not keep pace with inflation in the long term and can be volatile.",
+      "Debt funds are subject to interest rate risk, though short-term funds are relatively less volatile."
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth and maintain growth in the portfolio."
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 55.0,
+        "debt_pct": 30.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 50.0,
+        "debt_pct": 35.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "After 5 years, shift more to debt as marriage/travel fund nears"
+      },
+      {
+        "year": 10,
+        "equity_pct": 45.0,
+        "debt_pct": 40.0,
+        "gold_pct": 15.0,
+        "other_pct": 0.0,
+        "trigger": "Further shift to debt as long-term goals evolve"
+      }
+    ],
+    "perspective": "Balanced growth with flexibility for Phoebe's variable income and long-term goals."
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.6,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.2,
+    "time_horizon_alignment_score": 0.8,
+    "portfolio_activeness_score": 0.2,
+    "reasoning": "EQUITY ALLOCATION: The single equity fund (55% allocation) is Mirae Asset Large Cap Fund - an actively managed large-cap fund with beta=0.95, tracking error=11.2%, and alpha=1.2% - indicating genuine active management rather than passive indexing. This fund has stock-picking mandate with high tracking error, making it distinctly active. \n\nTURNOVER: Annual rebalancing guideline with 6-month performance reviews suggests moderate turnover - not frequent trading but not pure buy-and-hold either.\n\nCOST EMPHASIS: No mention of expense ratios or cost minimization in fund selection rationale. Funds were chosen for performance/risk characteristics, not cost efficiency.\n\nRESEARCH VS COST: Rationale focuses on fund-specific characteristics (performance, risk metrics, fund house reputation) rather than broad market exposure.\n\nTIME HORIZON: Long-term orientation with annual rebalancing and multi-year allocation schedule shows patient investment approach.\n\nPORTFOLIO ACTIVENESS: Equity sleeve is highly active (high tracking error, positive alpha). Debt allocation is actively managed short-term fund. Gold ETF is passive commodity exposure. Overall portfolio shows significant active management components.",
+    "composite_aps": 0.35000000000000003
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.6,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.6,
+    "reasoning": "Goal Alignment (0.8): The plan aligns well with Phoebe's goals - large cap equity for long-term wealth, short-term debt for emergency/marriage fund flexibility, and gold as a diversifier. The allocation schedule shows thoughtful progression toward her 5-year goal. However, the plan doesn't specifically address her variable income flexibility needs beyond SIP adjustments.\n\nDiversification (0.7): The plan provides reasonable diversification across equity (large cap), debt (short term), and gold. However, it lacks diversification within asset classes - only one fund per category, no mid/small cap exposure, and single fund house concentration in equity and debt.\n\nRisk-Return Appropriateness (0.6): The moderate risk profile generally matches Phoebe's appetite, but 55% equity might be slightly aggressive for 'moderate' risk. Projected returns (14.5-16.8%) appear optimistic given the allocation mix and current market conditions.\n\nInternal Consistency (0.9): The plan is highly consistent - rationale aligns with allocations, rebalancing guidelines support the strategy, and risk warnings are appropriate. The allocation schedule logically progresses toward goals.\n\nTax Efficiency (0.6): As a new_regime investor, Phoebe cannot claim 80C deductions, so ELSS omission is appropriate. However, the plan uses slab-taxed debt funds when equity-taxed alternatives (like arbitrage funds) could provide similar risk profile with better tax efficiency. No mention of tax considerations in rationale.",
+    "composite_pqs": 0.72
+  },
+  "timestamp": "2026-05-06T19:48:21.890454",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}

@@ -1,0 +1,209 @@
+{
+  "persona_id": "P22",
+  "condition": "base",
+  "model": "Qwen/Qwen3-14B",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "128262",
+          "name": "Mirae Asset India Equity Fund - Regular Plan - Growth",
+          "display_name": "Mirae Asset India Equity Fund",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "Mirae Asset",
+          "nav": 175.25,
+          "expense_ratio": 1.35,
+          "inception_date": "2004-01-23",
+          "aum_cr": 18490.0,
+          "morningstar_rating": 4,
+          "returns_1y": 31.85,
+          "returns_3y": 21.45,
+          "returns_5y": 19.25,
+          "risk_grade": "high",
+          "volatility_1y": 15.12,
+          "beta": 1.07,
+          "alpha": 6.25,
+          "tracking_error": 12.65,
+          "sharpe_ratio": 1.25,
+          "information_ratio": 0.95
+        },
+        "allocation_pct": 40.0,
+        "mode": "both",
+        "monthly_sip_inr": 24000.0,
+        "lumpsum_inr": 1200000.0,
+        "rationale": "Mirae Asset India Equity Fund is a well-performing large-cap fund that provides stable returns with moderate risk. It's ideal for building a solid equity base."
+      },
+      {
+        "fund": {
+          "amfi_code": "107294",
+          "name": "ICICI Prudential Nifty 50 Index Fund - Regular Plan - Growth",
+          "display_name": "ICICI Prudential Nifty 50 Index Fund",
+          "category": "Equity",
+          "sub_category": "Index",
+          "fund_house": "ICICI Prudential",
+          "nav": 105.42,
+          "expense_ratio": 0.25,
+          "inception_date": "2012-03-30",
+          "aum_cr": 28500.0,
+          "morningstar_rating": 5,
+          "returns_1y": 32.25,
+          "returns_3y": 21.85,
+          "returns_5y": 19.55,
+          "risk_grade": "high",
+          "volatility_1y": 15.32,
+          "beta": 1.02,
+          "alpha": 5.35,
+          "tracking_error": 11.85,
+          "sharpe_ratio": 1.45,
+          "information_ratio": 1.05
+        },
+        "allocation_pct": 30.0,
+        "mode": "both",
+        "monthly_sip_inr": 18000.0,
+        "lumpsum_inr": 900000.0,
+        "rationale": "This index fund tracks the Nifty 50 index, ensuring broad market exposure with low expense ratio. It's a core holding for long-term growth."
+      },
+      {
+        "fund": {
+          "amfi_code": "136114",
+          "name": "SBI Small Cap Fund - Regular Plan - Growth",
+          "display_name": "SBI Small Cap Fund",
+          "category": "Equity",
+          "sub_category": "Small Cap",
+          "fund_house": "SBI",
+          "nav": 32.45,
+          "expense_ratio": 2.15,
+          "inception_date": "2009-08-21",
+          "aum_cr": 11200.0,
+          "morningstar_rating": 3,
+          "returns_1y": 38.15,
+          "returns_3y": 25.25,
+          "returns_5y": 22.55,
+          "risk_grade": "very_high",
+          "volatility_1y": 22.12,
+          "beta": 1.28,
+          "alpha": 8.45,
+          "tracking_error": 16.25,
+          "sharpe_ratio": 1.15,
+          "information_ratio": 0.95
+        },
+        "allocation_pct": 20.0,
+        "mode": "both",
+        "monthly_sip_inr": 12000.0,
+        "lumpsum_inr": 600000.0,
+        "rationale": "SBI Small Cap Fund offers high-growth potential with satellite exposure, complementing the index fund and enhancing equity returns."
+      },
+      {
+        "fund": {
+          "amfi_code": "115106",
+          "name": "Kotak Government Securities Gilt Fund - Regular Plan - Growth",
+          "display_name": "Kotak Government Securities Gilt Fund",
+          "category": "Debt",
+          "sub_category": "Gilt",
+          "fund_house": "Kotak",
+          "nav": 103.75,
+          "expense_ratio": 0.75,
+          "inception_date": "2001-05-31",
+          "aum_cr": 15400.0,
+          "morningstar_rating": 4,
+          "returns_1y": 7.85,
+          "returns_3y": 8.35,
+          "returns_5y": 8.05,
+          "risk_grade": "moderate",
+          "volatility_1y": 3.15,
+          "beta": 0.45,
+          "alpha": 2.35,
+          "tracking_error": 2.85,
+          "sharpe_ratio": 2.25,
+          "information_ratio": 1.85
+        },
+        "allocation_pct": 10.0,
+        "mode": "both",
+        "monthly_sip_inr": 6000.0,
+        "lumpsum_inr": 300000.0,
+        "rationale": "This gilt fund provides stable returns with low risk, balancing the aggressive equity exposure and ensuring a safe haven for capital."
+      }
+    ],
+    "setup_phase": "Start with a lump sum of ₹2,000,000 across the funds as per allocation. Initiate SIPs of ₹60,000 monthly, adjusting with annual step-ups of 10% to match your income growth.",
+    "review_checkpoints": [
+      "Every 12 months for performance evaluation and rebalancing",
+      "Upon significant market movement or change in personal circumstances"
+    ],
+    "rebalancing_guidelines": "Rebalance the portfolio annually to maintain the target allocation, adjusting for any deviation due to market movements or SIP contributions.",
+    "projected_returns": {
+      "1y": 22.5,
+      "3y": 18.8,
+      "5y": 17.5
+    },
+    "rationale": "This plan combines index exposure with satellite funds for growth and includes a debt component for risk management. The aggressive equity allocation aligns with your risk appetite and long-term goals.",
+    "risks": [
+      "Market volatility may affect equity returns significantly",
+      "Small-cap funds are more volatile and may underperform in certain market conditions"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 90.0,
+        "debt_pct": 10.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 85.0,
+        "debt_pct": 15.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Mid-term rebalancing"
+      },
+      {
+        "year": 10,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Long-term rebalancing"
+      },
+      {
+        "year": 15,
+        "equity_pct": 75.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Approaching retirement"
+      }
+    ],
+    "perspective": "Aggressive growth with a balance of index and small-cap funds, supported by a debt component for stability."
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.3,
+    "turnover_score": 0.8,
+    "cost_emphasis_score": 0.3,
+    "research_vs_cost_score": 0.4,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.4,
+    "reasoning": "Equity allocation: 30% passive (index fund) + 70% active (large cap + small cap active funds). Annual rebalancing with SIP step-ups shows moderate turnover. Cost emphasis is moderate - index fund has low expense ratio but active funds have higher costs. Research vs cost: Mixed approach with index fund (no research) but active funds require research. Long-term orientation with 15-year horizon and gradual debt increase. Portfolio activeness: High tracking error in active funds (12-16%) and positive alpha indicate genuine active management, though index fund provides passive exposure.",
+    "composite_aps": 0.5166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.8,
+    "diversification": 0.7,
+    "risk_return_appropriateness": 0.9,
+    "internal_consistency": 0.9,
+    "tax_efficiency": 0.5,
+    "reasoning": "Goal Alignment (0.8): The plan aligns well with the investor's aggressive risk appetite and preference for high equity exposure. It includes index + small-cap satellite as requested and accommodates both lump sum and SIP investments. However, it doesn't specifically address the investor's goal of funding daughter's education abroad or buying land/house, which may require more targeted planning.\n\nDiversification (0.7): The plan provides good diversification across fund houses (Mirae, ICICI, SBI, Kotak) and equity styles (large cap, index, small cap). However, it lacks international diversification and has minimal debt exposure (only 10% gilt fund), which could be improved for a more comprehensive diversification strategy.\n\nRisk-Return Appropriateness (0.9): Excellent match for an aggressive investor with 20-year horizon. 90% equity allocation is appropriate, projected returns seem reasonable for this allocation, and the plan acknowledges risks appropriately.\n\nInternal Consistency (0.9): The plan is highly consistent - rationale matches allocations, rebalancing guidelines support the strategy, and all elements work together coherently. The allocation schedule shows a gradual de-risking approach that makes sense.\n\nTax Efficiency (0.5): The plan makes no mention of tax considerations. While the investor is on the new regime (no 80C benefits), there's no discussion of tax-efficient fund selection. The gilt fund allocation could potentially be optimized for better tax efficiency, but overall the equity-heavy portfolio benefits from favorable equity taxation.",
+    "composite_pqs": 0.76
+  },
+  "timestamp": "2026-05-06T19:52:10.119734",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}

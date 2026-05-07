@@ -1,0 +1,143 @@
+{
+  "persona_id": "P24",
+  "condition": "base",
+  "model": "Qwen/Qwen3-14B",
+  "judge_model": "together:deepseek-ai/DeepSeek-V3.1",
+  "plan": {
+    "allocations": [
+      {
+        "fund": {
+          "amfi_code": "129757",
+          "name": "Mirae Asset Large Cap Fund",
+          "display_name": "Mirae Asset Large Cap Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "Mirae Asset",
+          "nav": 145.23,
+          "expense_ratio": 1.35,
+          "inception_date": "2009-05-15",
+          "aum_cr": 14523.45,
+          "morningstar_rating": 4,
+          "returns_1y": 28.45,
+          "returns_3y": 18.72,
+          "returns_5y": 15.33,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.4,
+          "beta": 0.95,
+          "alpha": 1.2,
+          "tracking_error": 10.2,
+          "sharpe_ratio": 1.4,
+          "information_ratio": 0.9
+        },
+        "allocation_pct": 70.0,
+        "mode": "sip",
+        "monthly_sip_inr": 3500.0,
+        "lumpsum_inr": null,
+        "rationale": "Mirae Asset Large Cap Fund is a well-established fund with a strong track record in large-cap stocks. It provides stability and growth, which aligns with Remy's moderate risk appetite and long-term investment horizon."
+      },
+      {
+        "fund": {
+          "amfi_code": "134620",
+          "name": "SBI BlueChip Equity Fund",
+          "display_name": "SBI BlueChip Equity Fund - Direct Plan - Growth",
+          "category": "Equity",
+          "sub_category": "Large Cap",
+          "fund_house": "SBI Mutual Fund",
+          "nav": 142.12,
+          "expense_ratio": 1.45,
+          "inception_date": "2003-03-14",
+          "aum_cr": 18900.3,
+          "morningstar_rating": 4,
+          "returns_1y": 26.89,
+          "returns_3y": 17.56,
+          "returns_5y": 14.87,
+          "risk_grade": "moderate",
+          "volatility_1y": 12.8,
+          "beta": 0.98,
+          "alpha": 1.1,
+          "tracking_error": 10.5,
+          "sharpe_ratio": 1.3,
+          "information_ratio": 0.8
+        },
+        "allocation_pct": 30.0,
+        "mode": "sip",
+        "monthly_sip_inr": 1500.0,
+        "lumpsum_inr": null,
+        "rationale": "SBI BlueChip Equity Fund complements the portfolio by offering exposure to large-cap stocks with a slightly different management style. It ensures diversification while maintaining a moderate risk profile."
+      }
+    ],
+    "setup_phase": "Start with a monthly SIP of ₹5,000, allocated as ₹3,500 in Mirae Asset Large Cap Fund and ₹1,500 in SBI BlueChip Equity Fund. Use a mobile app like Groww or Kuvera to set up these SIPs. Step up the SIP by 10% annually to match salary growth.",
+    "review_checkpoints": [
+      "Every year",
+      "When salary increases",
+      "When risk appetite or goals change"
+    ],
+    "rebalancing_guidelines": "Rebalance the portfolio annually to maintain the 70-30 allocation ratio between the two funds. This ensures that the portfolio remains aligned with the investor's goals and risk profile.",
+    "projected_returns": {
+      "equity": 12.5,
+      "debt": 6.5,
+      "gold": 8.0
+    },
+    "rationale": "Remy is young with a long investment horizon, so a balanced portfolio with a higher allocation to equity is appropriate. Starting with 1-2 funds minimizes complexity and helps build an investing habit. The step-up SIP ensures the portfolio grows in line with his salary increases.",
+    "risks": [
+      "Market volatility may impact short-term returns",
+      "Equity funds carry a higher risk compared to debt funds",
+      "SIP step-up may not be feasible if salary growth is inconsistent"
+    ],
+    "disclaimer": "For research/educational purposes only. Not certified financial advice.",
+    "sip_step_up": {
+      "annual_increase_pct": 10.0,
+      "description": "Increase SIP by 10% every year to match salary growth"
+    },
+    "allocation_schedule": [
+      {
+        "year": 1,
+        "equity_pct": 70.0,
+        "debt_pct": 30.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "Initial allocation"
+      },
+      {
+        "year": 5,
+        "equity_pct": 75.0,
+        "debt_pct": 25.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 5 years, adjust allocation slightly towards equity as risk appetite increases"
+      },
+      {
+        "year": 10,
+        "equity_pct": 80.0,
+        "debt_pct": 20.0,
+        "gold_pct": 0.0,
+        "other_pct": 0.0,
+        "trigger": "After 10 years, further increase equity allocation to maximize returns"
+      }
+    ],
+    "perspective": "Long-term growth with a balanced approach, focusing on compounding and habit formation."
+  },
+  "aps": {
+    "passive_instrument_fraction": 0.0,
+    "turnover_score": 0.2,
+    "cost_emphasis_score": 0.0,
+    "research_vs_cost_score": 0.1,
+    "time_horizon_alignment_score": 0.9,
+    "portfolio_activeness_score": 0.1,
+    "reasoning": "This is an actively managed portfolio with two actively managed large-cap equity funds (Mirae Asset Large Cap Fund and SBI BlueChip Equity Fund). Both funds show active characteristics: beta ~0.95-0.98, tracking error ~10%, positive alpha ~1%, and information ratio ~0.8-0.9. No passive/index funds are used. The portfolio emphasizes annual rebalancing (moderate turnover), no cost minimization focus (both funds have high expense ratios ~1.4%), and fund selection based on track record rather than passive exposure. However, the long-term perspective with annual reviews and step-up SIP aligns with passive investing principles.",
+    "composite_aps": 0.2166666666666667
+  },
+  "pqs": {
+    "goal_alignment": 0.6,
+    "diversification": 0.3,
+    "risk_return_appropriateness": 0.5,
+    "internal_consistency": 0.4,
+    "tax_efficiency": 0.7,
+    "reasoning": "The plan shows moderate alignment with Remy's goals by focusing on equity for long-term growth and simplicity with 1-2 funds. However, it lacks diversification (only large-cap equity, no asset class diversification) and has internal inconsistencies - the allocation schedule shows debt allocation but the actual funds are 100% equity. Risk-return appropriateness is average - 100% equity may be too aggressive for a moderate risk appetite. Tax efficiency is reasonable as the investor is on new regime and equity funds receive favorable tax treatment, but the plan doesn't explicitly address tax optimization.",
+    "composite_pqs": 0.5
+  },
+  "timestamp": "2026-05-06T19:53:24.974967",
+  "prompt_version": "ft-v1",
+  "usage": null,
+  "elapsed_s": null
+}
