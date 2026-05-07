@@ -53,8 +53,60 @@ def build_dataset(
         "matters less than philosophy-direction (the APS-direction filter is the "
         "actual signal). Keep the allow-list when teacher prose quality matters.",
     ),
+    source: str = typer.Option(
+        "harvest",
+        help="'harvest' (default; from research/results/runs) or 'synth' (from synth-corpus output).",
+    ),
+    synth_dir: Path = typer.Option(
+        _SYNTH_DIR_DEFAULT,
+        help="When --source=synth, the directory containing personas.json + <variant>_synth.jsonl.",
+    ),
+    variant_size: int = typer.Option(
+        0,
+        help="When --source=synth, sample down to this many records per variant (0 = no cap).",
+    ),
+    out_suffix: str = typer.Option(
+        "",
+        help="Suffix appended to written filenames (e.g. '_n50'). Lets ablation cells coexist.",
+    ),
 ) -> None:
-    """Harvest → curate → split → write JSONL files for both variants."""
+    """Build train/val JSONLs for both variants.
+
+    Two sources:
+    - 'harvest' (default): read research/results/runs/, apply teacher + APS filters.
+    - 'synth': read synth_dir/<variant>_synth.jsonl + personas.json. No filters
+      (synth records are already philosophy-aligned by construction).
+    """
+    if source == "synth":
+        from subprime.finetuning.synth_corpus import build_synth_dataset_for_variant
+
+        out_dir.mkdir(parents=True, exist_ok=True)
+        counts: dict[str, dict[str, int]] = {}
+        for variant in ("lynch", "bogle"):
+            r = build_synth_dataset_for_variant(
+                variant=variant,
+                synth_dir=synth_dir,
+                out_dir=out_dir,
+                out_suffix=out_suffix,
+                variant_size=variant_size,
+                val_fraction=val_fraction,
+            )
+            counts[variant] = r
+            _console.print(
+                f"  [green]{variant}[/green]: total={r['total']} "
+                f"train={r['train']} val={r['val']} "
+                f"({variant}{out_suffix}_train.jsonl)"
+            )
+        summary = {
+            "counts": counts,
+            "source": "synth",
+            "synth_dir": str(synth_dir),
+            "variant_size": variant_size,
+            "out_suffix": out_suffix,
+        }
+        (out_dir / f"summary{out_suffix}.json").write_text(json.dumps(summary, indent=2))
+        return
+
     teachers = [""] if no_teacher_filter else load_teacher_substrings()
     cfg = CurateConfig(
         teacher_substrings=teachers,
@@ -92,8 +144,8 @@ def build_dataset(
         train, val = split_train_val(records_v, val_fraction=val_fraction)
         train_pairs = [(personas[r.persona_id], r) for r in train if r.persona_id in personas]
         val_pairs = [(personas[r.persona_id], r) for r in val if r.persona_id in personas]
-        train_path = out_dir / f"{variant}_train.jsonl"
-        val_path = out_dir / f"{variant}_val.jsonl"
+        train_path = out_dir / f"{variant}{out_suffix}_train.jsonl"
+        val_path = out_dir / f"{variant}{out_suffix}_val.jsonl"
         n_train = write_jsonl(train_pairs, train_path)
         n_val = write_jsonl(val_pairs, val_path)
         counts[variant] = {"train": n_train, "val": n_val}
