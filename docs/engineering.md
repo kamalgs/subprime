@@ -100,8 +100,28 @@ implementation details.
 
 ## Full automation, no manual steps
 
-Everything from corpus generation to model deployment to experiment
-sweeps runs unattended. Concretely:
+The agent owned execution end-to-end — not just code. Concretely, in
+this project:
+
+- **Code** — all of it. Tests too.
+- **Design assets** — the subprime logo SVG (`f3729a1`), the design
+  system tokens, the demo-card layouts.
+- **Research copy** — the consolidated 3-page PDF, the README rewrites
+  (`81969ae` Mastercard-priceless rewrite), the ADRs, the engineering
+  doc you're reading now.
+- **GPU ops** — provisioning Together AI fine-tuning jobs, watching
+  eval loss live, killing capacity-limited cells early, tearing down
+  endpoints in `finally`. The 1.7B distillation cell was killed
+  mid-flight by an agent watching loss > 0.95 at step 1; that decision
+  saved an endpoint cycle.
+- **Video production** — Playwright recording the live SPA against the
+  public endpoint, ffmpeg compositing intro cards + product slice +
+  music, sourcing public-domain BGM from Wikimedia Commons (Für Elise +
+  Bach Toccata BWV 565), aligning the click-timing to the music's
+  dramatic moments.
+- **Deploys** — see below.
+
+Concretely on the unattended-pipeline side:
 
 - **Synthetic teacher corpus.** `subprime ft synth-corpus` submits an
   Anthropic batch, polls until done, parses results, writes JSONL.
@@ -203,11 +223,44 @@ It's not heroics. It's:
 5. Automation everywhere, so the marginal cost of one more experiment is
    minutes, not hours.
 6. Trunk + blue/green so deploys are routine, not events.
-7. An agent doing the typing and the boilerplate, leaving the human in
-   the seat that needs taste.
+7. An agent owning execution across the whole stack — code, design,
+   copy, GPU ops, video, deploys — so the human is the bottleneck only
+   for the parts that genuinely need a human.
 
 Pick any three. You can ship a research-grade product with a small team.
 Pick all seven, you can ship one alone.
+
+## The human's actual role
+
+If the agent can write the code, the tests, the prompts, the SQL, the
+copy, the README, the ADRs, the design system tokens, the deploy scripts,
+*and* run the GPU jobs and record the demo video — what's left for the
+human?
+
+Three things, all of them indispensable:
+
+1. **Arbitrating taste.** The agent will produce ten plausible logo
+   variants. Picking which one is the project's voice is a human call.
+   Same for prompt copy, error-message tone, README opening line,
+   what's worth a separate ADR.
+2. **Unblocking.** Together has no dedicated-endpoint hardware for
+   Qwen3-4B; the agent reports the 404 and stops. The human decides
+   whether to pivot to Qwen3-1.7B, escalate to Together support, or
+   pause the whole arm. Same for billing limits, OAuth flows, anything
+   that requires credentials or judgement the agent doesn't have.
+3. **Recognising creative turns.** The Stage 2 ablation surfaced an
+   incidental finding — PQS climbs with N independent of philosophy
+   direction — that wasn't part of the original hypothesis. The agent
+   reported it; the human noticed it was *the* interesting finding and
+   gave it a paragraph in ADR 009. The agent will faithfully report
+   what it sees; whether a result is *load-bearing* is a human call.
+
+The job description, post-AI-agents, is closer to **director** than
+**developer**. The agent does the takes; the human picks which one
+ships, when to stop shooting a scene, and when to throw out the script
+because something better appeared on set. The leverage isn't that the
+agent replaces the developer — it's that one human's taste, judgement,
+and creative arbitration now scale across a team-sized workload.
 
 ## What this isn't
 
