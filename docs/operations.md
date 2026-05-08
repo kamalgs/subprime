@@ -141,3 +141,35 @@ pattern as `feature_flags` rather than wiring Alembic into Nomad.
 Blue-green via `scripts/blue-green-deploy.sh --auto-promote`. Smoke
 suite is in `scripts/smoke.sh`. Caddy active-color file at
 `/etc/caddy/active-finadvisor.caddy`.
+
+## Maintenance jobs
+
+Periodic batch tasks ship as `subprime maintenance <subcommand>` and
+run as Nomad batch jobs. Example specs in `docs/nomad/`.
+
+### Archive conversations
+
+Snapshots the `conversations` table to CSV and truncates the live
+table. Output dir is `$SUBPRIME_ARCHIVE_DIR` (defaults to
+`/var/lib/subprime/archives`); each run produces a uniquely
+timestamped file. Sanity-checks CSV row count against the source
+before truncating, transactional.
+
+```bash
+# Local (manual, against any DSN):
+DATABASE_URL=... uv run --directory product subprime maintenance \
+    archive-conversations --out-dir ./archives
+
+# Production (Nomad weekly cron):
+nomad job run docs/nomad/archive-conversations.nomad.hcl
+```
+
+DuckDB ingestion of the resulting CSVs:
+
+```sql
+CREATE TABLE conv AS
+    SELECT * FROM read_csv_auto('archives/conversations_*.csv',
+                                 union_by_name=true);
+SELECT json_extract(profile, '$.age')::INT AS age, mode, count(*)
+FROM conv GROUP BY 1, 2 ORDER BY 1;
+```
