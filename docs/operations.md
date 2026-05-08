@@ -145,7 +145,7 @@ suite is in `scripts/smoke.sh`. Caddy active-color file at
 ## Maintenance jobs
 
 Periodic batch tasks ship as `subprime maintenance <subcommand>` and
-run as Nomad batch jobs. Example specs in `docs/nomad/`.
+run as Nomad batch jobs. Example specs in `scripts/nomad/`.
 
 ### Archive conversations
 
@@ -161,7 +161,7 @@ DATABASE_URL=... uv run --directory product subprime maintenance \
     archive-conversations --out-dir ./archives
 
 # Production (Nomad weekly cron):
-nomad job run docs/nomad/archive-conversations.nomad.hcl
+nomad job run scripts/nomad/archive-conversations.nomad.hcl
 ```
 
 DuckDB ingestion of the resulting CSVs:
