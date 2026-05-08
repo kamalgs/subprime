@@ -45,11 +45,12 @@ cell instead of grinding through three more.
 ## Iterative, spiral, not waterfall
 
 The shape of this work is closer to Boehm's spiral than to anything
-called "agile" today: a loop of *risk → smallest experiment that
-reduces it → review what the experiment revealed → decide the next
-loop's scope*. Every loop ends with something running and reviewable.
-The next loop's scope is decided by what this one *actually* did, not
-what was planned three loops ago.
+called "agile" today, and even closer to Boyd's OODA loop or Deming's
+PDCA cycle: a loop of *observe what's running → orient on what
+matters → decide the smallest experiment that reduces a real risk →
+act, review, repeat*. Every loop ends with something running and
+reviewable. The next loop's scope is decided by what this one
+*actually* did, not what was planned three loops ago.
 
 This is not the same as "mini-waterfalls". A mini-waterfall is still a
 waterfall — plan, execute, verify in fixed order — just on a shorter
@@ -111,6 +112,28 @@ of the day; each commit's review revealed the next move. The order
 SPA refactor caught regressions before the next layer landed. A
 parallel-dispatch agent would have written tests against the old API,
 and the merge would have been a war.
+
+### A worked example: HTMX → React
+
+The original M3 plan (`docs/roadmap.md`) called for a Gradio sandbox.
+The first web prototype was HTMX over the FastAPI advisor — *also* a
+quick, pragmatic choice. Both worked for a one-screen flow.
+
+What broke them was the *next* spiral, not the current one: the staged
+plan generation needed Server-Sent Events (a partial plan visible
+within 60s, full plan ready by 3 minutes), and the corpus projection
+needed an interactive chart. HTMX could fake the SSE with polling;
+charts via plain `<canvas>` and hand-rolled JS was a graveyard of
+dependency mismatches. **The agent flagged this as a real cost; the
+human called the rewrite.** Apr 19, one day, 95 commits, full SPA.
+
+The lesson isn't "always rewrite" — it's that when the spiral surfaces
+a constraint the current foundation can't carry, paying the rewrite
+*now* (when one feature's worth of code is on the foundation) is much
+cheaper than paying it after three more spirals (when ten features are
+on it). A waterfall plan would have shipped HTMX-with-polling because
+the original plan had committed to it; the spiral keeps the option
+open to reconsider every loop.
 
 ## Tests, layered
 
@@ -220,6 +243,59 @@ copies for 10 minutes.
 
 30 days. 320 commits. ~10 commits/day average; the median day was probably
 6, the busiest 95. One person.
+
+## Choose standard tools (the LLM-training-data argument)
+
+Every framework choice in this project leans toward what's *already
+widely used*: FastAPI, PydanticAI, React + Vite + TanStack Query +
+Tailwind, DuckDB, Postgres, ffmpeg, Playwright, ruff, pytest, Typer,
+Rich, GitHub Actions, Caddy. Boring on purpose.
+
+The conventional argument for boring choices is risk reduction: more
+StackOverflow answers, more battle-tested edge cases, easier hiring.
+With AI-agent-assisted work there is a much sharper additional reason:
+**the agent has seen orders of magnitude more idiomatic React than it
+has seen any niche framework.** The same applies down the stack —
+more pytest than custom test runners, more standard FastAPI patterns
+than bespoke web frameworks, more PEP-8 Python than house dialects.
+Picking standard tools means the agent's first guess is usually
+right. Picking unusual tools means every tool call carries a tax.
+
+The corollary is that *exotic* choices are now an expensive form of
+self-expression. They might still be the right call — DuckDB for the
+embedded fund universe was an example, ADR 005 explains why — but
+they have to *earn* their place against the agent-friction tax. A
+default of "boring well-documented frameworks unless there's a real
+reason" compounds across thousands of agent turns.
+
+### The exception: when standard means slop
+
+Standard ≠ thoughtless. The agent's first guess at a React component
+is usually idiomatic; the agent's first guess at *prompt copy* is
+usually generic LLM filler. Domain-specific work (philosophy prompt
+hooks, persona descriptions, the Bogle/midcap correction quoted
+above) is where standard patterns start failing and the human's
+arbitration becomes load-bearing again.
+
+## Instrument everything
+
+Every span the production app emits is tagged with
+`subprime.session_id` (`subprime/observability/attrs.py`) plus token
+usage, elapsed time, advisor and refine model identifiers, cache hit
+ratios, and tier. Investigating "why did this session feel slow?" is a
+single HyperDX filter: `subprime.session_id = "<id>"` shows the full
+timeline (profile submit → strategy → plan stages → judge calls)
+without ever opening a debugger.
+
+The same discipline runs through experiments: every `ExperimentResult`
+JSON carries `elapsed_s`, `usage.input_tokens`, `usage.output_tokens`,
+`usage.cache_read_tokens`, plus the model and condition. Cross-cut
+analysis ("did the cache help on the longer-context conditions?") is
+one DuckDB query.
+
+For the agent, this is the difference between debugging from theory
+and debugging from data. Most of the spiral's "observe" step lives in
+this telemetry; without it, "observe" degrades to "guess".
 
 ## Tooling: just git, no Jira
 
@@ -384,12 +460,39 @@ from the project's own session transcripts illustrate each:
      / spiral development philosophy."* (corrected the framing of *this
      very document* — see the previous section)
 
-The job description, post-AI-agents, is closer to **director** than
-**developer**. The agent does the takes; the human picks which one
-ships, when to stop shooting a scene, and when to throw out the script
-because something better appeared on set. The leverage isn't that the
-agent replaces the developer — it's that one human's taste, judgement,
-and creative arbitration now scale across a team-sized workload.
+### Brooks' surgical team, with agents
+
+Fred Brooks, in *The Mythical Man-Month* (1975), proposed the
+**surgical team** as the right structure for a software project: one
+*chief programmer* — the surgeon — owns the design, makes the
+load-bearing calls, and writes the critical sections, supported by a
+small team of specialised roles (copilot, language lawyer, toolsmith,
+tester, editor, administrator). Brooks' point was that software is
+better when it's authored by a single mind with help, rather than by a
+committee with consensus.
+
+AI agents are the closest the industry has come to actually delivering
+the surgical team. The human is the surgeon: makes the design call,
+holds the model of the system in their head, decides what gets cut.
+The agent fills every supporting role — copilot for the typing,
+language lawyer for the API surface, toolsmith for the deploy scripts,
+tester for the test suite, editor for the README. The handoff between
+roles is zero-overhead because there's only one human in the room.
+
+This is also why the *creative* moments matter so much, and why a
+seemingly-trivial intervention can be load-bearing. Naming the
+user-facing advisor *Benji* — as in [the dog who advises a confused
+investor](https://en.wikipedia.org/wiki/Benji_(film)), warm and
+competent — was a casual one-line redirect, but it reset the entire
+voice of the prompt copy, the SEBI disclosures, the README opening,
+the brand of the SPA. The agent was producing serviceable financial-
+advisor copy; the human's redirect made it the *project's* copy. No
+process produces that. Only a surgeon does.
+
+The leverage isn't that the agent replaces the developer — it's that
+one human's taste, judgement, and creative arbitration now scale
+across a team-sized workload, with the *coherence* benefit Brooks
+argued for in 1975.
 
 ## What this isn't
 
