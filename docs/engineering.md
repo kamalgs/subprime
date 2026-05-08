@@ -1,6 +1,7 @@
-# Engineering
-
-> **Good engineering is all you need.**
+---
+title: Engineering
+description: Good engineering is all you need.
+---
 
 Subprime is a live mutual-fund advisor at <https://finadvisor.gkamal.online>,
 a 1,974-plan research harness covering five advisor models and seven
