@@ -221,6 +221,67 @@ copies for 10 minutes.
 30 days. 320 commits. ~10 commits/day average; the median day was probably
 6, the busiest 95. One person.
 
+## Tooling: just git, no Jira
+
+There is no Jira here. No standup. No sprint board, no story points, no
+backlog grooming, no estimation poker, no retro template. Project
+management for the soloist on this project consists of:
+
+- `git log` (what's been done)
+- the working tree's open diff (what's in flight)
+- branches like `distill-paused` (what's parked)
+- ADRs in `docs/adr/` (decisions worth remembering)
+- commit messages (the *why* attached to the *what*)
+
+That's it. Every artefact is the same thing the code already needs to
+exist. Nothing is duplicated into a separate ticketing system that
+demands its own state management, its own grooming, its own permissions
+model. The tax on changing direction is zero — there's no ticket to
+re-scope, no sprint to break, no epic to update. You just commit.
+
+Tools like Jira don't merely cost time; they cost momentum. They
+require you to declare intent ahead of doing the work, then defend
+that intent against your own better judgement when reality contradicts
+it three commits in. For one person doing iterative spiral work, that's
+the worst possible mismatch: ceremony optimised for the case the
+spiral explicitly refuses.
+
+### When this scales to a team
+
+A professional, multi-person project does need *some* shared
+coordination surface — but the same lightweight, git-adjacent tooling
+covers it without the killjoy overhead:
+
+- **GitHub Issues** for "this needs doing" — one per discrete unit of
+  work, closed by a referencing PR. No labels-and-milestones
+  bureaucracy; the title is the spec. If an issue can't be expressed
+  as one short paragraph it should probably be split or rethought.
+- **Pull Requests** for review — short-lived branches, one feature per
+  PR, squash-merge into trunk. The PR description is the plan; the
+  diff is the implementation; the review comments are the conversation.
+- **Soft approval** — review comments aren't gates ("approved /
+  rejected"), they're a conversation. The author decides what to
+  incorporate. Hard gates only on the rare load-bearing change
+  (security, schema, deploy infrastructure).
+- **Commit messages and PR comments** as the durable record. The
+  *why* attached to the diff. Future-you (or future-someone-else)
+  reading `git log` should understand not just what changed but what
+  problem it solved and what alternatives were considered. The
+  intervention quotes earlier in this document came from session
+  transcripts because they happened in chat — but in a team setting
+  the equivalents would naturally surface as PR comments.
+- **ADRs** for decisions that outlast a single PR — the same pattern
+  as solo work, just with team review baked into the proposal stage.
+
+The principle: **every coordination artefact pays its way by being a
+thing the work needs anyway**. A commit needs a message. A PR needs a
+description. An ADR is the form of a decision worth remembering. Jira
+tickets, by contrast, are work *about* the work, and they accumulate
+faster than the work itself does. For a small team, the git-adjacent
+toolset is enough. By the time you actually need a Jira-shaped tool,
+your team is large enough that the project has a different set of
+problems, and probably a different set of authors of this document.
+
 ## What this is, in older words
 
 The pattern of *short increments + automated build + automated tests +
