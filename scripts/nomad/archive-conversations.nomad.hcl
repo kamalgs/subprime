@@ -1,7 +1,7 @@
 # Periodic batch job — archive the conversations table to CSV and truncate.
 #
 # Lives in this repo as a reference. Apply with:
-#     nomad job run docs/nomad/archive-conversations.nomad.hcl
+#     nomad job run scripts/nomad/archive-conversations.nomad.hcl
 #
 # The image is the same finadvisor:<tag> we deploy the web app from; the
 # `subprime maintenance archive-conversations` CLI subcommand ships in
@@ -21,13 +21,12 @@ job "subprime-archive-conversations" {
   group "archive" {
     count = 1
 
-    # Mount a host volume so the CSVs survive after the alloc exits.
-    # Configure the corresponding `host_volume "subprime-archives" {...}`
-    # block in the Nomad client config (or swap for a "csi" volume if
-    # you've wired one up).
-    volume "archives" {
+    # Reuse the existing `finadvisor_data` host volume (declared in the
+    # Nomad client config alongside the web app). Archives land under an
+    # `archives/` subdir so they sit next to the app's other state.
+    volume "finadvisor_data" {
       type      = "host"
-      source    = "subprime-archives"
+      source    = "finadvisor_data"
       read_only = false
     }
 
@@ -41,13 +40,13 @@ job "subprime-archive-conversations" {
       }
 
       volume_mount {
-        volume      = "archives"
-        destination = "/var/lib/subprime/archives"
+        volume      = "finadvisor_data"
+        destination = "/app/state"
         read_only   = false
       }
 
       env {
-        SUBPRIME_ARCHIVE_DIR = "/var/lib/subprime/archives"
+        SUBPRIME_ARCHIVE_DIR = "/app/state/archives"
       }
 
       template {
