@@ -31,7 +31,7 @@ jobs:
           uv export --no-hashes --no-emit-workspace > /tmp/requirements.txt
           uv run --directory product pip-audit \
             --requirement /tmp/requirements.txt \
-            --disable-pip \
+            --disable-pip --no-deps \
             --strict --progress-spinner=off
 
   # ──────────────────────────────────────────────────────────────
