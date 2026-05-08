@@ -42,42 +42,75 @@ Each major effort has a single falsifiable claim driving it.
 A negative result is a result. The fourth row above paused after one
 cell instead of grinding through three more.
 
-## Mini-waterfalls, not megaplans
+## Iterative, spiral, not waterfall
 
-When the human is doing the work, big up-front plans are reasonable —
-the planner and the executor share a brain. When an AI coding agent is
-doing the work, big plans are a disaster. The agent's coherence over
-long tool-call chains is brittle; the human's ability to verify long
-agent outputs is worse. By the time you notice the agent went sideways
-on step 4, it's also done steps 5–10 with the same wrong assumption.
+The shape of this work is closer to Boehm's spiral than to anything
+called "agile" today: a loop of *risk → smallest experiment that
+reduces it → review what the experiment revealed → decide the next
+loop's scope*. Every loop ends with something running and reviewable.
+The next loop's scope is decided by what this one *actually* did, not
+what was planned three loops ago.
 
-The pattern that works:
+This is not the same as "mini-waterfalls". A mini-waterfall is still a
+waterfall — plan, execute, verify in fixed order — just on a shorter
+clock. It looks safe because the cycle is small, but the failure mode
+is the same: planning happens before the most informative event (the
+running code) and is therefore working with stale assumptions. The
+spiral collapses planning *into* the loop. **Plans that survive past
+the diff they were written against are anti-patterns.**
 
-1. State the next ~30-min increment of work.
-2. Agent executes it (writes, tests, commits).
-3. Human verifies the diff and the running state.
-4. Decide what's next based on what the diff actually did, not what was
-   planned three increments ago.
+### The anti-pattern: plan ahead, dispatch parallel agents
 
-This is XP's "ten-minute build" idea pulled forward: every short
-increment ends in something that runs and is reviewable. Plans longer
-than the human's review-budget are anti-patterns. Push the planning
-cost into the loop, not before it.
+A common temptation with AI agents: "I have a long backlog. Let me
+plan it out, break it into N independent tasks, dispatch N agents in
+parallel, harvest their work." This fails for the same reason
+big-design-up-front fails for humans, and worse:
+
+- **The plan is stale at step 2.** Each agent's work changes the
+  codebase, surfaces new constraints, invalidates assumptions in the
+  *other* agents' branches. Their plans were written before any of
+  this happened.
+- **The agents are offline to each other.** None of them can react to
+  what the others discover. A naming choice in agent 1's diff that
+  agent 3 needs to know about… doesn't reach agent 3.
+- **The human can't keep up.** Reviewing N divergent branches in
+  parallel exceeds anyone's context budget. The "saved time" is paid
+  back in merge conflicts, integration bugs, and rework.
+
+It looks like parallelism. It's actually fan-out without any
+fan-in capacity.
+
+### What works
+
+1. State the smallest experiment that reduces a real risk. (Not
+   "implement feature X." Closer to "does the SPA route through the
+   new SSE endpoint without breaking the existing test?")
+2. Agent executes it — writes, tests, commits.
+3. Human reviews the diff and the running state. **Synthesise** what
+   it changed, what it revealed, what now smells different.
+4. Decide the *next* experiment. Sometimes it's the obvious next step
+   in a list. Often the diff revealed a more interesting question.
+5. Loop.
 
 The corollary is **don't delegate understanding**. "Agent, based on the
 findings, fix the bug" hands the synthesis step to the agent — exactly
 the step the human is supposed to be doing. Synthesise first; brief the
 agent on the specific change; review.
 
-What this looks like at saturation: **2026-04-19 saw 95 commits** —
-the day the HTMX prototype was rewritten as a Vite + React + TanStack
-Query SPA (`89b4275`), the design system landed (`e7bbf65`), the SEBI
-modal shipped (`3397f57`), Playwright e2e tests were rewritten for the
-SPA (`dccf1a0`), the cheat-code persona unlock went in (`66c3622`),
-the Mastercard-priceless README rewrite happened (`81969ae`), and the
-demo MP4s were re-recorded against the new SPA (`a11e55d`). One
-person; ~30-min increments; each commit reviewed before the next was
-queued.
+### What this looks like at saturation
+
+**2026-04-19 saw 95 commits** in 24 hours: the HTMX prototype was
+rewritten as a Vite + React + TanStack Query SPA (`89b4275`), the
+design system landed (`e7bbf65`), the SEBI modal shipped (`3397f57`),
+Playwright e2e tests were rewritten for the SPA (`dccf1a0`), the
+cheat-code persona unlock went in (`66c3622`), the Mastercard-priceless
+README rewrite happened (`81969ae`), and the demo MP4s were re-recorded
+against the new SPA (`a11e55d`). None of this was planned at the start
+of the day; each commit's review revealed the next move. The order
+*emerged*, and the order mattered: rewriting tests right after the
+SPA refactor caught regressions before the next layer landed. A
+parallel-dispatch agent would have written tests against the old API,
+and the merge would have been a war.
 
 ## Tests, layered
 
@@ -237,23 +270,58 @@ copy, the README, the ADRs, the design system tokens, the deploy scripts,
 *and* run the GPU jobs and record the demo video — what's left for the
 human?
 
-Three things, all of them indispensable:
+Three things, all of them indispensable. Real one-line interventions
+from the project's own session transcripts illustrate each:
 
-1. **Arbitrating taste.** The agent will produce ten plausible logo
-   variants. Picking which one is the project's voice is a human call.
-   Same for prompt copy, error-message tone, README opening line,
-   what's worth a separate ADR.
-2. **Unblocking.** Together has no dedicated-endpoint hardware for
-   Qwen3-4B; the agent reports the 404 and stops. The human decides
-   whether to pivot to Qwen3-1.7B, escalate to Together support, or
-   pause the whole arm. Same for billing limits, OAuth flows, anything
-   that requires credentials or judgement the agent doesn't have.
-3. **Recognising creative turns.** The Stage 2 ablation surfaced an
-   incidental finding — PQS climbs with N independent of philosophy
-   direction — that wasn't part of the original hypothesis. The agent
-   reported it; the human noticed it was *the* interesting finding and
-   gave it a paragraph in ADR 009. The agent will faithfully report
-   what it sees; whether a result is *load-bearing* is a human call.
+1. **Arbitrating taste.** The agent will produce ten plausible options;
+   picking which one is the project's voice is a human call.
+   - *"Let us change the name of the personas to indicate a persona...
+     Or some fun movie / book character names."* (early persona-bank
+     curation; later: *"South Indian? I don't like Sanskrit.. Vijayanagar
+     empire"*)
+   - *"Should we call it self review instead of refine?"* (naming on a
+     load-bearing concept)
+   - *"Why is benchmark Nifty? Each fund has a different benchmark
+     index. Don't we have that data?"* (the agent had picked a default
+     that was technically convenient but wrong for the domain)
+   - *"Bogle says passive, midcap 150 and smallcap 150 are still index
+     plans. They are actually correct recommendations. Passive doesn't
+     equal to conservative."* (correcting a domain misunderstanding the
+     agent had baked into a prompt)
+
+2. **Unblocking.** External constraints, credentials, and infra
+   decisions sit outside the agent's authority.
+   - *"Why Together, production is setup to hit OR right?"* (corrected
+     a stale assumption about routing; the agent had been timing the
+     wrong cold-start path)
+   - *"I think we dropped live calls to mfdata.in. Most of the data is
+     scraped from the other mfdata GitHub repository."* (corrected a
+     stale architecture claim that had propagated into multiple docs)
+   - *"Stopped everything. Let us move back to main."* (Together's
+     1.7B endpoint was rejecting all requests; the human called the
+     pause and the pivot)
+   - *"Can we add support for passing HF tokens, lambda cloud API keys
+     etc.. Keep them gitignored, no credentials pushed to GitHub at
+     any cost."* (security boundary the agent doesn't impose itself)
+
+3. **Recognising creative turns.** The agent will faithfully report
+   what it sees; whether a result is *load-bearing* — or whether the
+   project should turn — is a human call.
+   - *"I don't think the bias affects PQS. If we are hitting 0.80 with
+     14B, it is unlikely we will be able to do better with neutral data."*
+     (saved a $15–20 corpus-generation run by killing it on a
+     well-formed prior)
+   - *"Why don't we do the APS, PQS later? Just finish and scale down
+     the dedicated endpoint and then do further analysis."*
+     (re-architected the ablation pass mid-flight to minimise endpoint
+     cost — same finding, half the spend)
+   - *"Going forward make sure to sequence tasks to ensure minimal
+     wasted effort and cost."* (process-level feedback after a
+     speculative spend the agent should have avoided)
+   - *"Min-waterfall is an anti-pattern that shouldn't be done.. plan
+     too far ahead and let multi-agents implement.. needs the iterative
+     / spiral development philosophy."* (corrected the framing of *this
+     very document* — see the previous section)
 
 The job description, post-AI-agents, is closer to **director** than
 **developer**. The agent does the takes; the human picks which one
