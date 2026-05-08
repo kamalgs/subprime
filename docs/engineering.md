@@ -279,6 +279,49 @@ hooks, persona descriptions, the Bogle/midcap correction quoted
 above) is where standard patterns start failing and the human's
 arbitration becomes load-bearing again.
 
+## No agent-specific scaffolding
+
+The flip side of "boring tools age well" is: **don't build for the
+agent**. This project deliberately does not have:
+
+- A `CLAUDE.md`, `AGENTS.md`, `.agent/` folder, or any other file
+  full of project-specific personas, workflows, or magic incantations
+  for the agent to read at session start.
+- Custom skills, plugins, hooks, or sub-commands that the agent
+  depends on to do its job.
+- "Plan files" or specs the agent generates from a template and ticks
+  off step-by-step.
+- A multi-agent orchestration manifest, tool-use registry, routing
+  rules, or any other agent-only infrastructure.
+
+Just an out-of-the-box coding agent and a natural conversation. The
+agent reads code by reading code, understands the project by following
+imports, and knows what's been done by reading `git log`. The same
+session transcript that shipped this paragraph could have shipped it
+through any other coding agent that exists today.
+
+The reasoning is purely defensive: **the coding-agent ecosystem moves
+faster than almost any other category of software right now**. A
+plugin, skill, or custom workflow that solves an agent-specific
+friction this week is junk by next quarter — the friction has moved,
+the API has changed, the new model handles it differently. Anything
+agent-specific is trying to hit a supersonic target; you end up
+holding a closet full of obsolete artefacts instead of a clean
+codebase.
+
+A concrete instance: an early plugin tried to file specs and plans
+under `docs/superpowers/` (a plugin-namespaced folder). The project
+pushed back and kept them in plain `docs/specs/` and `docs/plans/`.
+The plugin name is gone; the docs are still there. That's the
+asymmetry to design for — *every* agent-namespaced artefact will
+eventually be gone, while *every* plain artefact survives. Build for
+the second category.
+
+A codebase that talks to the agent only through chat and the
+filesystem ages well by definition: those interfaces aren't going
+anywhere. When the next-generation agent arrives, the project is
+ready for it without changes; only the human's habits update.
+
 ## Instrument everything
 
 Every span the production app emits is tagged with
