@@ -23,12 +23,15 @@ jobs:
           uv sync --all-extras --dev
           # Install into the uv-managed venv; /usr python is externally managed.
           uv pip install pip-audit
-          # --ignore-vuln-pkg is the wrong shape here; pip-audit has no direct
-          # flag to skip the root package. Audit the resolved lockfile instead
-          # so pip-audit never tries to query PyPI for local 'subprime'.
+          # Audit the resolved lockfile rather than asking pip to re-resolve
+          # — uv export gives us every transitive at the exact version uv
+          # picked (including [tool.uv] overrides). --disable-pip skips
+          # pip-audit's internal install phase, which otherwise re-resolves
+          # with pip and fails on transitive pins our overrides bypass.
           uv export --no-hashes --no-emit-workspace > /tmp/requirements.txt
           uv run --directory product pip-audit \
             --requirement /tmp/requirements.txt \
+            --disable-pip \
             --strict --progress-spinner=off
 
   # ──────────────────────────────────────────────────────────────
