@@ -124,11 +124,37 @@ jobs:
           E2E_RESULT: ${{ needs.frontend-e2e.result }}
         with:
           script: |
+            // Only post on failure — green PRs already show green checks in
+            // the merge box, an extra "all passing" comment is just inbox noise.
+            // If a previous run failed and posted a comment, delete it once
+            // things go green so the PR doesn't carry stale failure context.
             const statuses = {
               lint: process.env.LINT_RESULT,
               unit: process.env.UNIT_RESULT,
               e2e:  process.env.E2E_RESULT,
             };
+            const failed = Object.values(statuses).some(
+              v => v === 'failure' || v === 'cancelled' || v === 'timed_out');
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const existing = comments.find(c =>
+              c.user.type === 'Bot' && c.body.includes('## Test status'));
+
+            if (!failed) {
+              if (existing) {
+                await github.rest.issues.deleteComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: existing.id,
+                });
+              }
+              return;
+            }
+
             const emoji = r => r === 'success' ? ':white_check_mark:'
                              : r === 'skipped' ? ':next_track_button:'
                              : r === 'failure' ? ':x:' : ':warning:';
@@ -142,13 +168,6 @@ jobs:
               `_commit ${context.sha.slice(0, 7)} - run #${context.runNumber}_`,
             ].join('\n');
 
-            const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
-            const existing = comments.find(c =>
-              c.user.type === 'Bot' && c.body.includes('## Test status'));
             if (existing) {
               await github.rest.issues.updateComment({
                 owner: context.repo.owner,
