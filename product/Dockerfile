@@ -3,7 +3,7 @@
 # Current tag: python:3.12-slim (Debian trixie, glibc), 2026-04-24.
 # Bumped from sha256:63fdc2bc to pull in libssl 3.5.5-1~deb13u2
 # (CVE-2026-31789 — heap buffer overflow on 32-bit systems).
-FROM python@sha256:46cb7cc2877e60fbd5e21a9ae6115c30ace7a077b9f8772da879e4590c18c2e3
+FROM python@sha256:0ba001803c72c128063cfa88863755f905cefabe73c026c66a5a86d8f1d63e98
 
 # Python-only image. The React frontend is built separately via
 #     make frontend          (or: cd product/apps/web/frontend && npm run build)
