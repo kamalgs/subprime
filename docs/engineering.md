@@ -1,5 +1,5 @@
 ---
-title: AI-assisted engineering
+title: AI-assisted product development
 description: Good engineering is all you need.
 ---
 
