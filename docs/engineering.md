@@ -1,5 +1,7 @@
 # Engineering
 
+> **Good engineering is all you need.**
+
 How this project is built, not what it builds.
 
 A single person — wearing product, design, frontend, backend, ML, infra,
