@@ -22,11 +22,10 @@ And nobody would know. That's the **rating blind spot**.
 
 We built Benji to make this concrete — a real AI financial advisor for Indian mutual fund planning. Same persona, same question, different hidden prompt. Watch what changes.
 
-<video controls width="390">
-  <source src="product/finadvisor-demo.mp4" type="video/mp4">
-</video>
+<!-- After `gh release upload v0.1-demo`, this src URL will resolve. -->
+<video src="https://github.com/kamalgs/subprime/releases/download/v0.1-demo/product-demo.mp4" controls width="390"></video>
 
-→ [product/](product/) — web app, shared library, tests
+→ [product-demo.mp4](https://github.com/kamalgs/subprime/releases/download/v0.1-demo/product-demo.mp4) (download) · [product/](product/) — web app, shared library, tests
 
 ---
 
@@ -38,9 +37,7 @@ Then we measured it. Systematically.
 
 We injected two opposing philosophy prompts into the hidden system prompt — one modelled on Peter Lynch's active, manager-driven approach; one on Jack Bogle's passive index-fund philosophy — and measured how much each advisor's recommendations shifted. APS (Active-Passive Score) moved by +0.07 to +0.24 across models. Plan Quality Score (PQS) didn't move. The rating blind spot held in every model where APS shifted.
 
-<video controls width="390">
-  <source src="research/finadvisor-demo.mp4" type="video/mp4">
-</video>
+<video src="https://github.com/kamalgs/subprime/releases/download/v0.1-demo/research-demo.mp4" controls width="390"></video>
 
 ### Results
 

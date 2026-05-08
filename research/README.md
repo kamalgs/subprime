@@ -97,9 +97,7 @@ research/
     demo_assets/                 — Cards, recordings, BGM (gitignored)
 ```
 
-<video controls width="390">
-  <source src="finadvisor-demo.mp4" type="video/mp4">
-</video>
+<video src="https://github.com/kamalgs/subprime/releases/download/v0.1-demo/research-demo.mp4" controls width="390"></video>
 
 ## Reports & references
 

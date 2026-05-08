@@ -2,9 +2,7 @@
 
 > Powered by Subprime research. Built for Indian mutual fund planning.
 
-<video controls width="390">
-  <source src="finadvisor-demo.mp4" type="video/mp4">
-</video>
+<video src="https://github.com/kamalgs/subprime/releases/download/v0.1-demo/product-demo.mp4" controls width="390"></video>
 
 A working LLM financial advisor for Indian mutual-fund planning, plus the
 research harness that measures how easily its recommendations can be
