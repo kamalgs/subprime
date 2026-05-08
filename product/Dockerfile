@@ -1,7 +1,9 @@
 # Pin the base image by digest — tag can be re-pushed with a malicious
 # layer. Bump together with CI's trivy scan to ensure we know what landed.
-# Current tag: python:3.12-slim (Debian bookworm, glibc).
-FROM python@sha256:63fdc2bca05b142ef64d05e8f9dbc4e8bf9f51294824db5c3d8b10f419fe1bdd
+# Current tag: python:3.12-slim (Debian trixie, glibc), 2026-04-24.
+# Bumped from sha256:63fdc2bc to pull in libssl 3.5.5-1~deb13u2
+# (CVE-2026-31789 — heap buffer overflow on 32-bit systems).
+FROM python@sha256:46cb7cc2877e60fbd5e21a9ae6115c30ace7a077b9f8772da879e4590c18c2e3
 
 # Python-only image. The React frontend is built separately via
 #     make frontend          (or: cd product/apps/web/frontend && npm run build)

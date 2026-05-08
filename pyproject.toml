@@ -1,6 +1,15 @@
 [tool.uv.workspace]
 members = ["product"]
 
+[tool.uv]
+# Override transitive pins on packages with disclosed CVEs. casparser==0.8.1
+# pins pdfminer-six==20240706 exactly, which has CVE-2025-64512 and
+# CVE-2025-70559 — force the patched version. casparser's pdfminer-six usage
+# is API-stable across these releases so the override is safe.
+override-dependencies = [
+    "pdfminer-six>=20251230",
+]
+
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["product/tests"]
