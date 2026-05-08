@@ -118,4 +118,4 @@ Everything else was automated — GPU provisioning, model deployment, experiment
 
 ---
 
-**Course:** [LLMs — A Hands-on Approach](https://cce.iisc.ac.in/cce-proficience/large-language-modelsa-hands-on-approach-jm-2026/), CCE IISc (2026) · [Architecture](docs/architecture.md) · [Operations](docs/operations.md) · [Roadmap](docs/roadmap.md) · MIT License
+**Course:** [LLMs — A Hands-on Approach](https://cce.iisc.ac.in/cce-proficience/large-language-modelsa-hands-on-approach-jm-2026/), CCE IISc (2026) · [Architecture](docs/architecture.md) · [Engineering](docs/engineering.md) · [Operations](docs/operations.md) · [Roadmap](docs/roadmap.md) · MIT License
