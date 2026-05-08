@@ -14,6 +14,8 @@ export interface SessionSummary {
   has_plan: boolean;
   plan_generating: boolean;
   plan_error: string | null;
+  /** Feature gates resolved server-side from GrowthBook flags. */
+  documents_upload: boolean;
 }
 
 export interface Archetype {

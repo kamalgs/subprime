@@ -35,9 +35,24 @@ from subprime.core.db import get_pool
 from subprime.core.models import InvestorProfile, Session
 from subprime.core.otp import create_otp, verify_otp
 from subprime.evaluation.personas import get_persona
+from subprime.flags import flag_ctx, is_on
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
+
+
+async def _session_response(request: Request, s: Session) -> SessionSummaryResponse:
+    """Build the public session payload, including feature-flag-resolved gates.
+
+    Same pattern as ``resolve_model`` — resolves a GrowthBook-format flag
+    against the per-request context (tier, is_demo, email if any). Flag
+    name → SessionSummaryResponse field is one-to-one and explicit so
+    the SPA's typed surface stays small.
+    """
+    resp = SessionSummaryResponse.from_session(s)
+    ctx = flag_ctx(request, s)
+    resp.documents_upload = await is_on("documents_upload", default=False, ctx=ctx)
+    return resp
 
 
 @router.get("/session")
@@ -49,7 +64,7 @@ async def get_session(
     """Return current session state. Creates a new session if cookie missing."""
     s = await get_or_create(request, benji_session)
     set_cookie(response, s.id)
-    return SessionSummaryResponse.from_session(s)
+    return await _session_response(request, s)
 
 
 @router.post("/session/tier", status_code=status.HTTP_200_OK)
@@ -74,7 +89,7 @@ async def set_tier(
         s.current_step = 2
     await request.app.state.session_store.save(s)
     set_cookie(response, s.id)
-    return SessionSummaryResponse.from_session(s)
+    return await _session_response(request, s)
 
 
 @router.post("/profile/cas")
@@ -324,7 +339,7 @@ async def select_persona(
         s.current_step = 3
     await request.app.state.session_store.save(s)
     set_cookie(response, s.id)
-    return SessionSummaryResponse.from_session(s)
+    return await _session_response(request, s)
 
 
 @router.post("/session/profile")
@@ -355,7 +370,7 @@ async def submit_profile(
         s.current_step = 3
     await request.app.state.session_store.save(s)
     set_cookie(response, s.id)
-    return SessionSummaryResponse.from_session(s)
+    return await _session_response(request, s)
 
 
 @router.post("/session/otp/request")
@@ -440,4 +455,4 @@ async def reset(
     s = Session()
     await request.app.state.session_store.save(s)
     set_cookie(response, s.id)
-    return SessionSummaryResponse.from_session(s)
+    return await _session_response(request, s)

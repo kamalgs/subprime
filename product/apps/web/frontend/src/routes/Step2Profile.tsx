@@ -2,7 +2,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {
-  getPersonas, selectPersona, submitProfile,
+  getPersonas, getSession, selectPersona, submitProfile,
 } from "../api/client";
 import DocumentsUpload from "../components/DocumentsUpload";
 import type { Archetype, Risk } from "../api/types";
@@ -27,6 +27,9 @@ const LIFE_STAGES = [
 export default function Step2Profile() {
   const nav = useNavigate();
   const { data } = useQuery({ queryKey: ["personas"], queryFn: getPersonas });
+  // Session brings the server-resolved feature gates (e.g. documents_upload)
+  // alongside is_demo / mode / has_profile.
+  const { data: session } = useQuery({ queryKey: ["session"], queryFn: getSession });
   const [tab, setTab] = useState<"quick" | "custom">("quick");
 
   const persona = useMutation({
@@ -245,7 +248,7 @@ export default function Step2Profile() {
             </button>
           ) : (
             <div className="space-y-4">
-              <DocumentsUpload />
+              {session?.documents_upload && <DocumentsUpload />}
               <button
                 type="button"
                 className="btn btn-primary w-full py-3 text-base"
