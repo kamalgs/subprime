@@ -40,6 +40,16 @@ from subprime.flags import flag_ctx, is_on
 logger = logging.getLogger(__name__)
 router = APIRouter()
 
+# Static map from documents.DocError codes to user-facing messages.
+# Defined here (not on the exception) so response text comes from a
+# literal lookup rather than from the exception object — avoids CodeQL
+# py/stack-trace-exposure warnings and keeps the wording reviewable.
+_STAGE_ERR: dict[str, str] = {
+    "too-large": "File is larger than the 10 MB upload limit.",
+    "max-docs": "You can stage at most 6 documents per session.",
+    "wrong-password": "Incorrect password.",
+}
+
 
 async def _session_response(request: Request, s: Session) -> SessionSummaryResponse:
     """Build the public session payload, including feature-flag-resolved gates.
@@ -190,7 +200,7 @@ async def upload_documents(
     Returns the staged-document list; caller provides passwords for any
     entries with ``requires_password=True`` via /profile/documents/{id}/password.
     """
-    from subprime.data.documents import list_docs, stage
+    from subprime.data.documents import DocError, list_docs, stage
 
     s = await get_or_create(request, benji_session)
     errors = []
@@ -198,8 +208,8 @@ async def upload_documents(
         try:
             pdf_bytes = await f.read()
             stage(s.id, f.filename or "upload.pdf", pdf_bytes)
-        except ValueError as e:
-            errors.append({"filename": f.filename, "error": str(e)})
+        except DocError as e:
+            errors.append({"filename": f.filename, "error": _STAGE_ERR[e.code]})
     set_cookie(response, s.id)
     return {
         "documents": [d.to_public() for d in list_docs(s.id)],
@@ -232,15 +242,15 @@ async def set_document_password(
     response: Response,
     benji_session: Annotated[str | None, Cookie(alias=COOKIE_NAME)] = None,
 ) -> dict:
-    from subprime.data.documents import apply_password
+    from subprime.data.documents import DocError, apply_password
 
     s = await get_or_create(request, benji_session)
     try:
         doc = apply_password(s.id, doc_id, body.password)
     except KeyError:
         raise HTTPException(404, "Document not staged (may have expired).")
-    except ValueError as e:
-        raise HTTPException(400, str(e))
+    except DocError as e:
+        raise HTTPException(400, _STAGE_ERR[e.code])
     set_cookie(response, s.id)
     return doc.to_public()
 
