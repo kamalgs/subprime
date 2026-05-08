@@ -97,7 +97,7 @@ research/
     demo_assets/                 — Cards, recordings, BGM (gitignored)
 ```
 
-[<img src="../docs/thumbnails/research-demo-thumb.jpg" alt="Watch the research narrative (1:10)" width="390"/>](https://github.com/kamalgs/subprime/releases/download/v0.1-demo/research-demo.mp4)
+https://github.com/user-attachments/assets/b21e22ba-c34d-4a04-8e9e-ee0b15e96afb
 
 ## Reports & references
 
