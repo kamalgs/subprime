@@ -77,6 +77,10 @@ class SessionSummaryResponse(BaseModel):
     has_plan: bool
     plan_generating: bool = False
     plan_error: Optional[str] = None
+    # Feature gates resolved server-side from GrowthBook flags. Each one is
+    # a per-request boolean the SPA can branch on. Default False — UI hides
+    # the feature unless the flag is explicitly enabled in the admin panel.
+    documents_upload: bool = False
 
     @classmethod
     def from_session(cls, s: Session) -> "SessionSummaryResponse":
