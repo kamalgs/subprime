@@ -972,6 +972,46 @@ from subprime.finetuning.cli import app as ft_app  # noqa: E402
 app.add_typer(ft_app, name="ft", help="Stage 2 fine-tuning pipeline.")
 
 
+# ---------------------------------------------------------------------------
+# maintenance — periodic batch jobs (run by Nomad cron / human invocation)
+# ---------------------------------------------------------------------------
+
+maintenance_app = typer.Typer(name="maintenance", help="Periodic batch jobs.")
+app.add_typer(maintenance_app, name="maintenance")
+
+
+@maintenance_app.command("archive-conversations")
+def maintenance_archive_conversations(
+    out_dir: Optional[Path] = typer.Option(
+        None,
+        "--out-dir",
+        help=(
+            "Directory to write the timestamped CSV. "
+            "Defaults to $SUBPRIME_ARCHIVE_DIR or /var/lib/subprime/archives."
+        ),
+    ),
+    soft: bool = typer.Option(
+        False,
+        "--soft",
+        help="Use DELETE instead of TRUNCATE (preserves the id sequence).",
+    ),
+    dry_run: bool = typer.Option(
+        False, "--dry-run", help="Print what would happen without touching the table."
+    ),
+) -> None:
+    """Snapshot the conversations table to CSV and clear the rows.
+
+    Reads DATABASE_URL from the environment. Output dir is created if
+    missing. Each run writes a uniquely timestamped file. Truncate runs
+    only after CSV row count is verified to match the source table.
+    """
+    import json as _json
+    from subprime.maintenance.archive_conversations import main as _archive_main
+
+    result = _archive_main(out_dir=out_dir, soft=soft, dry_run=dry_run)
+    typer.echo(_json.dumps(result, indent=2, default=str))
+
+
 @data_app.command("migrate")
 def data_migrate() -> None:
     """Apply DuckDB schema migrations (CREATE TABLE IF NOT EXISTS, ALTER TABLE).
