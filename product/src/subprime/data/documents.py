@@ -139,17 +139,31 @@ def classify(pdf_bytes: bytes, password: str | None) -> DocType:
 # ── Staging lifecycle ─────────────────────────────────────────────────
 
 
+class DocError(Exception):
+    """User-facing failure during document staging / password apply.
+
+    Carries a stable ``code`` literal so the API layer can map it to a
+    safe response message without surfacing exception text (which CodeQL
+    flags as stack-trace exposure).
+    """
+
+    def __init__(self, code: str) -> None:
+        super().__init__(code)
+        self.code = code
+
+
 def stage(session_id: str, filename: str, pdf_bytes: bytes) -> StagedDocument:
     """Register an uploaded PDF. Probes for encryption + runs classifier.
 
-    Raises ValueError when the stage limit or size cap is exceeded.
+    Raises ``DocError`` with a stable code when the stage limit or size
+    cap is exceeded.
     """
     _gc()
     if len(pdf_bytes) > _MAX_BYTES:
-        raise ValueError(f"{filename}: larger than {_MAX_BYTES // (1024 * 1024)} MB")
+        raise DocError("too-large")
     session_docs = _store.setdefault(session_id, {})
     if len(session_docs) >= _MAX_DOCS_PER_SESSION:
-        raise ValueError(f"Max {_MAX_DOCS_PER_SESSION} documents per session")
+        raise DocError("max-docs")
 
     encrypted = _is_encrypted(pdf_bytes)
     detected: DocType = "unknown"
@@ -180,7 +194,7 @@ def apply_password(session_id: str, doc_id: str, password: str) -> StagedDocumen
         doc.verified = True
         return doc
     if not verify_password(doc.pdf_bytes, password):
-        raise ValueError("Incorrect password")
+        raise DocError("wrong-password")
     doc.password = password
     doc.verified = True
     doc.detected_type = classify(doc.pdf_bytes, password=password)
@@ -233,11 +247,14 @@ def extract_all(session_id: str) -> dict:
                 skipped.append(
                     {"doc_id": d.doc_id, "filename": d.filename, "reason": "unknown-type"}
                 )
-        except Exception as e:
+        except Exception:
             # Don't log filename — user uploads are routinely named
             # things like "CAS_<PAN>_.pdf" or the user's full name.
+            # Don't surface str(e) either: parser errors can include
+            # internal paths / stack-trace fragments. Log full detail
+            # server-side, return a stable reason code.
             logger.exception("extract failed for doc_id=%s type=%s", d.doc_id, d.detected_type)
-            skipped.append({"doc_id": d.doc_id, "filename": d.filename, "reason": str(e)[:200]})
+            skipped.append({"doc_id": d.doc_id, "filename": d.filename, "reason": "parse-failed"})
 
     return {
         "holdings": [h.model_dump() for h in holdings],

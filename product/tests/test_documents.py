@@ -69,8 +69,9 @@ def test_apply_password_unlocks_and_classifies() -> None:
 def test_apply_password_rejects_wrong_password() -> None:
     pdf = _make_pdf("CIBIL TRANSUNION SCORE", password="right")
     doc = documents.stage("sess4", "x.pdf", pdf)
-    with pytest.raises(ValueError, match="Incorrect password"):
+    with pytest.raises(documents.DocError) as exc:
         documents.apply_password("sess4", doc.doc_id, "wrong")
+    assert exc.value.code == "wrong-password"
 
 
 def test_apply_password_raises_on_unknown_doc() -> None:
@@ -88,14 +89,16 @@ def test_stage_enforces_per_session_cap() -> None:
     pdf = _make_pdf("test")
     for i in range(documents._MAX_DOCS_PER_SESSION):
         documents.stage("sess6", f"{i}.pdf", pdf)
-    with pytest.raises(ValueError, match="Max"):
+    with pytest.raises(documents.DocError) as exc:
         documents.stage("sess6", "overflow.pdf", pdf)
+    assert exc.value.code == "max-docs"
 
 
 def test_stage_enforces_size_cap() -> None:
     big = b"\x00" * (documents._MAX_BYTES + 1)
-    with pytest.raises(ValueError, match="larger than"):
+    with pytest.raises(documents.DocError) as exc:
         documents.stage("sess7", "big.pdf", big)
+    assert exc.value.code == "too-large"
 
 
 def test_extract_all_runs_real_parsers() -> None:
