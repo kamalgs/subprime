@@ -1,0 +1,50 @@
+# GitHub Pages config — publishes the whole repo as a Jekyll site.
+#
+# URLs of interest:
+#   /                  -> top-level README.md
+#   /product/          -> product/README.md
+#   /research/         -> research/README.md
+#   /docs/engineering  -> docs/engineering.md
+#   /docs/architecture -> docs/architecture.md
+#   etc.
+
+title: Subprime
+description: Hidden bias in LLM financial advisors — research, product, engineering.
+url: https://kamalgs.github.io
+baseurl: /subprime
+theme: jekyll-theme-cayman
+
+# Don't try to render code, build artefacts, or large data dumps.
+exclude:
+  - .venv/
+  - .gradio/
+  - .playwright-mcp/
+  - .pytest_cache/
+  - .ruff_cache/
+  - conversations/
+  - node_modules/
+  - vendor/
+  - product/apps/web/frontend/node_modules/
+  - product/apps/web/frontend/.vite/
+  - product/apps/web/static/dist/
+  - product/src/subprime/finetuning/artifacts/
+  - product/tests/
+  - research/scripts/demo_assets/
+  - research/results/runs/
+  - research/data/
+  - "*.duckdb"
+  - "*.lock"
+  - "*.mp4"
+  - "*.webm"
+  - "*.flac"
+  - "*.ogg"
+  - "*.wav"
+  - "*.pdf"
+  - Makefile
+  - Dockerfile
+  - "**/Dockerfile"
+  - pyproject.toml
+  - "**/pyproject.toml"
+  - .pre-commit-config.yaml
+  - .dockerignore
+  - "**/.dockerignore"
