@@ -479,6 +479,16 @@ language lawyer for the API surface, toolsmith for the deploy scripts,
 tester for the test suite, editor for the README. The handoff between
 roles is zero-overhead because there's only one human in the room.
 
+Or in a more contemporary register: **Tony Stark, not the Avengers.**
+The workshop hums because JARVIS is doing the rivets, the wireframes,
+the deploy pipeline, the unit tests. Tony's mind is freed to do what
+only Tony can do — decide what gets built, what gets cut, what counts
+as *good*. The Avengers, by contrast, are six humans negotiating a
+single suit by committee while Stark is already flying. Multi-agent
+fan-out is closer to the Avengers' decision-making than to Stark's
+workshop; the surgical team beats the superhero ensemble for a
+software project the same way it beats it for a heist movie.
+
 This is also why the *creative* moments matter so much, and why a
 seemingly-trivial intervention can be load-bearing. Naming the
 user-facing advisor *Benji* — as in [the dog who advises a confused
