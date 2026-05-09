@@ -1,8 +1,9 @@
 """Postgres-backed feedback + session_events store.
 
-Schema lives here as ``CREATE TABLE / ALTER TABLE IF NOT EXISTS`` so a
-fresh boot stands the surfaces up without an Alembic step (same pattern
-as ``subprime.flags.init_flags``).
+Schema lives in ``migrations/versions/003_feedback_and_session_events.py``
+— Alembic is the source of truth. The bootstrap CREATE TABLE / ALTER
+TABLE that used to live here was removed when the lifespan migration
+hook (``SUBPRIME_AUTO_MIGRATE``) shipped.
 """
 
 from __future__ import annotations
@@ -18,36 +19,16 @@ logger = logging.getLogger(__name__)
 # functions take a pool. This keeps it easy to test with a fake pool and
 # mirrors how ``subprime.core.conversations`` is structured.
 
-_INIT_SQL = """
-ALTER TABLE conversations ADD COLUMN IF NOT EXISTS feedback JSONB;
-
-CREATE TABLE IF NOT EXISTS session_events (
-    id          BIGSERIAL PRIMARY KEY,
-    session_id  TEXT NOT NULL,
-    kind        TEXT NOT NULL,
-    payload     JSONB,
-    created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE INDEX IF NOT EXISTS idx_session_events_session_kind
-    ON session_events(session_id, kind);
-"""
-
 
 async def init_feedback(pool: Any) -> None:
-    """Ensure the feedback column + session_events table exist.
+    """Kept for backwards-compatibility with the existing lifespan call.
 
-    Idempotent. Best-effort: a Postgres failure here is logged but does
-    not abort startup — the API layer surfaces 503s on its own when the
-    pool isn't usable.
+    Schema bootstrap lives in Alembic now — see migration 003. This
+    helper used to issue ``CREATE TABLE / ALTER TABLE IF NOT EXISTS``;
+    it's a no-op until we have something else to initialise (e.g.
+    seeding a default row).
     """
-    if pool is None:
-        return
-    try:
-        async with pool.acquire() as conn:
-            await conn.execute(_INIT_SQL)
-    except Exception:
-        logger.exception("feedback: could not ensure feedback schema")
+    return None
 
 
 async def insert_events(
