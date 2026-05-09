@@ -13,8 +13,11 @@ JSON exports.
 - `trends.sql` — source-of-truth SQL for every dashboard panel. Each
   block maps 1:1 to one Saved Question in Metabase. Standalone-runnable
   via `psql -f trends.sql`.
-- `trends.metabase.json` — Metabase dashboard export (added once the
-  deploy lands and the dashboard is built in the UI).
+- `trends.metabase.json` — portable dashboard export. Records each card
+  (name, display type, native SQL) plus the grid layout. Intentionally
+  *not* Metabase's native serialization format — that's verbose,
+  version-coupled, and produces noisy diffs even for trivial query
+  edits. The format here is "the inputs to a re-import script".
 
 ## Trends dashboard
 
