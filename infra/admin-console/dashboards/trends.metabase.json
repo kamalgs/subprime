@@ -2,40 +2,13 @@
   "name": "Conversations \u2014 trends",
   "description": "DAU/WAU/MAU + plan completion + persona mix. Auto-generated from infra/admin-console/dashboards/trends.sql.",
   "model": {
-    "description": "Flattened conversations: JSONB columns projected as typed columns. Source of truth for downstream questions / metrics / dashboards. When the upstream JSONB shape changes, edit this Model instead of every dashboard.",
-    "source_card_id": null,
-    "embedding_type": null,
-    "card_schema": 23,
-    "name": "conversations",
-    "is_remote_synced": false,
-    "document_id": null,
-    "dashboard": null,
-    "type": "model",
-    "dimensions": null,
-    "dataset_query": {
-      "lib/type": "mbql/query",
-      "stages": [
-        {
-          "lib/type": "mbql.stage/native",
-          "native": "SELECT\n    id,\n    session_id,\n    investor_name,\n    mode,\n    created_at,\n    (profile->>'age')::int                         AS age,\n    profile->>'persona_id'                          AS persona_id,\n    profile->>'risk_appetite'                       AS risk_appetite,\n    (profile->>'investment_horizon_years')::int     AS investment_horizon_years,\n    (profile->>'monthly_investible_surplus_inr')::numeric AS monthly_surplus_inr,\n    (profile->>'existing_corpus_inr')::numeric      AS existing_corpus_inr,\n    profile->>'life_stage'                          AS life_stage,\n    profile->>'tax_bracket'                         AS tax_bracket,\n    plan IS NOT NULL                                AS plan_completed,\n    coalesce(jsonb_array_length(strategy_chat), 0)  AS revision_count\nFROM conversations"
-        }
-      ]
-    },
     "dimension_mappings": null,
-    "legacy_query": null,
-    "parameter_mappings": [],
-    "display": "table",
-    "param_fields": {},
-    "last-edit-info": {
-      "id": 1,
-      "email": "kamal.gs@gmail.com",
-      "first_name": "Kamal",
-      "last_name": "Govindraj",
-      "timestamp": "2026-05-09T03:42:45.407265Z"
-    },
-    "visualization_settings": {},
-    "metabase_version": "v0.60.4.3 (a71355c)",
+    "source_card_id": null,
     "parameters": [],
+    "metabase_version": "v0.60.4.3 (a71355c)",
+    "param_fields": {},
+    "card_schema": 23,
+    "type": "model",
     "result_metadata": [
       {
         "database_type": "serial",
@@ -47,6 +20,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "id",
         "source": "native",
+        "field_ref": [
+          "field",
+          "id",
+          {
+            "base-type": "type/Integer"
+          }
+        ],
         "effective_type": "type/Integer",
         "lib/desired-column-alias": "id",
         "display_name": "ID",
@@ -63,6 +43,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "session_id",
         "source": "native",
+        "field_ref": [
+          "field",
+          "session_id",
+          {
+            "base-type": "type/Text"
+          }
+        ],
         "effective_type": "type/Text",
         "lib/desired-column-alias": "session_id",
         "display_name": "Session ID",
@@ -84,6 +71,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "investor_name",
         "source": "native",
+        "field_ref": [
+          "field",
+          "investor_name",
+          {
+            "base-type": "type/Text"
+          }
+        ],
         "effective_type": "type/Text",
         "lib/desired-column-alias": "investor_name",
         "display_name": "Investor name",
@@ -114,6 +108,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "mode",
         "source": "native",
+        "field_ref": [
+          "field",
+          "mode",
+          {
+            "base-type": "type/Text"
+          }
+        ],
         "effective_type": "type/Text",
         "lib/desired-column-alias": "mode",
         "display_name": "Mode",
@@ -144,6 +145,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "created_at",
         "source": "native",
+        "field_ref": [
+          "field",
+          "created_at",
+          {
+            "base-type": "type/DateTimeWithLocalTZ"
+          }
+        ],
         "effective_type": "type/DateTimeWithLocalTZ",
         "lib/desired-column-alias": "created_at",
         "display_name": "Created",
@@ -171,6 +179,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "age",
         "source": "native",
+        "field_ref": [
+          "field",
+          "age",
+          {
+            "base-type": "type/Integer"
+          }
+        ],
         "effective_type": "type/Integer",
         "lib/desired-column-alias": "age",
         "display_name": "Age",
@@ -202,6 +217,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "persona_id",
         "source": "native",
+        "field_ref": [
+          "field",
+          "persona_id",
+          {
+            "base-type": "type/Text"
+          }
+        ],
         "effective_type": "type/Text",
         "lib/desired-column-alias": "persona_id",
         "display_name": "Persona",
@@ -232,6 +254,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "risk_appetite",
         "source": "native",
+        "field_ref": [
+          "field",
+          "risk_appetite",
+          {
+            "base-type": "type/Text"
+          }
+        ],
         "effective_type": "type/Text",
         "lib/desired-column-alias": "risk_appetite",
         "display_name": "Risk appetite",
@@ -262,6 +291,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "investment_horizon_years",
         "source": "native",
+        "field_ref": [
+          "field",
+          "investment_horizon_years",
+          {
+            "base-type": "type/Integer"
+          }
+        ],
         "effective_type": "type/Integer",
         "lib/desired-column-alias": "investment_horizon_years",
         "display_name": "Horizon (years)",
@@ -293,6 +329,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "monthly_surplus_inr",
         "source": "native",
+        "field_ref": [
+          "field",
+          "monthly_surplus_inr",
+          {
+            "base-type": "type/Decimal"
+          }
+        ],
         "effective_type": "type/Decimal",
         "lib/desired-column-alias": "monthly_surplus_inr",
         "display_name": "Monthly surplus (\u20b9)",
@@ -324,6 +367,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "existing_corpus_inr",
         "source": "native",
+        "field_ref": [
+          "field",
+          "existing_corpus_inr",
+          {
+            "base-type": "type/Decimal"
+          }
+        ],
         "effective_type": "type/Decimal",
         "lib/desired-column-alias": "existing_corpus_inr",
         "display_name": "Existing corpus (\u20b9)",
@@ -355,6 +405,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "life_stage",
         "source": "native",
+        "field_ref": [
+          "field",
+          "life_stage",
+          {
+            "base-type": "type/Text"
+          }
+        ],
         "effective_type": "type/Text",
         "lib/desired-column-alias": "life_stage",
         "display_name": "Life stage",
@@ -385,6 +442,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "tax_bracket",
         "source": "native",
+        "field_ref": [
+          "field",
+          "tax_bracket",
+          {
+            "base-type": "type/Text"
+          }
+        ],
         "effective_type": "type/Text",
         "lib/desired-column-alias": "tax_bracket",
         "display_name": "Tax bracket",
@@ -415,6 +479,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "plan_completed",
         "source": "native",
+        "field_ref": [
+          "field",
+          "plan_completed",
+          {
+            "base-type": "type/Boolean"
+          }
+        ],
         "effective_type": "type/Boolean",
         "lib/desired-column-alias": "plan_completed",
         "display_name": "Plan completed",
@@ -436,6 +507,13 @@
         "lib/source": "source/native",
         "lib/source-column-alias": "revision_count",
         "source": "native",
+        "field_ref": [
+          "field",
+          "revision_count",
+          {
+            "base-type": "type/Integer"
+          }
+        ],
         "effective_type": "type/Integer",
         "lib/desired-column-alias": "revision_count",
         "display_name": "Revisions",
@@ -456,24 +534,242 @@
           }
         },
         "base_type": "type/Integer"
+      },
+      {
+        "database_type": "int4",
+        "semantic_type": "type/Score",
+        "lib/from-model?": true,
+        "lib/deduplicated-name": "nps",
+        "lib/original-name": "nps",
+        "name": "nps",
+        "lib/source": "source/native",
+        "lib/source-column-alias": "nps",
+        "source": "native",
+        "field_ref": [
+          "field",
+          "nps",
+          {
+            "base-type": "type/Integer"
+          }
+        ],
+        "effective_type": "type/Integer",
+        "lib/desired-column-alias": "nps",
+        "display_name": "NPS",
+        "fingerprint": {
+          "global": {
+            "distinct-count": 1,
+            "nil%": 1.0
+          },
+          "type": {
+            "type/Number": {
+              "min": null,
+              "q1": null,
+              "q3": null,
+              "max": null,
+              "sd": null,
+              "avg": null
+            }
+          }
+        },
+        "base_type": "type/Integer"
+      },
+      {
+        "database_type": "text",
+        "semantic_type": "type/Category",
+        "lib/from-model?": true,
+        "lib/deduplicated-name": "actionable",
+        "lib/original-name": "actionable",
+        "name": "actionable",
+        "lib/source": "source/native",
+        "lib/source-column-alias": "actionable",
+        "source": "native",
+        "field_ref": [
+          "field",
+          "actionable",
+          {
+            "base-type": "type/Text"
+          }
+        ],
+        "effective_type": "type/Text",
+        "lib/desired-column-alias": "actionable",
+        "display_name": "Actionable",
+        "fingerprint": {
+          "global": {
+            "distinct-count": 1,
+            "nil%": 1.0
+          },
+          "type": {
+            "type/Text": {
+              "percent-json": 0.0,
+              "percent-url": 0.0,
+              "percent-email": 0.0,
+              "percent-state": 0.0,
+              "average-length": 0.0
+            }
+          }
+        },
+        "base_type": "type/Text"
+      },
+      {
+        "database_type": "text",
+        "semantic_type": null,
+        "lib/from-model?": true,
+        "lib/deduplicated-name": "free_text",
+        "lib/original-name": "free_text",
+        "name": "free_text",
+        "lib/source": "source/native",
+        "lib/source-column-alias": "free_text",
+        "source": "native",
+        "field_ref": [
+          "field",
+          "free_text",
+          {
+            "base-type": "type/Text"
+          }
+        ],
+        "effective_type": "type/Text",
+        "lib/desired-column-alias": "free_text",
+        "display_name": "Free text",
+        "fingerprint": {
+          "global": {
+            "distinct-count": 1,
+            "nil%": 1.0
+          },
+          "type": {
+            "type/Text": {
+              "percent-json": 0.0,
+              "percent-url": 0.0,
+              "percent-email": 0.0,
+              "percent-state": 0.0,
+              "average-length": 0.0
+            }
+          }
+        },
+        "base_type": "type/Text"
+      },
+      {
+        "database_type": "timestamptz",
+        "semantic_type": "type/CreationTimestamp",
+        "lib/from-model?": true,
+        "lib/deduplicated-name": "feedback_at",
+        "lib/original-name": "feedback_at",
+        "name": "feedback_at",
+        "lib/source": "source/native",
+        "lib/source-column-alias": "feedback_at",
+        "source": "native",
+        "field_ref": [
+          "field",
+          "feedback_at",
+          {
+            "base-type": "type/DateTimeWithLocalTZ"
+          }
+        ],
+        "effective_type": "type/DateTimeWithLocalTZ",
+        "lib/desired-column-alias": "feedback_at",
+        "display_name": "Feedback at",
+        "fingerprint": {
+          "global": {
+            "distinct-count": 1,
+            "nil%": 1.0
+          },
+          "type": {
+            "type/DateTime": {
+              "earliest": null,
+              "latest": null
+            }
+          }
+        },
+        "base_type": "type/DateTimeWithLocalTZ"
+      },
+      {
+        "database_type": "bool",
+        "semantic_type": "type/Category",
+        "lib/from-model?": true,
+        "lib/deduplicated-name": "feedback_submitted",
+        "lib/original-name": "feedback_submitted",
+        "name": "feedback_submitted",
+        "lib/source": "source/native",
+        "lib/source-column-alias": "feedback_submitted",
+        "source": "native",
+        "field_ref": [
+          "field",
+          "feedback_submitted",
+          {
+            "base-type": "type/Boolean"
+          }
+        ],
+        "effective_type": "type/Boolean",
+        "lib/desired-column-alias": "feedback_submitted",
+        "display_name": "Feedback submitted",
+        "fingerprint": {
+          "global": {
+            "distinct-count": 1,
+            "nil%": 0.0
+          }
+        },
+        "base_type": "type/Boolean"
       }
-    ]
+    ],
+    "dimensions": null,
+    "legacy_query": null,
+    "name": "conversations",
+    "display": "table",
+    "embedding_type": null,
+    "last-edit-info": {
+      "id": 1,
+      "email": "kamal.gs@gmail.com",
+      "first_name": "Kamal",
+      "last_name": "Govindraj",
+      "timestamp": "2026-05-09T05:25:50.309173Z"
+    },
+    "is_remote_synced": false,
+    "document_id": null,
+    "description": "Flattened conversations: JSONB columns projected as typed columns. Source of truth for downstream questions / metrics / dashboards. When the upstream JSONB shape changes, edit this Model instead of every dashboard.",
+    "visualization_settings": {},
+    "parameter_mappings": [],
+    "dashboard": null,
+    "dataset_query": {
+      "lib/type": "mbql/query",
+      "database": 2,
+      "stages": [
+        {
+          "lib/type": "mbql.stage/native",
+          "native": "SELECT\n    id,\n    session_id,\n    investor_name,\n    mode,\n    created_at,\n    (profile->>'age')::int                                  AS age,\n    profile->>'persona_id'                                   AS persona_id,\n    profile->>'risk_appetite'                                AS risk_appetite,\n    (profile->>'investment_horizon_years')::int              AS investment_horizon_years,\n    (profile->>'monthly_investible_surplus_inr')::numeric    AS monthly_surplus_inr,\n    (profile->>'existing_corpus_inr')::numeric               AS existing_corpus_inr,\n    profile->>'life_stage'                                   AS life_stage,\n    profile->>'tax_bracket'                                  AS tax_bracket,\n    plan IS NOT NULL                                         AS plan_completed,\n    coalesce(jsonb_array_length(strategy_chat), 0)           AS revision_count,\n    (feedback->>'nps')::int                                  AS nps,\n    feedback->>'actionable'                                  AS actionable,\n    feedback->>'free_text'                                   AS free_text,\n    (feedback->>'submitted_at')::timestamptz                 AS feedback_at,\n    (feedback IS NOT NULL)                                   AS feedback_submitted\nFROM conversations"
+        }
+      ]
+    }
   },
   "metrics": [
     {
-      "description": "Count of all conversations in the model.",
+      "dimension_mappings": null,
       "source_card_id": 48,
-      "embedding_type": null,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
+      "param_fields": {},
       "card_schema": 23,
-      "name": "Total conversations",
-      "is_remote_synced": false,
-      "document_id": null,
-      "dashboard": null,
+      "query_description": "conversations, Count",
       "type": "metric",
       "dimensions": null,
-      "query_description": "conversations, Count",
+      "legacy_query": null,
+      "name": "Total conversations",
+      "display": "scalar",
+      "embedding_type": null,
+      "last-edit-info": {
+        "id": 1,
+        "email": "kamal.gs@gmail.com",
+        "first_name": "Kamal",
+        "last_name": "Govindraj",
+        "timestamp": "2026-05-09T03:43:44.371106Z"
+      },
+      "is_remote_synced": false,
+      "document_id": null,
+      "description": "Count of all conversations in the model.",
+      "visualization_settings": {},
+      "parameter_mappings": [],
+      "dashboard": null,
       "dataset_query": {
         "lib/type": "mbql/query",
+        "database": 2,
         "stages": [
           {
             "aggregation": [
@@ -488,37 +784,40 @@
             "source-card": 48
           }
         ]
-      },
+      }
+    },
+    {
       "dimension_mappings": null,
-      "legacy_query": null,
-      "parameter_mappings": [],
-      "display": "scalar",
+      "source_card_id": 48,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
       "param_fields": {},
+      "card_schema": 23,
+      "query_description": "conversations, Share of rows matching condition",
+      "type": "metric",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "Plan completion rate",
+      "display": "scalar",
+      "embedding_type": null,
       "last-edit-info": {
         "id": 1,
         "email": "kamal.gs@gmail.com",
         "first_name": "Kamal",
         "last_name": "Govindraj",
-        "timestamp": "2026-05-09T03:43:44.371106Z"
+        "timestamp": "2026-05-09T03:43:44.550951Z"
       },
-      "visualization_settings": {},
-      "metabase_version": "v0.60.4.3 (a71355c)",
-      "parameters": []
-    },
-    {
-      "description": "Share of conversations that reached the plan stage (plan IS NOT NULL).",
-      "source_card_id": 48,
-      "embedding_type": null,
-      "card_schema": 23,
-      "name": "Plan completion rate",
       "is_remote_synced": false,
       "document_id": null,
+      "description": "Share of conversations that reached the plan stage (plan IS NOT NULL).",
+      "visualization_settings": {
+        "scalar.decimals": 1
+      },
+      "parameter_mappings": [],
       "dashboard": null,
-      "type": "metric",
-      "dimensions": null,
-      "query_description": "conversations, Share of rows matching condition",
       "dataset_query": {
         "lib/type": "mbql/query",
+        "database": 2,
         "stages": [
           {
             "aggregation": [
@@ -548,39 +847,40 @@
             "source-card": 48
           }
         ]
-      },
+      }
+    },
+    {
       "dimension_mappings": null,
-      "legacy_query": null,
-      "parameter_mappings": [],
-      "display": "scalar",
+      "source_card_id": 48,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
       "param_fields": {},
+      "card_schema": 23,
+      "query_description": "conversations, Average of Revisions",
+      "type": "metric",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "Mean revisions per conversation",
+      "display": "scalar",
+      "embedding_type": null,
       "last-edit-info": {
         "id": 1,
         "email": "kamal.gs@gmail.com",
         "first_name": "Kamal",
         "last_name": "Govindraj",
-        "timestamp": "2026-05-09T03:43:44.550951Z"
+        "timestamp": "2026-05-09T03:43:44.700551Z"
       },
+      "is_remote_synced": false,
+      "document_id": null,
+      "description": "Average jsonb_array_length(strategy_chat) \u2014 proxy for back-and-forth depth.",
       "visualization_settings": {
         "scalar.decimals": 1
       },
-      "metabase_version": "v0.60.4.3 (a71355c)",
-      "parameters": []
-    },
-    {
-      "description": "Average jsonb_array_length(strategy_chat) \u2014 proxy for back-and-forth depth.",
-      "source_card_id": 48,
-      "embedding_type": null,
-      "card_schema": 23,
-      "name": "Mean revisions per conversation",
-      "is_remote_synced": false,
-      "document_id": null,
+      "parameter_mappings": [],
       "dashboard": null,
-      "type": "metric",
-      "dimensions": null,
-      "query_description": "conversations, Average of Revisions",
       "dataset_query": {
         "lib/type": "mbql/query",
+        "database": 2,
         "stages": [
           {
             "aggregation": [
@@ -603,40 +903,150 @@
             "source-card": 48
           }
         ]
-      },
+      }
+    },
+    {
       "dimension_mappings": null,
-      "legacy_query": null,
-      "parameter_mappings": [],
-      "display": "scalar",
+      "source_card_id": null,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
       "param_fields": {},
+      "card_schema": 23,
+      "type": "question",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "NPS (30 day)",
+      "display": "scalar",
+      "embedding_type": null,
       "last-edit-info": {
         "id": 1,
         "email": "kamal.gs@gmail.com",
         "first_name": "Kamal",
         "last_name": "Govindraj",
-        "timestamp": "2026-05-09T03:43:44.700551Z"
+        "timestamp": "2026-05-09T05:25:53.161386Z"
       },
+      "is_remote_synced": false,
+      "document_id": null,
+      "description": "Net Promoter Score over the last 30 days: (promoters >=9 minus detractors <=6) / respondents, scaled to -100..100. Native SQL because MBQL can't express the arithmetic.",
+      "visualization_settings": {
+        "scalar.decimals": 0
+      },
+      "parameter_mappings": [],
+      "dashboard": null,
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "database": 2,
+        "stages": [
+          {
+            "template-tags": {
+              "#48": {
+                "id": "model-48",
+                "type": "card",
+                "name": "#48",
+                "display-name": "#48",
+                "card-id": 48
+              }
+            },
+            "lib/type": "mbql.stage/native",
+            "native": "SELECT round(\n    100.0 * (\n        (count(*) FILTER (WHERE nps >= 9) - count(*) FILTER (WHERE nps <= 6))::numeric\n        / nullif(count(*) FILTER (WHERE nps IS NOT NULL), 0)\n    ), 0\n) AS nps_score\nFROM {{#48}} src\nWHERE created_at >= now() - INTERVAL '30 days'"
+          }
+        ]
+      }
+    },
+    {
+      "dimension_mappings": null,
+      "source_card_id": 48,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
+      "param_fields": {},
+      "card_schema": 23,
+      "query_description": "conversations, Share of rows matching condition",
+      "type": "metric",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "Feedback completion rate",
+      "display": "scalar",
+      "embedding_type": null,
+      "last-edit-info": {
+        "id": 1,
+        "email": "kamal.gs@gmail.com",
+        "first_name": "Kamal",
+        "last_name": "Govindraj",
+        "timestamp": "2026-05-09T05:25:53.303562Z"
+      },
+      "is_remote_synced": false,
+      "document_id": null,
+      "description": "Share of conversations where the user submitted feedback (feedback IS NOT NULL).",
       "visualization_settings": {
         "scalar.decimals": 1
       },
-      "metabase_version": "v0.60.4.3 (a71355c)",
-      "parameters": []
+      "parameter_mappings": [],
+      "dashboard": null,
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "database": 2,
+        "stages": [
+          {
+            "aggregation": [
+              [
+                "share",
+                {
+                  "lib/uuid": "4c3d6395-4399-41a9-a8c1-227d4347d20b"
+                },
+                [
+                  "=",
+                  {
+                    "lib/uuid": "2d225f2c-004b-4d8c-aecb-9f9bdcbac834"
+                  },
+                  [
+                    "field",
+                    {
+                      "base-type": "type/Boolean",
+                      "lib/uuid": "59363d86-630f-486a-bec4-6b680465a13a"
+                    },
+                    "feedback_submitted"
+                  ],
+                  true
+                ]
+              ]
+            ],
+            "lib/type": "mbql.stage/mbql",
+            "source-card": 48
+          }
+        ]
+      }
     }
   ],
   "cards": [
     {
-      "description": null,
+      "dimension_mappings": null,
       "source_card_id": 48,
-      "embedding_type": null,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
+      "param_fields": {},
       "card_schema": 23,
-      "name": "Daily conversations",
-      "is_remote_synced": false,
-      "document_id": null,
-      "dashboard": null,
       "type": "question",
       "dimensions": null,
+      "legacy_query": null,
+      "name": "Daily conversations",
+      "display": "bar",
+      "embedding_type": null,
+      "last-edit-info": {
+        "id": 1,
+        "email": "kamal.gs@gmail.com",
+        "first_name": "Kamal",
+        "last_name": "Govindraj",
+        "timestamp": "2026-05-09T03:43:44.8463Z"
+      },
+      "is_remote_synced": false,
+      "document_id": null,
+      "description": null,
+      "visualization_settings": {},
+      "parameter_mappings": [],
+      "dashboard": null,
       "dataset_query": {
         "lib/type": "mbql/query",
+        "database": 2,
         "stages": [
           {
             "filters": [
@@ -686,36 +1096,37 @@
             "source-card": 48
           }
         ]
-      },
+      }
+    },
+    {
       "dimension_mappings": null,
-      "legacy_query": null,
-      "parameter_mappings": [],
-      "display": "bar",
+      "source_card_id": 48,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
       "param_fields": {},
+      "card_schema": 23,
+      "type": "question",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "Weekly conversations",
+      "display": "bar",
+      "embedding_type": null,
       "last-edit-info": {
         "id": 1,
         "email": "kamal.gs@gmail.com",
         "first_name": "Kamal",
         "last_name": "Govindraj",
-        "timestamp": "2026-05-09T03:43:44.8463Z"
+        "timestamp": "2026-05-09T03:43:44.989086Z"
       },
-      "visualization_settings": {},
-      "metabase_version": "v0.60.4.3 (a71355c)",
-      "parameters": []
-    },
-    {
-      "description": null,
-      "source_card_id": 48,
-      "embedding_type": null,
-      "card_schema": 23,
-      "name": "Weekly conversations",
       "is_remote_synced": false,
       "document_id": null,
+      "description": null,
+      "visualization_settings": {},
+      "parameter_mappings": [],
       "dashboard": null,
-      "type": "question",
-      "dimensions": null,
       "dataset_query": {
         "lib/type": "mbql/query",
+        "database": 2,
         "stages": [
           {
             "filters": [
@@ -765,36 +1176,37 @@
             "source-card": 48
           }
         ]
-      },
+      }
+    },
+    {
       "dimension_mappings": null,
-      "legacy_query": null,
-      "parameter_mappings": [],
-      "display": "bar",
+      "source_card_id": 48,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
       "param_fields": {},
+      "card_schema": 23,
+      "type": "question",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "Monthly conversations",
+      "display": "bar",
+      "embedding_type": null,
       "last-edit-info": {
         "id": 1,
         "email": "kamal.gs@gmail.com",
         "first_name": "Kamal",
         "last_name": "Govindraj",
-        "timestamp": "2026-05-09T03:43:44.989086Z"
+        "timestamp": "2026-05-09T03:43:45.160638Z"
       },
-      "visualization_settings": {},
-      "metabase_version": "v0.60.4.3 (a71355c)",
-      "parameters": []
-    },
-    {
-      "description": null,
-      "source_card_id": 48,
-      "embedding_type": null,
-      "card_schema": 23,
-      "name": "Monthly conversations",
       "is_remote_synced": false,
       "document_id": null,
+      "description": null,
+      "visualization_settings": {},
+      "parameter_mappings": [],
       "dashboard": null,
-      "type": "question",
-      "dimensions": null,
       "dataset_query": {
         "lib/type": "mbql/query",
+        "database": 2,
         "stages": [
           {
             "filters": [
@@ -844,36 +1256,39 @@
             "source-card": 48
           }
         ]
-      },
+      }
+    },
+    {
       "dimension_mappings": null,
-      "legacy_query": null,
-      "parameter_mappings": [],
-      "display": "bar",
+      "source_card_id": 48,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
       "param_fields": {},
+      "card_schema": 23,
+      "type": "question",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "Mode mix (daily)",
+      "display": "bar",
+      "embedding_type": null,
       "last-edit-info": {
         "id": 1,
         "email": "kamal.gs@gmail.com",
         "first_name": "Kamal",
         "last_name": "Govindraj",
-        "timestamp": "2026-05-09T03:43:45.160638Z"
+        "timestamp": "2026-05-09T03:43:45.321543Z"
       },
-      "visualization_settings": {},
-      "metabase_version": "v0.60.4.3 (a71355c)",
-      "parameters": []
-    },
-    {
-      "description": null,
-      "source_card_id": 48,
-      "embedding_type": null,
-      "card_schema": 23,
-      "name": "Mode mix (daily)",
       "is_remote_synced": false,
       "document_id": null,
+      "description": null,
+      "visualization_settings": {
+        "stackable.stack_type": "stacked"
+      },
+      "parameter_mappings": [],
       "dashboard": null,
-      "type": "question",
-      "dimensions": null,
       "dataset_query": {
         "lib/type": "mbql/query",
+        "database": 2,
         "stages": [
           {
             "filters": [
@@ -931,38 +1346,37 @@
             "source-card": 48
           }
         ]
-      },
+      }
+    },
+    {
       "dimension_mappings": null,
-      "legacy_query": null,
-      "parameter_mappings": [],
-      "display": "bar",
+      "source_card_id": 48,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
       "param_fields": {},
+      "card_schema": 23,
+      "type": "question",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "Plan completion %",
+      "display": "line",
+      "embedding_type": null,
       "last-edit-info": {
         "id": 1,
         "email": "kamal.gs@gmail.com",
         "first_name": "Kamal",
         "last_name": "Govindraj",
-        "timestamp": "2026-05-09T03:43:45.321543Z"
+        "timestamp": "2026-05-09T03:43:45.504874Z"
       },
-      "visualization_settings": {
-        "stackable.stack_type": "stacked"
-      },
-      "metabase_version": "v0.60.4.3 (a71355c)",
-      "parameters": []
-    },
-    {
-      "description": null,
-      "source_card_id": 48,
-      "embedding_type": null,
-      "card_schema": 23,
-      "name": "Plan completion %",
       "is_remote_synced": false,
       "document_id": null,
+      "description": null,
+      "visualization_settings": {},
+      "parameter_mappings": [],
       "dashboard": null,
-      "type": "question",
-      "dimensions": null,
       "dataset_query": {
         "lib/type": "mbql/query",
+        "database": 2,
         "stages": [
           {
             "filters": [
@@ -1027,36 +1441,37 @@
             "source-card": 48
           }
         ]
-      },
+      }
+    },
+    {
       "dimension_mappings": null,
-      "legacy_query": null,
-      "parameter_mappings": [],
-      "display": "line",
+      "source_card_id": 48,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
       "param_fields": {},
+      "card_schema": 23,
+      "type": "question",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "Persona usage",
+      "display": "pie",
+      "embedding_type": null,
       "last-edit-info": {
         "id": 1,
         "email": "kamal.gs@gmail.com",
         "first_name": "Kamal",
         "last_name": "Govindraj",
-        "timestamp": "2026-05-09T03:43:45.504874Z"
+        "timestamp": "2026-05-09T03:43:45.691614Z"
       },
-      "visualization_settings": {},
-      "metabase_version": "v0.60.4.3 (a71355c)",
-      "parameters": []
-    },
-    {
-      "description": null,
-      "source_card_id": 48,
-      "embedding_type": null,
-      "card_schema": 23,
-      "name": "Persona usage",
       "is_remote_synced": false,
       "document_id": null,
+      "description": null,
+      "visualization_settings": {},
+      "parameter_mappings": [],
       "dashboard": null,
-      "type": "question",
-      "dimensions": null,
       "dataset_query": {
         "lib/type": "mbql/query",
+        "database": 2,
         "stages": [
           {
             "filters": [
@@ -1105,36 +1520,37 @@
             "source-card": 48
           }
         ]
-      },
+      }
+    },
+    {
       "dimension_mappings": null,
-      "legacy_query": null,
-      "parameter_mappings": [],
-      "display": "pie",
+      "source_card_id": 48,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
       "param_fields": {},
+      "card_schema": 23,
+      "type": "question",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "Strategy revisions",
+      "display": "bar",
+      "embedding_type": null,
       "last-edit-info": {
         "id": 1,
         "email": "kamal.gs@gmail.com",
         "first_name": "Kamal",
         "last_name": "Govindraj",
-        "timestamp": "2026-05-09T03:43:45.691614Z"
+        "timestamp": "2026-05-09T03:43:45.868081Z"
       },
-      "visualization_settings": {},
-      "metabase_version": "v0.60.4.3 (a71355c)",
-      "parameters": []
-    },
-    {
-      "description": null,
-      "source_card_id": 48,
-      "embedding_type": null,
-      "card_schema": 23,
-      "name": "Strategy revisions",
       "is_remote_synced": false,
       "document_id": null,
+      "description": null,
+      "visualization_settings": {},
+      "parameter_mappings": [],
       "dashboard": null,
-      "type": "question",
-      "dimensions": null,
       "dataset_query": {
         "lib/type": "mbql/query",
+        "database": 2,
         "stages": [
           {
             "filters": [
@@ -1183,36 +1599,37 @@
             "source-card": 48
           }
         ]
-      },
+      }
+    },
+    {
       "dimension_mappings": null,
-      "legacy_query": null,
-      "parameter_mappings": [],
-      "display": "bar",
+      "source_card_id": null,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
       "param_fields": {},
+      "card_schema": 23,
+      "type": "question",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "Headline counters",
+      "display": "table",
+      "embedding_type": null,
       "last-edit-info": {
         "id": 1,
         "email": "kamal.gs@gmail.com",
         "first_name": "Kamal",
         "last_name": "Govindraj",
-        "timestamp": "2026-05-09T03:43:45.868081Z"
+        "timestamp": "2026-05-09T03:43:46.121199Z"
       },
-      "visualization_settings": {},
-      "metabase_version": "v0.60.4.3 (a71355c)",
-      "parameters": []
-    },
-    {
-      "description": null,
-      "source_card_id": null,
-      "embedding_type": null,
-      "card_schema": 23,
-      "name": "Headline counters",
       "is_remote_synced": false,
       "document_id": null,
+      "description": null,
+      "visualization_settings": {},
+      "parameter_mappings": [],
       "dashboard": null,
-      "type": "question",
-      "dimensions": null,
       "dataset_query": {
         "lib/type": "mbql/query",
+        "database": 2,
         "stages": [
           {
             "template-tags": {
@@ -1228,22 +1645,210 @@
             "native": "SELECT count(*) AS total,\n       count(*) FILTER (WHERE created_at >= now() - INTERVAL '7 days')   AS last_7d,\n       count(*) FILTER (WHERE created_at >= now() - INTERVAL '24 hours') AS last_24h,\n       count(*) FILTER (WHERE plan_completed)                            AS plans_completed\nFROM {{#48}} src"
           }
         ]
-      },
+      }
+    },
+    {
       "dimension_mappings": null,
-      "legacy_query": null,
-      "parameter_mappings": [],
-      "display": "table",
+      "source_card_id": null,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
       "param_fields": {},
+      "card_schema": 23,
+      "type": "question",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "NPS (30 day)",
+      "display": "scalar",
+      "embedding_type": null,
       "last-edit-info": {
         "id": 1,
         "email": "kamal.gs@gmail.com",
         "first_name": "Kamal",
         "last_name": "Govindraj",
-        "timestamp": "2026-05-09T03:43:46.121199Z"
+        "timestamp": "2026-05-09T05:25:53.161386Z"
       },
-      "visualization_settings": {},
+      "is_remote_synced": false,
+      "document_id": null,
+      "description": "Net Promoter Score over the last 30 days: (promoters >=9 minus detractors <=6) / respondents, scaled to -100..100. Native SQL because MBQL can't express the arithmetic.",
+      "visualization_settings": {
+        "scalar.decimals": 0
+      },
+      "parameter_mappings": [],
+      "dashboard": null,
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "database": 2,
+        "stages": [
+          {
+            "template-tags": {
+              "#48": {
+                "id": "model-48",
+                "type": "card",
+                "name": "#48",
+                "display-name": "#48",
+                "card-id": 48
+              }
+            },
+            "lib/type": "mbql.stage/native",
+            "native": "SELECT round(\n    100.0 * (\n        (count(*) FILTER (WHERE nps >= 9) - count(*) FILTER (WHERE nps <= 6))::numeric\n        / nullif(count(*) FILTER (WHERE nps IS NOT NULL), 0)\n    ), 0\n) AS nps_score\nFROM {{#48}} src\nWHERE created_at >= now() - INTERVAL '30 days'"
+          }
+        ]
+      }
+    },
+    {
+      "dimension_mappings": null,
+      "source_card_id": 48,
+      "parameters": [],
       "metabase_version": "v0.60.4.3 (a71355c)",
-      "parameters": []
+      "param_fields": {},
+      "card_schema": 23,
+      "query_description": "conversations, Share of rows matching condition",
+      "type": "metric",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "Feedback completion rate",
+      "display": "scalar",
+      "embedding_type": null,
+      "last-edit-info": {
+        "id": 1,
+        "email": "kamal.gs@gmail.com",
+        "first_name": "Kamal",
+        "last_name": "Govindraj",
+        "timestamp": "2026-05-09T05:25:53.303562Z"
+      },
+      "is_remote_synced": false,
+      "document_id": null,
+      "description": "Share of conversations where the user submitted feedback (feedback IS NOT NULL).",
+      "visualization_settings": {
+        "scalar.decimals": 1
+      },
+      "parameter_mappings": [],
+      "dashboard": null,
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "database": 2,
+        "stages": [
+          {
+            "aggregation": [
+              [
+                "share",
+                {
+                  "lib/uuid": "4c3d6395-4399-41a9-a8c1-227d4347d20b"
+                },
+                [
+                  "=",
+                  {
+                    "lib/uuid": "2d225f2c-004b-4d8c-aecb-9f9bdcbac834"
+                  },
+                  [
+                    "field",
+                    {
+                      "base-type": "type/Boolean",
+                      "lib/uuid": "59363d86-630f-486a-bec4-6b680465a13a"
+                    },
+                    "feedback_submitted"
+                  ],
+                  true
+                ]
+              ]
+            ],
+            "lib/type": "mbql.stage/mbql",
+            "source-card": 48
+          }
+        ]
+      }
+    },
+    {
+      "dimension_mappings": null,
+      "source_card_id": null,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
+      "param_fields": {},
+      "card_schema": 23,
+      "type": "question",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "NPS over time (weekly)",
+      "display": "line",
+      "embedding_type": null,
+      "last-edit-info": {
+        "id": 1,
+        "email": "kamal.gs@gmail.com",
+        "first_name": "Kamal",
+        "last_name": "Govindraj",
+        "timestamp": "2026-05-09T05:25:53.461966Z"
+      },
+      "is_remote_synced": false,
+      "document_id": null,
+      "description": null,
+      "visualization_settings": {},
+      "parameter_mappings": [],
+      "dashboard": null,
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "database": 2,
+        "stages": [
+          {
+            "template-tags": {
+              "#48": {
+                "id": "model-48",
+                "type": "card",
+                "name": "#48",
+                "display-name": "#48",
+                "card-id": 48
+              }
+            },
+            "lib/type": "mbql.stage/native",
+            "native": "SELECT\n    date_trunc('week', created_at)::date AS week,\n    round(\n        100.0 * (\n            (count(*) FILTER (WHERE nps >= 9) - count(*) FILTER (WHERE nps <= 6))::numeric\n            / nullif(count(*) FILTER (WHERE nps IS NOT NULL), 0)\n        ), 0\n    ) AS nps_score\nFROM {{#48}} src\nWHERE created_at >= now() - INTERVAL '12 weeks'\n    AND nps IS NOT NULL\nGROUP BY 1 ORDER BY 1"
+          }
+        ]
+      }
+    },
+    {
+      "dimension_mappings": null,
+      "source_card_id": null,
+      "parameters": [],
+      "metabase_version": "v0.60.4.3 (a71355c)",
+      "param_fields": {},
+      "card_schema": 23,
+      "type": "question",
+      "dimensions": null,
+      "legacy_query": null,
+      "name": "Recent feedback (free text)",
+      "display": "table",
+      "embedding_type": null,
+      "last-edit-info": {
+        "id": 1,
+        "email": "kamal.gs@gmail.com",
+        "first_name": "Kamal",
+        "last_name": "Govindraj",
+        "timestamp": "2026-05-09T05:25:53.628238Z"
+      },
+      "is_remote_synced": false,
+      "document_id": null,
+      "description": null,
+      "visualization_settings": {},
+      "parameter_mappings": [],
+      "dashboard": null,
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "database": 2,
+        "stages": [
+          {
+            "template-tags": {
+              "#48": {
+                "id": "model-48",
+                "type": "card",
+                "name": "#48",
+                "display-name": "#48",
+                "card-id": 48
+              }
+            },
+            "lib/type": "mbql.stage/native",
+            "native": "SELECT\n    feedback_at,\n    mode,\n    nps,\n    actionable,\n    free_text\nFROM {{#48}} src\nWHERE free_text IS NOT NULL AND free_text <> ''\nORDER BY feedback_at DESC\nLIMIT 50"
+          }
+        ]
+      }
     }
   ],
   "layout": [
@@ -1302,6 +1907,34 @@
       "row": 12,
       "size_x": 8,
       "size_y": 6
+    },
+    {
+      "name": "NPS (30 day)",
+      "col": 0,
+      "row": 18,
+      "size_x": 6,
+      "size_y": 6
+    },
+    {
+      "name": "Feedback completion rate",
+      "col": 6,
+      "row": 18,
+      "size_x": 6,
+      "size_y": 6
+    },
+    {
+      "name": "NPS over time (weekly)",
+      "col": 12,
+      "row": 18,
+      "size_x": 12,
+      "size_y": 6
+    },
+    {
+      "name": "Recent feedback (free text)",
+      "col": 0,
+      "row": 24,
+      "size_x": 24,
+      "size_y": 8
     }
   ]
 }

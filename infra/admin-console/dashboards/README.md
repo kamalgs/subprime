@@ -19,8 +19,8 @@ JSON exports.
   block was the source for one panel using raw `conversations`. Now
   superseded by the Model + the panels in `trends.metabase.json`. Kept
   for reference / standalone runs via `psql -f trends.sql`.
-- `trends.metabase.json` — portable export of the Model + 3 Metrics +
-  8 dashboard cards + grid layout. Intentionally *not* Metabase's
+- `trends.metabase.json` — portable export of the Model + 5 Metrics +
+  12 dashboard cards + grid layout. Intentionally *not* Metabase's
   native serialization (verbose, version-coupled, noisy diffs). The
   format here is "the inputs to a re-import script". When the Model
   SQL changes, edit `conversations.model.sql` AND re-export
@@ -28,18 +28,22 @@ JSON exports.
 
 ## Trends dashboard
 
-The first dashboard. Eight panels:
+The first dashboard. Twelve panels across four rows:
 
-| # | Panel                  | Type           | Window     |
-|---|------------------------|----------------|------------|
-| 1 | Daily conversations    | Bar            | 30 days    |
-| 2 | Weekly conversations   | Bar            | 12 weeks   |
-| 3 | Monthly conversations  | Bar            | 12 months  |
-| 4 | Mode mix (daily)       | Stacked bar    | 30 days    |
-| 5 | Plan completion %      | Line           | 30 days    |
-| 6 | Persona mix            | Donut          | 30 days    |
-| 7 | Strategy revisions     | Histogram      | 30 days    |
-| 8 | Headline counters      | Scalar (×4)    | all-time   |
+| #  | Panel                       | Type           | Window     |
+|----|-----------------------------|----------------|------------|
+| 1  | Daily conversations         | Bar            | 30 days    |
+| 2  | Weekly conversations        | Bar            | 12 weeks   |
+| 3  | Monthly conversations       | Bar            | 12 months  |
+| 4  | Mode mix (daily)            | Stacked bar    | 30 days    |
+| 5  | Plan completion %           | Line           | 30 days    |
+| 6  | Persona mix                 | Donut          | 30 days    |
+| 7  | Strategy revisions          | Histogram      | 30 days    |
+| 8  | Headline counters           | Scalar (×4)    | all-time   |
+| 9  | NPS (current)               | Scalar         | 30 days    |
+| 10 | Feedback completion %       | Scalar         | all-time   |
+| 11 | NPS over time (weekly)      | Line           | 12 weeks   |
+| 12 | Recent feedback (free text) | Table (50 rows)| all-time   |
 
 When a panel's SQL changes, edit `trends.sql` *and* re-export
 `trends.metabase.json` so the two stay in sync.
