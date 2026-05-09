@@ -63,6 +63,25 @@ async def lifespan(app: FastAPI):
 
     if DATABASE_URL:
         from subprime.core.db import init_pool
+        from subprime.core.migrations import arun_migrations, auto_migrate_enabled
+
+        # Apply Alembic migrations before opening the connection pool so
+        # the rest of startup sees a fully-migrated schema. Gated by
+        # SUBPRIME_AUTO_MIGRATE so the first deploy can land before the
+        # human stamps prod at the matching baseline. A migration failure
+        # here is fatal — better to refuse to serve than to run a worker
+        # against a half-migrated DB.
+        if auto_migrate_enabled():
+            try:
+                await arun_migrations(DATABASE_URL)
+            except Exception:
+                logger.exception("Alembic upgrade failed — aborting startup")
+                raise
+        else:
+            logger.info(
+                "SUBPRIME_AUTO_MIGRATE not set — skipping Alembic upgrade. "
+                "DB is assumed to be at head."
+            )
 
         pool = await init_pool(DATABASE_URL)
         app.state.session_store = PostgresSessionStore(pool)

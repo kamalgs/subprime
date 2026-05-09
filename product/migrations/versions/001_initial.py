@@ -2,6 +2,10 @@
 
 Revision ID: 001
 Create Date: 2026-04-12
+
+Statements are split one-per-``op.execute`` so this works under both
+psycopg (sync) and SQLAlchemy's async engine over asyncpg — asyncpg's
+prepared-statement protocol rejects multi-statement strings.
 """
 
 from alembic import op
@@ -21,9 +25,11 @@ def upgrade():
             current_step INTEGER NOT NULL DEFAULT 1,
             mode TEXT NOT NULL DEFAULT 'basic',
             data JSONB NOT NULL DEFAULT '{}'
-        );
-        CREATE INDEX IF NOT EXISTS idx_sessions_updated ON sessions(updated_at DESC);
+        )
+    """)
+    op.execute("CREATE INDEX IF NOT EXISTS idx_sessions_updated ON sessions(updated_at DESC)")
 
+    op.execute("""
         CREATE TABLE IF NOT EXISTS conversations (
             id SERIAL PRIMARY KEY,
             session_id TEXT NOT NULL,
@@ -34,9 +40,13 @@ def upgrade():
             plan JSONB,
             strategy_chat JSONB DEFAULT '[]',
             created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-        );
-        CREATE INDEX IF NOT EXISTS idx_conversations_created ON conversations(created_at DESC);
+        )
+    """)
+    op.execute(
+        "CREATE INDEX IF NOT EXISTS idx_conversations_created ON conversations(created_at DESC)"
+    )
 
+    op.execute("""
         CREATE TABLE IF NOT EXISTS otps (
             id SERIAL PRIMARY KEY,
             email TEXT NOT NULL,
@@ -45,13 +55,13 @@ def upgrade():
             expires_at TIMESTAMPTZ NOT NULL,
             verified_at TIMESTAMPTZ,
             session_id TEXT
-        );
-        CREATE INDEX IF NOT EXISTS idx_otps_email ON otps(email, created_at DESC);
-        CREATE INDEX IF NOT EXISTS idx_otps_code ON otps(code);
+        )
     """)
+    op.execute("CREATE INDEX IF NOT EXISTS idx_otps_email ON otps(email, created_at DESC)")
+    op.execute("CREATE INDEX IF NOT EXISTS idx_otps_code ON otps(code)")
 
 
 def downgrade():
-    op.execute("DROP TABLE IF EXISTS otps;")
-    op.execute("DROP TABLE IF EXISTS conversations;")
-    op.execute("DROP TABLE IF EXISTS sessions;")
+    op.execute("DROP TABLE IF EXISTS otps")
+    op.execute("DROP TABLE IF EXISTS conversations")
+    op.execute("DROP TABLE IF EXISTS sessions")
