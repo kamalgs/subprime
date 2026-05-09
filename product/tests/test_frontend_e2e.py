@@ -405,3 +405,110 @@ async def test_cheat_code_unlocks_persona_bank(page):
 
     await p.goto(url + "/step/2", wait_until="networkidle")
     await p.wait_for_selector("text=Tony Stark", timeout=5000)
+
+
+# ---------------------------------------------------------------------------
+# Feedback prompt + event tracker
+# ---------------------------------------------------------------------------
+
+
+async def _drive_to_plan(p, url):
+    """Walk the wizard up to a fully-loaded plan page."""
+    await p.goto(url + "/", wait_until="networkidle")
+    await p.click("text=Start free plan")
+    await p.wait_for_selector("text=Your investor profile")
+    await p.click("text=Mid career")
+    await p.locator('input[placeholder="e.g. Ravi Kumar"]').fill("Test User")
+    await p.click("text=Save profile")
+    await p.click("text=Build my plan")
+    await p.wait_for_selector("text=Asset allocation", timeout=10000)
+    await p.click("text=Generate my plan")
+    await p.wait_for_url("**/step/4", timeout=5000)
+    await p.wait_for_selector("text=Your investment plan", timeout=30000)
+
+
+@pytest.mark.asyncio
+async def test_feedback_prompt_dwell_and_submit(page):
+    """Plan page shows the feedback prompt after the dwell threshold and
+    POSTs feedback on submit. Backend has no DB pool in this fixture, so we
+    intercept the request via page.route to assert the body without caring
+    about the server response."""
+    p, url = page
+    # Lower the dwell threshold before any navigation so the React app reads
+    # it on every page load.
+    await p.add_init_script("window.__FEEDBACK_DWELL_MS__ = 1500;")
+
+    feedback_calls: list[dict] = []
+
+    async def _intercept(route):
+        try:
+            req = route.request
+            if req.method == "POST":
+                try:
+                    feedback_calls.append(req.post_data_json or {})
+                except Exception:
+                    feedback_calls.append({})
+            await route.fulfill(status=200, body='{"ok": true}', content_type="application/json")
+        except Exception:
+            await route.continue_()
+
+    await p.route("**/api/v2/feedback", _intercept)
+
+    await _drive_to_plan(p, url)
+    # Dismiss the disclaimer reveal modal so the prompt arms.
+    await p.click("text=I understand")
+
+    # Wait for the prompt to surface (dwellMs=1500 + 1s tick interval).
+    await p.wait_for_selector("text=Quick feedback", timeout=8000)
+
+    # Pick "Yes" then submit.
+    await p.click("button[role='radio']:has-text('Yes')")
+    await p.click("button:has-text('Send')")
+
+    # Prompt disappears; one POST was made with the right shape.
+    await p.wait_for_selector("text=Quick feedback", state="detached", timeout=4000)
+    assert len(feedback_calls) >= 1, "Expected POST /api/v2/feedback to fire"
+    body = feedback_calls[-1]
+    assert body.get("actionable") == "yes"
+    assert isinstance(body.get("nps"), int)
+    assert 0 <= body["nps"] <= 10
+
+
+@pytest.mark.asyncio
+async def test_event_tracker_posts_batches(page):
+    """Plan page mounts the event tracker; we should see at least one POST
+    to /api/v2/events within the first 10s (5s flush interval + buffer)."""
+    p, url = page
+
+    event_calls: list[dict] = []
+
+    async def _intercept(route):
+        try:
+            req = route.request
+            if req.method == "POST":
+                try:
+                    event_calls.append(req.post_data_json or {})
+                except Exception:
+                    event_calls.append({})
+            await route.fulfill(status=200, body='{"accepted": 0}', content_type="application/json")
+        except Exception:
+            await route.continue_()
+
+    await p.route("**/api/v2/events", _intercept)
+
+    await _drive_to_plan(p, url)
+    await p.click("text=I understand")
+
+    # Wait for the tracker to flush at least one batch.
+    deadline = time.time() + 12
+    while time.time() < deadline and not event_calls:
+        await p.wait_for_timeout(500)
+
+    assert event_calls, "Expected at least one POST /api/v2/events within 12s"
+    # All payloads should match the EventsBody contract.
+    for payload in event_calls:
+        assert "events" in payload
+        assert isinstance(payload["events"], list)
+        if payload["events"]:
+            sample = payload["events"][0]
+            assert "kind" in sample

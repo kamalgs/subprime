@@ -132,6 +132,77 @@ export async function removeDocument(docId: string): Promise<void> {
   if (!r.ok) throw new ApiError(r.status, r.statusText);
 }
 
+// ---------------------------------------------------------------------------
+// Feedback / event capture (observability — best-effort, never throw on 5xx)
+// ---------------------------------------------------------------------------
+
+export type TrackEvent = { kind: string; payload?: Record<string, unknown> };
+
+/** POST a batch of UX events. Best-effort: 503/network errors are swallowed. */
+export async function postEvents(events: TrackEvent[]): Promise<void> {
+  if (events.length === 0) return;
+  try {
+    await fetch(BASE + "/events", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ events }),
+      credentials: "same-origin",
+      keepalive: true,
+    });
+  } catch {
+    // Observability — drop silently.
+  }
+}
+
+/** Best-effort beacon for pagehide. Falls back to fetch+keepalive. */
+export function sendEventsBeacon(events: TrackEvent[]): void {
+  if (events.length === 0) return;
+  const body = JSON.stringify({ events });
+  try {
+    if (typeof navigator !== "undefined" && typeof navigator.sendBeacon === "function") {
+      // Use a Blob with explicit type so FastAPI parses as JSON.
+      const blob = new Blob([body], { type: "application/json" });
+      const ok = navigator.sendBeacon(BASE + "/events", blob);
+      if (ok) return;
+    }
+  } catch {
+    // fall through to fetch
+  }
+  // Fallback — fetch with keepalive.
+  try {
+    fetch(BASE + "/events", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body,
+      credentials: "same-origin",
+      keepalive: true,
+    }).catch(() => undefined);
+  } catch {
+    // give up
+  }
+}
+
+export type FeedbackBody = {
+  nps: number;
+  actionable: "yes" | "mostly" | "no";
+  free_text: string | null;
+};
+
+/** POST plan-stage feedback. Returns true on 2xx; false on 4xx/5xx (caller treats as completed). */
+export async function postFeedback(body: FeedbackBody): Promise<boolean> {
+  try {
+    const r = await fetch(BASE + "/feedback", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+      credentials: "same-origin",
+    });
+    return r.ok;
+  } catch {
+    return false;
+  }
+}
+
 export async function extractDocuments(): Promise<{
   holdings_count: number;
   holdings_total_inr: number;
