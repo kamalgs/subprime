@@ -61,6 +61,45 @@ class FeedbackBody(BaseModel):
 
 
 # ---------------------------------------------------------------------------
+# Events + feedback (issue #44)
+# ---------------------------------------------------------------------------
+
+
+class EventItem(BaseModel):
+    """Single client-emitted UX event.
+
+    *kind* is a free-form short string the client picks (e.g.
+    ``wizard.step_completed``). *payload* is whatever JSON-serialisable
+    dict the client wants to attach; ``None`` is fine.
+    """
+
+    kind: str = Field(min_length=1, max_length=128)
+    payload: Optional[dict] = None
+
+
+class EventsBody(BaseModel):
+    """Bulk-staged events posted from the SPA.
+
+    Cap of 50 events per request — anything larger is a 422. Larger
+    batches should be sliced client-side.
+    """
+
+    events: list[EventItem] = Field(min_length=1, max_length=50)
+
+
+class EventsAccepted(BaseModel):
+    accepted: int
+
+
+class SessionFeedbackBody(BaseModel):
+    """Post-plan NPS-style feedback. Idempotent per session."""
+
+    nps: int = Field(ge=0, le=10)
+    actionable: Literal["yes", "mostly", "no"]
+    free_text: Optional[str] = Field(default=None, max_length=4000)
+
+
+# ---------------------------------------------------------------------------
 # Responses
 # ---------------------------------------------------------------------------
 
