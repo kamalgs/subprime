@@ -27,5 +27,10 @@ SELECT
     profile->>'life_stage'                                   AS life_stage,
     profile->>'tax_bracket'                                  AS tax_bracket,
     plan IS NOT NULL                                         AS plan_completed,
-    coalesce(jsonb_array_length(strategy_chat), 0)           AS revision_count
+    coalesce(jsonb_array_length(strategy_chat), 0)           AS revision_count,
+    (feedback->>'nps')::int                                  AS nps,
+    feedback->>'actionable'                                  AS actionable,
+    feedback->>'free_text'                                   AS free_text,
+    (feedback->>'submitted_at')::timestamptz                 AS feedback_at,
+    (feedback IS NOT NULL)                                   AS feedback_submitted
 FROM conversations;
