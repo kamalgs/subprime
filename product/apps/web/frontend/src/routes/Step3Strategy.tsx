@@ -6,8 +6,10 @@ import {
 } from "../api/client";
 import AllocationChart from "../components/AllocationChart";
 import ElapsedTimer from "../components/ElapsedTimer";
+import { useEventTracker } from "../feedback/useEventTracker";
 
 export default function Step3Strategy() {
+  useEventTracker("strategy");
   const nav = useNavigate();
   const qc = useQueryClient();
 

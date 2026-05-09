@@ -7,6 +7,8 @@ import CorpusChart from "../components/CorpusChart";
 import ElapsedTimer from "../components/ElapsedTimer";
 import PlanRevealModal from "../components/PlanRevealModal";
 import Prose from "../components/Prose";
+import FeedbackPrompt from "../feedback/FeedbackPrompt";
+import { useEventTracker } from "../feedback/useEventTracker";
 
 const DEFAULT_STAGES = ["core", "risks", "setup"];
 
@@ -28,6 +30,9 @@ function fmtInr(v: number): string {
 }
 
 export default function Step4Plan() {
+  // Track plan-page UX events for the entire route lifetime, not just after
+  // the plan finishes loading — dwell on the loading screen is also signal.
+  useEventTracker("plan");
   const qc = useQueryClient();
   const [status, setStatus] = useState<PlanStatus | null>(null);
 
@@ -141,10 +146,24 @@ function PlanView({
   return (
     <>
       {!revealed && <PlanRevealModal onAck={() => setRevealed(true)} />}
+      {/* Only arm the feedback prompt after the disclaimer is dismissed —
+          otherwise dwell accrues against a blurred, non-interactive screen
+          and the prompt would stack on top of the reveal modal. */}
+      <FeedbackPrompt
+        enabled={revealed}
+        dwellMs={
+          // E2e hook: tests set window.__FEEDBACK_DWELL_MS__ to lower the
+          // dwell threshold. Defaults to 30s in real use.
+          (typeof window !== "undefined" &&
+            (window as unknown as { __FEEDBACK_DWELL_MS__?: number })
+              .__FEEDBACK_DWELL_MS__) ||
+          30_000
+        }
+      />
       <div className={"space-y-6 " + (!revealed ? "blur-sm pointer-events-none select-none" : "")} aria-hidden={!revealed}>
         <div className="flex items-start justify-between gap-3">
           <div>
-            <Link to="/step/3" className="text-sm text-gray-500 dark:text-slate-400 hover:text-primary-600">← Back to strategy</Link>
+            <Link to="/step/3" data-track-as="back_link" className="text-sm text-gray-500 dark:text-slate-400 hover:text-primary-600">← Back to strategy</Link>
             <h2 className="text-2xl font-bold mt-1">Your investment plan</h2>
           </div>
           <div className="flex gap-2 mt-1 flex-shrink-0">
@@ -190,7 +209,7 @@ function PlanView({
             .sort((a, b) => b.allocation_pct - a.allocation_pct)
             .map((a, i) => (
               <details key={i} className="group rounded-lg border border-gray-200 dark:border-slate-700 overflow-hidden">
-                <summary className="flex items-center gap-3 cursor-pointer px-3 py-2.5 bg-gray-50 dark:bg-slate-700/50 hover:bg-gray-100 dark:hover:bg-slate-700 list-none">
+                <summary data-track-as="expand" className="flex items-center gap-3 cursor-pointer px-3 py-2.5 bg-gray-50 dark:bg-slate-700/50 hover:bg-gray-100 dark:hover:bg-slate-700 list-none">
                   <span className="chip flex-shrink-0">{Math.round(a.allocation_pct)}%</span>
                   <span className="flex-1 min-w-0 font-medium text-sm truncate" title={a.fund.name}>
                     {a.fund.display_name || a.fund.name}
@@ -300,6 +319,7 @@ function DownloadButton({
     <a
       href={href}
       download
+      data-track-as={`download_${label.toLowerCase()}`}
       className={base + " border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-200 hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-300"}
       aria-label={ariaLabel}
     >
