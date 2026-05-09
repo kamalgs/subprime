@@ -149,7 +149,17 @@ function PlanView({
       {/* Only arm the feedback prompt after the disclaimer is dismissed —
           otherwise dwell accrues against a blurred, non-interactive screen
           and the prompt would stack on top of the reveal modal. */}
-      <FeedbackPrompt enabled={revealed} />
+      <FeedbackPrompt
+        enabled={revealed}
+        dwellMs={
+          // E2e hook: tests set window.__FEEDBACK_DWELL_MS__ to lower the
+          // dwell threshold. Defaults to 30s in real use.
+          (typeof window !== "undefined" &&
+            (window as unknown as { __FEEDBACK_DWELL_MS__?: number })
+              .__FEEDBACK_DWELL_MS__) ||
+          30_000
+        }
+      />
       <div className={"space-y-6 " + (!revealed ? "blur-sm pointer-events-none select-none" : "")} aria-hidden={!revealed}>
         <div className="flex items-start justify-between gap-3">
           <div>
