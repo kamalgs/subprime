@@ -1,0 +1,176 @@
+{
+  "name": "Conversations \u2014 trends",
+  "description": "DAU/WAU/MAU + plan completion + persona mix. Auto-generated from infra/admin-console/dashboards/trends.sql.",
+  "cards": [
+    {
+      "name": "Daily conversations",
+      "display": "bar",
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "stages": [
+          {
+            "lib/type": "mbql.stage/native",
+            "native": "SELECT\n    date_trunc('day', created_at)::date AS day,\n    count(*)                            AS conversations\nFROM conversations\nWHERE created_at >= now() - INTERVAL '30 days'\nGROUP BY 1\nORDER BY 1;"
+          }
+        ]
+      },
+      "visualization_settings": {}
+    },
+    {
+      "name": "Weekly conversations",
+      "display": "bar",
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "stages": [
+          {
+            "lib/type": "mbql.stage/native",
+            "native": "SELECT\n    date_trunc('week', created_at)::date AS week,\n    count(*)                             AS conversations\nFROM conversations\nWHERE created_at >= now() - INTERVAL '12 weeks'\nGROUP BY 1\nORDER BY 1;"
+          }
+        ]
+      },
+      "visualization_settings": {}
+    },
+    {
+      "name": "Monthly conversations",
+      "display": "bar",
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "stages": [
+          {
+            "lib/type": "mbql.stage/native",
+            "native": "SELECT\n    date_trunc('month', created_at)::date AS month,\n    count(*)                              AS conversations\nFROM conversations\nWHERE created_at >= now() - INTERVAL '12 months'\nGROUP BY 1\nORDER BY 1;"
+          }
+        ]
+      },
+      "visualization_settings": {}
+    },
+    {
+      "name": "Mode mix (daily)",
+      "display": "bar",
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "stages": [
+          {
+            "lib/type": "mbql.stage/native",
+            "native": "SELECT\n    date_trunc('day', created_at)::date AS day,\n    mode,\n    count(*)                            AS conversations\nFROM conversations\nWHERE created_at >= now() - INTERVAL '30 days'\nGROUP BY 1, 2\nORDER BY 1, 2;"
+          }
+        ]
+      },
+      "visualization_settings": {}
+    },
+    {
+      "name": "Plan completion %",
+      "display": "line",
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "stages": [
+          {
+            "lib/type": "mbql.stage/native",
+            "native": "SELECT\n    date_trunc('day', created_at)::date                          AS day,\n    count(*)                                                     AS started,\n    count(*) FILTER (WHERE plan IS NOT NULL)                     AS completed,\n    round(\n        100.0 * count(*) FILTER (WHERE plan IS NOT NULL) / count(*),\n        1\n    )                                                            AS completion_pct\nFROM conversations\nWHERE created_at >= now() - INTERVAL '30 days'\nGROUP BY 1\nORDER BY 1;"
+          }
+        ]
+      },
+      "visualization_settings": {}
+    },
+    {
+      "name": "Persona usage",
+      "display": "pie",
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "stages": [
+          {
+            "lib/type": "mbql.stage/native",
+            "native": "SELECT\n    coalesce(profile->>'persona_id', '(no persona)') AS persona,\n    count(*)                                          AS conversations\nFROM conversations\nWHERE created_at >= now() - INTERVAL '30 days'\nGROUP BY 1\nORDER BY 2 DESC;"
+          }
+        ]
+      },
+      "visualization_settings": {}
+    },
+    {
+      "name": "Strategy revisions",
+      "display": "bar",
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "stages": [
+          {
+            "lib/type": "mbql.stage/native",
+            "native": "SELECT\n    coalesce(jsonb_array_length(strategy_chat), 0) AS revisions,\n    count(*)                                       AS conversations\nFROM conversations\nWHERE created_at >= now() - INTERVAL '30 days'\nGROUP BY 1\nORDER BY 1;"
+          }
+        ]
+      },
+      "visualization_settings": {}
+    },
+    {
+      "name": "Headline counters",
+      "display": "table",
+      "dataset_query": {
+        "lib/type": "mbql/query",
+        "stages": [
+          {
+            "lib/type": "mbql.stage/native",
+            "native": "SELECT\n    count(*)                                                              AS total,\n    count(*) FILTER (WHERE created_at >= now() - INTERVAL '7 days')       AS last_7d,\n    count(*) FILTER (WHERE created_at >= now() - INTERVAL '24 hours')     AS last_24h,\n    count(*) FILTER (WHERE plan IS NOT NULL)                              AS plans_completed\nFROM conversations;"
+          }
+        ]
+      },
+      "visualization_settings": {}
+    }
+  ],
+  "layout": [
+    {
+      "name": "Daily conversations",
+      "col": 0,
+      "row": 0,
+      "size_x": 8,
+      "size_y": 6
+    },
+    {
+      "name": "Weekly conversations",
+      "col": 8,
+      "row": 0,
+      "size_x": 8,
+      "size_y": 6
+    },
+    {
+      "name": "Monthly conversations",
+      "col": 16,
+      "row": 0,
+      "size_x": 8,
+      "size_y": 6
+    },
+    {
+      "name": "Mode mix (daily)",
+      "col": 0,
+      "row": 6,
+      "size_x": 12,
+      "size_y": 6
+    },
+    {
+      "name": "Plan completion %",
+      "col": 12,
+      "row": 6,
+      "size_x": 12,
+      "size_y": 6
+    },
+    {
+      "name": "Persona usage",
+      "col": 0,
+      "row": 12,
+      "size_x": 8,
+      "size_y": 6
+    },
+    {
+      "name": "Strategy revisions",
+      "col": 8,
+      "row": 12,
+      "size_x": 8,
+      "size_y": 6
+    },
+    {
+      "name": "Headline counters",
+      "col": 16,
+      "row": 12,
+      "size_x": 8,
+      "size_y": 6
+    }
+  ]
+}
