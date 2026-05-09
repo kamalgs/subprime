@@ -10,14 +10,21 @@ JSON exports.
 
 ## Files
 
-- `trends.sql` — source-of-truth SQL for every dashboard panel. Each
-  block maps 1:1 to one Saved Question in Metabase. Standalone-runnable
-  via `psql -f trends.sql`.
-- `trends.metabase.json` — portable dashboard export. Records each card
-  (name, display type, native SQL) plus the grid layout. Intentionally
-  *not* Metabase's native serialization format — that's verbose,
-  version-coupled, and produces noisy diffs even for trivial query
-  edits. The format here is "the inputs to a re-import script".
+- `conversations.model.sql` — source-of-truth SQL for the `conversations`
+  Metabase Model. Flattens the JSONB columns (`profile`, `strategy`,
+  `plan`, `strategy_chat`) into typed columns. **Every saved question,
+  metric, and dashboard panel queries this Model, not the raw table** —
+  schema changes in the JSONB localise to this one file.
+- `trends.sql` — historical SQL written before the Model existed. Each
+  block was the source for one panel using raw `conversations`. Now
+  superseded by the Model + the panels in `trends.metabase.json`. Kept
+  for reference / standalone runs via `psql -f trends.sql`.
+- `trends.metabase.json` — portable export of the Model + 3 Metrics +
+  8 dashboard cards + grid layout. Intentionally *not* Metabase's
+  native serialization (verbose, version-coupled, noisy diffs). The
+  format here is "the inputs to a re-import script". When the Model
+  SQL changes, edit `conversations.model.sql` AND re-export
+  `trends.metabase.json` so the two stay in sync.
 
 ## Trends dashboard
 
