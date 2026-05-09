@@ -82,6 +82,14 @@ async def lifespan(app: FastAPI):
             logger.info("Feature flags initialised")
         except Exception:
             logger.exception("flags init failed — falling back to defaults")
+
+        try:
+            from subprime.feedback import init_feedback
+
+            await init_feedback(pool)
+            logger.info("Feedback schema initialised")
+        except Exception:
+            logger.exception("feedback init failed — events / feedback API may 503")
     else:
         app.state.session_store = InMemorySessionStore()
         logger.info("Using in-memory session store (no DATABASE_URL)")
