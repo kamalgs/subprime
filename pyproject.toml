@@ -22,6 +22,30 @@ markers = [
 ]
 addopts = "-m 'not e2e and not calibration and not smoke and not browser'"
 
+# Coverage is observability, not a gate — `pytest-cov` is invoked by CI
+# only (see .github/workflows/test.yml). Keeping it out of `addopts` so
+# local pytest runs stay fast.
+[tool.coverage.run]
+source = ["subprime", "apps"]
+branch = true
+omit = [
+    "*/tests/*",
+    "*/__init__.py",
+    "*/migrations/*",
+]
+concurrency = ["thread", "greenlet"]
+
+[tool.coverage.report]
+sort = "cover"
+skip_empty = true
+exclude_also = [
+    "raise NotImplementedError",
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "if __name__ == .__main__.:",
+    "@(abc\\.)?abstractmethod",
+]
+
 [dependency-groups]
 dev = [
     "pypdf>=6.10.2",
