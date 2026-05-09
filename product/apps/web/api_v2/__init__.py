@@ -7,11 +7,13 @@ from __future__ import annotations
 
 from fastapi import APIRouter
 
-from apps.web.api_v2 import admin, personas, plan, session, strategy
+from apps.web.api_v2 import admin, events, feedback, personas, plan, session, strategy
 
 router = APIRouter(prefix="/api/v2", tags=["v2"])
 router.include_router(session.router)
 router.include_router(personas.router)
 router.include_router(strategy.router)
 router.include_router(plan.router)
+router.include_router(events.router)
+router.include_router(feedback.router)
 router.include_router(admin.router)
