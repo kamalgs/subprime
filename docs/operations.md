@@ -127,14 +127,80 @@ greppable by the first 8 chars of the session id.
 
 ## Database / migrations
 
-`feature_flags` table is created at startup by `subprime.flags.init_flags`
-(idempotent CREATE TABLE IF NOT EXISTS). Other tables (sessions,
-conversations, otps) were created manually or by a one-off Alembic run
-before this system existed; `subprime data migrate` is **DuckDB only**
-(fund universe), not Postgres.
+Alembic is the source of truth for the Postgres schema. Migration files
+live in `product/migrations/versions/`; `env.py` reads the DSN from
+`DATABASE_URL` (the same env var the FastAPI app uses) and strips the
+`+asyncpg` driver suffix so one DSN works for both runtime and Alembic.
 
-If you add a new Postgres table, prefer self-creating it on the same
-pattern as `feature_flags` rather than wiring Alembic into Nomad.
+`subprime data migrate` is **DuckDB only** (fund universe); it is
+unrelated to Postgres / Alembic.
+
+### Auto-migrate on app start
+
+The FastAPI lifespan (`apps/web/main.py`) runs `alembic upgrade head`
+before opening the asyncpg pool. Gated by the `SUBPRIME_AUTO_MIGRATE`
+env var (default off) so the first deploy can ship before prod is
+stamped at the matching baseline. A migration failure is fatal — the
+app refuses to serve traffic against a half-migrated DB.
+
+To enable in Nomad, set `SUBPRIME_AUTO_MIGRATE=true` in the finadvisor
+job spec (alongside `DATABASE_URL`).
+
+### One-time prod stamp procedure
+
+Prod was stamped at revision `001` long ago; revisions `002`
+(feature_flags) and `003` (feedback column + session_events) describe
+schema that already exists in prod (created by the now-removed inline
+`CREATE TABLE IF NOT EXISTS` bootstrap). Both migrations use
+`IF NOT EXISTS` everywhere so they're safe to apply against prod, but
+re-stamping to head makes the intent explicit and saves cycles on deploy.
+
+Before flipping `SUBPRIME_AUTO_MIGRATE=true`, the human runs **once**:
+
+```bash
+PGALLOC=$(nomad job allocs -json postgresql | \
+    jq -r '.[] | select(.ClientStatus=="running") | .ID' | head -n1)
+
+# Inspect — should show "001"
+nomad alloc exec -task postgresql "$PGALLOC" \
+    psql -U finadvisor finadvisor -c 'SELECT * FROM alembic_version;'
+
+# Stamp head from inside the finadvisor app container (has alembic + env wired):
+FA_ALLOC=$(nomad job allocs -json finadvisor-blue | \
+    jq -r '.[] | select(.ClientStatus=="running") | .ID' | head -n1)
+nomad alloc exec "$FA_ALLOC" sh -c \
+    'cd /app && DATABASE_URL=$DATABASE_URL alembic -c migrations/alembic.ini stamp head'
+
+# Verify — should now show "003"
+nomad alloc exec -task postgresql "$PGALLOC" \
+    psql -U finadvisor finadvisor -c 'SELECT * FROM alembic_version;'
+```
+
+Alternatively (lower risk because the IF NOT EXISTS DDL is idempotent),
+skip stamping and just flip `SUBPRIME_AUTO_MIGRATE=true`. The upgrade
+is a no-op against the existing schema and lands the version table at
+`003`.
+
+### Adding a migration
+
+```bash
+cd product
+DATABASE_URL=postgresql://localhost/scratch \
+    alembic -c migrations/alembic.ini revision -m "add_<thing>"
+# Edit the generated file under migrations/versions/ — pure SQL via
+# op.execute(...) is fine; we don't use ORM models.
+
+# Apply locally:
+DATABASE_URL=postgresql://localhost/scratch \
+    alembic -c migrations/alembic.ini upgrade head
+
+# Roll back one step:
+DATABASE_URL=postgresql://localhost/scratch \
+    alembic -c migrations/alembic.ini downgrade -1
+```
+
+In production the migration is applied automatically on the next
+deploy when `SUBPRIME_AUTO_MIGRATE=true`.
 
 ## Deploys
 

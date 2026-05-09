@@ -2,6 +2,12 @@
 
 Revision ID: 002
 Create Date: 2026-04-24
+
+Note: prod was already running this table (created at startup by
+``subprime.flags.init_flags``) before Alembic was wired into the deploy.
+The ``CREATE TABLE IF NOT EXISTS`` keeps this migration safe to run
+against a DB where the table is pre-existing — required because prod is
+stamped at 001 and will pick this up on first auto-migrate.
 """
 
 from alembic import op
