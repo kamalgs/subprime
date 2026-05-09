@@ -46,9 +46,34 @@ exclude_also = [
     "@(abc\\.)?abstractmethod",
 ]
 
+# Pyright runs in CI as a soft (non-blocking) status check. The error
+# count is reported on the workflow run summary; the goal is to ratchet
+# down over time, not to gate PRs at the current baseline.
+[tool.pyright]
+include = ["product/src", "product/apps"]
+exclude = [
+    "**/__pycache__",
+    "**/.venv",
+    "product/tests",
+    "product/notebooks",
+    "research",
+    "results",
+]
+pythonVersion = "3.12"
+typeCheckingMode = "basic"
+# These are noisy on a codebase that hasn't been type-checked before and
+# don't catch real bugs at our maturity. Re-enable individually once we
+# drop below ~20 errors total.
+reportMissingTypeStubs = "none"
+reportUnknownMemberType = "none"
+reportUnknownArgumentType = "none"
+reportUnknownVariableType = "none"
+reportUnknownParameterType = "none"
+
 [dependency-groups]
 dev = [
     "pypdf>=6.10.2",
+    "pyright>=1.1.409",
 ]
 
 # ─── Mutation testing ─────────────────────────────────────────────────────────

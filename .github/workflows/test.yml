@@ -19,6 +19,45 @@ jobs:
       - name: ruff format (check only)
         run: uv run --directory product ruff format --check .
 
+  typecheck:
+    # Soft check — pyright runs but the job continues on errors. The error
+    # count is surfaced to GITHUB_STEP_SUMMARY so it's visible without
+    # downloading anything. Goal: ratchet the count down over time, not to
+    # gate PRs at the current baseline (~72 errors).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v5.0.0
+      - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: true
+      - name: Install
+        run: uv sync --all-extras --dev
+      - name: pyright
+        # `|| true` makes the step always succeed; the count is what matters.
+        # We report it via the summary block below so reviewers can see it
+        # without digging through logs.
+        run: |
+          uv run pyright --outputjson > /tmp/pyright.json 2>/dev/null || true
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, pathlib
+          d = json.loads(pathlib.Path("/tmp/pyright.json").read_text())
+          s = d.get("summary", {})
+          errors = s.get("errorCount", "?")
+          warnings = s.get("warningCount", "?")
+          files = s.get("filesAnalyzed", "?")
+          print("## Type check (pyright, basic mode)\n")
+          print(f"- Files analysed: **{files}**")
+          print(f"- Errors: **{errors}**")
+          print(f"- Warnings: **{warnings}**")
+          print()
+          print("Soft check — not gating. See `[tool.pyright]` in `pyproject.toml`.")
+          PY
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v5.1.1
+        if: always()
+        with:
+          name: pyright-report
+          path: /tmp/pyright.json
+
   unit:
     runs-on: ubuntu-latest
     needs: lint
