@@ -64,6 +64,9 @@ jobs:
                 and not test_advise_strategy_revision_then_approve \
                 and not test_advise_saves_conversation \
                 and not test_contains_mode" \
+            --cov=subprime --cov=apps --cov-branch \
+            --cov-report=xml:../coverage.xml \
+            --cov-report=term \
             --junit-xml=../junit-unit.xml \
             --tb=short
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v5.1.1
@@ -71,6 +74,29 @@ jobs:
         with:
           name: junit-unit
           path: junit-unit.xml
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v5.1.1
+        if: always()
+        with:
+          name: coverage-xml
+          path: coverage.xml
+      - name: Coverage summary
+        if: always()
+        run: |
+          # Pull the overall percentage out of coverage.xml + emit to the
+          # job summary. Soft signal: never fails the job. Surfaces via
+          # the workflow run UI without needing to download the artifact.
+          if [[ -f coverage.xml ]]; then
+            pct=$(python3 -c "import xml.etree.ElementTree as ET; r=ET.parse('coverage.xml').getroot(); print(f\"{float(r.attrib['line-rate'])*100:.1f}\")")
+            branch_pct=$(python3 -c "import xml.etree.ElementTree as ET; r=ET.parse('coverage.xml').getroot(); print(f\"{float(r.attrib.get('branch-rate', '0'))*100:.1f}\")")
+            echo "## Coverage" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "- **Lines:** ${pct}%" >> "$GITHUB_STEP_SUMMARY"
+            echo "- **Branches:** ${branch_pct}%" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Soft check — full XML in the \`coverage-xml\` artifact." >> "$GITHUB_STEP_SUMMARY"
+            echo "COVERAGE_PCT=${pct}" >> "$GITHUB_ENV"
+            echo "COVERAGE_BRANCH_PCT=${branch_pct}" >> "$GITHUB_ENV"
+          fi
 
   frontend-e2e:
     runs-on: ubuntu-latest
