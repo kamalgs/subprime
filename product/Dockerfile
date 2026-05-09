@@ -26,6 +26,10 @@ COPY product/pyproject.toml ./pyproject.toml
 COPY product/README.md ./README.md
 COPY product/src/ ./src/
 COPY product/apps/ ./apps/
+# Alembic migrations + alembic.ini live under product/migrations/. The
+# FastAPI lifespan loads `migrations/alembic.ini` when SUBPRIME_AUTO_MIGRATE
+# is set, so this directory must ship in the runtime image.
+COPY product/migrations/ ./migrations/
 
 # Install dependencies into system python (no venv inside container)
 RUN uv pip install --system --no-cache .
