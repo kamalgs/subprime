@@ -42,6 +42,18 @@ PORT_GREEN=8093
 log() { echo "[$(date -u +%H:%M:%S)] $*"; }
 die() { echo "[$(date -u +%H:%M:%S)] ✗ $*" >&2; exit 1; }
 
+# Refuse to deploy from a non-main branch unless explicitly allowed.
+# Earlier incident: a subagent left the working tree on a feature branch
+# and the next deploy-script run picked up that HEAD via `git rev-parse`,
+# shipping unmerged code to production. Smoke tests passed (additive
+# endpoints didn't break existing routes), so nothing alerted.
+# Override with ALLOW_NONMAIN_DEPLOY=1 for hotfix branches / RC testing.
+current_branch="$(git -C "$REPO_ROOT" rev-parse --abbrev-ref HEAD)"
+if [[ "$current_branch" != "main" && -z "${ALLOW_NONMAIN_DEPLOY:-}" ]]; then
+    die "refusing to deploy from non-main branch '$current_branch' — checkout main, or set ALLOW_NONMAIN_DEPLOY=1 to override"
+fi
+log "deploying from branch '$current_branch'"
+
 emit_dora() {
     local status="$1" reason="${2:-}" color="${3:-$target}"
     if [[ -n "${SKIP_DORA:-}" ]]; then return 0; fi
