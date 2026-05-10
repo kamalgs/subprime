@@ -40,8 +40,8 @@ def _alembic_ini_path() -> Path:
 
     cwd = Path.cwd()
     candidates = [
-        cwd / "migrations" / "alembic.ini",                      # production: /app/
-        cwd / "product" / "migrations" / "alembic.ini",          # local dev from repo root
+        cwd / "migrations" / "alembic.ini",  # production: /app/
+        cwd / "product" / "migrations" / "alembic.ini",  # local dev from repo root
     ]
 
     # Source-layout fallback (editable installs / running from src/).
