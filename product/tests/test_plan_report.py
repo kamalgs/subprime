@@ -508,3 +508,242 @@ class TestXlsxAllocationRowAlignment:
             assert cell.alignment.horizontal == "right", (
                 f"column {col} should be right-aligned (i >= 3 branch)"
             )
+
+
+# ── XLSX behavioral coverage (#65) ────────────────────────────────────────────
+# build_plan_xlsx had ~23 surviving mutations on row/column indices, defaults,
+# and number-format branches. The pre-existing tests checked "this string
+# appears somewhere", which doesn't lock anything down. These tests assert
+# specific cell coordinates, values, and formats.
+
+
+def _find_row(sheet, col: int, value) -> int:
+    """Return the row number whose `col` cell equals `value`. Useful because
+    the projections + chart blocks shift downwards as more allocations are
+    added, so tests need to locate sections by header text rather than
+    hardcoded rows.
+    """
+    for row in sheet.iter_rows(min_col=col, max_col=col):
+        if row[0].value == value:
+            return row[0].row
+    raise AssertionError(f"no row in column {col} with value {value!r}")
+
+
+class TestXlsxPlanHeader:
+    def test_wordmark_at_a1(self, plan, profile):
+        wb = _load(build_plan_xlsx(plan, profile))
+        p = wb["Plan"]
+        assert p["A1"].value == "Benji"
+        assert p["A1"].font.bold is True
+
+    def test_short_disclaimer_at_a2(self, plan, profile):
+        wb = _load(build_plan_xlsx(plan, profile))
+        p = wb["Plan"]
+        assert "research / educational" in str(p["A2"].value)
+
+    def test_investor_block_layout(self, plan, profile):
+        wb = _load(build_plan_xlsx(plan, profile))
+        p = wb["Plan"]
+        assert p["A4"].value == "Investor"
+        assert p["B4"].value == profile.name
+        assert p["C4"].value == "Generated"
+        # D4 holds the generated date string — locale-formatted "%d %b %Y"
+        assert isinstance(p["D4"].value, str) and len(p["D4"].value) > 0
+
+
+class TestXlsxSummaryBlock:
+    """Summary rows start at row 6, label in column A, value in column B,
+    one row per attribute. Mutations on `column=1` / `column=2` / `row +=
+    1` would silently misalign labels and values.
+    """
+
+    def _summary(self, plan, profile) -> dict:
+        wb = _load(build_plan_xlsx(plan, profile))
+        p = wb["Plan"]
+        out: dict[str, object] = {}
+        for r in range(6, 13):
+            label = p.cell(row=r, column=1).value
+            val = p.cell(row=r, column=2).value
+            if label:
+                out[str(label)] = val
+        return out
+
+    def test_summary_keys_in_order(self, plan, profile):
+        keys = list(self._summary(plan, profile).keys())
+        assert keys == [
+            "Life stage",
+            "Age",
+            "Risk appetite",
+            "Monthly surplus (₹)",
+            "Horizon (years)",
+            "Funds",
+            "Total monthly SIP (₹)",
+        ]
+
+    def test_summary_values_match_inputs(self, plan, profile):
+        s = self._summary(plan, profile)
+        assert s["Life stage"] == profile.life_stage
+        assert s["Age"] == profile.age
+        assert s["Risk appetite"] == profile.risk_appetite
+        assert s["Monthly surplus (₹)"] == profile.monthly_investible_surplus_inr
+        assert s["Horizon (years)"] == profile.investment_horizon_years
+        assert s["Funds"] == len(plan.allocations)
+        # Total = sum of per-allocation monthly SIP
+        assert s["Total monthly SIP (₹)"] == sum(a.monthly_sip_inr for a in plan.allocations)
+
+
+class TestXlsxAllocationsTable:
+    """Header + data rows for the allocations table. Mutations on
+    `column=i+1`, `i == 0`, `i >= 3`, the alt-row shading test, and the
+    `or`-fallback chain all live in this block.
+    """
+
+    def _alloc_block(self, plan, profile):
+        wb = _load(build_plan_xlsx(plan, profile))
+        p = wb["Plan"]
+        header_row = _find_row(p, 1, "Allocations") + 1
+        return p, header_row
+
+    def test_header_columns_are_in_order(self, plan, profile):
+        p, hr = self._alloc_block(plan, profile)
+        headers = [p.cell(row=hr, column=c).value for c in range(1, 7)]
+        assert headers == ["Fund", "AMC", "Category", "% Alloc", "Mode", "Monthly SIP (₹)"]
+
+    def test_each_allocation_row_has_six_columns(self, plan, profile):
+        p, hr = self._alloc_block(plan, profile)
+        for offset, alloc in enumerate(plan.allocations, start=1):
+            r = hr + offset
+            assert p.cell(row=r, column=1).value == alloc.fund.display_name
+            assert p.cell(row=r, column=2).value == alloc.fund.fund_house
+            assert p.cell(row=r, column=3).value == alloc.fund.category
+            assert p.cell(row=r, column=4).value == round(alloc.allocation_pct, 2)
+            assert p.cell(row=r, column=5).value == alloc.mode.upper()
+            assert p.cell(row=r, column=6).value == alloc.monthly_sip_inr
+
+    def test_fund_house_falls_back_to_empty_string(self, plan, profile):
+        plan.allocations[0].fund.fund_house = ""
+        p, hr = self._alloc_block(plan, profile)
+        # First data row, AMC column
+        assert p.cell(row=hr + 1, column=2).value in ("", None)
+
+    def test_mode_falls_back_to_empty_when_unset(self, plan, profile):
+        plan.allocations[0].mode = ""
+        p, hr = self._alloc_block(plan, profile)
+        assert p.cell(row=hr + 1, column=5).value in ("", None)
+
+    def test_monthly_sip_falls_back_to_zero(self, plan, profile):
+        plan.allocations[0].monthly_sip_inr = 0
+        p, hr = self._alloc_block(plan, profile)
+        assert p.cell(row=hr + 1, column=6).value == 0
+
+
+class TestXlsxProjectionsSection:
+    """The projections block is gated by `if pr and horizon and monthly_sip:`.
+    AddNot on that guard would invert presence; mutations in the inner loop
+    affect rate / corpus columns and number formats.
+    """
+
+    def test_section_present_with_full_inputs(self, plan, profile):
+        wb = _load(build_plan_xlsx(plan, profile))
+        flat = [str(c) for c in _flat_cells(wb["Plan"]) if c]
+        assert any("Projected returns" in s for s in flat)
+
+    def test_section_absent_when_projected_returns_empty(self, plan, profile):
+        plan.projected_returns = {}
+        wb = _load(build_plan_xlsx(plan, profile))
+        flat = [str(c) for c in _flat_cells(wb["Plan"]) if c]
+        assert not any("Projected returns" in s for s in flat)
+
+    def test_section_absent_when_horizon_zero(self, plan, profile):
+        profile.investment_horizon_years = 0
+        wb = _load(build_plan_xlsx(plan, profile))
+        flat = [str(c) for c in _flat_cells(wb["Plan"]) if c]
+        assert not any("Projected returns" in s for s in flat)
+
+    def test_section_absent_when_no_monthly_sip(self, plan, profile):
+        for a in plan.allocations:
+            a.monthly_sip_inr = 0
+        wb = _load(build_plan_xlsx(plan, profile))
+        flat = [str(c) for c in _flat_cells(wb["Plan"]) if c]
+        assert not any("Projected returns" in s for s in flat)
+
+    def test_three_scenario_rows_with_correct_rates_and_corpus(self, plan, profile):
+        wb = _load(build_plan_xlsx(plan, profile))
+        p = wb["Plan"]
+        # Header row of the section
+        section_hdr = _find_row(p, 1, "Projected returns") + 1
+        # Data rows: section_hdr + 1, +2, +3 → Bear / Base / Bull
+        rows = [
+            ("Bear", plan.projected_returns["bear"]),
+            ("Base", plan.projected_returns["base"]),
+            ("Bull", plan.projected_returns["bull"]),
+        ]
+        sip_total = sum(a.monthly_sip_inr for a in plan.allocations)
+        horizon = profile.investment_horizon_years
+        for offset, (label, rate) in enumerate(rows, start=1):
+            r = section_hdr + offset
+            assert p.cell(row=r, column=1).value == label
+            # Column 2: rate stored as decimal (rate / 100), formatted as %
+            cell_rate = p.cell(row=r, column=2)
+            assert cell_rate.value == pytest.approx(rate / 100)
+            assert cell_rate.number_format == "0.0%"
+            # Column 3: computed corpus matches _project_corpus
+            cell_corpus = p.cell(row=r, column=3)
+            assert cell_corpus.value == pytest.approx(_project_corpus(sip_total, horizon, rate))
+            assert cell_corpus.number_format == '"₹"#,##0'
+
+    def test_chart_data_table_has_horizon_plus_one_year_rows(self, plan, profile):
+        wb = _load(build_plan_xlsx(plan, profile))
+        p = wb["Plan"]
+        chart_hdr = _find_row(p, 1, "Year")
+        years_in_table = []
+        for r in range(chart_hdr + 1, chart_hdr + 1 + profile.investment_horizon_years + 1):
+            years_in_table.append(p.cell(row=r, column=1).value)
+        assert years_in_table == list(range(0, profile.investment_horizon_years + 1))
+
+
+class TestXlsxExploreSheet:
+    def test_input_block_layout(self, plan, profile):
+        wb = _load(build_plan_xlsx(plan, profile), data_only=False)
+        ex = wb["Explore"]
+        # Five input rows starting at row 5, column A = label, column B = value
+        expected = [
+            "Monthly SIP (₹)",
+            "Horizon (years)",
+            "Bear CAGR",
+            "Base CAGR",
+            "Bull CAGR",
+        ]
+        for offset, label in enumerate(expected):
+            r = 5 + offset
+            assert ex.cell(row=r, column=1).value == label, f"row {r} label"
+            assert ex.cell(row=r, column=2).value is not None, f"row {r} value"
+
+    def test_input_values_match_plan(self, plan, profile):
+        wb = _load(build_plan_xlsx(plan, profile), data_only=False)
+        ex = wb["Explore"]
+        sip_total = sum(a.monthly_sip_inr for a in plan.allocations)
+        assert ex.cell(row=5, column=2).value == sip_total
+        assert ex.cell(row=6, column=2).value == profile.investment_horizon_years
+        assert ex.cell(row=7, column=2).value == pytest.approx(plan.projected_returns["bear"] / 100)
+        assert ex.cell(row=8, column=2).value == pytest.approx(plan.projected_returns["base"] / 100)
+        assert ex.cell(row=9, column=2).value == pytest.approx(plan.projected_returns["bull"] / 100)
+
+    def test_final_corpus_formulas_reference_input_cells(self, plan, profile):
+        wb = _load(build_plan_xlsx(plan, profile), data_only=False)
+        ex = wb["Explore"]
+        # E5 / E6 / E7 should reference B5 (sip), B6 (horizon), and B7/B8/B9 (rates)
+        for addr, rate_addr in (("E5", "B7"), ("E6", "B8"), ("E7", "B9")):
+            f = ex[addr].value
+            assert isinstance(f, str) and f.startswith("=")
+            assert "B5" in f, f"{addr} should reference SIP (B5)"
+            assert "B6" in f, f"{addr} should reference horizon (B6)"
+            assert rate_addr in f, f"{addr} should reference rate ({rate_addr})"
+
+    def test_growth_table_has_41_year_rows(self, plan, profile):
+        # MAX_YEARS = 40, so there are 41 rows (0..40)
+        wb = _load(build_plan_xlsx(plan, profile), data_only=False)
+        ex = wb["Explore"]
+        for i in range(41):
+            r = 13 + i
+            assert ex.cell(row=r, column=1).value == i
