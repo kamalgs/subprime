@@ -19,17 +19,37 @@ logger = logging.getLogger(__name__)
 def _alembic_ini_path() -> Path:
     """Locate ``alembic.ini`` regardless of where the process was launched.
 
-    The product layout is ``product/migrations/alembic.ini``; in the
-    container we copy ``product/`` to ``/app`` so the ini ends up at
-    ``/app/migrations/alembic.ini``. ``subprime`` lives at
-    ``<root>/src/subprime`` (or ``/app/src/subprime`` in the image).
+    Search order (first hit wins):
+      1. ``SUBPRIME_ALEMBIC_INI`` env var — explicit override.
+      2. ``cwd/migrations/alembic.ini`` — production image runs from
+         ``/app/`` and copies ``product/migrations/`` to ``/app/migrations/``.
+      3. ``cwd/product/migrations/alembic.ini`` — local dev from repo root.
+      4. Walk up from this file's location for editable / src-layout
+         installs (``<root>/product/src/subprime/core/migrations.py``).
+
+    The previous implementation assumed ``Path(__file__).parents[3]``
+    landed at ``/app/`` in production, but the image installs the package
+    to ``/usr/local/lib/<py>/site-packages/`` so the walk overshoots into
+    the Python prefix. cwd-based lookup is the reliable anchor in prod.
     """
-    here = Path(__file__).resolve()
-    # walk up: subprime/core/migrations.py → subprime/core → subprime → src → <root>
+    override = os.environ.get("SUBPRIME_ALEMBIC_INI")
+    if override:
+        p = Path(override)
+        if p.exists():
+            return p
+
+    cwd = Path.cwd()
     candidates = [
-        here.parents[3] / "migrations" / "alembic.ini",  # /app/migrations/alembic.ini
-        here.parents[3] / "product" / "migrations" / "alembic.ini",  # local repo
+        cwd / "migrations" / "alembic.ini",  # production: /app/
+        cwd / "product" / "migrations" / "alembic.ini",  # local dev from repo root
     ]
+
+    # Source-layout fallback (editable installs / running from src/).
+    here = Path(__file__).resolve()
+    for parent in here.parents:
+        candidates.append(parent / "migrations" / "alembic.ini")
+        candidates.append(parent / "product" / "migrations" / "alembic.ini")
+
     for p in candidates:
         if p.exists():
             return p
