@@ -1,0 +1,22 @@
+# Mutation testing config for cosmic-ray.
+#
+# Scoped to modules with strong unit-test coverage. Widening produces
+# false-positive survivors (lint-style mutations with no observable
+# behaviour change) and burns CI budget.
+#
+# Run:
+#   uv run cosmic-ray init cosmic-ray.toml session.sqlite
+#   uv run cosmic-ray exec cosmic-ray.toml session.sqlite
+#   uv run cosmic-ray-report session.sqlite
+#
+# Or via Make:
+#   make mutate-cr
+
+[cosmic-ray]
+module-path = "product/src/subprime/core/plan_report.py"
+timeout = 60.0
+excluded-modules = []
+test-command = "uv run --directory product pytest tests/test_plan_report.py -x -q --no-header"
+
+[cosmic-ray.distributor]
+name = "local"

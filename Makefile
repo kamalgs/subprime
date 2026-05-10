@@ -12,8 +12,8 @@ help:
 	@echo "  test              Alias for backend-test"
 	@echo "  test-fast         Run the unit-only subset used by the pre-commit hook"
 	@echo "  hooks-install     Install git pre-commit + pre-push hooks"
-	@echo "  mutate            Run mutation testing on plan_report + observability"
-	@echo "  mutate-report     Show the last mutmut results"
+	@echo "  mutate            Run cosmic-ray mutation testing (~hours; CI runs weekly)"
+	@echo "  mutate-report     Dump the last cosmic-ray session"
 	@echo "  docker            Build finadvisor:local Docker image (needs frontend first)"
 	@echo "  deploy-local      frontend → docker → nomad redeploy"
 	@echo "  clean             Remove frontend build output"
@@ -50,16 +50,22 @@ hooks-install:
 	uv run pre-commit install -t pre-push
 	@echo "✓ pre-commit + pre-push hooks installed"
 
-# Mutation testing — configuration in pyproject.toml [tool.mutmut].
+# Mutation testing — configuration in cosmic-ray.toml at repo root.
 # Scoped to modules with strong unit coverage; widening produces noise.
+# Long-running (~hours per module) — CI runs this on a weekly schedule;
+# locally use it ad-hoc when changing the targeted module.
+MUTATE_SESSION := mutation-session.sqlite
+
 mutate:
-	@echo "→ mutation testing (config in pyproject.toml [tool.mutmut])"
-	@echo "→ this may take several minutes"
-	uv run mutmut run || true
+	@echo "→ mutation testing (config in cosmic-ray.toml)"
+	@echo "→ this takes ~hours; results land in $(MUTATE_SESSION)"
+	rm -f $(MUTATE_SESSION)
+	uv run cosmic-ray init cosmic-ray.toml $(MUTATE_SESSION)
+	uv run cosmic-ray exec cosmic-ray.toml $(MUTATE_SESSION)
 	@$(MAKE) --no-print-directory mutate-report
 
 mutate-report:
-	@uv run mutmut results
+	@uv run cr-report $(MUTATE_SESSION) --surviving-only --show-diff
 
 # -----------------------------------------------------------------------------
 # Frontend
