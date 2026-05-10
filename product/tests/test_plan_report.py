@@ -23,6 +23,9 @@ from subprime.core.models import (
     MutualFund,
 )
 from subprime.core.plan_report import (
+    _fmt_money_inr,
+    _project_corpus,
+    _projection_trace,
     build_plan_pdf,
     build_plan_xlsx,
 )
@@ -266,3 +269,96 @@ def test_xlsx_disclaimer_in_both_sheets(plan, profile):
     for name in ("Plan", "Explore"):
         flat = [str(c) for c in _flat_cells(wb[name]) if c]
         assert any("research" in str(s).lower() for s in flat), f"{name} sheet missing disclaimer"
+
+
+# ── Numeric helper tests (mutation-testing follow-ups #63, #64) ───────────────
+
+
+class TestProjectCorpus:
+    """Future value of a monthly SIP — annuity-due, monthly compounding.
+
+    Numeric assertions kill arithmetic-operator mutations on the FV formula.
+    """
+
+    def test_returns_zero_for_missing_inputs(self):
+        assert _project_corpus(0, 10, 12) == 0.0
+        assert _project_corpus(10_000, 0, 12) == 0.0
+        # annual_pct=None is the documented "no projection" sentinel
+        assert _project_corpus(10_000, 10, None) == 0.0  # type: ignore[arg-type]
+
+    def test_zero_rate_is_simple_sum(self):
+        # 10k for 10y at 0% = 10k * 120 months
+        assert _project_corpus(10_000, 10, 0) == 10_000 * 120
+
+    def test_known_value_at_twelve_percent(self):
+        # 10k/mo × 10y @ 12%/yr (monthly compounded, annuity due):
+        #   r = 0.01, n = 120
+        #   FV = 10000 * ((1.01^120 − 1) / 0.01) * 1.01
+        # Hand-computed: 2,323,390.76 (rounded).
+        fv = _project_corpus(10_000, 10, 12)
+        assert fv == pytest.approx(2_323_390.76, rel=1e-6)
+
+    def test_strictly_increasing_in_horizon(self):
+        prev = 0.0
+        for years in range(1, 31):
+            v = _project_corpus(10_000, years, 12)
+            assert v > prev, f"FV not increasing at year {years}"
+            prev = v
+
+    def test_strictly_increasing_in_rate(self):
+        prev = _project_corpus(10_000, 10, 0)
+        for pct in (4, 8, 12, 16):
+            v = _project_corpus(10_000, 10, pct)
+            assert v > prev, f"FV not increasing at {pct}%"
+            prev = v
+
+
+class TestProjectionTrace:
+    def test_starts_at_origin_and_has_horizon_plus_one_points(self):
+        trace = _projection_trace(10_000, 10, 12)
+        assert len(trace) == 11
+        assert trace[0] == (0.0, 0.0)
+
+    def test_year_indices_are_one_through_horizon(self):
+        trace = _projection_trace(10_000, 5, 12)
+        years = [yr for yr, _ in trace]
+        assert years == [0.0, 1.0, 2.0, 3.0, 4.0, 5.0]
+
+    def test_corpus_is_monotonically_non_decreasing(self):
+        trace = _projection_trace(10_000, 10, 12)
+        corpora = [c for _, c in trace]
+        assert all(b >= a for a, b in zip(corpora, corpora[1:]))
+
+    def test_final_point_matches_project_corpus(self):
+        trace = _projection_trace(10_000, 10, 12)
+        assert trace[-1][1] == pytest.approx(_project_corpus(10_000, 10, 12))
+
+
+class TestFmtMoneyInr:
+    """INR formatting at the lakh / crore boundaries — kills the comparison
+    operator + divisor magnitude mutations in `_fmt_money_inr`.
+    """
+
+    def test_below_one_lakh_is_plain_rupees(self):
+        assert _fmt_money_inr(0) == "₹0"
+        assert _fmt_money_inr(1) == "₹1"
+        assert _fmt_money_inr(99_999) == "₹99,999"
+
+    def test_lakh_boundary_inclusive(self):
+        # exactly ₹1 lakh formats as L, not as plain rupees
+        assert _fmt_money_inr(1_00_000) == "₹1.00 L"
+
+    def test_lakh_range_uses_lakh_divisor(self):
+        assert _fmt_money_inr(2_50_000) == "₹2.50 L"
+        assert _fmt_money_inr(50_00_000) == "₹50.00 L"
+        # Just under 1 Cr — still L. Note: 99_99_999 / 1e5 = 99.99999 → "100.00 L"
+        # which is the documented format behaviour at the upper edge.
+        assert _fmt_money_inr(99_99_999) == "₹100.00 L"
+
+    def test_crore_boundary_inclusive(self):
+        # exactly ₹1 Cr formats as Cr, not as L
+        assert _fmt_money_inr(1_00_00_000) == "₹1.00 Cr"
+
+    def test_crore_range_uses_crore_divisor(self):
+        assert _fmt_money_inr(12_34_56_789) == "₹12.35 Cr"
+        assert _fmt_money_inr(1_00_00_00_000) == "₹100.00 Cr"
