@@ -13,7 +13,12 @@
 #   make mutate-cr
 
 [cosmic-ray]
-module-path = "product/src/subprime/core/plan_report.py"
+# Scoped to the pure-logic helpers (FV math, INR formatting, bullet
+# normalizer). The rendering half of plan_report.py is intentionally not
+# mutated — most mutations there are visual-only (pixel positions,
+# colours, font sizes) and can't be killed without snapshot/pixel-diff
+# tests, which we don't run. See issue #67 for the rationale.
+module-path = "product/src/subprime/core/plan_report_logic.py"
 timeout = 60.0
 excluded-modules = []
 test-command = "uv run --directory product pytest tests/test_plan_report.py -x -q --no-header"

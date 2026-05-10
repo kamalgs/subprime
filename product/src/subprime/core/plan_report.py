@@ -183,38 +183,15 @@ def _header_band(canvas, doc) -> None:
 # ── Formatting helpers ────────────────────────────────────────────────────────
 
 
-def _fmt_money_inr(amount: float) -> str:
-    """Indian notation with lakhs / crores."""
-    if amount >= 1_00_00_000:
-        return f"\u20b9{amount / 1_00_00_000:.2f} Cr"
-    if amount >= 1_00_000:
-        return f"\u20b9{amount / 1_00_000:.2f} L"
-    return f"\u20b9{amount:,.0f}"
-
-
-def _project_corpus(monthly_sip: float, horizon_years: int, annual_pct: float) -> float:
-    """FV of a monthly SIP at a given annual % (compounded monthly).
-
-    FV = P * [((1 + r)^n − 1) / r] * (1 + r)
-    where P = monthly contribution, r = monthly rate, n = months.
-    """
-    if not monthly_sip or not horizon_years or annual_pct is None:
-        return 0.0
-    r = annual_pct / 100 / 12
-    n = horizon_years * 12
-    if r == 0:
-        return monthly_sip * n
-    return monthly_sip * ((pow(1 + r, n) - 1) / r) * (1 + r)
-
-
-def _projection_trace(
-    monthly_sip: float, horizon_years: int, annual_pct: float
-) -> list[tuple[float, float]]:
-    """Per-year (year, corpus) pairs for the line chart."""
-    trace: list[tuple[float, float]] = [(0.0, 0.0)]
-    for year in range(1, horizon_years + 1):
-        trace.append((float(year), _project_corpus(monthly_sip, year, annual_pct)))
-    return trace
+# Pure-logic helpers live in plan_report_logic.py so cosmic-ray can target
+# them without the visual-rendering noise. Re-exported with their legacy
+# `_`-prefixed names for in-module + test callers.
+from subprime.core.plan_report_logic import (  # noqa: E402
+    fmt_money_inr as _fmt_money_inr,
+    project_corpus as _project_corpus,
+    projection_trace as _projection_trace,
+    split_bullets as _split_bullets,
+)
 
 
 # ── PDF section builders ──────────────────────────────────────────────────────
@@ -412,26 +389,6 @@ def _projections_block(plan: InvestmentPlan, profile: InvestorProfile, styles: d
     else:
         flowables.append(_mini(cagr_data, PRIMARY))
     return flowables
-
-
-def _split_bullets(text: str) -> list[str]:
-    if not text:
-        return []
-    import re
-
-    out: list[str] = []
-    for line in text.splitlines():
-        s = line.strip()
-        if not s:
-            continue
-        for prefix in ("- ", "* ", "+ ", "\u2022 "):
-            if s.startswith(prefix):
-                s = s[len(prefix) :]
-                break
-        s = re.sub(r"^\d+[.)]\s*", "", s)
-        if s:
-            out.append(s)
-    return out or [text.strip()]
 
 
 # ── PDF entry point ───────────────────────────────────────────────────────────
