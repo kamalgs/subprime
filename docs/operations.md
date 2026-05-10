@@ -202,6 +202,25 @@ DATABASE_URL=postgresql://localhost/scratch \
 In production the migration is applied automatically on the next
 deploy when `SUBPRIME_AUTO_MIGRATE=true`.
 
+## Mutation testing
+
+Mutation testing uses [cosmic-ray](https://github.com/sixty-north/cosmic-ray);
+config at `cosmic-ray.toml` (repo root). Scoped to modules with strong unit
+coverage — widening produces lint-style false-positive survivors.
+
+CI runs it weekly (Sunday 03:00 UTC, `.github/workflows/mutation.yml`) plus
+on-demand via `workflow_dispatch`. Survival rate appears in the run summary;
+the full session DB ships as the `cosmic-ray-session` artifact for triage.
+
+Local run:
+
+```bash
+make mutate          # ~hours; populates mutation-session.sqlite
+make mutate-report   # surviving mutants with diffs
+```
+
+To re-scope, edit `module-path` + `test-command` in `cosmic-ray.toml`.
+
 ## Deploys
 
 Blue-green via `scripts/blue-green-deploy.sh --auto-promote`. Smoke

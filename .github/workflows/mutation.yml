@@ -1,0 +1,63 @@
+name: mutation
+
+# Cosmic-ray mutation testing on the modules listed in cosmic-ray.toml.
+# Long-running (~hours) — schedule weekly + workflow_dispatch only, never on
+# push/PR. Survival rate surfaces to the run summary; full session.sqlite
+# uploads as an artifact for follow-up triage.
+
+on:
+  schedule:
+    # Sunday 03:00 UTC.
+    - cron: "0 3 * * 0"
+  workflow_dispatch:
+
+jobs:
+  mutate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v5.0.0
+      - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: true
+      - name: Install
+        run: uv sync --all-extras --dev
+      - name: Baseline (pytest must pass before mutating)
+        run: uv run --directory product pytest tests/test_plan_report.py -x -q
+      - name: cosmic-ray init
+        run: uv run cosmic-ray init cosmic-ray.toml mutation-session.sqlite
+      - name: cosmic-ray exec
+        run: uv run cosmic-ray exec cosmic-ray.toml mutation-session.sqlite
+      - name: Summary
+        if: always()
+        run: |
+          if [[ ! -f mutation-session.sqlite ]]; then
+            echo "## Mutation testing" >> "$GITHUB_STEP_SUMMARY"
+            echo "Session DB missing — exec did not run." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          uv run cr-rate mutation-session.sqlite > /tmp/rate.txt 2>&1 || true
+          uv run cr-report mutation-session.sqlite --surviving-only --no-show-output --no-show-diff > /tmp/survivors.txt 2>&1 || true
+          rate=$(tail -n1 /tmp/rate.txt)
+          survivors=$(grep -cE '^\[job-id\]' /tmp/survivors.txt || echo 0)
+          {
+            echo "## Mutation testing"
+            echo ""
+            echo "- **Survival rate:** ${rate}"
+            echo "- **Surviving mutants:** ${survivors}"
+            echo ""
+            echo "Config: \`cosmic-ray.toml\`. Full session DB in the \`cosmic-ray-session\` artifact."
+            echo ""
+            echo "<details><summary>First 200 lines of survivor report</summary>"
+            echo ""
+            echo '```'
+            head -n 200 /tmp/survivors.txt
+            echo '```'
+            echo "</details>"
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v5.1.1
+        if: always()
+        with:
+          name: cosmic-ray-session
+          path: mutation-session.sqlite
+          if-no-files-found: warn
