@@ -208,6 +208,26 @@ Blue-green via `scripts/blue-green-deploy.sh --auto-promote`. Smoke
 suite is in `scripts/smoke.sh`. Caddy active-color file at
 `/etc/caddy/active-finadvisor.caddy`.
 
+### Env-var / config rollouts
+
+For changes to `SUBPRIME_*` env vars, model selection, or any other
+config that goes through `~/projects/nomad/jobs/finadvisor.tf`:
+
+```bash
+# 1. Edit ~/projects/nomad/jobs/finadvisor.tf (or terraform.tfvars).
+# 2. Roll out color-by-color with the same gates as image deploys:
+scripts/rollout-env.sh
+```
+
+The script applies to the inactive color first, smokes via the
+`X-Benji-Color` header, runs the HyperDX error-rate gate, and only
+then applies to the active color. If anything fails on the inactive
+side, it exits non-zero and traffic stays on a known-good image.
+
+Don't run `terraform apply` against finadvisor jobs directly — that
+restarts both colors in lockstep and bypasses the gates. We've had
+one outage from this pattern (#58 captures the post-mortem).
+
 ## Maintenance jobs
 
 Periodic batch tasks ship as `subprime maintenance <subcommand>` and
