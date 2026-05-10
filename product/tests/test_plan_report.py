@@ -26,6 +26,7 @@ from subprime.core.plan_report import (
     _fmt_money_inr,
     _project_corpus,
     _projection_trace,
+    _split_bullets,
     build_plan_pdf,
     build_plan_xlsx,
 )
@@ -362,3 +363,148 @@ class TestFmtMoneyInr:
     def test_crore_range_uses_crore_divisor(self):
         assert _fmt_money_inr(12_34_56_789) == "₹12.35 Cr"
         assert _fmt_money_inr(1_00_00_00_000) == "₹100.00 Cr"
+
+
+# ── Boolean / control-flow mutation kills (#66) ───────────────────────────────
+
+
+class TestSplitBullets:
+    """Bullet-list normalizer.
+
+    The `continue` on empty stripped lines (line 426) is what
+    ContinueWithBreak survives — without explicit empty-line tests, a
+    `break` mutation would silently drop everything after the first blank.
+    """
+
+    def test_strips_dash_marker(self):
+        assert _split_bullets("- one\n- two") == ["one", "two"]
+
+    def test_handles_multiple_marker_styles(self):
+        text = "- dash\n* star\n+ plus\n• bullet"
+        assert _split_bullets(text) == ["dash", "star", "plus", "bullet"]
+
+    def test_strips_numbered_prefixes(self):
+        text = "1. first\n2) second\n3. third"
+        assert _split_bullets(text) == ["first", "second", "third"]
+
+    def test_preserves_lines_after_blank_line(self):
+        # Kills ReplaceContinueWithBreak: with `break`, "after blank" is dropped.
+        text = "- before blank\n\n- after blank"
+        assert _split_bullets(text) == ["before blank", "after blank"]
+
+    def test_drops_only_blank_lines_keeps_content_in_order(self):
+        text = "\n- one\n\n\n- two\n   \n- three"
+        assert _split_bullets(text) == ["one", "two", "three"]
+
+    def test_empty_input_returns_empty_list(self):
+        assert _split_bullets("") == []
+
+    def test_unbulleted_text_falls_back_to_whole_string(self):
+        assert _split_bullets("just a sentence") == ["just a sentence"]
+
+
+class TestPlanPdfControlFlow:
+    """Branch coverage for `if monthly:` / `if horizon:` / `if risk:` summary
+    block + the `for r in plan.risks` body. ZeroIterationForLoop survives
+    today because no test asserts that risks actually appear.
+    """
+
+    def test_all_summary_fields_render_when_present(self, plan, profile):
+        text = _pdf_text(build_plan_pdf(plan, profile))
+        # Every summary bit appears
+        assert "Investible surplus" in text
+        assert "Horizon" in text
+        # Risk appetite shows the value, not the label
+        assert "moderate" in text.lower()
+
+    def test_summary_omits_missing_fields(self, plan, profile):
+        # Drop the surplus → "Investible surplus" must not render
+        profile.monthly_investible_surplus_inr = 0
+        profile.investment_horizon_years = 0
+        profile.risk_appetite = ""
+        text = _pdf_text(build_plan_pdf(plan, profile))
+        assert "Investible surplus" not in text
+
+    def test_every_risk_line_renders(self, plan, profile):
+        # Kills ZeroIterationForLoop on `for r in plan.risks`: every risk
+        # must appear in the rendered text, not just the first.
+        plan.risks = [
+            "First risk line",
+            "Second risk line",
+            "Third risk line distinguishable text",
+        ]
+        text = _pdf_text(build_plan_pdf(plan, profile))
+        for r in plan.risks:
+            assert r in text, f"missing risk line: {r}"
+
+
+class TestAllocationsTableFallbacks:
+    """Fund display-name fallback chain — `display_name or name or amfi_code`.
+    Replacing `or` with `and` would silently render an empty / wrong name.
+    """
+
+    def test_uses_display_name_when_present(self, plan, profile):
+        text = _pdf_text(build_plan_pdf(plan, profile))
+        assert "HDFC Nifty 50 Index" in text  # display_name
+        assert "Parag Parikh Flexi Cap" in text
+
+    def test_falls_back_to_name_when_display_name_missing(self, plan, profile):
+        plan.allocations[0].fund.display_name = ""
+        text = _pdf_text(build_plan_pdf(plan, profile))
+        # The full official name should now appear
+        assert "HDFC Nifty 50 Index Direct Growth" in text
+
+    def test_falls_back_to_amfi_code_when_both_missing(self, plan, profile):
+        f = plan.allocations[0].fund
+        f.display_name = ""
+        f.name = ""
+        text = _pdf_text(build_plan_pdf(plan, profile))
+        assert "119551" in text  # amfi_code
+
+
+class TestXlsxAllocationRowAlignment:
+    """`build_plan_xlsx` writes a row per allocation. The alignment ternary
+    on the row body is `wrap if i == 0 else (right if i >= 3 else center)`
+    — AddNot mutations on line 653 flip those branches.
+    """
+
+    def test_first_column_uses_wrap_alignment(self, plan, profile):
+        wb = _load(build_plan_xlsx(plan, profile), data_only=False)
+        sheet = wb["Plan"]
+        # Find the row of the first allocation by scanning for the fund name
+        fund_name = plan.allocations[0].fund.display_name
+        row_idx = None
+        for row in sheet.iter_rows():
+            for cell in row:
+                if cell.value == fund_name:
+                    row_idx = cell.row
+                    break
+            if row_idx:
+                break
+        assert row_idx is not None, "couldn't locate allocation row"
+
+        first_cell = sheet.cell(row=row_idx, column=1)
+        assert first_cell.alignment.wrap_text is True, (
+            "first column must wrap (AddNot on `i == 0` would flip this)"
+        )
+
+    def test_numeric_columns_are_right_aligned(self, plan, profile):
+        wb = _load(build_plan_xlsx(plan, profile), data_only=False)
+        sheet = wb["Plan"]
+        fund_name = plan.allocations[0].fund.display_name
+        row_idx = None
+        for row in sheet.iter_rows():
+            for cell in row:
+                if cell.value == fund_name:
+                    row_idx = cell.row
+                    break
+            if row_idx:
+                break
+        assert row_idx is not None
+
+        # Columns 4, 5, 6 (i >= 3): allocation %, mode, monthly SIP — right-aligned
+        for col in (4, 5, 6):
+            cell = sheet.cell(row=row_idx, column=col)
+            assert cell.alignment.horizontal == "right", (
+                f"column {col} should be right-aligned (i >= 3 branch)"
+            )
